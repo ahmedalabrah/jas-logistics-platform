@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics - Driver Portal Offline</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Arabic:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#e3e0f1",
+                    "inverse-surface": "#e3e0f1",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-container-high": "#292935",
+                    "surface-container-low": "#1b1a26",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "surface-tint": "#d0bcff",
+                    "on-tertiary-fixed": "#331200",
+                    "primary-fixed": "#e9ddff",
+                    "surface-container-highest": "#343440",
+                    "primary": "#d0bcff",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "tertiary-container": "#6c2e00",
+                    "error": "#ffb4ab",
+                    "primary-container": "#4b1fa3",
+                    "on-surface-variant": "#cbc3d5",
+                    "surface-container": "#1f1e2a",
+                    "on-primary-container": "#b79cff",
+                    "background": "#12121d",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface": "#12121d",
+                    "on-secondary-container": "#c0b0e7",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "inverse-on-surface": "#302f3b",
+                    "surface-dim": "#12121d",
+                    "on-primary": "#3b0092",
+                    "surface-variant": "#343440",
+                    "tertiary": "#ffb68e",
+                    "surface-bright": "#383845",
+                    "secondary-fixed": "#e9ddff",
+                    "on-tertiary": "#532200",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "on-surface": "#e3e0f1",
+                    "secondary-container": "#4f4171",
+                    "on-primary-fixed": "#22005c",
+                    "inverse-primary": "#6a45c3",
+                    "secondary": "#cfbef6",
+                    "outline": "#948e9e",
+                    "on-tertiary-container": "#f09661",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-secondary-fixed": "#201340",
+                    "on-secondary": "#352856",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "on-error": "#690005",
+                    "outline-variant": "#494453"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "arabic": ["IBM Plex Arabic"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .qr-placeholder {
+            background-image: radial-gradient(circle at 2px 2px, #12121d 1px, transparent 0);
+            background-size: 8px 8px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- Offline Indicator -->
+<div class="fixed top-0 left-0 w-full z-[60] bg-tertiary-container text-on-tertiary-container py-1.5 px-4 flex items-center justify-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-sm">cloud_off</span>
+<span class="text-xs font-bold tracking-wider uppercase font-label">Offline Mode</span>
+</div>
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl flex justify-between items-center px-8 h-16 w-full shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] bg-gradient-to-b from-[#12121d] to-transparent">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tighter text-[#d0bcff] font-headline">JAS Logistics</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Trips</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Permits</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Verify</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Fleet</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#d0bcff] hover:bg-white/5 p-2 rounded-full transition-all">notifications</button>
+<button class="material-symbols-outlined text-[#d0bcff] hover:bg-white/5 p-2 rounded-full transition-all">settings</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-6 max-w-md mx-auto min-h-screen">
+<!-- Header Info -->
+<header class="mb-8 text-center">
+<h1 class="text-2xl font-extrabold font-headline tracking-tight mb-1">Permit Verification</h1>
+<p class="text-on-surface-variant text-sm">Display this QR code at the checkpoint</p>
+</header>
+<!-- TGA Permission Card (The Velvet Intelligence Anchor) -->
+<div class="relative group">
+<!-- Glow Effect -->
+<div class="absolute -inset-1 bg-gradient-to-r from-[#4b1fa3] to-[#d0bcff] rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative bg-surface-container-high rounded-3xl overflow-hidden shadow-2xl border border-white/5">
+<!-- Card Header -->
+<div class="bg-gradient-to-br from-[#1b4332] to-[#081c15] p-6 text-white">
+<div class="flex justify-between items-start mb-4">
+<div class="space-y-1">
+<span class="text-[10px] font-bold tracking-widest uppercase opacity-70">Official TGA Permit</span>
+<h2 class="text-xl font-bold tracking-tight">JAS-TGA-2026-841293</h2>
+</div>
+<div class="bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 px-3 py-1 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">download_done</span>
+<span class="text-[10px] font-bold text-emerald-400 uppercase tracking-tighter">Saved Offline</span>
+</div>
+</div>
+<!-- Arabic Translation Area -->
+<div class="rtl font-arabic text-right space-y-1 py-4 border-y border-white/10 mt-4">
+<p class="text-lg font-bold">تصريح نقل البضائع العام</p>
+<p class="text-sm opacity-80">صادر عن الهيئة العامة للنقل</p>
+</div>
+</div>
+<!-- QR Code Section -->
+<div class="p-8 flex flex-col items-center justify-center bg-white">
+<div class="w-64 h-64 bg-slate-100 rounded-2xl p-4 flex items-center justify-center relative overflow-hidden">
+<div class="w-full h-full qr-placeholder opacity-40"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-48 h-48 bg-white border-8 border-white rounded-lg shadow-xl flex items-center justify-center">
+<img alt="QR Code" class="w-full h-full" data-alt="Digital QR code on white background with high contrast geometric patterns for logistics permit verification" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA09yTi0eL4Yt0Ylo9Iyt5ofE6IRyHdd1Ycu6Bc_a2NYjYa7qsng2Y_WQmFfNzxlcQ9vUm1_3ki5NRo2m0PT0CgZfjBMGUI1oWvZWxzjfC462S5XExSUxfAFvqiRwvxZ-PH-mVDoViT261wSjnZ1aWIRbe3jWzLJHpsVfuExjzwVTj3uHdEc5dGViMA9Va5Cau4ip50UiFr0rQOzIS6qKnLxLE71iwhbTXakktp_pDyvf0NO7_wYGWxdEc8G5W3575TzHg03kCEHg"/>
+</div>
+</div>
+</div>
+<p class="mt-4 text-slate-400 font-label text-[10px] uppercase tracking-[0.2em] text-center">Permit Valid until 14 Oct 2026</p>
+</div>
+<!-- Card Details Grid -->
+<div class="bg-surface-container-highest/50 p-6 grid grid-cols-2 gap-4">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Vehicle Plate</span>
+<p class="font-bold text-sm">LSA 9928 • <span class="font-arabic">أ ب ج ٩٩٢٨</span></p>
+</div>
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Route Hash</span>
+<p class="font-bold text-sm">RUH-DXB-V4</p>
+</div>
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Carrier ID</span>
+<p class="font-bold text-sm">JAS-LOG-844</p>
+</div>
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Timestamp</span>
+<p class="font-bold text-sm">08:24:01 GMT</p>
+</div>
+</div>
+<!-- Verified Watermark -->
+<div class="absolute bottom-4 right-4 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+</div>
+<!-- Offline Instructions -->
+<section class="mt-8 space-y-4">
+<div class="bg-surface-container-low p-4 rounded-xl flex gap-4 items-start border border-white/5">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                    This permit was cached at <span class="text-on-surface">06:12 AM</span> today. Verification is possible without an internet connection using TGA field terminals.
+                </p>
+</div>
+<button class="w-full bg-surface-container-highest hover:bg-surface-bright text-on-surface font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">print</span>
+                Share PDF Copy
+            </button>
+</section>
+</main>
+<!-- Bottom Navigation Shell (Mobile Pivot) -->
+<footer class="fixed bottom-0 left-0 w-full h-20 flex justify-around items-center px-6 pb-safe bg-[#12121d]/95 backdrop-blur-lg border-t border-white/10 z-50 md:hidden">
+<div class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase font-bold mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase font-bold mt-1">My Permits</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#4b1fa3] text-white rounded-xl px-4 py-1 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cloud_off</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase font-bold mt-1">Offline</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase font-bold mt-1">Profile</span>
+</div>
+</footer>
+<!-- Floating Action Button (Contextual: Refresh Only if Online) -->
+<!-- Suppressed on this screen to maintain focus on the static QR code -->
+</body></html>

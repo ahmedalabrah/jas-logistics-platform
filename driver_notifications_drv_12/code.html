@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Arabic:wght@400;500;600;700&amp;family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#12121d",
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-container": "#f09661",
+                    "surface-variant": "#343440",
+                    "on-secondary-fixed": "#201340",
+                    "tertiary-container": "#6c2e00",
+                    "on-surface-variant": "#cbc3d5",
+                    "outline": "#948e9e",
+                    "surface-container-low": "#1b1a26",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#cfbef6",
+                    "on-secondary-container": "#c0b0e7",
+                    "on-background": "#e3e0f1",
+                    "background": "#12121d",
+                    "inverse-primary": "#6a45c3",
+                    "surface-dim": "#12121d",
+                    "primary-container": "#4b1fa3",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#383845",
+                    "on-primary-container": "#b79cff",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-surface": "#e3e0f1",
+                    "surface-tint": "#d0bcff",
+                    "on-primary": "#3b0092",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "primary": "#d0bcff",
+                    "tertiary": "#ffb68e",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#331200",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-container-high": "#292935",
+                    "outline-variant": "#494453",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "on-secondary": "#352856",
+                    "inverse-surface": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-highest": "#343440",
+                    "on-tertiary": "#532200",
+                    "inverse-on-surface": "#302f3b",
+                    "on-primary-fixed": "#22005c",
+                    "surface-container": "#1f1e2a",
+                    "tertiary-fixed": "#ffdbc9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Tajawal", "sans-serif"],
+                    "body": ["Inter", "IBM Plex Arabic", "sans-serif"],
+                    "label": ["Inter", "IBM Plex Arabic", "sans-serif"],
+                    "arabic": ["IBM Plex Arabic", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', 'IBM Plex Arabic', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tajawal { font-family: 'Tajawal', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col items-center">
+<!-- Screen Container (Mobile Viewport) -->
+<div class="w-[390px] h-[844px] bg-background relative flex flex-col overflow-hidden shadow-2xl">
+<!-- TopAppBar (Mapped from JSON) -->
+<header class="bg-[#12121d] dark:bg-[#12121d] text-[#d0bcff] dark:text-[#d0bcff] docked full-width top-0 sticky z-50 bg-[#12121d] shadow-none border-b border-[#d0bcff]/10 backdrop-blur-xl flex flex-row-reverse justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="text-lg font-bold text-slate-100 tajawal">الإشعارات</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-sm font-medium text-[#d0bcff] hover:bg-[#d0bcff]/10 transition-colors px-2 py-1 rounded tajawal">مسح الكل</button>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="flex-1 overflow-y-auto pb-24 scrollbar-hide">
+<!-- Category Filter Chips -->
+<div class="flex flex-row-reverse gap-2 px-6 py-4 overflow-x-auto no-scrollbar">
+<button class="bg-primary text-on-primary px-5 py-1.5 rounded-full text-sm font-bold tajawal whitespace-nowrap">الكل</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-1.5 rounded-full text-sm font-medium tajawal whitespace-nowrap hover:bg-[#d0bcff]/10 transition-colors">رحلات</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-1.5 rounded-full text-sm font-medium tajawal whitespace-nowrap hover:bg-[#d0bcff]/10 transition-colors">TGA</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-1.5 rounded-full text-sm font-medium tajawal whitespace-nowrap hover:bg-[#d0bcff]/10 transition-colors">مدفوعات</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-1.5 rounded-full text-sm font-medium tajawal whitespace-nowrap hover:bg-[#d0bcff]/10 transition-colors">النظام</button>
+</div>
+<!-- Notifications List -->
+<div class="flex flex-col gap-0.5 px-0 mt-2">
+<!-- Unread Item -->
+<div class="bg-primary-container/10 border-r-4 border-primary px-6 py-5 flex flex-row-reverse items-start gap-4 transition-transform active:scale-95 duration-200 cursor-pointer">
+<div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="flex-1 text-right">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[10px] text-primary font-bold tajawal">رحلة جديدة</span>
+<span class="text-[10px] text-on-surface-variant tajawal">منذ ٢ دقائق</span>
+</div>
+<p class="text-sm font-bold leading-relaxed tajawal text-on-surface">رحلة جديدة متاحة: الرياض ← مكة · SAR 380 · ينتهي في 18 دقيقة</p>
+</div>
+</div>
+<!-- Read Item: TGA -->
+<div class="bg-surface-container-low px-6 py-5 flex flex-row-reverse items-start gap-4 transition-transform active:scale-95 duration-200 cursor-pointer">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/30 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="account_balance">account_balance</span>
+</div>
+<div class="flex-1 text-right">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[10px] text-on-tertiary-container font-bold tajawal">TGA</span>
+<span class="text-[10px] text-on-surface-variant tajawal">منذ ساعة</span>
+</div>
+<p class="text-sm font-medium leading-relaxed tajawal text-on-surface-variant">بطاقة تشغيل المركبة JAS-028 تنتهي في 28 يوماً</p>
+</div>
+</div>
+<!-- Read Item: Payments -->
+<div class="bg-surface-container-low px-6 py-5 flex flex-row-reverse items-start gap-4 transition-transform active:scale-95 duration-200 cursor-pointer">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/30 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary" data-icon="payments">payments</span>
+</div>
+<div class="flex-1 text-right">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[10px] text-secondary font-bold tajawal">مدفوعات</span>
+<span class="text-[10px] text-on-surface-variant tajawal">أمس</span>
+</div>
+<p class="text-sm font-medium leading-relaxed tajawal text-on-surface-variant">تم إيداع SAR 38,450 في حسابك</p>
+</div>
+</div>
+<!-- Read Item: System -->
+<div class="bg-surface-container-low px-6 py-5 flex flex-row-reverse items-start gap-4 transition-transform active:scale-95 duration-200 cursor-pointer">
+<div class="w-12 h-12 rounded-xl bg-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-outline" data-icon="settings">settings</span>
+</div>
+<div class="flex-1 text-right">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[10px] text-outline font-bold tajawal">النظام</span>
+<span class="text-[10px] text-on-surface-variant tajawal">منذ يومين</span>
+</div>
+<p class="text-sm font-medium leading-relaxed tajawal text-on-surface-variant">تحديث جديد متوفر للتطبيق</p>
+</div>
+</div>
+<!-- Empty State Filler / Future items -->
+<div class="mt-8 px-6 text-center">
+<div class="inline-flex items-center gap-2 py-2 px-4 rounded-full bg-surface-container-highest/30 border border-white/5">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant" data-icon="history">history</span>
+<span class="text-[11px] text-on-surface-variant tajawal">لا يوجد المزيد من الإشعارات</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mapped from JSON) -->
+<nav class="bg-[#12121d]/80 dark:bg-[#12121d]/80 fixed bottom-0 w-full z-50 rounded-t-xl backdrop-blur-lg border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.5)] flex flex-row-reverse justify-around items-center px-4 py-2 pb-safe">
+<!-- Home Item (ACTIVE according to prompt context) -->
+<div class="flex flex-col items-center justify-center text-[#d0bcff] bg-[#4b1fa3]/20 rounded-xl px-3 py-1 transition-all tap-highlight-transparent active:scale-95">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Trip</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Documents</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Earnings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Profile</span>
+</div>
+</nav>
+<!-- Decorative UI Element (Velvet Intelligence theme) -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 blur-[100px] pointer-events-none"></div>
+<div class="absolute top-1/2 -right-32 w-80 h-80 bg-secondary/5 blur-[120px] pointer-events-none"></div>
+</div>
+</body></html>

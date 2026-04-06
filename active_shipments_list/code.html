@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Active Shipments | JAS Logistics FreMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e9ddff",
+                        "secondary-container": "#4f4171",
+                        "on-secondary-fixed": "#201340",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary": "#3b0092",
+                        "on-primary-container": "#b79cff",
+                        "primary-container": "#4b1fa3",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#f09661",
+                        "tertiary-container": "#6c2e00",
+                        "secondary": "#cfbef6",
+                        "on-secondary": "#352856",
+                        "tertiary": "#ffb68e",
+                        "surface-container-highest": "#343440",
+                        "outline-variant": "#494453",
+                        "on-tertiary-fixed": "#331200",
+                        "inverse-on-surface": "#302f3b",
+                        "surface-container-high": "#292935",
+                        "outline": "#948e9e",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-surface": "#e3e0f1",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary": "#532200",
+                        "error": "#ffb4ab",
+                        "surface": "#12121d",
+                        "surface-variant": "#343440",
+                        "surface-tint": "#d0bcff",
+                        "surface-dim": "#12121d",
+                        "inverse-primary": "#6a45c3",
+                        "brand-magenta": "#7C1A5E"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(15, 15, 26, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="flex flex-col fixed left-0 top-0 h-full z-40 bg-[#0F0F1A] backdrop-blur-xl bg-opacity-80 h-screen w-64 border-r border-white/10 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight shadow-2xl shadow-[#000000]/50">
+<div class="p-6">
+<div class="text-2xl font-bold tracking-tighter bg-gradient-to-r from-[#d0bcff] to-[#4B1FA3] bg-clip-text text-transparent">FreMS</div>
+<div class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Logistics Intelligence</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white transition-colors hover:bg-white/10 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Operations
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white transition-colors hover:bg-white/10 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="contract">contract</span>
+                Agreements
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white transition-colors hover:bg-white/10 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+                Network
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white transition-colors hover:bg-white/10 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Account
+            </a>
+</nav>
+<div class="p-4 border-t border-white/5 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                Notifications
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-8 sticky top-0 z-50 ml-64 bg-[#0F0F1A]/90 backdrop-blur-lg h-16 w-[calc(100%-16rem)] border-b border-white/5 font-['Plus_Jakarta_Sans'] text-sm font-semibold">
+<div class="flex items-center gap-8">
+<span class="font-black text-white tracking-widest uppercase">JAS Logistics FreMS</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 hover:text-[#d0bcff] transition-all" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-[#d0bcff] transition-all" href="#">Map</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-5" href="#">Shipments</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<input class="bg-surface-container-highest/50 border-none rounded-full px-4 py-1.5 text-xs w-64 focus:ring-1 focus:ring-primary-fixed outline-none" placeholder="Search shipments..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1.5 text-sm text-slate-400" data-icon="search">search</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-[#d0bcff] transition-opacity active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-400 hover:text-[#d0bcff] transition-opacity active:opacity-80">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/10">
+<img alt="User profile avatar" data-alt="professional portrait of a logistics manager in a dark suit with soft studio lighting and corporate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJff7lNtlrQD-e1MVxkUGO0nN82497fiqyIVH2h8MXCLyeg7kdz5IvuKaL7JFUQoECL3IJ-3ecvzJkBGg_Y19-TIZV2x3O4PNy1dLWsDGwhzAbfhwR4oibqM8nfEZtOqpT_GtCF22E9_RKZI4bKKgrS58VCp7oxfXOEiCYpegoLJwlbypkBDrcFJB0FTWNJLvx5nwS-rrU9Ve43EkfJ5So27hhBBHmDnQI22nJ9wk1kXtLEM6EnR5v0Au4hI8poLoLV0Wor4qC0A"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 p-8 min-h-screen">
+<!-- Header & Breadcrumbs -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex gap-2 text-xs text-slate-500 mb-2 font-medium">
+<span>Operations</span>
+<span>/</span>
+<span class="text-primary-fixed">Active Shipments</span>
+</nav>
+<h1 class="text-3xl font-headline font-bold text-white tracking-tight">Active Shipments</h1>
+<p class="text-on-surface-variant text-sm mt-1">Managing 1,284 ongoing global freight movements.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface text-sm font-semibold px-4 py-2 rounded-lg flex items-center gap-2 border border-white/5 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="upload_file">upload_file</span>
+                    Export CSV
+                </button>
+<button class="bg-gradient-to-r from-brand-magenta to-[#4B1FA3] hover:opacity-90 text-white text-sm font-bold px-6 py-2 rounded-lg flex items-center gap-2 shadow-lg shadow-brand-magenta/20 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    New Shipment
+                </button>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-surface-container-low p-4 rounded-xl mb-6 flex flex-wrap gap-4 items-center border border-white/5">
+<div class="flex items-center gap-2 bg-surface-container rounded-lg px-3 py-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary-fixed text-sm" data-icon="filter_list">filter_list</span>
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Filters</span>
+</div>
+<select class="bg-surface-container-high border-none text-xs rounded-lg px-4 py-2 text-on-surface focus:ring-1 focus:ring-primary min-w-[140px]">
+<option>Mode: All</option>
+<option>Sea Freight</option>
+<option>Air Freight</option>
+<option>Road Transport</option>
+</select>
+<select class="bg-surface-container-high border-none text-xs rounded-lg px-4 py-2 text-on-surface focus:ring-1 focus:ring-primary min-w-[140px]">
+<option>Client: All Clients</option>
+<option>Aramco</option>
+<option>NEOM Corp</option>
+<option>Sabic</option>
+</select>
+<select class="bg-surface-container-high border-none text-xs rounded-lg px-4 py-2 text-on-surface focus:ring-1 focus:ring-primary min-w-[140px]">
+<option>Status: Active</option>
+<option>In Transit</option>
+<option>Customs Clearance</option>
+<option>Pending Pickup</option>
+</select>
+<div class="relative">
+<input class="bg-surface-container-high border-none text-xs rounded-lg px-10 py-2 text-on-surface focus:ring-1 focus:ring-primary w-48" placeholder="Date Range" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2 text-sm text-slate-400" data-icon="calendar_today">calendar_today</span>
+</div>
+<button class="ml-auto text-xs text-primary-fixed font-bold hover:underline">Clear all filters</button>
+</div>
+<!-- JASDataTable -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="p-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">
+<input class="rounded bg-surface-container-highest border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</th>
+<th class="p-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Shipment ID</th>
+<th class="p-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Mode</th>
+<th class="p-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Client</th>
+<th class="p-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Route</th>
+<th class="p-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Provider</th>
+<th class="p-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Status</th>
+<th class="p-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">ETA</th>
+<th class="p-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Compliance</th>
+<th class="p-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-4">
+<input class="rounded bg-surface-container-highest border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white font-bold text-sm">JAS-774201</span>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-brand-magenta/10 text-brand-magenta font-black w-fit mt-1">FA AGREEMENT</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="directions_boat">directions_boat</span>
+<span class="text-xs text-on-surface">Sea Freight</span>
+</div>
+</td>
+<td class="p-4">
+<span class="text-xs text-on-surface font-medium">Saudi Aramco</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2 text-xs">
+<span class="font-bold text-white">SHA</span>
+<span class="material-symbols-outlined text-[14px] text-slate-500" data-icon="arrow_forward">arrow_forward</span>
+<span class="font-bold text-white">DMM</span>
+</div>
+</td>
+<td class="p-4">
+<span class="text-xs text-slate-400">Maersk Line</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary shadow-[0_0_8px_rgba(255,182,142,0.6)]"></div>
+<span class="text-xs text-tertiary font-bold uppercase tracking-tighter">In Transit</span>
+</div>
+</td>
+<td class="p-4 text-xs text-white">Oct 24, 2023</td>
+<td class="p-4">
+<div class="flex gap-1.5">
+<span class="px-2 py-0.5 rounded bg-green-500/10 text-green-400 text-[10px] font-bold border border-green-500/20">CUSTOMS OK</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded bg-surface-container-high hover:bg-primary/20 text-on-surface-variant hover:text-primary transition-all" title="View">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+<button class="p-1.5 rounded bg-surface-container-high hover:bg-primary/20 text-on-surface-variant hover:text-primary transition-all" title="Track">
+<span class="material-symbols-outlined text-lg" data-icon="location_on">location_on</span>
+</button>
+<button class="p-1.5 rounded bg-surface-container-high hover:bg-primary/20 text-on-surface-variant hover:text-primary transition-all" title="Documents">
+<span class="material-symbols-outlined text-lg" data-icon="description">description</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-4">
+<input class="rounded bg-surface-container-highest border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white font-bold text-sm">JAS-881293</span>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-400 font-black w-fit mt-1">SPOT MARKET</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="local_shipping">local_shipping</span>
+<span class="text-xs text-on-surface">Road Freight</span>
+</div>
+</td>
+<td class="p-4">
+<span class="text-xs text-on-surface font-medium">NEOM Energy</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2 text-xs">
+<span class="font-bold text-white">DXB</span>
+<span class="material-symbols-outlined text-[14px] text-slate-500" data-icon="arrow_forward">arrow_forward</span>
+<span class="font-bold text-white">TAB</span>
+</div>
+</td>
+<td class="p-4">
+<span class="text-xs text-slate-400">Aramex Fleet</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-error shadow-[0_0_8px_rgba(255,180,171,0.6)] animate-pulse"></div>
+<span class="text-xs text-error font-bold uppercase tracking-tighter">Delayed</span>
+</div>
+</td>
+<td class="p-4 text-xs text-white">Oct 19, 2023</td>
+<td class="p-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-400 text-[10px] font-bold border border-yellow-500/20">CLEARANCE PENDING</span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed/10 text-primary-fixed text-[10px] font-bold border border-primary-fixed/20">TGA PERMIT</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded bg-surface-container-high hover:bg-primary/20 text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span></button>
+<button class="p-1.5 rounded bg-surface-container-high hover:bg-primary/20 text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined text-lg" data-icon="location_on">location_on</span></button>
+<button class="p-1.5 rounded bg-surface-container-high hover:bg-primary/20 text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined text-lg" data-icon="description">description</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-4">
+<input class="rounded bg-surface-container-highest border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white font-bold text-sm">JAS-900311</span>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-brand-magenta/10 text-brand-magenta font-black w-fit mt-1">FA AGREEMENT</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="flight">flight</span>
+<span class="text-xs text-on-surface">Air Freight</span>
+</div>
+</td>
+<td class="p-4">
+<span class="text-xs text-on-surface font-medium">Sabic Industrial</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2 text-xs">
+<span class="font-bold text-white">LHR</span>
+<span class="material-symbols-outlined text-[14px] text-slate-500" data-icon="arrow_forward">arrow_forward</span>
+<span class="font-bold text-white">RUH</span>
+</div>
+</td>
+<td class="p-4">
+<span class="text-xs text-slate-400">Emirates SkyCargo</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.6)]"></div>
+<span class="text-xs text-green-400 font-bold uppercase tracking-tighter">Customs Clearance</span>
+</div>
+</td>
+<td class="p-4 text-xs text-white">Today, 14:00</td>
+<td class="p-4">
+<div class="flex gap-1.5">
+<span class="px-2 py-0.5 rounded bg-green-500/10 text-green-400 text-[10px] font-bold border border-green-500/20">CLEARED</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded bg-surface-container-high hover:bg-primary/20 text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span></button>
+<button class="p-1.5 rounded bg-surface-container-high hover:bg-primary/20 text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined text-lg" data-icon="location_on">location_on</span></button>
+<button class="p-1.5 rounded bg-surface-container-high hover:bg-primary/20 text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined text-lg" data-icon="description">description</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-white/5 bg-surface-container-low flex justify-between items-center">
+<span class="text-[11px] font-semibold text-on-surface-variant uppercase tracking-widest">Showing 1-10 of 1,284 Shipments</span>
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded bg-surface-container-high text-slate-500 hover:text-white transition-all disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex gap-1">
+<button class="w-8 h-8 rounded text-xs font-bold bg-primary text-on-primary">1</button>
+<button class="w-8 h-8 rounded text-xs font-bold text-slate-400 hover:bg-white/5">2</button>
+<button class="w-8 h-8 rounded text-xs font-bold text-slate-400 hover:bg-white/5">3</button>
+<span class="px-2 text-slate-600">...</span>
+<button class="w-8 h-8 rounded text-xs font-bold text-slate-400 hover:bg-white/5">128</button>
+</div>
+<button class="p-1.5 rounded bg-surface-container-high text-slate-500 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5 group hover:border-brand-magenta/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-brand-magenta/10 rounded-lg text-brand-magenta">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</div>
+<span class="text-[10px] font-bold text-green-400">+12% vs LY</span>
+</div>
+<div class="text-2xl font-bold text-white mb-1">428</div>
+<div class="text-xs text-on-surface-variant font-medium">In Transit via Sea</div>
+<div class="mt-4 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-brand-magenta w-[65%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5 group hover:border-primary/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">Active Spot Rate</span>
+</div>
+<div class="text-2xl font-bold text-white mb-1">112</div>
+<div class="text-xs text-on-surface-variant font-medium">Critical Air Express</div>
+<div class="mt-4 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[22%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5 group hover:border-error/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-error/10 rounded-lg text-error">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<span class="text-[10px] font-bold text-error">Requires Action</span>
+</div>
+<div class="text-2xl font-bold text-white mb-1">14</div>
+<div class="text-xs text-on-surface-variant font-medium">Clearance Exceptions</div>
+<div class="mt-4 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error w-[8%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5 group hover:border-tertiary/30 transition-all relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">GCC Network</span>
+</div>
+<div class="text-2xl font-bold text-white mb-1">730</div>
+<div class="text-xs text-on-surface-variant font-medium">Road Freight Movements</div>
+<div class="mt-4 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[88%]"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB - Only for main dashboards/lists -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-brand-magenta text-white rounded-full shadow-2xl shadow-brand-magenta/40 flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-2xl" data-icon="support_agent">support_agent</span>
+</button>
+</body></html>

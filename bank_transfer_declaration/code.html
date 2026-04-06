@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bank Transfer Declaration | JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#22005c",
+                    "on-tertiary": "#532200",
+                    "inverse-on-surface": "#302f3b",
+                    "tertiary-fixed": "#ffdbc9",
+                    "surface-container": "#1f1e2a",
+                    "surface-container-highest": "#343440",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-secondary": "#352856",
+                    "inverse-surface": "#e3e0f1",
+                    "outline-variant": "#494453",
+                    "tertiary": "#ffb68e",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#331200",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "primary": "#d0bcff",
+                    "surface-container-high": "#292935",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-tint": "#d0bcff",
+                    "on-primary": "#3b0092",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-primary-container": "#b79cff",
+                    "on-surface": "#e3e0f1",
+                    "primary-container": "#4b1fa3",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#383845",
+                    "surface-dim": "#12121d",
+                    "on-background": "#e3e0f1",
+                    "background": "#12121d",
+                    "inverse-primary": "#6a45c3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#c0b0e7",
+                    "secondary": "#cfbef6",
+                    "outline": "#948e9e",
+                    "surface-container-low": "#1b1a26",
+                    "on-surface-variant": "#cbc3d5",
+                    "tertiary-container": "#6c2e00",
+                    "on-secondary-fixed": "#201340",
+                    "surface-variant": "#343440",
+                    "surface": "#12121d",
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-container": "#f09661"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #12121d; color: #e3e0f1; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30 min-h-screen">
+<!-- TopNavBar - Rendered as per Shared Components JSON -->
+<header class="fixed top-0 w-full z-50 bg-[#12121d]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] flex justify-between items-center px-8 h-16">
+<div class="text-xl font-bold tracking-tighter text-[#d0bcff] font-['Plus_Jakarta_Sans']">JAS Logistics</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-2 transition-all font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">Payments</a>
+<a class="text-white/60 hover:text-white/90 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">Payouts</a>
+<a class="text-white/60 hover:text-white/90 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">Reconciliation</a>
+<a class="text-white/60 hover:text-white/90 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">Settings</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[#d0bcff]">notifications</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[#d0bcff]">translate</span>
+</button>
+<div class="flex items-center space-x-2 pl-2 border-l border-white/10">
+<span class="material-symbols-outlined text-[#d0bcff]">account_circle</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-12 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Summary & Status -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Header Editorial Section -->
+<div class="space-y-2">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/20 text-primary text-xs font-semibold tracking-wider uppercase">Transaction Declaration</span>
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface">Confirm Settlement</h1>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-xs">Declare your bank transfer for Invoice #JAS-2024-8892 to initiate immediate processing.</p>
+</div>
+<!-- Status Tracker -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-white/5">
+<div class="flex items-center justify-between mb-6">
+<span class="text-sm font-label text-on-surface-variant uppercase tracking-widest">Workflow Status</span>
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold animate-pulse">Under review</span>
+</div>
+<div class="space-y-6 relative">
+<!-- Progress Line -->
+<div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-outline-variant/30"></div>
+<div class="relative flex items-center space-x-4">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10 shadow-[0_0_12px_rgba(208,188,255,0.4)]">
+<span class="material-symbols-outlined text-[16px] text-on-primary font-bold">check</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Invoice Generated</p>
+<p class="text-xs text-on-surface-variant">Oct 24, 2023 • 09:12 AM</p>
+</div>
+</div>
+<div class="relative flex items-center space-x-4">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10 shadow-[0_0_12px_rgba(208,188,255,0.4)]">
+<span class="material-symbols-outlined text-[16px] text-on-primary font-bold">radio_button_checked</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Payment Evidence Upload</p>
+<p class="text-xs text-primary font-medium italic">Awaiting your action</p>
+</div>
+</div>
+<div class="relative flex items-center space-x-4 opacity-40">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Bank Reconciliation</p>
+<p class="text-xs text-on-surface-variant">Pending verification</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Contextual Helper -->
+<div class="p-6 bg-surface-container-lowest rounded-xl border border-primary/10">
+<div class="flex items-start space-x-3">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                        Domestic transfers via Al Rajhi usually reconcile within 2-4 business hours. Please ensure the <span class="text-on-surface font-semibold">Reference Number</span> is clearly visible on your transfer slip.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Interactive Actions -->
+<div class="lg:col-span-8 space-y-8">
+<!-- JAS Bank Details Card (The Premium Anchor) -->
+<div class="relative overflow-hidden group">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute -left-10 -bottom-10 w-48 h-48 bg-secondary/10 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="bg-surface-container-high rounded-xl p-8 border border-white/10 relative z-10 shadow-2xl">
+<div class="flex justify-between items-start mb-10">
+<div>
+<p class="text-[10px] tracking-[0.2em] font-label text-primary/70 uppercase mb-1">Official Beneficiary</p>
+<h2 class="text-2xl font-headline font-bold text-on-surface">JAS Logistics Co.</h2>
+</div>
+<img class="h-10 w-10 rounded-lg filter grayscale invert brightness-200" data-alt="Official logo of Al Rajhi Bank Saudi Arabia in white minimalist style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuevVMZGO7w2JMgSKMEP22kVUOGeKVWPkzwRlJAblaDlNxziUvQBS4N8rtNi_mXKyVK2_iIydBGMrCRj40n8fc4TIs6hu4logmTdc2bmcWnK_gIqvsrgqZnNfmyCCG0_KKGCKZRHsIVpgZhowSgnvVrB7ug9fGFw8FbdKBKiNuaHbObBItSAmMeSGD_PYVOZ_f2vSThcmBiJ0PnHjF8_03nm6HUmGp3PH_OXA4auR-DRkIW-w03vJEj7vCek54Y2IKGshlNxyTtg"/>
+</div>
+<div class="grid md:grid-cols-2 gap-10">
+<div class="space-y-6">
+<div>
+<label class="block text-[10px] tracking-widest text-on-surface-variant uppercase mb-2">Bank Name</label>
+<div class="flex items-center space-x-2">
+<span class="text-lg font-headline font-semibold text-on-surface">Al Rajhi Bank</span>
+</div>
+</div>
+<div>
+<label class="block text-[10px] tracking-widest text-on-surface-variant uppercase mb-2">IBAN Number</label>
+<div class="flex items-center justify-between bg-surface-container-lowest px-4 py-3 rounded-lg border border-white/5">
+<span class="text-sm font-mono tracking-tighter text-on-surface">SA44 2000 0001 2345 6789 1234</span>
+<button class="text-primary hover:text-primary-fixed transition-colors active:scale-90">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-[10px] tracking-widest text-on-surface-variant uppercase mb-2">Required Reference</label>
+<div class="flex items-center justify-between bg-surface-container-lowest px-4 py-3 rounded-lg border border-primary/20">
+<span class="text-sm font-mono font-bold text-primary">REF-8892-LOG</span>
+<button class="text-primary hover:text-primary-fixed transition-colors active:scale-90">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<p class="text-[10px] mt-2 text-primary/60 italic">Include this in your bank's transfer memo field.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Upload Zone -->
+<div class="space-y-4">
+<h3 class="text-lg font-headline font-bold px-1">Proof of Transfer</h3>
+<div class="group relative flex flex-col items-center justify-center p-12 border-2 border-dashed border-outline-variant/50 rounded-2xl bg-surface-container-low hover:bg-surface-container-high hover:border-primary/50 transition-all duration-300 cursor-pointer">
+<div class="w-16 h-16 mb-4 rounded-full bg-surface-container-highest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">cloud_upload</span>
+</div>
+<p class="text-on-surface font-semibold mb-1">Drop your receipt here</p>
+<p class="text-on-surface-variant text-xs">Supports PDF, JPG, or PNG (Max 10MB)</p>
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+</div>
+<!-- File Preview Example (Hidden usually until upload) -->
+<div class="flex items-center justify-between p-4 bg-surface-container-highest rounded-xl border border-white/5">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 bg-error/10 text-error rounded flex items-center justify-center">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<p class="text-xs font-semibold text-on-surface">Transfer_Receipt_8892.pdf</p>
+<p class="text-[10px] text-on-surface-variant">1.4 MB • Complete</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="w-full h-14 bg-gradient-to-r from-primary to-primary-container rounded-xl flex items-center justify-center space-x-3 text-on-primary font-bold shadow-lg hover:shadow-primary/20 hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+<span>Submit Transfer Evidence</span>
+</button>
+<p class="text-center text-[10px] text-on-surface-variant mt-4 uppercase tracking-[0.2em]">Compliance Secured via JAS Enterprise Guard</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Aesthetic Floating Elements (Background Textures) -->
+<div class="fixed bottom-0 right-0 p-12 opacity-10 pointer-events-none select-none">
+<h1 class="text-[12rem] font-black leading-none tracking-tighter">PAY-OFF</h1>
+</div>
+<footer class="mt-auto border-t border-white/5 py-8 px-8">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-on-surface-variant text-xs space-y-4 md:space-y-0">
+<div class="flex items-center space-x-6">
+<span>© 2024 JAS Logistics Saudi Arabia</span>
+<a class="hover:text-on-surface transition-colors" href="#">Platform Policy</a>
+<a class="hover:text-on-surface transition-colors" href="#">Security Audit</a>
+</div>
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+<span class="font-label">Bank Gateway Connected: SAMA Secure</span>
+</div>
+</div>
+</footer>
+</body></html>

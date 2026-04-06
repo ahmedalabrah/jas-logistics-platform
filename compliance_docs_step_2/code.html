@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vehicle Onboarding Wizard - JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#201340",
+                    "tertiary": "#ffb68e",
+                    "primary-container": "#4b1fa3",
+                    "on-primary": "#3b0092",
+                    "on-error": "#690005",
+                    "background": "#12121d",
+                    "tertiary-fixed": "#ffdbc9",
+                    "surface-container-low": "#1b1a26",
+                    "surface-variant": "#343440",
+                    "surface-container": "#1f1e2a",
+                    "outline": "#948e9e",
+                    "on-tertiary": "#532200",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "secondary-container": "#4f4171",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-tertiary-container": "#f09661",
+                    "on-secondary-container": "#c0b0e7",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#343440",
+                    "outline-variant": "#494453",
+                    "on-surface": "#e3e0f1",
+                    "on-background": "#e3e0f1",
+                    "surface-bright": "#383845",
+                    "primary-fixed": "#e9ddff",
+                    "secondary": "#cfbef6",
+                    "inverse-on-surface": "#302f3b",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "tertiary-container": "#6c2e00",
+                    "surface-tint": "#d0bcff",
+                    "on-error-container": "#ffdad6",
+                    "error-container": "#93000a",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-primary-fixed": "#22005c",
+                    "surface": "#12121d",
+                    "secondary-fixed": "#e9ddff",
+                    "on-secondary": "#352856",
+                    "primary": "#d0bcff",
+                    "on-primary-container": "#b79cff",
+                    "surface-dim": "#12121d",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "surface-container-high": "#292935",
+                    "inverse-primary": "#6a45c3",
+                    "on-tertiary-fixed": "#331200",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "inverse-surface": "#e3e0f1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #12121d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #343440;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#0F0F1A]/80 backdrop-blur-xl flex flex-col py-8 px-6 z-50 shadow-[24px_0_48px_rgba(0,0,0,0.4)] bg-gradient-to-r from-transparent to-[#1F1F2E]/30">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-black tracking-tight text-[#d0bcff]">JAS Logistics</h1>
+<p class="text-xs text-on-surface-variant font-medium tracking-wide uppercase mt-1">Fleet Management</p>
+</div>
+<nav class="flex-1 space-y-2">
+<div class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="text-sm">Vehicle Basics</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 rounded-lg text-[#d0bcff] font-bold border-r-2 border-[#d0bcff] bg-[#d0bcff]/5 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="pin" style="font-variation-settings: 'FILL' 1;">pin</span>
+<span class="text-sm">Plate &amp; Registration</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="text-sm">TGA Compliance</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span class="text-sm">Driver Assignment</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="text-sm">Review</span>
+</div>
+</nav>
+<div class="mt-auto">
+<button class="w-full py-3 px-4 rounded border border-outline-variant text-on-surface-variant hover:text-white hover:border-white transition-all duration-300 text-sm font-semibold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+                Cancel Onboarding
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="flex justify-between items-center h-16 px-8 ml-64 bg-[#0F0F1A] sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-semibold text-white font-headline">Vehicle Onboarding Wizard</h2>
+<div class="h-4 w-[1px] bg-outline-variant mx-2"></div>
+<span class="text-sm font-medium text-primary bg-primary-container/20 px-3 py-1 rounded-full border border-primary/20">FMS-08</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-400 hover:text-white transition-colors" data-icon="language">language</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-white transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-white transition-colors" data-icon="help_outline">help_outline</button>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/30">
+<img alt="Manager profile" class="w-full h-full object-cover" data-alt="professional portrait of a logistical fleet manager in a modern office setting with soft background bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbaWagpQuxSqzAQDqaXfQkpA-R9LgjFaDrVsfUj5SNi2OYrotj6bNlbVD-OIAZbwj0GQaJkGSDnEuwhrUQXx3qn7I6-lm49mTKILD5hElKuI-cVUM_SuCNkLTl4NC3PY8mlmLI1vx91MepyQ58WlNpo5nwPiVxitzS6ZXUPhDhCp3YYFeHVd8_VVXGq3s8c4VIatdPexBR7hzvOevHl1rVwMA4lVLehvUJ8pA1hMarx8CWO4CcliIHTCAveeo58OQfjvjyTPd8kw"/>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 bg-[#1F1F2E] h-[1px] w-full"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-12 pb-32">
+<div class="max-w-6xl mx-auto">
+<!-- Page Header & Progress Section -->
+<div class="flex justify-between items-end mb-12">
+<div>
+<h3 class="text-3xl font-bold font-headline text-white mb-2">SA Compliance Docs</h3>
+<p class="text-on-surface-variant max-w-lg">Upload the required legal documentation for operating heavy vehicles within the Kingdom of Saudi Arabia. Ensure all images are clear and text is legible.</p>
+</div>
+<div class="text-right">
+<div class="flex items-center justify-end gap-3 mb-2">
+<span class="text-primary font-bold text-lg">2 of 4</span>
+<span class="text-on-surface-variant text-sm font-medium uppercase tracking-widest">Documents Verified</span>
+</div>
+<div class="w-64 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-1/2 shadow-[0_0_8px_rgba(208,188,255,0.4)]"></div>
+</div>
+</div>
+</div>
+<!-- Bento Grid of Compliance Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Istimara Card (Verified State) -->
+<div class="group relative bg-surface-container-low rounded-xl p-8 border border-outline-variant/10 hover:bg-surface-container transition-all duration-500 overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            VERIFIED
+                        </span>
+</div>
+<div class="flex items-start gap-4 mb-8">
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="badge">badge</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-on-surface">Istimara</h4>
+<p class="text-sm text-on-surface-variant">Vehicle Registration Card</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-surface-container-lowest rounded-lg p-4 flex items-center justify-between border border-primary/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="image">image</span>
+<span class="text-sm font-medium">istimara_v442.pdf</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white transition-colors" data-icon="visibility">visibility</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-2">Expiry Date</label>
+<div class="bg-surface-container-highest/30 px-4 py-2 rounded text-sm text-on-surface font-medium border-b-2 border-primary/40">2026-04-12</div>
+</div>
+<div class="flex items-end">
+<button class="w-full bg-surface-container-high py-2 rounded text-xs font-bold text-on-surface-variant cursor-default border border-white/5">
+                                    Verified via Absher
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Fahas Card (Action Required State) -->
+<div class="group relative bg-surface-container-low rounded-xl p-8 border border-outline-variant/10 hover:bg-surface-container transition-all duration-500">
+<div class="flex items-start gap-4 mb-8">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl" data-icon="car_repair">car_repair</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-on-surface">Fahas</h4>
+<p class="text-sm text-on-surface-variant">MVPI Periodic Inspection</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="border-2 border-dashed border-outline-variant/30 rounded-lg p-6 flex flex-col items-center justify-center gap-2 hover:border-primary/50 transition-colors cursor-pointer bg-surface-container-lowest/40">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:scale-110 transition-transform" data-icon="cloud_upload">cloud_upload</span>
+<span class="text-sm font-medium text-on-surface">Click to upload report</span>
+<span class="text-[10px] text-on-surface-variant">PDF, JPEG or PNG (Max 5MB)</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-2">Expiry Date</label>
+<input class="w-full bg-surface-container-highest px-4 py-2 rounded text-sm text-on-surface border-none focus:ring-1 focus:ring-primary" type="date"/>
+</div>
+<div class="flex items-end">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-white py-2 rounded text-xs font-bold shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+                                    Verify with Absher
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Insurance Card (Processing State) -->
+<div class="group relative bg-surface-container-low rounded-xl p-8 border border-outline-variant/10 hover:bg-surface-container transition-all duration-500 overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-on-tertiary-container/10 text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold border border-on-tertiary-container/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] animate-spin" data-icon="sync">sync</span>
+                            VERIFYING
+                        </span>
+</div>
+<div class="flex items-start gap-4 mb-8">
+<div class="w-12 h-12 rounded-lg bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl" data-icon="security">security</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-on-surface">Third-Party Insurance</h4>
+<p class="text-sm text-on-surface-variant">Active Saudi-based provider</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-surface-container-lowest rounded-lg p-4 flex items-center justify-between border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="description">description</span>
+<span class="text-sm font-medium">najm_policy_2024.pdf</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white transition-colors" data-icon="visibility">visibility</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-2">Expiry Date</label>
+<div class="bg-surface-container-highest/30 px-4 py-2 rounded text-sm text-on-surface font-medium border-b-2 border-outline-variant/40">2025-01-15</div>
+</div>
+<div class="flex items-end">
+<button class="w-full bg-surface-container-high py-2 rounded text-xs font-bold text-on-surface-variant opacity-50 cursor-not-allowed border border-white/5">
+                                    Awaiting Response
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Commercial License Card (Action Required State) -->
+<div class="group relative bg-surface-container-low rounded-xl p-8 border border-outline-variant/10 hover:bg-surface-container transition-all duration-500">
+<div class="flex items-start gap-4 mb-8">
+<div class="w-12 h-12 rounded-lg bg-error-container/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl" data-icon="gavel">gavel</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-on-surface">Commercial Activity License</h4>
+<p class="text-sm text-on-surface-variant">TGA Logistical Permission</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="border-2 border-dashed border-outline-variant/30 rounded-lg p-6 flex flex-col items-center justify-center gap-2 hover:border-primary/50 transition-colors cursor-pointer bg-surface-container-lowest/40">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:scale-110 transition-transform" data-icon="upload_file">upload_file</span>
+<span class="text-sm font-medium text-on-surface">Click to upload license</span>
+<span class="text-[10px] text-on-surface-variant">PDF only (Max 10MB)</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-2">Expiry Date</label>
+<input class="w-full bg-surface-container-highest px-4 py-2 rounded text-sm text-on-surface border-none focus:ring-1 focus:ring-primary" type="date"/>
+</div>
+<div class="flex items-end">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-white py-2 rounded text-xs font-bold shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+                                    Verify with Absher
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Contextual Information Card -->
+<div class="mt-12 bg-primary-container/10 rounded-xl p-6 border-l-4 border-primary flex items-center gap-6">
+<div class="p-3 bg-primary/20 rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Absher Instant Verification</h5>
+<p class="text-sm text-on-surface-variant">Linked credentials automatically verify your document validity against Ministry of Interior records. Verified docs do not require manual audit.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Action Bar -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-16rem)] h-20 bg-[#12121d]/90 backdrop-blur-md flex justify-between items-center px-12 z-40 border-t border-white/10 shadow-[0_-8px_24px_rgba(0,0,0,0.2)]">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<p class="text-xs text-on-surface-variant font-medium tracking-wide uppercase">Draft Saved at 14:22 PM</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-300 border border-white/20 px-8 py-3 rounded text-sm font-bold uppercase tracking-wider hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.2)] transition-all active:scale-95 duration-150">
+                Back
+            </button>
+<button class="text-slate-300 border border-white/20 px-8 py-3 rounded text-sm font-bold uppercase tracking-wider hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.2)] transition-all active:scale-95 duration-150">
+                Save Draft
+            </button>
+<button class="bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] text-white px-8 py-3 rounded text-sm font-bold uppercase tracking-wider hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.4)] transition-all active:scale-95 duration-150">
+                Next Step
+            </button>
+</div>
+</footer>
+</body></html>

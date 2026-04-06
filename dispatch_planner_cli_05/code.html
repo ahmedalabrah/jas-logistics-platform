@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dispatch Planner | JAS Sovereign</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#948e9e",
+                    "on-secondary": "#352856",
+                    "tertiary-container": "#6c2e00",
+                    "surface-container-high": "#292935",
+                    "surface-variant": "#343440",
+                    "on-primary": "#3b0092",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-secondary-container": "#c0b0e7",
+                    "primary-container": "#4b1fa3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "error": "#ffb4ab",
+                    "secondary": "#cfbef6",
+                    "on-primary-fixed": "#22005c",
+                    "outline-variant": "#494453",
+                    "inverse-surface": "#e3e0f1",
+                    "inverse-primary": "#6a45c3",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "tertiary": "#ffb68e",
+                    "surface-container-low": "#1b1a26",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary-fixed": "#331200",
+                    "on-tertiary": "#532200",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#e9ddff",
+                    "on-error": "#690005",
+                    "surface-container": "#1f1e2a",
+                    "surface": "#12121d",
+                    "surface-bright": "#383845",
+                    "on-primary-container": "#b79cff",
+                    "secondary-fixed": "#e9ddff",
+                    "background": "#12121d",
+                    "surface-tint": "#d0bcff",
+                    "inverse-on-surface": "#302f3b",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "surface-dim": "#12121d",
+                    "on-secondary-fixed": "#201340",
+                    "on-tertiary-container": "#f09661",
+                    "tertiary-fixed": "#ffdbc9",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "surface-container-highest": "#343440",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-surface": "#e3e0f1",
+                    "primary": "#d0bcff",
+                    "secondary-container": "#4f4171",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-background": "#e3e0f1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(31, 30, 42, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 z-50 w-full bg-[#0F0F1A]/80 backdrop-blur-md flex justify-between items-center h-16 px-6 shadow-xl font-['Plus_Jakarta_Sans'] antialiased">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold tracking-tighter text-white">JAS Sovereign</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-400 hover:bg-[#4B1FA3]/10 hover:text-white transition-colors text-sm font-medium" href="#">Dashboard</a>
+<a class="text-[#d0bcff] font-semibold transition-colors text-sm" href="#">Inventory</a>
+<a class="text-slate-400 hover:bg-[#4B1FA3]/10 hover:text-white transition-colors text-sm font-medium" href="#">Shipments</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-[#4B1FA3]/10 hover:text-white transition-colors rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-[#4B1FA3]/10 hover:text-white transition-colors rounded-full">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="Client Executive Profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="Close-up professional portrait of a business executive in a dark modern office with subtle purple ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfPTe6wWnFNSaRglRibhB2XdbVKdsOpx_P7udFEXIbU-UQ2g8jKKXM-lHSAIeicZjpa2eXYpDHsqn1fBLISyx6yX12U_QYNPoja1qPqy-tWQevRzas5QTeyt5fQLkHHGzNbPLN0p3yyc4FyXgGwltEL56ne-gcOvwETVEbF4ptG7BCF3vVGN-WYOgNNBMfdBSD1ZQ0WuEkH75hWi9ud-A55_a-0gdi7kelnvCkgOyEWPqINKvwkzq4_Q56y4XrxZFOJb8L4wrdBA"/>
+</div>
+</header>
+<div class="flex pt-16 h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full py-6 w-64 bg-[#12121d] bg-gradient-to-r from-[#12121d] to-[#0F0F1A] shadow-[4px_0_24px_rgba(0,0,0,0.5)] font-['Plus_Jakarta_Sans'] text-sm font-medium">
+<div class="px-6 mb-8">
+<h2 class="text-white font-black text-xl tracking-tight">Global Logistics</h2>
+<p class="text-slate-500 text-xs">Enterprise Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">hub</span> Supply Chain
+                </a>
+<a class="flex items-center gap-3 px-6 py-3 bg-[#4B1FA3]/20 text-[#d0bcff] border-r-2 border-[#d0bcff] transition-all" href="/client/dispatch">
+<span class="material-symbols-outlined">conveyor_belt</span> Operations
+                </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span> Finance
+                </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">description</span> Documents
+                </a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 mb-6 scale-95 active:scale-100 transition-transform">
+<span class="material-symbols-outlined text-sm">add</span> New Dispatch
+                </button>
+<div class="space-y-1 border-t border-outline-variant/20 pt-4">
+<a class="flex items-center gap-3 px-2 py-2 text-slate-500 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span> Support
+                    </a>
+<a class="flex items-center gap-3 px-2 py-2 text-slate-500 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span> Sign Out
+                    </a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto bg-surface-dim p-8">
+<div class="max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-10">
+<div>
+<h1 class="text-4xl font-extrabold font-headline tracking-tight text-white">Dispatch Planner</h1>
+<p class="text-on-surface-variant mt-2">Inventory selection and warehouse task generation</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-bold uppercase tracking-widest text-primary-fixed-dim">Portal Location</span>
+<p class="text-on-surface font-medium">Riyadh Central Distribution</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Section 1: SKU Selection Table (Bento Grid Style) -->
+<section class="lg:col-span-8 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/10 shadow-lg">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-bold font-headline flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+                                    Inventory Selection
+                                </h3>
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary" placeholder="Search SKUs..." type="text"/>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-on-surface-variant text-xs uppercase tracking-wider border-b border-outline-variant/10">
+<th class="pb-4 pt-2 px-2"><input class="rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary" type="checkbox"/></th>
+<th class="pb-4 pt-2 px-4">SKU / Item Name</th>
+<th class="pb-4 pt-2 px-4">Location</th>
+<th class="pb-4 pt-2 px-4">Available Qty</th>
+<th class="pb-4 pt-2 px-4 text-right">Dispatch Qty</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-2"><input class="rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary" type="checkbox"/></td>
+<td class="py-4 px-4">
+<div class="font-semibold text-on-surface">JAS-WMS-8829</div>
+<div class="text-xs text-on-surface-variant">Precision Valve Controller X1</div>
+</td>
+<td class="py-4 px-4 text-sm">Zone A-04</td>
+<td class="py-4 px-4">
+<span class="bg-primary/10 text-primary-fixed-dim px-2 py-1 rounded text-xs font-bold">1,240 Units</span>
+</td>
+<td class="py-4 px-4 text-right">
+<input class="w-20 bg-surface-container-highest border-none rounded py-1 px-2 text-right text-sm focus:ring-1 focus:ring-primary" type="number" value="0"/>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-2"><input checked="" class="rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary" type="checkbox"/></td>
+<td class="py-4 px-4">
+<div class="font-semibold text-on-surface">JAS-WMS-4410</div>
+<div class="text-xs text-on-surface-variant">Industrial Gasket Kit (L)</div>
+</td>
+<td class="py-4 px-4 text-sm">Zone C-12</td>
+<td class="py-4 px-4">
+<span class="bg-primary/10 text-primary-fixed-dim px-2 py-1 rounded text-xs font-bold">455 Units</span>
+</td>
+<td class="py-4 px-4 text-right">
+<input class="w-20 bg-surface-container-highest border-none rounded py-1 px-2 text-right text-sm focus:ring-1 focus:ring-primary" type="number" value="12"/>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-2"><input class="rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary" type="checkbox"/></td>
+<td class="py-4 px-4">
+<div class="font-semibold text-on-surface">JAS-WMS-2291</div>
+<div class="text-xs text-on-surface-variant">Thermal Sealant 500ml</div>
+</td>
+<td class="py-4 px-4 text-sm">Zone B-09</td>
+<td class="py-4 px-4">
+<span class="bg-error/10 text-error px-2 py-1 rounded text-xs font-bold">12 Units (Low)</span>
+</td>
+<td class="py-4 px-4 text-right">
+<input class="w-20 bg-surface-container-highest border-none rounded py-1 px-2 text-right text-sm focus:ring-1 focus:ring-primary" type="number" value="0"/>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Section 3: Pending Dispatches -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/10 shadow-lg">
+<h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+                                Pending Dispatches
+                            </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border-l-4 border-tertiary">
+<div class="flex items-center gap-4">
+<div class="bg-tertiary-container/30 p-2 rounded">
+<span class="material-symbols-outlined text-tertiary">pending_actions</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">ORD-2024-00192</p>
+<p class="text-xs text-on-surface-variant">Dest: NEOM Industrial City</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-bold uppercase text-tertiary tracking-tighter bg-tertiary-container/10 px-2 py-0.5 rounded">WMS Status: Picking</span>
+<p class="text-xs text-on-surface mt-1">Pickup: Oct 24, 2024</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border-l-4 border-primary">
+<div class="flex items-center gap-4">
+<div class="bg-primary-container/30 p-2 rounded">
+<span class="material-symbols-outlined text-primary">package_2</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">ORD-2024-00185</p>
+<p class="text-xs text-on-surface-variant">Dest: Dammam Port Terminal 2</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-bold uppercase text-primary tracking-tighter bg-primary-container/10 px-2 py-0.5 rounded">WMS Status: Packed</span>
+<p class="text-xs text-on-surface mt-1">Pickup: Oct 23, 2024</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border-l-4 border-outline">
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-highest p-2 rounded">
+<span class="material-symbols-outlined text-outline">hourglass_empty</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">ORD-2024-00201</p>
+<p class="text-xs text-on-surface-variant">Dest: Jeddah Logistics Hub</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-bold uppercase text-outline tracking-tighter bg-surface-container-highest px-2 py-0.5 rounded">WMS Status: Pending</span>
+<p class="text-xs text-on-surface mt-1">Pickup: Oct 25, 2024</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Dispatch Form -->
+<aside class="lg:col-span-4">
+<div class="sticky top-24 space-y-6">
+<div class="bg-surface-container p-8 rounded-xl border border-primary/20 shadow-2xl relative overflow-hidden">
+<!-- Background Decoration -->
+<div class="absolute -right-16 -top-16 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+<h3 class="text-xl font-bold font-headline mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+                                    Dispatch Details
+                                </h3>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Delivery Address</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary focus:border-primary placeholder-on-surface-variant/30" placeholder="Street, District, City, Postcode..." rows="3"></textarea>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Recipient Name</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" placeholder="Full Name" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Contact Phone</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" placeholder="+966 --- --- ----" type="tel"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Scheduled Pickup Date</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">calendar_today</span>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg py-3 pl-10 pr-3 text-sm focus:ring-1 focus:ring-primary" type="date"/>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-2 italic">*Warehouse requires 24hr lead time for packing.</p>
+</div>
+<div class="pt-4 border-t border-outline-variant/10">
+<div class="flex justify-between items-center mb-6">
+<span class="text-sm font-medium text-on-surface-variant">Items Selected</span>
+<span class="text-sm font-bold text-on-surface">12 SKUs</span>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-black py-4 rounded-lg flex items-center justify-center gap-2 shadow-[0_8px_20px_-4px_rgba(208,188,255,0.3)] hover:brightness-110 active:scale-95 transition-all">
+                                            [Submit Dispatch Request →]
+                                        </button>
+</div>
+</div>
+</div>
+<!-- Contextual Info Card -->
+<div class="bg-tertiary-container/10 p-6 rounded-xl border border-tertiary/20">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary">info</span>
+<div>
+<h4 class="text-sm font-bold text-tertiary">WMS Integration Active</h4>
+<p class="text-xs text-on-surface-variant mt-1 leading-relaxed">
+                                            Submitting this request will automatically generate a pick-list for the warehouse floor. Status updates will sync every 5 minutes.
+                                        </p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+</div>
+<!-- Responsive Bottom Nav for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-high flex justify-around items-center h-16 border-t border-outline-variant/20 px-4">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#d0bcff]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">conveyor_belt</span>
+<span class="text-[10px] font-bold">Dispatch</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">inventory</span>
+<span class="text-[10px] font-bold">Stock</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e3e0f1",
+                        "inverse-surface": "#e3e0f1",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-fixed": "#331200",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container-highest": "#343440",
+                        "primary": "#d0bcff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "tertiary-container": "#6c2e00",
+                        "error": "#ffb4ab",
+                        "primary-container": "#4b1fa3",
+                        "on-surface-variant": "#cbc3d5",
+                        "surface-container": "#1f1e2a",
+                        "on-primary-container": "#b79cff",
+                        "background": "#12121d",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface": "#12121d",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-on-surface": "#302f3b",
+                        "surface-dim": "#12121d",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "tertiary": "#ffb68e",
+                        "surface-bright": "#383845",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary": "#532200",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "secondary-container": "#4f4171",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-primary": "#6a45c3",
+                        "secondary": "#cfbef6",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-secondary-fixed": "#201340",
+                        "on-secondary": "#352856",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error": "#690005",
+                        "outline-variant": "#494453"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans", "IBM Plex Arabic"],
+                        "body": ["Inter", "IBM Plex Arabic"],
+                        "label": ["Inter", "IBM Plex Arabic"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', 'IBM Plex Arabic', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', 'IBM Plex Arabic', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased overflow-hidden">
+<!-- Background Navigation Map (Dimmed) -->
+<div class="fixed inset-0 z-0">
+<div class="absolute inset-0 bg-black/60 z-10"></div>
+<img alt="Map Background" class="w-full h-full object-cover filter blur-[2px] grayscale-[0.3]" data-alt="Modern dark mode GPS navigation map interface showing highway route through desert landscape with glowing neon paths" data-location="Riyadh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArEPjglS-Dsp_q0YW3EN6eVe71zdYWxwTxDs3PdmRGjahge30LCpmEE39hj-d6_O0TUM66U-qXtOVpa_Zwl9SFCZyiTAkQdPqTcjj27j9r-oyiBK_u3FTMI41seKHnpi2sErxagqoSfGU4IFJyXrLe4j7FQos1pDUNjOgyL1zlcAbbRBAN9Pb8UoLASwwhCB7-c675zZQQ1pqBP3U6SPLX50xx9IvhfW56L5XAf_qTxlNlvD_0Gvg1fjs7u3AU36e_mkhT9RNOCQ"/>
+</div>
+<!-- UI Overlay Shell -->
+<main class="relative z-20 h-screen flex flex-col items-center justify-center p-6">
+<!-- Top Status Bar Simulation (Mobile Feel) -->
+<div class="fixed top-0 left-0 w-full h-12 flex items-center justify-between px-8 bg-gradient-to-b from-black/40 to-transparent">
+<div class="flex items-center gap-4 text-sm font-medium text-on-surface-variant">
+<span>14:42</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="location_on">location_on</span>
+<span class="text-xs tracking-tight">Highway 40, Eastbound</span>
+</div>
+</div>
+<!-- TGA Checkpoint Proximity Alert Card -->
+<div class="w-full max-w-md bg-surface-container/80 backdrop-blur-2xl rounded-full border border-white/5 shadow-[0_24px_48px_rgba(0,0,0,0.6)] p-8 flex flex-col items-center text-center">
+<!-- Large Amber Icon -->
+<div class="w-24 h-24 mb-8 rounded-full bg-tertiary-container flex items-center justify-center relative">
+<div class="absolute inset-0 rounded-full animate-ping bg-tertiary/20"></div>
+<span class="material-symbols-outlined text-tertiary text-6xl" data-icon="account_balance">account_balance</span>
+</div>
+<!-- Alert Text -->
+<h1 class="text-3xl font-bold tracking-tight text-on-surface mb-2 leading-tight">
+                ⚠️ نقطة تفتيش TGA بعد 12 كم
+            </h1>
+<p class="text-on-surface-variant text-lg mb-8">
+                TGA Checkpoint Proximity Alert
+            </p>
+<!-- QR Preview Area -->
+<div class="w-full bg-surface-container-highest rounded-xl p-6 mb-8 flex items-center justify-between gap-4 border border-outline-variant/20">
+<div class="text-right flex-1">
+<p class="text-xs text-on-tertiary-container font-bold uppercase tracking-wider mb-1">Verify Credentials</p>
+<p class="text-sm text-on-surface leading-relaxed">Prepare the digital permit for the upcoming inspection zone.</p>
+</div>
+<div class="w-20 h-20 bg-white rounded-lg p-2 flex items-center justify-center shadow-inner">
+<!-- Placeholder for QR Code -->
+<div class="w-full h-full bg-black/5 flex flex-wrap gap-[2px]">
+<div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div>
+<div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div>
+<div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div>
+<div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="w-full space-y-4">
+<button class="w-full h-16 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold text-lg rounded-xl shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-3">
+<span>Show Full Card</span>
+<span class="material-symbols-outlined" data-icon="qr_code_2">qr_code_2</span>
+</button>
+<button class="w-full h-14 bg-surface-bright/20 hover:bg-surface-bright/40 text-on-surface-variant font-medium rounded-xl transition-colors border border-outline-variant/10 active:scale-95">
+                    Dismiss
+                </button>
+</div>
+</div>
+<!-- Subtle Branding -->
+<div class="mt-8 flex flex-col items-center opacity-40">
+<p class="text-[10px] uppercase font-bold tracking-[0.2em] text-on-surface-variant">JAS Logistics</p>
+<p class="text-[10px] font-medium text-on-surface-variant">Velvet Intelligence System</p>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Filtered for Focus) -->
+<!-- According to the UX Goal: Suppress the navigation to prioritize the content canvas in task-focused/focused journeys. -->
+<!-- Toast Notification for Network Status -->
+<div class="fixed bottom-12 left-1/2 -translate-x-1/2 px-4 py-2 bg-surface-container-highest/90 backdrop-blur-md rounded-full border border-white/5 flex items-center gap-3 z-50">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-xs font-medium text-on-surface-variant">System Status: Connected</span>
+</div>
+</body></html>

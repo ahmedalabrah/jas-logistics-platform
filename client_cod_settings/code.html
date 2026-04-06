@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Client COD Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#22005c",
+                    "on-tertiary": "#532200",
+                    "inverse-on-surface": "#302f3b",
+                    "tertiary-fixed": "#ffdbc9",
+                    "surface-container": "#1f1e2a",
+                    "surface-container-highest": "#343440",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-secondary": "#352856",
+                    "inverse-surface": "#e3e0f1",
+                    "outline-variant": "#494453",
+                    "tertiary": "#ffb68e",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#331200",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "primary": "#d0bcff",
+                    "surface-container-high": "#292935",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-tint": "#d0bcff",
+                    "on-primary": "#3b0092",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-primary-container": "#b79cff",
+                    "on-surface": "#e3e0f1",
+                    "primary-container": "#4b1fa3",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#383845",
+                    "surface-dim": "#12121d",
+                    "on-background": "#e3e0f1",
+                    "background": "#12121d",
+                    "inverse-primary": "#6a45c3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#c0b0e7",
+                    "secondary": "#cfbef6",
+                    "outline": "#948e9e",
+                    "surface-container-low": "#1b1a26",
+                    "on-surface-variant": "#cbc3d5",
+                    "tertiary-container": "#6c2e00",
+                    "on-secondary-fixed": "#201340",
+                    "surface-variant": "#343440",
+                    "surface": "#12121d",
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-container": "#f09661"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .headline-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30 min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#12121d]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] flex justify-between items-center px-8 h-16">
+<div class="text-xl font-bold tracking-tighter text-[#d0bcff] headline-font">JAS Logistics</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-white/60 hover:text-white/90 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">Payments</a>
+<a class="text-white/60 hover:text-white/90 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">Payouts</a>
+<a class="text-white/60 hover:text-white/90 transition-colors font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">Reconciliation</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-2 transition-all font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">Settings</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all text-white/60 active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all text-white/60 active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="translate">translate</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all text-white/60 active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 h-full w-64 z-40 bg-[#0F0F1A]/90 backdrop-blur-2xl flex flex-col py-20 px-4 space-y-2">
+<div class="mb-8 px-4">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-primary-container flex items-center justify-center">
+<img alt="JAS Finance Executive" data-alt="close-up portrait of a professional executive in a modern office with cinematic lighting and soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1d2MhFdgCr5WfWnUZUqNv_oZHY3xu_OsjhQ4SBELOaNI3WN2bLCk4zR6yGLcxpOJeNk4QphVrqETUh7oxW8JRj9979s9WzxWAoMe8c2vBbYw23oFc6dXmZ-KJapcRz7SZrsujk7ikr47pIZpZ1_nuhy1Tv_Yk5Y2UH3Zybq16LzuCcPk-gDc_cVwadcCIObebC9AslbcwUth992R10VCs7KhSAjM5YH6Y4itIFRtDaJNhCEp8QOuMai5KOVQUW-9tZj_IjT7ZpA"/>
+</div>
+<div>
+<div class="text-sm font-semibold text-[#d0bcff] headline-font">Finance Portal</div>
+<div class="text-xs text-white/40">Precision Logistics</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300 ease-in-out rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Command Center</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300 ease-in-out rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">SADAD Ops</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300 ease-in-out rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Bank Transfers</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300 ease-in-out rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Carrier Payouts</span>
+</a>
+<a class="bg-gradient-to-r from-[#4B1FA3]/30 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] font-semibold flex items-center space-x-3 px-4 py-3 transition-all duration-300 ease-in-out rounded-r-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Batch Processing</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300 ease-in-out rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Audit Logs</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-white/5 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-2 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Support</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12">
+<header class="mb-10 max-w-5xl mx-auto">
+<div class="flex items-center justify-between">
+<div>
+<h1 class="text-4xl font-extrabold headline-font tracking-tight text-on-surface mb-2">Client COD Settings</h1>
+<p class="text-on-surface-variant max-w-2xl">Configure Cash on Delivery preferences, limits, and disbursement rules for your client portal.</p>
+</div>
+<div class="flex space-x-3">
+<button class="px-6 py-2.5 rounded-lg border border-outline-variant/30 text-on-surface font-semibold hover:bg-surface-container-high transition-all active:scale-95">Discard</button>
+<button class="px-6 py-2.5 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-bold hover:shadow-[0_0_20px_rgba(208,188,255,0.3)] transition-all active:scale-95">Save Changes</button>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6 max-w-5xl mx-auto">
+<!-- COD Activation Toggle -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between border-l-4 border-primary">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="payments">payments</span>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-14 h-7 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<h3 class="text-xl font-bold headline-font mb-2">COD Service</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Enable or disable Cash on Delivery as a payment option for this client's customers.</p>
+</div>
+<div class="mt-6 flex items-center text-primary font-medium text-sm">
+<span class="material-symbols-outlined text-xs mr-2" data-icon="check_circle">check_circle</span>
+                    Status: Currently Active
+                </div>
+</div>
+<!-- Max COD Amount -->
+<div class="col-span-12 md:col-span-8 bg-surface-container p-8 rounded-xl flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold headline-font mb-4">Transaction Thresholds</h3>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-4">
+<label class="block text-sm font-medium text-on-surface-variant">Max COD Amount per Order (SAR)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary transition-all rounded-t-lg py-4 px-4 text-2xl font-bold headline-font text-on-surface outline-none" placeholder="0.00" type="number" value="5000"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">SAR</span>
+</div>
+</div>
+<div class="space-y-4">
+<label class="block text-sm font-medium text-on-surface-variant">Risk Level Exposure</label>
+<div class="h-24 flex items-end space-x-2 pb-2">
+<div class="w-full bg-primary/20 h-8 rounded-sm"></div>
+<div class="w-full bg-primary/40 h-12 rounded-sm"></div>
+<div class="w-full bg-primary/60 h-16 rounded-sm"></div>
+<div class="w-full bg-primary h-20 rounded-sm"></div>
+<div class="w-full bg-surface-container-highest h-24 rounded-sm"></div>
+</div>
+<p class="text-xs text-on-surface-variant italic">Threshold is 20% higher than industry average</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Recipient Selection -->
+<div class="col-span-12 md:col-span-7 bg-surface-container-low p-8 rounded-xl space-y-6">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="account_tree">account_tree</span>
+<h3 class="text-xl font-bold headline-font">Fund Disbursement</h3>
+</div>
+<div class="space-y-4">
+<label class="block text-sm font-medium text-on-surface-variant">Who receives COD proceeds?</label>
+<div class="relative">
+<select class="w-full bg-surface-container-highest border-0 border-b-2 border-primary/30 focus:border-primary rounded-t-lg py-4 px-4 text-on-surface appearance-none outline-none font-medium">
+<option>Corporate Treasury (Master Account)</option>
+<option>Branch Manager Wallets</option>
+<option>Third-Party Settlement Agency</option>
+<option>Regional Distribution Hubs</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="bg-surface-container-highest/30 p-6 rounded-lg border border-white/5 space-y-4">
+<div class="flex items-start space-x-4">
+<div class="mt-1">
+<input class="w-5 h-5 rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary focus:ring-offset-background" id="surcharge" type="checkbox"/>
+</div>
+<label class="text-sm text-on-surface leading-relaxed" for="surcharge">
+<span class="font-bold block mb-1">Surcharge Acknowledgment</span>
+                            I acknowledge that a 2.5% processing fee will be automatically deducted from each COD settlement batch as per the Master Service Agreement.
+                        </label>
+</div>
+</div>
+</div>
+<!-- Quick Stats/Info Card -->
+<div class="col-span-12 md:col-span-5 bg-[#4B1FA3]/10 border border-primary/20 p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute -right-8 -bottom-8 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[12rem]" data-icon="verified_user">verified_user</span>
+</div>
+<h3 class="text-xl font-bold headline-font text-primary mb-6">Security &amp; Compliance</h3>
+<ul class="space-y-6 relative z-10">
+<li class="flex items-start space-x-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="verified">verified</span>
+<div class="text-sm">
+<p class="font-semibold">SAMA Regulated</p>
+<p class="text-on-surface-variant">Payments are processed through KSA-compliant gateways.</p>
+</div>
+</li>
+<li class="flex items-start space-x-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="update">update</span>
+<div class="text-sm">
+<p class="font-semibold">T+1 Settlement</p>
+<p class="text-on-surface-variant">Standard funds availability after courier reconciliation.</p>
+</div>
+</li>
+<li class="flex items-start space-x-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="shield">shield</span>
+<div class="text-sm">
+<p class="font-semibold">Fraud Protection</p>
+<p class="text-on-surface-variant">Active monitoring for high-risk delivery zones.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Receivers List - Data Dense View -->
+<div class="col-span-12 bg-surface-container rounded-xl overflow-hidden shadow-2xl">
+<div class="px-8 py-6 border-b border-white/5 flex items-center justify-between bg-surface-container-high/30">
+<div>
+<h3 class="text-xl font-bold headline-font">Authorized Receivers List</h3>
+<p class="text-sm text-on-surface-variant">Managing 4 active disbursement endpoints</p>
+</div>
+<button class="flex items-center space-x-2 px-4 py-2 bg-surface-container-highest hover:bg-surface-bright transition-all rounded-lg text-sm font-semibold">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+<span>Add Receiver</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-xs uppercase tracking-widest text-on-surface-variant font-bold">
+<th class="px-8 py-4">Receiver Name</th>
+<th class="px-8 py-4">Destination Type</th>
+<th class="px-8 py-4">Routing Code</th>
+<th class="px-8 py-4">Allocated Share</th>
+<th class="px-8 py-4">Status</th>
+<th class="px-8 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">HQ</div>
+<span class="font-medium text-sm">Main Treasury Riyadh</span>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">SADAD Wallet</td>
+<td class="px-8 py-5 text-sm font-mono text-primary/80">SA-738-9921</td>
+<td class="px-8 py-5">
+<div class="w-32 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 100%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant mt-1 block">100% Volume</span>
+</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-tertiary-container/30 text-on-tertiary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container mr-1.5"></span> Verified
+                                    </span>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded bg-secondary/20 flex items-center justify-center text-secondary font-bold text-xs">JD</div>
+<span class="font-medium text-sm">Jeddah Hub Operations</span>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Bank Transfer</td>
+<td class="px-8 py-5 text-sm font-mono text-primary/80">SA-102-4450</td>
+<td class="px-8 py-5">
+<div class="w-32 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 0%"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant mt-1 block">Standby Only</span>
+</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-surface-container-highest text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant mr-1.5"></span> Inactive
+                                    </span>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Suppression: Contextually hidden as per instructions for Settings screens -->
+<!-- Background Decoration -->
+<div class="fixed top-0 right-0 -z-10 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-secondary/5 blur-[100px] rounded-full pointer-events-none"></div>
+</body></html>

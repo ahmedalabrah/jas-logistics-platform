@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Digital Signing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#22005c",
+                    "secondary": "#cfbef6",
+                    "primary-container": "#4b1fa3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#c0b0e7",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary": "#3b0092",
+                    "surface-variant": "#343440",
+                    "surface-container-high": "#292935",
+                    "tertiary-container": "#6c2e00",
+                    "outline": "#948e9e",
+                    "on-secondary": "#352856",
+                    "on-tertiary": "#532200",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#1b1a26",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary-fixed": "#331200",
+                    "tertiary": "#ffb68e",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "inverse-surface": "#e3e0f1",
+                    "inverse-primary": "#6a45c3",
+                    "outline-variant": "#494453",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "inverse-on-surface": "#302f3b",
+                    "error-container": "#93000a",
+                    "surface-tint": "#d0bcff",
+                    "secondary-fixed": "#e9ddff",
+                    "background": "#12121d",
+                    "on-primary-container": "#b79cff",
+                    "surface-bright": "#383845",
+                    "surface-container": "#1f1e2a",
+                    "surface": "#12121d",
+                    "on-error": "#690005",
+                    "primary-fixed": "#e9ddff",
+                    "on-background": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "secondary-container": "#4f4171",
+                    "primary": "#d0bcff",
+                    "surface-container-highest": "#343440",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-surface": "#e3e0f1",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-tertiary-container": "#f09661",
+                    "on-secondary-fixed": "#201340",
+                    "surface-dim": "#12121d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-canvas {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- SideNavBar Integration -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col border-r border-white/10 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[20px_0_40px_-15px_rgba(0,0,0,0.5)] z-50">
+<div class="p-6">
+<h1 class="text-[#D4691E] font-black tracking-tighter text-2xl">JAS Logistics</h1>
+<p class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-400 mt-1">Master Command</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard_customize">dashboard_customize</span>
+                Command Center
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+                Alert Center
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="pending_actions">pending_actions</span>
+                Order Queue
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+                Spot Quoting
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-[#D4691E] bg-[#D4691E]/10 border-r-2 border-[#D4691E] rounded" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+                Agreements
+            </a>
+</nav>
+<div class="p-4 space-y-2 mb-4">
+<button class="w-full bg-[#D4691E]/10 text-[#D4691E] py-3 rounded font-bold text-sm hover:bg-[#D4691E]/20 transition-all active:scale-95">
+                New Strategy
+            </button>
+<div class="pt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-400 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-400 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+                    Support
+                </a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Integration -->
+<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-[#0F0F1A]/60 backdrop-blur-lg flex items-center justify-between px-8 w-full border-b border-white/5">
+<div class="flex items-center gap-8">
+<span class="text-[#D4691E] font-extrabold text-xl font-headline">Command Center</span>
+<nav class="flex gap-6">
+<a class="text-slate-400 hover:text-white transition-all text-sm font-bold" href="#">Global View</a>
+<a class="text-slate-400 hover:text-white transition-all text-sm font-bold" href="#">Metrics</a>
+<a class="text-slate-400 hover:text-white transition-all text-sm font-bold" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer active:opacity-80" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer active:opacity-80" data-icon="language">language</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer active:opacity-80" data-icon="settings_input_component">settings_input_component</span>
+</div>
+<div class="h-8 w-[1px] bg-white/10"></div>
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-primary/20" data-alt="Professional executive profile photo of a senior logistics manager in a dark suit with a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ-LPDtThuIXHwhDlDHZal13wtGWYFyhZUU7bRX1WN5e_k6dodDcccwnOn1a3TvvxUiRZq9B_5YjiWKI_fwYhgpjlz_PXvu3MuZyoX9gEV5fwSVKa-yh-mU8YiXi6uHqpFNbZ8gLSAVytI5bHvk9-vtWN7Ie5_DmiH0QWY5GTT3UgCq0nAyjwO3S6_GZWEdvw1mVR9foTShz2j6oigxoyAMNonnp72OSvWqa-PagCA2pMEVvOOFpuke5luF6xKPcJdbumq5IdSxA"/>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold px-4 py-2 rounded-lg text-sm active:scale-95 transition-all">
+                    Execute Order
+                </button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-12 px-8 min-h-screen">
+<!-- Header Banner Section -->
+<div class="mb-10 flex flex-col md:flex-row justify-between items-end gap-6">
+<div class="space-y-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-0.5 bg-tertiary-container/30 text-on-tertiary-container text-[10px] font-bold tracking-widest rounded uppercase">Awaiting Signatures</span>
+<span class="text-on-surface-variant text-xs font-medium">Ref: FA-2026-001</span>
+</div>
+<h2 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface">Strategic Partnership Framework</h2>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed">This document serves as the Master Service Agreement between JAS Logistics and Global Alliance Corp for the 2026-2028 fiscal period.</p>
+</div>
+<!-- Contextual Banner: Only visible when signing logic is simulated -->
+<div class="bg-tertiary/10 border border-tertiary/20 px-6 py-3 rounded-xl flex items-center gap-4">
+<div class="flex items-center gap-2 text-tertiary font-bold">
+<span class="material-symbols-outlined text-xl" data-icon="verified">verified</span>
+<span class="tracking-tight">FA-2026-001 ACTIVE</span>
+</div>
+<div class="h-6 w-[1px] bg-tertiary/20"></div>
+<button class="text-tertiary text-sm font-bold flex items-center gap-2 hover:underline">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                    Download Signed PDF
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8 items-start">
+<!-- Full Contract Preview (Scrollable) -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container rounded-2xl shadow-2xl overflow-hidden flex flex-col border border-white/5">
+<div class="px-8 py-4 bg-surface-container-high border-b border-white/5 flex justify-between items-center">
+<span class="text-xs font-bold text-on-surface-variant tracking-widest uppercase">Contract Preview — 12 Pages</span>
+<div class="flex gap-2">
+<button class="p-1 text-on-surface-variant hover:text-white transition-colors"><span class="material-symbols-outlined" data-icon="zoom_in">zoom_in</span></button>
+<button class="p-1 text-on-surface-variant hover:text-white transition-colors"><span class="material-symbols-outlined" data-icon="zoom_out">zoom_out</span></button>
+<button class="p-1 text-on-surface-variant hover:text-white transition-colors"><span class="material-symbols-outlined" data-icon="print">print</span></button>
+</div>
+</div>
+<div class="h-[700px] overflow-y-auto p-12 bg-[#0d0d18] relative">
+<!-- Faux Document Content -->
+<div class="max-w-3xl mx-auto space-y-8 font-serif text-slate-300 leading-relaxed text-lg">
+<div class="text-center space-y-4 mb-16">
+<h3 class="text-3xl font-headline font-bold text-white tracking-tight">MASTER LOGISTICS AGREEMENT</h3>
+<p class="text-sm font-sans font-bold text-on-surface-variant tracking-widest">BETWEEN</p>
+<p class="text-xl font-sans font-bold text-primary">JAS LOGISTICS SOLUTIONS</p>
+<p class="text-sm font-sans font-bold text-on-surface-variant tracking-widest">AND</p>
+<p class="text-xl font-sans font-bold text-secondary">GLOBAL ALLIANCE CORP</p>
+</div>
+<div class="space-y-6">
+<h4 class="font-sans font-bold text-white uppercase text-sm tracking-widest border-b border-white/10 pb-2">1. DEFINITIONS AND INTERPRETATIONS</h4>
+<p>1.1 "Services" shall mean the logistics, freight forwarding, and supply chain management solutions provided by JAS Logistics as detailed in Appendix A.</p>
+<p>1.2 "Term" means the period commencing on the Effective Date and continuing for twenty-four (24) months, unless terminated earlier in accordance with Section 14.</p>
+</div>
+<div class="space-y-6">
+<h4 class="font-sans font-bold text-white uppercase text-sm tracking-widest border-b border-white/10 pb-2">2. OPERATIONAL SCOPE</h4>
+<p>The Provider agrees to maintain a 98.5% on-time delivery metric for all cross-border transits within the Gulf Cooperation Council (GCC) region. Failure to meet these metrics for three consecutive quarters will trigger a service review protocol.</p>
+<div class="bg-surface-container-low p-6 rounded-lg font-sans text-sm border border-white/5 space-y-2">
+<p class="font-bold text-primary">Key Performance Indicators (KPIs):</p>
+<ul class="list-disc pl-5 space-y-1 text-on-surface-variant">
+<li>Transit Time Accuracy: ± 4 hours</li>
+<li>Cargo Damage Ratio: &lt; 0.02%</li>
+<li>Documentation Compliance: 100%</li>
+</ul>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-sans font-bold text-white uppercase text-sm tracking-widest border-b border-white/10 pb-2">3. FINANCIAL TERMS</h4>
+<p>All invoicing shall be processed via the JAS Command Center platform. Payment terms are Net-30 from the date of digital receipt. Late payments shall accrue interest at a rate of 1.5% per month.</p>
+</div>
+<div class="h-40 border-t border-dashed border-white/20 mt-20 flex items-center justify-center italic text-slate-500">
+                            [Rest of the document redacted for preview]
+                        </div>
+</div>
+</div>
+</section>
+<!-- Signature Panels Side-by-Side -->
+<section class="col-span-12 lg:col-span-4 space-y-6 sticky top-24">
+<!-- JAS Signature Panel -->
+<div class="bg-surface-container-high rounded-2xl p-6 border border-primary/20 shadow-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" data-icon="security">security</span>
+</div>
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="corporate_fare">corporate_fare</span>
+</div>
+<div>
+<h4 class="font-bold text-white">JAS Sign Here</h4>
+<p class="text-xs text-on-surface-variant">Authorized Representative</p>
+</div>
+</div>
+<div class="signature-canvas w-full h-48 border border-white/10 rounded-xl bg-surface-container-lowest flex items-center justify-center relative cursor-crosshair">
+<span class="text-xs text-on-surface-variant/40 font-bold tracking-widest pointer-events-none">USE MOUSE OR STYLUS TO SIGN</span>
+<!-- Mockup of a partial signature -->
+<svg class="absolute inset-0 w-full h-full opacity-30 pointer-events-none" preserveaspectratio="none" viewbox="0 0 200 100">
+<path d="M20,60 C40,40 60,80 80,60 C100,40 120,80 140,50 S160,20 180,60" fill="none" stroke="#d0bcff" stroke-width="2"></path>
+</svg>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<button class="text-[10px] font-bold text-on-surface-variant uppercase hover:text-white transition-colors">Clear Canvas</button>
+<span class="text-[10px] font-mono text-on-surface-variant/60">IP: 192.168.1.104</span>
+</div>
+</div>
+<!-- Client Signature Panel -->
+<div class="bg-surface-container-high rounded-2xl p-6 border border-secondary/20 shadow-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" data-icon="person">person</span>
+</div>
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+</div>
+<div>
+<h4 class="font-bold text-white">Client Sign Here</h4>
+<p class="text-xs text-on-surface-variant">Global Alliance Principal</p>
+</div>
+</div>
+<div class="signature-canvas w-full h-48 border border-white/10 rounded-xl bg-surface-container-lowest flex items-center justify-center relative cursor-crosshair">
+<span class="text-xs text-on-surface-variant/40 font-bold tracking-widest pointer-events-none">AWAITING CLIENT INPUT</span>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<button class="text-[10px] font-bold text-on-surface-variant uppercase hover:text-white transition-colors">Clear Canvas</button>
+<span class="text-[10px] font-mono text-on-surface-variant/60">ID: GAC-8849-01</span>
+</div>
+</div>
+<!-- Action Footer for Sidebar -->
+<div class="pt-4 space-y-3">
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" data-icon="draw">draw</span>
+                        Finalize &amp; Activate Agreement
+                    </button>
+<p class="text-[10px] text-on-surface-variant text-center px-4 leading-tight">
+                        By signing, you agree to the Digital Signature Act and the terms outlined in FA-2026-001. All actions are logged and encrypted.
+                    </p>
+</div>
+</section>
+</div>
+<!-- Footer Meta Info -->
+<footer class="mt-12 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 pt-8">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-lg grayscale opacity-50" data-alt="Abstract secure network connection background with glowing nodes and data lines representing blockchain security" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_UH7P9sm8ZX29lbXPRjKepWh_PFiAteGXyeVACBHiJuiT9-wzl3Vj32Kg_NVyaVbrZwsfXGkY_vOliPZAgZD7uUOQ4X5d9gq5r6ZkyelsPbPT1wV_mGsaegSzi8hMV8n2SuB-8lNeT8qBkMY_853U8eetlCdsnNolAcbFRRacl4wZ4YiRUU0R_SNEZLJhZM_Xa03CCVoJL1_XCmE3waJfUpiw1dDiXDWVaG_aRf4YSWGNgtW5_X-fmzbpSa5VApxbCpIdoRwVHA"/>
+<div>
+<p class="text-sm font-bold text-white">Blockchain Secured Agreement</p>
+<p class="text-xs text-on-surface-variant font-mono">Hash: 8f2e...4a1b9c8d</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="px-4 py-2 bg-surface-container rounded-lg border border-white/5">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Drafted By</p>
+<p class="text-sm text-white">Legal Ops Team</p>
+</div>
+<div class="px-4 py-2 bg-surface-container rounded-lg border border-white/5">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Expiration</p>
+<p class="text-sm text-white">Dec 31, 2027</p>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

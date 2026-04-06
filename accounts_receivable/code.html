@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Command Hub | Accounts Receivable</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#e3e0f1",
+                      "surface-container-highest": "#343440",
+                      "secondary": "#cfbef6",
+                      "on-secondary": "#352856",
+                      "outline-variant": "#494453",
+                      "tertiary": "#ffb68e",
+                      "primary-fixed": "#e9ddff",
+                      "on-surface-variant": "#cbc3d5",
+                      "on-primary": "#3b0092",
+                      "surface-container-high": "#292935",
+                      "surface-tint": "#d0bcff",
+                      "surface-container": "#1f1e2a",
+                      "inverse-on-surface": "#302f3b",
+                      "tertiary-fixed-dim": "#ffb68e",
+                      "on-primary-container": "#b79cff",
+                      "inverse-surface": "#e3e0f1",
+                      "surface-dim": "#12121d",
+                      "surface-container-low": "#1b1a26",
+                      "secondary-fixed-dim": "#cfbef6",
+                      "on-error-container": "#ffdad6",
+                      "error": "#ffb4ab",
+                      "background": "#12121d",
+                      "surface-container-lowest": "#0d0d18",
+                      "primary": "#d0bcff",
+                      "surface-bright": "#383845",
+                      "error-container": "#93000a",
+                      "surface": "#12121d",
+                      "on-error": "#690005",
+                      "on-secondary-fixed-variant": "#4c3f6e",
+                      "on-secondary-container": "#c0b0e7",
+                      "outline": "#948e9e",
+                      "primary-container": "#4b1fa3",
+                      "surface-variant": "#343440",
+                      "on-tertiary": "#532200",
+                      "tertiary-fixed": "#ffdbc9",
+                      "tertiary-container": "#6c2e00",
+                      "secondary-fixed": "#e9ddff",
+                      "primary-fixed-dim": "#d0bcff",
+                      "on-tertiary-container": "#f09661",
+                      "on-secondary-fixed": "#201340",
+                      "on-primary-fixed": "#22005c",
+                      "secondary-container": "#4f4171",
+                      "on-tertiary-fixed-variant": "#743405",
+                      "on-tertiary-fixed": "#331200",
+                      "on-primary-fixed-variant": "#5228aa",
+                      "on-surface": "#e3e0f1",
+                      "inverse-primary": "#6a45c3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Poppins", "Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Plus Jakarta Sans"],
+                      "mono": ["JetBrains Mono"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #12121d;
+            color: #e3e0f1;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 h-16 bg-slate-950/80 backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-6 w-full shadow-2xl shadow-violet-900/10">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-white font-headline">JAS Command Hub</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-400 hover:text-white transition-colors font-label text-sm" href="#">Global View</a>
+<a class="text-slate-400 hover:text-white transition-colors font-label text-sm" href="#">Marketplace</a>
+<a class="text-slate-400 hover:text-white transition-colors font-label text-sm" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-white transition-colors cursor-pointer">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-violet-500 rounded-full border border-slate-950"></span>
+</div>
+<span class="material-symbols-outlined text-slate-400 hover:text-white transition-colors cursor-pointer">settings</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-white transition-colors cursor-pointer">help</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/10 ml-2">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional portrait of a middle-aged male executive in a sharp navy suit with subtle studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdechZfd2CuUa5zUsILaDf14fhFzd50JeYoM4R8S7oLiLlO7bixwova8AB2agSsWHuWQyrM8n0uByxzYXFv_o9JnJM4IOxotI0sSv_WWl9BgsJnuj6hZ8TDFwkclAUlDM_XP-sJSF4KRcOfs7gtxK8v_MXqPsvmmC-2qGyI6vyvMuim2mEyeq7iX4VlheZ4q6ttBPBVHCuJyBrdTcFFOJ19wSRV4KXaARL5GVcBjb2MEI0_B3hvgoLK1BFJVznyWkGWzsZXScYpA"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-slate-900/50 backdrop-blur-lg flex flex-col py-4 h-full border-r border-white/5 bg-gradient-to-r from-white/5 to-transparent z-40">
+<div class="px-6 mb-8">
+<h2 class="font-headline font-black text-violet-500 text-lg uppercase tracking-wider">Finance Division</h2>
+<p class="text-[10px] text-slate-500 font-label tracking-widest uppercase">JAS Logistics</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-slate-400 hover:text-slate-100 px-4 py-3 flex items-center gap-4 hover:bg-slate-800/50 transition-colors group" href="#">
+<span class="material-symbols-outlined text-violet-400">dashboard</span>
+<span class="font-label text-sm transition-transform group-hover:translate-x-1 duration-200">Dashboard</span>
+</a>
+<a class="text-white bg-violet-600/20 border-r-4 border-violet-500 font-semibold px-4 py-3 flex items-center gap-4 transition-colors group" href="#">
+<span class="material-symbols-outlined text-violet-400">payments</span>
+<span class="font-label text-sm transition-transform group-hover:translate-x-1 duration-200">Receivables</span>
+</a>
+<a class="text-slate-400 hover:text-slate-100 px-4 py-3 flex items-center gap-4 hover:bg-slate-800/50 transition-colors group" href="#">
+<span class="material-symbols-outlined text-violet-400">account_balance_wallet</span>
+<span class="font-label text-sm transition-transform group-hover:translate-x-1 duration-200">Payables</span>
+</a>
+<a class="text-slate-400 hover:text-slate-100 px-4 py-3 flex items-center gap-4 hover:bg-slate-800/50 transition-colors group" href="#">
+<span class="material-symbols-outlined text-violet-400">domain</span>
+<span class="font-label text-sm transition-transform group-hover:translate-x-1 duration-200">Billing Entities</span>
+</a>
+<a class="text-slate-400 hover:text-slate-100 px-4 py-3 flex items-center gap-4 hover:bg-slate-800/50 transition-colors group" href="#">
+<span class="material-symbols-outlined text-violet-400">verified_user</span>
+<span class="font-label text-sm transition-transform group-hover:translate-x-1 duration-200">ZATCA Compliance</span>
+</a>
+<a class="text-slate-400 hover:text-slate-100 px-4 py-3 flex items-center gap-4 hover:bg-slate-800/50 transition-colors group" href="#">
+<span class="material-symbols-outlined text-violet-400">analytics</span>
+<span class="font-label text-sm transition-transform group-hover:translate-x-1 duration-200">Revenue Recognition</span>
+</a>
+</nav>
+<div class="px-4 mb-4">
+<button class="w-full bg-violet-600 hover:bg-violet-500 text-white py-2 rounded-lg font-label text-sm font-bold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg shadow-violet-900/20">
+<span class="material-symbols-outlined text-sm">add_chart</span>
+                Generate Report
+            </button>
+</div>
+<div class="border-t border-white/5 pt-4 space-y-1">
+<a class="text-slate-400 hover:text-slate-100 px-4 py-2 flex items-center gap-4 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">contact_support</span>
+<span class="font-label text-sm">Support</span>
+</a>
+<a class="text-slate-400 hover:text-slate-100 px-4 py-2 flex items-center gap-4 hover:bg-slate-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span class="font-label text-sm">Log out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-background">
+<div class="p-8 max-w-[1600px] mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+<div>
+<nav class="flex items-center gap-2 text-xs font-label text-on-surface-variant mb-2">
+<span>Finance</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary font-semibold">Receivables</span>
+</nav>
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-white">Accounts Receivable</h1>
+<p class="text-on-surface-variant text-sm mt-1">Management of outstanding logistics capital and ZATCA-compliant invoicing.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline font-bold text-sm rounded-lg flex items-center gap-2 hover:opacity-90 transition-all active:scale-95 shadow-xl shadow-primary/10">
+                        Send Reminder to All Overdue
+                        <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+<!-- Bento Summary Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<div class="bg-surface-container-low p-6 rounded-xl border border-white/5 shadow-sm group hover:border-primary/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-primary/10 rounded-lg text-primary material-symbols-outlined">account_balance</span>
+<span class="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 rounded">+12.4% vs LM</span>
+</div>
+<p class="text-on-surface-variant text-xs font-label uppercase tracking-widest">Total Outstanding</p>
+<h3 class="text-2xl font-mono font-bold mt-1">SAR 4,289,450.00</h3>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-white/5 shadow-sm group hover:border-error/30 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-error/10 rounded-lg text-error material-symbols-outlined">warning</span>
+<span class="text-[10px] font-mono text-error bg-error/10 px-2 py-0.5 rounded">High Alert</span>
+</div>
+<p class="text-on-surface-variant text-xs font-label uppercase tracking-widest">Total Overdue</p>
+<h3 class="text-2xl font-mono font-bold mt-1">SAR 1,104,220.50</h3>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-white/5 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-tertiary/10 rounded-lg text-tertiary material-symbols-outlined">timer</span>
+<span class="text-[10px] font-mono text-tertiary bg-tertiary/10 px-2 py-0.5 rounded">Avg. 34d</span>
+</div>
+<p class="text-on-surface-variant text-xs font-label uppercase tracking-widest">Aging Index</p>
+<h3 class="text-2xl font-mono font-bold mt-1">42 Days</h3>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-white/5 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="p-2 bg-secondary/10 rounded-lg text-secondary material-symbols-outlined">verified</span>
+<span class="text-[10px] font-mono text-secondary bg-secondary/10 px-2 py-0.5 rounded">98.2%</span>
+</div>
+<p class="text-on-surface-variant text-xs font-label uppercase tracking-widest">Compliance Rate</p>
+<h3 class="text-2xl font-mono font-bold mt-1">ZATCA V2</h3>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-surface-container-high rounded-xl p-4 mb-6 flex flex-wrap items-center gap-4 border border-white/5">
+<div class="flex-1 min-w-[200px] relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg pl-10 py-2 text-sm text-white focus:ring-1 focus:ring-primary transition-all" placeholder="Client, Invoice, FA Ref..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<div class="bg-surface-container-lowest px-3 py-2 rounded-lg flex items-center gap-2 border border-white/5 cursor-pointer hover:bg-surface-container transition-colors">
+<span class="text-xs font-label text-on-surface-variant">Type:</span>
+<span class="text-xs font-bold text-white">FA/Spot</span>
+<span class="material-symbols-outlined text-xs">expand_more</span>
+</div>
+<div class="bg-surface-container-lowest px-3 py-2 rounded-lg flex items-center gap-2 border border-white/5 cursor-pointer hover:bg-surface-container transition-colors">
+<span class="text-xs font-label text-on-surface-variant">Aging:</span>
+<span class="text-xs font-bold text-white">All Buckets</span>
+<span class="material-symbols-outlined text-xs">expand_more</span>
+</div>
+<div class="bg-surface-container-lowest px-3 py-2 rounded-lg flex items-center gap-2 border border-white/5 cursor-pointer hover:bg-surface-container transition-colors">
+<span class="text-xs font-label text-on-surface-variant">Status:</span>
+<span class="text-xs font-bold text-white">Any</span>
+<span class="material-symbols-outlined text-xs">expand_more</span>
+</div>
+<div class="bg-surface-container-lowest px-3 py-2 rounded-lg flex items-center gap-2 border border-white/5 cursor-pointer hover:bg-surface-container transition-colors">
+<span class="text-xs font-label text-on-surface-variant">Range:</span>
+<span class="text-xs font-bold text-white">10k - 500k</span>
+<span class="material-symbols-outlined text-xs">tune</span>
+</div>
+<div class="h-8 w-px bg-white/10 mx-2"></div>
+<button class="p-2 bg-surface-container-highest text-white rounded-lg hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">filter_alt_off</span>
+</button>
+</div>
+</div>
+<!-- Terminal Style Table -->
+<div class="bg-surface-container-low rounded-xl border border-white/5 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/30 border-b border-white/5">
+<th class="px-6 py-4 font-label text-[11px] uppercase tracking-widest text-on-surface-variant">Client</th>
+<th class="px-4 py-4 font-label text-[11px] uppercase tracking-widest text-on-surface-variant">Invoice #</th>
+<th class="px-4 py-4 font-label text-[11px] uppercase tracking-widest text-on-surface-variant">FA Ref</th>
+<th class="px-4 py-4 font-label text-[11px] uppercase tracking-widest text-on-surface-variant">Issue Date</th>
+<th class="px-4 py-4 font-label text-[11px] uppercase tracking-widest text-on-surface-variant">Due Date</th>
+<th class="px-4 py-4 font-label text-[11px] uppercase tracking-widest text-on-surface-variant text-right">Amount (SAR)</th>
+<th class="px-4 py-4 font-label text-[11px] uppercase tracking-widest text-on-surface-variant text-right">VAT</th>
+<th class="px-4 py-4 font-label text-[11px] uppercase tracking-widest text-on-surface-variant text-right">Total</th>
+<th class="px-4 py-4 font-label text-[11px] uppercase tracking-widest text-on-surface-variant text-center">Status</th>
+<th class="px-4 py-4 font-label text-[11px] uppercase tracking-widest text-on-surface-variant text-center">Overdue</th>
+<th class="px-6 py-4 font-label text-[11px] uppercase tracking-widest text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 font-body">
+<!-- Row 1: High Overdue -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-bold text-sm text-white">Aramco Global Logistics</span>
+<span class="text-[10px] text-on-surface-variant uppercase">Key Account</span>
+</div>
+</td>
+<td class="px-4 py-4 font-mono text-xs text-on-surface-variant">INV-2024-0012</td>
+<td class="px-4 py-4 font-mono text-xs text-on-surface-variant">FA/9821</td>
+<td class="px-4 py-4 text-xs text-on-surface">12 Feb 2024</td>
+<td class="px-4 py-4 text-xs text-on-surface">12 Mar 2024</td>
+<td class="px-4 py-4 font-mono text-xs text-right">180,000.00</td>
+<td class="px-4 py-4 font-mono text-xs text-right">27,000.00</td>
+<td class="px-4 py-4 font-mono text-xs text-right font-bold text-white">207,000.00</td>
+<td class="px-4 py-4 text-center">
+<span class="px-2 py-0.5 bg-error-container/20 text-error text-[10px] font-bold rounded border border-error/20">UNPAID</span>
+</td>
+<td class="px-4 py-4 text-center">
+<span class="text-error font-mono font-bold text-xs">45 Days</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 hover:bg-primary/20 text-primary rounded-lg transition-all" title="Send Reminder"><span class="material-symbols-outlined text-sm">mail</span></button>
+<button class="p-1.5 hover:bg-surface-container-high text-white rounded-lg transition-all" title="View Invoice"><span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="p-1.5 hover:bg-tertiary/20 text-tertiary rounded-lg transition-all" title="Apply Payment"><span class="material-symbols-outlined text-sm">receipt_long</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Moderate Overdue -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-bold text-sm text-white">NEOM Construction Hub</span>
+<span class="text-[10px] text-on-surface-variant uppercase">Spot Project</span>
+</div>
+</td>
+<td class="px-4 py-4 font-mono text-xs text-on-surface-variant">INV-2024-0045</td>
+<td class="px-4 py-4 font-mono text-xs text-on-surface-variant">SP/2290</td>
+<td class="px-4 py-4 text-xs text-on-surface">15 Mar 2024</td>
+<td class="px-4 py-4 text-xs text-on-surface">15 Apr 2024</td>
+<td class="px-4 py-4 font-mono text-xs text-right">45,000.00</td>
+<td class="px-4 py-4 font-mono text-xs text-right">6,750.00</td>
+<td class="px-4 py-4 font-mono text-xs text-right font-bold text-white">51,750.00</td>
+<td class="px-4 py-4 text-center">
+<span class="px-2 py-0.5 bg-tertiary-container/20 text-tertiary text-[10px] font-bold rounded border border-tertiary/20">PENDING</span>
+</td>
+<td class="px-4 py-4 text-center">
+<span class="text-tertiary font-mono font-bold text-xs">12 Days</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 hover:bg-primary/20 text-primary rounded-lg transition-all" title="Send Reminder"><span class="material-symbols-outlined text-sm">mail</span></button>
+<button class="p-1.5 hover:bg-surface-container-high text-white rounded-lg transition-all" title="View Invoice"><span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="p-1.5 hover:bg-tertiary/20 text-tertiary rounded-lg transition-all" title="Apply Payment"><span class="material-symbols-outlined text-sm">receipt_long</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Slight Overdue -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-bold text-sm text-white">Bahri Shipping Lines</span>
+<span class="text-[10px] text-on-surface-variant uppercase">Regular Client</span>
+</div>
+</td>
+<td class="px-4 py-4 font-mono text-xs text-on-surface-variant">INV-2024-0089</td>
+<td class="px-4 py-4 font-mono text-xs text-on-surface-variant">FA/7734</td>
+<td class="px-4 py-4 text-xs text-on-surface">22 Mar 2024</td>
+<td class="px-4 py-4 text-xs text-on-surface">22 Apr 2024</td>
+<td class="px-4 py-4 font-mono text-xs text-right">12,500.00</td>
+<td class="px-4 py-4 font-mono text-xs text-right">1,875.00</td>
+<td class="px-4 py-4 font-mono text-xs text-right font-bold text-white">14,375.00</td>
+<td class="px-4 py-4 text-center">
+<span class="px-2 py-0.5 bg-on-surface-variant/10 text-on-surface-variant text-[10px] font-bold rounded border border-white/10">STAGED</span>
+</td>
+<td class="px-4 py-4 text-center">
+<span class="text-on-surface-variant font-mono font-bold text-xs">5 Days</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 hover:bg-primary/20 text-primary rounded-lg transition-all" title="Send Reminder"><span class="material-symbols-outlined text-sm">mail</span></button>
+<button class="p-1.5 hover:bg-surface-container-high text-white rounded-lg transition-all" title="View Invoice"><span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="p-1.5 hover:bg-tertiary/20 text-tertiary rounded-lg transition-all" title="Apply Payment"><span class="material-symbols-outlined text-sm">receipt_long</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Large Transaction -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-bold text-sm text-white">SABIC Manufacturing</span>
+<span class="text-[10px] text-on-surface-variant uppercase">Platinum Account</span>
+</div>
+</td>
+<td class="px-4 py-4 font-mono text-xs text-on-surface-variant">INV-2024-0005</td>
+<td class="px-4 py-4 font-mono text-xs text-on-surface-variant">FA/1102</td>
+<td class="px-4 py-4 text-xs text-on-surface">01 Feb 2024</td>
+<td class="px-4 py-4 text-xs text-on-surface">01 Mar 2024</td>
+<td class="px-4 py-4 font-mono text-xs text-right">720,000.00</td>
+<td class="px-4 py-4 font-mono text-xs text-right">108,000.00</td>
+<td class="px-4 py-4 font-mono text-xs text-right font-bold text-white">828,000.00</td>
+<td class="px-4 py-4 text-center">
+<span class="px-2 py-0.5 bg-error-container/20 text-error text-[10px] font-bold rounded border border-error/20">UNPAID</span>
+</td>
+<td class="px-4 py-4 text-center">
+<span class="text-error font-mono font-bold text-xs">56 Days</span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-1.5 hover:bg-primary/20 text-primary rounded-lg transition-all" title="Send Reminder"><span class="material-symbols-outlined text-sm">mail</span></button>
+<button class="p-1.5 hover:bg-surface-container-high text-white rounded-lg transition-all" title="View Invoice"><span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="p-1.5 hover:bg-tertiary/20 text-tertiary rounded-lg transition-all" title="Apply Payment"><span class="material-symbols-outlined text-sm">receipt_long</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="bg-surface-container-highest/50 border-t border-white/10">
+<td class="px-6 py-6 font-headline font-bold text-white text-sm" colspan="5">TOTALS</td>
+<td class="px-4 py-6 font-mono font-bold text-sm text-right text-on-surface-variant italic">957,500.00</td>
+<td class="px-4 py-6 font-mono font-bold text-sm text-right text-on-surface-variant italic">143,625.00</td>
+<td class="px-4 py-6 font-mono font-bold text-base text-right text-white">1,101,125.00</td>
+<td class="px-6 py-6 text-right" colspan="3">
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-label">Outstanding Balance</span>
+<span class="text-xl font-mono font-black text-primary">SAR 4,289,450.00</span>
+</div>
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<!-- Detailed Stats & Aging Buckets -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Aging Distribution Card -->
+<div class="col-span-2 bg-surface-container-low rounded-xl border border-white/5 p-6">
+<h4 class="font-headline font-bold text-white text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bar_chart</span>
+                        Aging Distribution (Bucket Analysis)
+                    </h4>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-label">
+<span class="text-on-surface-variant">Current (0-30 Days)</span>
+<span class="text-white font-mono">SAR 2,120,000 (49%)</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-violet-400 w-[49%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-label">
+<span class="text-on-surface-variant">31-60 Days</span>
+<span class="text-white font-mono">SAR 1,450,220 (34%)</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-violet-600 w-[34%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-label">
+<span class="text-error">61-90 Days</span>
+<span class="text-white font-mono">SAR 610,120 (14%)</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error w-[14%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-label">
+<span class="text-error font-black">90+ Days</span>
+<span class="text-white font-mono">SAR 109,110 (3%)</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error-container w-[3%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions / Compliance Card -->
+<div class="bg-gradient-to-br from-surface-container-high to-surface-container-low rounded-xl border border-white/5 p-6">
+<h4 class="font-headline font-bold text-white text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">bolt</span>
+                        Operational Integrity
+                    </h4>
+<div class="space-y-4">
+<div class="p-4 bg-white/5 rounded-lg border border-white/5 flex items-center gap-4 group cursor-pointer hover:bg-white/10 transition-all">
+<div class="p-3 bg-tertiary/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="text-xs font-bold text-white">Batch Export Invoices</p>
+<p class="text-[10px] text-on-surface-variant">PDF, XML (ZATCA Format)</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+<div class="p-4 bg-white/5 rounded-lg border border-white/5 flex items-center gap-4 group cursor-pointer hover:bg-white/10 transition-all">
+<div class="p-3 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">account_tree</span>
+</div>
+<div>
+<p class="text-xs font-bold text-white">Auto-Reconciliation</p>
+<p class="text-[10px] text-on-surface-variant">Sync with ERP/Bank Feed</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+<div class="p-4 bg-white/5 rounded-lg border border-white/5 flex items-center gap-4 group cursor-pointer hover:bg-white/10 transition-all">
+<div class="p-3 bg-secondary/10 rounded-lg text-secondary">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<p class="text-xs font-bold text-white">Compliance Check</p>
+<p class="text-[10px] text-on-surface-variant">Run ZATCA Validation Rulebook</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

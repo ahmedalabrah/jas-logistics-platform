@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Negotiation Thread</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#22005c",
+                    "secondary": "#cfbef6",
+                    "primary-container": "#4b1fa3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#c0b0e7",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary": "#3b0092",
+                    "surface-variant": "#343440",
+                    "surface-container-high": "#292935",
+                    "tertiary-container": "#6c2e00",
+                    "outline": "#948e9e",
+                    "on-secondary": "#352856",
+                    "on-tertiary": "#532200",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#1b1a26",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary-fixed": "#331200",
+                    "tertiary": "#ffb68e",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "inverse-surface": "#e3e0f1",
+                    "inverse-primary": "#6a45c3",
+                    "outline-variant": "#494453",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "inverse-on-surface": "#302f3b",
+                    "error-container": "#93000a",
+                    "surface-tint": "#d0bcff",
+                    "secondary-fixed": "#e9ddff",
+                    "background": "#12121d",
+                    "on-primary-container": "#b79cff",
+                    "surface-bright": "#383845",
+                    "surface-container": "#1f1e2a",
+                    "surface": "#12121d",
+                    "on-error": "#690005",
+                    "primary-fixed": "#e9ddff",
+                    "on-background": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "secondary-container": "#4f4171",
+                    "primary": "#d0bcff",
+                    "surface-container-highest": "#343440",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-surface": "#e3e0f1",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-tertiary-container": "#f09661",
+                    "on-secondary-fixed": "#201340",
+                    "surface-dim": "#12121d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(15, 15, 26, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body overflow-hidden">
+<!-- Sidebar (Predicted: SideNavBar) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#0F0F1A]/80 backdrop-blur-xl flex flex-col border-r border-white/10 shadow-[20px_0_40px_-15px_rgba(0,0,0,0.5)] z-50">
+<div class="p-6">
+<h1 class="text-[#D4691E] font-black tracking-tighter text-2xl">JAS Logistics</h1>
+<p class="text-slate-400 text-xs font-headline uppercase tracking-widest mt-1">Master Command</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard_customize">dashboard_customize</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Command Center</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Alert Center</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="pending_actions">pending_actions</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Order Queue</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Spot Quoting</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#D4691E] bg-[#D4691E]/10 border-r-2 border-[#D4691E] font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span>Agreements</span>
+</div>
+</nav>
+<div class="p-6 border-t border-white/5">
+<button class="w-full py-3 bg-[#D4691E] text-white rounded-lg font-bold text-sm tracking-wide active:scale-95 transition-transform">
+                New Strategy
+            </button>
+</div>
+<footer class="px-4 py-6 space-y-2">
+<div class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-400 hover:text-slate-200 transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-400 hover:text-slate-200 transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="text-sm">Support</span>
+</div>
+</footer>
+</aside>
+<!-- Header (Predicted: TopNavBar) -->
+<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-[#0F0F1A]/60 backdrop-blur-lg flex items-center justify-between px-8 bg-gradient-to-b from-white/5 to-transparent">
+<div class="flex items-center gap-8">
+<span class="text-[#D4691E] font-extrabold text-xl tracking-tight">Command Center</span>
+<nav class="flex gap-6">
+<a class="text-slate-400 hover:text-white font-['Plus_Jakarta_Sans'] font-bold text-sm transition-all" href="#">Global View</a>
+<a class="text-slate-400 hover:text-white font-['Plus_Jakarta_Sans'] font-bold text-sm transition-all" href="#">Metrics</a>
+<a class="text-slate-400 hover:text-white font-['Plus_Jakarta_Sans'] font-bold text-sm transition-all" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-[#D4691E]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-[#D4691E]" data-icon="language">language</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-[#D4691E]" data-icon="settings_input_component">settings_input_component</span>
+</div>
+<div class="h-8 w-px bg-white/10 mx-2"></div>
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="text-right">
+<p class="text-xs font-bold text-on-surface">Executive Admin</p>
+<p class="text-[10px] text-on-surface-variant">Active Now</p>
+</div>
+<img alt="Executive Admin" class="h-10 w-10 rounded-full border border-[#D4691E]/50 p-0.5" data-alt="close-up portrait of a professional male executive with a confident expression in a sharp business suit against a dark bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgCm5Zlr26x9TVvCiYHcylFRa3LjKvnpyyTgPpcS2wQpZN4NSqzEyzUiVXn75EKfGl74nsFYxQ1K9a-4q9irAasP2RWB5bA4oPPrqmwM2v9dOuduLIRQXarIPaWo0k-MRlLAqp2icb2DoniEeP-O3pw7DLCLmmtePduHtVFjz7Gc0KneHyj7N-_s8SpaMoooNHS7WGzFlyP3_dJW6ZYwc-OFSNAAnXZ770QotdSuUaMTBYxTxQ0YGY41-nyz47MZ6_SSQRMVbW8g"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-16 h-screen flex">
+<!-- Left Section: Thread Context & Active Negotiations -->
+<section class="w-80 border-r border-white/5 flex flex-col bg-surface-container-lowest">
+<div class="p-6">
+<h2 class="text-lg font-headline font-bold text-primary">Negotiations</h2>
+<div class="mt-4 space-y-4">
+<div class="p-4 rounded-xl bg-surface-container-high border-l-4 border-tertiary">
+<p class="text-xs text-on-surface-variant font-medium">THREAD ID: #FA-07</p>
+<h3 class="text-sm font-bold mt-1">Storage Rate Review</h3>
+<div class="flex items-center gap-2 mt-3">
+<span class="h-2 w-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-[10px] text-tertiary font-bold tracking-widest uppercase">Awaiting Action</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer group">
+<p class="text-xs text-on-surface-variant font-medium">THREAD ID: #FA-04</p>
+<h3 class="text-sm font-bold mt-1">Last Mile Expansion</h3>
+<p class="text-[10px] text-slate-500 mt-2 uppercase">Signed 2h ago</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Center: Negotiation Core -->
+<section class="flex-1 flex flex-col h-full bg-surface-dim relative">
+<!-- Proposal Header -->
+<div class="p-8 pb-4 flex justify-between items-center bg-gradient-to-b from-surface-container-lowest to-transparent">
+<div>
+<h1 class="text-2xl font-headline font-extrabold tracking-tight">Active Rate Proposal</h1>
+<p class="text-on-surface-variant text-sm mt-1">Ref: Contract Amendment 2024-C</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-surface-container-high text-on-surface text-sm font-bold rounded-lg border border-white/10 hover:bg-surface-bright transition-all">View Full Contract</button>
+<button class="px-4 py-2 bg-primary-container text-primary text-sm font-bold rounded-lg hover:bg-primary transition-colors">History</button>
+</div>
+</div>
+<!-- Thread & Tracked Changes -->
+<div class="flex-1 overflow-y-auto px-8 py-4 space-y-8 scrollbar-hide">
+<!-- System Event: Proposal Card -->
+<div class="max-w-2xl mx-auto">
+<div class="bg-surface-container-high rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+<div class="bg-primary/10 px-6 py-3 flex items-center justify-between border-b border-white/5">
+<span class="text-primary font-bold text-xs flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="edit_document">edit_document</span>
+                                TRACKED CHANGES
+                            </span>
+<span class="text-on-surface-variant text-[10px]">Proposed by JAS Logistics • 10:42 AM</span>
+</div>
+<div class="p-8">
+<div class="flex items-center justify-between">
+<div class="space-y-1">
+<h4 class="text-on-surface-variant text-xs uppercase font-bold tracking-tighter">Current Value</h4>
+<div class="text-3xl font-headline font-bold text-on-surface line-through decoration-error/50 opacity-60">SAR 4.50</div>
+</div>
+<div class="px-6 flex items-center">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="trending_down">trending_down</span>
+</div>
+<div class="space-y-1 text-right">
+<h4 class="text-tertiary text-xs uppercase font-bold tracking-tighter">Proposed Value</h4>
+<div class="text-4xl font-headline font-extrabold text-tertiary">SAR 4.20</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/5">
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                    Revision applied to <span class="text-on-surface font-semibold underline decoration-primary/30">Clause 4.2: Dynamic Cold Storage Multiplier</span>. 
+                                    This adjustment reflects optimized pallet density in the NEOM Northern Sector.
+                                </p>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 py-4 bg-tertiary text-on-tertiary font-black rounded-xl text-sm uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-tertiary/20">
+                                    Accept Proposal
+                                </button>
+<button class="flex-1 py-4 bg-surface-container-highest text-on-surface font-bold rounded-xl text-sm uppercase tracking-widest hover:bg-surface-bright transition-all border border-white/10">
+                                    Counter
+                                </button>
+<button class="px-6 py-4 bg-error-container text-on-error-container font-bold rounded-xl text-sm transition-all border border-transparent hover:border-error/20">
+<span class="material-symbols-outlined align-middle" data-icon="block">block</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Chat: JAS Bubble (Left) -->
+<div class="flex justify-start">
+<div class="max-w-md flex flex-col items-start gap-2">
+<div class="flex items-center gap-2">
+<img alt="JAS Logistics Rep" class="h-6 w-6 rounded-full" data-alt="professional portrait of a middle-eastern business man in a professional grey suit with a blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVme8fFHIjwIeih3GU9wdpHvXjxLRu269_jIv36tpLOa3TQEEa1O9ylYwOkqp-krlS9Pg14D6t42zbxJyPp8-iMF0AJ5FXlsR2FfUzVzv4cjGFqXpu6XDy9C4pG3yEfdGJRVU7bvitigk2-qF_OS6I6O8DrCi1ZGe12A-HPfJJqO4Kb2LK19LOwUb48qrQ1vL1qODyp0XMGHhtnUqLdb6Lyob9phPtlAt1iShARUqS3OAqwr2HmIwahRNhrKWH4ILqxRIrNDLTlQ"/>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">JAS • Faisal Al-Qahtani</span>
+</div>
+<div class="bg-surface-container text-on-surface p-4 rounded-2xl rounded-tl-none border border-white/5 text-sm leading-relaxed shadow-lg">
+                            We've optimized our supply chain operations in the northern corridor, which allows us to pass these storage savings directly to your account. This is our best possible rate for Q4.
+                        </div>
+<span class="text-[9px] text-slate-600 px-1">10:44 AM</span>
+</div>
+</div>
+<!-- Chat: Client Bubble (Right) -->
+<div class="flex justify-end">
+<div class="max-w-md flex flex-col items-end gap-2 text-right">
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Client • Sarah Miller</span>
+<div class="h-6 w-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[10px] font-black">SM</div>
+</div>
+<div class="bg-primary-container text-on-primary-container p-4 rounded-2xl rounded-tr-none text-sm leading-relaxed shadow-lg">
+                            The rate looks promising, but we need to ensure this doesn't affect the expedited clearance SLA. Can you confirm the 24-hour window is still guaranteed at SAR 4.20?
+                        </div>
+<span class="text-[9px] text-slate-600 px-1">10:46 AM</span>
+</div>
+</div>
+<!-- Chat: JAS Bubble (Left) -->
+<div class="flex justify-start">
+<div class="max-w-md flex flex-col items-start gap-2">
+<div class="flex items-center gap-2">
+<img alt="JAS Logistics Rep" class="h-6 w-6 rounded-full" data-alt="professional portrait of a middle-eastern business man in a professional grey suit with a blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3_5HOZWpX2SWE4QOQs-eKMq8hAR82TD3U61u7ZCdM8Us2_4hCYOR2T-6WdoOQ_POavjUz6k8KJlaV57oaWAozEjpKovK60xY1MYr_wovrxQRdeNv3aSo3_TGYYAZHPUG-CzoQRx3eMj2UEJ1MduaYBpyPV7tsAS3Uplw95t7DkrehaK1JvPA9oT8R23Phavm4mbkFyERQwAdFI3Qp25fVqMlQCIuJwUyceabGHOky9tn-esQWTG9tZbfg_alT5_cj4ga0dIgsrw"/>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">JAS • Faisal Al-Qahtani</span>
+</div>
+<div class="bg-surface-container text-on-surface p-4 rounded-2xl rounded-tl-none border border-white/5 text-sm leading-relaxed shadow-lg">
+                            Absolutely. The SLA remains unchanged. This optimization is purely infrastructural.
+                        </div>
+<span class="text-[9px] text-slate-600 px-1">10:48 AM</span>
+</div>
+</div>
+</div>
+<!-- Chat Input Bottom Area -->
+<div class="p-8 pt-0">
+<div class="max-w-4xl mx-auto">
+<div class="glass-panel p-4 rounded-2xl border border-white/10 flex items-center gap-4 shadow-2xl">
+<button class="h-10 w-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined" data-icon="add">attach_file</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-slate-500 text-sm" placeholder="Type your message or counter-offer details..." type="text"/>
+<button class="px-6 py-2 bg-[#D4691E] text-white font-bold rounded-xl flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span>Send</span>
+<span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+</button>
+</div>
+<div class="mt-4 flex gap-6 justify-center">
+<div class="flex items-center gap-2 cursor-pointer group">
+<span class="h-2 w-2 rounded-full bg-tertiary"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-tertiary transition-colors">Request Approval</span>
+</div>
+<div class="flex items-center gap-2 cursor-pointer group">
+<span class="h-2 w-2 rounded-full bg-secondary"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-secondary transition-colors">Tag Legal</span>
+</div>
+<div class="flex items-center gap-2 cursor-pointer group">
+<span class="h-2 w-2 rounded-full bg-error"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant group-hover:text-error transition-colors">Archive Thread</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Side: Metadata / Activity -->
+<section class="w-72 bg-surface-container-lowest border-l border-white/5 p-6 space-y-8 hidden xl:block overflow-y-auto scrollbar-hide">
+<div>
+<h4 class="text-xs font-bold text-primary tracking-widest uppercase mb-4">Participants</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-lg bg-surface-container-high border border-white/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="person">person</span>
+</div>
+<div>
+<p class="text-xs font-bold">Faisal Al-Qahtani</p>
+<p class="text-[10px] text-slate-500">Managing Director, JAS</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-lg bg-surface-container-high border border-white/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="person">person</span>
+</div>
+<div>
+<p class="text-xs font-bold">Sarah Miller</p>
+<p class="text-[10px] text-slate-500">Procurement Head, Client</p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-white/5">
+<h4 class="text-xs font-bold text-primary tracking-widest uppercase mb-4">Document Snapshot</h4>
+<div class="p-4 rounded-xl bg-surface-container-high border border-white/5 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-[10px] text-slate-500">MSA_V4_ANNEX_B.PDF</p>
+<p class="text-xs font-bold mt-1">Pricing Schedule</p>
+<button class="mt-3 text-[10px] font-black text-tertiary uppercase flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Download <span class="material-symbols-outlined text-xs" data-icon="download">download</span>
+</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-6xl" data-icon="description">description</span>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-white/5">
+<h4 class="text-xs font-bold text-primary tracking-widest uppercase mb-4">Market Index</h4>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-[11px]">
+<span class="text-slate-400">Jeddah Avg</span>
+<span class="font-bold">SAR 4.65</span>
+</div>
+<div class="flex justify-between items-center text-[11px]">
+<span class="text-slate-400">Riyadh Avg</span>
+<span class="font-bold">SAR 4.90</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden mt-2">
+<div class="h-full bg-tertiary w-3/4"></div>
+</div>
+<p class="text-[9px] text-tertiary mt-1 italic text-right">Proposed is 12% below market avg</p>
+</div>
+</div>
+</section>
+</main>
+</body></html>

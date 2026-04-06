@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Dispute Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#cbc3d5",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-high": "#292935",
+                    "primary-container": "#4b1fa3",
+                    "outline": "#948e9e",
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-fixed": "#331200",
+                    "background": "#12121d",
+                    "on-secondary-fixed": "#201340",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "secondary": "#cfbef6",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-secondary-container": "#c0b0e7",
+                    "inverse-primary": "#6a45c3",
+                    "surface-container-low": "#1b1a26",
+                    "on-error-container": "#ffdad6",
+                    "on-error": "#690005",
+                    "tertiary": "#ffb68e",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "on-primary-container": "#b79cff",
+                    "tertiary-fixed": "#ffdbc9",
+                    "outline-variant": "#494453",
+                    "on-tertiary": "#532200",
+                    "inverse-on-surface": "#302f3b",
+                    "on-surface": "#e3e0f1",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "surface": "#12121d",
+                    "on-background": "#e3e0f1",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-dim": "#12121d",
+                    "on-tertiary-container": "#f09661",
+                    "surface-bright": "#383845",
+                    "surface-variant": "#343440",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed": "#e9ddff",
+                    "tertiary-container": "#6c2e00",
+                    "surface-container-highest": "#343440",
+                    "surface-container": "#1f1e2a",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-primary": "#3b0092",
+                    "error-container": "#93000a",
+                    "on-secondary": "#352856",
+                    "on-primary-fixed": "#22005c",
+                    "error": "#ffb4ab",
+                    "inverse-surface": "#e3e0f1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"],
+                    "brand": ["Poppins"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.7);
+            backdrop-filter: blur(16px);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #4b1fa3; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#0F0F1A]/90 backdrop-blur-2xl flex flex-col py-8 space-y-2 z-50">
+<div class="px-6 mb-8">
+<h1 class="text-xl font-bold bg-gradient-to-r from-[#d0bcff] to-[#4B1FA3] bg-clip-text text-transparent font-brand">JAS Wallet</h1>
+<p class="text-[10px] text-on-surface-variant tracking-widest font-mono">ENTERPRISE LOGISTICS</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-[#94a3b8] py-3 px-6 hover:bg-[#1e1b4b]/30 hover:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label text-sm">Overview</span>
+</a>
+<a class="flex items-center gap-3 bg-[#4B1FA3]/20 text-[#d0bcff] rounded-r-full py-3 px-6 border-l-4 border-[#d0bcff] hover:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label text-sm">Payments</span>
+</a>
+<a class="flex items-center gap-3 text-[#94a3b8] py-3 px-6 hover:bg-[#1e1b4b]/30 hover:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label text-sm">Accounts</span>
+</a>
+<a class="flex items-center gap-3 text-[#94a3b8] py-3 px-6 hover:bg-[#1e1b4b]/30 hover:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label text-sm">Invoices</span>
+</a>
+<a class="flex items-center gap-3 text-[#94a3b8] py-3 px-6 hover:bg-[#1e1b4b]/30 hover:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label text-sm">Settings</span>
+</a>
+</nav>
+<div class="px-6 pt-4 border-t border-outline-variant/20">
+<button class="w-full py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg shadow-primary/10 hover:opacity-90 transition-opacity">
+                Add Funds
+            </button>
+</div>
+<div class="mt-auto space-y-1">
+<a class="flex items-center gap-3 text-[#94a3b8] py-3 px-6 hover:bg-[#1e1b4b]/30" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label text-sm">Support</span>
+</a>
+<a class="flex items-center gap-3 text-[#94a3b8] py-3 px-6 hover:bg-[#1e1b4b]/30" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- Top App Bar -->
+<header class="bg-[#0F0F1A]/80 backdrop-blur-xl sticky top-0 z-40">
+<div class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+<div class="flex flex-col">
+<span class="text-xs font-mono text-primary uppercase tracking-[0.2em] mb-1">Billing &amp; Finance</span>
+<h2 class="text-3xl font-black text-on-surface tracking-tight font-brand">Dispute Center</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<input class="bg-surface-container-low border-none rounded-full px-5 py-2 text-sm w-64 focus:ring-2 focus:ring-primary/50 transition-all text-on-surface" placeholder="Search disputes..." type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-2 text-on-surface-variant text-sm" data-icon="search">search</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#1e1b4b]/50 rounded-lg transition-all text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-primary/20 p-0.5">
+<img alt="User profile avatar" class="w-full h-full rounded-full object-cover" data-alt="professional portrait of a middle eastern executive in a sleek dark suit with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfy4tkAcM8ve-HY1NgHawLFn6l0DM7WV_POR1ml0rmEA_31tBZpqoi3WEUys3H6IxqyyeNPpDLCAEEYKoNdBvDhEizuJw7dDylVXSDWKDc_Ja6ZWw_yuOEDBeFZ67GktRE1MacfQXpr_Qyn0wR3or_Q9ueffeJSDxSGqYPxItWSewknw5DxkvV5xXn4s1EB5o1elcHxKmAA-MMYR4NGLzA7gmbYmxx0ggqDX_Q5XSrGhUcpKmFp2gV6R1gRWC2WDZQumoAIwp6bQ"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<section class="max-w-7xl mx-auto px-8 py-10 space-y-8">
+<!-- Dashboard Stats Bento -->
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-8 glass-panel p-8 rounded-3xl relative overflow-hidden group">
+<div class="absolute -right-10 -top-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all"></div>
+<div class="flex justify-between items-start mb-12">
+<div>
+<h3 class="text-on-surface-variant font-medium mb-2">Dispute Resolution Rate</h3>
+<div class="flex items-baseline gap-3">
+<span class="text-5xl font-black text-on-surface font-brand">94.2%</span>
+<span class="text-tertiary text-sm font-mono">+2.4% from last quarter</span>
+</div>
+</div>
+<button class="bg-primary text-on-primary-fixed px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                            Raise Dispute
+                        </button>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<div class="space-y-1">
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-mono">Active Cases</p>
+<p class="text-2xl font-bold font-mono">12</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-mono">Avg Response Time</p>
+<p class="text-2xl font-bold font-mono">4.5 Hrs</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-mono">Recovered Funds</p>
+<p class="text-2xl font-bold font-mono text-primary">$14,290.00</p>
+</div>
+</div>
+</div>
+<div class="col-span-4 bg-primary-container p-8 rounded-3xl flex flex-col justify-between relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+<span class="material-symbols-outlined text-5xl text-white/20 absolute -right-4 -top-4 scale-150" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="text-white text-xl font-bold relative z-10">AI Dispute Assistant</h3>
+<p class="text-on-primary-container/80 text-sm mb-6 relative z-10">Automatically generate professional billing dispute letters in Arabic and English with one click.</p>
+<button class="w-full bg-white/10 hover:bg-white/20 text-white font-semibold py-3 rounded-xl backdrop-blur-md transition-all relative z-10 border border-white/10">
+                        Try Assistant
+                    </button>
+</div>
+</div>
+<!-- Open Disputes Table Section -->
+<div class="bg-surface-container-low rounded-3xl overflow-hidden">
+<div class="px-8 py-6 flex justify-between items-center bg-surface-container/50">
+<h4 class="text-lg font-bold">Open Disputes</h4>
+<div class="flex gap-3">
+<button class="p-2 bg-surface-container-high rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+</button>
+<button class="p-2 bg-surface-container-high rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-xs uppercase tracking-widest text-on-surface-variant border-b border-outline-variant/10">
+<th class="px-8 py-4 font-mono">ID</th>
+<th class="px-8 py-4 font-mono">Invoice</th>
+<th class="px-8 py-4 font-mono">Amount</th>
+<th class="px-8 py-4 font-mono">Reason</th>
+<th class="px-8 py-4 font-mono">Status</th>
+<th class="px-8 py-4 font-mono">JAS Response</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<tr class="hover:bg-surface-container-high/30 transition-colors group">
+<td class="px-8 py-6 font-mono text-sm text-primary">DSP-8912</td>
+<td class="px-8 py-6">
+<div class="text-sm font-semibold">INV-2023-450</div>
+<div class="text-[10px] text-on-surface-variant uppercase">Shipment #22934</div>
+</td>
+<td class="px-8 py-6 font-mono text-sm">$1,450.00</td>
+<td class="px-8 py-6">
+<span class="text-sm text-on-surface">Duplicate Surcharge</span>
+</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-tertiary-container/30 text-tertiary text-[10px] font-bold uppercase rounded-full ring-1 ring-tertiary/20">In Review</span>
+</td>
+<td class="px-8 py-6">
+<p class="text-xs text-on-surface-variant italic truncate max-w-[200px]">Under internal audit by regional manager...</p>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high/30 transition-colors group">
+<td class="px-8 py-6 font-mono text-sm text-primary">DSP-8843</td>
+<td class="px-8 py-6">
+<div class="text-sm font-semibold">INV-2023-412</div>
+<div class="text-[10px] text-on-surface-variant uppercase">Shipment #21855</div>
+</td>
+<td class="px-8 py-6 font-mono text-sm">$840.00</td>
+<td class="px-8 py-6">
+<span class="text-sm text-on-surface">Tax Calculation Error</span>
+</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-[#065f46]/30 text-[#34d399] text-[10px] font-bold uppercase rounded-full ring-1 ring-[#34d399]/20">Resolved</span>
+</td>
+<td class="px-8 py-6">
+<p class="text-xs text-on-surface-variant font-medium">Credit Memo Issued: CM-902</p>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high/30 transition-colors group">
+<td class="px-8 py-6 font-mono text-sm text-primary">DSP-8801</td>
+<td class="px-8 py-6">
+<div class="text-sm font-semibold">INV-2023-398</div>
+<div class="text-[10px] text-on-surface-variant uppercase">Shipment #21402</div>
+</td>
+<td class="px-8 py-6 font-mono text-sm">$3,120.00</td>
+<td class="px-8 py-6">
+<span class="text-sm text-on-surface">Fuel Surcharge Adjustment</span>
+</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-tertiary-container/30 text-tertiary text-[10px] font-bold uppercase rounded-full ring-1 ring-tertiary/20">In Review</span>
+</td>
+<td class="px-8 py-6">
+<p class="text-xs text-on-surface-variant italic truncate max-w-[200px]">Awaiting documentation for verified rate.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- New Dispute Modal (Simulated Overlay) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm">
+<div class="w-full max-w-5xl h-[870px] bg-surface-container rounded-[2rem] shadow-2xl flex overflow-hidden border border-outline-variant/10">
+<!-- Form Side -->
+<div class="flex-1 p-10 overflow-y-auto">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-2xl font-black font-brand">Raise New Dispute</h2>
+<button class="p-2 hover:bg-surface-container-high rounded-full">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-mono uppercase text-on-surface-variant tracking-wider">Select Invoice</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/50 appearance-none">
+<option>INV-2023-488 — $12,400.00</option>
+<option>INV-2023-489 — $5,120.00</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-3 text-on-surface-variant pointer-events-none" data-icon="unfold_more">unfold_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-mono uppercase text-on-surface-variant tracking-wider">Line Item</label>
+<select class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/50 appearance-none">
+<option>Base Freight Charge</option>
+<option>Customs Clearance</option>
+<option>Peak Season Surcharge</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-mono uppercase text-on-surface-variant tracking-wider">Reason for Dispute</label>
+<select class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/50 appearance-none">
+<option>Incorrect Rate Applied</option>
+<option>Duplicate Billing</option>
+<option>Service Failure Credit</option>
+<option>Mathematical Error</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-mono uppercase text-on-surface-variant tracking-wider">Issue Description</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/50" placeholder="Briefly describe what happened..." rows="4"></textarea>
+</div>
+<div class="pt-4 flex gap-4">
+<button class="flex-1 bg-primary text-on-primary-fixed font-bold py-4 rounded-xl hover:shadow-lg hover:shadow-primary/20 transition-all" type="submit">Submit Dispute</button>
+<button class="px-8 border border-outline-variant/50 text-on-surface-variant font-semibold rounded-xl hover:bg-surface-container-high transition-colors" type="button">Cancel</button>
+</div>
+</form>
+</div>
+<!-- AI Assistant Panel (Right) -->
+<div class="w-2/5 bg-surface-container-high border-l border-outline-variant/10 flex flex-col p-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">AI Letter Generation</h3>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Formal Documentation</p>
+</div>
+</div>
+<div class="flex-1 space-y-4 overflow-y-auto pr-2">
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-[10px] font-mono text-on-surface-variant">ENGLISH VERSION</span>
+<button class="text-primary text-[10px] font-bold hover:underline">COPY</button>
+</div>
+<textarea class="w-full bg-surface-container-lowest border-none rounded-xl p-4 text-xs font-body leading-relaxed h-48 text-on-surface-variant resize-none" readonly="">Subject: Formal Billing Dispute - INV-2023-488
+
+Dear JAS Logistics Billing Team,
+
+We are writing to formally dispute the 'Base Freight Charge' on the above-referenced invoice. The rate applied ($4,200) does not match the quoted contract rate of $3,850 established on Oct 12. 
+
+We request an immediate adjustment or credit memo for the difference of $350. Documentation is attached.</textarea>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-[10px] font-mono text-on-surface-variant">ARABIC VERSION</span>
+<button class="text-primary text-[10px] font-bold hover:underline">COPY</button>
+</div>
+<textarea class="w-full bg-surface-container-lowest border-none rounded-xl p-4 text-sm font-body leading-relaxed h-48 text-on-surface-variant resize-none" dir="rtl" readonly="">الموضوع: نزاع رسمي حول الفاتورة - INV-2023-488
+
+فريق فوترة JAS لادارة اللوجستيات،
+
+نكتب إليكم للاعتراض رسمياً على "رسوم الشحن الأساسية" في الفاتورة المشار إليها أعلاه. السعر المطبق (4,200 دولار) لا يتطابق مع سعر العقد المتفق عليه وهو (3,850 دولار) بتاريخ 12 أكتوبر.
+
+نطلب تعديلاً فورياً أو إصدار إشعار دائن بالفرق البالغ 350 دولاراً. المستندات مرفقة.</textarea>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full border-2 border-dashed border-primary/30 rounded-xl py-3 text-xs text-primary font-bold hover:bg-primary/5 transition-colors">
+                                Regenerate with AI
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action for Mobile -->
+<div class="md:hidden">
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary-fixed rounded-2xl shadow-xl shadow-primary/40 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</body></html>

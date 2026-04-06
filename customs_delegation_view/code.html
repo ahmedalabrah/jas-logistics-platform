@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Customs Delegation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#e9ddff",
+                    "surface-bright": "#383845",
+                    "secondary-container": "#4f4171",
+                    "on-primary": "#3b0092",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-high": "#292935",
+                    "inverse-on-surface": "#302f3b",
+                    "on-error": "#690005",
+                    "tertiary-fixed": "#ffdbc9",
+                    "surface-variant": "#343440",
+                    "surface-container-highest": "#343440",
+                    "on-secondary-container": "#c0b0e7",
+                    "on-tertiary-container": "#f09661",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "surface": "#12121d",
+                    "on-primary-fixed": "#22005c",
+                    "on-surface-variant": "#cbc3d5",
+                    "secondary": "#cfbef6",
+                    "inverse-primary": "#6a45c3",
+                    "outline": "#948e9e",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary": "#532200",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "error": "#ffb4ab",
+                    "on-surface": "#e3e0f1",
+                    "inverse-surface": "#e3e0f1",
+                    "on-secondary-fixed": "#201340",
+                    "on-secondary": "#352856",
+                    "tertiary-container": "#6c2e00",
+                    "surface-container-low": "#1b1a26",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "on-background": "#e3e0f1",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-tertiary-fixed": "#331200",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-dim": "#12121d",
+                    "tertiary": "#ffb68e",
+                    "surface-tint": "#d0bcff",
+                    "primary-container": "#4b1fa3",
+                    "outline-variant": "#494453",
+                    "surface-container-lowest": "#0d0d18",
+                    "background": "#12121d",
+                    "surface-container": "#1f1e2a",
+                    "primary": "#d0bcff",
+                    "on-primary-container": "#b79cff",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-glass {
+            background: rgba(15, 15, 26, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .magental-glow {
+            box-shadow: 0 0 20px -5px rgba(208, 188, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A] backdrop-blur-xl bg-opacity-80 border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] flex justify-between items-center px-8 h-16 font-['Plus_Jakarta_Sans'] text-sm tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3]">JAS Logistics</span>
+<div class="hidden md:flex gap-6">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Orders</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Tracking</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Customs</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 transition-all duration-300 active:scale-95"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 hover:bg-white/5 transition-all duration-300 active:scale-95"><span class="material-symbols-outlined">help</span></button>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
+<img alt="User profile" data-alt="professional portrait of a high-level logistics executive in a clean modern setting with soft rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNMhjdyM-KRabiwK2UxLAoNFyoeLzYg1cwMcTols5gl_5mt7oYPr0aaH0zf6jlYC7XU-MqiNA7hEhJrl30DZtIg2k3ZNz34eJvj-nl39gWjYZCy2s21G_NokOJ34-thVa558RgX4NKcbZfP1r9xa9Fbwc6UxZSnDBz2vXlLa15azhRre3QRylylvrCmx8FEZK1DbqfsLMOetcRAz3BwhQdf-CxbFipzpkaUT-TGghLKmttmfzXmPdu__Q5OZ2jSSPCMQ2nkN3jDw"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-[#0F0F1A]/95 backdrop-blur-2xl flex flex-col py-6 space-y-4 font-['Plus_Jakarta_Sans'] text-xs font-medium z-40 border-r border-white/5">
+<div class="px-6 mb-4">
+<div class="flex items-center gap-3 py-2">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-lg">corporate_fare</span>
+</div>
+<div>
+<p class="text-on-surface font-bold">JAS Operations</p>
+<p class="text-slate-500">Enterprise Tier</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="px-6 py-3 flex items-center gap-3 text-slate-500 hover:text-slate-300 cursor-pointer transition-all duration-200 hover:bg-white/5">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</div>
+<div class="px-6 py-3 flex items-center gap-3 text-slate-500 hover:text-slate-300 cursor-pointer transition-all duration-200 hover:bg-white/5">
+<span class="material-symbols-outlined">local_shipping</span>
+<span>Active Shipments</span>
+</div>
+<div class="px-6 py-3 flex items-center gap-3 bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined">description</span>
+<span>Customs Docs</span>
+</div>
+<div class="px-6 py-3 flex items-center gap-3 text-slate-500 hover:text-slate-300 cursor-pointer transition-all duration-200 hover:bg-white/5">
+<span class="material-symbols-outlined">map</span>
+<span>Fleet Map</span>
+</div>
+<div class="px-6 py-3 flex items-center gap-3 text-slate-500 hover:text-slate-300 cursor-pointer transition-all duration-200 hover:bg-white/5">
+<span class="material-symbols-outlined">contact_support</span>
+<span>Support</span>
+</div>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container py-3 rounded-lg font-bold text-on-primary-fixed mb-6 active:scale-95 transition-transform">
+                Create New Order
+            </button>
+<div class="space-y-1 border-t border-white/5 pt-4">
+<div class="px-6 py-2 flex items-center gap-3 text-slate-500 hover:text-slate-300 cursor-pointer transition-all">
+<span class="material-symbols-outlined">dns</span>
+<span>System Status</span>
+</div>
+<div class="px-6 py-2 flex items-center gap-3 text-slate-500 hover:text-slate-300 cursor-pointer transition-all">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 pt-20 p-8 min-h-screen">
+<!-- Banner Section -->
+<header class="relative h-48 rounded-xl overflow-hidden mb-8 bg-surface-container-low flex items-end">
+<div class="absolute inset-0 z-0">
+<img alt="Logistics warehouse" class="w-full h-full object-cover opacity-40 mix-blend-luminosity" data-alt="high-end logistical shipping terminal with dramatic industrial lighting and blurred motion of freight machinery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSBsqCCSpUVUAxqYi1R-Iud2A7vPebdsh_PJuC8QVzxQ_7pPlRlQbuWul-zrDdUpTnpsBg_X75IjDTmmdp2khil3G7P60Z12QhziQ1B6zzbZkIaVuDIYNOwXwt9JXOukG4aUt2wLbjkjpktJ_8hl3XW7AFGqItb_vo1mJEyhicDGcgyWKdv3926IGbNlcea-kupTX2DLRFoCUQwVRneeSIP9UHgSGyGShcaaPkkQjdbbzZdpZESmJi7PdE4m16CHl9T-6Wb0sy0g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+</div>
+<div class="relative z-10 p-8 flex justify-between items-end w-full">
+<div>
+<h1 class="text-4xl font-headline font-extrabold tracking-tighter text-on-surface mb-2">JAS Customs Brokerage Service</h1>
+<p class="text-on-surface-variant max-w-xl font-body">Order Ref: <span class="text-primary-fixed">JAS-7742-SA-04</span> • Destination: Jeddah Islamic Port</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-container-highest hover:bg-surface-bright text-on-surface px-6 py-2.5 rounded-lg flex items-center gap-2 transition-all font-semibold">
+<span class="material-symbols-outlined text-xl">upload_file</span>
+                        Upload Additional Documents
+                    </button>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed px-6 py-2.5 rounded-lg flex items-center gap-2 transition-all font-extrabold magental-glow">
+                        Message JAS Customs Team
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Declaration Status Card -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container rounded-xl p-6 border border-white/5">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="text-lg font-bold text-on-surface mb-1">Declaration Status</h3>
+<p class="text-sm text-on-surface-variant">Live tracking of your customs clearance lifecycle.</p>
+</div>
+<div class="flex items-center gap-2 bg-yellow-500/10 text-yellow-400 px-4 py-1.5 rounded-full border border-yellow-500/20">
+<span class="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span>
+<span class="text-xs font-bold uppercase tracking-widest">Yellow: Inspection</span>
+</div>
+</div>
+<div class="relative flex justify-between items-center px-4">
+<!-- Progress Line -->
+<div class="absolute top-4 left-0 w-full h-[2px] bg-outline-variant z-0">
+<div class="h-full bg-primary w-[75%] transition-all duration-1000"></div>
+</div>
+<!-- Steps -->
+<div class="relative z-10 flex flex-col items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="text-xs font-bold text-on-surface">SUBMITTED</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="text-xs font-bold text-on-surface">UNDER REVIEW</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-background border-4 border-primary text-primary flex items-center justify-center shadow-[0_0_15px_rgba(208,188,255,0.4)]">
+<span class="material-symbols-outlined text-2xl">pending</span>
+</div>
+<span class="text-xs font-black text-primary">AT CUSTOMS</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-3 opacity-40">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest border-2 border-outline-variant text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">release_alert</span>
+</div>
+<span class="text-xs font-bold">CLEARED</span>
+</div>
+</div>
+</div>
+<!-- Est. Clearance Mini-Card -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-high rounded-xl p-6 border border-white/5 relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-9xl">schedule</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-6">Estimated Clearance</h3>
+<div class="flex items-end gap-3 mb-4">
+<span class="text-5xl font-headline font-black text-primary">18</span>
+<span class="text-xl font-bold text-on-surface-variant mb-1">Hours Remaining</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-[62%]"></div>
+</div>
+<p class="mt-4 text-xs text-on-surface-variant">Predicted based on current port traffic and ZATCA processing speeds.</p>
+</div>
+<!-- Financials Card -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-low rounded-xl p-6 border border-white/10">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-lg font-bold text-on-surface">Duties &amp; Levies</h3>
+<span class="text-xs font-bold text-primary px-3 py-1 bg-primary/10 rounded border border-primary/20">PAID BY JAS LOGISTICS</span>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-1">
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter">Total Duties Payable</p>
+<p class="text-3xl font-headline font-bold text-on-surface">14,240.50 <span class="text-sm font-medium opacity-60">SAR</span></p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter">VAT (15%)</p>
+<p class="text-3xl font-headline font-bold text-on-surface">2,136.08 <span class="text-sm font-medium opacity-60">SAR</span></p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/5 flex gap-4">
+<div class="flex-1 bg-surface-container p-4 rounded-lg">
+<p class="text-xs text-on-surface-variant mb-1">Billing Account</p>
+<p class="text-sm font-semibold">JAS-SA-ENT-901</p>
+</div>
+<div class="flex-1 bg-surface-container p-4 rounded-lg">
+<p class="text-xs text-on-surface-variant mb-1">Payment Reference</p>
+<p class="text-sm font-semibold">TXN_9982771520</p>
+</div>
+</div>
+</div>
+<!-- Recent Activity Card -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container rounded-xl p-6 border border-white/5">
+<h3 class="text-lg font-bold text-on-surface mb-6">Timeline Exception Logs</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="min-w-[48px] text-right">
+<p class="text-xs font-bold text-on-surface">14:20</p>
+<p class="text-[10px] text-on-surface-variant">Today</p>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Inspection Flagged</p>
+<p class="text-xs text-on-surface-variant">ZATCA Agent requested physical validation of SKU: JAS-IND-99.</p>
+</div>
+<span class="material-symbols-outlined text-error text-sm">warning</span>
+</div>
+<div class="flex gap-4">
+<div class="min-w-[48px] text-right">
+<p class="text-xs font-bold text-on-surface">09:15</p>
+<p class="text-[10px] text-on-surface-variant">Today</p>
+</div>
+<div class="flex-1 border-l-2 border-primary/20 pl-4">
+<p class="text-sm font-bold text-on-surface">Document Bundle Verified</p>
+<p class="text-xs text-on-surface-variant">Manifest, Commercial Invoice, and SASO certificates accepted.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="min-w-[48px] text-right">
+<p class="text-xs font-bold text-on-surface">Yesterday</p>
+<p class="text-[10px] text-on-surface-variant">22:45</p>
+</div>
+<div class="flex-1 border-l-2 border-primary/20 pl-4 opacity-60">
+<p class="text-sm font-bold text-on-surface">Initial Declaration Submitted</p>
+<p class="text-xs text-on-surface-variant">Brokerage ID: BROK-992-RIY-X</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Documents Grid -->
+<div class="col-span-12">
+<div class="flex items-end justify-between mb-4">
+<h3 class="text-lg font-bold text-on-surface">Custody Documentation</h3>
+<p class="text-sm text-primary hover:underline cursor-pointer">Download All Archive (.zip)</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="group bg-surface-container-low p-4 rounded-lg border border-white/5 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-red-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-red-400">picture_as_pdf</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold truncate">Commercial_Invoice_JAS_7742.pdf</p>
+<p class="text-[10px] text-on-surface-variant">2.4 MB • Verified</p>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-low p-4 rounded-lg border border-white/5 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-blue-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-400">description</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold truncate">Bill_of_Lading_SH-9921.pdf</p>
+<p class="text-[10px] text-on-surface-variant">1.1 MB • Verified</p>
+</div>
+</div>
+</div>
+<div class="group bg-surface-container-low p-4 rounded-lg border border-white/5 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-emerald-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-400">verified_user</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold truncate">SASO_Certificate_Exp_2025.pdf</p>
+<p class="text-[10px] text-on-surface-variant">4.8 MB • Verified</p>
+</div>
+</div>
+</div>
+<div class="group bg-primary/5 p-4 rounded-lg border border-primary/20 hover:bg-primary/10 transition-colors cursor-pointer flex items-center justify-center gap-2 border-dashed">
+<span class="material-symbols-outlined text-primary">add_box</span>
+<span class="text-xs font-bold text-primary">Add Document</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

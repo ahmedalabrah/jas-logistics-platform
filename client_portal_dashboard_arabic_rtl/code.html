@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sentinel Logistics | بوابة العميل</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600&amp;family=Tajawal:wght@400;500;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#131b2e",
+                    "outline": "#908fa0",
+                    "on-secondary-container": "#a7b6cc",
+                    "secondary": "#b9c8de",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#494bd6",
+                    "on-background": "#dae2fd",
+                    "background": "#0b1326",
+                    "surface-dim": "#0b1326",
+                    "surface": "#0b1326",
+                    "secondary-container": "#39485a",
+                    "on-tertiary-container": "#452000",
+                    "on-secondary-fixed": "#0d1c2d",
+                    "surface-variant": "#2d3449",
+                    "tertiary-container": "#d97721",
+                    "on-surface-variant": "#c7c4d7",
+                    "outline-variant": "#464554",
+                    "surface-container-lowest": "#060e20",
+                    "on-secondary": "#233143",
+                    "inverse-surface": "#dae2fd",
+                    "on-secondary-fixed-variant": "#39485a",
+                    "surface-container-highest": "#2d3449",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-container": "#171f33",
+                    "on-primary-fixed": "#07006c",
+                    "on-tertiary": "#4f2500",
+                    "inverse-on-surface": "#283044",
+                    "surface-bright": "#31394d",
+                    "primary-container": "#8083ff",
+                    "error": "#ffb4ab",
+                    "on-surface": "#dae2fd",
+                    "secondary-fixed-dim": "#b9c8de",
+                    "on-primary-container": "#0d0096",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#d4e4fa",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "surface-tint": "#c0c1ff",
+                    "on-primary": "#1000a9",
+                    "on-error": "#690005",
+                    "surface-container-high": "#222a3d",
+                    "on-tertiary-fixed-variant": "#703700",
+                    "tertiary": "#ffb783",
+                    "primary-fixed": "#e1e0ff",
+                    "on-tertiary-fixed": "#301400",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "primary": "#c0c1ff",
+                    "accent-client": "#16A87A"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans", "Tajawal"],
+                    "body": ["Inter", "Tajawal"],
+                    "label": ["Space Grotesk", "Tajawal"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+            font-family: 'Inter', 'Tajawal', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .mono-text { font-family: 'JetBrains Mono', monospace; }
+        .ltr { direction: ltr; }
+        .rtl { direction: rtl; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- SideNavBar (Authority Source: JSON / Right Aligned for RTL) -->
+<aside class="fixed right-0 h-full w-64 bg-[#131b2e] flex flex-col py-8 z-50 border-l border-[#464554]/15 font-['Plus_Jakarta_Sans'] text-sm rtl:font-['Tajawal']">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-accent-client flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(22,168,122,0.4)]">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-white tracking-tight">The Protocol</h1>
+<p class="text-[10px] text-accent-client uppercase tracking-widest font-mono">Logistics Intelligence</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<!-- Active: Dashboard -->
+<div class="bg-[#222a3d] text-[#c0c1ff] border-r-4 border-[#6366F1] flex items-center px-4 py-3 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined ml-3" data-icon="dashboard">dashboard</span>
+<span class="font-medium">لوحة التحكم</span>
+</div>
+<div class="text-[#dae2fd]/50 hover:bg-[#171f33] hover:text-[#dae2fd] flex items-center px-4 py-3 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined ml-3" data-icon="local_shipping">local_shipping</span>
+<span class="font-medium">الأسطول</span>
+</div>
+<div class="text-[#dae2fd]/50 hover:bg-[#171f33] hover:text-[#dae2fd] flex items-center px-4 py-3 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined ml-3" data-icon="inventory_2">inventory_2</span>
+<span class="font-medium">الشحنات</span>
+</div>
+<div class="text-[#dae2fd]/50 hover:bg-[#171f33] hover:text-[#dae2fd] flex items-center px-4 py-3 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined ml-3" data-icon="verified_user">verified_user</span>
+<span class="font-medium">الامتثال</span>
+</div>
+<div class="text-[#dae2fd]/50 hover:bg-[#171f33] hover:text-[#dae2fd] flex items-center px-4 py-3 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined ml-3" data-icon="analytics">analytics</span>
+<span class="font-medium">التحليلات</span>
+</div>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full py-3 bg-accent-client text-white font-bold rounded-lg mb-6 shadow-lg shadow-accent-client/20 active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>طلب شحن جديد</span>
+</button>
+<div class="space-y-1 border-t border-[#464554]/15 pt-4">
+<div class="text-[#dae2fd]/50 hover:bg-[#171f33] hover:text-[#dae2fd] flex items-center px-4 py-2 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined ml-3 text-lg" data-icon="settings">settings</span>
+<span>الإعدادات</span>
+</div>
+<div class="text-[#dae2fd]/50 hover:bg-[#171f33] hover:text-[#dae2fd] flex items-center px-4 py-2 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined ml-3 text-lg" data-icon="support_agent">support_agent</span>
+<span>الدعم الفني</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="mr-64 p-8 min-h-screen">
+<!-- TopAppBar (Authority Source: JSON) -->
+<header class="flex flex-row-reverse justify-between items-center px-6 h-16 w-[calc(100%-16rem)] fixed top-0 left-0 z-40 bg-[#0b1326] border-b border-[#464554]/15 shadow-[0_0_40px_rgba(192,193,255,0.05)] font-['Plus_Jakarta_Sans'] font-medium">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-[#171f33] px-3 py-1.5 rounded-full border border-[#464554]/20">
+<span class="material-symbols-outlined text-[#c0c1ff] text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs text-[#dae2fd] font-mono">CLIENT_ID: 992-AR</span>
+</div>
+<div class="flex gap-4 text-[#dae2fd]/60">
+<span class="material-symbols-outlined hover:text-[#c0c1ff] cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined hover:text-[#c0c1ff] cursor-pointer" data-icon="translate">translate</span>
+<span class="material-symbols-outlined hover:text-[#c0c1ff] cursor-pointer" data-icon="help">help</span>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-accent-client">
+<img alt="User profile" data-alt="professional male portrait with tech executive aesthetic, soft studio lighting, clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4WnKlMWfLQOAjvadrVJu-09wGcXfsV2dpSWIOMMGWgNc_wNbpn-htOU4LZfudguDSTJREIdgeHByJd6-nfxY0mKaQ3hk71B0LZb4ExDt4iXocnqcP-GwKmdvV143P6uVY--VUc5wLB_2G0sFt89SnLBwvHw7u0uu8-yAlQBJApmzexQbHbUCiRnBC0raLOzqQMa2mdLjuP4OEhvQCjjOSnJvmIuuZWERtyoUmmu49TebhLhDJRMkYN3XSyrK06A4ov7mBDe7aPQ"/>
+</div>
+</div>
+<div class="flex-1 max-w-xl mx-8">
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-[#dae2fd]/40">search</span>
+<input class="w-full bg-[#131b2e] border-none rounded-lg pr-10 pl-4 py-2 text-sm text-[#dae2fd] focus:ring-1 focus:ring-accent-client" placeholder="البحث في الشحنات، الفواتير، أو الأصول..." type="text"/>
+</div>
+</div>
+<div class="text-xl font-bold tracking-tighter text-[#dae2fd]">Sentinel Logistics</div>
+</header>
+<div class="mt-20">
+<!-- Hero Title Section -->
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-3xl font-bold text-white mb-2 font-headline">ملخص العمليات</h2>
+<p class="text-[#dae2fd]/60">مرحباً بك مجدداً، <span class="text-accent-client font-bold">شركة نجد للتجارة</span>. حالة الشبكة مستقرة.</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-[#171f33] p-3 rounded-lg border border-[#464554]/15 flex items-center gap-3">
+<div class="text-left">
+<p class="text-[10px] text-[#dae2fd]/40 font-mono">LATENCY</p>
+<p class="text-sm font-mono text-accent-client">24ms</p>
+</div>
+<div class="w-[2px] h-8 bg-[#464554]/30"></div>
+<div class="text-left">
+<p class="text-[10px] text-[#dae2fd]/40 font-mono">STATUS</p>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 bg-accent-client rounded-full animate-pulse"></div>
+<p class="text-sm font-mono text-white">ACTIVE</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid KPI Section -->
+<div class="grid grid-cols-4 gap-4 mb-8">
+<!-- KPI 1 -->
+<div class="col-span-1 bg-[#131b2e] p-6 rounded-xl border-b-2 border-accent-client/50 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-accent-client" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="text-[10px] font-mono text-accent-client bg-accent-client/10 px-2 py-0.5 rounded">+12.5%</span>
+</div>
+<p class="text-[#dae2fd]/60 text-sm mb-1">إجمالي الرصيد</p>
+<p class="text-2xl font-bold text-white ltr font-mono tracking-tight">SAR 42,900.00</p>
+<div class="absolute -bottom-4 -left-4 w-24 h-24 bg-accent-client/5 blur-3xl rounded-full"></div>
+</div>
+<!-- KPI 2 -->
+<div class="col-span-1 bg-[#131b2e] p-6 rounded-xl border-b-2 border-primary/50">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 rounded">LIVE</span>
+</div>
+<p class="text-[#dae2fd]/60 text-sm mb-1">الشحنات النشطة</p>
+<p class="text-2xl font-bold text-white font-mono tracking-tight">18</p>
+</div>
+<!-- KPI 3 -->
+<div class="col-span-1 bg-[#131b2e] p-6 rounded-xl border-b-2 border-tertiary/50">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span class="text-[10px] font-mono text-tertiary bg-tertiary/10 px-2 py-0.5 rounded">DELAY_RISK</span>
+</div>
+<p class="text-[#dae2fd]/60 text-sm mb-1">متوسط وقت التسليم</p>
+<p class="text-2xl font-bold text-white font-mono tracking-tight">3.2 <span class="text-sm font-body">أيام</span></p>
+</div>
+<!-- KPI 4 -->
+<div class="col-span-1 bg-[#131b2e] p-6 rounded-xl border-b-2 border-outline/30">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 1;">inventory</span>
+<span class="text-[10px] font-mono text-outline bg-outline/10 px-2 py-0.5 rounded">STABLE</span>
+</div>
+<p class="text-[#dae2fd]/60 text-sm mb-1">المخزون المتاح</p>
+<p class="text-2xl font-bold text-white font-mono tracking-tight">1,402 <span class="text-sm font-body">وحدة</span></p>
+</div>
+</div>
+<!-- Main Workspace Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Center Data Pane -->
+<div class="col-span-8 space-y-6">
+<!-- Tracking Card (Interactive Map Style) -->
+<div class="bg-[#171f33] rounded-2xl p-1 overflow-hidden shadow-2xl relative h-[400px]">
+<div class="absolute inset-0 z-0 grayscale opacity-40 mix-blend-luminosity">
+<img class="w-full h-full object-cover" data-alt="stylized architectural blue-tone map of middle eastern logistics hub with data visualization overlays" data-location="Riyadh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkJr6KfUPaBpY_BSjFF8jOX6mXJVoLWf58aIA6FBRhCj9pvgtJgM6ONuakgxeOtG1K6gEcyoRrsq648GkSt3R5uJE_-3dhdQVwS3QwD0qpqkLETwYTk4te50m2pDkjZ3XWxyZu2ZDJp5LI5vwbjE7MdQV1luMSajH4FRXGv7Kuvtgnc8dEzSseIh7iPKAdAHKf3eaDCTUqW5zAnGezUQzS6E6lORvX3dlQiBMGgSs27R2QBW_wqK_dY7jXzUhQOoI_5WIiKZuFpQ"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0b1326] via-transparent to-transparent z-10"></div>
+<div class="relative z-20 p-6 flex flex-col h-full">
+<div class="flex justify-between items-start">
+<div class="bg-[#222a3d]/80 backdrop-blur-md p-4 rounded-xl border border-white/5">
+<p class="text-[10px] font-mono text-accent-client mb-1">LIVE_TRACKING</p>
+<h3 class="text-xl font-bold text-white">الرياض ← جدة</h3>
+<p class="text-sm text-[#dae2fd]/60 font-mono ltr mt-1">TRK-9001-X2</p>
+</div>
+<div class="bg-accent-client text-white px-3 py-1 rounded text-xs font-bold">قيد الانتقال</div>
+</div>
+<div class="mt-auto bg-[#0b1326]/60 backdrop-blur-xl p-4 rounded-xl border border-accent-client/20 flex items-center justify-between">
+<div class="flex gap-4">
+<div>
+<p class="text-[10px] text-[#dae2fd]/40 font-mono">السرعة</p>
+<p class="font-mono text-white">88 KM/H</p>
+</div>
+<div class="w-[1px] h-8 bg-white/10"></div>
+<div>
+<p class="text-[10px] text-[#dae2fd]/40 font-mono">درجة الحرارة</p>
+<p class="font-mono text-white">-18.4°C</p>
+</div>
+</div>
+<button class="bg-white/10 hover:bg-white/20 px-4 py-2 rounded text-xs font-bold transition-colors">عرض التفاصيل</button>
+</div>
+</div>
+</div>
+<!-- Recent Shipments Table -->
+<div class="bg-[#131b2e] rounded-2xl overflow-hidden border border-[#464554]/15">
+<div class="px-6 py-4 flex justify-between items-center bg-[#171f33]/50">
+<h3 class="font-bold text-white">آخر الشحنات</h3>
+<button class="text-accent-client text-xs font-bold hover:underline">مشاهدة الكل</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead>
+<tr class="text-[10px] font-mono text-[#dae2fd]/40 border-b border-[#464554]/10">
+<th class="px-6 py-4 font-normal">معرف الشحنة</th>
+<th class="px-6 py-4 font-normal">الوجهة</th>
+<th class="px-6 py-4 font-normal">الحالة</th>
+<th class="px-6 py-4 font-normal">التاريخ</th>
+<th class="px-6 py-4 font-normal">القيمة</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#464554]/10">
+<tr class="hover:bg-[#222a3d] transition-colors cursor-pointer group">
+<td class="px-6 py-4 font-mono text-xs ltr text-accent-client">ORD-2026-4821</td>
+<td class="px-6 py-4 text-sm text-white">مستودع الميناء، الدمام</td>
+<td class="px-6 py-4">
+<span class="bg-[#16A87A]/10 text-accent-client px-2 py-0.5 rounded-full text-[10px] font-bold">تم التسليم</span>
+</td>
+<td class="px-6 py-4 text-xs font-mono text-[#dae2fd]/60">2023-11-04</td>
+<td class="px-6 py-4 text-sm font-mono text-white ltr">SAR 12,400</td>
+</tr>
+<tr class="hover:bg-[#222a3d] transition-colors cursor-pointer group">
+<td class="px-6 py-4 font-mono text-xs ltr text-accent-client">ORD-2026-4825</td>
+<td class="px-6 py-4 text-sm text-white">مركز توزيع مكة</td>
+<td class="px-6 py-4">
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-[10px] font-bold">في الطريق</span>
+</td>
+<td class="px-6 py-4 text-xs font-mono text-[#dae2fd]/60">2023-11-05</td>
+<td class="px-6 py-4 text-sm font-mono text-white ltr">SAR 8,920</td>
+</tr>
+<tr class="hover:bg-[#222a3d] transition-colors cursor-pointer group">
+<td class="px-6 py-4 font-mono text-xs ltr text-accent-client">ORD-2026-4901</td>
+<td class="px-6 py-4 text-sm text-white">المدينة الصناعية، ينبع</td>
+<td class="px-6 py-4">
+<span class="bg-tertiary/10 text-tertiary px-2 py-0.5 rounded-full text-[10px] font-bold">معلق</span>
+</td>
+<td class="px-6 py-4 text-xs font-mono text-[#dae2fd]/60">2023-11-05</td>
+<td class="px-6 py-4 text-sm font-mono text-white ltr">SAR 21,150</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right AI Panel (JAS AI) -->
+<div class="col-span-4">
+<div class="sticky top-24 space-y-6">
+<div class="bg-[#131b2e] border border-[#6366F1]/30 rounded-2xl overflow-hidden flex flex-col h-[650px] shadow-[0_0_50px_rgba(99,102,241,0.1)]">
+<div class="p-6 bg-gradient-to-br from-[#171f33] to-[#131b2e] border-b border-[#6366F1]/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#6366F1] flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.6)]">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div>
+<h4 class="text-white font-bold font-headline">JAS AI</h4>
+<p class="text-[10px] font-mono text-[#6366F1] animate-pulse">SYSTEM_SYNCING...</p>
+</div>
+</div>
+</div>
+<div class="flex-1 p-6 space-y-6 overflow-y-auto">
+<!-- AI Message -->
+<div class="flex gap-3">
+<div class="flex-1 bg-[#171f33] p-4 rounded-2xl rounded-tr-none border border-[#464554]/10">
+<p class="text-sm text-[#dae2fd] leading-relaxed">أهلاً بك. قمت بتحليل الشحنات المتجهة إلى <span class="text-accent-client">المنطقة الغربية</span>. هناك ازدحام متوقع بنسبة <span class="font-mono">15%</span> غداً. هل ترغب في إعادة جدولة شحنة <span class="font-mono text-primary">ORD-2026-4901</span>؟</p>
+</div>
+</div>
+<!-- User Suggestion Chips -->
+<div class="flex flex-wrap gap-2">
+<button class="text-[10px] bg-[#222a3d] border border-[#464554]/40 px-3 py-2 rounded-full hover:bg-primary/20 hover:border-primary/40 transition-all">نعم، أعد الجدولة</button>
+<button class="text-[10px] bg-[#222a3d] border border-[#464554]/40 px-3 py-2 rounded-full hover:bg-primary/20 hover:border-primary/40 transition-all">أظهر التحليل كاملاً</button>
+<button class="text-[10px] bg-[#222a3d] border border-[#464554]/40 px-3 py-2 rounded-full hover:bg-primary/20 hover:border-primary/40 transition-all">تجاهل الآن</button>
+</div>
+<div class="pt-6 border-t border-[#464554]/10">
+<p class="text-[10px] font-mono text-[#dae2fd]/40 mb-3">INSIGHTS_SUMMARY</p>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-[#0b1326] rounded-lg">
+<span class="text-xs">تحسين استهلاك الوقود</span>
+<span class="text-accent-client text-xs font-mono font-bold">+4.2%</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-[#0b1326] rounded-lg">
+<span class="text-xs">درجة مخاطر المسار</span>
+<span class="text-tertiary text-xs font-mono font-bold">LOW</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-[#171f33]">
+<div class="relative">
+<input class="w-full bg-[#0b1326] border-none rounded-xl pr-4 pl-12 py-3 text-sm focus:ring-1 focus:ring-[#6366F1]" placeholder="اسأل JAS عن عملياتك..." type="text"/>
+<button class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-[#6366F1] rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Widget -->
+<div class="bg-[#131b2e] p-6 rounded-2xl border border-[#464554]/15">
+<h5 class="text-white font-bold text-sm mb-4">وثائق الامتثال القادمة</h5>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-10 h-10 rounded bg-[#ffdad6]/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex-1">
+<p class="text-xs text-white group-hover:text-primary transition-colors">تجديد رخصة النقل الثقيل</p>
+<p class="text-[10px] text-error font-mono">ينتهي خلال 3 أيام</p>
+</div>
+<span class="material-symbols-outlined text-[#dae2fd]/20">chevron_left</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Floating Action (Suppressed on Details) -->
+<button class="fixed bottom-8 left-8 w-14 h-14 bg-[#6366F1] rounded-full shadow-[0_0_30px_rgba(99,102,241,0.5)] flex items-center justify-center text-white z-50 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">support</span>
+</button>
+</body></html>

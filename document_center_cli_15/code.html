@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Sovereign - Document Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#948e9e",
+                    "on-secondary": "#352856",
+                    "tertiary-container": "#6c2e00",
+                    "surface-container-high": "#292935",
+                    "surface-variant": "#343440",
+                    "on-primary": "#3b0092",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-secondary-container": "#c0b0e7",
+                    "primary-container": "#4b1fa3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "error": "#ffb4ab",
+                    "secondary": "#cfbef6",
+                    "on-primary-fixed": "#22005c",
+                    "outline-variant": "#494453",
+                    "inverse-surface": "#e3e0f1",
+                    "inverse-primary": "#6a45c3",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "tertiary": "#ffb68e",
+                    "surface-container-low": "#1b1a26",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary-fixed": "#331200",
+                    "on-tertiary": "#532200",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#e9ddff",
+                    "on-error": "#690005",
+                    "surface-container": "#1f1e2a",
+                    "surface": "#12121d",
+                    "surface-bright": "#383845",
+                    "on-primary-container": "#b79cff",
+                    "secondary-fixed": "#e9ddff",
+                    "background": "#12121d",
+                    "surface-tint": "#d0bcff",
+                    "inverse-on-surface": "#302f3b",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "surface-dim": "#12121d",
+                    "on-secondary-fixed": "#201340",
+                    "on-tertiary-container": "#f09661",
+                    "tertiary-fixed": "#ffdbc9",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "surface-container-highest": "#343440",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-surface": "#e3e0f1",
+                    "primary": "#d0bcff",
+                    "secondary-container": "#4f4171",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-background": "#e3e0f1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 bg-[#12121d] py-6 bg-gradient-to-r from-[#12121d] to-[#0F0F1A] shadow-[4px_0_24px_rgba(0,0,0,0.5)] z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<div>
+<div class="text-white font-black tracking-tight uppercase leading-none">Global Logistics</div>
+<div class="text-[10px] text-slate-500 font-medium uppercase tracking-widest">Enterprise Portal</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all font-['Plus_Jakarta_Sans'] text-sm font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span>Supply Chain</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all font-['Plus_Jakarta_Sans'] text-sm font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="conveyor_belt">conveyor_belt</span>
+<span>Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all font-['Plus_Jakarta_Sans'] text-sm font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#4B1FA3]/20 text-[#d0bcff] border-r-2 border-[#d0bcff] font-['Plus_Jakarta_Sans'] text-sm font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="description" style="font-variation-settings: 'FILL' 1;">description</span>
+<span>Documents</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-1 pt-6 border-t border-white/5">
+<button class="w-full bg-primary-container hover:bg-primary-container/80 text-on-primary-container py-2.5 rounded-lg text-sm font-semibold mb-4 transition-colors">
+                New Dispatch
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all font-['Plus_Jakarta_Sans'] text-sm font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all font-['Plus_Jakarta_Sans'] text-sm font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col relative h-screen overflow-y-auto">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 bg-[#0F0F1A]/80 backdrop-blur-md flex justify-between items-center h-16 px-6 w-full shadow-xl">
+<div class="flex items-center gap-8">
+<span class="font-['Plus_Jakarta_Sans'] antialiased text-lg font-bold tracking-tighter text-white">JAS Sovereign</span>
+<div class="hidden md:flex items-center gap-4 bg-surface-container rounded-full px-4 py-1.5 border border-outline-variant/10">
+<span class="material-symbols-outlined text-slate-400 text-lg" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 text-on-surface-variant placeholder:text-slate-600" placeholder="Search shipments..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-[#4B1FA3]/10 hover:text-white transition-colors scale-95 active:scale-100">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-[#4B1FA3]/10 hover:text-white transition-colors scale-95 active:scale-100">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/20 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<img alt="Client Executive Profile" class="w-8 h-8 rounded-full bg-surface-container-highest object-cover ring-2 ring-primary/20 group-hover:ring-primary/50 transition-all" data-alt="Close-up professional headshot of a logistics executive in a dark suit with a modern glass office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcb0Ruqf_mBjlR5libzo2VU8N7LmSTMjHkHdc8QZhTKOIwFQKE57ZWANawQrGHRbkVsuDe5rEXM5hFvbx0LhpuIzoaQ-m50LKZ7KviDNlCA6WEjb-fYvye_kh4OaUO9_32IFYp6koSl8W-Ww2NPyndG-firN0rUhJy_KQazNHwn2FQ2N6XYSzVitHNOWLlf0AChHaHbe-NVkX1PFPAfqrGp9DZ0wjTmi27vXWmeEIQ0cRYKVaz9jME0JwFrWbnSdyU3AavSlFF-A"/>
+<span class="material-symbols-outlined text-slate-400 text-lg group-hover:text-white" data-icon="settings">settings</span>
+</div>
+</div>
+</header>
+<!-- Document Center Canvas -->
+<div class="p-8 max-w-7xl mx-auto w-full">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div>
+<nav class="flex items-center gap-2 text-xs font-medium text-primary mb-2 tracking-widest uppercase">
+<span>Documents</span>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface-variant">Central Vault</span>
+</nav>
+<h1 class="text-4xl font-extrabold tracking-tight text-white">Document Center</h1>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-surface-container hover:bg-surface-container-high text-white text-sm font-semibold rounded-lg transition-all border border-outline-variant/20">
+<span class="material-symbols-outlined text-lg" data-icon="inventory_2">inventory_2</span>
+                        Archive Selected
+                    </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-primary-container hover:bg-primary-container/80 text-on-primary-container text-sm font-semibold rounded-lg shadow-lg shadow-primary-container/20 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="download_for_offline">download_for_offline</span>
+                        Download ZIP
+                    </button>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="glass-panel p-6 rounded-xl mb-8 flex flex-col lg:flex-row gap-6 items-center">
+<div class="flex flex-wrap items-center gap-2 flex-1">
+<span class="text-xs font-bold text-slate-500 uppercase tracking-widest mr-2">Filter by type:</span>
+<button class="px-4 py-1.5 rounded-full text-xs font-medium bg-primary text-on-primary border border-primary/20">All</button>
+<button class="px-4 py-1.5 rounded-full text-xs font-medium bg-surface-container-high text-on-surface hover:border-primary/50 transition-colors border border-outline-variant/10">Invoice</button>
+<button class="px-4 py-1.5 rounded-full text-xs font-medium bg-surface-container-high text-on-surface hover:border-primary/50 transition-colors border border-outline-variant/10">GRN</button>
+<button class="px-4 py-1.5 rounded-full text-xs font-medium bg-surface-container-high text-on-surface hover:border-primary/50 transition-colors border border-outline-variant/10">POD</button>
+<button class="px-4 py-1.5 rounded-full text-xs font-medium bg-surface-container-high text-on-surface hover:border-primary/50 transition-colors border border-outline-variant/10">Customs</button>
+<button class="px-4 py-1.5 rounded-full text-xs font-medium bg-surface-container-high text-on-surface hover:border-primary/50 transition-colors border border-outline-variant/10">FA</button>
+<button class="px-4 py-1.5 rounded-full text-xs font-medium bg-surface-container-high text-on-surface hover:border-primary/50 transition-colors border border-outline-variant/10">Insurance</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/20 hidden lg:block"></div>
+<div class="flex flex-wrap gap-4 items-center w-full lg:w-auto">
+<div class="relative flex-1 lg:w-48">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-sm" data-icon="calendar_month">calendar_month</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/20 rounded-lg pl-9 pr-4 py-2 text-xs focus:border-primary focus:ring-0" placeholder="Date Range" type="text"/>
+</div>
+<div class="relative flex-1 lg:w-48">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-sm" data-icon="tag">tag</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/20 rounded-lg pl-9 pr-4 py-2 text-xs focus:border-primary focus:ring-0" placeholder="Shipment Ref" type="text"/>
+</div>
+</div>
+</div>
+<!-- Documents Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Card: Invoice -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container transition-all p-5 rounded-xl border border-outline-variant/10 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="receipt_long">receipt_long</span>
+</div>
+<div class="flex gap-2">
+<input class="w-4 h-4 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-offset-background" type="checkbox"/>
+</div>
+</div>
+<div>
+<h3 class="text-white font-bold text-base group-hover:text-primary transition-colors truncate">INV-2024-00892_Final.pdf</h3>
+<p class="text-slate-500 text-xs mt-1 font-medium">Commercial Invoice</p>
+</div>
+<div class="grid grid-cols-2 gap-y-3 mt-2 border-t border-white/5 pt-4">
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Upload Date</span>
+<span class="text-on-surface text-xs font-semibold">Oct 12, 2024</span>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">File Size</span>
+<span class="text-on-surface text-xs font-semibold">2.4 MB</span>
+</div>
+<div class="col-span-2">
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Order Reference</span>
+<span class="text-primary-fixed-dim text-xs font-bold font-mono">#JAS-RUH-8821</span>
+</div>
+</div>
+<button class="mt-2 w-full py-2 bg-surface-container-highest hover:bg-surface-bright text-on-surface text-xs font-bold rounded flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                        Download
+                    </button>
+</div>
+<!-- Card: POD -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container transition-all p-5 rounded-xl border border-outline-variant/10 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl" data-icon="verified">verified</span>
+</div>
+<div class="flex gap-2">
+<input class="w-4 h-4 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-offset-background" type="checkbox"/>
+</div>
+</div>
+<div>
+<h3 class="text-white font-bold text-base group-hover:text-secondary transition-colors truncate">POD_Signature_JED_012.jpg</h3>
+<p class="text-slate-500 text-xs mt-1 font-medium">Proof of Delivery</p>
+</div>
+<div class="grid grid-cols-2 gap-y-3 mt-2 border-t border-white/5 pt-4">
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Upload Date</span>
+<span class="text-on-surface text-xs font-semibold">Oct 14, 2024</span>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">File Size</span>
+<span class="text-on-surface text-xs font-semibold">842 KB</span>
+</div>
+<div class="col-span-2">
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Order Reference</span>
+<span class="text-primary-fixed-dim text-xs font-bold font-mono">#JAS-JED-9901</span>
+</div>
+</div>
+<button class="mt-2 w-full py-2 bg-surface-container-highest hover:bg-surface-bright text-on-surface text-xs font-bold rounded flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                        Download
+                    </button>
+</div>
+<!-- Card: Customs -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container transition-all p-5 rounded-xl border border-outline-variant/10 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-2xl" data-icon="security">security</span>
+</div>
+<div class="flex gap-2">
+<input checked="" class="w-4 h-4 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-offset-background" type="checkbox"/>
+</div>
+</div>
+<div>
+<h3 class="text-white font-bold text-base group-hover:text-tertiary transition-colors truncate">Customs_Clearance_Doc_SAMA.pdf</h3>
+<p class="text-slate-500 text-xs mt-1 font-medium">Customs Declaration</p>
+</div>
+<div class="grid grid-cols-2 gap-y-3 mt-2 border-t border-white/5 pt-4">
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Upload Date</span>
+<span class="text-on-surface text-xs font-semibold">Oct 11, 2024</span>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">File Size</span>
+<span class="text-on-surface text-xs font-semibold">4.1 MB</span>
+</div>
+<div class="col-span-2">
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Order Reference</span>
+<span class="text-primary-fixed-dim text-xs font-bold font-mono">#JAS-RUH-8821</span>
+</div>
+</div>
+<button class="mt-2 w-full py-2 bg-surface-container-highest hover:bg-surface-bright text-on-surface text-xs font-bold rounded flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                        Download
+                    </button>
+</div>
+<!-- Card: Insurance -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container transition-all p-5 rounded-xl border border-outline-variant/10 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-lg bg-on-secondary-container/10 flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-2xl" data-icon="verified_user">verified_user</span>
+</div>
+<div class="flex gap-2">
+<input class="w-4 h-4 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-offset-background" type="checkbox"/>
+</div>
+</div>
+<div>
+<h3 class="text-white font-bold text-base group-hover:text-secondary transition-colors truncate">Transit_Insurance_Cert_A7.pdf</h3>
+<p class="text-slate-500 text-xs mt-1 font-medium">Insurance Policy</p>
+</div>
+<div class="grid grid-cols-2 gap-y-3 mt-2 border-t border-white/5 pt-4">
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Upload Date</span>
+<span class="text-on-surface text-xs font-semibold">Oct 10, 2024</span>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">File Size</span>
+<span class="text-on-surface text-xs font-semibold">1.2 MB</span>
+</div>
+<div class="col-span-2">
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Order Reference</span>
+<span class="text-primary-fixed-dim text-xs font-bold font-mono">#JAS-KSA-4431</span>
+</div>
+</div>
+<button class="mt-2 w-full py-2 bg-surface-container-highest hover:bg-surface-bright text-on-surface text-xs font-bold rounded flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                        Download
+                    </button>
+</div>
+<!-- Card: GRN -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container transition-all p-5 rounded-xl border border-outline-variant/10 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-lg bg-on-tertiary-container/10 flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-2xl" data-icon="assignment_turned_in">assignment_turned_in</span>
+</div>
+<div class="flex gap-2">
+<input class="w-4 h-4 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-offset-background" type="checkbox"/>
+</div>
+</div>
+<div>
+<h3 class="text-white font-bold text-base group-hover:text-tertiary transition-colors truncate">Goods_Received_Note_DMM.pdf</h3>
+<p class="text-slate-500 text-xs mt-1 font-medium">GRN Document</p>
+</div>
+<div class="grid grid-cols-2 gap-y-3 mt-2 border-t border-white/5 pt-4">
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Upload Date</span>
+<span class="text-on-surface text-xs font-semibold">Oct 09, 2024</span>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">File Size</span>
+<span class="text-on-surface text-xs font-semibold">567 KB</span>
+</div>
+<div class="col-span-2">
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Order Reference</span>
+<span class="text-primary-fixed-dim text-xs font-bold font-mono">#JAS-DMM-1102</span>
+</div>
+</div>
+<button class="mt-2 w-full py-2 bg-surface-container-highest hover:bg-surface-bright text-on-surface text-xs font-bold rounded flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                        Download
+                    </button>
+</div>
+<!-- Card: FA -->
+<div class="group relative bg-surface-container-low hover:bg-surface-container transition-all p-5 rounded-xl border border-outline-variant/10 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-lg bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-2xl" data-icon="account_balance">account_balance</span>
+</div>
+<div class="flex gap-2">
+<input class="w-4 h-4 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-offset-background" type="checkbox"/>
+</div>
+</div>
+<div>
+<h3 class="text-white font-bold text-base group-hover:text-error transition-colors truncate">Funding_Approval_Batch_66.pdf</h3>
+<p class="text-slate-500 text-xs mt-1 font-medium">Financial Authorization</p>
+</div>
+<div class="grid grid-cols-2 gap-y-3 mt-2 border-t border-white/5 pt-4">
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Upload Date</span>
+<span class="text-on-surface text-xs font-semibold">Oct 08, 2024</span>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">File Size</span>
+<span class="text-on-surface text-xs font-semibold">1.1 MB</span>
+</div>
+<div class="col-span-2">
+<span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">Order Reference</span>
+<span class="text-primary-fixed-dim text-xs font-bold font-mono">#JAS-GLO-2299</span>
+</div>
+</div>
+<button class="mt-2 w-full py-2 bg-surface-container-highest hover:bg-surface-bright text-on-surface text-xs font-bold rounded flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                        Download
+                    </button>
+</div>
+</div>
+<!-- Empty State / Pagination Hint -->
+<div class="mt-12 py-8 flex flex-col items-center justify-center opacity-50 border-t border-white/5">
+<span class="material-symbols-outlined text-4xl mb-3 text-slate-600" data-icon="folder_zip">folder_zip</span>
+<p class="text-sm font-medium">Showing 6 of 142 total documents</p>
+<button class="mt-4 text-primary text-xs font-bold hover:underline tracking-widest uppercase">Load More Entries</button>
+</div>
+</div>
+<!-- Footer / Mobile Nav -->
+<footer class="md:hidden sticky bottom-0 w-full bg-[#0F0F1A] border-t border-white/10 px-6 py-3 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="text-[10px]">Supply</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="conveyor_belt">conveyor_belt</span>
+<span class="text-[10px]">Ops</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="description" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="text-[10px]">Docs</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[10px]">Finance</span>
+</button>
+</footer>
+</main>
+<!-- Contextual Floating Action Button -->
+<div class="fixed bottom-8 right-8 z-50 group">
+<div class="absolute bottom-full right-0 mb-4 flex flex-col gap-3 scale-0 group-hover:scale-100 transition-transform origin-bottom">
+<button class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/20 flex items-center justify-center text-white shadow-xl hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined" data-icon="cloud_upload">cloud_upload</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/20 flex items-center justify-center text-white shadow-xl hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+<button class="w-16 h-16 rounded-full bg-primary text-on-primary shadow-[0_0_24px_rgba(208,188,255,0.4)] flex items-center justify-center scale-95 active:scale-100 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="add" style="font-variation-settings: 'wght' 600;">add</span>
+</button>
+</div>
+</body></html>

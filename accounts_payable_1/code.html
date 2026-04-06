@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Command Hub | Accounts Payable</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#e3e0f1",
+                    "surface-container-highest": "#343440",
+                    "secondary": "#cfbef6",
+                    "on-secondary": "#352856",
+                    "outline-variant": "#494453",
+                    "tertiary": "#ffb68e",
+                    "primary-fixed": "#e9ddff",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-primary": "#3b0092",
+                    "surface-container-high": "#292935",
+                    "surface-tint": "#d0bcff",
+                    "surface-container": "#1f1e2a",
+                    "inverse-on-surface": "#302f3b",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "on-primary-container": "#b79cff",
+                    "inverse-surface": "#e3e0f1",
+                    "surface-dim": "#12121d",
+                    "surface-container-low": "#1b1a26",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-error-container": "#ffdad6",
+                    "error": "#ffb4ab",
+                    "background": "#12121d",
+                    "surface-container-lowest": "#0d0d18",
+                    "primary": "#d0bcff",
+                    "surface-bright": "#383845",
+                    "error-container": "#93000a",
+                    "surface": "#12121d",
+                    "on-error": "#690005",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "on-secondary-container": "#c0b0e7",
+                    "outline": "#948e9e",
+                    "primary-container": "#4b1fa3",
+                    "surface-variant": "#343440",
+                    "on-tertiary": "#532200",
+                    "tertiary-fixed": "#ffdbc9",
+                    "tertiary-container": "#6c2e00",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-tertiary-container": "#f09661",
+                    "on-secondary-fixed": "#201340",
+                    "on-primary-fixed": "#22005c",
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary-fixed": "#331200",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "on-surface": "#e3e0f1",
+                    "inverse-primary": "#6a45c3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Poppins", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Plus Jakarta Sans", "sans-serif"],
+                    "mono": ["JetBrains Mono", "monospace"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #12121d;
+            color: #e3e0f1;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 h-16 bg-slate-950/80 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-violet-900/10 flex items-center justify-between px-6">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-white font-headline">JAS Command Hub</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 hover:text-white transition-colors font-label text-sm" href="#">Global View</a>
+<a class="text-slate-400 hover:text-white transition-colors font-label text-sm" href="#">Marketplace</a>
+<a class="text-slate-400 hover:text-white transition-colors font-label text-sm" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-violet-400 cursor-pointer p-2 rounded-lg transition-all hover:bg-white/5">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-violet-500 rounded-full border border-slate-950"></span>
+</div>
+<span class="material-symbols-outlined text-slate-400 hover:text-violet-400 cursor-pointer p-2 rounded-lg transition-all hover:bg-white/5">settings</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-violet-400 cursor-pointer p-2 rounded-lg transition-all hover:bg-white/5">help</span>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-white/10 ml-2" data-alt="Close up portrait of a professional man in a dark studio setting with cinematic rim lighting and purple atmospheric glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoSfABwTzoWFxGg_Z-Iv735ciMqH3g-INywq_D9n2gxT1qrpU0IVT16uUNnwjTgkymLL3YmyTxoXTjp8sgoiQb5SHSOdQpO02mB0gBRsJgzEd2L0iKGjbeBzRLvodKBjgVIy2Dhe7tdeSzpe9xZkRZCbrM4eKGS1U4opoWAKu-D2aBrZSwiOzRVAr5sNAAau6u1cAG6AJkjIpIVzmJCCUJeQGwVzg8d1bzms6s-L5oz5caJejcYaLK8U5orOqeZMa7J0-fu6iChA"/>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-slate-900/50 backdrop-blur-lg flex flex-col py-4 border-r border-white/5">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-violet-600/20 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-violet-500 text-xl" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div>
+<p class="font-headline text-violet-400 text-sm font-bold">Finance Division</p>
+<p class="text-xs text-slate-500 font-label">JAS Logistics</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-4 py-3 mx-2 rounded-lg transition-all hover:bg-slate-800/50 group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-4 py-3 mx-2 rounded-lg transition-all hover:bg-slate-800/50 group" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label text-sm">Receivables</span>
+</a>
+<a class="flex items-center gap-3 text-white bg-violet-600/20 border-r-4 border-violet-500 font-semibold px-4 py-3 mx-2 transition-all" href="#">
+<span class="material-symbols-outlined text-violet-400" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label text-sm">Payables</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-4 py-3 mx-2 rounded-lg transition-all hover:bg-slate-800/50 group" href="#">
+<span class="material-symbols-outlined">domain</span>
+<span class="font-label text-sm">Billing Entities</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-4 py-3 mx-2 rounded-lg transition-all hover:bg-slate-800/50 group" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label text-sm">ZATCA Compliance</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-4 py-3 mx-2 rounded-lg transition-all hover:bg-slate-800/50 group" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label text-sm">Revenue Recognition</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full py-2 bg-primary-container text-primary font-bold text-xs tracking-wider rounded border border-primary/20 hover:bg-primary/20 transition-all mb-4">
+                GENERATE REPORT
+            </button>
+<div class="border-t border-white/5 pt-4 space-y-1">
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-4 py-2 transition-all text-sm font-label" href="#">
+<span class="material-symbols-outlined text-lg">contact_support</span>
+                    Support
+                </a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-4 py-2 transition-all text-sm font-label" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+                    Log out
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-8 min-h-screen">
+<!-- Header & Breadcrumbs -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<nav class="flex gap-2 text-xs text-slate-500 mb-2 font-label uppercase tracking-widest">
+<span>FINANCE</span>
+<span>/</span>
+<span class="text-violet-400">PAYABLES</span>
+</nav>
+<h1 class="text-4xl font-headline font-extrabold text-white">Accounts Payable</h1>
+<p class="text-slate-400 mt-1 max-w-xl">Centralized control for WMS Model B partner settlements and global supplier invoicing.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-high border border-outline-variant/30 text-on-surface text-sm font-label hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                    Filter View
+                </button>
+<button class="flex items-center gap-2 px-6 py-2 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold text-sm shadow-lg shadow-violet-500/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+                    New Invoice
+                </button>
+</div>
+</div>
+<!-- KPI Grid: The "Editorial" Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+<!-- Strategic Total Payables -->
+<div class="col-span-1 md:col-span-2 glass-panel p-6 rounded-xl border-l-4 border-violet-500 shadow-xl overflow-hidden relative group">
+<div class="absolute top-0 right-0 p-8 opacity-10 scale-150 text-violet-400">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<h3 class="text-slate-400 font-label text-sm uppercase tracking-wider font-semibold">Strategic Total Payables</h3>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-4xl font-headline font-black text-white">4,821,390.45</span>
+<span class="text-violet-400 font-mono text-xl">SAR</span>
+</div>
+<div class="mt-4 flex items-center gap-3">
+<div class="px-2 py-1 bg-error-container/30 rounded text-error text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+                        12.5%
+                    </div>
+<span class="text-slate-500 text-xs font-label italic">vs. last settlement period</span>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl border-l border-white/5">
+<h3 class="text-slate-400 font-label text-xs uppercase tracking-wider">Awaiting Approval</h3>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-3xl font-headline font-bold text-tertiary">942,000</span>
+<span class="text-slate-500 font-mono text-sm">SAR</span>
+</div>
+<div class="mt-2 text-xs text-slate-500 font-label">12 urgent approvals pending</div>
+</div>
+<div class="glass-panel p-6 rounded-xl border-l border-white/5">
+<h3 class="text-slate-400 font-label text-xs uppercase tracking-wider">Ready for Disbursement</h3>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-3xl font-headline font-bold text-secondary">2,105,420</span>
+<span class="text-slate-500 font-mono text-sm">SAR</span>
+</div>
+<div class="mt-2 text-xs text-slate-500 font-label">Payment cycle: Next Thursday</div>
+</div>
+</div>
+<!-- Payables Ledger: Data Dense View -->
+<div class="glass-panel rounded-2xl border border-white/5 overflow-hidden">
+<!-- Table Header/Controls -->
+<div class="p-6 flex items-center justify-between border-b border-white/5">
+<div class="flex items-center gap-6">
+<h2 class="text-lg font-headline font-bold text-white">Partner &amp; Supplier Ledger</h2>
+<div class="flex bg-surface-container-lowest p-1 rounded-lg">
+<button class="px-4 py-1.5 bg-surface-container-high rounded-md text-xs font-bold text-primary shadow-inner">All Invoices</button>
+<button class="px-4 py-1.5 text-xs font-label text-slate-500 hover:text-slate-300">WMS Partners</button>
+<button class="px-4 py-1.5 text-xs font-label text-slate-500 hover:text-slate-300">Service Providers</button>
+</div>
+</div>
+<div class="relative w-72">
+<input class="w-full bg-surface-container-lowest border-none rounded-lg py-2 pl-10 pr-4 text-sm font-label text-on-surface focus:ring-1 focus:ring-violet-500/50 transition-all" placeholder="Search payee or invoice..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-500 text-lg">search</span>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest/50">
+<th class="px-6 py-4 font-label text-xs font-bold text-slate-500 uppercase tracking-widest">Payee</th>
+<th class="px-6 py-4 font-label text-xs font-bold text-slate-500 uppercase tracking-widest">Type</th>
+<th class="px-6 py-4 font-label text-xs font-bold text-slate-500 uppercase tracking-widest">Invoice</th>
+<th class="px-6 py-4 font-label text-xs font-bold text-slate-500 uppercase tracking-widest text-right">Amount (SAR)</th>
+<th class="px-6 py-4 font-label text-xs font-bold text-slate-500 uppercase tracking-widest">Due</th>
+<th class="px-6 py-4 font-label text-xs font-bold text-slate-500 uppercase tracking-widest">Status</th>
+<th class="px-6 py-4 font-label text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-violet-500/10 flex items-center justify-center font-headline font-bold text-violet-400">AL</div>
+<div>
+<div class="text-sm font-bold text-white">Aramex Logistics</div>
+<div class="text-xs text-slate-500 font-label">Network Hub Partner</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-label px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant">SC Payables</span>
+</td>
+<td class="px-6 py-5">
+<div class="font-mono text-xs text-violet-400/80">#INV-2024-0089</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="text-sm font-headline font-bold text-white">425,000.00</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs font-label text-slate-300">Nov 28, 2024</div>
+<div class="text-[10px] text-error mt-0.5 uppercase tracking-tighter font-bold">2 Days Overdue</div>
+</td>
+<td class="px-6 py-5">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary text-[10px] font-bold uppercase tracking-widest border border-tertiary/10">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                                    Awaiting Approval
+                                </div>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-center gap-2">
+<button class="p-2 hover:text-primary transition-colors text-slate-500" title="Pay Now">
+<span class="material-symbols-outlined text-lg">account_balance_wallet</span>
+</button>
+<button class="p-2 hover:text-primary transition-colors text-slate-500" title="Schedule">
+<span class="material-symbols-outlined text-lg">calendar_month</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-secondary/10 flex items-center justify-center font-headline font-bold text-secondary">WH</div>
+<div>
+<div class="text-sm font-bold text-white">WMS Partner Model B</div>
+<div class="text-xs text-slate-500 font-label">Jeddah South Facility</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-label px-2 py-1 rounded bg-secondary-container/20 text-secondary border border-secondary/10">WMS Model B</span>
+</td>
+<td class="px-6 py-5">
+<div class="font-mono text-xs text-violet-400/80">#STT-WH-9921</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="text-sm font-headline font-bold text-white">1,020,400.00</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs font-label text-slate-300">Dec 05, 2024</div>
+<div class="text-[10px] text-slate-500 mt-0.5">Payment Cycle: Weekly</div>
+</td>
+<td class="px-6 py-5">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/20 text-primary text-[10px] font-bold uppercase tracking-widest border border-primary/10">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                    Ready
+                                </div>
+</td>
+<td class="px-6 py-5 text-center">
+<button class="px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary rounded text-xs font-bold hover:bg-primary hover:text-on-primary transition-all">
+                                    Pay Now
+                                </button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-slate-700/20 flex items-center justify-center font-headline font-bold text-slate-400">GS</div>
+<div>
+<div class="text-sm font-bold text-white">Global Shipping Inc.</div>
+<div class="text-xs text-slate-500 font-label">Direct Carrier</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-label px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant">Supplier Invoice</span>
+</td>
+<td class="px-6 py-5">
+<div class="font-mono text-xs text-violet-400/80">#INV-GS-442</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="text-sm font-headline font-bold text-white">28,500.00</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs font-label text-slate-300">Dec 12, 2024</div>
+<div class="text-[10px] text-slate-500 mt-0.5 italic">Scheduled</div>
+</td>
+<td class="px-6 py-5">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-700/20 text-slate-400 text-[10px] font-bold uppercase tracking-widest border border-slate-700/10">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
+                                    Scheduled
+                                </div>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-center gap-2">
+<button class="p-2 hover:text-primary transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-2 hover:text-error transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg">cancel</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-violet-500/10 flex items-center justify-center font-headline font-bold text-violet-400">KS</div>
+<div>
+<div class="text-sm font-bold text-white">KSA Customs Authority</div>
+<div class="text-xs text-slate-500 font-label">Government Entity</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-label px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant">Duties/Taxes</span>
+</td>
+<td class="px-6 py-5">
+<div class="font-mono text-xs text-violet-400/80">#TAX-Q4-290</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="text-sm font-headline font-bold text-white">2,145,000.00</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs font-label text-slate-300">Dec 15, 2024</div>
+<div class="text-[10px] text-primary mt-0.5 uppercase font-bold">Standard Term</div>
+</td>
+<td class="px-6 py-5">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary text-[10px] font-bold uppercase tracking-widest border border-tertiary/10">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                                    Awaiting Approval
+                                </div>
+</td>
+<td class="px-6 py-5 text-center">
+<button class="px-4 py-1.5 bg-surface-container-high border border-outline-variant/20 text-slate-300 rounded text-xs font-bold hover:bg-surface-bright transition-all">
+                                    Review
+                                </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination/Footer -->
+<div class="p-4 bg-surface-container-lowest/50 flex items-center justify-between border-t border-white/5">
+<span class="text-xs font-label text-slate-500">Showing 4 of 128 active payables</span>
+<div class="flex gap-1">
+<button class="p-2 rounded hover:bg-white/5 text-slate-500"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-8 h-8 rounded bg-violet-600/20 text-violet-400 text-xs font-bold border border-violet-500/20">1</button>
+<button class="w-8 h-8 rounded hover:bg-white/5 text-slate-500 text-xs font-bold">2</button>
+<button class="w-8 h-8 rounded hover:bg-white/5 text-slate-500 text-xs font-bold">3</button>
+<button class="p-2 rounded hover:bg-white/5 text-slate-500"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Asymmetric Bottom Section -->
+<div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Payment Analytics -->
+<div class="md:col-span-2 glass-panel p-6 rounded-2xl border border-white/5">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-white font-headline font-bold text-base">Cash Outflow Forecast</h3>
+<p class="text-xs text-slate-500 font-label">Projected disbursements for the next 30 days</p>
+</div>
+<select class="bg-surface-container-lowest border-none text-xs font-label text-slate-400 rounded focus:ring-1 focus:ring-violet-500">
+<option>Next 30 Days</option>
+<option>Next 60 Days</option>
+</select>
+</div>
+<div class="h-48 w-full flex items-end justify-between gap-2 px-4 mb-4">
+<div class="w-full bg-violet-500/10 rounded-t h-[30%] relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-800 text-[10px] p-1 rounded">240K</div>
+</div>
+<div class="w-full bg-violet-500/20 rounded-t h-[45%]"></div>
+<div class="w-full bg-violet-500/40 rounded-t h-[65%]"></div>
+<div class="w-full bg-violet-500/60 rounded-t h-[50%]"></div>
+<div class="w-full bg-violet-500 rounded-t h-[85%]"></div>
+<div class="w-full bg-violet-500/30 rounded-t h-[40%]"></div>
+<div class="w-full bg-violet-500/15 rounded-t h-[25%]"></div>
+</div>
+<div class="flex justify-between text-[10px] text-slate-500 font-mono px-4 uppercase">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+</div>
+</div>
+<!-- Quick Actions / Alerts -->
+<div class="space-y-6">
+<div class="glass-panel p-6 rounded-2xl border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-error/5 blur-3xl -mr-16 -mt-16"></div>
+<h3 class="text-white font-headline font-bold text-base mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-xl">priority_high</span>
+                        Critical Alerts
+                    </h3>
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-error"></div>
+<div>
+<p class="text-xs text-on-background font-bold">Overdue Customs Duty</p>
+<p class="text-[10px] text-slate-500 font-label">SAR 142,000 pending for 48h. Risks port clearance hold.</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-tertiary"></div>
+<div>
+<p class="text-xs text-on-background font-bold">Unmapped WMS Settlement</p>
+<p class="text-[10px] text-slate-500 font-label">Transaction STT-881 lacks partner GL mapping.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-br from-primary-container to-surface-container-high p-6 rounded-2xl border border-white/10 shadow-lg relative group cursor-pointer overflow-hidden">
+<div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<h3 class="text-primary-fixed font-headline font-bold text-base mb-2">Automate Cycles</h3>
+<p class="text-xs text-primary-fixed/60 font-label mb-4">Set up smart triggers for repetitive partner settlements.</p>
+<button class="text-xs font-bold text-white flex items-center gap-2 uppercase tracking-widest">
+                        Configure Now
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<span class="material-symbols-outlined absolute bottom-2 right-2 text-6xl opacity-5">smart_toy</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Suppressing on Details, but AP needs Quick Upload) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-violet-600 text-white shadow-2xl shadow-violet-500/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-[60]">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'wght' 500;">upload_file</span>
+</button>
+</body></html>

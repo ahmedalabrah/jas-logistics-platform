@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Arabic:wght@400;500;600;700&amp;family=Tajawal:wght@400;500;700;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#12121d",
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-container": "#f09661",
+                    "surface-variant": "#343440",
+                    "on-secondary-fixed": "#201340",
+                    "tertiary-container": "#6c2e00",
+                    "on-surface-variant": "#cbc3d5",
+                    "outline": "#948e9e",
+                    "surface-container-low": "#1b1a26",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#cfbef6",
+                    "on-secondary-container": "#c0b0e7",
+                    "on-background": "#e3e0f1",
+                    "background": "#12121d",
+                    "inverse-primary": "#6a45c3",
+                    "surface-dim": "#12121d",
+                    "primary-container": "#4b1fa3",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#383845",
+                    "on-primary-container": "#b79cff",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-surface": "#e3e0f1",
+                    "surface-tint": "#d0bcff",
+                    "on-primary": "#3b0092",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "primary": "#d0bcff",
+                    "tertiary": "#ffb68e",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#331200",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-container-high": "#292935",
+                    "outline-variant": "#494453",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "on-secondary": "#352856",
+                    "inverse-surface": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-highest": "#343440",
+                    "on-tertiary": "#532200",
+                    "inverse-on-surface": "#302f3b",
+                    "on-primary-fixed": "#22005c",
+                    "surface-container": "#1f1e2a",
+                    "tertiary-fixed": "#ffdbc9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Poppins", "Tajawal", "sans-serif"],
+                    "body": ["Inter", "IBM Plex Arabic", "sans-serif"],
+                    "label": ["Inter", "IBM Plex Arabic", "sans-serif"],
+                    "mono": ["JetBrains Mono", "monospace"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'IBM Plex Arabic', 'Inter', sans-serif;
+            background-color: #12121d;
+        }
+        .font-tajawal-black { font-family: 'Tajawal', sans-serif; font-weight: 900; }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(31, 30, 42, 0.7);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface min-h-screen pb-32">
+<!-- Top AppBar (from JSON) -->
+<header class="bg-[#12121d] dark:bg-[#12121d] docked full-width top-0 sticky z-50 bg-[#12121d] shadow-none border-b border-[#d0bcff]/10 backdrop-blur-xl flex flex-row-reverse justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="text-on-primary-container font-headline font-bold text-lg">Driver Name</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
+<img alt="Driver Profile Photo" class="w-full h-full object-cover" data-alt="professional portrait of a middle-eastern man in a clean polo shirt, smiling confidently, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCNtEpjIH4W9D2TBcIyAxXysi31QrQb7PKNcK3uSUCWL70Ia4KhmG3TjcYOqN5AVLvR_hUsi4qJjahixAXQxcEGiKK1H_dt0BN7V75z560Hl_i6i3ZeKb8WxAlEQxFvPEJxNrC3ddepBC-hbNAdANo32N6t4tgewts-PcMsYCcompteCNYkbm3HmsdR6oOiOjKLIma4YjXIC8jhjQHUbWhk0DibKulI4may8HcD3sP0Pnxb_NLSFYQYIeo9KQ-TaYYblJLx0GzSw"/>
+</div>
+</div>
+<button class="text-[#d0bcff] hover:bg-[#d0bcff]/10 transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="max-w-[390px] mx-auto px-5 pt-6 space-y-8">
+<!-- Profile Header Section -->
+<section class="flex flex-col items-center text-center space-y-4">
+<div class="relative group">
+<div class="w-[88px] h-[88px] rounded-full p-1 bg-gradient-to-tr from-primary to-primary-container shadow-lg shadow-primary/20">
+<div class="w-full h-full rounded-full overflow-hidden border-2 border-surface">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a professional middle-eastern male driver, high resolution, soft warm rim light, blurred city background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnrLTk8lbqo-sQ9pfpP_uesLe0K8Ip23lzrbnSK7LyssaNg9ugpxwbNK-xO_d5NQunVcsyzAxxWn7qxlCyaLvsXAB_1WL-NH85Z8bh5iaOtSf2cAYDj76NghBPAB1wT0rQ4mRk31QRG5V5EtMPj5Q-lxRr_QlbwimeSYe2YBULuF3uGVROVr2xZzfLPuDWhtwi_xWjuJJO_Nczm_tdpUHCL4Vg2b0cirvR9rE21Q9z65SC6QTGYpm95QdvQcdFs3kg8jGZcy9KQA"/>
+</div>
+</div>
+<button class="absolute -bottom-1 -right-1 bg-primary text-on-primary p-1.5 rounded-full shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="space-y-1">
+<h1 class="text-[22px] font-tajawal-black text-on-surface">خالد الراشدي</h1>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-mono text-[13px] text-emerald-400">JAS-DRV-2026-0287</span>
+</div>
+</div>
+<button class="text-primary text-sm font-medium border border-primary/20 px-4 py-1.5 rounded-full hover:bg-primary/5">
+                تغيير الصورة
+            </button>
+</section>
+<!-- Status Grid (Asymmetric) -->
+<section class="grid grid-cols-2 gap-3">
+<div class="col-span-2 flex justify-between px-2 text-xs font-medium text-on-surface-variant">
+<span>حالة التحقق (Verification)</span>
+<span class="text-emerald-400">مكتمل 100%</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between border border-white/5">
+<span class="text-sm">Absher</span>
+<span class="material-symbols-outlined text-emerald-400" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between border border-white/5">
+<span class="text-sm">GOSI</span>
+<span class="material-symbols-outlined text-emerald-400" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between border border-white/5">
+<span class="text-sm">License</span>
+<span class="material-symbols-outlined text-emerald-400" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center justify-between border border-white/5">
+<span class="text-sm">TGA</span>
+<span class="material-symbols-outlined text-emerald-400" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</section>
+<!-- Documents Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-center px-1">
+<h3 class="text-lg font-bold">المستندات الرسمية</h3>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="space-y-3">
+<!-- Doc 1: Driving License -->
+<div class="h-[80px] glass-panel rounded-xl px-4 flex items-center gap-4 border border-white/5 group active:scale-[0.98] transition-transform">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="badge">badge</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-bold text-sm">رخصة القيادة</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold border border-emerald-500/20 uppercase tracking-wider">Valid</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">Class H — Valid until Dec 2027</p>
+</div>
+</div>
+<!-- Doc 2: National ID -->
+<div class="h-[80px] glass-panel rounded-xl px-4 flex items-center gap-4 border border-white/5 active:scale-[0.98] transition-transform">
+<div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[28px]" data-icon="id_card">id_card</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-bold text-sm">بطاقة الهوية</span>
+<span class="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-[10px] font-bold border border-amber-500/20 uppercase tracking-wider">Expires Soon</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">Valid until Jan 2026</p>
+</div>
+</div>
+<!-- Doc 3: GOSI -->
+<div class="h-[80px] glass-panel rounded-xl px-4 flex items-center gap-4 border border-white/5 active:scale-[0.98] transition-transform">
+<div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[28px]" data-icon="account_balance">account_balance</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-bold text-sm">شهادة GOSI</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold border border-emerald-500/20">Active</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">Direct Social Insurance Verified</p>
+</div>
+</div>
+<!-- Doc 4: JAS Badge -->
+<div class="h-[80px] glass-panel rounded-xl px-4 flex items-center gap-4 border border-white/5 active:scale-[0.98] transition-transform">
+<div class="w-12 h-12 rounded-lg bg-primary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-bold text-sm">بطاقة جاس (JAS Driver Badge)</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">Issued Jan 2026</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Utility Actions -->
+<section class="space-y-4 pt-4">
+<!-- Language Toggle -->
+<div class="bg-surface-container-high rounded-full p-1.5 flex flex-row-reverse">
+<button class="flex-1 py-2 px-4 rounded-full bg-surface-bright text-on-surface text-sm font-bold flex items-center justify-center gap-2">
+<span>العربية</span>
+<span class="text-lg">🇸🇦</span>
+</button>
+<button class="flex-1 py-2 px-4 rounded-full text-on-surface-variant text-sm flex items-center justify-center gap-2">
+<span>English</span>
+<span class="text-lg">🇬🇧</span>
+</button>
+</div>
+<button class="w-full h-[52px] flex items-center justify-center gap-2 border border-outline-variant/30 rounded-xl text-on-surface-variant hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-medium text-sm">تواصل مع الدعم / Contact Support</span>
+</button>
+<button class="w-full h-[52px] flex items-center justify-center gap-2 border border-error/20 rounded-xl text-error hover:bg-error/5 transition-colors">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-medium text-sm">تسجيل الخروج / Logout</span>
+</button>
+</section>
+</main>
+<!-- Bottom Navigation (from JSON) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl backdrop-blur-lg bg-[#12121d]/80 dark:bg-[#12121d]/80 border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.5)] flex flex-row-reverse justify-around items-center w-full px-4 py-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Trip</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Documents</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Earnings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#d0bcff] bg-[#4b1fa3]/20 rounded-xl px-3 py-1 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Profile</span>
+</a>
+</nav>
+</body></html>

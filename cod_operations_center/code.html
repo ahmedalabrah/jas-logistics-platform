@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | COD Operations Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-primary-fixed": "#22005c",
+                "on-tertiary": "#532200",
+                "inverse-on-surface": "#302f3b",
+                "tertiary-fixed": "#ffdbc9",
+                "surface-container": "#1f1e2a",
+                "surface-container-highest": "#343440",
+                "on-secondary-fixed-variant": "#4c3f6e",
+                "surface-container-lowest": "#0d0d18",
+                "on-secondary": "#352856",
+                "inverse-surface": "#e3e0f1",
+                "outline-variant": "#494453",
+                "tertiary": "#ffb68e",
+                "primary-fixed": "#e9ddff",
+                "on-tertiary-fixed": "#331200",
+                "tertiary-fixed-dim": "#ffb68e",
+                "primary": "#d0bcff",
+                "surface-container-high": "#292935",
+                "on-tertiary-fixed-variant": "#743405",
+                "surface-tint": "#d0bcff",
+                "on-primary": "#3b0092",
+                "on-error": "#690005",
+                "error-container": "#93000a",
+                "secondary-fixed": "#e9ddff",
+                "primary-fixed-dim": "#d0bcff",
+                "secondary-fixed-dim": "#cfbef6",
+                "on-primary-container": "#b79cff",
+                "on-surface": "#e3e0f1",
+                "primary-container": "#4b1fa3",
+                "error": "#ffb4ab",
+                "surface-bright": "#383845",
+                "surface-dim": "#12121d",
+                "on-background": "#e3e0f1",
+                "background": "#12121d",
+                "inverse-primary": "#6a45c3",
+                "on-primary-fixed-variant": "#5228aa",
+                "on-error-container": "#ffdad6",
+                "on-secondary-container": "#c0b0e7",
+                "secondary": "#cfbef6",
+                "outline": "#948e9e",
+                "surface-container-low": "#1b1a26",
+                "on-surface-variant": "#cbc3d5",
+                "tertiary-container": "#6c2e00",
+                "on-secondary-fixed": "#201340",
+                "surface-variant": "#343440",
+                "surface": "#12121d",
+                "secondary-container": "#4f4171",
+                "on-tertiary-container": "#f09661"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(31, 30, 42, 0.6);
+        backdrop-filter: blur(12px);
+      }
+      body {
+        background-color: #12121d;
+        color: #e3e0f1;
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body class="font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#12121d]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] h-16 flex justify-between items-center px-8">
+<div class="text-xl font-bold tracking-tighter text-[#d0bcff] font-headline">JAS Logistics</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="font-headline font-medium text-sm tracking-tight text-white/60 hover:text-white/90 transition-colors" href="#">Payments</a>
+<a class="font-headline font-medium text-sm tracking-tight text-white/60 hover:text-white/90 transition-colors" href="#">Payouts</a>
+<a class="font-headline font-medium text-sm tracking-tight text-[#d0bcff] border-b-2 border-[#d0bcff] pb-2 transition-all" href="#">Reconciliation</a>
+<a class="font-headline font-medium text-sm tracking-tight text-white/60 hover:text-white/90 transition-colors" href="#">Settings</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined text-white/70">notifications</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined text-white/70">translate</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined text-white/70">account_circle</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 h-full w-64 z-40 bg-[#0F0F1A]/90 backdrop-blur-2xl hidden md:flex flex-col py-20 px-4 space-y-2">
+<div class="px-4 mb-8">
+<h2 class="text-[#d0bcff] font-headline font-bold text-sm uppercase tracking-widest opacity-50">Finance Portal</h2>
+<p class="text-white/40 text-xs">Precision Logistics</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Command Center</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-gradient-to-r from-[#4B1FA3]/30 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] font-semibold transition-all duration-300" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm">SADAD Ops</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="text-sm font-medium">Bank Transfers</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-sm font-medium">Carrier Payouts</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="text-sm font-medium">Batch Processing</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-sm font-medium">Audit Logs</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-white/5 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-sm font-medium">Support</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-24 pb-12 px-8 min-h-screen">
+<!-- Header Section -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-2">COD Operations Center</h1>
+<p class="text-on-surface-variant max-w-2xl">Monitor real-time cash-on-delivery cycles, driver reconciliations, and financial settlement statuses across the Kingdom.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-5 py-2.5 bg-surface-container-high text-on-surface rounded-lg font-semibold text-sm hover:bg-surface-bright transition-all border border-white/5">
+                    Export Report
+                </button>
+<button class="px-5 py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed rounded-lg font-bold text-sm hover:shadow-[0_0_20px_rgba(208,188,255,0.3)] transition-all active:scale-95">
+                    Start New Batch
+                </button>
+</div>
+</header>
+<!-- KPI Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Expected Collections -->
+<div class="glass-card p-6 rounded-xl border border-white/5 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<span class="text-xs font-bold text-primary px-2 py-1 bg-primary/10 rounded-full tracking-wider">MONTHLY TARGET</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium mb-1">Expected Cash Collections</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold font-headline">1,420,500</span>
+<span class="text-primary-fixed text-sm font-bold">SAR</span>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="h-1.5 flex-1 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[72%]"></div>
+</div>
+<span class="text-[10px] font-bold text-white/40">72%</span>
+</div>
+</div>
+<!-- Collected Today -->
+<div class="glass-card p-6 rounded-xl border border-white/5 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary/10 rounded-full blur-3xl group-hover:bg-tertiary/20 transition-all"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary/10 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">payments</span>
+</div>
+<span class="text-xs font-bold text-tertiary px-2 py-1 bg-tertiary/10 rounded-full tracking-wider">LIVE FEED</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium mb-1">Collected Today</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold font-headline text-tertiary">84,210</span>
+<span class="text-on-tertiary-container text-sm font-bold">SAR</span>
+</div>
+<p class="mt-4 text-[10px] text-white/40 uppercase tracking-widest font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-green-400">trending_up</span> 
+                    12% increase from yesterday
+                </p>
+</div>
+<!-- Pending Reconciliation -->
+<div class="glass-card p-6 rounded-xl border border-white/5 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-error/10 rounded-full blur-3xl group-hover:bg-error/20 transition-all"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-error/10 rounded-lg">
+<span class="material-symbols-outlined text-error">rebase_edit</span>
+</div>
+<span class="text-xs font-bold text-error px-2 py-1 bg-error/10 rounded-full tracking-wider">ACTION REQUIRED</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium mb-1">Pending Reconciliation</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold font-headline text-error">12,450</span>
+<span class="text-on-error-container text-sm font-bold">SAR</span>
+</div>
+<p class="mt-4 text-[10px] text-white/40 uppercase tracking-widest font-bold">Across 42 individual shipments</p>
+</div>
+</section>
+<!-- Main Operations Table Area -->
+<section class="surface_container rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+<div class="px-8 py-6 bg-surface-container-high border-b border-white/5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<h3 class="text-lg font-bold font-headline flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Live COD Stream
+                </h3>
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/30 text-sm">search</span>
+<input class="bg-surface-container-lowest border-none ring-1 ring-white/10 rounded-lg pl-9 pr-4 py-2 text-xs text-on-surface placeholder:text-white/20 focus:ring-primary/50 transition-all w-64" placeholder="Search orders, clients..." type="text"/>
+</div>
+<button class="p-2 bg-surface-container-lowest ring-1 ring-white/10 rounded-lg hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-sm">tune</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low/50">
+<tr>
+<th class="px-8 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/40">Order Ref</th>
+<th class="px-8 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/40">Client</th>
+<th class="px-8 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/40">Driver</th>
+<th class="px-8 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/40">Amount (SAR)</th>
+<th class="px-8 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/40">Status</th>
+<th class="px-8 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/40 text-center">Photo</th>
+<th class="px-8 py-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/40 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-8 py-5">
+<span class="font-mono text-sm text-primary-fixed">#JAS-9921-X</span>
+</td>
+<td class="px-8 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold">Jarir Bookstore</span>
+<span class="text-[10px] text-white/30">Retail Distribution</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="professional male delivery driver profile portrait in corporate blue uniform against a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPr1DEKrYV5z_na516LCVP2Hjhopc9m9A3ygA8BtDdpa-uVU3OMGsSagrNINZ9O71wj_rrORN6F14j2HZn6kO3GEHhUiJjqq_8gb1bfO2d0vbkPcRciBWv8belQoJ1JTxcRXb_JL0BdPoqN2hNGu4RCdXS58JW3Xz9MBoZpcH33UdhvJQypXoTjZfAnr-sL0YCJEHzm6jsUSrd2lfGSFmMYiaF2Z80QC46UFH_rNkvJEAVx3TjAbX_r8_mZ7rCXiyvs7u4dyjcuw"/>
+<span class="text-sm">Faisal Al-Otaibi</span>
+</div>
+</td>
+<td class="px-8 py-5 font-bold text-sm">2,450.00</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-tertiary-container text-on-tertiary-container shadow-[0_0_10px_rgba(108,46,0,0.2)]">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+                                    COLLECTED
+                                </span>
+</td>
+<td class="px-8 py-5">
+<div class="flex justify-center">
+<div class="relative w-10 h-10 rounded-lg overflow-hidden ring-1 ring-white/10">
+<img class="w-full h-full object-cover filter brightness-50 group-hover:brightness-100 transition-all" data-alt="close-up of hands exchanging currency and a parcel at a doorstep during sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqCf4tSAE6ukXa5--T0q7fKMQH_M-9UYNWrKViohPtJHRxmYjn4Wx9RCg07l4cGSuNqBPk8ug4ZHBa8lupfYJ4zSsQ7oiaIOlzUZlIKETqilrElnutOIY0_ejn6FMJXycGXhbcGx6_aXeSij6OCpBAChweQwZtcumGHS-0PDuxRjxpmobJW57fCa9D_8fKGUauQKLCg-mGgNpjrLryfB6WB_C8n0_P9Nl0L-eC377wpY4Mgya7_xUEF89xvHuETKomApOZ9fyfdA"/>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1.5 bg-surface-container-highest rounded text-[10px] font-bold uppercase tracking-wider hover:bg-surface-bright transition-all">Evidence</button>
+<button class="px-3 py-1.5 bg-primary/10 text-primary border border-primary/20 rounded text-[10px] font-bold uppercase tracking-wider hover:bg-primary/20 transition-all">Reconcile</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-8 py-5">
+<span class="font-mono text-sm text-primary-fixed">#JAS-8842-Y</span>
+</td>
+<td class="px-8 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold">Noon.com</span>
+<span class="text-[10px] text-white/30">E-Commerce</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="smiling middle eastern professional logistics manager portrait with clear glasses and a friendly demeanor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF4fYbbBbVAk2o4ZVq6n6d8dilR8jG5SWKgywi3vbLtyBIJbXuhR23RwZEilGYJBrEZQi6CAU5A7s8oA5C87aXTE-WCovAqJVviiaABAvQ-uNlZUqZ52NpCXAKGwWPhbh9vaorXkWiDnFBDXmBjm5xcij5nxGKtu7QDrhV9YWV43Za8oKEttG7pe7Mf4NPJZCOGTq062YeWCzNpwekbUDf9mbFi6Ug21kQTyy23h9Bj783sUQAvTTHOmlnjYum7LlST1IYtIfvuw"/>
+<span class="text-sm">Saleh Mohammed</span>
+</div>
+</td>
+<td class="px-8 py-5 font-bold text-sm">412.50</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-white/5 text-white/40">
+<span class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                                    IN TRANSIT
+                                </span>
+</td>
+<td class="px-8 py-5">
+<div class="flex justify-center italic text-[10px] text-white/20">Pending</div>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1.5 bg-surface-container-highest rounded text-[10px] font-bold uppercase tracking-wider opacity-50 cursor-not-allowed">Evidence</button>
+<button class="px-3 py-1.5 bg-surface-container-highest rounded text-[10px] font-bold uppercase tracking-wider opacity-50 cursor-not-allowed">Reconcile</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-8 py-5">
+<span class="font-mono text-sm text-primary-fixed">#JAS-7712-Z</span>
+</td>
+<td class="px-8 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold">Extra Electronics</span>
+<span class="text-[10px] text-white/30">High-Value Freight</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="headshot of a male operations analyst in a dark polo shirt against a blurred office backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPtsUZBvNj9uOUkQZ5GvFtz6RH1IkZCU7dEf4wGGV5C1hYO9nJujIA8iFKPE88qgyTaLJ-F8Nmc01Z5V6vHwLdZ54tLwPgjRMRd6Fn8c5H7NuBwgfJPYIXxeCf3zft2qAYSniQgPKUOkL8C-0Uh9ZDhCE9zbSIArhOeblLLlSyZiv5FNZ93-k0FxaWO9I_ZohZiez-sNYfsrP51cUMOLFGTieuVC75D3nEQUH8W9OCgXYxIbOsb5v-BDIaRY3J-n_RkSAMefaNuA"/>
+<span class="text-sm">Rakan Nasser</span>
+</div>
+</td>
+<td class="px-8 py-5 font-bold text-sm">8,900.00</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-error-container text-on-error-container shadow-[0_0_10px_rgba(147,0,10,0.2)]">
+<span class="w-1.5 h-1.5 rounded-full bg-on-error-container"></span>
+                                    DISPUTED
+                                </span>
+</td>
+<td class="px-8 py-5">
+<div class="flex justify-center">
+<div class="relative w-10 h-10 rounded-lg overflow-hidden ring-1 ring-error/30">
+<img class="w-full h-full object-cover" data-alt="close-up of a digital POS terminal showing a transaction error message with soft office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZUJCHIOMteHYKzXNUgxuckEjPiuo2pZLk4cGxZn0Rmou2gtdjgdJIghGkJ-PG0HGspuobMz1lMYag3rdQ1gZLLTS-CWq9-LqCtNZnRlpgP_UU5o7ob5wvgUM-D93Kty7AT7GatP_P_rsbU5Jyx4FUUEK-Mu3HTUp3tRBsqzXHYNzMX_L9EhZGYJPkltYjm6BuXE3xA6PY5DLOl9NdsspKojreC-YLHhC-5xF3U-op7Rxl8VeJxjbnc6U_kAhIxm9upYwsVbB1GA"/>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1.5 bg-error text-on-error rounded text-[10px] font-bold uppercase tracking-wider hover:brightness-110 transition-all">Review Discrepancy</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-8 py-5">
+<span class="font-mono text-sm text-primary-fixed">#JAS-1155-K</span>
+</td>
+<td class="px-8 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-bold">Tamimi Markets</span>
+<span class="text-[10px] text-white/30">Grocery Cold Chain</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="portrait of an experienced senior delivery captain with a friendly gaze and professional logistics gear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9Tgn--C-XCycSybAHMIP37UK7T_Qbw-8wAldg1B3FrECUEX0lSGN3oFrSkFuYRU2Exfme8bELLEkEogD6D35lJ114KEMgQN33S13HGUaZw8NiZfHdacNIebnE1tWrB_YGki1tM4U_L59ebaeLaBBDhMin6WTDdRpXeM6AOob9ih6fBVs2qi5GKaWgU_0Sycx6LrjvQpLQummw3B8vuh1M7rr0VDSjHQS264mOmTNm0xrGOT_Wlj4RSvX3rKhoQSunp5xFKQ6QSw"/>
+<span class="text-sm">Ibrahim Khaldoun</span>
+</div>
+</td>
+<td class="px-8 py-5 font-bold text-sm">1,120.40</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-tertiary-container text-on-tertiary-container shadow-[0_0_10px_rgba(108,46,0,0.2)]">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+                                    COLLECTED
+                                </span>
+</td>
+<td class="px-8 py-5">
+<div class="flex justify-center">
+<div class="relative w-10 h-10 rounded-lg overflow-hidden ring-1 ring-white/10">
+<img class="w-full h-full object-cover filter brightness-50 group-hover:brightness-100 transition-all" data-alt="a smartphone screen displaying a successful payment receipt with digital signature in a well-lit retail environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQfxBh7BNBBNoid5qjEB2L4sMJomawTIzmBUZWmeRfPgsnNyD_OX5mH-4VhYZ7PnuXTpQWcOcygHWTcDP5ePu0xrefiMn8f11fFmgUGmScnuZsgReEs5Ur5aIxRqCR83q0SPZtJD9VoEOtVKdDSVg64eWLKD-VVR0Me72HKJMs0EmZ9x6yAqn2unxG-zE1YCXUu37bx8G7EgvNYyAwSllPU-4dBGaVeSBCX4JQ_H69tV7MJI-Hqv4-PrJzeWBJoayEjl41Gcr0yA"/>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1.5 bg-surface-container-highest rounded text-[10px] font-bold uppercase tracking-wider hover:bg-surface-bright transition-all">Evidence</button>
+<button class="px-3 py-1.5 bg-primary/10 text-primary border border-primary/20 rounded text-[10px] font-bold uppercase tracking-wider hover:bg-primary/20 transition-all">Reconcile</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Pagination -->
+<div class="px-8 py-4 bg-surface-container-low border-t border-white/5 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-white/30">
+<p>Showing 1-10 of 1,248 COD Orders</p>
+<div class="flex gap-2">
+<button class="p-2 hover:text-white transition-colors"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="px-3 py-1 bg-primary/20 text-primary rounded ring-1 ring-primary/30">1</button>
+<button class="px-3 py-1 hover:bg-white/5 rounded transition-all">2</button>
+<button class="px-3 py-1 hover:bg-white/5 rounded transition-all">3</button>
+<button class="p-2 hover:text-white transition-colors"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual FAB (Hidden on detail, but active for Ops Home) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-[0_0_24px_rgba(208,188,255,0.4)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+<span class="absolute right-16 bg-surface-container-highest text-white px-3 py-1.5 rounded-lg text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all">New Reconciliation Batch</span>
+</button>
+</body></html>

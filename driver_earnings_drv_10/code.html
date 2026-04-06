@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Arabic:wght@400;500;700&amp;family=Tajawal:wght@400;500;700;900&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#12121d",
+                        "secondary-container": "#4f4171",
+                        "on-tertiary-container": "#f09661",
+                        "surface-variant": "#343440",
+                        "on-secondary-fixed": "#201340",
+                        "tertiary-container": "#6c2e00",
+                        "on-surface-variant": "#cbc3d5",
+                        "outline": "#948e9e",
+                        "surface-container-low": "#1b1a26",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#cfbef6",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-background": "#e3e0f1",
+                        "background": "#12121d",
+                        "inverse-primary": "#6a45c3",
+                        "surface-dim": "#12121d",
+                        "primary-container": "#4b1fa3",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#383845",
+                        "on-primary-container": "#b79cff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "on-surface": "#e3e0f1",
+                        "surface-tint": "#d0bcff",
+                        "on-primary": "#3b0092",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "primary": "#d0bcff",
+                        "tertiary": "#ffb68e",
+                        "primary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#331200",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "surface-container-high": "#292935",
+                        "outline-variant": "#494453",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "on-secondary": "#352856",
+                        "inverse-surface": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-container-highest": "#343440",
+                        "on-tertiary": "#532200",
+                        "inverse-on-surface": "#302f3b",
+                        "on-primary-fixed": "#22005c",
+                        "surface-container": "#1f1e2a",
+                        "tertiary-fixed": "#ffdbc9",
+                        "brand-green": "#22C55E"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans", "Tajawal"],
+                        "body": ["Inter", "IBM Plex Arabic"],
+                        "label": ["Inter", "IBM Plex Arabic"],
+                        "tajawal": ["Tajawal", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #12121d;
+            font-family: 'Inter', 'IBM Plex Arabic', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-card {
+            background: rgba(31, 30, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface select-none">
+<!-- TopAppBar -->
+<header class="bg-[#12121d] shadow-none border-b border-[#d0bcff]/10 docked full-width top-0 sticky z-50 flex flex-row-reverse justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="text-slate-100 font-tajawal text-sm font-medium">خالد الراشدي</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Driver Profile Photo" class="w-full h-full object-cover" data-alt="professional portrait of a middle eastern male logistics driver in casual attire with a warm confident expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwbL6CnuC2u0_yYO_jbwiBXm2q9nA1hRiRWI0ax9nhBssEuOTpaGNA4KEkh4NKECKcA36I8CwZEN__3qHiBx2bPj7lpUMc9Pwr2JC_9loTasItGTAh3yjKTLGTF-wOmADfobmd8zByK0ED3LxTXHF3PtriS9W15yn78yZsqggM5p-mFGfhkltW4gR5usMwZKPldwGHx8bukRBQ9fPzcU_9-8bkN-psU2YJV9Er6HkA81KJccr003ylDwwf8uRKTpRoz8xtMfOLkw"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#d0bcff]/10 transition-colors p-2 rounded-full scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[#d0bcff]">notifications</span>
+</button>
+</div>
+</header>
+<main class="pb-24 pt-4 px-4 space-y-6 max-w-[390px] mx-auto overflow-x-hidden">
+<!-- Header Section -->
+<div class="flex justify-between items-end">
+<h1 class="font-tajawal font-[900] text-2xl text-on-surface">أرباحي</h1>
+</div>
+<!-- Horizontal Summary Cards -->
+<section class="flex gap-4 overflow-x-auto no-scrollbar pb-2 -mx-4 px-4">
+<!-- This Week -->
+<div class="flex-shrink-0 w-44 glass-card p-5 rounded-full border border-outline-variant/10">
+<p class="text-on-surface-variant text-sm font-tajawal mb-2">هذا الأسبوع</p>
+<div class="flex items-baseline gap-1">
+<span class="text-brand-green text-2xl font-tajawal font-bold tracking-tight">1,240</span>
+<span class="text-brand-green text-xs font-tajawal">SAR</span>
+</div>
+</div>
+<!-- This Month -->
+<div class="flex-shrink-0 w-44 glass-card p-5 rounded-full border border-outline-variant/10">
+<p class="text-on-surface-variant text-sm font-tajawal mb-2">هذا الشهر</p>
+<div class="flex items-baseline gap-1">
+<span class="text-on-surface text-xl font-tajawal font-bold tracking-tight">4,820</span>
+<span class="text-on-surface-variant text-xs font-tajawal">SAR</span>
+</div>
+</div>
+<!-- All Time -->
+<div class="flex-shrink-0 w-44 glass-card p-5 rounded-full border border-outline-variant/10">
+<p class="text-on-surface-variant text-sm font-tajawal mb-2">الكل</p>
+<div class="flex items-baseline gap-1">
+<span class="text-on-surface text-xl font-tajawal font-bold tracking-tight">84,320</span>
+<span class="text-on-surface-variant text-xs font-tajawal">SAR</span>
+</div>
+</div>
+</section>
+<!-- Wallet Card -->
+<section class="bg-gradient-to-br from-primary-container to-surface-container-high p-6 rounded-xl relative overflow-hidden shadow-2xl">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-on-primary-container/80 text-sm font-tajawal">الرصيد المتاح في المحفظة</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-white text-3xl font-tajawal font-black">2,340</span>
+<span class="text-on-primary-container text-sm font-medium">SAR</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-primary-container text-3xl">account_balance_wallet</span>
+</div>
+<button class="w-full py-3 bg-brand-green text-surface font-tajawal font-bold rounded-lg scale-95 active:scale-90 transition-transform shadow-lg shadow-brand-green/20">
+                    طلب صرف / Request Payout
+                </button>
+</div>
+</section>
+<!-- Payout History -->
+<section class="space-y-3">
+<h2 class="font-tajawal font-bold text-sm text-on-surface-variant px-1">عمليات الصرف الأخيرة</h2>
+<div class="space-y-2">
+<div class="flex justify-between items-center p-3 surface-container-low rounded-lg border-r-4 border-primary">
+<div class="text-right">
+<p class="text-on-surface text-sm font-tajawal font-bold">12 يونيو 2024</p>
+<p class="text-on-surface-variant text-[10px] font-tajawal">تم التحويل بنجاح</p>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-primary text-sm font-bold">1,500</span>
+<span class="text-primary text-[10px]">SAR</span>
+</div>
+</div>
+<div class="flex justify-between items-center p-3 surface-container-low rounded-lg">
+<div class="text-right">
+<p class="text-on-surface text-sm font-tajawal font-bold">28 مايو 2024</p>
+<p class="text-on-surface-variant text-[10px] font-tajawal">تم التحويل بنجاح</p>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-on-surface text-sm font-bold">2,100</span>
+<span class="text-on-surface-variant text-[10px]">SAR</span>
+</div>
+</div>
+<div class="flex justify-between items-center p-3 surface-container-low rounded-lg opacity-60">
+<div class="text-right">
+<p class="text-on-surface text-sm font-tajawal font-bold">15 مايو 2024</p>
+<p class="text-on-surface-variant text-[10px] font-tajawal">تم التحويل بنجاح</p>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-on-surface text-sm font-bold">1,850</span>
+<span class="text-on-surface-variant text-[10px]">SAR</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Earnings Ledger -->
+<section class="space-y-4">
+<div class="flex justify-between items-center">
+<h2 class="font-tajawal font-bold text-lg text-on-surface">سجل الأرباح</h2>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">filter_list</span>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 overflow-x-auto no-scrollbar">
+<button class="bg-primary-container/30 text-on-primary-container px-4 py-1.5 rounded-full text-xs font-tajawal border border-primary-container/50 whitespace-nowrap">كل الوقت</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-1.5 rounded-full text-xs font-tajawal border border-outline-variant/10 whitespace-nowrap">هذا الشهر</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-1.5 rounded-full text-xs font-tajawal border border-outline-variant/10 whitespace-nowrap">الأسبوع الماضي</button>
+</div>
+<!-- Trip Ledger -->
+<div class="space-y-3">
+<!-- Trip Card 1 -->
+<div class="surface-container p-4 rounded-xl space-y-3 border-r-2 border-brand-green/40">
+<div class="flex justify-between items-center">
+<span class="font-mono text-[10px] text-on-surface-variant opacity-70">JAS-TRIP-9842</span>
+<span class="bg-brand-green/10 text-brand-green px-2 py-0.5 rounded text-[10px] font-tajawal font-bold">تم الدفع</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-on-surface text-sm font-tajawal font-bold leading-none">الرياض ⟵ الدمام</p>
+<p class="text-on-surface-variant text-[10px] font-tajawal">14 يونيو 2024 • 09:30 ص</p>
+</div>
+<div class="text-left">
+<span class="text-brand-green text-lg font-tajawal font-black">450</span>
+<span class="text-brand-green text-[10px] font-tajawal mr-0.5">SAR</span>
+</div>
+</div>
+</div>
+<!-- Trip Card 2 -->
+<div class="surface-container p-4 rounded-xl space-y-3 border-r-2 border-amber-500/40">
+<div class="flex justify-between items-center">
+<span class="font-mono text-[10px] text-on-surface-variant opacity-70">JAS-TRIP-9845</span>
+<span class="bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded text-[10px] font-tajawal font-bold">قيد الانتظار</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-on-surface text-sm font-tajawal font-bold leading-none">جدة ⟵ مكة المكرمة</p>
+<p class="text-on-surface-variant text-[10px] font-tajawal">15 يونيو 2024 • 02:15 م</p>
+</div>
+<div class="text-left">
+<span class="text-brand-green text-lg font-tajawal font-black">120</span>
+<span class="text-brand-green text-[10px] font-tajawal mr-0.5">SAR</span>
+</div>
+</div>
+</div>
+<!-- Trip Card 3 -->
+<div class="surface-container p-4 rounded-xl space-y-3 border-r-2 border-brand-green/40">
+<div class="flex justify-between items-center">
+<span class="font-mono text-[10px] text-on-surface-variant opacity-70">JAS-TRIP-9830</span>
+<span class="bg-brand-green/10 text-brand-green px-2 py-0.5 rounded text-[10px] font-tajawal font-bold">تم الدفع</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-on-surface text-sm font-tajawal font-bold leading-none">المدينة المنورة ⟵ جدة</p>
+<p class="text-on-surface-variant text-[10px] font-tajawal">13 يونيو 2024 • 11:00 م</p>
+</div>
+<div class="text-left">
+<span class="text-brand-green text-lg font-tajawal font-black">670</span>
+<span class="text-brand-green text-[10px] font-tajawal mr-0.5">SAR</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-[#12121d]/80 backdrop-blur-lg fixed bottom-0 w-full z-50 rounded-t-xl border-t border-white/5 shadow-[0_-4px_24px_rgba(0,0,0,0.5)] flex flex-row-reverse justify-around items-center w-full px-4 py-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Trip</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Documents</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#d0bcff] bg-[#4b1fa3]/20 rounded-xl px-3 py-1 tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Earnings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-200 transition-all tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium tracking-tight IBM Plex Arabic">Profile</span>
+</a>
+</nav>
+</body></html>

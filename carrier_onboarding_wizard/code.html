@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Carrier Onboarding Wizard | FreMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#690005",
+                      "primary-fixed": "#e9ddff",
+                      "surface-container": "#1f1e2a",
+                      "surface": "#12121d",
+                      "on-primary-container": "#b79cff",
+                      "surface-bright": "#383845",
+                      "surface-tint": "#d0bcff",
+                      "secondary-fixed": "#e9ddff",
+                      "background": "#12121d",
+                      "tertiary-fixed-dim": "#ffb68e",
+                      "inverse-on-surface": "#302f3b",
+                      "error-container": "#93000a",
+                      "surface-dim": "#12121d",
+                      "on-secondary-fixed": "#201340",
+                      "tertiary-fixed": "#ffdbc9",
+                      "on-tertiary-container": "#f09661",
+                      "secondary-fixed-dim": "#cfbef6",
+                      "primary": "#d0bcff",
+                      "surface-container-highest": "#343440",
+                      "on-surface-variant": "#cbc3d5",
+                      "on-surface": "#e3e0f1",
+                      "secondary-container": "#4f4171",
+                      "on-background": "#e3e0f1",
+                      "surface-container-lowest": "#0d0d18",
+                      "outline": "#948e9e",
+                      "on-secondary": "#352856",
+                      "tertiary-container": "#6c2e00",
+                      "surface-container-high": "#292935",
+                      "on-primary": "#3b0092",
+                      "surface-variant": "#343440",
+                      "primary-fixed-dim": "#d0bcff",
+                      "primary-container": "#4b1fa3",
+                      "on-primary-fixed-variant": "#5228aa",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#c0b0e7",
+                      "on-primary-fixed": "#22005c",
+                      "secondary": "#cfbef6",
+                      "inverse-surface": "#e3e0f1",
+                      "inverse-primary": "#6a45c3",
+                      "outline-variant": "#494453",
+                      "tertiary": "#ffb68e",
+                      "on-secondary-fixed-variant": "#4c3f6e",
+                      "surface-container-low": "#1b1a26",
+                      "on-tertiary-fixed-variant": "#743405",
+                      "on-tertiary-fixed": "#331200",
+                      "on-tertiary": "#532200",
+                      "on-error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #12121d; }
+        ::-webkit-scrollbar-thumb { background: #343440; border-radius: 10px; }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+      </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20 flex justify-between items-center h-16 px-6 w-full font-['Plus_Jakarta_Sans'] antialiased">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tight text-white italic">FreMS</span>
+<div class="h-6 w-[1px] bg-white/10 hidden md:block"></div>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Operations</a>
+<a class="text-[#C43585] border-b-2 border-[#C43585] pb-1" href="#">Management</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 hover:text-white transition-all cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-white transition-all cursor-pointer">settings</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-white transition-all cursor-pointer">help</span>
+</div>
+<div class="flex items-center gap-3 bg-white/5 pl-3 pr-1 py-1 rounded-full border border-white/5">
+<span class="text-xs font-medium text-slate-300">Ops Officer</span>
+<img alt="Operations Officer Profile" class="w-8 h-8 rounded-full bg-surface-container-high" data-alt="professional portrait of an operations officer in a clean office setting, soft professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR1nf-pf0-gHtm-7uQp5X2AYQ18209CCajwsd6rT554Vu93ynkglcj9xqI28R6fzs8ycXUp2adIe9wI_X1CNby1fHMA828HYskgyLIkgg7cSfWRN4WWV60Nw7jWcQtNneolo-KKquCONPR0AncWZNtGNfToTpNTEMVHMmNm7NIPvzyS2h1mgaLWx8Lryedg9S00cySZ53BTq-Qv13r_iZBpqbK8CJDtkTxuFu28s3qsuCGc4VDlcLQ-phqVsvy_zd7eQ-6bNFkRA"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#0F0F1A]/95 backdrop-blur-lg border-r border-white/5 shadow-[4px_0_24px_rgba(0,0,0,0.5)] flex flex-col h-full pt-20 pb-8 px-4 font-['Plus_Jakarta_Sans'] text-sm font-medium">
+<div class="mb-8 px-2">
+<h1 class="text-white font-black italic uppercase tracking-wider text-lg">FreMS Portal</h1>
+<p class="text-slate-500 text-[10px] uppercase tracking-widest">Saudi Infrastructure</p>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="flex items-center gap-3 px-3 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1 transition-all duration-300 cursor-pointer select-none rounded-lg">
+<span class="material-symbols-outlined" data-icon="conveyor_belt">conveyor_belt</span>
+<span>Operations</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1 transition-all duration-300 cursor-pointer select-none rounded-lg">
+<span class="material-symbols-outlined" data-icon="policy">policy</span>
+<span>Customs</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1 transition-all duration-300 cursor-pointer select-none rounded-lg">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span>AI Tools</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 bg-gradient-to-r from-[#C43585]/20 to-transparent text-[#C43585] border-l-4 border-[#C43585] cursor-pointer select-none">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Management</span>
+</div>
+</nav>
+<div class="mt-auto space-y-1">
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-colors cursor-pointer rounded-lg">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+<span class="text-xs">Compliance</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-colors cursor-pointer rounded-lg">
+<span class="material-symbols-outlined text-sm" data-icon="contact_support">contact_support</span>
+<span class="text-xs">Support</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-16 min-h-screen">
+<div class="max-w-6xl mx-auto p-8">
+<!-- Breadcrumbs & Header -->
+<div class="mb-10">
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-4">
+<span>Management</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span>Carriers</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-[#C43585]">New Registration</span>
+</div>
+<h2 class="text-4xl font-bold font-headline tracking-tight text-white mb-2">Carrier Onboarding Wizard</h2>
+<p class="text-on-surface-variant text-lg">Register a new logistical partner to the JAS Saudi infrastructure.</p>
+</div>
+<!-- Wizard Layout -->
+<div class="grid grid-cols-12 gap-8 items-start">
+<!-- Sticky Left Sidebar Progress -->
+<aside class="col-span-12 lg:col-span-3 sticky top-24">
+<div class="bg-surface-container-low p-6 rounded-xl border border-white/5">
+<h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">Onboarding Progress</h3>
+<div class="space-y-8 relative">
+<!-- Progress Line -->
+<div class="absolute left-4 top-2 bottom-2 w-[2px] bg-surface-container-highest"></div>
+<!-- Step 1: Active -->
+<div class="relative flex gap-4 items-start">
+<div class="z-10 w-8 h-8 rounded-full bg-[#C43585] text-white flex items-center justify-center font-bold ring-4 ring-[#C43585]/20 ring-offset-2 ring-offset-surface-container-low shadow-[0_0_15px_rgba(196,53,133,0.4)]">1</div>
+<div>
+<h4 class="text-sm font-bold text-white">Carrier Type</h4>
+<p class="text-[11px] text-[#C43585]">Identity &amp; Documentation</p>
+</div>
+</div>
+<!-- Step 2: Pending -->
+<div class="relative flex gap-4 items-start opacity-50">
+<div class="z-10 w-8 h-8 rounded-full bg-surface-container-highest text-slate-400 flex items-center justify-center font-bold">2</div>
+<div>
+<h4 class="text-sm font-medium text-slate-300">Service Routes</h4>
+<p class="text-[11px] text-slate-500">Origin &amp; Destinations</p>
+</div>
+</div>
+<!-- Step 3: Pending -->
+<div class="relative flex gap-4 items-start opacity-50">
+<div class="z-10 w-8 h-8 rounded-full bg-surface-container-highest text-slate-400 flex items-center justify-center font-bold">3</div>
+<div>
+<h4 class="text-sm font-medium text-slate-300">Rate Schedule</h4>
+<p class="text-[11px] text-slate-500">Pricing Matrix Upload</p>
+</div>
+</div>
+<!-- Step 4: Pending -->
+<div class="relative flex gap-4 items-start opacity-50">
+<div class="z-10 w-8 h-8 rounded-full bg-surface-container-highest text-slate-400 flex items-center justify-center font-bold">4</div>
+<div>
+<h4 class="text-sm font-medium text-slate-300">Contract &amp; SLA</h4>
+<p class="text-[11px] text-slate-500">Digital Signature</p>
+</div>
+</div>
+<!-- Step 5: Pending -->
+<div class="relative flex gap-4 items-start opacity-50">
+<div class="z-10 w-8 h-8 rounded-full bg-surface-container-highest text-slate-400 flex items-center justify-center font-bold">5</div>
+<div>
+<h4 class="text-sm font-medium text-slate-300">Activation</h4>
+<p class="text-[11px] text-slate-500">Final Verification</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 p-4 rounded-xl bg-primary-container/10 border border-primary-container/20">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#C43585] text-xl">info</span>
+<p class="text-[12px] text-on-surface-variant leading-relaxed">
+                                Ensure all commercial registrations (CR) are valid for the Saudi market before proceeding to step 3.
+                            </p>
+</div>
+</div>
+</aside>
+<!-- Step 1 Content: Carrier Info -->
+<div class="col-span-12 lg:col-span-9 space-y-6">
+<!-- Section: Carrier Selection -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-xl border border-white/5">
+<div class="p-8">
+<h3 class="text-xl font-bold text-white mb-6">1. Define Carrier Type</h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<!-- Option 1 -->
+<label class="group cursor-pointer">
+<input checked="" class="sr-only peer" name="carrier_type" type="radio"/>
+<div class="p-6 h-full flex flex-col items-center text-center gap-3 rounded-xl border border-white/5 bg-surface-container-low peer-checked:bg-[#C43585]/10 peer-checked:border-[#C43585] transition-all group-hover:bg-white/5">
+<span class="material-symbols-outlined text-4xl text-slate-400 group-hover:scale-110 transition-transform peer-checked:text-[#C43585]">local_shipping</span>
+<div>
+<div class="text-sm font-bold text-white">Road</div>
+<div class="text-[10px] text-slate-500 uppercase">Haulage</div>
+</div>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="group cursor-pointer">
+<input class="sr-only peer" name="carrier_type" type="radio"/>
+<div class="p-6 h-full flex flex-col items-center text-center gap-3 rounded-xl border border-white/5 bg-surface-container-low peer-checked:bg-[#C43585]/10 peer-checked:border-[#C43585] transition-all group-hover:bg-white/5">
+<span class="material-symbols-outlined text-4xl text-slate-400 group-hover:scale-110 transition-transform peer-checked:text-[#C43585]">directions_boat</span>
+<div>
+<div class="text-sm font-bold text-white">Sea Line</div>
+<div class="text-[10px] text-slate-500 uppercase">Vessel</div>
+</div>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="group cursor-pointer">
+<input class="sr-only peer" name="carrier_type" type="radio"/>
+<div class="p-6 h-full flex flex-col items-center text-center gap-3 rounded-xl border border-white/5 bg-surface-container-low peer-checked:bg-[#C43585]/10 peer-checked:border-[#C43585] transition-all group-hover:bg-white/5">
+<span class="material-symbols-outlined text-4xl text-slate-400 group-hover:scale-110 transition-transform peer-checked:text-[#C43585]">flight_takeoff</span>
+<div>
+<div class="text-sm font-bold text-white">Air Cargo</div>
+<div class="text-[10px] text-slate-500 uppercase">Aviation</div>
+</div>
+</div>
+</label>
+<!-- Option 4 -->
+<label class="group cursor-pointer">
+<input class="sr-only peer" name="carrier_type" type="radio"/>
+<div class="p-6 h-full flex flex-col items-center text-center gap-3 rounded-xl border border-white/5 bg-surface-container-low peer-checked:bg-[#C43585]/10 peer-checked:border-[#C43585] transition-all group-hover:bg-white/5">
+<span class="material-symbols-outlined text-4xl text-slate-400 group-hover:scale-110 transition-transform peer-checked:text-[#C43585]">gavel</span>
+<div>
+<div class="text-sm font-bold text-white">Broker</div>
+<div class="text-[10px] text-slate-500 uppercase">Customs</div>
+</div>
+</div>
+</label>
+</div>
+</div>
+<div class="h-[1px] bg-white/5 mx-8"></div>
+<!-- Section: Company Info -->
+<div class="p-8 space-y-8">
+<h3 class="text-xl font-bold text-white">2. Company Information</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-slate-500">Legal Company Name</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-[#C43585] text-on-surface placeholder:text-slate-600 px-4 py-3" placeholder="e.g. Al-Falah Logistics Co." type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-slate-500">Commercial Registration (CR)</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-[#C43585] text-on-surface placeholder:text-slate-600 px-4 py-3" placeholder="10-digit CR Number" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-slate-500">IATA / ICAO Code</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-[#C43585] text-on-surface placeholder:text-slate-600 px-4 py-3 pr-10" placeholder="XXXX-000" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">verified</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-slate-500">IMO Identification</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-[#C43585] text-on-surface placeholder:text-slate-600 px-4 py-3" placeholder="Maritime Organization Code" type="text"/>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-[#C43585] flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-[#C43585]">description</span>
+</div>
+<div>
+<h4 class="font-bold text-white">VAT Registration Certificate</h4>
+<p class="text-xs text-slate-500">Upload PDF copy of the GAZT registration</p>
+</div>
+</div>
+<button class="px-6 py-2 bg-surface-container-highest hover:bg-white/10 transition-colors rounded text-xs font-bold uppercase tracking-widest border border-white/5">Select File</button>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="bg-surface-container-high/50 p-6 flex justify-between items-center border-t border-white/5">
+<button class="px-8 py-3 rounded-lg text-slate-400 font-bold flex items-center gap-2 hover:text-white transition-colors">
+<span class="material-symbols-outlined">close</span>
+                                Cancel
+                            </button>
+<button class="px-10 py-3 rounded-lg bg-gradient-to-r from-[#C43585] to-[#8E2562] text-white font-bold shadow-lg shadow-[#C43585]/20 flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                                Continue to Routes
+                                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Dynamic Preview (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="col-span-1 md:col-span-2 bg-surface-container-low p-6 rounded-xl border border-white/5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#C43585]/5 blur-3xl rounded-full"></div>
+<h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Onboarding Tip</h4>
+<p class="text-on-surface leading-relaxed relative z-10">
+                                Digital onboarding reduces carrier verification time by <span class="text-[#C43585] font-bold">45%</span>. Ensure all documents are clear high-resolution scans for faster JAS Logistics Saudi approval.
+                            </p>
+</div>
+<div class="bg-[#C43585] p-6 rounded-xl flex flex-col justify-between text-white relative overflow-hidden">
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-white/20 text-8xl rotate-12">rocket_launch</span>
+<div class="text-xs font-bold uppercase tracking-tighter opacity-80">System Health</div>
+<div class="text-3xl font-black italic">OPTIMIZED</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Overlay (Task Suppression Logic: Shell hidden on transactional wizards if needed, but here it acts as a guide) -->
+<footer class="md:hidden fixed bottom-0 w-full bg-surface-container border-t border-white/10 px-6 py-3 flex justify-between items-center z-50 glass-panel">
+<div class="flex flex-col items-center gap-1 text-[#C43585]">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px]">Operations</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">domain</span>
+<span class="text-[10px]">Customs</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-[10px]">AI Tools</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px]">Management</span>
+</div>
+</footer>
+</body></html>

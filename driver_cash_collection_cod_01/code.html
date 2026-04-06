@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>COD Cash Collection - JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Arabic:wght@400;500;600;700&amp;family=Tajawal:wght@400;500;700;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#12121d",
+                        "secondary-container": "#4f4171",
+                        "on-tertiary-container": "#f09661",
+                        "surface-variant": "#343440",
+                        "on-secondary-fixed": "#201340",
+                        "tertiary-container": "#6c2e00",
+                        "on-surface-variant": "#cbc3d5",
+                        "outline": "#948e9e",
+                        "surface-container-low": "#1b1a26",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#cfbef6",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-background": "#e3e0f1",
+                        "background": "#12121d",
+                        "inverse-primary": "#6a45c3",
+                        "surface-dim": "#12121d",
+                        "primary-container": "#4b1fa3",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#383845",
+                        "on-primary-container": "#b79cff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "on-surface": "#e3e0f1",
+                        "surface-tint": "#d0bcff",
+                        "on-primary": "#3b0092",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "primary": "#d0bcff",
+                        "tertiary": "#ffb68e",
+                        "primary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#331200",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "surface-container-high": "#292935",
+                        "outline-variant": "#494453",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "on-secondary": "#352856",
+                        "inverse-surface": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-container-highest": "#343440",
+                        "on-tertiary": "#532200",
+                        "inverse-on-surface": "#302f3b",
+                        "on-primary-fixed": "#22005c",
+                        "surface-container": "#1f1e2a",
+                        "tertiary-fixed": "#ffdbc9"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    fontFamily: {
+                        "headline": ["Tajawal", "sans-serif"],
+                        "body": ["IBM Plex Arabic", "Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'IBM Plex Arabic', sans-serif;
+            background-color: #12121d;
+        }
+        .tajawal-black { font-family: 'Tajawal', sans-serif; font-weight: 900; }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background-color: rgba(31, 30, 42, 0.7);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface select-none">
+<!-- Top Status Banner -->
+<div class="w-full h-[60px] bg-emerald-600 flex items-center justify-center px-6 sticky top-0 z-[60]">
+<h1 class="text-white tajawal-black text-xl tracking-wide">طلب تحصيل نقدي</h1>
+</div>
+<!-- Secondary Instruction Banner -->
+<div class="w-full bg-emerald-950/40 border-b border-emerald-500/20 py-3 px-6">
+<p class="text-emerald-300 text-sm font-medium text-center leading-relaxed">
+            يجب تحصيل المبلغ من العميل قبل مغادرة موقع التسليم
+        </p>
+</div>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[390px] mx-auto min-h-screen pb-32">
+<!-- Shared Component: TopAppBar (Derived Logic) -->
+<header class="flex flex-row-reverse justify-between items-center w-full px-6 py-6 bg-[#12121d] shadow-none border-b border-[#d0bcff]/10 sticky top-0 z-50 backdrop-blur-xl">
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-end">
+<span class="text-sm font-bold text-slate-100">أحمد منصور</span>
+<span class="text-[10px] text-slate-400">سائق معتمد</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-primary-container overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="professional driver profile photo in studio lighting with neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2tUYwLeXIbLhdDQ286iyUxyDyy9KMqSeYFP-T4YdOn-3-rn6oKxXFYnPYhAOPYH9Mhq0SEUkyIuikTo4T8PAhdAxq1CnvdlZnIbjWctrhHWFW_ZFUsN6veWn7VH8X4Z_uJG_R3nRzmlDbJNtPC84-3YEE89R22PRGIKkp-zQG1VKKSYv5zUsnWpZyuWhZFT2RsbLBfa8YxPL9IA9-4jwWcAdIovSJMKuDVIl1x5KbnvmXJ4LH06lIIEAl0BPDsDo_ZG9R-xCaGw"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-400 hover:bg-[#d0bcff]/10 transition-colors p-2 rounded-full">arrow_forward</button>
+</div>
+</header>
+<!-- Amount Focus Area -->
+<section class="mt-8 px-6 text-center">
+<div class="inline-block mb-2 px-3 py-1 rounded-full bg-error/10 border border-error/20">
+<span class="text-error text-xs font-bold uppercase tracking-widest">Urgent Collection</span>
+</div>
+<div class="flex flex-col items-center">
+<h2 class="text-error font-black text-[52px] leading-tight font-['Poppins']">4,800.00</h2>
+<span class="text-error/80 text-xl font-bold -mt-2">SAR</span>
+<p class="mt-4 text-on-surface-variant font-medium text-lg tajawal-black">أربعة آلاف وثمانمائة ريال</p>
+</div>
+</section>
+<!-- Entity Information Bento Card -->
+<section class="mt-10 px-4">
+<div class="bg-surface-container-low rounded-xl p-6 border border-white/5 space-y-4">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">العميل</p>
+<h3 class="text-xl font-bold text-on-surface">شركة النور للأدوية</h3>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="business">business</span>
+</div>
+<div class="h-px bg-white/5 w-full"></div>
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">رقم الطلب</p>
+<code class="font-mono text-primary-fixed-dim text-sm">JAS-ORD-2026-4821</code>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="qr_code_2">qr_code_2</span>
+</div>
+</div>
+</section>
+<!-- Collection Steps Checklist -->
+<section class="mt-8 px-4 space-y-4">
+<h4 class="px-2 text-xs font-bold text-on-surface-variant/70 uppercase tracking-widest">خطوات التحصيل</h4>
+<!-- Step 1 -->
+<div class="group bg-surface-container hover:bg-surface-container-high transition-all rounded-xl p-5 flex items-center gap-4 cursor-pointer active:scale-95">
+<div class="w-8 h-8 rounded border-2 border-outline-variant flex items-center justify-center group-active:bg-primary/20">
+<!-- Checkbox Unchecked -->
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">قم بعدّ المبلغ النقدي</p>
+<p class="text-xs text-on-surface-variant">تأكد من استلام كامل المبلغ (٤٨٠٠ ريال)</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="payments">payments</span>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-high rounded-xl p-5 space-y-4">
+<div class="flex items-center gap-4">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/20 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="photo_camera">photo_camera</span>
+</button>
+<div class="flex-1">
+<p class="font-bold text-on-surface">التقط صورة للمبلغ</p>
+<p class="text-xs text-on-surface-variant">اثبات استلام الأوراق النقدية</p>
+</div>
+</div>
+<!-- Captured Image Placeholder -->
+<div class="relative w-full h-32 rounded-lg overflow-hidden bg-surface-container-lowest border border-dashed border-outline-variant group">
+<img class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all" data-alt="close up of saudi riyal banknotes arranged on a table for proof of payment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrE4wgKvrSOQSlLBEXB6SHI2An6CUhz1-ZKmpe_5VxZTrNsYG3fhapabbYZKGLI9enqQcPjc7hPdUMR1NWjDewXlqfcVqgZFqQLnWxyQYSHBduwaFBYyOaWhzawQI74UjS61l-8Ec1Q6fb8sSTXIl_9CNpoDUlzvXUCVlOjpgOtMk_HJvMI447RRTBc1VrS6XBoFUO9PG6EKItsKuhwnT3XOZKjVgwTZufbdpQHztypWt7fs21DvRL2SVQkRkhuIhfW7HaNP02Tw"/>
+<div class="absolute inset-0 flex items-center justify-center bg-surface/40">
+<span class="text-xs font-bold text-white px-3 py-1 bg-black/60 rounded-full backdrop-blur-md">معاينة الصورة</span>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-all rounded-xl p-5 flex items-center justify-center border border-primary/20 border-dashed min-h-[100px] active:scale-95">
+<div class="text-center">
+<span class="material-symbols-outlined text-primary text-3xl mb-1" data-icon="gesture">gesture</span>
+<p class="font-bold text-on-surface">احصل على توقيع العميل</p>
+<p class="text-[10px] text-primary/70">انقر لفتح لوحة التوقيع</p>
+</div>
+</div>
+</section>
+<!-- Final Notice -->
+<div class="mt-8 px-6">
+<div class="bg-secondary-container/10 border-l-4 border-secondary-container p-4 rounded-r-lg">
+<p class="text-xs text-secondary leading-relaxed">
+<span class="font-bold">ملاحظة:</span> سيتم خصم هذا المبلغ من دفعتك القادمة بشكل آلي فور التأكيد.
+                </p>
+</div>
+</div>
+</main>
+<!-- Fixed Action Button Footer (Suppressing NavBar as per rule for focused tasks) -->
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background via-background to-transparent pt-10 z-[70]">
+<button class="w-full h-[60px] bg-emerald-600 hover:bg-emerald-500 text-white tajawal-black text-lg flex items-center justify-center gap-3 rounded-xl shadow-2xl shadow-emerald-900/40 active:scale-[0.98] transition-transform">
+<span>تأكيد الاستلام النقدي</span>
+<span class="material-symbols-outlined text-2xl" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+</footer>
+</body></html>

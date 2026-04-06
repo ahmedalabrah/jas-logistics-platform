@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Secure Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#e9ddff",
+                        "on-primary-fixed": "#22005c",
+                        "on-primary-container": "#b79cff",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "secondary-fixed": "#e9ddff",
+                        "secondary": "#cfbef6",
+                        "tertiary": "#ffb68e",
+                        "surface-container-lowest": "#0d0d18",
+                        "primary": "#d0bcff",
+                        "error-container": "#93000a",
+                        "surface-dim": "#12121d",
+                        "primary-container": "#4b1fa3",
+                        "secondary-container": "#4f4171",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary-fixed": "#331200",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "tertiary-container": "#6c2e00",
+                        "surface-variant": "#343440",
+                        "surface-container": "#1f1e2a",
+                        "surface": "#12121d",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary": "#532200",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-background": "#e3e0f1",
+                        "background": "#12121d",
+                        "on-secondary": "#352856",
+                        "surface-bright": "#383845",
+                        "inverse-on-surface": "#302f3b",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#f09661",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "on-primary": "#3b0092",
+                        "on-surface": "#e3e0f1",
+                        "surface-container-low": "#1b1a26",
+                        "surface-container-highest": "#343440",
+                        "outline-variant": "#494453",
+                        "inverse-primary": "#6a45c3",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#292935",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "outline": "#948e9e",
+                        "on-secondary-container": "#c0b0e7",
+                        "inverse-surface": "#e3e0f1",
+                        "on-secondary-fixed": "#201340"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F0F1A;
+            color: #e3e0f1;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.7);
+            backdrop-filter: blur(16px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary/30">
+<!-- Suppressed Shell: Focus Mode Checkout -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-transparent">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-white font-black text-xl">J</div>
+<span class="text-xl font-bold tracking-tighter text-white font-headline">JAS Logistics</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm font-medium">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">lock</span> Secure Encryption</span>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<button class="hover:text-white transition-colors">Cancel</button>
+</div>
+</header>
+<main class="min-h-screen pt-32 pb-20 flex flex-col items-center px-4">
+<div class="w-full max-w-[520px] space-y-8">
+<!-- Payment Header & Summary -->
+<div class="text-center space-y-2">
+<h1 class="text-3xl font-headline font-extrabold tracking-tight text-white">Payment Checkout</h1>
+<p class="text-on-surface-variant font-medium">Complete your transaction for JAS logistics services.</p>
+</div>
+<!-- Invoice Summary Card -->
+<div class="surface-container rounded-xl p-6 relative overflow-hidden border border-outline-variant/10 shadow-2xl">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+</div>
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-xs font-bold tracking-widest text-primary-fixed-dim uppercase">Invoice Number</span>
+<h2 class="text-lg font-headline font-bold text-white mt-1">INV-2026-04-0841</h2>
+</div>
+<div class="text-right">
+<span class="text-xs font-bold tracking-widest text-primary-fixed-dim uppercase">Due Amount</span>
+<div class="text-2xl font-headline font-extrabold text-primary mt-1">SAR 148,867.00</div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="text-sm text-on-surface-variant">Merchant: <span class="text-white font-medium">JAS Enterprise Logistics</span></span>
+<div class="flex -space-x-2">
+<div class="h-6 w-10 bg-white/10 rounded flex items-center justify-center border border-white/5 backdrop-blur">
+<span class="material-symbols-outlined text-sm text-white">credit_card</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Entry Form -->
+<div class="glass-panel rounded-xl p-8 border border-white/5 shadow-2xl space-y-6">
+<div class="space-y-4">
+<!-- Card Number -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Card Number</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-white font-headline text-lg tracking-widest py-3 px-4 transition-all bg-opacity-50 hover:bg-opacity-80 rounded-t-lg" placeholder="0000 0000 0000 0000" type="text"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+<span class="text-[10px] font-bold text-on-surface-variant px-1.5 py-0.5 border border-outline-variant rounded">Mada</span>
+<div class="w-8 h-5 bg-white/10 rounded overflow-hidden flex items-center justify-center">
+<img alt="Mada Logo" class="h-3 grayscale invert" data-alt="Official Mada payment network logo with green and blue circular motif, Saudi Arabia local payment gateway icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMwsCRjN8wfldoBbax1wYPQ9SGze11lnwuUe4fnQa2ef8q8Bo2-SweYhZSxKO6aLaszCjWyiH6If5wVm4Kj1fFv9np0QvyZHFjgLBkUk34nDhFqXUqdKAVJZg_on0fHOx8jvnisuce7Bbpv4X_DIP7uIpdhY2qzDcY6YubjzGy05wSJ8WDBQqK0-WV6BnAT7WdnW9ldI--3QU6I0vjXAMyb_ue4ewiqIoryTR6GD6OltwWjX-JDidlFaIUjd9qo7ZKm8XDWfE3Mg"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Cardholder Name -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Name on card</label>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-white font-medium py-3 px-4 transition-all bg-opacity-50 hover:bg-opacity-80 rounded-t-lg" placeholder="e.g. Abdullah Al-Faisal" type="text"/>
+</div>
+<!-- Expiry & CVV -->
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Expiry Date</label>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-white font-medium py-3 px-4 transition-all bg-opacity-50 hover:bg-opacity-80 rounded-t-lg" placeholder="MM / YY" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">CVV / CVC</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-white font-medium py-3 px-4 transition-all bg-opacity-50 hover:bg-opacity-80 rounded-t-lg" placeholder="•••" type="password"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant cursor-help" title="3-digit security code on the back of your card">help</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Save Card Toggle -->
+<div class="flex items-center justify-between py-2">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-white">Save card for future payments</span>
+<span class="text-xs text-on-surface-variant">Your card details will be stored securely.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- 3DS Note -->
+<div class="bg-primary-container/10 rounded-lg p-4 flex gap-3 items-start border border-primary-container/20">
+<span class="material-symbols-outlined text-primary-fixed-dim mt-0.5">verified_user</span>
+<p class="text-xs text-on-primary-container leading-relaxed">
+                        You will be redirected to your bank's page for <span class="font-bold">3D Secure verification</span>. This ensures a higher level of security for your transaction.
+                    </p>
+</div>
+<!-- Pay Button -->
+<button class="w-full h-16 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-headline font-extrabold text-lg rounded-xl shadow-lg shadow-primary-container/20 hover:scale-[1.01] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+                    Pay SAR 148,867.00
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Trusted Partners -->
+<div class="flex flex-col items-center gap-6 pt-4">
+<div class="flex items-center gap-8 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-700">
+<img alt="Visa" class="h-5" data-alt="Minimalist white Visa logo silhouette on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJcQ2eO6LFwa1efaVhKr-CwzfqfWrt8VyhYehqhNRvFOT5FmOiJ5KeDpqZ1Dx52V8nfkpoZcfaAQvIK_BcxIkdI7YO9pzY_Q2WETkFM4FTXdpF89Th5MiUnmMjwOxh58Mms2xDJuzv7WFvyj4drEkheS0ocUZrK_KKSwhorPaG6u-yOV6HuZypklKVCgPuopNGqHI-7fQiRHbh4W16gvBWhgHqywHQChqEALlA6jfDbBZxLa-4_HR9rK8wNjjmwQDZXiSLA8Q-jQ"/>
+<img alt="Mastercard" class="h-6" data-alt="Minimalist white Mastercard logo silhouette showing two overlapping circles on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzG4QmyI86IoHEjF4PIeDxeOsCvPItOQPgZsiMNReCtaeWURUF3FRAQnFT-nhkMQjWsAkL7qVvfHmhBb_oKTnmUF6aMyFn1QE7J5qWywle_t9GleX1_RltCMWaWxZtUi2yrDJcK0zyBIqlAjG5YuAbiDnPOHEGfZjwrWXMyP56P-0EQ1_l3UBG1Bnmg75bRelpr1PK3sr6D7tTAlodKHyxEA-EaDtQ1IlSM31rwIzA0IVCbHwt1g8VZJWmpD8gRw24DowPAQpTag"/>
+<img alt="Apple Pay" class="h-5" data-alt="Minimalist white Apple Pay logo silhouette on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9eA8JyVGEJiyrzpM5Li5diPtKEFnULpUvbRhfj-NGs7x5thsd5mwf-Ctk6wZf6lVMBrEE-1WkswGKeOAOsbi2hIut5LM8Y02_ni4pP8Le8h_iI9xDBWoALO2EuL6U55zzSqh0vah2zu7Zw0kft-_OZUubpNCy71-x0lhUntOx7mqvm5xrzBVVYGQTD4h4UcxC_Au8sDcoyvLCD-4xb-TlO-y_2-8PLoG-jlIDnyUinp01I1giVDghQgCMYAjV6A8KwF2_zVfNUg"/>
+<img alt="PCI DSS" class="h-6" data-alt="PCI DSS compliant security badge logo in simple white outline" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu_pdnOLRruYGs6mM_pa44Om68xUyMYRQ5ol7L2FH8sO2_wtmv-y-Qb44LvriPEia_NitKK3fxl2fasHbH6W2Y9RxSfDkseO1y9SzotYSJFg0sTLNfLa6zEQzG89epO_VKQP9cvOLtOI4GGyd91W8Mf5l5XXGSLBbUagMr5quVQ6h8oseuWjU6HKtwy95ZEA2VejShMml4bveUEBXbaxMwrr112wjlG2LfANvts3mZnTtdQtgyq0629T-3dS9HSTKRIGMQNii_cQ"/>
+</div>
+<p class="text-[10px] text-on-surface-variant/60 font-medium tracking-widest uppercase">Encrypted &amp; Secure Transaction Processed by JAS Financial</p>
+</div>
+</div>
+</main>
+<!-- Background Decoration -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[100px]"></div>
+</div>
+</body></html>

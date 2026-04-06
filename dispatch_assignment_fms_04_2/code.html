@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Fleet Control - Dispatch Assignment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0d0d18",
+                        "surface": "#12121d",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-on-surface": "#302f3b",
+                        "on-primary-container": "#b79cff",
+                        "background": "#12121d",
+                        "surface-bright": "#383845",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary": "#532200",
+                        "surface-dim": "#12121d",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "tertiary": "#ffb68e",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "on-secondary": "#352856",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error": "#690005",
+                        "outline-variant": "#494453",
+                        "secondary-container": "#4f4171",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-primary": "#6a45c3",
+                        "secondary": "#cfbef6",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-secondary-fixed": "#201340",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "on-background": "#e3e0f1",
+                        "inverse-surface": "#e3e0f1",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-fixed": "#331200",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "tertiary-container": "#6c2e00",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container-highest": "#343440",
+                        "primary": "#d0bcff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "surface-container": "#1f1e2a",
+                        "primary-container": "#4b1fa3",
+                        "on-surface-variant": "#cbc3d5",
+                        "ai-accent": "#6366F1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
+<div class="flex justify-between items-center h-16 px-6 font-['Plus_Jakarta_Sans'] tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#D0BCFF]">JAS Fleet Control</span>
+<div class="hidden md:flex items-center gap-6">
+<span class="text-[#D0BCFF] font-semibold cursor-pointer">Dispatch</span>
+<span class="text-slate-400 hover:bg-[#4B1FA3]/20 transition-colors px-3 py-1 rounded cursor-pointer">Analytics</span>
+<span class="text-slate-400 hover:bg-[#4B1FA3]/20 transition-colors px-3 py-1 rounded cursor-pointer">Network</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-slate-400">search</span>
+<input class="bg-surface-container border-none text-sm rounded-lg pl-10 pr-4 py-2 w-64 focus:ring-1 focus:ring-primary" placeholder="Search orders..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors">settings</span>
+<img alt="Fleet Manager Avatar" class="w-8 h-8 rounded-full border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4qfYjVaN0HfiQ4ncGfewAWBA4aQ4F-_fsgHFpZ7dN48FabxqzYhwfe95SVd-Or_qfwtZs7gWwA_yn9x0PID6eE59FtsF6wXWkprXvSPW9_3Y-NratHIkfU_7mlCAcjfSfO1iX2uOyS3KBSRlkLDHCfOcpgxAZOFzHYZZdCZYhdgwDlaSJZut8-PBZk9o3zZmk5-0vwaR4ab0wiKsuwjflhjaJD2akRlN-5bfVJgQNMlAfmffU8D4oouOhT128-fAEfoH1gjPlLw"/>
+</div>
+</div>
+</div>
+<div class="bg-[#1C1C2D] h-[1px] w-full absolute bottom-0 opacity-20"></div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#0F0F1A]/90 backdrop-blur-2xl shadow-2xl flex flex-col py-8 gap-2 pt-24 font-['Plus_Jakarta_Sans'] font-medium text-sm">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-primary">hub</span>
+</div>
+<div>
+<h3 class="text-indigo-400 font-black">Fleet Intel</h3>
+<p class="text-xs text-slate-500">Terminal A-1</p>
+</div>
+</div>
+<nav class="flex-1">
+<div class="space-y-1">
+<div class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:bg-[#1C1C2D] transition-all cursor-pointer group">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="group-hover:translate-x-1 duration-300">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 bg-[#4B1FA3]/30 text-[#D0BCFF] border-r-2 border-[#D0BCFF] cursor-pointer">
+<span class="material-symbols-outlined">local_shipping</span>
+<span>Live Tracking</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:bg-[#1C1C2D] transition-all cursor-pointer group">
+<span class="material-symbols-outlined">route</span>
+<span class="group-hover:translate-x-1 duration-300">Trip Logs</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:bg-[#1C1C2D] transition-all cursor-pointer group">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="group-hover:translate-x-1 duration-300">Compliance</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:bg-[#1C1C2D] transition-all cursor-pointer group">
+<span class="material-symbols-outlined">build</span>
+<span class="group-hover:translate-x-1 duration-300">Maintenance</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:bg-[#1C1C2D] transition-all cursor-pointer group">
+<span class="material-symbols-outlined">analytics</span>
+<span class="group-hover:translate-x-1 duration-300">Reporting</span>
+</div>
+</div>
+</nav>
+<div class="px-6 space-y-1 border-t border-outline-variant/10 pt-6">
+<div class="flex items-center gap-3 py-3 text-slate-400 hover:bg-[#1C1C2D] transition-all cursor-pointer group">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="group-hover:translate-x-1 duration-300">Support</span>
+</div>
+<div class="flex items-center gap-3 py-3 text-slate-400 hover:bg-[#1C1C2D] transition-all cursor-pointer group">
+<span class="material-symbols-outlined">logout</span>
+<span class="group-hover:translate-x-1 duration-300">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pl-64 pt-16 min-h-screen">
+<div class="max-w-[1600px] mx-auto p-8 grid grid-cols-10 gap-8">
+<!-- Left Panel (60%) -->
+<div class="col-span-10 lg:col-span-6 space-y-6">
+<!-- Order Header -->
+<div class="flex justify-between items-end pb-2">
+<div>
+<div class="flex items-center gap-2 text-primary font-medium text-sm mb-1">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span>Back to Queue</span>
+</div>
+<h1 class="text-3xl font-bold font-headline tracking-tight">Assignment FMS-04</h1>
+<p class="text-on-surface-variant text-sm mt-1">Order #RUH-88291 • Pharma Cold Chain • Priority High</p>
+</div>
+<div class="text-right">
+<div class="text-xs text-on-surface-variant uppercase tracking-widest mb-1 font-bold">Est. Duration</div>
+<div class="text-xl font-headline font-semibold">14h 22m</div>
+</div>
+</div>
+<!-- AI Recommendation Banner -->
+<div class="bg-ai-accent/10 border border-ai-accent/30 p-5 rounded-xl flex items-center justify-between glass-panel shadow-[0_0_20px_rgba(99,102,241,0.15)]">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-ai-accent flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(99,102,241,0.4)]">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline font-bold text-ai-accent">AI DISPATCH RANKING</span>
+<span class="bg-ai-accent/20 text-ai-accent px-2 py-0.5 rounded text-[10px] font-bold tracking-tight">TOP PICK</span>
+</div>
+<p class="text-sm text-on-surface-variant">Optimal asset identified based on 14 routing factors and vehicle telemetry.</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="space-y-1 w-24">
+<div class="flex justify-between text-[10px] text-on-surface-variant font-bold uppercase tracking-tighter">
+<span>Efficiency</span>
+<span>98%</span>
+</div>
+<div class="w-full bg-ai-accent/10 h-1 rounded-full overflow-hidden">
+<div class="bg-ai-accent h-full w-[98%]"></div>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant font-bold uppercase tracking-tighter pt-1">
+<span>Risk</span>
+<span>2%</span>
+</div>
+<div class="w-full bg-ai-accent/10 h-1 rounded-full overflow-hidden">
+<div class="bg-ai-accent h-full w-[2%]"></div>
+</div>
+</div>
+<div class="text-right border-l border-outline-variant/20 pl-6">
+<div class="text-2xl font-black text-ai-accent">JAS-041</div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Recommended Unit</div>
+</div>
+</div>
+</div>
+<!-- Order Summary Bento -->
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl space-y-1">
+<span class="text-xs text-on-surface-variant font-bold">ORIGIN</span>
+<p class="font-semibold">Riyadh Terminal 3</p>
+<p class="text-xs text-slate-500">Scheduled: 08:00 AM</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl space-y-1">
+<span class="text-xs text-on-surface-variant font-bold">DESTINATION</span>
+<p class="font-semibold">Dammam Hub A</p>
+<p class="text-xs text-slate-500">ETA: 10:22 PM</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl space-y-1">
+<span class="text-xs text-on-surface-variant font-bold">CARGO TYPE</span>
+<p class="font-semibold">Bio-Pharma Grade</p>
+<p class="text-xs text-slate-500">2-8°C Temp Control</p>
+</div>
+</div>
+<!-- Tabs: Vehicle Selector -->
+<div class="space-y-4">
+<div class="flex items-center gap-8 border-b border-outline-variant/10">
+<button class="pb-3 border-b-2 border-ai-accent text-ai-accent font-bold text-sm">JAS Fleet</button>
+<button class="pb-3 text-on-surface-variant hover:text-on-surface transition-colors font-medium text-sm">Sub-Carriers</button>
+<button class="pb-3 text-on-surface-variant hover:text-on-surface transition-colors font-medium text-sm">Rental Pool</button>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<!-- Vehicle Item (AI Recommendation Panel Style) -->
+<div class="bg-surface-container-high p-4 rounded-xl border border-ai-accent/40 flex items-center justify-between group transition-all relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-ai-accent"></div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-12 bg-surface rounded-lg flex items-center justify-center border border-outline-variant/20 overflow-hidden">
+<img alt="Vehicle Asset" class="opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG_Ai3daElv4JVFavi9IAxgxZSHhSZNm8PfMEEpxOYM7JM7IVGOUiXHT5k14AQ3seBqyOei1LW46HWhFN-XhNrpnha5HAoqLTAypRDD_-SVLJFq3FHRC1cEvTkJG8U_95ESTimOT4eDtMgxsgExYlHYTKzXdJFBESrz6xn-M598r8Xe-WVePB2lrcG08QLpJcOU5P6dgnGbbjFn_p3vxhIX44ZlI0AfpE48BmgSXFY_cVJvrRcs_qoIyHqNtRvXNOv3wVuIEPO6g"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold">JAS-041</span>
+<span class="text-[10px] bg-ai-accent/20 text-ai-accent px-1.5 py-0.5 rounded uppercase font-bold tracking-tight">AI Preferred</span>
+</div>
+<p class="text-xs text-on-surface-variant">Volvo FH16 • Refrigerator (High-Cap)</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<div class="text-xs text-on-surface-variant">Distance</div>
+<div class="text-sm font-bold">2.4 km</div>
+</div>
+<div class="w-6 h-6 rounded-full bg-ai-accent flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+</div>
+<!-- Vehicle Item 2 -->
+<div class="bg-surface-container-low p-4 rounded-xl hover:bg-surface-container-high transition-all flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-16 h-12 bg-surface rounded-lg flex items-center justify-center border border-outline-variant/20 opacity-50">
+<img alt="Vehicle Asset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKylGOr20-cX_G1T2o2uoK4kOPDLfYJF3lRfFE_eFBaO5w64EgHqIGXEaUD20ZchAFHFLJIU3Y0Gdfmr_kmjVuguxFHI9Pngvx4EDEUJIIcDEFJyUd0m1AGP-8923Q8FaM7JRPsCSRpp3lKTyJWaZmiBo8h3FtxM-E4k2qx3kWj9g5PcTs7ABH37Zz9oIaLLFf0fzEhj2rogEZO_KIrImF_FeLstB6xWWx2w0lpXrZndwTHsxJ8f4OyYmvclq6K1dRRIzk4o9YZA"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface-variant">JAS-088</span>
+<span class="text-[10px] border border-outline-variant text-on-surface-variant px-1.5 py-0.5 rounded uppercase font-bold tracking-tight">Idle</span>
+</div>
+<p class="text-xs text-slate-500">Scania R500 • Box Truck</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<div class="text-xs text-slate-500">Distance</div>
+<div class="text-sm font-bold text-on-surface-variant">12.8 km</div>
+</div>
+<div class="w-6 h-6 rounded-full border border-outline-variant flex items-center justify-center group-hover:border-ai-accent transition-colors"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Driver Selector -->
+<div class="space-y-4">
+<h3 class="font-headline font-bold text-lg">Driver Selection</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-ai-accent/5 border border-ai-accent/30 p-4 rounded-xl flex items-center gap-4 cursor-pointer ring-1 ring-ai-accent/20">
+<div class="relative">
+<img alt="Driver Portrait" class="w-12 h-12 rounded-full border-2 border-ai-accent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxV1SxWiWMi5f1kxQKD-1NL0f713H47hRYUJ8jRkFuULD0V40iycjYcwj9cy1jFb33AwsgwyWmyhtc4Kz1rWETiHl2HaGfhVdZLilPIf6UO8ufBHK1cZUMSip5ow-wSSkLy4WKnNEwYB3mK2TJ_EL8_vEufJ8WXuoLyvbnEwktcG_5FqTf2tBOxieD7lmfuA41k1VArxLUMry9fiQVcBw6stKrLIEXzzjm37bvrISF9nsZzaGqvNSuiWFf4w-upBajVknxycUyWw"/>
+<div class="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-background"></div>
+</div>
+<div>
+<p class="font-bold">Omar Al-Farsi</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-ai-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs text-on-surface-variant">4.9 • 8y Exp.</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-4 border border-transparent hover:border-outline-variant transition-all cursor-pointer">
+<div class="relative">
+<img alt="Driver Portrait" class="w-12 h-12 rounded-full border-2 border-transparent grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7MzPS_5DsYDnDGizZ978yrvWaLoTi76172Ly75idxvKaP8z81exRVumxULP92P6me0roDrgkPbYmgpRFsJPThT_Z9SSDh7AADeKb0LwYpRAYszAeb9h0djckEkffQkih5Ilv-oThOjx8tDtxlZKXmz1vo6jiAy8aVtd3UBXn40Fma0lqHIfYcCef_nGI1RE4-Mmn4aT7jBBqbK53XX3AEYqBQTBwDm40SP5yYmAO24rxyr_D6VaX3ImIhHxL2OiWaEIGfJMHCvQ"/>
+<div class="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-background"></div>
+</div>
+<div>
+<p class="font-bold text-on-surface-variant">Sara Khalid</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">star</span>
+<span class="text-xs text-slate-500">4.8 • 5y Exp.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Panel (40%) -->
+<div class="col-span-10 lg:col-span-4 space-y-6">
+<!-- 8-Gate Compliance Display -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/10 shadow-2xl">
+<div class="bg-surface-container-high p-6 flex justify-between items-center">
+<div>
+<h2 class="font-headline font-bold text-lg">8-Gate Compliance</h2>
+<p class="text-xs text-on-surface-variant">Real-time Saudi TGA Validation</p>
+</div>
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">security</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<!-- Gate 1-7 (Passed) -->
+<div class="grid grid-cols-1 gap-2">
+<div class="flex items-center justify-between p-2 rounded-lg bg-green-500/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium">Gate 1: ID Verification</span>
+</div>
+<span class="text-[10px] font-bold text-green-500 uppercase">PASS</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-green-500/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium">Gate 2: Licensing (Category C)</span>
+</div>
+<span class="text-[10px] font-bold text-green-500 uppercase">PASS</span>
+</div>
+<!-- Simulation of a Failure for AI Resolution UI -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-error-container/10 border border-error/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-sm" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="text-sm font-medium">Gate 3: Certification (Cold Chain)</span>
+</div>
+<span class="text-[10px] font-bold text-error uppercase">FAIL</span>
+</div>
+<!-- AI Resolution Panel (Failed Gate logic) -->
+<div class="bg-ai-accent/10 border border-ai-accent/30 rounded-xl p-4 mt-2 space-y-3 glass-panel">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-ai-accent text-lg" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-xs font-bold text-ai-accent uppercase tracking-wider">AI Resolution Active</span>
+</div>
+<p class="text-xs text-on-surface">Vehicle certification expired yesterday. AI suggests switching to a certified alternative unit to maintain pharma compliance.</p>
+<button class="w-full bg-ai-accent hover:bg-ai-accent/90 text-white text-[11px] font-bold py-2 rounded-lg transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">swap_horiz</span>
+                                    FIND ALTERNATIVE VEHICLE
+                                </button>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-green-500/5 opacity-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">Gate 4: Safety Inspection</span>
+</div>
+<span class="text-[10px] font-bold text-green-500 uppercase">PASS</span>
+</div>
+</div>
+<!-- Gate 8 (Pending/Requesting) -->
+<div class="p-4 rounded-xl border border-ai-accent/30 bg-ai-accent/5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-ai-accent animate-pulse"></div>
+<span class="text-sm font-bold text-ai-accent">Gate 8: TGA Permission</span>
+</div>
+<span class="material-symbols-outlined text-ai-accent text-xl animate-spin">sync</span>
+</div>
+<p class="text-xs text-on-surface-variant font-medium">⏳ Requesting from TGA Wasl API...</p>
+<div class="w-full bg-surface rounded-full h-1">
+<div class="bg-ai-accent h-1 rounded-full w-[65%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Cargo Compatibility Check -->
+<div class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant/10">
+<h3 class="font-headline font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">inventory_2</span>
+                        Cargo Compatibility
+                    </h3>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<div class="p-2 bg-surface rounded-lg">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">thermostat</span>
+</div>
+<div>
+<p class="text-sm font-bold">Temperature Zone: A-1</p>
+<p class="text-xs text-slate-500">Required: 4.5°C | Asset Cap: 2.0°C - 8.0°C</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-2 bg-surface rounded-lg">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">fluid</span>
+</div>
+<div>
+<p class="text-sm font-bold">Hazmat: Non-Reactive</p>
+<p class="text-xs text-slate-500">Biological substances category B compliant.</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/10">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Loading Sequence</span>
+<span class="font-bold">LIFO (Optimized)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full py-4 rounded-xl font-headline font-extrabold text-white bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center gap-3 transition-all cursor-not-allowed grayscale opacity-60">
+<span class="material-symbols-outlined">rocket_launch</span>
+                    CONFIRM &amp; DISPATCH
+                </button>
+<p class="text-center text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Awaiting Compliance Clear</p>
+</div>
+</div>
+</main>
+<!-- Floating Map Preview -->
+<div class="fixed bottom-6 right-6 w-72 h-44 rounded-2xl overflow-hidden border border-ai-accent/20 shadow-2xl glass-panel group cursor-pointer z-50">
+<img alt="Route Map" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj6YF6AKxt7_T1MDWgLgdbApt-pe0ssttWQDSCirnc7SBQ9YTVxJVJtcGENQD4rRUxGV-zf32HTg-OauLwac4S4H012D0vilDaYKvUyA5L2ttNkHP5z20vRp3ZApj67xqLLP0z-vzCz4l2v2HqoVvxLon4Ydxa5ee7a5x8-KhuHDEo3XXXJoCWCVGKK5ZB4q5h4XM7djHtk58vgPp-QODkCtljwwvKOBZm5mY1H73g-xZ1YcGeAcxnpphq-GX9bJZXo2entLU2Xw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0F0F1A] to-transparent pointer-events-none"></div>
+<div class="absolute bottom-3 left-4">
+<p class="text-[10px] font-bold text-ai-accent uppercase">Active Corridor</p>
+<p class="text-sm font-headline font-bold">Highway 40 East</p>
+</div>
+<div class="absolute top-3 right-4 bg-ai-accent/20 backdrop-blur-md px-2 py-1 rounded text-[10px] text-ai-accent font-bold">LIVE</div>
+</div>
+</body></html>

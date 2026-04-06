@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Fleet Control - Dispatch Queue</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0d0d18",
+                        "surface": "#12121d",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-on-surface": "#302f3b",
+                        "on-primary-container": "#b79cff",
+                        "background": "#12121d",
+                        "surface-bright": "#383845",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary": "#532200",
+                        "surface-dim": "#12121d",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "tertiary": "#ffb68e",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "on-secondary": "#352856",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error": "#690005",
+                        "outline-variant": "#494453",
+                        "secondary-container": "#4f4171",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-primary": "#6a45c3",
+                        "secondary": "#cfbef6",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-secondary-fixed": "#201340",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "on-background": "#e3e0f1",
+                        "inverse-surface": "#e3e0f1",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-fixed": "#331200",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "tertiary-container": "#6c2e00",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container-highest": "#343440",
+                        "primary": "#d0bcff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "surface-container": "#1f1e2a",
+                        "primary-container": "#4b1fa3",
+                        "on-surface-variant": "#cbc3d5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .amber-glow {
+            box-shadow: inset 0 0 20px rgba(240, 150, 97, 0.08);
+            background: linear-gradient(90deg, rgba(108, 46, 0, 0.1) 0%, transparent 10%);
+        }
+        .red-pulse {
+            box-shadow: inset 0 0 25px rgba(147, 0, 10, 0.12);
+            background: linear-gradient(90deg, rgba(147, 0, 10, 0.15) 0%, transparent 15%);
+        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0F0F1A; }
+        ::-webkit-scrollbar-thumb { background: #4B1FA3; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#0F0F1A]/90 backdrop-blur-2xl shadow-2xl flex flex-col py-8 gap-2">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">hub</span>
+</div>
+<div>
+<h1 class="text-indigo-400 font-black text-lg tracking-tight">Fleet Intel</h1>
+<p class="text-[10px] text-slate-400 uppercase tracking-widest">Terminal A-1</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:text-white hover:bg-[#1C1C2D] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-[#4B1FA3]/30 text-[#D0BCFF] border-r-2 border-[#D0BCFF] rounded-r-none font-semibold transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">route</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Trip Logs</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:text-white hover:bg-[#1C1C2D] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">map</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Live Tracking</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:text-white hover:bg-[#1C1C2D] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">verified_user</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:text-white hover:bg-[#1C1C2D] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">build</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Maintenance</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:text-white hover:bg-[#1C1C2D] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">analytics</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Reporting</span>
+</a>
+</nav>
+<div class="mt-auto px-6 space-y-1">
+<a class="flex items-center gap-3 py-3 text-slate-400 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="text-sm font-medium">Support</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-slate-400 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+<div class="bg-gradient-to-r from-transparent via-[#4B1FA3]/10 to-transparent w-[1px] h-full absolute right-0"></div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pl-64 min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-64 right-0 z-50 bg-[#0F0F1A]/80 backdrop-blur-xl h-16 px-6 flex justify-between items-center shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
+<div class="flex items-center gap-6">
+<span class="text-xl font-bold tracking-tighter text-[#D0BCFF] font-['Plus_Jakarta_Sans']">JAS Fleet Control</span>
+<div class="relative group">
+<span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
+<span class="material-symbols-outlined text-sm">search</span>
+</span>
+<input class="bg-surface-container-highest/40 border-none rounded-full py-1.5 pl-10 pr-4 text-sm w-80 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-slate-500" placeholder="Search orders, clients, or tags..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-[#4B1FA3]/20 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-slate-400">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-[#4B1FA3]/20 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-slate-400">settings</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-white/5">
+<div class="text-right">
+<p class="text-xs font-bold text-on-surface uppercase tracking-tighter">Fleet Manager</p>
+<p class="text-[10px] text-primary">System Admin</p>
+</div>
+<img alt="Fleet Manager Avatar" class="w-8 h-8 rounded-full bg-primary-container p-0.5" data-alt="professional fleet manager portrait with clean background and focused expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwznabFltNr9sOZY_Zm5SyJlHLAsKHLNvZQKO_Yo-qozRblWcxxcJ8FtyDDBZUa_R10nJyWHHi9RB_28z1yIeOpe-id5_n1NRHKpSkYOKpm0BmcBSjcp6NrRq5dEziGNd420GgePkW-uKcTpaBppeyt-SVRzAgTkT55OXGF48c8OZ9xGo7P05YdLGJZ4UNcLxyFA6QwlNowULWdHCOTJF5JTow_LLONz2rrJXAyqBi2VJM6uPxEL_cC5ig7Wc1k3jIV8Roe2YOPA"/>
+</div>
+</div>
+<div class="bg-[#1C1C2D] h-[1px] w-full absolute bottom-0 opacity-20"></div>
+</header>
+<div class="mt-16 p-6 flex-1 flex flex-col gap-6">
+<!-- Stats Strip -->
+<section class="grid grid-cols-5 gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl border-l-4 border-primary shadow-lg group hover:bg-surface-container transition-colors">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Pending</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-3xl font-headline font-extrabold text-on-surface">17</span>
+<span class="text-[10px] text-primary-fixed-dim">+3 vs last hr</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border-l-4 border-secondary-container shadow-lg group hover:bg-surface-container transition-colors">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">FA Mode</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-3xl font-headline font-extrabold text-secondary">12</span>
+<span class="text-[10px] text-secondary-fixed-dim">Dedicated Fleet</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border-l-4 border-blue-900 shadow-lg group hover:bg-surface-container transition-colors">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Spot Mode</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-3xl font-headline font-extrabold text-blue-300">5</span>
+<span class="text-[10px] text-blue-400">Market Rate</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border-l-4 border-error shadow-lg group hover:bg-surface-container transition-colors">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">SLA at Risk</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-3xl font-headline font-extrabold text-error">2</span>
+<span class="text-[10px] text-error/80">Immediate Action</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border-l-4 border-tertiary shadow-lg group hover:bg-surface-container transition-colors">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">WMS Ready</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-3xl font-headline font-extrabold text-tertiary">8</span>
+<span class="text-[10px] text-tertiary-fixed-dim">Warehouse Pickup</span>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="flex flex-wrap items-center justify-between gap-4 bg-surface-container-low p-4 rounded-xl border border-white/5">
+<div class="flex items-center gap-3">
+<div class="relative">
+<select class="bg-surface-container-highest border-none rounded-lg text-xs font-semibold py-2 pl-4 pr-10 appearance-none focus:ring-1 focus:ring-primary/40">
+<option>Mode: All</option>
+<option>Mode: FA</option>
+<option>Mode: Spot</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1.5 pointer-events-none text-on-surface-variant text-lg">expand_more</span>
+</div>
+<div class="relative">
+<select class="bg-surface-container-highest border-none rounded-lg text-xs font-semibold py-2 pl-4 pr-10 appearance-none focus:ring-1 focus:ring-primary/40">
+<option>Client: All</option>
+<option>Gold Tier</option>
+<option>Silver Tier</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1.5 pointer-events-none text-on-surface-variant text-lg">expand_more</span>
+</div>
+<div class="relative">
+<select class="bg-surface-container-highest border-none rounded-lg text-xs font-semibold py-2 pl-4 pr-10 appearance-none focus:ring-1 focus:ring-primary/40">
+<option>Priority: All</option>
+<option>Urgent</option>
+<option>High</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1.5 pointer-events-none text-on-surface-variant text-lg">expand_more</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-tight">Auto-Assign</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<button class="bg-primary text-on-primary font-bold px-6 py-2 rounded-lg text-xs tracking-tight hover:brightness-110 active:scale-95 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                        Execute Dispatch
+                    </button>
+</div>
+</section>
+<!-- Data Table Container -->
+<section class="flex-1 bg-surface-container-low rounded-xl overflow-hidden border border-white/5 flex flex-col shadow-inner">
+<div class="overflow-x-auto flex-1">
+<table class="w-full text-left border-collapse min-w-[1600px]">
+<thead>
+<tr class="bg-surface-container border-b border-white/5">
+<th class="p-4 w-12 text-center">
+<input class="rounded bg-surface-container-highest border-outline-variant text-primary focus:ring-primary/30" type="checkbox"/>
+</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Order Ref</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest text-center">Mode</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Client</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Route</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Cargo</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest">SLA Countdown</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest text-center">Compl.</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest">WMS Status</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest">AI Rec.</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest text-center">COD</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest">TGA Status</th>
+<th class="p-4 text-[10px] font-black text-on-surface-variant uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1: SLA Breach -->
+<tr class="group hover:bg-surface-container-high transition-colors red-pulse">
+<td class="p-4 text-center">
+<input class="rounded bg-surface-container-highest border-outline-variant text-primary focus:ring-primary/30" type="checkbox"/>
+</td>
+<td class="p-4 font-mono text-sm font-medium text-white">JAS-77402-KSA</td>
+<td class="p-4 text-center">
+<span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-primary-container/40 text-primary border border-primary/30 uppercase tracking-tighter">FA</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-400 text-sm" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="text-xs font-bold text-on-surface">PetroChem Logistics</span>
+</div>
+</td>
+<td class="p-4 text-xs font-medium">Jubail ➔ Riyadh Dry Port</td>
+<td class="p-4 text-xs text-on-surface-variant">22T Chemicals (Hazmat)</td>
+<td class="p-4">
+<span class="text-xs font-black text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">error</span> -00:14:02
+                                    </span>
+</td>
+<td class="p-4 text-center">
+<span class="material-symbols-outlined text-error text-lg">report</span>
+</td>
+<td class="p-4">
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Gate Out</span>
+</td>
+<td class="p-4">
+<div class="bg-primary/10 border border-primary/20 rounded-full px-2 py-1 flex items-center gap-1 w-max">
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-[10px] font-bold text-primary">TRK-902</span>
+</div>
+</td>
+<td class="p-4 text-center">
+<span class="bg-orange-500/20 text-orange-400 px-1.5 py-0.5 rounded text-[9px] font-black border border-orange-500/30">COD</span>
+</td>
+<td class="p-4">
+<span class="text-[10px] font-bold text-emerald-400">Approved</span>
+</td>
+<td class="p-4 text-right">
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: SLA Warning -->
+<tr class="group hover:bg-surface-container-high transition-colors amber-glow">
+<td class="p-4 text-center">
+<input class="rounded bg-surface-container-highest border-outline-variant text-primary focus:ring-primary/30" type="checkbox"/>
+</td>
+<td class="p-4 font-mono text-sm font-medium text-white">JAS-81229-UAE</td>
+<td class="p-4 text-center">
+<span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-blue-900/40 text-blue-300 border border-blue-800/30 uppercase tracking-tighter">Spot</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-sm" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="text-xs font-bold text-on-surface">Global Retailers</span>
+</div>
+</td>
+<td class="p-4 text-xs font-medium">Jebel Ali ➔ Abu Dhabi Central</td>
+<td class="p-4 text-xs text-on-surface-variant">FMCG Mixed Pallets</td>
+<td class="p-4">
+<span class="text-xs font-black text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> 00:08:45
+                                    </span>
+</td>
+<td class="p-4 text-center">
+<span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+</td>
+<td class="p-4">
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary border border-tertiary/20">WMS Ready</span>
+</td>
+<td class="p-4">
+<div class="bg-primary/10 border border-primary/20 rounded-full px-2 py-1 flex items-center gap-1 w-max">
+<span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-[10px] font-bold text-primary">BID-112</span>
+</div>
+</td>
+<td class="p-4 text-center">—</td>
+<td class="p-4">
+<span class="text-[10px] font-bold text-on-surface-variant italic">Pending</span>
+</td>
+<td class="p-4 text-right">
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Standard -->
+<tr class="group hover:bg-surface-container-high transition-colors">
+<td class="p-4 text-center">
+<input class="rounded bg-surface-container-highest border-outline-variant text-primary focus:ring-primary/30" type="checkbox"/>
+</td>
+<td class="p-4 font-mono text-sm font-medium text-white">JAS-90031-KSA</td>
+<td class="p-4 text-center">
+<span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-primary-container/40 text-primary border border-primary/30 uppercase tracking-tighter">FA</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-400 text-sm" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="text-xs font-bold text-on-surface">Aramco Distribution</span>
+</div>
+</td>
+<td class="p-4 text-xs font-medium">Dammam ➔ Khobar Hub</td>
+<td class="p-4 text-xs text-on-surface-variant">General Cargo</td>
+<td class="p-4 text-xs font-medium text-on-surface-variant">04:12:00</td>
+<td class="p-4 text-center">
+<span class="material-symbols-outlined text-emerald-400 text-lg">check_circle</span>
+</td>
+<td class="p-4">
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Pending WMS</span>
+</td>
+<td class="p-4">
+<span class="text-[10px] font-bold text-slate-500">Auto-Calc...</span>
+</td>
+<td class="p-4 text-center">—</td>
+<td class="p-4">
+<span class="text-[10px] font-bold text-emerald-400">Approved</span>
+</td>
+<td class="p-4 text-right">
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Dummy rows to fill height -->
+<tr class="group hover:bg-surface-container-high transition-colors"><td class="h-12" colspan="13"></td></tr>
+<tr class="group hover:bg-surface-container-high transition-colors"><td class="h-12" colspan="13"></td></tr>
+<tr class="group hover:bg-surface-container-high transition-colors"><td class="h-12" colspan="13"></td></tr>
+</tbody>
+</table>
+</div>
+<!-- Bulk Actions Bar -->
+<div class="bg-primary-container/20 backdrop-blur-md border-t border-primary/30 p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold text-on-primary-container">3 Orders Selected</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 bg-surface-container-highest/80 hover:bg-surface-container-highest rounded text-[10px] font-bold flex items-center gap-1 transition-all">
+<span class="material-symbols-outlined text-sm">print</span> Print Manifests
+                            </button>
+<button class="px-3 py-1.5 bg-surface-container-highest/80 hover:bg-surface-container-highest rounded text-[10px] font-bold flex items-center gap-1 transition-all">
+<span class="material-symbols-outlined text-sm">mail</span> Notify Clients
+                            </button>
+<button class="px-3 py-1.5 bg-error-container/40 text-error-container hover:bg-error-container/60 rounded text-[10px] font-bold flex items-center gap-1 transition-all">
+<span class="material-symbols-outlined text-sm">delete</span> Bulk Cancel
+                            </button>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-highest/50 text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary text-[10px] font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-highest/50 text-on-surface-variant hover:text-white transition-colors text-[10px] font-bold">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-highest/50 text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Floating AI Assistant Button -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-tr from-primary to-primary-container rounded-full shadow-[0_8px_32px_rgba(75,31,163,0.5)] flex items-center justify-center text-on-primary group hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-4 w-4 bg-secondary"></span>
+</span>
+</button>
+</body></html>
