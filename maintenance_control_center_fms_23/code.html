@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#6c2e00",
+            "tertiary-fixed-dim": "#ffb68e",
+            "on-tertiary": "#532200",
+            "inverse-on-surface": "#302f3b",
+            "on-secondary-container": "#c0b0e7",
+            "secondary-fixed": "#e9ddff",
+            "on-tertiary-fixed": "#331200",
+            "on-surface": "#e3e0f1",
+            "on-error": "#690005",
+            "inverse-primary": "#6a45c3",
+            "on-error-container": "#ffdad6",
+            "on-background": "#e3e0f1",
+            "on-primary-fixed-variant": "#5228aa",
+            "surface-container-lowest": "#0d0d18",
+            "surface-container": "#1f1e2a",
+            "on-primary-container": "#b79cff",
+            "on-tertiary-fixed-variant": "#743405",
+            "surface-bright": "#383845",
+            "secondary": "#cfbef6",
+            "primary": "#d0bcff",
+            "surface-tint": "#d0bcff",
+            "surface-container-high": "#292935",
+            "secondary-fixed-dim": "#cfbef6",
+            "error-container": "#93000a",
+            "primary-fixed-dim": "#d0bcff",
+            "surface-container-highest": "#343440",
+            "on-secondary": "#352856",
+            "surface": "#12121d",
+            "primary-fixed": "#e9ddff",
+            "on-surface-variant": "#cbc3d5",
+            "on-primary-fixed": "#22005c",
+            "error": "#ffb4ab",
+            "tertiary-fixed": "#ffdbc9",
+            "primary-container": "#4b1fa3",
+            "surface-variant": "#343440",
+            "surface-container-low": "#1b1a26",
+            "outline": "#948e9e",
+            "on-tertiary-container": "#f09661",
+            "on-secondary-fixed": "#201340",
+            "on-primary": "#3b0092",
+            "surface-dim": "#12121d",
+            "secondary-container": "#4f4171",
+            "outline-variant": "#494453",
+            "on-secondary-fixed-variant": "#4c3f6e",
+            "inverse-surface": "#e3e0f1",
+            "background": "#12121d",
+            "tertiary": "#ffb68e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass-card {
+      background: rgba(31, 30, 42, 0.6);
+      backdrop-filter: blur(12px);
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #494453; border-radius: 10px; }
+    .pulse-error {
+      box-shadow: 0 0 0 0 rgba(147, 0, 10, 0.7);
+      animation: pulse-red 2s infinite;
+    }
+    @keyframes pulse-red {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(147, 0, 10, 0.7); }
+      70% { transform: scale(1.01); box-shadow: 0 0 0 10px rgba(147, 0, 10, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(147, 0, 10, 0); }
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Side Navigation Shell -->
+<aside class="fixed left-0 top-0 h-full z-40 flex flex-col h-screen w-64 border-r border-white/5 bg-slate-950/80 backdrop-blur-xl shadow-2xl shadow-black/50">
+<div class="p-6">
+<h1 class="text-xl font-bold tracking-tight text-violet-400">JAS Logistics</h1>
+<p class="text-xs text-slate-400 uppercase tracking-widest mt-1">Fleet Operations</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<div class="flex items-center gap-3 px-4 py-3 rounded transition-all duration-300 hover:bg-white/5 text-slate-400 hover:text-slate-200 cursor-pointer">
+<span class="material-symbols-outlined">engineering</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Maintenance Control</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded transition-all duration-300 text-white bg-violet-600/20 border-r-2 border-violet-500 cursor-pointer">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Work Orders</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded transition-all duration-300 hover:bg-white/5 text-slate-400 hover:text-slate-200 cursor-pointer">
+<span class="material-symbols-outlined">local_gas_station</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Fuel Management</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded transition-all duration-300 hover:bg-white/5 text-slate-400 hover:text-slate-200 cursor-pointer">
+<span class="material-symbols-outlined">monetization_on</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Profitability</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 rounded transition-all duration-300 hover:bg-white/5 text-slate-400 hover:text-slate-200 cursor-pointer">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">TCO Reports</span>
+</div>
+</nav>
+<div class="p-4 border-t border-white/5">
+<button class="w-full py-3 px-4 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-lg transition-all active:scale-95 text-sm mb-4">
+        Schedule AI Audit
+      </button>
+<div class="flex items-center gap-3 px-4 py-2 text-slate-400 hover:text-white cursor-pointer">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span class="text-xs">Settings</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-slate-400 hover:text-white cursor-pointer">
+<span class="material-symbols-outlined text-sm">help</span>
+<span class="text-xs">Support</span>
+</div>
+</div>
+</aside>
+<!-- Top Navigation Shell -->
+<header class="sticky top-0 right-0 w-[calc(100%-16rem)] ml-64 z-30 px-8 h-16 flex justify-between items-center bg-slate-950/60 backdrop-blur-lg border-b border-white/5">
+<div class="flex items-center gap-8">
+<h2 class="text-lg font-black text-white">Fleet Intelligence</h2>
+<nav class="hidden md:flex gap-6 font-['Plus_Jakarta_Sans'] font-semibold text-sm">
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="text-violet-400 border-b-2 border-violet-400 pb-1" href="#">Analytics</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="bg-surface-container-highest border-none rounded-full pl-10 pr-4 py-1.5 text-sm focus:ring-1 focus:ring-violet-400 w-64" placeholder="Search orders..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary-fixed font-bold py-1.5 px-4 rounded-lg text-xs transition-all">
+        Create Work Order
+      </button>
+<div class="flex gap-3 text-slate-400">
+<span class="material-symbols-outlined hover:text-white cursor-pointer">notifications</span>
+<span class="material-symbols-outlined hover:text-white cursor-pointer">history</span>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-violet-400/30" data-alt="professional male portrait with high contrast lighting, neutral expression, modern business profile aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKJknAwWimq5xTdG6h1riAaeNgi9mjkhTt91hgvEmLNS6SyIjnh7WGgrSx_UUVCutlXqmOEuHb_dzDvzXrioE8YJGiZtS19orM0QktPVThVqzvMw7C7AK7ar2WK50Y8ww3xE2PMRon-uIx1tzjWfP73LzTvkpbljh15BMTfp0Z3n4pHLYlvzj-0Bl7bTD2B8KLCkbhQvJ2jwemzX3rGjQjp5ucQcxZp6O-9IT9WOSrYxCO946qv8wMTrCBOVtx1jalGjXgv5wPuQ"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 p-8 min-h-[calc(100vh-4rem)] bg-surface">
+<!-- Header Stats Section -->
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="bg-surface-container-low p-5 rounded-xl flex flex-col gap-1">
+<span class="text-on-surface-variant text-xs font-medium uppercase tracking-wider">In Maintenance</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-extrabold text-primary">07</span>
+<span class="text-xs text-primary/60">units active</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl flex flex-col gap-1">
+<span class="text-on-surface-variant text-xs font-medium uppercase tracking-wider">Due This Week</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-extrabold text-secondary">12</span>
+<span class="material-symbols-outlined text-sm text-secondary">event_available</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl flex flex-col gap-1">
+<span class="text-on-surface-variant text-xs font-medium uppercase tracking-wider">Overdue</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-extrabold text-error">02</span>
+<span class="text-xs text-error/60 font-bold">CRITICAL</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl flex flex-col gap-1">
+<span class="text-on-surface-variant text-xs font-medium uppercase tracking-wider">Cost MTD</span>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-on-surface">SAR 84,200</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+</div>
+</div>
+<!-- Layout Split -->
+<div class="flex gap-8">
+<!-- LEFT: Kanban Board (60%) -->
+<section class="w-3/5 space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold">Maintenance Pipeline</h3>
+<div class="flex gap-2">
+<button class="p-1.5 rounded-md hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-sm">filter_list</span></button>
+<button class="p-1.5 rounded-md hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-sm">view_week</span></button>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4 h-[calc(100vh-22rem)] overflow-x-auto pb-4 custom-scrollbar">
+<!-- Column: Waiting Parts -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-1">
+<span class="text-xs font-bold uppercase text-on-surface-variant">Waiting Parts</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px]">3</span>
+</div>
+<div class="space-y-4">
+<!-- Regular Card -->
+<div class="bg-surface-container p-4 rounded-xl border border-white/5 hover:border-violet-500/30 transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="font-bold text-sm">JAS-142</h4>
+<p class="text-[10px] text-on-surface-variant">أ ب ج ١٢٣٤</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-0.5 rounded-full font-bold">Routine</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<img class="w-6 h-6 rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="close up avatar of a professional technician wearing a dark uniform, studio lighting, blurred workshop background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9EAZLf3S6lnZ07iRQ1vpJsci2pBtzM3CealNjGR9TGJ2amm3VkUL0QUvSncH8L6ig5myxfM4m7k5tpL7AlT17ZKGVc_gvP4Qz0vuNvubkv-schyVb6Yn8pZJdMDUHXLTD-SMJTkyIv9NdV8IcDg5j_1VJgGBM-VbcXr3zVTuZX0LUYgVyKWMiKtY45xl93vveC_POXeSFoBZaDGiJtGYff9VnnsRUHoQYA2Fk-L7DOIYP34vuhAE5b2LTtxCESYL2VP7bm3hBEQ"/>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface leading-none">A. Al-Zahrani</span>
+<span class="text-[9px] text-on-surface-variant">Lead Mechanic</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-[10px]">
+<span class="text-on-surface-variant">Est. 4h</span>
+<span class="font-mono text-primary">SAR 1,240</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: In Progress -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-1">
+<span class="text-xs font-bold uppercase text-on-surface-variant">In Progress</span>
+<span class="bg-primary/20 text-primary px-2 py-0.5 rounded text-[10px]">2</span>
+</div>
+<div class="space-y-4">
+<!-- PULSING BREAKDOWN CARD -->
+<div class="bg-error-container/40 p-4 rounded-xl border border-error/30 pulse-error transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-error text-lg" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h4 class="font-bold text-sm text-error">JAS-028</h4>
+</div>
+<span class="bg-error text-on-error text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-tighter">Breakdown</span>
+</div>
+<p class="text-[11px] text-on-error-container mb-4 font-medium italic">"Reported 14m ago on Riyadh-Dammam highway"</p>
+<div class="flex items-center gap-2 mb-4">
+<img class="w-6 h-6 rounded-full border border-error" data-alt="professional technician in specialized gear, serious expression, high tech safety equipment visible" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGkgxz1PuIHbaArjuPZhoVA5Ee7sTVBI44SEqey_MeH5F4pzPqUa1STu5bMAnEYH3BMAnzZM_kYhr3GIAQLaLSR1M7Ruo1JK81kV47fgvsLlCZ8NrYneFv3uWj9feVKXj5dBjvBCMvN92pXCaNxeHQgtsX0-6LnnP6OtNxf0RlI24Z8yDEQuZqhP2EpISZcVY078M1lzZRqKBl2Mud-VNFkQ4fR4eVG6WZi-CPljBsZCER3kwRh_xk1cUQq8vu4wGvVjkf6-EAsQ"/>
+<span class="text-[10px] text-on-error-container">Emergency Dispatch Assigned</span>
+</div>
+<button class="w-full bg-error text-on-error py-2 rounded-lg text-xs font-black uppercase tracking-widest hover:brightness-110 transition-all">
+                  Dispatch Recovery
+                </button>
+</div>
+<!-- Regular Card -->
+<div class="bg-surface-container p-4 rounded-xl border border-white/5 hover:border-violet-500/30 transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="font-bold text-sm">JAS-091</h4>
+<p class="text-[10px] text-on-surface-variant">د ر س ٩٩٨٨</p>
+</div>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-0.5 rounded-full font-bold">Engine Service</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<img class="w-6 h-6 rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="avatar of mechanic wearing glasses, professional focused expression, bright workshop lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1ZumAOtdvbGCq48QTq_eNI73bKuRpicdLOT2ocTpMz0Syn3NCoEReqWNEBaT11tdLyubj-WE4vypLAycsMQwtiBBIab92kM5-gS6RDeGxNfFYk_x704bVmNJAJSBmzisjU8FdhbhUx47xGG9ov72YgBIiEcQSCdELuC2pBG4mz0X8cDIwlEl0uGjGxoyW1Wk_NfORYiqbKGIvDQMXbouGS-ZOM5b6fjp2vICl4A0pGENlKQA5iVPGIrOGWqRUhFBbs6Ba_TIPbA"/>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface leading-none">M. Hassan</span>
+<span class="text-[9px] text-on-surface-variant">Technician</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-[10px]">
+<span class="text-on-surface-variant">Est. 2d</span>
+<span class="font-mono text-primary">SAR 12,800</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: QC Check -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-1">
+<span class="text-xs font-bold uppercase text-on-surface-variant">QC Check</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px]">1</span>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container p-4 rounded-xl border border-white/5 hover:border-violet-500/30 transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="font-bold text-sm">JAS-055</h4>
+<p class="text-[10px] text-on-surface-variant">ح ل م ٤٥٤٥</p>
+</div>
+<span class="bg-primary-container text-on-primary-container text-[10px] px-2 py-0.5 rounded-full font-bold">Final Audit</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<img class="w-6 h-6 rounded-full grayscale group-hover:grayscale-0 transition-all" data-alt="portrait of inspector with clipboard, professional attire, industrial background blurred" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoDQ6VBabtPeDDQIa05iQ6Hip8ELVWjYTGs1Ae8CPK4iCsyqexE1oxOOm8cb2jvSLb41mnXge71VFxZqhjp_8OFNuLqQ1Rya7nPTTWbY6TDAMfqbeMSDAPLXCouAyIGVNelF2UR6bPOXs1h5nxd8qXcMg8jFqSyRx7OaS672Eq_GxVBkojggZGo5GjwhufXZJXDtfhHfj0D1_8Z2YL8EHV7QkParrBT8Y5EYcmpzs31BoPpJo4QuiofB3mtS_CuUm0wNJuAZAgeA"/>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface leading-none">K. Suleiman</span>
+<span class="text-[9px] text-on-surface-variant">QC Supervisor</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-[10px]">
+<span class="text-on-surface-variant">Done</span>
+<span class="font-mono text-primary">SAR 450</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Complete -->
+<div class="flex flex-col gap-4 opacity-50 hover:opacity-100 transition-opacity">
+<div class="flex items-center justify-between px-1">
+<span class="text-xs font-bold uppercase text-on-surface-variant">Complete</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px]">42</span>
+</div>
+<div class="bg-surface-container p-4 rounded-xl border border-white/5 border-dashed flex flex-col items-center justify-center h-24 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+<span class="text-[10px] mt-1">Archived today</span>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT: Monthly Calendar (40%) -->
+<section class="w-2/5 space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<h3 class="text-lg font-bold">Schedule</h3>
+<span class="text-on-surface-variant text-sm font-medium">May 2024</span>
+</div>
+<div class="flex gap-1">
+<button class="p-1 rounded-md bg-surface-container-high hover:bg-surface-bright"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="p-1 rounded-md bg-surface-container-high hover:bg-surface-bright"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-6 border border-white/5">
+<!-- Calendar Grid -->
+<div class="grid grid-cols-7 gap-px mb-4">
+<div class="text-center text-[10px] font-bold text-on-surface-variant pb-2">SUN</div>
+<div class="text-center text-[10px] font-bold text-on-surface-variant pb-2">MON</div>
+<div class="text-center text-[10px] font-bold text-on-surface-variant pb-2">TUE</div>
+<div class="text-center text-[10px] font-bold text-on-surface-variant pb-2">WED</div>
+<div class="text-center text-[10px] font-bold text-on-surface-variant pb-2">THU</div>
+<div class="text-center text-[10px] font-bold text-on-surface-variant pb-2">FRI</div>
+<div class="text-center text-[10px] font-bold text-on-surface-variant pb-2">SAT</div>
+<!-- Dates (Abstracted) -->
+<!-- Row 1 -->
+<div class="h-20 bg-surface/40 p-1 flex flex-col items-end opacity-40"><span class="text-[10px]">28</span></div>
+<div class="h-20 bg-surface/40 p-1 flex flex-col items-end opacity-40"><span class="text-[10px]">29</span></div>
+<div class="h-20 bg-surface/40 p-1 flex flex-col items-end opacity-40"><span class="text-[10px]">30</span></div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">1</span></div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end">
+<span class="text-[10px]">2</span>
+<div class="w-full h-1.5 bg-error rounded-full mt-1 mb-0.5"></div>
+</div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">3</span></div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">4</span></div>
+<!-- Row 2 -->
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">5</span></div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end">
+<span class="text-[10px]">6</span>
+<div class="w-full h-1.5 bg-primary rounded-full mt-1"></div>
+<div class="w-full h-1.5 bg-tertiary rounded-full mt-0.5"></div>
+</div>
+<div class="h-20 bg-surface-container-highest p-1 flex flex-col items-end relative overflow-hidden">
+<span class="text-[10px] font-bold text-primary">7</span>
+<div class="w-full h-1.5 bg-primary rounded-full mt-1"></div>
+<div class="absolute inset-0 bg-primary/5"></div>
+</div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end">
+<span class="text-[10px]">8</span>
+<div class="w-full h-1.5 bg-tertiary rounded-full mt-1"></div>
+</div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">9</span></div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">10</span></div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">11</span></div>
+<!-- Row 3 -->
+<div class="h-20 bg-surface p-1 flex flex-col items-end">
+<span class="text-[10px]">12</span>
+<div class="w-full h-1.5 bg-primary rounded-full mt-1"></div>
+</div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">13</span></div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">14</span></div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end">
+<span class="text-[10px]">15</span>
+<div class="w-full h-1.5 bg-error rounded-full mt-1"></div>
+</div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">16</span></div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">17</span></div>
+<div class="h-20 bg-surface p-1 flex flex-col items-end"><span class="text-[10px]">18</span></div>
+</div>
+<div class="flex gap-4 pt-4 border-t border-white/5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[10px] text-on-surface-variant font-medium">Routine</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-[10px] text-on-surface-variant font-medium">Major Service</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="text-[10px] text-on-surface-variant font-medium">Critical Inspection</span>
+</div>
+</div>
+</div>
+<!-- Upcoming Maintenance List -->
+<div class="space-y-4 mt-6">
+<h4 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Pending Approvals</h4>
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/5 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+</div>
+<div>
+<p class="text-sm font-bold">JAS-332 • T-900</p>
+<p class="text-[10px] text-on-surface-variant">Scheduled: May 22, 2024</p>
+</div>
+</div>
+<button class="text-[10px] font-bold text-primary hover:text-white transition-colors">REVIEW</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

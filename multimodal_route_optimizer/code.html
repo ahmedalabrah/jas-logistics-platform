@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS FreMS | Multimodal Route Optimizer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#6a45c3",
+                    "on-secondary": "#352856",
+                    "on-tertiary": "#532200",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-background": "#e3e0f1",
+                    "outline-variant": "#494453",
+                    "on-tertiary-container": "#f09661",
+                    "on-secondary-fixed": "#201340",
+                    "on-primary-container": "#b79cff",
+                    "surface-container": "#1f1e2a",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "tertiary": "#ffb68e",
+                    "error-container": "#93000a",
+                    "primary": "#d0bcff",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "surface-tint": "#d0bcff",
+                    "surface-container-lowest": "#0d0d18",
+                    "primary-container": "#4b1fa3",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "inverse-surface": "#e3e0f1",
+                    "on-error": "#690005",
+                    "on-surface": "#e3e0f1",
+                    "error": "#ffb4ab",
+                    "on-primary": "#3b0092",
+                    "surface-dim": "#12121d",
+                    "surface-container-high": "#292935",
+                    "surface-container-low": "#1b1a26",
+                    "on-secondary-container": "#c0b0e7",
+                    "background": "#12121d",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "surface-variant": "#343440",
+                    "secondary": "#cfbef6",
+                    "on-surface-variant": "#cbc3d5",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed": "#e9ddff",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed": "#22005c",
+                    "inverse-on-surface": "#302f3b",
+                    "tertiary-container": "#6c2e00",
+                    "secondary-container": "#4f4171",
+                    "surface": "#12121d",
+                    "surface-container-highest": "#343440",
+                    "surface-bright": "#383845",
+                    "outline": "#948e9e",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-tertiary-fixed": "#331200"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.7);
+            backdrop-filter: blur(16px);
+        }
+        body {
+            background-color: #12121d;
+            color: #e3e0f1;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .brand-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">JAS FreMS</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-gray-400 hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-gray-400 hover:text-white transition-colors" href="#">Clearance</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-white border-b-2 border-[#C43585] pb-1" href="#">Optimization</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-gray-400 hover:text-white transition-colors" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-white/5 transition-all">notifications</button>
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-white/5 transition-all">settings</button>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-['Plus_Jakarta_Sans'] text-sm font-semibold hover:opacity-90 transition-all">Create Shipment</button>
+</div>
+<div class="absolute bottom-0 left-0 w-full bg-gradient-to-b from-[#C43585]/10 to-transparent h-[1px]"></div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-[#12121d]/90 backdrop-blur-lg border-r border-white/5 flex flex-col py-6 gap-2">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<p class="font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest text-[#C43585] font-bold">Terminal Intel</p>
+<p class="text-[10px] text-on-surface-variant">AI Engine Active</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="text-gray-500 flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest hover:bg-[#C43585]/10 hover:text-[#C43585] transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">gavel</span> Customs
+            </a>
+<a class="text-gray-500 flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest hover:bg-[#C43585]/10 hover:text-[#C43585] transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">psychology</span> HS Classification
+            </a>
+<a class="bg-gradient-to-r from-[#C43585]/20 to-transparent border-l-4 border-[#C43585] text-white flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">alt_route</span> Route Planner
+            </a>
+<a class="text-gray-500 flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest hover:bg-[#C43585]/10 hover:text-[#C43585] transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">description</span> Documents
+            </a>
+<a class="text-gray-500 flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest hover:bg-[#C43585]/10 hover:text-[#C43585] transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">auto_awesome</span> AI Assistant
+            </a>
+<a class="text-gray-500 flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest hover:bg-[#C43585]/10 hover:text-[#C43585] transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">history</span> Audit Log
+            </a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-surface-container-high text-on-surface py-3 rounded-lg flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-bold hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-sm">bolt</span> Optimize Flow
+            </button>
+<div class="mt-4 flex flex-col gap-2">
+<a class="text-on-surface-variant flex items-center gap-3 py-2 text-[10px] uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm">help</span> Help Center
+                </a>
+<a class="text-on-surface-variant flex items-center gap-3 py-2 text-[10px] uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm">logout</span> Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="pl-64 pt-16 min-h-screen">
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-10 flex justify-between items-end">
+<div>
+<nav class="flex gap-2 text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">
+<span>Tools</span>
+<span>/</span>
+<span class="text-primary">Route Optimizer</span>
+</nav>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface">FRE-13: Multimodal Route Optimizer</h1>
+<p class="text-on-surface-variant mt-2 max-w-2xl font-body">Simulate and optimize logistics pathways across the Middle East using real-time congestion and cost data powered by Terminal Intel.</p>
+</div>
+<div class="flex gap-4">
+<div class="text-right">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Last Engine Refresh</p>
+<p class="text-sm font-bold text-tertiary">2 mins ago</p>
+</div>
+</div>
+</header>
+<!-- Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column: Input Panel -->
+<div class="lg:col-span-4 space-y-6">
+<section class="bg-surface-container-low rounded-xl p-6 shadow-2xl border border-white/5">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">tune</span>
+<h2 class="text-lg font-bold tracking-tight">Parameters</h2>
+</div>
+<form class="space-y-4">
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Origin</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" placeholder="Port of Jebel Ali, Dubai" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-on-surface-variant text-sm">location_on</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Destination</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" placeholder="Riyadh Logistics Park, SA" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-on-surface-variant text-sm">sports_score</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Weight (kg)</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" placeholder="12,500" type="number"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Volume (m³)</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" placeholder="45.0" type="number"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Deadline</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" type="datetime-local"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Priority</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary appearance-none">
+<option>Time Critical</option>
+<option>Cost Sensitive</option>
+<option>Carbon Neutral</option>
+</select>
+</div>
+<button class="w-full mt-6 bg-gradient-to-r from-primary to-primary-container text-on-primary py-4 rounded-lg font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-3 shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform" type="button">
+                                Optimize Route <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+</section>
+<!-- AI Recommendation Chip -->
+<div class="bg-primary-container/20 border border-primary/20 rounded-xl p-5 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="material-symbols-outlined text-4xl text-[#C43585]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[10px] uppercase tracking-widest font-bold text-[#C43585]">Engine Insights</span>
+</div>
+<p class="text-sm font-medium text-on-primary-container leading-relaxed">
+                            For your deadline <span class="text-white font-bold underline">tomorrow 18:00</span>: Road Direct is the only viable option due to congestion at Port Rashid. Multimodal air-sea exceeds 48h limit.
+                        </p>
+</div>
+</div>
+<!-- Right Column: Results & Comparisons -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Map Visualization Placeholder -->
+<div class="h-64 rounded-xl bg-surface-container-low overflow-hidden relative border border-white/5">
+<img class="w-full h-full object-cover opacity-50 grayscale contrast-125" data-alt="Dark stylized vector map of the Arabian Peninsula showing glowing logistics routes between Dubai and Riyadh with data points" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAadS26tCzGTuDstjHsg_UeEqKzC40YPG7gNgNF0tWgmPBnq7exf3spIWMHDUpGNH8sX8zUVyA3PG7BMNrHpw1xgskfRUGcv61HZMokwqsmQKTPE5yn7ywgcK5oz9Gr8ivl_VP3gM3-RobqfTZxIKfpbLZHEUQWGgU1dJ4pJO3Tp0kBoIIKKky17_HAmjSfLUuGblKdZRoaUSXn7B2xPQY95djTVnvQidTrHwdIbemFSg_iXcMd7azBDx3Zx9kHiWOnNpcMlReT_g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-4 left-6 flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-bold uppercase">Current Selection: Road Direct</span>
+</div>
+</div>
+</div>
+<!-- Comparison Table -->
+<div class="bg-surface-container-low rounded-xl shadow-2xl border border-white/5 overflow-hidden">
+<div class="p-6 border-b border-white/5 flex justify-between items-center">
+<h2 class="text-lg font-bold tracking-tight">Route Comparison Engine</h2>
+<div class="flex gap-2">
+<button class="text-xs font-bold uppercase tracking-widest px-3 py-1 bg-surface-container-high rounded text-on-surface-variant hover:text-white transition-colors">Export PDF</button>
+<button class="text-xs font-bold uppercase tracking-widest px-3 py-1 bg-surface-container-high rounded text-on-surface-variant hover:text-white transition-colors">Compare Live</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container">
+<tr>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Route</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Modes</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Transit</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Cost (SAR)</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">CO2 (kg)</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Reliability</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">AI Pick</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5 font-bold text-sm">Road Direct (E11)</td>
+<td class="px-6 py-5">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-sm text-primary">local_shipping</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm">18h 45m</td>
+<td class="px-6 py-5 text-sm font-semibold">4,200</td>
+<td class="px-6 py-5 text-sm">840</td>
+<td class="px-6 py-5">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-tertiary w-[95%] h-full"></div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-[#C43585] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded shadow-[0_0_10px_rgba(196,53,133,0.3)]">Top Speed</span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors bg-primary/5">
+<td class="px-6 py-5 font-bold text-sm">Express Rail Connect</td>
+<td class="px-6 py-5">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-sm text-primary">train</span>
+<span class="material-symbols-outlined text-sm text-primary">local_shipping</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm">34h 20m</td>
+<td class="px-6 py-5 text-sm font-semibold">2,850</td>
+<td class="px-6 py-5 text-sm">210</td>
+<td class="px-6 py-5">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-tertiary w-[88%] h-full"></div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-primary text-on-primary text-[9px] font-black uppercase px-2 py-0.5 rounded shadow-[0_0_10px_rgba(208,188,255,0.3)]">Best Value</span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-5 font-bold text-sm">Hybrid Sea-Land</td>
+<td class="px-6 py-5">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-sm text-primary">directions_boat</span>
+<span class="material-symbols-outlined text-sm text-primary">local_shipping</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm">52h 10m</td>
+<td class="px-6 py-5 text-sm font-semibold">1,920</td>
+<td class="px-6 py-5 text-sm">180</td>
+<td class="px-6 py-5">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-tertiary w-[72%] h-full"></div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-surface-container-highest text-on-surface-variant text-[9px] font-black uppercase px-2 py-0.5 rounded">Eco Choice</span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-5 font-bold text-sm">Air Priority</td>
+<td class="px-6 py-5">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-sm text-primary">flight</span>
+<span class="material-symbols-outlined text-sm text-primary">local_shipping</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm">6h 15m</td>
+<td class="px-6 py-5 text-sm font-semibold">12,400</td>
+<td class="px-6 py-5 text-sm">3,400</td>
+<td class="px-6 py-5">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-error w-[99%] h-full"></div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-on-surface-variant text-[9px] font-medium uppercase italic">Exceeds Budget</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Visual Summary: Bento Style -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Cost Savings</p>
+<h3 class="text-2xl font-black text-tertiary">32.4%</h3>
+<p class="text-[10px] text-on-surface-variant mt-1">vs Standard Road Freight</p>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Carbon Avoidance</p>
+<h3 class="text-2xl font-black text-primary">630kg</h3>
+<p class="text-[10px] text-on-surface-variant mt-1">Net impact per 10 TEUs</p>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Risk Factor</p>
+<h3 class="text-2xl font-black text-white">Low</h3>
+<p class="text-[10px] text-on-surface-variant mt-1">Weather &amp; Border status green</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Action (Contextually appropriate for Optimizer Page) -->
+<button class="fixed bottom-8 right-8 bg-[#C43585] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">save_as</span>
+<span class="ml-2 font-bold text-xs uppercase tracking-widest mr-1">Save Scenario</span>
+</button>
+</body></html>

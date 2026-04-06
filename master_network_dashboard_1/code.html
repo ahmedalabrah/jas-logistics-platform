@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics — Master Command</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;500;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#22005c",
+                        "secondary": "#cfbef6",
+                        "primary-container": "#4b1fa3",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#c0b0e7",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "surface-container-high": "#292935",
+                        "tertiary-container": "#6c2e00",
+                        "outline": "#948e9e",
+                        "on-secondary": "#352856",
+                        "on-tertiary": "#532200",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1b1a26",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-tertiary-fixed": "#331200",
+                        "tertiary": "#ffb68e",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "inverse-surface": "#e3e0f1",
+                        "inverse-primary": "#6a45c3",
+                        "outline-variant": "#494453",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "inverse-on-surface": "#302f3b",
+                        "error-container": "#93000a",
+                        "surface-tint": "#d0bcff",
+                        "secondary-fixed": "#e9ddff",
+                        "background": "#12121d",
+                        "on-primary-container": "#b79cff",
+                        "surface-bright": "#383845",
+                        "surface-container": "#1f1e2a",
+                        "surface": "#12121d",
+                        "on-error": "#690005",
+                        "primary-fixed": "#e9ddff",
+                        "on-background": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "secondary-container": "#4f4171",
+                        "primary": "#d0bcff",
+                        "surface-container-highest": "#343440",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-surface": "#e3e0f1",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-fixed": "#201340",
+                        "surface-dim": "#12121d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #12121d;
+            color: #e3e0f1;
+            font-family: 'Inter', sans-serif;
+        }
+        .amber-accent { color: #D4691E; }
+        .amber-bg { background-color: rgba(212, 105, 30, 0.1); }
+        .amber-border { border-color: #D4691E; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="flex flex-col h-full border-r border-white/10 bg-[#0F0F1A]/80 backdrop-blur-xl h-screen w-64 fixed left-0 top-0 shadow-[20px_0_40px_-15px_rgba(0,0,0,0.5)] z-50">
+<div class="p-6">
+<h1 class="text-[#D4691E] font-black tracking-tighter text-2xl uppercase">JAS Logistics</h1>
+<p class="text-slate-500 font-['Plus_Jakarta_Sans'] font-medium text-xs tracking-widest mt-1 uppercase">Master Command</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded text-[#D4691E] bg-[#D4691E]/10 border-r-2 border-[#D4691E] font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard_customize">dashboard_customize</span>
+<span>Command Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-slate-400 hover:text-slate-200 hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+<span>Alert Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-slate-400 hover:text-slate-200 hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="pending_actions">pending_actions</span>
+<span>Order Queue</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-slate-400 hover:text-slate-200 hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span>Spot Quoting</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-slate-400 hover:text-slate-200 hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span>Agreements</span>
+</a>
+</nav>
+<div class="px-4 py-6">
+<button class="w-full py-3 bg-[#D4691E] text-white font-bold rounded-lg scale-95 active:scale-90 transition-transform shadow-lg shadow-[#D4691E]/20">
+                New Strategy
+            </button>
+</div>
+<div class="p-4 border-t border-white/5 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-400 hover:text-white text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-400 hover:text-white text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="pl-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-[#0F0F1A]/60 backdrop-blur-lg flex items-center justify-between px-8 w-full border-b border-white/5 bg-gradient-to-b from-white/5 to-transparent">
+<div class="flex items-center gap-8">
+<h2 class="text-[#D4691E] font-extrabold text-xl font-['Plus_Jakarta_Sans']">Command Center</h2>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#D4691E] border-b-2 border-[#D4691E] pb-1 text-sm font-bold transition-all" href="#">Global View</a>
+<a class="text-slate-400 hover:text-white text-sm font-bold transition-all" href="#">Metrics</a>
+<a class="text-slate-400 hover:text-white text-sm font-bold transition-all" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 border-r border-white/10 pr-6">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-[#D4691E] transition-all" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-[#D4691E] transition-all" data-icon="language">language</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-[#D4691E] transition-all" data-icon="settings_input_component">settings_input_component</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-surface-container-highest px-4 py-2 rounded text-xs font-bold hover:bg-surface-bright transition-all">Export Data</button>
+<button class="bg-[#D4691E] px-4 py-2 rounded text-xs font-bold text-white hover:opacity-90 transition-all">Execute Order</button>
+<div class="w-8 h-8 rounded-full bg-slate-800 border border-white/20 overflow-hidden ml-2">
+<img class="w-full h-full object-cover" data-alt="professional executive headshot with neutral background, sharp business attire, confident expression, studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuzkTFkRvDo2cgAJ3zmaL7XyE12XrSY9sjFBPBr_8XTJ4FYIXydpzzQ97DFqWIPUi8NXmR_UXTGbcCvxS5WIN1w5AxizfvJ5YCCZJGooIbeRBzNlMlDRoIoplxqSZzU4amcpI1Fn6cioVC9ORfaFNd2cZJAnqrSlYKKemdog62Ak712-3sVSyyAea-4S-QsQX-GweTBF9AJo3IVg8L5ZOYWMzhpa5kbAHakPL5zHeCuyEW9u6YuctASS2olpr08XxIu1Po0lYWVA"/>
+</div>
+</div>
+</div>
+</header>
+<div class="pt-24 px-8 pb-12 space-y-8">
+<!-- ROW 1: 7 Health Cards -->
+<div class="grid grid-cols-7 gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl border-l-2 border-[#D4691E] hover:bg-surface-container transition-all">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold mb-1">FMS</p>
+<h3 class="text-2xl font-black text-on-surface font-headline">84</h3>
+<p class="text-[10px] text-on-surface-variant font-medium">Vehicles</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border-l-2 border-[#D4691E] hover:bg-surface-container transition-all">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold mb-1">WMS</p>
+<h3 class="text-2xl font-black text-on-surface font-headline">94%</h3>
+<p class="text-[10px] text-on-surface-variant font-medium">Capacity</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border-l-2 border-[#D4691E] hover:bg-surface-container transition-all">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold mb-1">FreMS</p>
+<h3 class="text-2xl font-black text-on-surface font-headline">12</h3>
+<p class="text-[10px] text-on-surface-variant font-medium">Customs</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border-l-2 border-[#D4691E] hover:bg-surface-container transition-all">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold mb-1">SCP</p>
+<h3 class="text-2xl font-black text-on-surface font-headline">312</h3>
+<p class="text-[10px] text-on-surface-variant font-medium">Vehicles</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border-l-2 border-[#D4691E] hover:bg-surface-container transition-all">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold mb-1">Client</p>
+<h3 class="text-2xl font-black text-on-surface font-headline">847</h3>
+<p class="text-[10px] text-on-surface-variant font-medium">Orders</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border-l-2 border-[#D4691E] hover:bg-surface-container transition-all">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold mb-1">Driver</p>
+<h3 class="text-2xl font-black text-on-surface font-headline">206</h3>
+<p class="text-[10px] text-on-surface-variant font-medium">En Route</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border-l-2 border-[#D4691E] hover:bg-surface-container transition-all">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold mb-1">Payment</p>
+<h3 class="text-2xl font-black text-[#D4691E] font-headline">2.4M</h3>
+<p class="text-[10px] text-on-surface-variant font-medium">SAR Total</p>
+</div>
+</div>
+<!-- ROW 2: Strategic KPIs -->
+<div class="grid grid-cols-4 gap-6">
+<div class="bg-surface-container rounded-2xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#D4691E]/5 rounded-full -translate-y-12 translate-x-12 blur-3xl group-hover:bg-[#D4691E]/10 transition-all"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-[#D4691E]" data-icon="payments">payments</span>
+<span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-0.5 rounded">+12.4%</span>
+</div>
+<h4 class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Revenue MTD</h4>
+<p class="text-3xl font-black text-on-surface">SAR 8.4M</p>
+</div>
+<div class="bg-surface-container rounded-2xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full -translate-y-12 translate-x-12 blur-3xl group-hover:bg-secondary/10 transition-all"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="query_stats">query_stats</span>
+<span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-0.5 rounded">+2.1%</span>
+</div>
+<h4 class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Gross Margin</h4>
+<p class="text-3xl font-black text-on-surface">22.4%</p>
+</div>
+<div class="bg-surface-container rounded-2xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-12 translate-x-12 blur-3xl group-hover:bg-primary/10 transition-all"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="handshake">handshake</span>
+<span class="text-xs font-bold text-slate-400 bg-white/5 px-2 py-0.5 rounded">Steady</span>
+</div>
+<h4 class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Active FAs</h4>
+<p class="text-3xl font-black text-on-surface">34</p>
+</div>
+<div class="bg-surface-container rounded-2xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/5 rounded-full -translate-y-12 translate-x-12 blur-3xl group-hover:bg-tertiary/10 transition-all"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="verified_user">verified_user</span>
+<span class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-0.5 rounded">-0.4%</span>
+</div>
+<h4 class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Compliance</h4>
+<p class="text-3xl font-black text-on-surface">96.1%</p>
+</div>
+</div>
+<!-- ROW 3: Split View Map & Alerts -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Live Map -->
+<div class="col-span-8 bg-surface-container rounded-3xl overflow-hidden min-h-[440px] relative shadow-2xl">
+<div class="absolute top-6 left-6 z-10 bg-[#0F0F1A]/80 backdrop-blur-md p-4 rounded-xl border border-white/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-[10px] font-bold text-white uppercase tracking-tighter">Live Network Tracking</span>
+</div>
+<h5 class="text-lg font-bold text-on-surface">Kingdom of Saudi Arabia</h5>
+</div>
+<img class="w-full h-full object-cover opacity-60" data-alt="stylized night satellite map of Saudi Arabia with illuminated city hubs and neon glowing logistics routes connecting Riyadh Jeddah and Dammam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLv5QJJbQ5yko31tKjvT5Vk3cyAJE8X713xFQi4oqoY9DF4WB5emSWtrDCixN7EMj0SN1NiJk7t7FVNDfj1LNKIHNF5b0tmNCY8jhahmqn_eHLwcLHrSFTJkED3ROHMiByPb5rJGYJ5OJExA0kZ5qq4-tkd3Ne4WcUMEDsc7g40lLMEhbzzsM4ql8dsC36ZWLAGLVhK-4NrEWiYL-X5rL7CyW-bahMubq6PsNLdCjX_vG_okTyolMhpBySqyAstgxXSkr6zVBYQQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<!-- Map Overlays -->
+<div class="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2">
+<div class="w-4 h-4 bg-[#D4691E] rounded-full shadow-[0_0_20px_#D4691E] animate-ping opacity-75"></div>
+</div>
+<div class="absolute top-1/4 right-1/4">
+<div class="w-3 h-3 bg-primary rounded-full shadow-[0_0_15px_#d0bcff] animate-pulse"></div>
+</div>
+</div>
+<!-- Top Alerts -->
+<div class="col-span-4 flex flex-col gap-4">
+<div class="flex justify-between items-center px-2">
+<h5 class="font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[#D4691E]" data-icon="priority_high">priority_high</span>
+                            Critical Alerts
+                        </h5>
+<button class="text-xs text-[#D4691E] font-bold hover:underline">View All</button>
+</div>
+<div class="flex-1 bg-surface-container-lowest rounded-3xl p-2 space-y-2 overflow-hidden">
+<div class="bg-surface-container-high p-4 rounded-2xl flex items-start gap-4 border-l-4 border-red-500">
+<span class="material-symbols-outlined text-red-400 mt-1" data-icon="block">block</span>
+<div>
+<p class="text-sm font-bold text-white">Route Blockage: Highway 40</p>
+<p class="text-[11px] text-slate-500 mt-1 leading-relaxed">Sandstorm event near Al-Ula delaying 14 active FMS units.</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 rounded-2xl flex items-start gap-4 border-l-4 border-orange-500">
+<span class="material-symbols-outlined text-orange-400 mt-1" data-icon="alarm">alarm</span>
+<div>
+<p class="text-sm font-bold text-white">Customs Bottleneck: King Fahd</p>
+<p class="text-[11px] text-slate-500 mt-1 leading-relaxed">Processing delay &gt; 4hrs for 8 inbound reefer containers.</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 rounded-2xl flex items-start gap-4 border-l-4 border-blue-500">
+<span class="material-symbols-outlined text-blue-400 mt-1" data-icon="inventory_2">inventory_2</span>
+<div>
+<p class="text-sm font-bold text-white">WMS Threshold Breach</p>
+<p class="text-[11px] text-slate-500 mt-1 leading-relaxed">Riyadh Hub 02 reaching 98% utilization. Divert advised.</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 rounded-2xl flex items-start gap-4 border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="sync_problem">sync_problem</span>
+<div>
+<p class="text-sm font-bold text-white">Driver Fatigue Sync Alert</p>
+<p class="text-[11px] text-slate-500 mt-1 leading-relaxed">6 en-route drivers approaching HOS limits in next 45m.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ROW 4: AI Network Intelligence -->
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#D4691E]" data-icon="auto_awesome">auto_awesome</span>
+<h5 class="font-headline font-bold text-lg text-white">AI Network Intelligence</h5>
+</div>
+<div class="flex gap-6 overflow-x-hidden p-0.5">
+<div class="flex-1 bg-gradient-to-br from-surface-container to-surface-container-low p-6 rounded-3xl border-2 border-indigo-500/30 relative group hover:border-indigo-500/60 transition-all duration-500">
+<div class="flex gap-4 items-center mb-4">
+<div class="w-12 h-12 rounded-xl bg-[#D4691E]/20 flex items-center justify-center text-[#D4691E]">
+<span class="material-symbols-outlined" data-icon="severe_cold">severe_cold</span>
+</div>
+<div>
+<h6 class="font-bold text-white">Forward Capacity Alert</h6>
+<p class="text-[11px] text-slate-500 uppercase tracking-widest font-bold">Predictive Utilization</p>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Critical surge in cold-chain utilization identified for <span class="text-white font-bold">April 18–22</span>. Revenue of <span class="text-[#D4691E] font-bold">SAR 380,000</span> currently at risk due to asset shortfall.</p>
+</div>
+<div class="flex-1 bg-gradient-to-br from-surface-container to-surface-container-low p-6 rounded-3xl border-2 border-indigo-500/30 relative group hover:border-indigo-500/60 transition-all duration-500">
+<div class="flex gap-4 items-center mb-4">
+<div class="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="group_remove">group_remove</span>
+</div>
+<div>
+<h6 class="font-bold text-white">Client Retention Risk</h6>
+<p class="text-[11px] text-slate-500 uppercase tracking-widest font-bold">Churn Prediction Model</p>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">High churn probability detected: <span class="text-secondary font-bold">Al-Noor Pharma (72%)</span> and <span class="text-secondary font-bold">Global Foods (64%)</span>. Immediate service audit recommended.</p>
+</div>
+<div class="flex-1 bg-gradient-to-br from-surface-container to-surface-container-low p-6 rounded-3xl border-2 border-indigo-500/30 relative group hover:border-indigo-500/60 transition-all duration-500">
+<div class="flex gap-4 items-center mb-4">
+<div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div>
+<h6 class="font-bold text-white">Market Opportunity</h6>
+<p class="text-[11px] text-slate-500 uppercase tracking-widest font-bold">Growth Intelligence</p>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Heuristic models identify <span class="text-primary font-bold">340% projected growth</span> on the Dammam → Bahrain corridor. Advise aggressive fleet deployment to capture volume.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
