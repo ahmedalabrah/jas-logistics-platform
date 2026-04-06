@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sub-Carrier Fleet Dashboard (SCP-FL-01)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#343440",
+                        "on-secondary": "#352856",
+                        "surface": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary-fixed": "#22005c",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-dim": "#12121d",
+                        "secondary-container": "#4f4171",
+                        "outline-variant": "#494453",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "inverse-surface": "#e3e0f1",
+                        "background": "#12121d",
+                        "tertiary": "#ffb68e",
+                        "tertiary-fixed": "#ffdbc9",
+                        "primary-container": "#4b1fa3",
+                        "surface-variant": "#343440",
+                        "surface-container-low": "#1b1a26",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-fixed": "#201340",
+                        "on-primary": "#3b0092",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#331200",
+                        "tertiary-container": "#6c2e00",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-tertiary": "#532200",
+                        "inverse-on-surface": "#302f3b",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-container": "#1f1e2a",
+                        "on-primary-container": "#b79cff",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "surface-bright": "#383845",
+                        "secondary": "#cfbef6",
+                        "primary": "#d0bcff",
+                        "on-surface": "#e3e0f1",
+                        "on-error": "#690005",
+                        "inverse-primary": "#6a45c3",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e3e0f1",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "surface-container-lowest": "#0d0d18",
+                        "sc-blue": "#2E86C1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Poppins", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .sc-accent-glow {
+            box-shadow: 0 0 20px rgba(46, 134, 193, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-sc-blue/30 overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20 flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-white uppercase font-headline">JAS Carrier Portal</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Fleet</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-slate-400 hover:text-white transition-colors" href="#">Earnings</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-slate-400 hover:text-white transition-colors" href="#">Compliance</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-slate-400 hover:text-white transition-colors" href="#">Support</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-high px-4 py-1.5 rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-sc-blue text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm placeholder:text-slate-500 w-48" placeholder="Search fleet..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded text-sm font-semibold hover:bg-sc-blue transition-all active:scale-95">Register Now</button>
+<div class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center border border-white/10">
+<img alt="Carrier Partner Profile" class="w-full h-full rounded-full" data-alt="minimalist avatar icon of a professional fleet manager with a modern tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-deBzr4xRB2RgeuGTCR1_vcH1l6SPL-yBCfcuqK0nJtfUzwfg913i_YqynEH8VzWpfUDr30UyoV-cUUZfnakwyDlMeda2araqotHVnC0ODGBJ2pJQA1GVkf_-9UykXDYdVAccmM05qVfwEiIELIatFwKirHd9FTFtSr0-9DFyM7Yt2ohdk6eTL5OIvwZiAgACWUR6lcT7UNAYkE9xSPqezylfgszeb7zs09hVGBf2TCTz4fAPXJkAZOzuwsDwMq3VeGNZMCWBCA"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#0F0F1A]/90 backdrop-blur-lg shadow-[4px_0_24px_rgba(0,0,0,0.5)] flex flex-col pt-20 pb-6 bg-gradient-to-r from-transparent to-[#1A1A2E]">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-sc-blue rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white">local_shipping</span>
+</div>
+<div>
+<div class="text-lg font-black text-white font-headline">Carrier Center</div>
+<div class="text-[10px] text-slate-500 uppercase tracking-widest">Partner ID: JAS-9921</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 font-['Plus_Jakarta_Sans'] text-[13px] font-semibold transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="bg-gradient-to-r from-[#2E86C1]/20 to-transparent text-sc-blue border-l-4 border-sc-blue px-4 py-3 flex items-center gap-3 font-['Plus_Jakarta_Sans'] text-[13px] font-semibold" href="#">
+<span class="material-symbols-outlined">local_shipping</span> Fleet Management
+            </a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 font-['Plus_Jakarta_Sans'] text-[13px] font-semibold transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">person_add</span> Driver Onboarding
+            </a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 font-['Plus_Jakarta_Sans'] text-[13px] font-semibold transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">payments</span> Earnings
+            </a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 font-['Plus_Jakarta_Sans'] text-[13px] font-semibold transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">verified_user</span> Compliance
+            </a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 font-['Plus_Jakarta_Sans'] text-[13px] font-semibold transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">assignment</span> Contracts
+            </a>
+</nav>
+<div class="px-4 mt-auto space-y-1">
+<button class="w-full bg-sc-blue/10 text-sc-blue border border-sc-blue/30 py-2 rounded mb-6 text-sm font-bold hover:bg-sc-blue/20 transition-all">
+                Upgrade Tier
+            </button>
+<a class="text-slate-500 px-4 py-2 flex items-center gap-3 hover:text-slate-300 text-xs" href="#">
+<span class="material-symbols-outlined text-sm">settings</span> Settings
+            </a>
+<a class="text-slate-500 px-4 py-2 flex items-center gap-3 hover:text-slate-300 text-xs" href="#">
+<span class="material-symbols-outlined text-sm">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-16 min-h-screen">
+<div class="max-w-screen-2xl mx-auto p-8">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-10">
+<div>
+<h1 class="text-4xl font-headline font-bold text-white tracking-tight mb-2">Fleet Dashboard</h1>
+<p class="text-on-surface-variant flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Real-time status for SCP-FL-01 Portal
+                    </p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container p-1 rounded-lg flex">
+<button class="px-4 py-1.5 text-xs font-bold text-white bg-sc-blue rounded shadow-lg">EDITORIAL</button>
+<button class="px-4 py-1.5 text-xs font-bold text-slate-500 hover:text-white transition-colors">COMPACT</button>
+</div>
+</div>
+</header>
+<!-- Bento Stats Grid -->
+<div class="grid grid-cols-12 gap-6 mb-10">
+<!-- Main KPi Card -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low rounded-xl p-6 border border-white/5 sc-accent-glow relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl text-sc-blue">monitoring</span>
+</div>
+<div class="relative z-10">
+<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-4">Total Fleet Value</h3>
+<div class="flex items-baseline gap-2 mb-2">
+<span class="text-5xl font-headline font-bold text-white">4.2M</span>
+<span class="text-sc-blue font-mono">SAR</span>
+</div>
+<div class="flex items-center gap-2 text-emerald-400 text-sm font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12.4% vs last month</span>
+</div>
+</div>
+</div>
+<!-- Active Vehicles Bento -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-low rounded-xl p-6 border border-white/5 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Active Vehicles</h3>
+<div class="text-3xl font-headline font-bold text-white">42<span class="text-slate-500 text-xl">/48</span></div>
+</div>
+<div class="bg-sc-blue/10 p-2 rounded">
+<span class="material-symbols-outlined text-sc-blue">local_shipping</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-sc-blue h-full w-[88%]"></div>
+</div>
+<div class="flex justify-between text-[11px] font-mono text-slate-500">
+<span>88% OPERATIONAL</span>
+<span>6 MAINTENANCE</span>
+</div>
+</div>
+</div>
+<!-- Compliance Score Bento -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-low rounded-xl p-6 border border-white/5 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Fleet Compliance</h3>
+<div class="text-3xl font-headline font-bold text-white">96.8%</div>
+</div>
+<div class="bg-emerald-500/10 p-2 rounded">
+<span class="material-symbols-outlined text-emerald-500" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-[10px] border-2 border-surface-container-low">TGA</div>
+<div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-[10px] border-2 border-surface-container-low">INS</div>
+<div class="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center text-[10px] border-2 border-surface-container-low">ADR</div>
+</div>
+<span class="text-[11px] text-on-surface-variant">All primary licenses valid</span>
+</div>
+</div>
+</div>
+<!-- Secondary Layout: Tracking & Earnings -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Fleet Data Table (Terminal Aesthetic) -->
+<div class="col-span-12 xl:col-span-8">
+<div class="bg-surface-container rounded-xl overflow-hidden border border-white/5">
+<div class="px-6 py-4 border-b border-white/5 flex justify-between items-center bg-surface-container-high/50">
+<h2 class="font-headline font-bold text-lg">Active Fleet Tracking</h2>
+<button class="text-sc-blue text-xs font-bold hover:underline">EXPORT REPORT</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-slate-500 text-[11px] uppercase tracking-widest font-bold">
+<th class="px-6 py-4">Vehicle ID</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Current Route</th>
+<th class="px-6 py-4">Driver</th>
+<th class="px-6 py-4 text-right">Fuel Level</th>
+</tr>
+</thead>
+<tbody class="text-sm font-mono divide-y divide-white/5">
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4 text-white font-bold">JAS-FL-8821</td>
+<td class="px-6 py-4">
+<span class="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded text-[10px] border border-emerald-500/20">ON_ROUTE</span>
+</td>
+<td class="px-6 py-4 text-slate-400">Riyadh → Dammam</td>
+<td class="px-6 py-4 text-slate-300">Mohammed A.</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span>82%</span>
+<div class="w-12 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full w-[82%]"></div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4 text-white font-bold">JAS-FL-9023</td>
+<td class="px-6 py-4">
+<span class="bg-sc-blue/10 text-sc-blue px-2 py-0.5 rounded text-[10px] border border-sc-blue/20">LOADING</span>
+</td>
+<td class="px-6 py-4 text-slate-400">Jeddah Port (T3)</td>
+<td class="px-6 py-4 text-slate-300">Saeed K.</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span>45%</span>
+<div class="w-12 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-sc-blue h-full w-[45%]"></div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4 text-white font-bold">JAS-FL-1129</td>
+<td class="px-6 py-4">
+<span class="bg-error-container/20 text-error px-2 py-0.5 rounded text-[10px] border border-error/20">DELAYED</span>
+</td>
+<td class="px-6 py-4 text-slate-400">NEOM → Riyadh</td>
+<td class="px-6 py-4 text-slate-300">John D.</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span>12%</span>
+<div class="w-12 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-error h-full w-[12%]"></div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4 text-white font-bold">JAS-FL-5541</td>
+<td class="px-6 py-4">
+<span class="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded text-[10px] border border-emerald-500/20">ON_ROUTE</span>
+</td>
+<td class="px-6 py-4 text-slate-400">Abha → Jazan</td>
+<td class="px-6 py-4 text-slate-300">Ahmed S.</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span>94%</span>
+<div class="w-12 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full w-[94%]"></div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Earnings Analysis -->
+<div class="col-span-12 xl:col-span-4 space-y-6">
+<div class="bg-surface-container-high rounded-xl p-6 border border-white/5">
+<h3 class="font-headline font-bold text-white mb-6">Earnings Per Vehicle</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-1 h-8 bg-sc-blue"></div>
+<div>
+<div class="text-white font-mono text-sm">Heavy Duty Class</div>
+<div class="text-[10px] text-slate-500">12 UNITS</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-white font-mono font-bold">14,200 <span class="text-[10px] text-sc-blue">SAR/mo</span></div>
+<div class="text-emerald-400 text-[10px] font-bold">+2.1%</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-1 h-8 bg-purple-500"></div>
+<div>
+<div class="text-white font-mono text-sm">Refrigerated</div>
+<div class="text-[10px] text-slate-500">18 UNITS</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-white font-mono font-bold">18,500 <span class="text-[10px] text-sc-blue">SAR/mo</span></div>
+<div class="text-emerald-400 text-[10px] font-bold">+5.8%</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-1 h-8 bg-amber-500"></div>
+<div>
+<div class="text-white font-mono text-sm">Last Mile Vans</div>
+<div class="text-[10px] text-slate-500">12 UNITS</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-white font-mono font-bold">9,800 <span class="text-[10px] text-sc-blue">SAR/mo</span></div>
+<div class="text-error text-[10px] font-bold">-1.2%</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/5 text-center">
+<button class="text-xs font-bold text-on-surface-variant hover:text-white transition-colors">VIEW FULL REVENUE BREAKDOWN</button>
+</div>
+</div>
+<!-- Map/Location Mini-Widget -->
+<div class="bg-surface-container rounded-xl overflow-hidden h-48 relative border border-white/5">
+<img class="w-full h-full object-cover opacity-50 grayscale contrast-125" data-alt="abstract night map showing neon logistics routes and glowing nodes across a dark geographic area" data-location="Riyadh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMe1kLuERoo5ZdcVJ6qNRBZVJIgLS-Zj93_4TLm0gi-VMcua1UbLX5T9yxPnle2YZp_oqwBkypFPVr76LwswyvhrxWQddVZYXzAFG_iybO3GRTbgKK-CEAoXgW4H7217_ApwvVGwj24AHjDKvvHHXIf6IniKIzKaxNBObREFkM0VJNDAZFpGJCKHQl-scg7zrWFV56W4aR32MloxkMSoc4Tzitk_qEqLpcnwZUjdqkMZDD-SS2F0ZrNBxWUpKpstc3qV4JwEWAFA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+<div>
+<div class="text-[10px] text-sc-blue font-bold tracking-widest mb-1">LIVE TRACKING</div>
+<div class="text-white font-headline font-bold">Region: Riyadh Central</div>
+</div>
+<div class="flex -space-x-1">
+<span class="w-2 h-2 rounded-full bg-sc-blue border border-background"></span>
+<span class="w-2 h-2 rounded-full bg-sc-blue border border-background"></span>
+<span class="w-2 h-2 rounded-full bg-white border border-background"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 border-t border-white/5 bg-[#0F0F1A]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-screen-2xl mx-auto">
+<p class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500">© 2024 JAS Logistics Saudi Arabia. All Rights Reserved. TGA Licensed.</p>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Compliance Standards</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Partner API</a>
+</div>
+</div>
+</footer>
+<!-- FAB for Critical Action -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-sc-blue text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 sc-accent-glow">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

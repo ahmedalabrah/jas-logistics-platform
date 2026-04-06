@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sub-Carrier Vehicle Profile (SCP-FL-03)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-highest": "#343440",
+                      "on-secondary": "#352856",
+                      "surface": "#12121d",
+                      "primary-fixed": "#e9ddff",
+                      "on-surface-variant": "#cbc3d5",
+                      "on-primary-fixed": "#22005c",
+                      "error": "#ffb4ab",
+                      "surface-tint": "#d0bcff",
+                      "surface-container-high": "#292935",
+                      "secondary-fixed-dim": "#cfbef6",
+                      "error-container": "#93000a",
+                      "primary-fixed-dim": "#d0bcff",
+                      "surface-dim": "#12121d",
+                      "secondary-container": "#4f4171",
+                      "outline-variant": "#494453",
+                      "on-secondary-fixed-variant": "#4c3f6e",
+                      "inverse-surface": "#e3e0f1",
+                      "background": "#12121d",
+                      "tertiary": "#ffb68e",
+                      "tertiary-fixed": "#ffdbc9",
+                      "primary-container": "#4b1fa3",
+                      "surface-variant": "#343440",
+                      "surface-container-low": "#1b1a26",
+                      "outline": "#948e9e",
+                      "on-tertiary-container": "#f09661",
+                      "on-secondary-fixed": "#201340",
+                      "on-primary": "#3b0092",
+                      "secondary-fixed": "#e9ddff",
+                      "on-tertiary-fixed": "#331200",
+                      "tertiary-container": "#6c2e00",
+                      "tertiary-fixed-dim": "#ffb68e",
+                      "on-tertiary": "#532200",
+                      "inverse-on-surface": "#302f3b",
+                      "on-secondary-container": "#c0b0e7",
+                      "surface-container": "#1f1e2a",
+                      "on-primary-container": "#b79cff",
+                      "on-tertiary-fixed-variant": "#743405",
+                      "surface-bright": "#383845",
+                      "secondary": "#cfbef6",
+                      "primary": "#d0bcff",
+                      "on-surface": "#e3e0f1",
+                      "on-error": "#690005",
+                      "inverse-primary": "#6a45c3",
+                      "on-error-container": "#ffdad6",
+                      "on-background": "#e3e0f1",
+                      "on-primary-fixed-variant": "#5228aa",
+                      "surface-container-lowest": "#0d0d18"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(15, 15, 26, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .sc-blue-accent { color: #2E86C1; }
+        .sc-blue-bg { background-color: #2E86C1; }
+        .sc-blue-border { border-color: #2E86C1; }
+        .sc-blue-gradient { background: linear-gradient(135deg, #2E86C1 0%, #1B4F72 100%); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-[#0F0F1A]/95 backdrop-blur-2xl flex flex-col z-50">
+<div class="p-8">
+<h1 class="text-lg font-black text-white font-headline">Fleet Management</h1>
+<p class="text-xs text-slate-400">Sub-Carrier Fleet</p>
+</div>
+<nav class="flex-1 overflow-y-auto px-4">
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 bg-gradient-to-r from-[#2E86C1]/20 to-transparent text-[#2E86C1] border-l-4 border-[#2E86C1] cursor-pointer">
+<span class="material-symbols-outlined text-lg">directions_car</span>
+<span class="font-medium text-sm">My Vehicles</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined text-lg">inbox</span>
+<span class="font-medium text-sm">Trip Inbox</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+<span class="font-medium text-sm">TGA Compliance Center</span>
+</div>
+<div class="mt-8 mb-4 px-6 text-[10px] uppercase tracking-widest text-slate-500 font-bold">Fleet Operations</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined text-lg">group</span>
+<span class="font-medium text-sm">My Drivers</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined text-lg">payments</span>
+<span class="font-medium text-sm">Earnings &amp; Payouts</span>
+</div>
+</nav>
+<div class="p-4 border-t border-white/5">
+<div class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:text-white cursor-pointer transition-all">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span class="font-medium text-sm">Log Out</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 flex justify-between items-center w-full px-8 py-4 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+<div class="flex items-center gap-4">
+<div class="flex flex-col">
+<span class="text-xl font-bold tracking-tighter text-white font-headline">Sub-Carrier Portal</span>
+<span class="text-[10px] uppercase tracking-widest text-[#2E86C1]">Vehicle Profile • SCP-FL-03</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-slate-400 hover:text-white cursor-pointer transition-all">notifications</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-white cursor-pointer transition-all">help</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-white cursor-pointer transition-all">settings</span>
+</div>
+<div class="h-8 w-[1px] bg-white/10"></div>
+<button class="bg-[#2E86C1] text-white px-5 py-2 rounded-lg font-bold text-sm hover:brightness-110 active:scale-95 transition-all">
+                    New Trip Request
+                </button>
+<div class="flex items-center gap-3 ml-2">
+<img alt="Sub-carrier user profile" class="h-9 w-9 rounded-full object-cover ring-2 ring-[#2E86C1]/30" data-alt="Close up portrait of a professional fleet manager wearing a navy blazer in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWvAhTgAQ5Hr520xBc9cmy5580Ut38_pEkbZ9grVrvy7_Z_zLE7qEBFjcPVrwJ-yahWOILzAAcngQZXug4Cq-_K7OOcTo73r4wyeJzzXSen2ukx_PNndpESlMAdBSQOl2JTn5AugG45eEzN2VpbduB8peNyp8mKrdVfDbHsZVp6Zbc_CDBvLILHqdN7tc18sjls1SnJGYAym2gtRMHb2i7TbXAm87GPAppmevxraYBMW4iAXQw4CkmLuGOiyoCRMvEFbi1kxTX8Q"/>
+</div>
+</div>
+</header>
+<!-- Profile Hero Section -->
+<div class="px-8 py-8">
+<div class="flex flex-col md:flex-row gap-8 items-start">
+<!-- Vehicle Focus Card -->
+<div class="w-full md:w-1/3 bg-surface-container-low rounded-xl overflow-hidden shadow-2xl">
+<div class="relative h-64 w-full">
+<img alt="Heavy Logistics Truck" class="h-full w-full object-cover" data-alt="Side profile of a white heavy-duty logistics truck parked in a modern industrial yard at twilight with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOGhAIuoxqIw6Ku4wdxAjYuCR5YZkEiqPZcFLhm7EeCo69JjLplwHFdqazcRscCBbX-_TIZ7oDxEOC5dMBTz3sn1zWgSzheP3jOb7_SZubxO_qRR09hhpidKYpxqSz5thoOrxnQqvblJIjNMo_d86-6Ey4G9UGPwSfqoVQY5ffmLpv6hHDRcVLvkETiZfM_TahGtoB5ZybPpov2x8jqdX_GSB_i-Hec4OzIj7BLMV4GdmbXCz7DBedbsF36KxCA-Y04bu14vE8Nw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-[#2E86C1] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Active Fleet</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="text-2xl font-black text-white font-headline">SCP-FL-03</h2>
+<p class="text-on-surface-variant text-sm">Mercedes-Benz Actros 2024</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[#2E86C1] font-bold text-lg">94%</span>
+<span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Health Score</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-6">
+<div class="bg-surface-container-lowest p-3 rounded-lg border-l-2 border-[#2E86C1]/30">
+<p class="text-xs text-slate-500 mb-1">Plate Number</p>
+<p class="font-bold text-on-surface">أ ب ج 1234</p>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg border-l-2 border-[#2E86C1]/30">
+<p class="text-xs text-slate-500 mb-1">Load Capacity</p>
+<p class="font-bold text-on-surface">24,000 KG</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Details Section -->
+<div class="flex-1 w-full">
+<!-- Navigation Tabs -->
+<div class="flex gap-8 border-b border-white/5 mb-8">
+<button class="pb-4 text-sm font-bold text-[#2E86C1] border-b-2 border-[#2E86C1]">Overview</button>
+<button class="pb-4 text-sm font-medium text-slate-400 hover:text-white transition-colors relative">
+                            TGA Compliance
+                            <span class="ml-2 bg-[#2E86C1]/10 text-[#2E86C1] text-[10px] px-2 py-0.5 rounded">WASL</span>
+</button>
+<button class="pb-4 text-sm font-medium text-slate-400 hover:text-white transition-colors">Documents</button>
+<button class="pb-4 text-sm font-medium text-slate-400 hover:text-white transition-colors">Trip History</button>
+<button class="pb-4 text-sm font-medium text-slate-400 hover:text-white transition-colors">Maintenance</button>
+</div>
+<!-- Tab Content: Overview (Bento Grid) -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Stats Row -->
+<div class="col-span-12 md:col-span-4 bg-surface-container rounded-xl p-6 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1">Total Trips</p>
+<h3 class="text-4xl font-black text-white mb-4">142</h3>
+<div class="flex items-center gap-2 text-emerald-400 text-xs font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                                    +12% vs last month
+                                </div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl text-white/5 group-hover:text-white/10 transition-all">local_shipping</span>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container rounded-xl p-6 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1">Utilization</p>
+<h3 class="text-4xl font-black text-white mb-4">88.4%</h3>
+<div class="w-full bg-white/5 h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-[#2E86C1] h-full w-[88.4%]"></div>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl text-white/5 group-hover:text-white/10 transition-all">query_stats</span>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container rounded-xl p-6 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1">Fuel Efficiency</p>
+<h3 class="text-4xl font-black text-white mb-4">32.1</h3>
+<p class="text-xs text-slate-500 font-bold">Liters / 100km (Avg)</p>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl text-white/5 group-hover:text-white/10 transition-all">local_gas_station</span>
+</div>
+<!-- Read-only TGA Integration Banner (Special Requirement) -->
+<div class="col-span-12 bg-gradient-to-r from-[#2E86C1]/10 to-transparent border border-[#2E86C1]/20 rounded-xl p-8 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="bg-[#2E86C1] p-4 rounded-full shadow-[0_0_20px_rgba(46,134,193,0.4)]">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h4 class="text-lg font-bold text-white font-headline">TGA Compliance Status</h4>
+<span class="bg-[#2E86C1] text-white text-[10px] font-black px-2 py-0.5 rounded tracking-tighter">JAS WASL</span>
+</div>
+<p class="text-sm text-slate-400 italic">Managed via JAS Wasl integration. This profile is synchronized with Saudi Transport General Authority records.</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-4 py-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-lg font-bold text-sm">
+                                    ● FULLY COMPLIANT
+                                </span>
+<p class="text-[10px] text-slate-500 mt-2">Last Synced: 22 Min ago</p>
+</div>
+</div>
+<!-- Secondary Data Grid -->
+<div class="col-span-12 md:col-span-8 bg-surface-container rounded-xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-bold text-white">Technical Specifications</h4>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-white transition-colors">info</span>
+</div>
+<div class="grid grid-cols-2 gap-y-6 gap-x-12">
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span class="text-sm text-slate-500">Chassis Number</span>
+<span class="text-sm font-medium text-on-surface">WDB9634031L23...</span>
+</div>
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span class="text-sm text-slate-500">Engine Type</span>
+<span class="text-sm font-medium text-on-surface">Euro VI Diesel</span>
+</div>
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span class="text-sm text-slate-500">Odometer</span>
+<span class="text-sm font-medium text-on-surface">42,501 km</span>
+</div>
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span class="text-sm text-slate-500">Axle Configuration</span>
+<span class="text-sm font-medium text-on-surface">6x4</span>
+</div>
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span class="text-sm text-slate-500">Registration Date</span>
+<span class="text-sm font-medium text-on-surface">Oct 12, 2023</span>
+</div>
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span class="text-sm text-slate-500">Insurance Policy</span>
+<span class="text-sm font-medium text-on-surface">#POL-8822019</span>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container rounded-xl p-6">
+<h4 class="font-bold text-white mb-6">Current Assignment</h4>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<img alt="Assigned Driver" class="h-12 w-12 rounded-full object-cover" data-alt="Close-up professional headshot of a middle-aged male driver wearing a logistics company uniform and a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3GJb7we8wEQ9yyiI4aCsDz1h_vS54Y0FwuAqK8XGaiNDpQrnSGUR6xrD70owh6pOGMlRrt3TsCTiVtJJpu7HleXWIiSd8ogGgomJAXTVUMLj9T9KBEWnORW6Er6Y-XBvohN1SN1Oomr_5GL1-Ray0hP96q3LF_JBG2SsiezB2qp0USmCeIwnkPsK6uZoq9vKKdjaXDmxlYTs2iPWHRBEB-hAX1U2omukfWMLl4YOyBfWKb-Fj92O47rwZwCg1fAVNcWwfiLkONA"/>
+<div>
+<p class="text-xs text-slate-500">Primary Driver</p>
+<p class="font-bold text-white">Ahmed Al-Sulaiman</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-lg">
+<p class="text-xs text-slate-500 mb-2">Current Route</p>
+<p class="text-sm font-bold text-white flex items-center gap-2">
+                                        Riyadh <span class="material-symbols-outlined text-[#2E86C1] text-sm">arrow_forward</span> Jeddah
+                                    </p>
+<div class="mt-3 flex items-center justify-between">
+<span class="text-[10px] text-slate-500">ETA: 04:30 PM Today</span>
+<span class="text-[10px] font-bold text-[#2E86C1]">TRACKING LIVE</span>
+</div>
+</div>
+<button class="w-full py-3 border border-white/10 rounded-lg text-sm font-bold hover:bg-white/5 transition-all">
+                                    View Detailed Telematics
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Float Map View (Contextual Visual) -->
+<div class="px-8 pb-12">
+<div class="bg-surface-container-low rounded-2xl overflow-hidden h-80 relative shadow-inner">
+<div class="absolute inset-0 grayscale opacity-40 pointer-events-none" data-location="Riyadh" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC86iLzZUHBfji_7R-aoHvec3c2at4x_TamRj4CVqxlK3RTIH6ceKBRKApjy-THVgRy2CzKVBHDuul2WPz8KpRRvIBFbMiIDIILGecep_QtchrAiPCf1Jw6VSMmllz7s6M7s5-R0vLeFy8Q8bDqfRN9S50XfUXzYBvft06v7ylZfP1LNPMn9EviHRda4jRte5I-7CzMZ_gn-YMQ6RhDptf6z_uyhRA0UyFgUwT_-smHTSPwSG7CrliaffKBElv7Xi2lMZihlLDRkA'); background-size: cover; background-position: center;"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-surface/40 to-surface"></div>
+<div class="relative z-10 p-8 h-full flex flex-col justify-end">
+<div class="flex items-center justify-between w-full">
+<div>
+<h4 class="text-xl font-black text-white font-headline">Real-time Location</h4>
+<p class="text-sm text-slate-400">Jeddah Highway, 45km from Destination</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-white/5 backdrop-blur-md px-6 py-2 rounded-lg text-sm font-bold border border-white/10 hover:bg-white/10 transition-all">History Map</button>
+<button class="bg-[#2E86C1] px-6 py-2 rounded-lg text-sm font-bold text-white shadow-lg shadow-[#2E86C1]/20">Live View</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only on relevant overview/dashboard screens as per mandate) -->
+<button class="fixed bottom-8 right-8 h-14 w-14 bg-[#2E86C1] rounded-full text-white shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

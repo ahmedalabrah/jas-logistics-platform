@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Carrier Portal - Fleet Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#343440",
+                        "on-secondary": "#352856",
+                        "surface": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary-fixed": "#22005c",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-dim": "#12121d",
+                        "secondary-container": "#4f4171",
+                        "outline-variant": "#494453",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "inverse-surface": "#e3e0f1",
+                        "background": "#12121d",
+                        "tertiary": "#ffb68e",
+                        "tertiary-fixed": "#ffdbc9",
+                        "primary-container": "#4b1fa3",
+                        "surface-variant": "#343440",
+                        "surface-container-low": "#1b1a26",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-fixed": "#201340",
+                        "on-primary": "#3b0092",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#331200",
+                        "tertiary-container": "#6c2e00",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-tertiary": "#532200",
+                        "inverse-on-surface": "#302f3b",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-container": "#1f1e2a",
+                        "on-primary-container": "#b79cff",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "surface-bright": "#383845",
+                        "secondary": "#cfbef6",
+                        "primary": "#d0bcff",
+                        "on-surface": "#e3e0f1",
+                        "on-error": "#690005",
+                        "inverse-primary": "#6a45c3",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e3e0f1",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "surface-container-lowest": "#0d0d18"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "arabic": ["IBM Plex Sans Arabic"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .arabic-text { font-family: 'IBM Plex Sans Arabic', sans-serif; }
+        .glass-sidebar { backdrop-filter: blur(16px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20 flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-white uppercase font-headline">JAS Carrier Portal</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Fleet</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-slate-400 hover:text-white transition-colors" href="#">Earnings</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-slate-400 hover:text-white transition-colors" href="#">Compliance</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-slate-400 hover:text-white transition-colors" href="#">Support</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined text-on-surface-variant absolute left-3 top-1/2 -translate-y-1/2 text-lg">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary w-64 text-on-surface" placeholder="Search vehicle..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-bold active:scale-95 transition-transform">Register Now</button>
+<img alt="Carrier Partner Profile" class="w-8 h-8 rounded-full border border-primary/20" data-alt="professional portrait of a logistics manager in a dark suit against a clean modern office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOjm04-VnqWyOZLDLHjkbBslindKgtd2420Bq5yRdxaiwvg2iUvFDKWlTwOnQjncDockgso0UUfvtDLOrXNPXZPe5TDwAQ20bUHVR-PD-0op4CqYJxRJMS4fFWbQdr5ObvLdwPZEeVvrUJgFOpLnbkLvH_DR3kB8mXNKHXKFUMnSdpkVF0ProwjrufWwdj6vcP952_3ahEhG5qenVbpElgp0sqztEXtiY_JSdCniywvYM6S91ZgPiIMOLq9GXfP7xqfIK3RAiO0Q"/>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#0F0F1A]/90 backdrop-blur-lg shadow-[4px_0_24px_rgba(0,0,0,0.5)] bg-gradient-to-r from-transparent to-[#1A1A2E] hidden lg:flex flex-col pt-20 pb-6">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-lg">local_shipping</span>
+</div>
+<span class="text-lg font-black text-white font-headline">Carrier Center</span>
+</div>
+<p class="text-[11px] text-slate-500 font-bold uppercase tracking-widest">Partner ID: JAS-9921</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 transition-all font-['Plus_Jakarta_Sans'] text-[13px] font-semibold hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] px-4 py-3 flex items-center gap-3 transition-all font-['Plus_Jakarta_Sans'] text-[13px] font-semibold" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span>Fleet Management</span>
+</a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 transition-all font-['Plus_Jakarta_Sans'] text-[13px] font-semibold hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span>Driver Onboarding</span>
+</a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 transition-all font-['Plus_Jakarta_Sans'] text-[13px] font-semibold hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Earnings</span>
+</a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 transition-all font-['Plus_Jakarta_Sans'] text-[13px] font-semibold hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span>Compliance</span>
+</a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 transition-all font-['Plus_Jakarta_Sans'] text-[13px] font-semibold hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>Contracts</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-4">
+<button class="w-full bg-surface-container-high border border-white/5 py-3 rounded-xl flex items-center justify-center gap-2 text-primary font-bold text-sm hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined">upgrade</span>
+<span>Upgrade Tier</span>
+</button>
+<div class="pt-4 border-t border-white/5 space-y-1">
+<a class="text-slate-500 px-4 py-2 flex items-center gap-3 hover:text-slate-300 text-sm font-semibold" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="text-slate-500 px-4 py-2 flex items-center gap-3 hover:text-slate-300 text-sm font-semibold" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 pb-12 px-8 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+<div>
+<h1 class="text-4xl font-extrabold text-white tracking-tight mb-2">Fleet Management</h1>
+<p class="text-on-surface-variant max-w-lg">Manage your active sub-carrier fleet, monitor compliance status, and track vehicle certifications in real-time.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high text-on-surface px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined">file_download</span>
+<span>Export CSV</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:shadow-[0_0_20px_rgba(208,188,255,0.3)] transition-all">
+<span class="material-symbols-outlined">add</span>
+<span>Add Vehicle</span>
+</button>
+</div>
+</div>
+<!-- Filters Section -->
+<div class="bg-surface-container-low p-2 rounded-xl mb-8 flex flex-wrap items-center gap-2">
+<div class="flex items-center gap-1 bg-surface-container-high px-4 py-2 rounded-lg text-primary font-bold text-sm">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span>Filters</span>
+</div>
+<select class="bg-transparent border-none text-sm text-on-surface-variant focus:ring-0 cursor-pointer hover:text-white">
+<option>Vehicle Type: All</option>
+<option>Heavy Truck</option>
+<option>Medium Van</option>
+<option>Light Courier</option>
+</select>
+<div class="h-4 w-px bg-white/10 mx-2"></div>
+<select class="bg-transparent border-none text-sm text-on-surface-variant focus:ring-0 cursor-pointer hover:text-white">
+<option>Compliance: All</option>
+<option>Fully Compliant</option>
+<option>Pending Review</option>
+<option>Expired</option>
+</select>
+<div class="h-4 w-px bg-white/10 mx-2"></div>
+<div class="ml-auto flex gap-2 pr-2">
+<button class="p-2 rounded-lg bg-surface-container-highest text-primary">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+</div>
+</div>
+<!-- Vehicle Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Vehicle Card 1 -->
+<div class="bg-surface-container border border-white/5 rounded-2xl p-6 hover:bg-surface-container-high transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-slate-600 group-hover:text-primary transition-colors cursor-pointer">more_vert</span>
+</div>
+<div class="flex items-start gap-5 mb-6">
+<div class="w-16 h-16 rounded-xl bg-surface-container-low flex items-center justify-center border border-white/5 relative overflow-hidden">
+<img alt="Heavy Truck" class="w-12 h-12 object-contain opacity-80" data-alt="clean profile shot of a white heavy-duty logistics semi-truck on a neutral grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3XhkGKkDZAd1QNwo7g5AAwxoN0Pcj7gvWE7D7-WW1PPXHnN93SN3TKm4YdH5crBsgX6QLzdIiJW3P8F8x3V1nrV-MAS1PICq9dHottJOTmk4zhybcTpS6MPFcdVxQkkJXtWL5dqFuWpAFR2ATSNdcjZRkFfYH4gLQ27Veyhh-dBMkUcKRNtp0LBDBxey038f6titFyuzvxK6w6y4_-X_1Sd6fRLzM-EgcE0wDQhJJo6y1xVcs63zp8IXatXZgjlbiHNk6zrr2PA"/>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white mb-1">Mercedes-Benz Actros</h3>
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-bold text-primary-fixed-dim bg-primary-container/30 px-2 py-0.5 rounded uppercase tracking-tighter">Heavy Hauler</span>
+<span class="text-[11px] font-bold text-slate-500">ID: JAS-V-012</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-lowest p-3 rounded-xl border border-white/5">
+<p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Plate Number</p>
+<div class="flex justify-between items-center">
+<span class="text-sm font-black text-white">4592 KSA</span>
+<span class="arabic-text text-sm font-semibold text-white">٤٥٩٢ ك س أ</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border border-white/5">
+<p class="text-[10px] text-slate-500 uppercase font-bold mb-1">TGA Status</p>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+<span class="text-xs font-bold text-emerald-400">Validated</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-white/5">
+<div class="flex items-center gap-3">
+<div class="relative w-10 h-10">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-white/5" cx="20" cy="20" fill="transparent" r="18" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary" cx="20" cy="20" fill="transparent" r="18" stroke="currentColor" stroke-dasharray="113" stroke-dashoffset="11" stroke-width="3"></circle>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center text-[10px] font-bold">92%</span>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Compliance Score</span>
+</div>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                            Details
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Vehicle Card 2 -->
+<div class="bg-surface-container border border-white/5 rounded-2xl p-6 hover:bg-surface-container-high transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-slate-600 group-hover:text-primary transition-colors cursor-pointer">more_vert</span>
+</div>
+<div class="flex items-start gap-5 mb-6">
+<div class="w-16 h-16 rounded-xl bg-surface-container-low flex items-center justify-center border border-white/5 relative overflow-hidden">
+<img alt="Medium Van" class="w-12 h-12 object-contain opacity-80" data-alt="modern white delivery van in profile view isolated on dark surface with soft rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeMtVcl1bWk0qrDfdifOoFoFF3ConKp2GdUaIRTguv1ZsmgVLYVkZa8Tc3Nvmewr22ckfndMlbwTUgnnca2HVkaZ-igq9P7xL4q3HcC18cLKJWGh0eY2fz7adO1QNrf9mVyNURWuVi4oOTYLCdOtNUfWjYEuENyELJC9wNjWtGhen2_FMRJ1dvqpiZJedZ2N4aq0nZs9leKO2ju9MH1--osGrvHLare-iF__jh3eOWTU4UwyyFWRlFDwJsCVnaFI8393XGjHZH5w"/>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white mb-1">Ford Transit LWB</h3>
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-bold text-secondary bg-secondary-container/30 px-2 py-0.5 rounded uppercase tracking-tighter">Last Mile</span>
+<span class="text-[11px] font-bold text-slate-500">ID: JAS-V-088</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-lowest p-3 rounded-xl border border-white/5">
+<p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Plate Number</p>
+<div class="flex justify-between items-center">
+<span class="text-sm font-black text-white">1208 RTA</span>
+<span class="arabic-text text-sm font-semibold text-white">١٢٠٨ ر ت أ</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border border-white/5">
+<p class="text-[10px] text-slate-500 uppercase font-bold mb-1">TGA Status</p>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></div>
+<span class="text-xs font-bold text-amber-400">Pending</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-white/5">
+<div class="flex items-center gap-3">
+<div class="relative w-10 h-10">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-white/5" cx="20" cy="20" fill="transparent" r="18" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-amber-500" cx="20" cy="20" fill="transparent" r="18" stroke="currentColor" stroke-dasharray="113" stroke-dashoffset="65" stroke-width="3"></circle>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center text-[10px] font-bold">45%</span>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Compliance Score</span>
+</div>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                            Details
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Vehicle Card 3 -->
+<div class="bg-surface-container border border-white/5 rounded-2xl p-6 hover:bg-surface-container-high transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-slate-600 group-hover:text-primary transition-colors cursor-pointer">more_vert</span>
+</div>
+<div class="flex items-start gap-5 mb-6">
+<div class="w-16 h-16 rounded-xl bg-surface-container-low flex items-center justify-center border border-white/5 relative overflow-hidden">
+<img alt="Reefer Truck" class="w-12 h-12 object-contain opacity-80" data-alt="refrigerated box truck with cooling unit visible on top of cab, metallic silver finish, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqZt3YcDI6mpXr-7qsfpf1D-hkrxXHuDMUrTxl-K2CxQOsM0ghFu9d85D0tN6IOtQYGm5mUJdfgg-DCnEkjtuLbGVAJV0nZAKT_l8LeSdVJSBqtCDtvkBOAZS4MArpFsXZZ_5tlgl9dGJvkb9wNpWxzHe2mfsydhteOMsUPBsaoo-5x2dnHGdp4Sp_47nPxqHWHraGXVlEcrmsapSz19BL26CnmXoZ_5o1lnMpDcjaycy1MN1iA_50AKnS32jfCSKpu1dpsggcCg"/>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white mb-1">Volvo FH ColdChain</h3>
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-bold text-tertiary bg-tertiary-container/30 px-2 py-0.5 rounded uppercase tracking-tighter">Reefer</span>
+<span class="text-[11px] font-bold text-slate-500">ID: JAS-V-041</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-lowest p-3 rounded-xl border border-white/5">
+<p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Plate Number</p>
+<div class="flex justify-between items-center">
+<span class="text-sm font-black text-white">7733 HJA</span>
+<span class="arabic-text text-sm font-semibold text-white">٧٧٣٣ هـ ج أ</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border border-white/5">
+<p class="text-[10px] text-slate-500 uppercase font-bold mb-1">TGA Status</p>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-xs font-bold text-emerald-400">Validated</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-white/5">
+<div class="flex items-center gap-3">
+<div class="relative w-10 h-10">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-white/5" cx="20" cy="20" fill="transparent" r="18" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary" cx="20" cy="20" fill="transparent" r="18" stroke="currentColor" stroke-dasharray="113" stroke-dashoffset="0" stroke-width="3"></circle>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center text-[10px] font-bold">100%</span>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Compliance Score</span>
+</div>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                            Details
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Add More Card (UI Pattern) -->
+<div class="bg-surface-container-low border-2 border-dashed border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 hover:border-primary/50 transition-all cursor-pointer group h-full min-h-[300px]">
+<div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center text-slate-500 group-hover:text-primary group-hover:scale-110 transition-all">
+<span class="material-symbols-outlined text-3xl">add_circle</span>
+</div>
+<div class="text-center">
+<p class="font-bold text-white mb-1">Add New Vehicle</p>
+<p class="text-xs text-on-surface-variant">Register a new asset to your fleet</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 border-t border-white/5 bg-[#0F0F1A]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-screen-2xl mx-auto font-['Plus_Jakarta_Sans'] text-xs text-slate-500">
+<p>© 2024 JAS Logistics Saudi Arabia. All Rights Reserved. TGA Licensed.</p>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Compliance Standards</a>
+<a class="text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Partner API</a>
+</div>
+</div>
+</footer>
+</body></html>

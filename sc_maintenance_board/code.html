@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sub-Carrier Maintenance Control (SCP-FL-06)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#343440",
+                        "on-secondary": "#352856",
+                        "surface": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary-fixed": "#22005c",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-dim": "#12121d",
+                        "secondary-container": "#4f4171",
+                        "outline-variant": "#494453",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "inverse-surface": "#e3e0f1",
+                        "background": "#12121d",
+                        "tertiary": "#ffb68e",
+                        "tertiary-fixed": "#ffdbc9",
+                        "primary-container": "#4b1fa3",
+                        "surface-variant": "#343440",
+                        "surface-container-low": "#1b1a26",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-fixed": "#201340",
+                        "on-primary": "#3b0092",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#331200",
+                        "tertiary-container": "#6c2e00",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-tertiary": "#532200",
+                        "inverse-on-surface": "#302f3b",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-container": "#1f1e2a",
+                        "on-primary-container": "#b79cff",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "surface-bright": "#383845",
+                        "secondary": "#cfbef6",
+                        "primary": "#d0bcff",
+                        "on-surface": "#e3e0f1",
+                        "on-error": "#690005",
+                        "inverse-primary": "#6a45c3",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e3e0f1",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "surface-container-lowest": "#0d0d18"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(15, 15, 26, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .kanban-column {
+            min-height: calc(100vh - 240px);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #12121d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #343440;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-[#0F0F1A]/95 backdrop-blur-2xl flex flex-col z-50">
+<div class="p-8">
+<div class="text-lg font-black text-white tracking-tighter uppercase">Fleet Management</div>
+<div class="text-xs font-medium text-slate-400 mt-1">Sub-Carrier Fleet</div>
+</div>
+<nav class="flex-1 px-4 overflow-y-auto">
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Active Trips</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">My Vehicles</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 my-1 bg-gradient-to-r from-[#2E86C1]/20 to-transparent text-[#2E86C1] border-l-4 border-[#2E86C1]" href="#">
+<span class="material-symbols-outlined">build</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Maintenance</span>
+</a>
+<div class="h-[1px] bg-white/5 my-4 mx-6"></div>
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">TGA Compliance Center</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Earnings &amp; Payouts</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-6">
+<div class="bg-surface-container p-4 rounded-xl mb-6">
+<div class="text-xs text-on-surface-variant mb-2">Fleet Readiness</div>
+<div class="flex justify-between items-end">
+<span class="text-2xl font-bold">92%</span>
+<span class="text-[10px] text-green-400 mb-1">+4% vs LW</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-2">
+<div class="bg-[#2E86C1] h-1 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:text-white transition-all duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Log Out</span>
+</a>
+</div>
+<div class="bg-white/5 w-[1px] h-full right-0 absolute"></div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 min-h-screen">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-40 bg-[#0F0F1A]/80 backdrop-blur-xl px-8 py-4 flex justify-between items-center shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+<div class="flex items-center gap-4">
+<h1 class="text-xl font-bold tracking-tighter text-white font-headline">Sub-Carrier Portal</h1>
+<div class="hidden md:flex gap-6 ml-8">
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Earnings</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Support</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-[#2E86C1] text-white px-5 py-2 rounded-lg text-sm font-bold tracking-tight active:scale-95 transition-all">
+                    New Trip Request
+                </button>
+<div class="flex items-center gap-3 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors">help</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors">settings</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-[#2E86C1]/30 p-0.5 overflow-hidden">
+<img alt="Sub-carrier user profile" class="w-full h-full object-cover rounded-full" data-alt="professional headshot of a middle-eastern man in his 40s wearing a light blue polo shirt against a neutral grey studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjp5-c8Q0TtJPOL1rfol_i7eIgVCndAhJpICplMfDgVyNXe0-8FO_smAGd8sYiFdH--wIKSGYJ1i2xOejH6cIgmBAvi4LR1H3ICn-GjdbPFX69OdhlCJIOcGn15x45wwqhUdDtB98Xt5L_9O1bJsnyyuu9fbxPWDOnvsq94uoQYN-_AcuWOfboOUN1O80U6czoAnOO99osdWSbGXs8fdQLyta3uH7EPOfzLnTWenluv3uKmayH7m3vl-0AqPA_qaTcdBM7bo3QPg"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-8">
+<!-- Alert Banner -->
+<div class="mb-8 flex items-center gap-4 p-4 rounded-xl bg-[#2E86C1]/10 border-l-4 border-[#2E86C1]">
+<span class="material-symbols-outlined text-[#2E86C1]" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-sm font-medium text-[#2E86C1]">
+                    SC manages own maintenance. JAS monitors for dispatch eligibility. Ensure all status updates are real-time to maintain operational readiness.
+                </p>
+</div>
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-3xl font-bold tracking-tight text-white font-headline">Maintenance Control <span class="text-slate-500 font-medium text-lg ml-2">(SCP-FL-06)</span></h2>
+<p class="text-on-surface-variant mt-2 max-w-2xl">Manage your sub-carrier fleet maintenance lifecycle. JAS Logistics utilizes this data for automated vehicle dispatching and safety compliance verification.</p>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-lg text-sm border border-outline-variant/20 hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                        Filter Fleet
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white text-surface font-bold rounded-lg text-sm transition-all hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+                        Schedule Service
+                    </button>
+</div>
+</div>
+<!-- Kanban Board -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Column: Waiting Parts -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+<h3 class="font-headline font-bold text-sm uppercase tracking-widest text-slate-300">Waiting Parts</h3>
+</div>
+<span class="text-xs bg-surface-container-high px-2 py-0.5 rounded-full text-on-surface-variant">2</span>
+</div>
+<div class="kanban-column flex flex-col gap-4">
+<!-- Card 1 -->
+<div class="group bg-surface-container hover:bg-surface-container-high p-4 rounded-xl transition-all border border-transparent hover:border-[#2E86C1]/30 cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<span class="text-xs font-bold text-[#2E86C1] bg-[#2E86C1]/10 px-2 py-0.5 rounded uppercase">Vehicle #4120</span>
+<span class="material-symbols-outlined text-slate-500 text-lg group-hover:text-white">more_vert</span>
+</div>
+<h4 class="font-bold text-white mb-1">Brake Pad Replacement</h4>
+<p class="text-xs text-on-surface-variant mb-4">Awaiting ceramic pads from central warehouse.</p>
+<div class="flex items-center gap-4 text-[10px] text-slate-400 mb-4">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                    4d Delay
+                                </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+                                    Req #8821
+                                </div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-white/5">
+<div class="flex -space-x-2">
+<img alt="Mechanic" class="w-6 h-6 rounded-full border-2 border-surface-container" data-alt="close up headshot of a professional auto mechanic wearing a dark uniform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZaF8cO6ZVIuIWV8d0JxChm_fo-rrWYXlYT8jNM4UAcVg1tnRJrpHCBH30m_qMqNgtQUWOhJdYOhG9rhbqgwtdZthcEss9Zng4ZVESyKrzp1Lqvu9WD4mEm8PLEyzwCltWwPdKRFpCv5wJGwC6K4i3D_OJ0TGBN8eiuuPsDmQQsos1C3piu8LCEYXUjoscwSPUOyL3HvEflC9t8AfFC7heE52XsAgcLdYNPBAWUtQ4miqKLzu6wV75QdIMXUy0EUuSLw9sLcqKMg"/>
+</div>
+<span class="text-[10px] font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">Critical</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container hover:bg-surface-container-high p-4 rounded-xl transition-all border border-transparent hover:border-[#2E86C1]/30 cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<span class="text-xs font-bold text-[#2E86C1] bg-[#2E86C1]/10 px-2 py-0.5 rounded uppercase">Vehicle #3305</span>
+<span class="material-symbols-outlined text-slate-500 text-lg group-hover:text-white">more_vert</span>
+</div>
+<h4 class="font-bold text-white mb-1">Transmission Fluid Flush</h4>
+<p class="text-xs text-on-surface-variant mb-4">Waiting for specialist high-viscosity oil arrival.</p>
+<div class="flex items-center justify-between pt-3 border-t border-white/5">
+<div class="flex items-center gap-1 text-[10px] text-slate-400">
+<span class="material-symbols-outlined text-sm">build</span>
+                                    Maintenance
+                                </div>
+<span class="text-[10px] font-bold text-slate-400 bg-slate-400/10 px-2 py-0.5 rounded">Normal</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: In Progress -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-blue-400"></span>
+<h3 class="font-headline font-bold text-sm uppercase tracking-widest text-slate-300">In Progress</h3>
+</div>
+<span class="text-xs bg-surface-container-high px-2 py-0.5 rounded-full text-on-surface-variant">3</span>
+</div>
+<div class="kanban-column flex flex-col gap-4">
+<!-- Card 1 -->
+<div class="group bg-surface-container hover:bg-surface-container-high p-4 rounded-xl transition-all border border-[#2E86C1]/50 cursor-pointer shadow-[0_0_15px_rgba(46,134,193,0.1)]">
+<div class="flex justify-between items-start mb-3">
+<span class="text-xs font-bold text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded uppercase">Vehicle #5012</span>
+<span class="material-symbols-outlined text-slate-500 text-lg group-hover:text-white">more_vert</span>
+</div>
+<h4 class="font-bold text-white mb-1">Annual Engine Overhaul</h4>
+<div class="w-full bg-surface-container-highest h-1 rounded-full my-3">
+<div class="bg-[#2E86C1] h-1 rounded-full shadow-[0_0_8px_#2E86C1]" style="width: 65%"></div>
+</div>
+<p class="text-xs text-on-surface-variant mb-4">Piston rings replacement in progress. Est: 6h left.</p>
+<div class="flex items-center justify-between pt-3 border-t border-white/5">
+<div class="flex -space-x-2">
+<img alt="Mechanic" class="w-6 h-6 rounded-full border-2 border-surface-container" data-alt="professional portrait of a technician in a workshop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh5XJtTYKGZdiTbsf1n9LAYlmzzqO-_Q21_zenEe4MbrlQyfcfsfOK62Ps9uyFS3SO-4PPtq6n5tak5F4LYy5U8cRj5tCAduJ1PLHkwGJa2NvUUZHc07B9DvyEtZgFM1beEF_8TuwOOvgFjYF9yW-tDa7BViDSs5zRwAFtz7vdm2DZBz_czPukpJx4tGTuPabL8Jvw3QXui29PwAEE-jGbf_Nx6tRW1Fh2H14hgbwIvTYpGq8pmmz2wrZk1deOKerd2m_o-K0dnA"/>
+<img alt="Mechanic" class="w-6 h-6 rounded-full border-2 border-surface-container" data-alt="portrait of a focused technician in industrial setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4NvhBnNUg9VeqplDl1Mmu5FxBhYA15LF8ybCviayy_s7AX4eyMYR2m9kK7vJVavY0GXNQ7lGrm11W2lLH_Yx-ZP7ohkXWmOX5HeJQPDXC3XDvKvqHH9UYL6zpL8pE3sh1AKS9f78HbQL_K1r4C4c_Wb0kZLA7bZH7lKZLZrigXIZX0ZUmccrJA_C7ch4qy0X0d5E1MZCdIiC31uEuZ0EmA5uvSQxJs49mNOqifslVPS8zvATTQdxa8ouF_H69y6bfC-bzOpvtIA"/>
+</div>
+<span class="text-[10px] font-bold text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded">High Priority</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container hover:bg-surface-container-high p-4 rounded-xl transition-all border border-transparent hover:border-[#2E86C1]/30 cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<span class="text-xs font-bold text-[#2E86C1] bg-[#2E86C1]/10 px-2 py-0.5 rounded uppercase">Vehicle #1288</span>
+<span class="material-symbols-outlined text-slate-500 text-lg group-hover:text-white">more_vert</span>
+</div>
+<h4 class="font-bold text-white mb-1">Tire Pressure Calibration</h4>
+<p class="text-xs text-on-surface-variant mb-4">Standard fleet-wide sensor calibration protocol.</p>
+<div class="flex items-center justify-between pt-3 border-t border-white/5">
+<div class="flex items-center gap-1 text-[10px] text-slate-400">
+<span class="material-symbols-outlined text-sm">verified</span>
+                                    Compliance Task
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: QC Check -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-purple-400"></span>
+<h3 class="font-headline font-bold text-sm uppercase tracking-widest text-slate-300">QC Check</h3>
+</div>
+<span class="text-xs bg-surface-container-high px-2 py-0.5 rounded-full text-on-surface-variant">1</span>
+</div>
+<div class="kanban-column flex flex-col gap-4">
+<div class="group bg-surface-container hover:bg-surface-container-high p-4 rounded-xl transition-all border border-transparent hover:border-[#2E86C1]/30 cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<span class="text-xs font-bold text-[#2E86C1] bg-[#2E86C1]/10 px-2 py-0.5 rounded uppercase">Vehicle #9922</span>
+<span class="material-symbols-outlined text-slate-500 text-lg group-hover:text-white">more_vert</span>
+</div>
+<h4 class="font-bold text-white mb-1">Radiator Leak Repair</h4>
+<div class="p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/10 mb-4">
+<div class="flex items-center justify-between text-[10px] text-on-surface-variant mb-1">
+<span>Visual Inspection</span>
+<span class="text-green-400">PASS</span>
+</div>
+<div class="flex items-center justify-between text-[10px] text-on-surface-variant">
+<span>Pressure Test</span>
+<span class="text-amber-400">PENDING</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-white/5">
+<div class="flex items-center gap-1 text-[10px] text-slate-400">
+<span class="material-symbols-outlined text-sm">security</span>
+                                    Inspector: S. Ahmed
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Complete -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-400"></span>
+<h3 class="font-headline font-bold text-sm uppercase tracking-widest text-slate-300">Complete</h3>
+</div>
+<span class="text-xs bg-surface-container-high px-2 py-0.5 rounded-full text-on-surface-variant">8</span>
+</div>
+<div class="kanban-column flex flex-col gap-4">
+<div class="group bg-surface-container/50 hover:bg-surface-container-high p-4 rounded-xl transition-all border border-transparent hover:border-[#2E86C1]/30 cursor-pointer opacity-75 hover:opacity-100">
+<div class="flex justify-between items-start mb-3">
+<span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-0.5 rounded uppercase">Vehicle #2210</span>
+<span class="material-symbols-outlined text-slate-500 text-lg group-hover:text-white">check_circle</span>
+</div>
+<h4 class="font-bold text-white mb-1">Standard 50k Service</h4>
+<p class="text-[10px] text-slate-400 mb-4">All checks passed. Vehicle returned to active dispatch pool.</p>
+<div class="flex items-center justify-between pt-3 border-t border-white/5">
+<div class="flex items-center gap-1 text-[10px] text-slate-400">
+<span class="material-symbols-outlined text-sm">history</span>
+                                    Finished 2h ago
+                                </div>
+<button class="text-[10px] font-bold text-[#2E86C1] hover:underline">View Log</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Dashboard Stats Summary -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container p-6 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-6xl">timer</span>
+</div>
+<div class="text-on-surface-variant text-sm font-medium">Avg. Downtime</div>
+<div class="text-3xl font-black mt-2 text-white">1.2 Days</div>
+<div class="mt-4 flex items-center gap-2 text-green-400 text-xs">
+<span class="material-symbols-outlined text-xs">trending_down</span>
+                        14% improvement this month
+                    </div>
+</div>
+<div class="bg-surface-container p-6 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-6xl">payments</span>
+</div>
+<div class="text-on-surface-variant text-sm font-medium">Est. Cost Savings</div>
+<div class="text-3xl font-black mt-2 text-white">SAR 12.4k</div>
+<div class="mt-4 flex items-center gap-2 text-blue-400 text-xs">
+<span class="material-symbols-outlined text-xs">info</span>
+                        SC internal maintenance vs Outsourced
+                    </div>
+</div>
+<div class="bg-surface-container p-6 rounded-xl relative overflow-hidden group border border-[#2E86C1]/30">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl text-[#2E86C1]">verified</span>
+</div>
+<div class="text-on-surface-variant text-sm font-medium">JAS Dispatch Eligibility</div>
+<div class="text-3xl font-black mt-2 text-white">96.8%</div>
+<div class="mt-4 flex items-center gap-2 text-green-400 text-xs">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+                        Highly Reliable Status
+                    </div>
+</div>
+</div>
+<!-- Background Decoration -->
+<div class="fixed bottom-0 right-0 w-[500px] h-[500px] bg-[#2E86C1]/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+<div class="fixed top-20 left-1/2 w-[300px] h-[300px] bg-primary/5 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+</div>
+</main>
+</body></html>

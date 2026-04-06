@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sub-Carrier Portal - Parts &amp; Suppliers</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-highest": "#343440",
+                        "on-secondary": "#352856",
+                        "surface": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary-fixed": "#22005c",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-dim": "#12121d",
+                        "secondary-container": "#4f4171",
+                        "outline-variant": "#494453",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "inverse-surface": "#e3e0f1",
+                        "background": "#12121d",
+                        "tertiary": "#ffb68e",
+                        "tertiary-fixed": "#ffdbc9",
+                        "primary-container": "#4b1fa3",
+                        "surface-variant": "#343440",
+                        "surface-container-low": "#1b1a26",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-fixed": "#201340",
+                        "on-primary": "#3b0092",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#331200",
+                        "tertiary-container": "#6c2e00",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-tertiary": "#532200",
+                        "inverse-on-surface": "#302f3b",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-container": "#1f1e2a",
+                        "on-primary-container": "#b79cff",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "surface-bright": "#383845",
+                        "secondary": "#cfbef6",
+                        "primary": "#d0bcff",
+                        "on-surface": "#e3e0f1",
+                        "on-error": "#690005",
+                        "inverse-primary": "#6a45c3",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e3e0f1",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "surface-container-lowest": "#0d0d18"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #12121d;
+            color: #e3e0f1;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-[#0F0F1A]/95 backdrop-blur-2xl flex flex-col z-40">
+<div class="p-8">
+<h1 class="text-lg font-black text-white tracking-tighter">Fleet Management</h1>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-widest mt-1">Sub-Carrier Fleet</p>
+</div>
+<nav class="flex-1 overflow-y-auto px-2">
+<!-- Navigation Items Mapping -->
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-white">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-white">inbox</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Trip Inbox</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-white">local_shipping</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Active Trips</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-white">build</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Maintenance</span>
+</a>
+<!-- Active Item: Fleet TGA as proxy for Parts/Suppliers Context -->
+<a class="bg-gradient-to-r from-[#2E86C1]/20 to-transparent text-[#2E86C1] border-l-4 border-[#2E86C1] flex items-center gap-3 px-6 py-3 my-1 group" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Fleet TGA</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-white">local_gas_station</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Fuel &amp; Costs</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-white">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Earnings &amp; Payouts</span>
+</a>
+</div>
+</nav>
+<div class="p-6">
+<button class="w-full bg-gradient-to-r from-[#2E86C1] to-[#2E86C1]/80 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-[#2E86C1]/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined">visibility</span>
+                View Active Trips
+            </button>
+<a class="mt-4 flex items-center gap-3 px-6 py-3 text-slate-400 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Log Out</span>
+</a>
+</div>
+<div class="bg-white/5 w-[1px] h-full right-0 absolute"></div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 flex-1 flex flex-col relative min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-[#0F0F1A]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-8 py-4 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-white font-['Plus_Jakarta_Sans']">Sub-Carrier Portal</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-tight text-[#2E86C1] border-b-2 border-[#2E86C1] pb-1" href="#">Earnings</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Support</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm text-on-surface focus:ring-1 focus:ring-[#2E86C1] transition-all w-64" placeholder="Search parts..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-[#2E86C1]/50">
+<img alt="Sub-carrier user profile" class="w-full h-full object-cover" data-alt="professional headshot of a Middle Eastern logistics manager in a modern office setting with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA_aYQIV5FHm2J2A2zEwzFUAwyw8oRMn8Jbf2veoenVZURsO6eyDcZIuQy4aPIPaTp1iqGoRBe8XFXkjApWCl-P6kp-6kcgm_rDp7605VRoHjK-UZE6xfQMlSH0nkAoUe27a139Kq7fSPcI8lg5bQudwmtpGMqk05Vf5VkMMzIQPgOwFm72cyFjVdtnXClnj7C183XklnTSoMydz-FiuWDeT_27c4RuV7gtSldEuU-MaL_WOKJm6VFL7nAlC77dkCKK44zx7S9_Q"/>
+</div>
+</div>
+<div class="bg-gradient-to-b from-white/5 to-transparent h-[1px] w-full absolute bottom-0 left-0"></div>
+</header>
+<!-- Content Area -->
+<div class="p-8 max-w-7xl mx-auto w-full">
+<!-- Page Hero Section -->
+<div class="mb-10 flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-bold font-headline text-on-surface tracking-tight">Parts Inventory &amp; Suppliers</h2>
+<p class="text-on-surface-variant mt-2 font-body">Manage sub-carrier specific maintenance assets and vendor relations.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-lg font-label font-medium flex items-center gap-2 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-sm">download</span> Export List
+                    </button>
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-5 py-2 rounded-lg font-label font-bold flex items-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm">add_circle</span> New Purchase Order
+                    </button>
+</div>
+</div>
+<!-- Dashboard Overview Stats (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+<div class="bg-surface-container-low p-6 rounded-xl border-b-2 border-[#2E86C1]">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-[#2E86C1]">inventory_2</span>
+<span class="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full">+4%</span>
+</div>
+<div class="mt-4">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest">Total SKU Count</p>
+<p class="text-2xl font-bold font-headline text-on-surface mt-1">1,284</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-b-2 border-error">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-error">priority_high</span>
+<span class="text-xs font-bold text-error bg-error/10 px-2 py-0.5 rounded-full">8 Critical</span>
+</div>
+<div class="mt-4">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest">Low Stock Alerts</p>
+<p class="text-2xl font-bold font-headline text-on-surface mt-1">12 Items</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-b-2 border-tertiary">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-tertiary">local_shipping</span>
+<span class="text-xs font-bold text-on-surface-variant bg-white/5 px-2 py-0.5 rounded-full">3 Orders</span>
+</div>
+<div class="mt-4">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest">Parts in Transit</p>
+<p class="text-2xl font-bold font-headline text-on-surface mt-1">45 Units</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-b-2 border-primary">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary">payments</span>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Monthly</span>
+</div>
+<div class="mt-4">
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest">Inventory Value</p>
+<p class="text-2xl font-bold font-headline text-on-surface mt-1">SR 142k</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Parts Inventory Table -->
+<div class="lg:col-span-2 space-y-6">
+<div class="bg-surface-container-high rounded-xl overflow-hidden shadow-2xl">
+<div class="p-6 flex justify-between items-center border-b border-outline-variant/20">
+<h3 class="text-lg font-bold font-headline text-on-surface">Parts Inventory</h3>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container-low rounded-lg text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+<button class="p-2 bg-surface-container-low rounded-lg text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">sort</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Part Name / SKU</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Category</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Stock Level</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Status</th>
+<th class="px-6 py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Heavy Duty Brake Pad Set</span>
+<span class="text-xs text-on-surface-variant">#SKU-992-HDB</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Braking System</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-emerald-400 h-full w-[85%]"></div>
+</div>
+<span class="text-sm font-bold text-on-surface">85</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-emerald-400/10 text-emerald-400 text-[10px] font-bold uppercase px-2 py-1 rounded">Optimal</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Synthetic Engine Oil 15W-40</span>
+<span class="text-xs text-on-surface-variant">#SKU-004-SYO</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Lubricants</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full w-[12%]"></div>
+</div>
+<span class="text-sm font-bold text-on-surface">12</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-error/10 text-error text-[10px] font-bold uppercase px-2 py-1 rounded">Critical</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Transmission Filter Unit</span>
+<span class="text-xs text-on-surface-variant">#SKU-551-TFU</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Transmission</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[35%]"></div>
+</div>
+<span class="text-sm font-bold text-on-surface">35</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-tertiary/10 text-tertiary text-[10px] font-bold uppercase px-2 py-1 rounded">Low Stock</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">LED Headlight Module</span>
+<span class="text-xs text-on-surface-variant">#SKU-102-LED</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Electrical</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-emerald-400 h-full w-[60%]"></div>
+</div>
+<span class="text-sm font-bold text-on-surface">60</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-emerald-400/10 text-emerald-400 text-[10px] font-bold uppercase px-2 py-1 rounded">Optimal</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-surface-container-low flex justify-center">
+<button class="text-primary text-sm font-bold hover:underline">View Entire Inventory (142 Items)</button>
+</div>
+</div>
+<!-- Warehouse View (Visual Anchor) -->
+<div class="grid grid-cols-2 gap-6">
+<div class="relative group h-48 rounded-xl overflow-hidden shadow-xl">
+<img alt="Warehouse visual" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="high-angle shot of a clean, high-tech automotive parts warehouse with automated shelving and bright blue accent lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXPMez9UXju4ClP2_SgDFXjkOekqH_GEzCqMSwpkrABBYj3eTEHFEmjcelQPJHL7WEed1VmePBFpIfnjSM4P5Ij4Vkc7s9KSIZO3769Hgf2ZWz0b6YEzZP79ITwlMDIWVBWq9d1GRR_B7UJ17r9SH9lz_CVH06mrTqOinob_HAOF0k59Q_4eRR5jnXDelqTQXDnSqE7VMxIXA0q9Dy7zhzCoaoZyVlzwooSUQENimgXm_fEo7GxdOFDVRSQzV3Mcr1eYCXOeHZTQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0F0F1A] via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-white font-bold font-headline">Main Hub Storage</h4>
+<p class="text-slate-300 text-xs">Jeddah Industrial Area</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between border-l-4 border-primary">
+<div>
+<h4 class="text-on-surface font-bold font-headline">Smart Stock Management</h4>
+<p class="text-on-surface-variant text-sm mt-2">AI predicts upcoming component failures based on Jas Coaching reports.</p>
+</div>
+<button class="text-primary font-bold text-sm flex items-center gap-1 group">
+                                Optimize Levels <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Supplier Contact Cards -->
+<div class="space-y-6">
+<div class="bg-surface-container p-6 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold font-headline text-on-surface">Preferred Suppliers</h3>
+<button class="text-primary text-xs font-bold uppercase tracking-wider">Manage</button>
+</div>
+<div class="space-y-4">
+<!-- Supplier Card 1 -->
+<div class="bg-surface-container-high p-4 rounded-lg border border-outline-variant/10 hover:border-primary/30 transition-all cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+</div>
+<div class="flex-1">
+<h4 class="text-on-surface font-bold text-sm">Al-Futtaim Auto Parts</h4>
+<p class="text-on-surface-variant text-xs">Tier 1 • Official OEM</p>
+</div>
+<div class="text-right">
+<span class="text-emerald-400 material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/5 flex justify-between items-center">
+<span class="text-[10px] text-on-surface-variant bg-surface-container-lowest px-2 py-1 rounded">2hr response</span>
+<div class="flex gap-2">
+<button class="p-1.5 hover:bg-primary/10 rounded-md text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">call</span>
+</button>
+<button class="p-1.5 hover:bg-primary/10 rounded-md text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">mail</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Supplier Card 2 -->
+<div class="bg-surface-container-high p-4 rounded-lg border border-outline-variant/10 hover:border-primary/30 transition-all cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">oil_barrel</span>
+</div>
+<div class="flex-1">
+<h4 class="text-on-surface font-bold text-sm">PetroLogistics Solutions</h4>
+<p class="text-on-surface-variant text-xs">Lubricants &amp; Fluids</p>
+</div>
+<div class="text-right">
+<span class="text-primary-fixed-dim material-symbols-outlined text-sm">local_shipping</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/5 flex justify-between items-center">
+<span class="text-[10px] text-on-surface-variant bg-surface-container-lowest px-2 py-1 rounded">Next day delivery</span>
+<div class="flex gap-2">
+<button class="p-1.5 hover:bg-primary/10 rounded-md text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">call</span>
+</button>
+<button class="p-1.5 hover:bg-primary/10 rounded-md text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">mail</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Supplier Card 3 -->
+<div class="bg-surface-container-high p-4 rounded-lg border border-outline-variant/10 hover:border-primary/30 transition-all cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">tire_repair</span>
+</div>
+<div class="flex-1">
+<h4 class="text-on-surface font-bold text-sm">Desert Eagle Tires</h4>
+<p class="text-on-surface-variant text-xs">Heavy-Duty Tires</p>
+</div>
+<div class="text-right">
+<span class="text-amber-400 material-symbols-outlined text-sm">star</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/5 flex justify-between items-center">
+<span class="text-[10px] text-on-surface-variant bg-surface-container-lowest px-2 py-1 rounded">Bulk discounts active</span>
+<div class="flex gap-2">
+<button class="p-1.5 hover:bg-primary/10 rounded-md text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">call</span>
+</button>
+<button class="p-1.5 hover:bg-primary/10 rounded-md text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">mail</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-3 border border-dashed border-outline-variant/40 text-on-surface-variant text-sm font-medium rounded-lg hover:border-primary/60 hover:text-primary transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span> Request New Supplier
+                        </button>
+</div>
+<!-- Recent Activity Card -->
+<div class="bg-gradient-to-br from-surface-container-high to-surface-container-low p-6 rounded-xl border border-outline-variant/10">
+<h3 class="text-md font-bold font-headline text-on-surface mb-4">Recent Stock Activity</h3>
+<div class="space-y-4">
+<div class="flex gap-3 relative pb-4">
+<div class="absolute left-1.5 top-5 bottom-0 w-px bg-outline-variant/20"></div>
+<div class="w-3 h-3 rounded-full bg-primary mt-1 z-10"></div>
+<div>
+<p class="text-xs font-bold text-on-surface">Stock Received</p>
+<p class="text-[10px] text-on-surface-variant mt-0.5">24x Air Filter Units from Al-Futtaim</p>
+<p class="text-[10px] text-primary mt-1">2 hours ago</p>
+</div>
+</div>
+<div class="flex gap-3 relative pb-4">
+<div class="absolute left-1.5 top-5 bottom-0 w-px bg-outline-variant/20"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary mt-1 z-10"></div>
+<div>
+<p class="text-xs font-bold text-on-surface">Inventory Assigned</p>
+<p class="text-[10px] text-on-surface-variant mt-0.5">Brake Pads assigned to Truck #JAS-882</p>
+<p class="text-[10px] text-tertiary mt-1">Yesterday</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-3 h-3 rounded-full bg-error mt-1 z-10"></div>
+<div>
+<p class="text-xs font-bold text-on-surface">Critical Low Level</p>
+<p class="text-[10px] text-on-surface-variant mt-0.5">Synthetic Engine Oil dropped below 15 units</p>
+<p class="text-[10px] text-error mt-1">2 days ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Mobile Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-[#0F0F1A]/90 backdrop-blur-lg border-t border-white/10 flex justify-around py-3 px-6 z-50">
+<button class="flex flex-col items-center text-[#2E86C1]">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] mt-1 font-medium">Dashboard</span>
+</button>
+<button class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-[10px] mt-1 font-medium">Trips</span>
+</button>
+<div class="relative -top-8">
+<button class="bg-[#2E86C1] text-white p-4 rounded-full shadow-xl">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<button class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined">build</span>
+<span class="text-[10px] mt-1 font-medium">Parts</span>
+</button>
+<button class="flex flex-col items-center text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] mt-1 font-medium">Profile</span>
+</button>
+</nav>
+</main>
+</body></html>
