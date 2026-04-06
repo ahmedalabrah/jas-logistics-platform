@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vehicle Onboarding Wizard - Step 3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tga-blue": "#1B4D8E",
+                        "on-secondary-fixed": "#201340",
+                        "tertiary": "#ffb68e",
+                        "primary-container": "#4b1fa3",
+                        "on-primary": "#3b0092",
+                        "on-error": "#690005",
+                        "background": "#12121d",
+                        "tertiary-fixed": "#ffdbc9",
+                        "surface-container-low": "#1b1a26",
+                        "surface-variant": "#343440",
+                        "surface-container": "#1f1e2a",
+                        "outline": "#948e9e",
+                        "on-tertiary": "#532200",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "secondary-container": "#4f4171",
+                        "surface-container-lowest": "#0d0d18",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-container": "#c0b0e7",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#343440",
+                        "outline-variant": "#494453",
+                        "on-surface": "#e3e0f1",
+                        "on-background": "#e3e0f1",
+                        "surface-bright": "#383845",
+                        "primary-fixed": "#e9ddff",
+                        "secondary": "#cfbef6",
+                        "inverse-on-surface": "#302f3b",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "tertiary-container": "#6c2e00",
+                        "surface-tint": "#d0bcff",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary-fixed": "#22005c",
+                        "surface": "#12121d",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary": "#352856",
+                        "primary": "#d0bcff",
+                        "on-primary-container": "#b79cff",
+                        "surface-dim": "#12121d",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "surface-container-high": "#292935",
+                        "inverse-primary": "#6a45c3",
+                        "on-tertiary-fixed": "#331200",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-surface": "#e3e0f1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "arabic": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 2s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30" x-data="{ verifying: false, verified: false, timer: 0, timerInterval: null }">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#0F0F1A]/80 backdrop-blur-xl flex flex-col py-8 px-6 shadow-[24px_0_48px_rgba(0,0,0,0.4)] z-50">
+<div class="mb-10 px-2">
+<span class="text-xl font-black tracking-tight text-[#d0bcff] font-headline">JAS Logistics</span>
+<p class="text-xs text-on-surface-variant/60 font-medium tracking-widest uppercase mt-1">Fleet Management</p>
+</div>
+<nav class="flex-1 space-y-2">
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="text-sm">Vehicle Basics</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="pin">pin</span>
+<span class="text-sm">Plate &amp; Registration</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-[#d0bcff] font-bold border-r-2 border-[#d0bcff] bg-[#d0bcff]/10 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="text-sm">TGA Compliance</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span class="text-sm">Driver Assignment</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="text-sm">Review</span>
+</div>
+</nav>
+<div class="mt-auto pt-6 border-t border-white/5">
+<button class="w-full py-3 px-4 rounded-lg bg-surface-container-high text-on-surface-variant text-sm font-semibold hover:bg-surface-bright transition-colors">
+                Cancel Onboarding
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="flex justify-between items-center h-16 px-8 ml-64 bg-[#0F0F1A] sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<h1 class="text-lg font-semibold font-headline text-white">Vehicle Onboarding Wizard</h1>
+<span class="px-2 py-1 bg-primary-container/30 text-primary text-[10px] font-bold rounded uppercase tracking-tighter">FMS-08-TGA</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors" data-icon="language">language</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors" data-icon="help_outline">help_outline</span>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-white/10">
+<div class="text-right">
+<p class="text-xs font-bold text-on-surface">Alex Rivera</p>
+<p class="text-[10px] text-on-surface-variant">Fleet Manager</p>
+</div>
+<img alt="Manager profile" class="w-8 h-8 rounded-full border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxTpbFVnHo_-s6M0kfn87wN43jhK6TTn430IHlqfBUYX8AfjihgQ5-I_jkicQQh5oiw2YUROoCMTB2mbLcgxjzQ_O_1tgRPKyKme929wY-F3eS4y1_ZLn5t9c3lF8KOqTcBYboGvSzobYyuhqT7fPcQ_wJHGRIYKnvyIgO9E1xykKiXwnQG2s6eot8uWE0D2i41-vYlEweq7eUTiO0lH2izsoZOT9N1I5pt7ylmzHNcRey7j_UMjnp7bVmMvdHJh4BmcBlkE7Bxw"/>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 bg-[#1F1F2E] h-[1px] w-full"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-[calc(100vh-144px)] p-12 bg-surface pb-32">
+<div class="max-w-5xl mx-auto space-y-8">
+<!-- Header Section -->
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary-fixed text-sm font-medium">
+<span>Step 3</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span>TGA Compliance</span>
+</div>
+<h2 class="text-3xl font-bold font-headline tracking-tight text-on-background">TGA Operational Card</h2>
+<p class="text-on-surface-variant max-w-2xl">Validate the Transport General Authority operational credentials for this vehicle to ensure legal compliance with Wasl regulatory frameworks.</p>
+</div>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Registration Selection (Left Column) -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Operational Card Identity -->
+<div :class="verified ? 'border-tga-blue/30 ring-1 ring-tga-blue/20' : ''" class="relative overflow-hidden bg-surface-container-low rounded-xl border border-white/5 p-8 shadow-xl transition-all duration-500">
+<!-- TGA Brand Accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-tga-blue/10 blur-[60px] rounded-full -translate-y-12 translate-x-12"></div>
+<div class="flex items-start justify-between mb-8 relative z-10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-tga-blue rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-xl font-bold text-white font-headline">TGA Compliance Profile</h3>
+<span class="text-sm font-arabic text-tga-blue/80 font-medium">هيئة النقل العام</span>
+</div>
+<p class="text-xs text-tga-blue/60 font-semibold tracking-widest uppercase">Transport General Authority • Saudi Arabia</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<div class="px-4 py-1.5 rounded-full border border-tga-blue/30 bg-tga-blue/5 text-tga-blue/80 text-[10px] font-black uppercase tracking-widest">
+                                    Regulatory Hub
+                                </div>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="material-symbols-outlined text-[14px] text-blue-400" data-icon="cloud_done">cloud_done</span>
+<span class="text-[9px] text-blue-400/80 font-bold tracking-widest uppercase">Wasl Integrated</span>
+</div>
+</div>
+</div>
+<!-- Toggle Component (Hidden if verifying/verified) -->
+<div class="bg-surface-container-lowest p-1.5 rounded-lg flex gap-2 w-fit mb-10" x-show="!verifying &amp;&amp; !verified">
+<button class="px-6 py-2 rounded-md bg-tga-blue text-white text-sm font-bold shadow-lg shadow-tga-blue/20 transition-all">
+                                Existing TGA card
+                            </button>
+<button class="px-6 py-2 rounded-md text-on-surface-variant text-sm font-medium hover:bg-surface-bright transition-all">
+                                New registration
+                            </button>
+</div>
+<!-- Form Path: Card Verification -->
+<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6" x-show="!verifying &amp;&amp; !verified">
+<div class="space-y-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Card Number</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-high border-none focus:ring-2 focus:ring-tga-blue/50 rounded-lg h-12 px-4 text-on-surface placeholder:text-on-surface-variant/30 transition-all" placeholder="e.g. 1002938475" type="text"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-tga-blue/50" data-icon="badge">badge</span>
+</div>
+</div>
+<div class="flex items-end">
+<button @click="verifying = true; timer = 0; timerInterval = setInterval(() =&gt; timer += 0.1, 100); setTimeout(() =&gt; { verifying = false; verified = true; clearInterval(timerInterval); }, 2400)" class="h-12 w-full bg-tga-blue hover:bg-tga-blue/90 text-white font-bold rounded-lg flex items-center justify-center gap-2 transition-all group">
+<span class="material-symbols-outlined text-sm" data-icon="database">database</span>
+                                        Verify via Wasl API
+                                        <span class="material-symbols-outlined text-xs transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Loading State -->
+<div class="flex flex-col items-center justify-center py-12 space-y-6" x-cloak="" x-show="verifying">
+<div class="relative w-20 h-20">
+<div class="absolute inset-0 border-4 border-tga-blue/20 rounded-full"></div>
+<div class="absolute inset-0 border-4 border-t-tga-blue rounded-full animate-spin"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-tga-blue animate-pulse" data-icon="sync">sync</span>
+</div>
+</div>
+<div class="text-center">
+<p class="text-lg font-bold text-white tracking-tight">Verifying with Wasl...</p>
+<p class="text-xs text-on-surface-variant mt-1">Establishing secure connection to TGA registry</p>
+<div class="mt-4 px-3 py-1 bg-surface-container rounded-full inline-block">
+<span class="text-[10px] font-mono text-tga-blue" x-text="timer.toFixed(1) + 's elapsed'">0.0s elapsed</span>
+</div>
+</div>
+</div>
+<!-- Verification Result (TGAGateCheck) -->
+<div class="animate-in fade-in slide-in-from-bottom-4 duration-500" x-cloak="" x-show="verified">
+<div class="bg-tga-blue rounded-xl p-1">
+<div class="bg-surface-container-lowest rounded-lg p-6 space-y-6">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-14 h-14 rounded-lg bg-tga-blue/10 flex items-center justify-center border border-tga-blue/20">
+<span class="material-symbols-outlined text-tga-blue text-3xl" data-icon="verified">verified</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-white">Verification Successful</h4>
+<p class="text-sm text-on-surface-variant">TGA Operational Card #1002938475</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="flex items-center gap-2 bg-green-500/10 text-green-400 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-green-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                                                    Active &amp; Valid
+                                                </div>
+<div class="text-[10px] text-on-surface-variant font-medium">Last synced: Just now</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="p-4 bg-surface-container rounded-lg border border-white/5">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Issue Date</p>
+<p class="text-sm font-semibold text-white">2023-11-12</p>
+</div>
+<div class="p-4 bg-surface-container rounded-lg border border-white/5">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Expiry Date</p>
+<p class="text-sm font-semibold text-white">2025-11-11</p>
+</div>
+<div class="p-4 bg-surface-container rounded-lg border border-white/5">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Carrier Name</p>
+<p class="text-sm font-semibold text-white">JAS Logistics Group</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-white p-1.5">
+<svg viewbox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"><path d="M200 0C89.5 0 0 89.5 0 200s89.5 200 200 200 200-89.5 200-200S310.5 0 200 0zm110 260c-25 45-90 70-145 55-55-15-85-80-60-125s90-70 145-55c55 15 85 80 60 125z" fill="#1B4D8E"></path></svg>
+</div>
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Wasl Database Record</p>
+<p class="text-xs text-blue-400 font-medium">Reference: WS-9981-A2</p>
+</div>
+</div>
+<button @click="verified = false; timer = 0" class="text-xs font-bold text-on-surface-variant hover:text-white transition-colors">Re-verify</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Initial Success State (Only shown if not verified/verifying) -->
+<div class="flex items-start gap-4 p-4 rounded-lg bg-green-500/5 border border-green-500/10" x-show="!verifying &amp;&amp; !verified">
+<span class="material-symbols-outlined text-green-500" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="text-sm font-bold text-green-400">Card Verification Ready</p>
+<p class="text-xs text-green-400/70">API connection established. Click verify to fetch real-time registration data.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Category Match Check Panel -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-8">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="category">category</span>
+<h4 class="text-lg font-bold text-on-surface">Cargo Category Match Check</h4>
+</div>
+<span class="text-[10px] bg-surface-container-highest px-3 py-1 rounded-full text-on-surface-variant font-bold uppercase">System Validation</span>
+</div>
+<div class="flex items-center justify-between p-6 bg-surface-container rounded-xl border-l-4 border-green-500">
+<div class="flex items-center gap-6">
+<div class="p-3 bg-green-500/10 rounded-lg">
+<span class="material-symbols-outlined text-green-400 text-3xl" data-icon="ac_unit">ac_unit</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-black text-green-400 uppercase tracking-widest">Match Confirmed</span>
+<div class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
+</div>
+<h5 class="text-xl font-bold text-on-surface mt-1">Cold Chain Logistics</h5>
+<p class="text-sm text-on-surface-variant mt-1">Vehicle equipment (Therking T-1200) aligns with TGA Card Category 14-C.</p>
+</div>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider hover:opacity-80 transition-opacity">
+                                Details
+                                <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Guidance & Summary (Right Column) -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-surface-container-high rounded-xl p-6 border border-white/5 space-y-6">
+<h4 class="text-sm font-black text-on-surface uppercase tracking-widest">Compliance Tips</h4>
+<div class="space-y-4">
+<div class="flex gap-4">
+<span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[10px] font-bold shrink-0">01</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">Ensure the vehicle license plate matches the one registered on the TGA portal before verification.</p>
+</div>
+<div class="flex gap-4">
+<span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[10px] font-bold shrink-0">02</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">Wasl API typically updates within 15 minutes of new card issuance.</p>
+</div>
+</div>
+<div class="pt-6 border-t border-white/5">
+<div class="bg-surface-container-lowest rounded-lg p-4 space-y-3">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Selected Category</p>
+<div class="flex items-center justify-between">
+<span class="text-sm font-semibold text-on-surface">Refrigerated Truck</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-semibold text-on-surface">Wasl Integration</span>
+<span class="text-[10px] text-green-400 font-bold">ACTIVE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Compliance Graphic -->
+<div class="relative h-48 rounded-xl overflow-hidden group">
+<img alt="Logistics background" class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIOS6s6byhGKKx6Ug7DBw-f3UjByhFLUXO_jztToyR4YWInCTzBVDg5DAncY4Em0Ght_NnZ3-H1SIUiZtxTRfDmnDOS3ykherKa7cFB6wFBp8A9ElZiyAIcdRA-A6NmIkTrZakfaw37HA2v9P2XRRIHxEw6FU9qkzHyCCbNZmK6ybq3vs2L69Bky3oGY4S4aiI6WsvZ0xgnC3BK_g6Gv2oQnuiOicQFuZQbpC24x9EcjPv_HijNT7iREgRhYr8mr2xT0GH0nO0sQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/40 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-1">Fleet Security</p>
+<p class="text-sm font-bold text-white leading-tight">ISO 27001 Certified Regulatory Processing</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-16rem)] h-20 bg-[#12121d]/90 backdrop-blur-md border-t border-white/10 flex justify-between items-center px-12 z-40">
+<p class="text-[10px] text-on-surface-variant/60 font-medium uppercase tracking-widest">© 2024 JAS Logistics Platform. All rights reserved.</p>
+<div class="flex items-center gap-4">
+<button class="text-slate-300 border border-white/20 px-8 py-3 rounded text-sm font-bold uppercase tracking-wider hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.4)] transition-all active:scale-95">
+                Back
+            </button>
+<button class="text-slate-300 border border-white/20 px-8 py-3 rounded text-sm font-bold uppercase tracking-wider hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.4)] transition-all active:scale-95">
+                Save Draft
+            </button>
+<button class="bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] text-white px-8 py-3 rounded text-sm font-bold uppercase tracking-wider hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.4)] transition-all active:scale-95">
+                Next Step
+            </button>
+</div>
+</footer>
+<!-- Alpine.js -->
+<script defer="" src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body></html>

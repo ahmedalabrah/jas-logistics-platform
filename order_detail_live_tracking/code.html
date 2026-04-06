@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Order Detail &amp; Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#e9ddff",
+                    "surface-bright": "#383845",
+                    "secondary-container": "#4f4171",
+                    "on-primary": "#3b0092",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-high": "#292935",
+                    "inverse-on-surface": "#302f3b",
+                    "on-error": "#690005",
+                    "tertiary-fixed": "#ffdbc9",
+                    "surface-variant": "#343440",
+                    "surface-container-highest": "#343440",
+                    "on-secondary-container": "#c0b0e7",
+                    "on-tertiary-container": "#f09661",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "surface": "#12121d",
+                    "on-primary-fixed": "#22005c",
+                    "on-surface-variant": "#cbc3d5",
+                    "secondary": "#cfbef6",
+                    "inverse-primary": "#6a45c3",
+                    "outline": "#948e9e",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary": "#532200",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "error": "#ffb4ab",
+                    "on-surface": "#e3e0f1",
+                    "inverse-surface": "#e3e0f1",
+                    "on-secondary-fixed": "#201340",
+                    "on-secondary": "#352856",
+                    "tertiary-container": "#6c2e00",
+                    "surface-container-low": "#1b1a26",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "on-background": "#e3e0f1",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-tertiary-fixed": "#331200",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-dim": "#12121d",
+                    "tertiary": "#ffb68e",
+                    "surface-tint": "#d0bcff",
+                    "primary-container": "#4b1fa3",
+                    "outline-variant": "#494453",
+                    "surface-container-lowest": "#0d0d18",
+                    "background": "#12121d",
+                    "surface-container": "#1f1e2a",
+                    "primary": "#d0bcff",
+                    "on-primary-container": "#b79cff",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A] backdrop-blur-xl bg-opacity-80 border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] flex justify-between items-center px-8 h-16">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] font-headline">JAS Logistics</span>
+<div class="hidden md:flex items-center space-x-6 font-['Plus_Jakarta_Sans'] text-sm tracking-tight">
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Orders</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Tracking</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Customs</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 transition-all duration-300 rounded-full active:scale-95">
+<span class="material-symbols-outlined text-[#d0bcff]">notifications</span>
+</button>
+<button class="p-2 hover:bg-white/5 transition-all duration-300 rounded-full active:scale-95">
+<span class="material-symbols-outlined text-[#d0bcff]">help</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/30">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional headshot of a business logistics manager in a dark suit with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUIQwYsOiUU2jI46wjpjO_7XL-cIr1ge3RJr0V_HRv7DAJIEkLQO8x6nhcqb8uvJD0-UJI5z_K0qd80slA9QDhd2xCKv6IryneMwkyJaOzDcGt_c977Qs8KKZ5aWyQa89wJWWV7Id_a06txb2h39XDaXvmBcTnLoqUobN8dsynIDrsoo7EQZmC9S8t-U9wlxsAvgxTObMNap-VjvnRk5HQVWsOmS0rtQAND8fEtnooZnxwXL0Q2nQkaSgzDt1ob3dzCWMCoGDgOA"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-[#0F0F1A]/95 backdrop-blur-2xl flex flex-col py-6 space-y-4 hidden md:flex z-40">
+<div class="px-6 mb-6">
+<p class="text-[10px] uppercase tracking-[0.2em] text-outline mb-1">Operations</p>
+<h3 class="text-[#d0bcff] font-headline font-bold text-lg">JAS Operations</h3>
+<span class="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded border border-primary/20">Enterprise Tier</span>
+</div>
+<div class="flex flex-col flex-grow">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-xs font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-['Plus_Jakarta_Sans'] text-xs font-medium">Active Shipments</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-['Plus_Jakarta_Sans'] text-xs font-medium">Customs Docs</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-['Plus_Jakarta_Sans'] text-xs font-medium">Fleet Map</span>
+</a>
+<div class="mt-auto px-6 space-y-2">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-2 rounded-lg text-xs font-bold transition-transform active:scale-95 shadow-lg shadow-primary/20">
+                    Create New Order
+                </button>
+<div class="pt-4 space-y-1">
+<a class="flex items-center gap-3 py-2 text-slate-500 hover:text-slate-300 text-[10px]" href="#">
+<span class="material-symbols-outlined text-sm">dns</span> System Status
+                    </a>
+<a class="flex items-center gap-3 py-2 text-error/70 hover:text-error text-[10px]" href="#">
+<span class="material-symbols-outlined text-sm">logout</span> Logout
+                    </a>
+</div>
+</div>
+</div>
+<div class="absolute right-0 top-0 bottom-0 bg-gradient-to-b from-white/5 to-transparent w-[1px]"></div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-6 md:ml-64 transition-all duration-300">
+<div class="max-w-7xl mx-auto space-y-6">
+<!-- SECTION 1: ORDER HERO CARD -->
+<section class="relative overflow-hidden rounded-xl bg-surface-container border border-outline-variant/10 shadow-2xl">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+<div class="p-8 flex flex-col md:flex-row gap-8 items-center justify-between">
+<!-- Identity & Ref -->
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<h1 class="text-2xl font-black font-headline tracking-tight text-on-surface">JAS-ORD-98234-SA</h1>
+<span class="px-3 py-1 bg-primary-container/30 text-primary border border-primary/20 rounded-full text-[10px] font-bold tracking-widest uppercase">IN_TRANSIT</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container-high rounded-full border border-white/5 text-[11px] font-semibold text-secondary">
+<span class="material-symbols-outlined text-xs">payments</span> COD: SAR 4,200.00
+                            </span>
+<span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container-high rounded-full border border-white/5 text-[11px] font-semibold text-tertiary">
+<span class="material-symbols-outlined text-xs">bolt</span> Spot Rate
+                            </span>
+</div>
+</div>
+<!-- Routing Route -->
+<div class="flex items-center gap-10 flex-grow justify-center px-12">
+<div class="text-center">
+<p class="text-[10px] uppercase text-outline mb-1 tracking-widest">Origin</p>
+<h2 class="text-xl font-bold font-headline">RIYADH</h2>
+<p class="text-[10px] text-outline-variant">RUH Hub Alpha</p>
+</div>
+<div class="flex-grow flex items-center relative">
+<div class="w-full h-px bg-gradient-to-r from-transparent via-outline/30 to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-surface-container-highest p-2 rounded-full border border-outline-variant/20 shadow-xl">
+<span class="material-symbols-outlined text-primary text-3xl">local_shipping</span>
+</div>
+</div>
+</div>
+<div class="text-center">
+<p class="text-[10px] uppercase text-outline mb-1 tracking-widest">Destination</p>
+<h2 class="text-xl font-bold font-headline">JEDDAH</h2>
+<p class="text-[10px] text-outline-variant">JED Port Gate 4</p>
+</div>
+</div>
+<!-- Cargo Details -->
+<div class="min-w-[200px] space-y-3 bg-surface-container-lowest/50 p-4 rounded-xl border border-white/5">
+<div class="flex justify-between items-center">
+<span class="text-xs text-outline">Cargo Type</span>
+<span class="text-xs font-semibold">Fragile Tech</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-outline">Total Weight</span>
+<span class="text-xs font-semibold px-2 py-0.5 bg-surface-container-highest rounded">1,240 KG</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-outline">Insurance</span>
+<span class="flex items-center gap-1 text-[10px] text-emerald-400 font-bold uppercase">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">verified</span> Covered
+                            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: TIMELINE + LIVE TRACKING -->
+<div class="grid grid-cols-1 lg:grid-cols-10 gap-6">
+<!-- LEFT (60%): Status Timeline -->
+<div class="lg:col-span-6 bg-surface-container rounded-xl p-8 border border-outline-variant/10">
+<div class="flex justify-between items-center mb-10">
+<h3 class="font-headline font-bold text-lg">Shipment Progress</h3>
+<span class="text-xs text-outline">Last updated: 2 mins ago</span>
+</div>
+<div class="relative space-y-12">
+<!-- Horizontal Line -->
+<div class="absolute left-4 top-2 bottom-2 w-px bg-outline-variant/20 md:hidden"></div>
+<!-- Timeline Items -->
+<div class="flex flex-col md:flex-row justify-between gap-4 relative">
+<!-- Desktop connector line -->
+<div class="hidden md:block absolute top-5 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 via-primary to-outline-variant/20 -z-10"></div>
+<!-- Steps -->
+<div class="flex flex-row md:flex-col items-center gap-4 text-center">
+<div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-surface shadow-lg shadow-emerald-500/20">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="text-left md:text-center">
+<p class="text-[10px] font-bold uppercase text-emerald-400">Submitted</p>
+<p class="text-[9px] text-outline">Oct 12, 08:30</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center gap-4 text-center">
+<div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-surface shadow-lg shadow-emerald-500/20">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="text-left md:text-center">
+<p class="text-[10px] font-bold uppercase text-emerald-400">Confirmed</p>
+<p class="text-[9px] text-outline">Oct 12, 10:15</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center gap-4 text-center">
+<div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-surface shadow-lg shadow-emerald-500/20">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="text-left md:text-center">
+<p class="text-[10px] font-bold uppercase text-emerald-400">Picked Up</p>
+<p class="text-[9px] text-outline">Oct 12, 14:20</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center gap-4 text-center">
+<div class="relative">
+<div class="absolute inset-0 rounded-full bg-primary animate-ping opacity-25"></div>
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary relative z-10 shadow-lg shadow-primary/40">
+<span class="material-symbols-outlined text-sm animate-pulse">local_shipping</span>
+</div>
+</div>
+<div class="text-left md:text-center">
+<p class="text-[10px] font-bold uppercase text-primary">In Transit</p>
+<p class="text-[9px] text-outline">ETA Oct 14</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center gap-4 text-center opacity-40">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-sm">inventory_2</span>
+</div>
+<div class="text-left md:text-center">
+<p class="text-[10px] font-bold uppercase">Warehouse</p>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center gap-4 text-center opacity-40">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-sm">home_pin</span>
+</div>
+<div class="text-left md:text-center">
+<p class="text-[10px] font-bold uppercase">Delivered</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 p-5 bg-surface-container-lowest rounded-xl border border-white/5">
+<div class="flex items-start gap-4">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">info</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface mb-1">Operational Update</h4>
+<p class="text-xs text-outline leading-relaxed">The shipment has departed RUH Consolidation Hub. Current route optimization indicates clear passage through Al-Qassim region. Temperature control sensors are optimal at 18.4°C.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT (40%): Live Tracking -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Map Card -->
+<div class="bg-surface-container rounded-xl overflow-hidden border border-outline-variant/10 flex flex-col h-full min-h-[500px]">
+<div class="relative h-64 w-full bg-surface-dim">
+<img alt="Map tracking" class="w-full h-full object-cover opacity-50 grayscale contrast-125" data-alt="dark themed satellite map showing Saudi Arabia highway network with a highlighted glowing neon purple route line" data-location="Saudi Arabia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrn-gfOCLo_bXJttbwsZQD6C2D-i09GhvlSbcENDTjdbS4HoVD_6nrihgfhQl_AybswG2cTxWho9Vij8dDgJ9lznMdvqVI3UuKfEYiqnwh8sVPjt4-mjeQSSVgzJrEqbAkBTJ-TXRVHI8HcdxCWl3Ytx_mfmXpecpdI5aEQEe6xdi43SeCFOgy3S_2pi_1WYpMJH4JJrUvAllt0T8s-6nEX2z5kG4weCUL_VONACO1aRpEJV7iJJ4Ea8fbW_b8quZCIUCyedVU0g"/>
+<!-- Overlay UI on Map -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent"></div>
+<div class="absolute top-4 left-4 right-4 flex justify-between">
+<span class="px-3 py-1 bg-surface-container/90 backdrop-blur text-[10px] font-bold rounded-full border border-white/10 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    LIVE SATELLITE
+                                </span>
+</div>
+<!-- Vehicle Pin -->
+<div class="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2">
+<div class="relative">
+<div class="absolute -inset-4 bg-primary/20 rounded-full animate-ping"></div>
+<div class="relative bg-primary text-on-primary p-2 rounded-full shadow-2xl shadow-primary/50">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6 flex-grow flex flex-col">
+<div>
+<p class="text-[10px] text-outline uppercase tracking-widest mb-1">Estimated Arrival</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-3xl font-black font-headline text-primary">3h 24m</h3>
+<span class="text-sm text-outline-variant font-medium">remaining</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-xs text-primary">location_on</span>
+<p class="text-xs font-semibold">Currently in: <span class="text-on-surface">Al-Qassim</span> — 248 km from destination</p>
+</div>
+</div>
+<div class="h-px bg-outline-variant/10"></div>
+<!-- Driver Card -->
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/5 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-primary/20">
+<img alt="Driver" class="w-full h-full object-cover" data-alt="portrait of a middle-eastern man in professional logistics uniform smiling warmly against a blurred industrial background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAp1usLzEVnYcGfAhOo4kOLxf9w0wh87jG2h6apv3P05VsaDyUVwBXI6xnrGBiRZAjXtjxc3JSJLR6CIpFBrvfWHKZkkkalKOkAT9galUYPI7wXQy7ABGTSpSDL53h_1_FqEd61yswsr3ukJoow98eRYzUTV3xRqUno1SPxRz8ACMgNfDkHKnJTTq0koXgWzUzsZzDR3DDBVcVI5XQCl9tDMj2YUvmYT5_qOOPlRwe9bPKcqXRnrdinet-KW1PrGLtRqhaPZ-JPA"/>
+</div>
+<div>
+<p class="text-[10px] text-outline font-bold uppercase tracking-tighter">Captain</p>
+<h4 class="text-sm font-bold font-headline">Ahmed Al-Farsi</h4>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[10px] text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] font-bold">4.98</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-3 bg-surface-container-highest hover:bg-primary/20 rounded-full transition-colors text-primary">
+<span class="material-symbols-outlined text-lg">call</span>
+</button>
+<button class="p-3 bg-surface-container-highest hover:bg-primary/20 rounded-full transition-colors text-primary">
+<span class="material-symbols-outlined text-lg">chat</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: DOCUMENT TABS & COD -->
+<section class="bg-surface-container rounded-xl border border-outline-variant/10 overflow-hidden">
+<div class="flex flex-col md:flex-row">
+<div class="p-8 md:w-2/3 border-b md:border-b-0 md:border-r border-outline-variant/10">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline font-bold text-lg">Documentation</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 text-[10px] font-bold border border-outline-variant/30 rounded hover:bg-white/5 transition-colors">Download All (.zip)</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="group p-4 bg-surface-container-low rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-surface-container-highest rounded text-outline group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="text-xs font-bold">POD_JAS_98234.pdf</p>
+<p class="text-[10px] text-outline">Proof of Delivery (Draft)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-outline">download</span>
+</div>
+<div class="group p-4 bg-surface-container-low rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-surface-container-highest rounded text-outline group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<div>
+<p class="text-xs font-bold">GRN_98234_Final.pdf</p>
+<p class="text-[10px] text-outline">Goods Received Note</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-outline">download</span>
+</div>
+<div class="group p-4 bg-surface-container-low rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-surface-container-highest rounded text-outline group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<div>
+<p class="text-xs font-bold">TGA_Permit_SA.pdf</p>
+<p class="text-[10px] text-outline">Transport Auth Permit</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-outline">download</span>
+</div>
+<div class="group p-4 bg-surface-container-low rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-surface-container-highest rounded text-outline group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">request_quote</span>
+</div>
+<div>
+<p class="text-xs font-bold">INV_2023_9823.pdf</p>
+<p class="text-[10px] text-outline">Commercial Invoice</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-outline">download</span>
+</div>
+</div>
+</div>
+<div class="p-8 md:w-1/3 bg-surface-container-low/30">
+<h3 class="font-headline font-bold text-lg mb-6">Financial Summary</h3>
+<div class="space-y-4">
+<div class="p-5 bg-gradient-to-br from-surface-container-high to-surface-container rounded-xl border border-white/5 shadow-inner">
+<p class="text-[10px] text-outline uppercase tracking-widest mb-1">Cash on Delivery Status</p>
+<div class="flex items-center justify-between">
+<h4 class="text-2xl font-bold font-headline">SAR 4,200.00</h4>
+<span class="px-3 py-1 bg-secondary-container/50 text-secondary border border-secondary/20 rounded-full text-[10px] font-black uppercase">Pending</span>
+</div>
+<p class="mt-4 text-[10px] text-outline-variant italic">Amount to be collected upon final verification at Jeddah Port Gate 4.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 bg-surface-container-highest rounded-lg border border-white/5">
+<p class="text-[9px] text-outline uppercase">Service Fee</p>
+<p class="text-sm font-bold">SAR 450.00</p>
+</div>
+<div class="p-3 bg-surface-container-highest rounded-lg border border-white/5">
+<p class="text-[9px] text-outline uppercase">VAT (15%)</p>
+<p class="text-sm font-bold">SAR 697.50</p>
+</div>
+</div>
+<button class="w-full py-3 bg-white/5 hover:bg-white/10 text-on-surface border border-white/10 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">print</span> Print Full Summary
+                            </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

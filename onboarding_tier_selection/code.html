@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#e9ddff",
+                    "background": "#12121d",
+                    "surface-tint": "#d0bcff",
+                    "surface-bright": "#383845",
+                    "on-primary-container": "#b79cff",
+                    "inverse-on-surface": "#302f3b",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "primary-fixed": "#e9ddff",
+                    "on-error": "#690005",
+                    "surface-container": "#1f1e2a",
+                    "surface": "#12121d",
+                    "surface-container-highest": "#343440",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-surface": "#e3e0f1",
+                    "primary": "#d0bcff",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-background": "#e3e0f1",
+                    "secondary-container": "#4f4171",
+                    "on-secondary-fixed": "#201340",
+                    "surface-dim": "#12121d",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-tertiary-container": "#f09661",
+                    "tertiary-fixed": "#ffdbc9",
+                    "primary-fixed-dim": "#d0bcff",
+                    "secondary": "#cfbef6",
+                    "on-primary-fixed": "#22005c",
+                    "on-secondary-container": "#c0b0e7",
+                    "primary-container": "#4b1fa3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#6c2e00",
+                    "outline": "#948e9e",
+                    "on-secondary": "#352856",
+                    "surface-variant": "#343440",
+                    "on-primary": "#3b0092",
+                    "surface-container-high": "#292935",
+                    "surface-container-low": "#1b1a26",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary-fixed": "#331200",
+                    "on-tertiary": "#532200",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#494453",
+                    "inverse-surface": "#e3e0f1",
+                    "inverse-primary": "#6a45c3",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "tertiary": "#ffb68e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(31, 30, 42, 0.7) 0%, rgba(27, 26, 38, 0.4) 100%);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20">
+<div class="flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-white uppercase font-headline">JAS Carrier Portal</span>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-slate-400 hover:text-white transition-colors" href="#">Fleet</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-slate-400 hover:text-white transition-colors" href="#">Earnings</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-slate-400 hover:text-white transition-colors" href="#">Compliance</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide text-slate-400 hover:text-white transition-colors" href="#">Support</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-5 py-2 text-sm font-semibold rounded-lg text-white hover:bg-white/5 transition-all">Login</button>
+<button class="px-5 py-2 text-sm font-semibold rounded-lg bg-primary text-on-primary active:scale-95 transition-transform">Register Now</button>
+</div>
+</div>
+</header>
+<main class="pt-16 min-h-screen flex">
+<!-- Multi-step Wizard Sidebar -->
+<aside class="w-80 bg-[#0F0F1A]/90 border-r border-outline-variant/10 p-8 flex flex-col gap-12 fixed h-full left-0">
+<div class="flex flex-col gap-2">
+<h2 class="text-xl font-black text-white font-headline">Carrier Center</h2>
+<p class="text-xs text-slate-500 font-semibold">Partner Onboarding • JAS-9921</p>
+</div>
+<nav class="flex flex-col gap-8">
+<!-- Step 1 Done -->
+<div class="flex items-center gap-4 group">
+<div class="w-8 h-8 rounded-full bg-primary-container/30 border border-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[13px] font-semibold text-slate-400">Step 01</span>
+<span class="text-sm font-bold text-slate-500">Business Profile</span>
+</div>
+</div>
+<!-- Step 2 Active -->
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary border-4 border-primary-container flex items-center justify-center text-on-primary shadow-[0_0_15px_rgba(208,188,255,0.4)]">
+<span class="font-bold text-sm">02</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[13px] font-semibold text-primary">Step 02</span>
+<span class="text-sm font-bold text-white">Tier Selection</span>
+</div>
+</div>
+<!-- Step 3 Inactive -->
+<div class="flex items-center gap-4 opacity-40">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center text-outline">
+<span class="font-bold text-sm">03</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[13px] font-semibold text-outline">Step 03</span>
+<span class="text-sm font-bold text-outline">Fleet Assets</span>
+</div>
+</div>
+<!-- Step 4 Inactive -->
+<div class="flex items-center gap-4 opacity-40">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center text-outline">
+<span class="font-bold text-sm">04</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[13px] font-semibold text-outline">Step 04</span>
+<span class="text-sm font-bold text-outline">Compliance Docs</span>
+</div>
+</div>
+<!-- Step 5 Inactive -->
+<div class="flex items-center gap-4 opacity-40">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center text-outline">
+<span class="font-bold text-sm">05</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[13px] font-semibold text-outline">Step 05</span>
+<span class="text-sm font-bold text-outline">Activation</span>
+</div>
+</div>
+</nav>
+<div class="mt-auto p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<p class="text-xs text-slate-400 mb-3 leading-relaxed">Choose the tier that matches your fleet capacity for maximum yield.</p>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/5"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] uppercase tracking-widest font-black text-primary/60">
+<span>Progress</span>
+<span>40%</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="ml-80 flex-1 p-12 bg-surface">
+<div class="max-w-6xl mx-auto">
+<header class="mb-12">
+<h1 class="text-4xl font-extrabold font-headline text-white tracking-tight mb-4">Select Partnership Tier</h1>
+<p class="text-on-surface-variant max-w-2xl text-lg leading-relaxed">Scale your logistics business with JAS. Our tiered program offers increasing yield rates, priority queuing, and AI-powered operational insights.</p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- BRONZE Tier -->
+<article class="group relative p-8 rounded-xl bg-surface-container border border-outline-variant/10 hover:bg-surface-container-high hover:scale-[1.02] transition-all duration-300 flex flex-col">
+<div class="mb-8">
+<div class="flex items-center justify-between mb-4">
+<span class="bg-surface-container-highest text-orange-200/70 text-[10px] font-black tracking-widest px-3 py-1 rounded-full border border-orange-200/10">🥉 BRONZE</span>
+</div>
+<h3 class="text-white text-3xl font-black mb-1">SAR 0</h3>
+<p class="text-slate-500 text-sm font-medium">Free Entrance Tier</p>
+</div>
+<div class="space-y-4 mb-8 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm text-on-surface">Base Earning Rates</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm text-on-surface">Standard Support</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm text-on-surface">Up to 2 Vehicles</span>
+</div>
+<div class="flex items-start gap-3 opacity-30">
+<span class="material-symbols-outlined text-slate-600 text-lg">cancel</span>
+<span class="text-sm text-slate-500">No Priority Queue</span>
+</div>
+<div class="flex items-start gap-3 opacity-30">
+<span class="material-symbols-outlined text-slate-600 text-lg">cancel</span>
+<span class="text-sm text-slate-500">No Dedicated Manager</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-lg border border-outline-variant/5 mb-6">
+<div class="text-[10px] text-slate-500 uppercase font-black tracking-widest mb-1">Earning Rate</div>
+<div class="text-white font-bold">Base + 0%</div>
+</div>
+<button class="w-full py-4 rounded-lg border border-primary/20 text-primary font-bold text-sm group-hover:bg-primary group-hover:text-on-primary transition-all">Select Bronze</button>
+</article>
+<!-- SILVER Tier (Recommended) -->
+<article class="group relative p-8 rounded-xl bg-primary-container/10 border-2 border-primary/40 hover:scale-[1.05] transition-all duration-300 flex flex-col shadow-[0_20px_50px_rgba(75,31,163,0.3)] z-10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-[10px] font-black tracking-tighter uppercase shadow-lg shadow-primary/20">RECOMMENDED</div>
+<div class="mb-8">
+<div class="flex items-center justify-between mb-4">
+<span class="bg-secondary-container/50 text-secondary-fixed text-[10px] font-black tracking-widest px-3 py-1 rounded-full border border-secondary-container">🥈 SILVER</span>
+</div>
+<div class="flex items-baseline gap-1">
+<h3 class="text-white text-3xl font-black mb-1">SAR 25k</h3>
+<span class="text-slate-400 text-xs font-semibold">/year</span>
+</div>
+<p class="text-primary-fixed-dim text-sm font-medium">Professional Growth</p>
+</div>
+<div class="space-y-4 mb-8 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm text-on-surface">Enhanced Yields</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm text-on-surface font-bold text-white">Priority Queue Access</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-weight="fill" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="text-sm text-on-surface italic">AI Coaching Engine</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm text-on-surface">Up to 15 Vehicles</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm text-on-surface">Regional Support Access</span>
+</div>
+</div>
+<div class="p-4 bg-primary-container/20 rounded-lg border border-primary/10 mb-6">
+<div class="text-[10px] text-primary-fixed-dim uppercase font-black tracking-widest mb-1">Earning Rate</div>
+<div class="text-white font-bold">Base + 12% Bonus</div>
+</div>
+<button class="w-full py-4 rounded-lg bg-primary text-on-primary font-bold text-sm shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all">Select Silver</button>
+</article>
+<!-- GOLD Tier -->
+<article class="group relative p-8 rounded-xl bg-surface-container border border-outline-variant/10 hover:bg-surface-container-high hover:scale-[1.02] transition-all duration-300 flex flex-col">
+<div class="mb-8">
+<div class="flex items-center justify-between mb-4">
+<span class="bg-tertiary-container/30 text-tertiary-fixed text-[10px] font-black tracking-widest px-3 py-1 rounded-full border border-tertiary-container/20">🥇 GOLD</span>
+</div>
+<div class="flex items-baseline gap-1">
+<h3 class="text-white text-3xl font-black mb-1">SAR 85k</h3>
+<span class="text-slate-500 text-xs font-semibold">/year</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Enterprise Partnership</p>
+</div>
+<div class="space-y-4 mb-8 flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm text-on-surface">Maximum Yield Rates</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm text-on-surface font-bold text-white uppercase tracking-tighter">Exclusivity Perks</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+<span class="text-sm text-on-surface">Unlimited Vehicles</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">support_agent</span>
+<span class="text-sm text-on-surface">Dedicated Account Manager</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="text-sm text-on-surface">Weekly AI Coaching Session</span>
+</div>
+</div>
+<div class="p-4 bg-tertiary-container/10 rounded-lg border border-tertiary/5 mb-6">
+<div class="text-[10px] text-tertiary-fixed-dim uppercase font-black tracking-widest mb-1">Earning Rate</div>
+<div class="text-white font-bold">Base + 28% Bonus</div>
+</div>
+<button class="w-full py-4 rounded-lg border border-primary/20 text-primary font-bold text-sm group-hover:bg-primary group-hover:text-on-primary transition-all">Select Gold</button>
+</article>
+</div>
+<div class="mt-16 flex justify-between items-center bg-surface-container-low p-6 rounded-2xl border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl overflow-hidden bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">info</span>
+</div>
+<div>
+<p class="text-sm font-bold text-white">Need a custom plan?</p>
+<p class="text-xs text-slate-500">For fleets over 100+ vehicles, contact our Enterprise Strategy team.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-lg border border-outline-variant/20 text-on-surface font-bold text-sm hover:bg-surface-container-highest transition-all">Back</button>
+<button class="px-8 py-3 rounded-lg bg-primary text-on-primary font-bold text-sm flex items-center gap-2 group shadow-lg shadow-primary/10">
+                            Continue to Fleet Registration
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-8 border-t border-white/5 bg-[#0F0F1A] mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-screen-2xl mx-auto">
+<p class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500">© 2024 JAS Logistics Saudi Arabia. All Rights Reserved. TGA Licensed.</p>
+<div class="flex gap-8 mt-4 md:mt-0">
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Compliance Standards</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Partner API</a>
+</div>
+</div>
+</footer>
+</body></html>

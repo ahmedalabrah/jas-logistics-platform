@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Carrier Portal - Driver Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#e9ddff",
+                    "background": "#12121d",
+                    "surface-tint": "#d0bcff",
+                    "surface-bright": "#383845",
+                    "on-primary-container": "#b79cff",
+                    "inverse-on-surface": "#302f3b",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "primary-fixed": "#e9ddff",
+                    "on-error": "#690005",
+                    "surface-container": "#1f1e2a",
+                    "surface": "#12121d",
+                    "surface-container-highest": "#343440",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-surface": "#e3e0f1",
+                    "primary": "#d0bcff",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-background": "#e3e0f1",
+                    "secondary-container": "#4f4171",
+                    "on-secondary-fixed": "#201340",
+                    "surface-dim": "#12121d",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-tertiary-container": "#f09661",
+                    "tertiary-fixed": "#ffdbc9",
+                    "primary-fixed-dim": "#d0bcff",
+                    "secondary": "#cfbef6",
+                    "on-primary-fixed": "#22005c",
+                    "on-secondary-container": "#c0b0e7",
+                    "primary-container": "#4b1fa3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#6c2e00",
+                    "outline": "#948e9e",
+                    "on-secondary": "#352856",
+                    "surface-variant": "#343440",
+                    "on-primary": "#3b0092",
+                    "surface-container-high": "#292935",
+                    "surface-container-low": "#1b1a26",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary-fixed": "#331200",
+                    "on-tertiary": "#532200",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#494453",
+                    "inverse-surface": "#e3e0f1",
+                    "inverse-primary": "#6a45c3",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "tertiary": "#ffb68e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-panel {
+        backdrop-filter: blur(12px);
+        background: rgba(31, 30, 42, 0.7);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #12121d;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #4b1fa3;
+        border-radius: 10px;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#0F0F1A]/90 backdrop-blur-lg shadow-[4px_0_24px_rgba(0,0,0,0.5)] flex flex-col pt-20 pb-6">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-black text-white">Carrier Center</h1>
+<p class="text-[11px] text-slate-500 font-semibold tracking-wider">Partner ID: JAS-9921</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 hover:bg-[#1A1A2E] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[13px] font-semibold">Dashboard</span>
+</a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 hover:bg-[#1A1A2E] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[13px] font-semibold">Fleet Management</span>
+</a>
+<a class="bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] px-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[13px] font-semibold">Driver Onboarding</span>
+</a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 hover:bg-[#1A1A2E] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[13px] font-semibold">Earnings</span>
+</a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 hover:bg-[#1A1A2E] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[13px] font-semibold">Compliance</span>
+</a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 hover:bg-[#1A1A2E] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">assignment</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[13px] font-semibold">Contracts</span>
+</a>
+</nav>
+<div class="px-4 mt-auto pt-6 border-t border-white/5 space-y-1">
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[13px] font-semibold">Settings</span>
+</a>
+<a class="text-slate-500 px-4 py-3 flex items-center gap-3 hover:text-slate-300 transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[13px] font-semibold">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen pt-24 pb-12 px-12 relative overflow-x-hidden">
+<!-- Header -->
+<div class="fixed top-0 right-0 left-64 h-16 z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20 flex justify-between items-center px-8 border-b border-white/5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">person_add</span>
+<h2 class="text-xl font-bold tracking-tighter text-white uppercase font-headline">JAS Carrier Portal</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">search</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+</div>
+<div class="h-8 w-[1px] bg-white/10"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold text-white">Ahmed Al-Qahtani</p>
+<p class="text-[10px] text-slate-500">Fleet Operations</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center border border-primary/20 overflow-hidden">
+<img alt="Carrier Partner Profile" class="w-full h-full object-cover" data-alt="professional portrait of a Middle Eastern logistics manager in a modern office environment with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVlf7CKsGMbe26y2Y2tQqwJPN1eMgVBi_tNnH8dRxcf-SvPzTr25u40NGoY8TqOrPDBhHDQY4r17eKPqbAwhfTspEPIQHSdGTWaZbD9v4DUPbiB6YmU5WlaZACtndQM5g4LoyKUDn9L468W1dc32YliV3NTjbw4PtSQdSqNWU6YT-hWUys0WBMZ-n-2mS8S-UClJ6iKcAQeEEPjgMMebJTnTiceJMdPn0pW3LpWhgiZn17fXzpmc85tt9J64QgaITwR-1HNH8E2Q"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Onboarding Progress -->
+<div class="max-w-5xl mx-auto mb-10">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="text-2xl font-bold text-white font-headline mb-1">Driver Onboarding</h3>
+<p class="text-on-surface-variant text-sm">Step 4 of 5: Personnel Registration &amp; Assignment</p>
+</div>
+<div class="flex gap-2">
+<div class="h-1.5 w-12 rounded-full bg-primary shadow-[0_0_8px_rgba(208,188,255,0.4)]"></div>
+<div class="h-1.5 w-12 rounded-full bg-primary shadow-[0_0_8px_rgba(208,188,255,0.4)]"></div>
+<div class="h-1.5 w-12 rounded-full bg-primary shadow-[0_0_8px_rgba(208,188,255,0.4)]"></div>
+<div class="h-1.5 w-12 rounded-full bg-primary shadow-[0_0_8px_rgba(208,188,255,0.4)]"></div>
+<div class="h-1.5 w-12 rounded-full bg-surface-container-highest"></div>
+</div>
+</div>
+<!-- Bento Grid Layout for Form -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Form Section -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Driver 1 Card -->
+<div class="bg-surface-container-low rounded-xl p-8 border border-white/5 shadow-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="text-[10px] font-bold text-primary tracking-widest uppercase bg-primary-container/20 px-3 py-1 rounded-full border border-primary/20">Driver 01</span>
+</div>
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-white">Primary Driver Details</h4>
+<p class="text-xs text-on-surface-variant">Enter official identification as per Saudi National ID or Iqama.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<!-- Full Name -->
+<div class="space-y-2">
+<label class="text-xs font-semibold text-on-surface-variant tracking-wide uppercase">Full Name</label>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-t-lg transition-all text-sm py-3 px-4" placeholder="Enter full name" type="text" value="Khalid Mohammed Al-Saud"/>
+</div>
+<!-- Mobile -->
+<div class="space-y-2">
+<label class="text-xs font-semibold text-on-surface-variant tracking-wide uppercase">Mobile Number</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm font-bold border-r border-white/10 pr-3">+966</span>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-t-lg transition-all text-sm py-3 pl-20 pr-4" placeholder="5X XXX XXXX" type="text" value="50 123 4567"/>
+</div>
+</div>
+<!-- National ID + Absher -->
+<div class="space-y-2">
+<label class="text-xs font-semibold text-on-surface-variant tracking-wide uppercase">National ID / Iqama</label>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-t-lg transition-all text-sm py-3 px-4" placeholder="ID Number" type="text" value="1092837456"/>
+<button class="bg-primary/10 text-primary hover:bg-primary/20 text-[11px] font-bold px-4 rounded-lg flex items-center gap-2 transition-all border border-primary/20 group">
+                                        Verify with Absher
+                                        <span class="material-symbols-outlined text-[14px] group-hover:translate-x-1 duration-200">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- GOSI Check -->
+<div class="space-y-2">
+<label class="text-xs font-semibold text-on-surface-variant tracking-wide uppercase">GOSI Registration</label>
+<div class="bg-surface-container-lowest h-[46px] rounded-lg border border-white/5 flex items-center justify-between px-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-400 text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-white">Active Registration</span>
+</div>
+<span class="text-[10px] text-on-surface-variant italic">Last checked: Today, 10:22 AM</span>
+</div>
+</div>
+<!-- Driving License Grid -->
+<div class="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-white/5">
+<div class="space-y-2">
+<label class="text-xs font-semibold text-on-surface-variant tracking-wide uppercase">License Number</label>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-t-lg transition-all text-sm py-3 px-4" type="text" value="1092837456"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold text-on-surface-variant tracking-wide uppercase">Class</label>
+<select class="w-full bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-t-lg transition-all text-sm py-3 px-4 appearance-none">
+<option>Heavy Transport</option>
+<option>Medium Commercial</option>
+<option>Light Private</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold text-on-surface-variant tracking-wide uppercase">Expiry Date</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-t-lg transition-all text-sm py-3 px-4" type="text" value="1448/05/20"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">calendar_today</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Driver Button -->
+<button class="w-full py-6 border-2 border-dashed border-white/10 rounded-xl flex flex-col items-center justify-center gap-2 text-on-surface-variant hover:border-primary/50 hover:bg-primary/5 hover:text-white transition-all group">
+<span class="material-symbols-outlined text-3xl group-hover:scale-110 duration-200">person_add</span>
+<span class="font-bold text-sm">+ Add Another Driver</span>
+</button>
+</div>
+<!-- Right Sidebar / Matrix Section -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Vehicle Assignment Matrix -->
+<div class="bg-surface-container-low rounded-xl border border-white/5 shadow-xl overflow-hidden">
+<div class="p-6 bg-surface-container">
+<h4 class="text-sm font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment_turned_in</span>
+                                Vehicle Assignment Matrix
+                            </h4>
+</div>
+<div class="p-6 space-y-6">
+<p class="text-xs text-on-surface-variant leading-relaxed">Map your registered drivers to active vehicles in your fleet. Every driver must have at least one primary vehicle.</p>
+<!-- Matrix Rows -->
+<div class="space-y-4">
+<div class="p-4 rounded-lg bg-surface-container-highest/50 border border-white/5">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-black text-primary">KA</div>
+<span class="text-sm font-bold text-white">Khalid Mohammed</span>
+</div>
+<div class="space-y-1.5">
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Assign Primary Vehicle</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest border border-white/10 rounded-lg text-sm py-2 px-3 appearance-none focus:border-primary focus:ring-0 transition-all">
+<option>Mercedes-Benz Actros (992-KSA)</option>
+<option>Volvo FH16 (881-KSA)</option>
+<option>Scania R-Series (442-KSA)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<div class="p-4 rounded-lg border border-dashed border-white/10 flex items-center justify-center text-xs text-slate-500 italic">
+                                    Add more drivers to assign vehicles
+                                </div>
+</div>
+</div>
+<!-- Mini Map / Service Area Visualization -->
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-40 mix-blend-luminosity" data-alt="stylized vector map of Saudi Arabia with logistic nodes and glowing connections in neon blue and violet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQNwtXYEYIqWyYdVvMFw_wBWwoA0FUSXG53x-vB6U2Y97Wtkl3ZKpYBBn3lOJunY0yQhadojmHJADPO2pT9lxNJZ-adK0bkZCx2sjoKlix6-0311WnG35jPjXB86d4Qpv9WIrgYAapK0qpQociRFvfbRmuivb9fhOlkOLbaPsun102H8TLCyw6azefl7U4PuxjyniJIorDwIUXjq2RAs5VNFK6LQN1VVMGdYAYtxILiJvXVUlaBIUDWDSay_C-XdAdVn0f8RgAxQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<div class="flex justify-between items-center bg-surface-container/90 backdrop-blur-md p-3 rounded-lg border border-white/10 shadow-lg">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-[10px] font-bold uppercase tracking-wider">Fleet Coverage: Riyadh</span>
+</div>
+<span class="text-[10px] text-primary font-black">98.2%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Policy Quick Check -->
+<div class="bg-primary-container/10 rounded-xl p-6 border border-primary/20">
+<h5 class="text-xs font-bold text-primary uppercase tracking-widest mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">info</span>
+                            Compliance Reminder
+                        </h5>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                            All drivers must complete the <span class="text-primary font-semibold underline underline-offset-2">JAS Safety Workshop</span> within 7 days of onboarding. Failure to do so will result in temporary credential suspension.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="mt-12 flex justify-between items-center pt-8 border-t border-white/5">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-white transition-all font-bold text-sm">
+<span class="material-symbols-outlined">arrow_back</span>
+                    Previous Step
+                </button>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-lg bg-surface-container-highest text-white font-bold text-sm hover:bg-surface-bright transition-all">
+                        Save as Draft
+                    </button>
+<button class="px-10 py-3 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-black text-sm shadow-[0_4px_20px_rgba(208,188,255,0.3)] hover:scale-[1.02] active:scale-95 transition-all">
+                        Complete Onboarding
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Global Footer -->
+<footer class="ml-64 bg-[#0F0F1A] w-full py-8 border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-screen-2xl mx-auto">
+<p class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500">© 2024 JAS Logistics Saudi Arabia. All Rights Reserved. TGA Licensed.</p>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Compliance Standards</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Partner API</a>
+</div>
+</div>
+</footer>
+</body></html>

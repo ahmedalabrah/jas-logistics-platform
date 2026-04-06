@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS WMS - Outbound Dock Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Poppins:wght@600;700&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#cfbef6",
+            "surface-container": "#1f1e2a",
+            "primary-container": "#4b1fa3",
+            "error-container": "#93000a",
+            "tertiary-container": "#6c2e00",
+            "on-primary": "#3b0092",
+            "outline-variant": "#494453",
+            "on-secondary": "#352856",
+            "primary-fixed-dim": "#d0bcff",
+            "on-tertiary": "#532200",
+            "on-primary-fixed": "#22005c",
+            "inverse-on-surface": "#302f3b",
+            "outline": "#948e9e",
+            "on-tertiary-container": "#f09661",
+            "on-primary-fixed-variant": "#5228aa",
+            "primary": "#d0bcff",
+            "on-secondary-fixed": "#201340",
+            "surface-variant": "#343440",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#743405",
+            "on-surface": "#e3e0f1",
+            "primary-fixed": "#e9ddff",
+            "secondary-container": "#4f4171",
+            "surface-tint": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "secondary": "#cfbef6",
+            "on-background": "#e3e0f1",
+            "inverse-primary": "#6a45c3",
+            "surface-container-lowest": "#0d0d18",
+            "error": "#ffb4ab",
+            "surface-bright": "#383845",
+            "background": "#12121d",
+            "surface-dim": "#12121d",
+            "tertiary-fixed-dim": "#ffb68e",
+            "surface": "#12121d",
+            "tertiary-fixed": "#ffdbc9",
+            "on-primary-container": "#b79cff",
+            "tertiary": "#ffb68e",
+            "surface-container-low": "#1b1a26",
+            "surface-container-high": "#292935",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#e3e0f1",
+            "on-surface-variant": "#cbc3d5",
+            "on-secondary-fixed-variant": "#4c3f6e",
+            "on-secondary-container": "#c0b0e7",
+            "surface-container-highest": "#343440",
+            "on-tertiary-fixed": "#331200"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+    .glass { backdrop-filter: blur(12px); }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-white/10 bg-slate-950/80 backdrop-blur-xl flex flex-col py-6 z-50">
+<div class="px-6 mb-8">
+<h1 class="text-2xl font-bold tracking-tight text-[#d0bcff]">JAS WMS</h1>
+<p class="text-xs text-on-surface-variant/60 font-medium">Riyadh Central Hub</p>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-xl" data-icon="inventory_2">inventory_2</span>
+<span class="font-label text-sm">Inventory</span>
+</a>
+<a class="flex items-center px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-xl" data-icon="conveyor_belt">conveyor_belt</span>
+<span class="font-label text-sm">Pick &amp; Pack</span>
+</a>
+<!-- Active State: Dock Management -->
+<a class="flex items-center px-3 py-2.5 text-[#d0bcff] bg-white/10 font-semibold border-r-2 border-[#d0bcff] transition-all duration-300 rounded-l-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-xl" data-icon="dock" style="font-variation-settings: 'FILL' 1;">dock</span>
+<span class="font-label text-sm">Dock Management</span>
+</a>
+<a class="flex items-center px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-xl" data-icon="analytics">analytics</span>
+<span class="font-label text-sm">Analytics</span>
+</a>
+<a class="flex items-center px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-xl" data-icon="settings">settings</span>
+<span class="font-label text-sm">Settings</span>
+</a>
+</nav>
+<div class="px-6 py-4 mb-4">
+<button class="w-full py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-lg text-sm shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+        Add Movement
+      </button>
+</div>
+<div class="mt-auto px-3 border-t border-white/5 pt-4 space-y-1">
+<a class="flex items-center px-3 py-2 text-slate-400 hover:text-slate-200 transition-colors text-sm" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="help">help</span>
+        Support
+      </a>
+<a class="flex items-center px-3 py-2 text-slate-400 hover:text-slate-200 transition-colors text-sm" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="logout">logout</span>
+        Sign Out
+      </a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 flex-1 flex flex-col bg-background">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-[#0F0F1A]/90 backdrop-blur-lg flex justify-between items-center px-8 w-full border-b border-white/5">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-white uppercase tracking-wider">JAS Logistics WMS</span>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg" data-icon="search">search</span>
+<input class="bg-surface-container-highest/50 border-none rounded-full py-1.5 pl-10 pr-4 text-sm w-64 focus:ring-1 focus:ring-primary text-on-surface placeholder:text-slate-500" placeholder="Search orders, docks, or drivers..." type="text"/>
+</div>
+</div>
+<nav class="flex items-center gap-6">
+<a class="text-slate-400 font-medium hover:text-white transition-colors duration-200" href="#">Live Floor</a>
+<a class="text-slate-400 font-medium hover:text-white transition-colors duration-200" href="#">Yard View</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1 font-medium" href="#">Alerts</a>
+<div class="flex items-center gap-4 border-l border-white/10 pl-6">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-lg relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 bg-white/5 px-3 py-1.5 rounded-full hover:bg-white/10 transition-all cursor-pointer">
+<div class="w-7 h-7 rounded-full bg-primary-container flex items-center justify-center text-xs font-bold text-primary">JD</div>
+<span class="text-sm font-medium hidden xl:block">Warehouse Manager</span>
+</div>
+</div>
+</nav>
+</header>
+<!-- Content Body -->
+<div class="pt-24 px-8 pb-12">
+<!-- Dock Status Board -->
+<section class="mb-10">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="text-2xl font-bold text-white mb-1">Dock Status Board</h2>
+<p class="text-on-surface-variant text-sm">Real-time terminal utilization overview</p>
+</div>
+<div class="flex gap-3 text-xs uppercase tracking-widest font-bold">
+<span class="flex items-center gap-1.5 text-slate-500"><span class="w-2 h-2 rounded-full bg-slate-700"></span> Empty</span>
+<span class="flex items-center gap-1.5 text-primary"><span class="w-2 h-2 rounded-full bg-primary"></span> Loading</span>
+<span class="flex items-center gap-1.5 text-emerald-400"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Ready</span>
+<span class="flex items-center gap-1.5 text-orange-400"><span class="w-2 h-2 rounded-full bg-orange-500"></span> Departed</span>
+</div>
+</div>
+<!-- Bento Grid of Docks -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+<!-- Dock 1: Loading -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/5 hover:border-primary/30 transition-all group relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="text-4xl font-black text-white/10 group-hover:text-primary/20 transition-colors">01</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary uppercase">Loading</span>
+</div>
+<div class="space-y-1">
+<p class="text-[11px] text-on-surface-variant uppercase font-semibold">Order Ref</p>
+<p class="text-sm font-bold text-white">ORD-4821</p>
+</div>
+<div class="mt-4">
+<div class="flex justify-between items-center text-[10px] mb-1">
+<span class="text-on-surface-variant">40% Loaded</span>
+<span class="text-primary">12/30 Units</span>
+</div>
+<div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[40%] rounded-full shadow-[0_0_8px_rgba(208,188,255,0.4)]"></div>
+</div>
+</div>
+</div>
+<!-- Dock 2: Empty -->
+<div class="bg-surface-container-lowest/50 rounded-xl p-4 border border-dashed border-white/10 hover:bg-surface-container-low transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="text-4xl font-black text-white/5">02</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-500 uppercase italic">Empty</span>
+</div>
+<div class="flex flex-col items-center justify-center py-4 opacity-40 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="add_circle">add_circle</span>
+<p class="text-[10px] font-bold uppercase tracking-wider">Assign Truck</p>
+</div>
+</div>
+<!-- Dock 3: Ready -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/5 border-l-4 border-l-emerald-500">
+<div class="flex justify-between items-start mb-4">
+<span class="text-4xl font-black text-white/10">03</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-400 uppercase">Ready</span>
+</div>
+<div class="space-y-3">
+<div>
+<p class="text-[11px] text-on-surface-variant uppercase font-semibold">Order Ref</p>
+<p class="text-sm font-bold text-white">ORD-4799</p>
+</div>
+<button class="w-full py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-widest rounded transition-colors">Release Dock</button>
+</div>
+</div>
+<!-- Dock 4: Departed -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/5 opacity-60">
+<div class="flex justify-between items-start mb-4">
+<span class="text-4xl font-black text-white/10">04</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-orange-500/10 text-orange-400 uppercase">Departed</span>
+</div>
+<div class="space-y-1">
+<p class="text-[11px] text-on-surface-variant uppercase font-semibold">Last Trip</p>
+<p class="text-sm font-bold text-white/50">ORD-4752</p>
+<p class="text-[10px] text-on-surface-variant">14 mins ago</p>
+</div>
+</div>
+<!-- Dock 5: Loading -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/5">
+<div class="flex justify-between items-start mb-4">
+<span class="text-4xl font-black text-white/10">05</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary uppercase">Loading</span>
+</div>
+<div class="space-y-1">
+<p class="text-[11px] text-on-surface-variant uppercase font-semibold">Order Ref</p>
+<p class="text-sm font-bold text-white">ORD-4825</p>
+</div>
+<div class="mt-4">
+<div class="flex justify-between items-center text-[10px] mb-1">
+<span class="text-on-surface-variant">88% Loaded</span>
+</div>
+<div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[88%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Repeating Pattern for 12 Docks -->
+<div class="bg-surface-container-lowest/50 rounded-xl p-4 border border-dashed border-white/10 flex flex-col justify-between">
+<span class="text-4xl font-black text-white/5">06</span>
+<p class="text-[10px] text-center uppercase tracking-widest text-slate-600">Dock Maintenance</p>
+</div>
+<!-- Mocking more docks quickly -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/5">
+<span class="text-4xl font-black text-white/10">07</span>
+<div class="h-16 flex items-center justify-center italic text-slate-600 text-xs">Awaiting Arrival</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/5">
+<span class="text-4xl font-black text-white/10">08</span>
+<div class="h-16 flex items-center justify-center italic text-slate-600 text-xs">Awaiting Arrival</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/5">
+<span class="text-4xl font-black text-white/10">09</span>
+<div class="h-16 flex items-center justify-center italic text-slate-600 text-xs">Awaiting Arrival</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/5">
+<span class="text-4xl font-black text-white/10">10</span>
+<div class="h-16 flex items-center justify-center italic text-slate-600 text-xs">Awaiting Arrival</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/5">
+<span class="text-4xl font-black text-white/10">11</span>
+<div class="h-16 flex items-center justify-center italic text-slate-600 text-xs">Awaiting Arrival</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/5">
+<span class="text-4xl font-black text-white/10">12</span>
+<div class="h-16 flex items-center justify-center italic text-slate-600 text-xs">Awaiting Arrival</div>
+</div>
+</div>
+</section>
+<!-- Main Content: Outbound Queue -->
+<section class="bg-surface-container-low rounded-2xl overflow-hidden shadow-2xl border border-white/5">
+<div class="p-6 flex justify-between items-center border-b border-white/5 bg-surface-container">
+<div>
+<h3 class="text-lg font-bold text-white">Outbound Queue</h3>
+<p class="text-on-surface-variant text-xs">Upcoming shipments &amp; active loading tasks</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-xs font-semibold text-slate-300 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+              Filters
+            </button>
+<button class="bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-xs font-semibold text-slate-300 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+              Export List
+            </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container/50 text-[10px] uppercase tracking-wider text-on-surface-variant font-bold">
+<tr>
+<th class="px-6 py-4">Order Ref</th>
+<th class="px-6 py-4">Client</th>
+<th class="px-6 py-4">Items</th>
+<th class="px-6 py-4">Arrival ETA</th>
+<th class="px-6 py-4">Dock Assignment</th>
+<th class="px-6 py-4">Driver Details</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<span class="font-mono text-primary font-bold">ORD-4821</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-white">Al-Faisaliah Group</p>
+<p class="text-[10px] text-slate-500">Retail Electronics</p>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs bg-slate-800 px-2 py-1 rounded">114 SKU</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-emerald-400 font-bold text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                    On Site
+                  </div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">01</div>
+<span class="text-xs text-on-surface-variant">Bay 1</span>
+</div>
+</td>
+<td class="px-6 py-5 text-xs text-on-surface-variant">
+                  Ahmed S. <span class="text-[10px] block text-slate-600">KSA-8832-T</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] px-2 py-0.5 rounded bg-primary/10 text-primary uppercase font-bold">Loading</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded text-[10px] font-bold uppercase transition-all">Mark Loaded</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-5">
+<span class="font-mono text-primary font-bold">ORD-4822</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-white">NEOM Logistics</p>
+<p class="text-[10px] text-slate-500">Medical Supplies</p>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs bg-slate-800 px-2 py-1 rounded">42 SKU</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-primary font-bold text-xs animate-pulse">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                    14m 22s
+                  </div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-slate-800 text-slate-400 flex items-center justify-center font-bold text-xs">07</div>
+<span class="text-xs text-on-surface-variant italic">Scheduled</span>
+</div>
+</td>
+<td class="px-6 py-5 text-xs text-on-surface-variant">
+                  Khalid M. <span class="text-[10px] block text-slate-600">KSA-1204-P</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] px-2 py-0.5 rounded bg-surface-container-highest text-slate-400 uppercase font-bold">Pending</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-slate-500 hover:text-white px-3 py-1.5 rounded transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-5">
+<span class="font-mono text-primary font-bold">ORD-4823</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-white">Kingdom Retail</p>
+<p class="text-[10px] text-slate-500">Apparel</p>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs bg-slate-800 px-2 py-1 rounded">218 SKU</span>
+</td>
+<td class="px-6 py-5">
+<div class="text-slate-500 font-bold text-xs">
+                    48m 10s
+                  </div>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] text-slate-600 italic">Assign Pending</span>
+</td>
+<td class="px-6 py-5 text-xs text-on-surface-variant">
+                  Pending Dispatch
+                </td>
+<td class="px-6 py-5">
+<span class="text-[10px] px-2 py-0.5 rounded bg-surface-container-highest text-slate-400 uppercase font-bold">Staging</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded text-[10px] font-bold uppercase transition-all">Assign Dock</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-5">
+<span class="font-mono text-primary font-bold">ORD-4825</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-white">Riyadh Metro</p>
+<p class="text-[10px] text-slate-500">Infrastructure Tools</p>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs bg-slate-800 px-2 py-1 rounded">12 SKU</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-emerald-400 font-bold text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                    On Site
+                  </div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">05</div>
+<span class="text-xs text-on-surface-variant">Bay 5</span>
+</div>
+</td>
+<td class="px-6 py-5 text-xs text-on-surface-variant">
+                  Zayed J. <span class="text-[10px] block text-slate-600">KSA-0092-B</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-[10px] px-2 py-0.5 rounded bg-primary/10 text-primary uppercase font-bold">Loading</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded text-[10px] font-bold uppercase transition-all">Mark Loaded</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Info -->
+<div class="p-4 bg-surface-container-highest/20 flex justify-between items-center text-[11px] text-slate-500 border-t border-white/5">
+<div class="flex gap-4">
+<span>Showing 4 of 24 active shipments</span>
+<span>Last Sync: 12:44:02 PM</span>
+</div>
+<div class="flex gap-2">
+<button class="w-6 h-6 flex items-center justify-center rounded bg-slate-800 text-slate-400">1</button>
+<button class="w-6 h-6 flex items-center justify-center rounded hover:bg-slate-800">2</button>
+<button class="w-6 h-6 flex items-center justify-center rounded hover:bg-slate-800">3</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual Alerts Layer (Small toast-like notifications) -->
+<div class="fixed bottom-6 right-6 flex flex-col gap-3 z-50 pointer-events-none">
+<div class="bg-surface-container-high/90 border border-emerald-500/30 p-4 rounded-xl glass shadow-2xl flex items-center gap-4 animate-in fade-in slide-in-from-bottom-5 pointer-events-auto">
+<div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<p class="text-xs font-bold text-white">Truck Arrived: ORD-4821</p>
+<p class="text-[10px] text-slate-400">Driver Ahmed S. is at Security Gate 4</p>
+</div>
+<button class="ml-2 text-slate-500 hover:text-white">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+</div>
+</div>
+</body></html>

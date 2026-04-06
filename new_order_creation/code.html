@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics - New Order</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "secondary-fixed": "#e9ddff",
+                  "surface-bright": "#383845",
+                  "secondary-container": "#4f4171",
+                  "on-primary": "#3b0092",
+                  "on-error-container": "#ffdad6",
+                  "surface-container-high": "#292935",
+                  "inverse-on-surface": "#302f3b",
+                  "on-error": "#690005",
+                  "tertiary-fixed": "#ffdbc9",
+                  "surface-variant": "#343440",
+                  "surface-container-highest": "#343440",
+                  "on-secondary-container": "#c0b0e7",
+                  "on-tertiary-container": "#f09661",
+                  "on-secondary-fixed-variant": "#4c3f6e",
+                  "surface": "#12121d",
+                  "on-primary-fixed": "#22005c",
+                  "on-surface-variant": "#cbc3d5",
+                  "secondary": "#cfbef6",
+                  "inverse-primary": "#6a45c3",
+                  "outline": "#948e9e",
+                  "primary-fixed": "#e9ddff",
+                  "on-tertiary-fixed-variant": "#743405",
+                  "on-tertiary": "#532200",
+                  "tertiary-fixed-dim": "#ffb68e",
+                  "error": "#ffb4ab",
+                  "on-surface": "#e3e0f1",
+                  "inverse-surface": "#e3e0f1",
+                  "on-secondary-fixed": "#201340",
+                  "on-secondary": "#352856",
+                  "tertiary-container": "#6c2e00",
+                  "surface-container-low": "#1b1a26",
+                  "on-primary-fixed-variant": "#5228aa",
+                  "on-background": "#e3e0f1",
+                  "secondary-fixed-dim": "#cfbef6",
+                  "on-tertiary-fixed": "#331200",
+                  "primary-fixed-dim": "#d0bcff",
+                  "surface-dim": "#12121d",
+                  "tertiary": "#ffb68e",
+                  "surface-tint": "#d0bcff",
+                  "primary-container": "#4b1fa3",
+                  "outline-variant": "#494453",
+                  "surface-container-lowest": "#0d0d18",
+                  "background": "#12121d",
+                  "surface-container": "#1f1e2a",
+                  "primary": "#d0bcff",
+                  "on-primary-container": "#b79cff",
+                  "error-container": "#93000a"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "fontFamily": {
+                  "headline": ["Plus Jakarta Sans"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopNavBar Implementation -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A] backdrop-blur-xl bg-opacity-80 border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] h-16 flex justify-between items-center px-8">
+<div class="flex items-center gap-8">
+<div class="text-xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3]">
+        JAS Logistics
+      </div>
+<nav class="hidden md:flex gap-6 font-['Plus_Jakarta_Sans'] text-sm tracking-tight">
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Orders</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Tracking</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Customs</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 active:scale-95">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-bright overflow-hidden border border-white/10">
+<img alt="User profile" data-alt="professional corporate headshot of a logistics manager with soft studio lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTVDXMqyEaQy0eclwgPLosPEzmVZh6kaMhpz49yWkKu_hlD87xooFtpIgdxOG0NP0YEcYxy1IWQ-EsDYuJUsWSCVxrF5eRcN73D9Rqh9NjhCoiGHrx3UdLqjmJdq7dzllpJrCKoc2EzDa7bCTOyiIIRScnEyDw9_qR4oM3-HsY0xVPvKSVjfmvUcWpLlvQsSqoQQAq-W2UZLW1Kh86QUtrRtw05yKZRT3VdX_5NXfT6i9qeSFVJwnZoTTlIHuWjxrkOaJrAv-K8Q"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar Implementation -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-[#0F0F1A]/95 backdrop-blur-2xl flex flex-col py-6 space-y-4 font-['Plus_Jakarta_Sans'] text-xs font-medium">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="hub">hub</span>
+</div>
+<div>
+<div class="text-on-surface font-bold">JAS Operations</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest">Enterprise Tier</div>
+</div>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 cursor-pointer transition-all duration-200 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</div>
+<div class="px-6 py-3 bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] cursor-pointer transition-all duration-200 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span>Active Shipments</span>
+</div>
+<div class="px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 cursor-pointer transition-all duration-200 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Customs Docs</span>
+</div>
+<div class="px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 cursor-pointer transition-all duration-200 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span>Fleet Map</span>
+</div>
+<div class="px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 cursor-pointer transition-all duration-200 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</div>
+</div>
+<div class="mt-auto px-4">
+<button class="w-full py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+        Create New Order
+      </button>
+</div>
+<div class="pt-6 border-t border-white/5 space-y-1">
+<div class="px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 cursor-pointer flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="dns">dns</span>
+<span>System Status</span>
+</div>
+<div class="px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 cursor-pointer flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-surface">
+<div class="max-w-6xl mx-auto px-12 py-10">
+<!-- Header Section -->
+<div class="mb-10">
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface mb-2">Create New Order</h1>
+<p class="text-on-surface-variant body-md">Select your preferred shipping mode and fill in the shipment details.</p>
+</div>
+<!-- SPOT-01: Mode Selector -->
+<div class="grid grid-cols-2 gap-6 mb-12 h-[120px]">
+<!-- Framework Agreement Card -->
+<div class="relative group cursor-pointer overflow-hidden rounded-xl bg-surface-container border border-outline-variant/30 hover:border-primary/50 transition-all duration-300 flex items-center px-8">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="description">description</span>
+<h3 class="font-bold text-lg text-on-surface">Framework Agreement</h3>
+</div>
+<p class="text-xs text-on-surface-variant max-w-xs">Pre-committed rates. Scheduled service. Uses your active FA.</p>
+<div class="mt-2 inline-flex items-center gap-2 px-2 py-1 bg-[#22c55e]/10 border border-[#22c55e]/20 rounded text-[10px] font-bold text-[#22c55e] uppercase tracking-tighter">
+<span class="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
+              FA-2026-001 · 156 days
+            </div>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Spot Order Card (Selected State) -->
+<div class="relative group cursor-pointer overflow-hidden rounded-xl bg-surface-container-high border-2 border-[#22c55e] shadow-[0_0_20px_rgba(34,197,94,0.1)] flex items-center px-8">
+<div class="absolute top-4 right-4">
+<span class="material-symbols-outlined text-[#22c55e]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-tertiary text-xl" data-icon="bolt">bolt</span>
+<h3 class="font-bold text-lg text-on-surface">Spot Order</h3>
+</div>
+<p class="text-xs text-on-surface-variant max-w-xs">No commitment. Immediate booking. Market rate applies.</p>
+</div>
+</div>
+</div>
+<!-- Order Form Form -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Location & Service -->
+<div class="col-span-7 space-y-8">
+<!-- Section: Service & Type -->
+<div class="bg-surface-container-low p-8 rounded-xl space-y-6">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-1 h-6 bg-primary rounded-full"></div>
+<h2 class="text-lg font-bold tracking-tight">Service Classification</h2>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant px-1">Service Type</label>
+<select class="w-full bg-surface-container-highest border-none focus:ring-1 ring-primary text-on-surface rounded px-4 py-3 appearance-none">
+<option>Road Freight</option>
+<option>Warehouse Inbound</option>
+<option>Customs Only</option>
+<option>Combined (FA only)</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant px-1">Urgency level</label>
+<div class="flex gap-2">
+<button class="flex-1 py-3 bg-surface-container-highest rounded text-xs font-bold hover:bg-primary/20 hover:text-primary transition-colors border border-transparent">Standard</button>
+<button class="flex-1 py-3 bg-primary text-on-primary rounded text-xs font-bold border border-primary/20">Express</button>
+<button class="flex-1 py-3 bg-surface-container-highest rounded text-xs font-bold hover:bg-primary/20 hover:text-primary transition-colors border border-transparent">Same-day</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Pickup & Delivery -->
+<div class="bg-surface-container-low p-8 rounded-xl">
+<div class="flex items-center gap-2 mb-6">
+<div class="w-1 h-6 bg-primary rounded-full"></div>
+<h2 class="text-lg font-bold tracking-tight">Logistics Route</h2>
+</div>
+<div class="space-y-8">
+<!-- Pickup -->
+<div class="grid grid-cols-2 gap-4 relative">
+<div class="absolute -left-4 top-1/2 -translate-y-1/2 flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="trip_origin">trip_origin</span>
+<div class="w-[1px] h-12 bg-outline-variant"></div>
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="location_on">location_on</span>
+</div>
+<div class="col-span-2 space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Pickup Location</label>
+<input class="w-full bg-surface-container-highest border-none focus:ring-1 ring-primary text-on-surface rounded px-4 py-3" placeholder="Full Address" type="text"/>
+</div>
+<div class="space-y-2">
+<input class="w-full bg-surface-container-highest border-none focus:ring-1 ring-primary text-on-surface rounded px-4 py-3" placeholder="City" type="text"/>
+</div>
+<div class="space-y-2">
+<input class="w-full bg-surface-container-highest border-none focus:ring-1 ring-primary text-on-surface rounded px-4 py-3" placeholder="Contact Name" type="text"/>
+</div>
+<div class="col-span-2 space-y-2">
+<input class="w-full bg-surface-container-highest border-none focus:ring-1 ring-primary text-on-surface rounded px-4 py-3" placeholder="Phone Number" type="tel"/>
+</div>
+</div>
+<!-- Delivery -->
+<div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/5">
+<div class="col-span-2 space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Delivery Location</label>
+<input class="w-full bg-surface-container-highest border-none focus:ring-1 ring-primary text-on-surface rounded px-4 py-3" placeholder="Full Address" type="text"/>
+</div>
+<div class="space-y-2">
+<input class="w-full bg-surface-container-highest border-none focus:ring-1 ring-primary text-on-surface rounded px-4 py-3" placeholder="City" type="text"/>
+</div>
+<div class="space-y-2">
+<select class="w-full bg-surface-container-highest border-none focus:ring-1 ring-primary text-on-surface rounded px-4 py-3 appearance-none">
+<option disabled="" selected="">Registered Receivers</option>
+<option>Main Warehouse Riyadh</option>
+<option>Jeddah Distribution Hub</option>
+<option>Dammam Port Office</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Cargo & Timing -->
+<div class="col-span-5 space-y-8">
+<!-- Section: Cargo Details -->
+<div class="bg-surface-container-low p-8 rounded-xl space-y-6">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-1 h-6 bg-tertiary rounded-full"></div>
+<h2 class="text-lg font-bold tracking-tight">Cargo Specifications</h2>
+</div>
+<div class="space-y-4">
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Cargo Type</label>
+<select class="w-full bg-surface-container-highest border-none focus:ring-1 ring-tertiary text-on-surface rounded px-4 py-3 appearance-none">
+<option>General Goods</option>
+<option>Fragile / High Value</option>
+<option>Perishable</option>
+<option>Hazardous Materials</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Weight (kg)</label>
+<input class="w-full bg-surface-container-highest border-none focus:ring-1 ring-tertiary text-on-surface rounded px-4 py-3" placeholder="0.00" type="number"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Dimensions (cm)</label>
+<input class="w-full bg-surface-container-highest border-none focus:ring-1 ring-tertiary text-on-surface rounded px-4 py-3" placeholder="L x W x H" type="text"/>
+</div>
+</div>
+<div class="space-y-3">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Special Handling</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-full border border-outline-variant text-[10px] font-medium hover:bg-surface-bright transition-colors">Stackable</button>
+<button class="px-3 py-1.5 rounded-full border border-tertiary text-tertiary bg-tertiary/10 text-[10px] font-bold">Fragile</button>
+<button class="px-3 py-1.5 rounded-full border border-outline-variant text-[10px] font-medium hover:bg-surface-bright transition-colors">Top Load Only</button>
+<button class="px-3 py-1.5 rounded-full border border-outline-variant text-[10px] font-medium hover:bg-surface-bright transition-colors">Tilt Sensitivity</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Payment & Notes -->
+<div class="bg-surface-container-low p-8 rounded-xl space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+<span class="text-sm font-bold">Cash On Delivery</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Amount to collect (SAR)</label>
+<input class="w-full bg-surface-container-highest border-none focus:ring-1 ring-primary text-on-surface rounded px-4 py-3 font-mono font-bold text-lg" type="number" value="1250.00"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Requested Pickup Date/Time</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none focus:ring-1 ring-primary text-on-surface rounded px-4 py-3 pr-10" type="datetime-local"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Special notes</label>
+<textarea class="w-full bg-surface-container-highest border-none focus:ring-1 ring-primary text-on-surface rounded px-4 py-3 text-sm resize-none" placeholder="Enter any additional instructions for the driver..." rows="3"></textarea>
+</div>
+</div>
+<!-- Final Submit -->
+<div class="pt-4">
+<button class="w-full py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-extrabold text-lg rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-3 group">
+              Confirm &amp; Book Shipment
+              <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-center text-[10px] text-on-surface-variant mt-4 px-8 leading-relaxed">
+              By clicking "Confirm &amp; Book Shipment", you agree to the JAS Logistics <a class="text-primary underline" href="#">Terms of Service</a> and current market-adjusted spot pricing for the selected route.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Nav (Suppressed on Web) -->
+<footer class="md:hidden fixed bottom-0 w-full bg-[#0F0F1A] border-t border-white/10 px-6 py-3 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 text-[#d0bcff]">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px]">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="text-[10px]">Orders</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="text-[10px]">Map</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px]">Profile</span>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,205 @@
+<html class="dark" dir="rtl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Arabic:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#4c3f6e",
+            "surface-container-highest": "#343440",
+            "outline-variant": "#494453",
+            "on-primary-fixed-variant": "#5228aa",
+            "surface-container-lowest": "#0d0d18",
+            "on-tertiary-fixed": "#331200",
+            "tertiary": "#ffb68e",
+            "primary": "#d0bcff",
+            "on-tertiary-container": "#f09661",
+            "surface-container-high": "#292935",
+            "on-primary": "#3b0092",
+            "surface-container": "#1f1e2a",
+            "on-secondary": "#352856",
+            "on-tertiary": "#532200",
+            "tertiary-container": "#6c2e00",
+            "on-background": "#e3e0f1",
+            "secondary": "#cfbef6",
+            "primary-container": "#4b1fa3",
+            "primary-fixed-dim": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "tertiary-fixed": "#ffdbc9",
+            "inverse-on-surface": "#302f3b",
+            "error-container": "#93000a",
+            "on-primary-fixed": "#22005c",
+            "on-tertiary-fixed-variant": "#743405",
+            "on-secondary-fixed": "#201340",
+            "on-error": "#690005",
+            "surface-dim": "#12121d",
+            "surface-bright": "#383845",
+            "on-surface": "#e3e0f1",
+            "outline": "#948e9e",
+            "inverse-primary": "#6a45c3",
+            "surface-tint": "#d0bcff",
+            "on-secondary-container": "#c0b0e7",
+            "on-error-container": "#ffdad6",
+            "background": "#12121d",
+            "on-surface-variant": "#cbc3d5",
+            "tertiary-fixed-dim": "#ffb68e",
+            "surface-variant": "#343440",
+            "on-primary-container": "#b79cff",
+            "secondary-fixed-dim": "#cfbef6",
+            "primary-fixed": "#e9ddff",
+            "secondary-container": "#4f4171",
+            "error": "#ffb4ab",
+            "inverse-surface": "#e3e0f1",
+            "surface-container-low": "#1b1a26",
+            "surface": "#12121d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans", "IBM Plex Arabic"],
+            "body": ["Inter", "IBM Plex Arabic"],
+            "label": ["Inter", "IBM Plex Arabic"],
+            "mono": ["JetBrains Mono"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: #12121d;
+      color: #e3e0f1;
+    }
+    .otp-input:focus {
+      border-color: #d0bcff;
+      box-shadow: 0 0 0 1px #d0bcff;
+      outline: none;
+    }
+    .glass-effect {
+      backdrop-filter: blur(12px);
+      background: rgba(31, 30, 42, 0.7);
+    }
+    .arabic-font {
+      font-family: 'IBM Plex Arabic', sans-serif;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar Execution -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/40">
+<div class="flex flex-row-reverse justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="font-['Plus_Jakarta_Sans'] font-bold text-lg tracking-tight text-[#d0bcff]">تأكيد التسليم</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-white/10">
+<img alt="Driver Profile" class="w-full h-full object-cover" data-alt="close up professional portrait of a middle eastern man with short black hair and a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_BFAqYm-kW8D3YMLDgCCABj6pIKzElXMaDsaA2DryJDJzlUyl-89oD6DmUDnzWxYOeIykn8mCnGFpZcoUO-jLQx9gTGqvdYxlMTYN-78EF-9TqqxS2c1xXe7EVvbrhTXZ2KZ9P_Bwq16tWulZZI7uenrXe-7fDqra__Ket9Yc9w2OI2tgwU60FIUULF2f82cvnxGhbG9mNR9T-yKPvqDNSwjBXS7byAl-gvnBS6LBvNJqUt4ysi01FK1fr8yKqRfLA4omnj0agQ"/>
+</div>
+<button class="material-symbols-outlined text-[#d0bcff] hover:bg-[#1c1c2d] transition-colors p-2 rounded-full">menu</button>
+</div>
+</div>
+<div class="bg-[#1c1c2d] h-[1px] w-full absolute bottom-0"></div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-md mx-auto flex flex-col items-center min-h-screen">
+<!-- Status Icon/Animation Placeholder -->
+<div class="mb-8 relative">
+<div class="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-4 border-primary/20">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="absolute -top-1 -right-1 w-6 h-6 bg-tertiary rounded-full border-2 border-background animate-pulse"></div>
+</div>
+<!-- Identity Section -->
+<div class="text-center mb-10 w-full">
+<h2 class="arabic-font text-2xl font-bold text-on-surface mb-2 tracking-tight">أدخل رمز التحقق</h2>
+<p class="arabic-font text-on-surface-variant text-base leading-relaxed">
+        تم إرسال رمز التحقق إلى المستلم 
+        <span class="text-primary font-semibold block mt-1">محمد الراشدي</span>
+<span class="text-on-surface-variant/80 font-mono text-sm tracking-widest block" dir="ltr">+966 ••• •• 45</span>
+</p>
+</div>
+<!-- OTP Input Group -->
+<div class="flex gap-3 mb-8" dir="ltr">
+<input class="otp-input w-[64px] h-[72px] bg-surface-container-high border-2 border-outline-variant/30 rounded-xl text-center font-mono text-[28px] text-primary shadow-lg transition-all focus:scale-105" maxlength="1" placeholder="•" type="text"/>
+<input class="otp-input w-[64px] h-[72px] bg-surface-container-high border-2 border-outline-variant/30 rounded-xl text-center font-mono text-[28px] text-primary shadow-lg transition-all focus:scale-105" maxlength="1" placeholder="•" type="text"/>
+<input class="otp-input w-[64px] h-[72px] bg-surface-container-high border-2 border-outline-variant/30 rounded-xl text-center font-mono text-[28px] text-primary shadow-lg transition-all focus:scale-105" maxlength="1" placeholder="•" type="text"/>
+<input class="otp-input w-[64px] h-[72px] bg-surface-container-high border-2 border-outline-variant/30 rounded-xl text-center font-mono text-[28px] text-primary shadow-lg transition-all focus:scale-105" maxlength="1" placeholder="•" type="text"/>
+</div>
+<!-- Actions -->
+<div class="w-full flex flex-col gap-6 items-center">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold py-4 rounded-xl shadow-xl shadow-primary/10 active:scale-95 transition-transform duration-150 arabic-font text-lg">
+        تأكيد عملية التسليم
+      </button>
+<div class="flex flex-col gap-4 text-center">
+<button class="text-primary-fixed-dim hover:text-primary transition-colors arabic-font text-sm font-medium flex items-center justify-center gap-2 group">
+<span class="material-symbols-outlined text-sm">refresh</span>
+          إعادة إرسال الرمز (00:45)
+        </button>
+<div class="h-px w-16 bg-outline-variant/20 mx-auto"></div>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors arabic-font text-sm group flex items-center gap-1">
+          تسليم لمستلم بديل؟
+          <span class="material-symbols-outlined text-sm group-hover:translate-x-[-2px] transition-transform">arrow_back_ios</span>
+</button>
+</div>
+</div>
+<!-- Visual Polish: Decorative Grid -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-[0.03]" style="background-image: radial-gradient(#d0bcff 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
+</main>
+<!-- Numeric Keyboard Simulation Area (Visual Placeholder) -->
+<div class="fixed bottom-20 left-0 w-full bg-surface-container-lowest/80 backdrop-blur-md border-t border-white/5 p-4 md:hidden">
+<div class="grid grid-cols-3 gap-2 max-w-sm mx-auto">
+<div class="h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-mono text-xl text-on-surface">1</div>
+<div class="h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-mono text-xl text-on-surface">2</div>
+<div class="h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-mono text-xl text-on-surface">3</div>
+<div class="h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-mono text-xl text-on-surface">4</div>
+<div class="h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-mono text-xl text-on-surface">5</div>
+<div class="h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-mono text-xl text-on-surface">6</div>
+<div class="h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-mono text-xl text-on-surface">7</div>
+<div class="h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-mono text-xl text-on-surface">8</div>
+<div class="h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-mono text-xl text-on-surface">9</div>
+<div class="h-12 flex items-center justify-center"></div>
+<div class="h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-mono text-xl text-on-surface">0</div>
+<div class="h-12 bg-surface-container-high rounded-lg flex items-center justify-center"><span class="material-symbols-outlined">backspace</span></div>
+</div>
+</div>
+<!-- BottomNavBar Execution -->
+<nav class="fixed bottom-0 w-full rounded-t-xl z-50 bg-[#0F0F1A]/90 backdrop-blur-2xl border-t border-white/10 shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
+<div class="flex flex-row-reverse justify-around items-center h-20 pb-4 w-full px-2">
+<!-- Active Item: Trips (since it's a delivery flow) -->
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-[#d0bcff] transition-all tap-highlight-transparent active:opacity-80" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['IBM_Plex_Arabic'] text-[11px] font-medium">الرئيسية</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#d0bcff] bg-[#4B1FA3]/20 rounded-xl px-4 py-1 tap-highlight-transparent active:opacity-80" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-['IBM_Plex_Arabic'] text-[11px] font-medium">الرحلات</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-[#d0bcff] transition-all tap-highlight-transparent active:opacity-80 relative" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-1 w-2 h-2 bg-error rounded-full"></span>
+<span class="font-['IBM_Plex_Arabic'] text-[11px] font-medium">التنبيهات</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-[#d0bcff] transition-all tap-highlight-transparent active:opacity-80" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['IBM_Plex_Arabic'] text-[11px] font-medium">الإعدادات</span>
+</a>
+</div>
+</nav>
+</body></html>
