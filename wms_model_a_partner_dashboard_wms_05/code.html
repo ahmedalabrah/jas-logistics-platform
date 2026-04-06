@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS WMS - Partner Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#6c2e00",
+                        "surface-container-highest": "#343440",
+                        "surface-container": "#1f1e2a",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "surface-variant": "#343440",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-fixed": "#e9ddff",
+                        "inverse-surface": "#e3e0f1",
+                        "on-secondary": "#352856",
+                        "on-primary-fixed": "#22005c",
+                        "error": "#ffb4ab",
+                        "on-primary": "#3b0092",
+                        "error-container": "#93000a",
+                        "on-tertiary": "#532200",
+                        "tertiary-fixed": "#ffdbc9",
+                        "outline-variant": "#494453",
+                        "on-surface": "#e3e0f1",
+                        "inverse-on-surface": "#302f3b",
+                        "tertiary": "#ffb68e",
+                        "on-primary-container": "#b79cff",
+                        "surface-tint": "#d0bcff",
+                        "primary": "#d0bcff",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "surface-bright": "#383845",
+                        "surface-dim": "#12121d",
+                        "on-tertiary-container": "#f09661",
+                        "surface": "#12121d",
+                        "on-background": "#e3e0f1",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-secondary-fixed": "#201340",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1b1a26",
+                        "on-error": "#690005",
+                        "secondary": "#cfbef6",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-secondary-container": "#c0b0e7",
+                        "inverse-primary": "#6a45c3",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-container-high": "#292935",
+                        "primary-container": "#4b1fa3",
+                        "outline": "#948e9e",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-tertiary-fixed": "#331200",
+                        "background": "#12121d",
+                        "secondary-container": "#4f4171"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0F0F1A; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="text-on-surface selection:bg-primary/30">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl border-b border-[#ffffff15] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+<div class="flex items-center justify-between px-6 h-16 w-full font-['Plus_Jakarta_Sans'] antialiased">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-[#d0bcff]">JAS WMS</span>
+<nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+<a class="text-[#94a3b8] hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="text-[#94a3b8] hover:text-white transition-colors" href="#">Storage</a>
+<a class="text-[#94a3b8] hover:text-white transition-colors" href="#">Zones</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Partners</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-[#94a3b8] hover:bg-[#ffffff10] rounded-md transition-all active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-[#94a3b8] hover:bg-[#ffffff10] rounded-md transition-all active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="User Profile" data-alt="Close up professional headshot of a logistics manager in a dark suit against a soft blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDskihU8dYMLES0yFusDcpx-c0hOf8vZVfsSBCNMJESfdbpznwnhR63pRqkSKwTYr9qQhIOXSVP-wC_xd8xI9Vw0MU25bBit0jpdcvfBSbI6gF9OoxRzlK9mv_jUdx59eRvXKf8eY78lj9h4kj_hJ1Mu6W9umTWsm40O39res7yXcNXQEg6FcO61-72NBj3rW_HhLNV3hbUqIbQ814Z8cDHE9gaX7msaGSl5p5Rv6go1mlOF58jLMnKq16DzlnmK96wjc1jbLvxcg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Side Navigation Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#12121d] border-r border-[#ffffff08] pt-20 flex flex-col font-['Plus_Jakarta_Sans'] text-sm font-medium">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 p-3 bg-surface-container rounded-xl">
+<div class="h-10 w-10 bg-primary-container rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">warehouse</span>
+</div>
+<div>
+<p class="text-on-surface font-bold">Terminal One</p>
+<p class="text-on-surface-variant text-xs">Riyadh Hub</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] rounded-lg transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] rounded-lg transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] rounded-lg transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">layers</span>
+<span>Floor Plans</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] rounded-lg transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">description</span>
+<span>Agreement A</span>
+</a>
+<div class="bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] flex items-center gap-3 px-4 py-3 rounded-r-lg">
+<span class="material-symbols-outlined">description</span>
+<span>Agreement B</span>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] rounded-lg transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">analytics</span>
+<span>Reports</span>
+</a>
+</nav>
+<div class="px-4 pb-8 space-y-1 border-t border-[#ffffff08] pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error/80 hover:bg-error/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="max-w-7xl mx-auto p-8">
+<!-- Header Section -->
+<div class="flex items-end justify-between mb-10">
+<div>
+<nav class="flex gap-2 text-xs font-medium text-on-surface-variant mb-2 uppercase tracking-widest">
+<span>Partners</span>
+<span>/</span>
+<span class="text-primary">Model A Partner Dashboard</span>
+</nav>
+<h1 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight">Agreement Model A</h1>
+<p class="text-on-surface-variant mt-1">Operational overview for Riyadh Hub storage partnership</p>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold py-3 px-6 rounded-lg flex items-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                    New Inbound Request
+                </button>
+</div>
+<!-- Bento Grid KPIs -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+<div class="col-span-1 glass-panel p-5 rounded-xl">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">sqm Used</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-bold text-primary">1,420</span>
+<span class="text-xs text-on-surface-variant">m²</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-4">
+<div class="bg-primary h-1 rounded-full" style="width: 71%"></div>
+</div>
+</div>
+<div class="col-span-1 glass-panel p-5 rounded-xl">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">sqm Available</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-bold text-on-surface">580</span>
+<span class="text-xs text-on-surface-variant">m²</span>
+</div>
+<p class="text-[10px] text-tertiary mt-4">Low capacity warning</p>
+</div>
+<div class="col-span-1 glass-panel p-5 rounded-xl">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Active SKUs</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-bold text-on-surface">312</span>
+</div>
+<div class="flex items-center gap-1 text-xs text-green-400 mt-4">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12% this wk</span>
+</div>
+</div>
+<div class="col-span-1 glass-panel p-5 rounded-xl">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Inbound Pending</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-bold text-on-surface">14</span>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-4">Next arrival: 2h 15m</p>
+</div>
+<div class="col-span-1 glass-panel p-5 rounded-xl">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Outbound Scheduled</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-bold text-on-surface">28</span>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-4">High priority: 06</p>
+</div>
+<div class="col-span-1 glass-panel p-5 rounded-xl bg-gradient-to-br from-primary/10 to-transparent">
+<p class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Storage Cost</p>
+<div class="flex items-baseline gap-1">
+<span class="text-xs text-primary-fixed-dim">SAR</span>
+<span class="text-3xl font-headline font-bold text-primary">12.4k</span>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-4">Est. end of month</p>
+</div>
+</div>
+<!-- Main Layout: Visualizer & List -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Zone Visual (Read-only) -->
+<div class="lg:col-span-7">
+<div class="glass-panel rounded-2xl overflow-hidden">
+<div class="px-6 py-4 border-b border-white/5 flex items-center justify-between">
+<h3 class="font-headline font-bold">Zone visual layout</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 text-xs">
+<div class="h-2 w-2 rounded-full bg-primary"></div>
+<span class="text-on-surface-variant">Model A Reserved</span>
+</div>
+<div class="flex items-center gap-2 text-xs">
+<div class="h-2 w-2 rounded-full bg-surface-container-highest"></div>
+<span class="text-on-surface-variant">General Storage</span>
+</div>
+</div>
+</div>
+<div class="p-8 aspect-[16/10] bg-surface-container-lowest relative">
+<!-- Simplified Warehouse Grid Visualization -->
+<div class="grid grid-cols-8 grid-rows-5 gap-3 h-full w-full opacity-60">
+<!-- Generated Rack Elements -->
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/20 rounded border border-primary/10 flex items-center justify-center col-span-2 row-span-2">
+<span class="text-[10px] font-bold text-primary/50 tracking-widest uppercase rotate-45">Loading Bay A</span>
+</div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-surface-container-highest rounded"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+<div class="bg-primary/40 rounded border border-primary/20"></div>
+</div>
+<!-- Overlay Information -->
+<div class="absolute bottom-6 right-6 glass-panel p-3 rounded-lg border-primary/20">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase mb-1">Current Section</p>
+<p class="text-sm font-headline font-bold text-primary">Sector 04 - High Velocity</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent GRN List -->
+<div class="lg:col-span-5">
+<div class="glass-panel rounded-2xl flex flex-col h-full">
+<div class="px-6 py-4 border-b border-white/5 flex items-center justify-between">
+<h3 class="font-headline font-bold">Recent GRN list</h3>
+<button class="text-xs text-primary hover:underline">View All</button>
+</div>
+<div class="p-4 space-y-3 overflow-y-auto max-h-[500px]">
+<!-- GRN Item 1 -->
+<div class="p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors group">
+<div class="flex items-start justify-between mb-2">
+<div>
+<p class="text-sm font-bold text-on-surface">GRN-2024-8841</p>
+<p class="text-xs text-on-surface-variant">Electronics • 42 SKUs</p>
+</div>
+<span class="px-2 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase tracking-wider">In Transit</span>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex -space-x-2">
+<div class="h-6 w-6 rounded-full border-2 border-surface-container overflow-hidden">
+<img alt="Driver" data-alt="Portrait of a logistic truck driver in uniform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoPoCpSqHQZRkPL5kGRvckCXIlUcvKIQqrrnZQG0GR3gGLlUpegX5z67EHN4xz5YphnBd_N090ewUvdW6482rnWx7yw_Qm43YZZZh71QbveeZvoh0WBJKh8JxU-MO1j0ZCxpUJujiFoUPnSxoGoEL_FaCfHTY5cG5JcgVFhKVrFr7MyzAdDtfKbg01GeBBUMBmcpLib827HZwKCXuQeES49nH57DIaU8Q-4NOpuQHxaJO1rQ2p4jH5eslVyYSOoSCPxeaSp0rTtg"/>
+</div>
+<div class="h-6 w-6 rounded-full border-2 border-surface-container overflow-hidden">
+<img alt="Clerk" data-alt="Warehouse clerk photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiHaXJ_JlJDLq_erRhHrpwSBKqCQRJiaQAdUTrKf4LpDpzphJOtD54nxi99MXpXCd5ersBcu0w5jNXEMUYWWd7rUYma4ghLwMp1Cvt0csrTmxzwktH2dyvaFyHJ4FsgkNfzz9_mzeeQiwyKFlOiPGv-BT-yy6ADJB6nEImzMPnqNT3umpoAfnviVBXFYlepTNI1-3q4BzHFEntLTpEvM_JgiZyIr0nqKpOiRS2Y-JfY7RfHFccdIErdMQ-A7meo49chd4i0Be6kA"/>
+</div>
+</div>
+<p class="text-[10px] text-on-surface-variant">Arriving in 14 mins</p>
+</div>
+</div>
+<!-- GRN Item 2 -->
+<div class="p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors group">
+<div class="flex items-start justify-between mb-2">
+<div>
+<p class="text-sm font-bold text-on-surface">GRN-2024-8839</p>
+<p class="text-xs text-on-surface-variant">Automotive Parts • 12 SKUs</p>
+</div>
+<span class="px-2 py-1 bg-green-900/30 text-green-400 text-[10px] font-bold rounded uppercase tracking-wider">Completed</span>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                        Today, 09:42 AM
+                                    </div>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+</div>
+</div>
+<!-- GRN Item 3 -->
+<div class="p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors group">
+<div class="flex items-start justify-between mb-2">
+<div>
+<p class="text-sm font-bold text-on-surface">GRN-2024-8835</p>
+<p class="text-xs text-on-surface-variant">Medical Equipment • 05 SKUs</p>
+</div>
+<span class="px-2 py-1 bg-green-900/30 text-green-400 text-[10px] font-bold rounded uppercase tracking-wider">Completed</span>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                        Yesterday, 04:15 PM
+                                    </div>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+</div>
+</div>
+<!-- GRN Item 4 -->
+<div class="p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors group">
+<div class="flex items-start justify-between mb-2">
+<div>
+<p class="text-sm font-bold text-on-surface">GRN-2024-8830</p>
+<p class="text-xs text-on-surface-variant">Apparel • 110 SKUs</p>
+</div>
+<span class="px-2 py-1 bg-error-container/30 text-error text-[10px] font-bold rounded uppercase tracking-wider">Discrepancy</span>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                        Oct 24, 11:20 AM
+                                    </div>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">info</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB Suppression: Hiding as per rules for detailed dashboard -->
+<!-- Toast/Notification Overlay (Editorial Touch) -->
+<div class="fixed bottom-8 right-8 z-[60] bg-surface-container-high border border-primary/20 p-4 rounded-xl shadow-2xl flex items-center gap-4 max-w-sm">
+<div class="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">electric_bolt</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Optimization Tip</p>
+<p class="text-xs text-on-surface-variant">Consolidating SKUs in Sector 04 could save 12% in monthly costs.</p>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+</body></html>

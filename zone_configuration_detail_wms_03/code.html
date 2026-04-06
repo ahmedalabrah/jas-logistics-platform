@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS WMS - Zone Configuration Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#6c2e00",
+                    "surface-container-highest": "#343440",
+                    "surface-container": "#1f1e2a",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "surface-variant": "#343440",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed": "#e9ddff",
+                    "inverse-surface": "#e3e0f1",
+                    "on-secondary": "#352856",
+                    "on-primary-fixed": "#22005c",
+                    "error": "#ffb4ab",
+                    "on-primary": "#3b0092",
+                    "error-container": "#93000a",
+                    "on-tertiary": "#532200",
+                    "tertiary-fixed": "#ffdbc9",
+                    "outline-variant": "#494453",
+                    "on-surface": "#e3e0f1",
+                    "inverse-on-surface": "#302f3b",
+                    "tertiary": "#ffb68e",
+                    "on-primary-container": "#b79cff",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-bright": "#383845",
+                    "surface-dim": "#12121d",
+                    "on-tertiary-container": "#f09661",
+                    "surface": "#12121d",
+                    "on-background": "#e3e0f1",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "on-secondary-fixed": "#201340",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#1b1a26",
+                    "on-error": "#690005",
+                    "secondary": "#cfbef6",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-secondary-container": "#c0b0e7",
+                    "inverse-primary": "#6a45c3",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-high": "#292935",
+                    "primary-container": "#4b1fa3",
+                    "outline": "#948e9e",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-tertiary-fixed": "#331200",
+                    "background": "#12121d",
+                    "secondary-container": "#4f4171"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0d0d18; }
+        ::-webkit-scrollbar-thumb { background: #343440; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl border-b border-[#ffffff15] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] flex items-center justify-between px-6 h-16 font-['Plus_Jakarta_Sans'] antialiased">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-[#d0bcff]">JAS WMS</span>
+<div class="hidden md:flex gap-6">
+<a class="text-[#94a3b8] hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="text-[#94a3b8] hover:text-white transition-colors" href="#">Storage</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Zones</a>
+<a class="text-[#94a3b8] hover:text-white transition-colors" href="#">Partners</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="bg-surface-container border-none text-sm rounded-lg pl-10 pr-4 py-2 w-64 focus:ring-1 focus:ring-primary" placeholder="Quick find SKUs..." type="text"/>
+</div>
+<button class="p-2 hover:bg-[#ffffff10] rounded-md transition-all active:scale-95 text-[#94a3b8]"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 hover:bg-[#ffffff10] rounded-md transition-all active:scale-95 text-[#94a3b8]"><span class="material-symbols-outlined">settings</span></button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="User Profile" data-alt="professional male warehouse manager headshot with neutral background and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU00MtbkW-ugcn4tr81-SMITHlEV8v5gRmV2paJwxIgkV8cVs_QjYnlSHLt4WxNakM4bPohuj98UVKsigOtmbmlx4WHcrvaX7hK3qPXGl-5YUFH4ezTf0ldVx6nt33FI7g-7zArfFnB2GxXz8tBDk6vqseOihqScYRyuHdELc_L_hABlR4EMptYSXaVtKYOfGvF0s4rmLQu9Rmb83aZAG79KrXRE97kCUmAnY4M2NLHEmszWgXmBBzgbOtRbDEGRH218Z5u81cSg"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#12121d] border-r border-[#ffffff08] flex flex-col pt-24 pb-8 font-['Plus_Jakarta_Sans'] text-sm font-medium">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 p-3 bg-surface-container rounded-xl">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warehouse</span>
+</div>
+<div>
+<div class="text-[#d0bcff] font-bold text-xs uppercase tracking-widest">Terminal One</div>
+<div class="text-[#94a3b8] text-[10px]">Riyadh Hub</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-4">
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">dashboard</span> Overview
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">inventory_2</span> Inventory
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] group" href="#">
+<span class="material-symbols-outlined">layers</span> Floor Plans
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">description</span> Agreement A
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">description</span> Agreement B
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">analytics</span> Reports
+            </a>
+</nav>
+<div class="px-4 space-y-1 mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">help</span> Support
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#94a3b8] hover:bg-[#ffffff05] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-8 min-h-screen">
+<!-- Header Section -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav class="flex items-center gap-2 text-xs text-on-surface-variant mb-2">
+<span>Floor Plans</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span>Zone Riyadh-North-04</span>
+</nav>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface flex items-center gap-4">
+                    Zone RN-04 <span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded text-sm font-bold">Cold Storage</span>
+</h1>
+<p class="text-on-surface-variant mt-2 max-w-xl">Primary temperature-controlled sector for Saudi Logistics Gateway. Optimized for pharmaceutical and perishable handling.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high border border-outline-variant/20 px-4 py-2.5 rounded-lg flex items-center gap-2 text-sm font-semibold hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-lg">edit</span> Configure Layout
+                </button>
+<button class="bg-primary text-on-primary px-5 py-2.5 rounded-lg flex items-center gap-2 text-sm font-bold shadow-lg shadow-primary/20 hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">add_box</span> Allocate Inventory
+                </button>
+</div>
+</header>
+<!-- Bento Layout: Map & Stats -->
+<div class="grid grid-cols-12 gap-6 mb-8">
+<!-- Zone Map SVG Container -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-xl p-6 border border-[#ffffff05] flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">map</span> Layout Topology
+                    </h2>
+<div class="flex gap-2">
+<span class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container rounded-full px-3 py-1">
+<span class="w-2 h-2 rounded-full bg-[#2dd4bf]"></span> Shelves
+                        </span>
+<span class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container rounded-full px-3 py-1">
+<span class="w-2 h-2 rounded-full bg-[#fbbf24]"></span> Loading
+                        </span>
+<span class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-surface-container rounded-full px-3 py-1">
+<span class="w-2 h-2 rounded-full bg-[#60a5fa]"></span> Cold Zone
+                        </span>
+</div>
+</div>
+<div class="relative flex-1 bg-surface-container-lowest rounded-lg border border-outline-variant/10 overflow-hidden flex items-center justify-center p-8">
+<!-- Placeholder for High-Fidelity SVG Map -->
+<svg class="max-w-full drop-shadow-2xl" height="350" viewbox="0 0 600 350" width="600">
+<!-- Background Floor -->
+<rect fill="#1f1e2a" fill-opacity="0.5" height="350" rx="4" width="600" x="0" y="0"></rect>
+<!-- Aisles -->
+<rect fill="#343440" height="250" rx="2" width="20" x="50" y="50"></rect>
+<rect fill="#343440" height="250" rx="2" width="20" x="150" y="50"></rect>
+<rect fill="#343440" height="250" rx="2" width="20" x="250" y="50"></rect>
+<rect fill="#343440" height="250" rx="2" width="20" x="350" y="50"></rect>
+<!-- Shelves - Cold (Blue) -->
+<rect fill="#60a5fa" fill-opacity="0.2" height="30" rx="2" stroke="#60a5fa" stroke-width="1" width="60" x="80" y="60"></rect>
+<rect fill="#60a5fa" fill-opacity="0.6" height="30" rx="2" stroke="#60a5fa" stroke-width="1" width="60" x="80" y="100"></rect>
+<rect fill="#60a5fa" fill-opacity="0.1" height="30" rx="2" stroke="#60a5fa" stroke-width="1" width="60" x="80" y="140"></rect>
+<!-- Shelves - Standard (Teal) -->
+<rect fill="#2dd4bf" fill-opacity="0.8" height="30" rx="2" stroke="#2dd4bf" stroke-width="1" width="60" x="180" y="60"></rect>
+<rect fill="#2dd4bf" fill-opacity="0.3" height="30" rx="2" stroke="#2dd4bf" stroke-width="1" width="60" x="180" y="100"></rect>
+<rect fill="#2dd4bf" fill-opacity="0.7" height="30" rx="2" stroke="#2dd4bf" stroke-width="1" width="60" x="280" y="60"></rect>
+<!-- Loading Dock (Amber) -->
+<path d="M450 100 L550 100 L550 250 L450 250 Z" fill="#fbbf24" fill-opacity="0.1" stroke="#fbbf24" stroke-dasharray="4" stroke-width="2"></path>
+<text fill="#fbbf24" font-size="10" font-weight="bold" x="470" y="180">LOADING DOCK A-1</text>
+<!-- Labels -->
+<text fill="#94a3b8" font-size="8" x="85" y="45">AISLE 01</text>
+<text fill="#94a3b8" font-size="8" x="185" y="45">AISLE 02</text>
+</svg>
+<!-- Overlay Tooltip Mockup -->
+<div class="absolute top-10 right-10 bg-surface-container-high/90 backdrop-blur-md p-3 rounded border border-primary/20 shadow-xl">
+<div class="text-[10px] text-primary font-bold uppercase mb-1">Rack RN-04-A1-02</div>
+<div class="text-xs font-semibold">Utilization: 84%</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-2 overflow-hidden">
+<div class="w-[84%] h-full bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Zone Stats Stack -->
+<div class="col-span-12 lg:col-span-4 grid grid-cols-2 gap-4">
+<div class="col-span-2 bg-gradient-to-br from-primary-container/30 to-transparent p-5 rounded-xl border border-primary/10">
+<div class="text-on-surface-variant text-xs mb-1">Total Area Capacity</div>
+<div class="text-3xl font-black text-primary">1,250 <span class="text-sm font-normal text-on-surface-variant">sqm</span></div>
+<div class="mt-4 flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Utilization Rate</span>
+<span class="text-primary font-bold">78.4%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full mt-2 overflow-hidden">
+<div class="w-[78.4%] h-full bg-primary"></div>
+</div>
+</div>
+<div class="bg-surface-container p-5 rounded-xl border border-[#ffffff05]">
+<span class="material-symbols-outlined text-secondary mb-2">category</span>
+<div class="text-on-surface-variant text-xs">Total SKUs</div>
+<div class="text-xl font-bold">482</div>
+</div>
+<div class="bg-surface-container p-5 rounded-xl border border-[#ffffff05]">
+<span class="material-symbols-outlined text-tertiary mb-2">thermostat</span>
+<div class="text-on-surface-variant text-xs">Temp Setting</div>
+<div class="text-xl font-bold">-18°C <span class="text-[10px] text-tertiary">Set</span></div>
+</div>
+<div class="col-span-2 bg-surface-container p-5 rounded-xl border border-[#ffffff05] flex items-center justify-between">
+<div>
+<div class="text-on-surface-variant text-xs">Client Ownership</div>
+<div class="text-sm font-bold mt-1">Al-Futtaim Pharmaceuticals</div>
+</div>
+<div class="h-10 w-10 bg-white/5 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">corporate_fare</span>
+</div>
+</div>
+<div class="col-span-2 bg-surface-container-high p-5 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-error">warning</span>
+<span class="text-xs font-bold text-on-surface">Compliance Alerts</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-xs bg-error-container/10 p-2 rounded">
+<div class="w-1.5 h-1.5 rounded-full bg-error"></div>
+<span>3 items nearing expiry in Bay 04</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inventory Table Section -->
+<section class="bg-surface-container-low rounded-xl border border-[#ffffff05] overflow-hidden">
+<div class="p-6 border-b border-[#ffffff05] flex items-center justify-between">
+<h3 class="font-bold flex items-center gap-2 text-lg">
+<span class="material-symbols-outlined text-primary">inventory</span> Zone Inventory List
+                </h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 text-xs bg-surface-container px-3 py-1.5 rounded-lg border border-outline-variant/10">
+<span class="text-on-surface-variant">Filter by Location:</span>
+<select class="bg-transparent border-none p-0 text-xs focus:ring-0">
+<option>All Bays</option>
+<option>Aisle 01</option>
+<option>Aisle 02</option>
+</select>
+</div>
+<button class="text-primary text-xs font-bold hover:underline">Export CSV</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-lowest">
+<tr>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">SKU</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Description</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Quantity</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Location</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Last Movement</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Expiry Date</th>
+<th class="px-6 py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#ffffff05]">
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-4 text-sm font-mono text-primary font-medium">PH-902-882</td>
+<td class="px-6 py-4 text-sm">Insulin Lantus 10ml Vials</td>
+<td class="px-6 py-4">
+<span class="text-sm font-bold">1,240</span>
+<span class="text-[10px] text-on-surface-variant ml-1">Units</span>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container text-xs px-2.5 py-1 rounded border border-outline-variant/10">B04-S12-P1</span>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">Oct 24, 2023 · 09:12</td>
+<td class="px-6 py-4">
+<span class="text-xs px-2 py-0.5 rounded bg-surface-container-highest text-on-surface">Jan 12, 2025</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-primary/10 rounded"><span class="material-symbols-outlined text-lg">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-4 text-sm font-mono text-primary font-medium">PH-902-114</td>
+<td class="px-6 py-4 text-sm">Adrenaline Autoinjector 0.3mg</td>
+<td class="px-6 py-4">
+<span class="text-sm font-bold">850</span>
+<span class="text-[10px] text-on-surface-variant ml-1">Units</span>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container text-xs px-2.5 py-1 rounded border border-outline-variant/10">B04-S02-P3</span>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">Oct 22, 2023 · 14:45</td>
+<td class="px-6 py-4">
+<span class="text-xs px-2 py-0.5 rounded bg-error-container/30 text-error font-bold">Nov 15, 2023</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-primary/10 rounded"><span class="material-symbols-outlined text-lg">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-4 text-sm font-mono text-primary font-medium">PH-110-009</td>
+<td class="px-6 py-4 text-sm">Pfizer Vaccine Multi-Dose Box</td>
+<td class="px-6 py-4">
+<span class="text-sm font-bold">4,000</span>
+<span class="text-[10px] text-on-surface-variant ml-1">Units</span>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container text-xs px-2.5 py-1 rounded border border-outline-variant/10">B01-S01-P1</span>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">Oct 23, 2023 · 18:30</td>
+<td class="px-6 py-4">
+<span class="text-xs px-2 py-0.5 rounded bg-surface-container-highest text-on-surface">Mar 04, 2024</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-primary/10 rounded"><span class="material-symbols-outlined text-lg">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-4 text-sm font-mono text-primary font-medium">PH-445-221</td>
+<td class="px-6 py-4 text-sm">Amoxicillin Powder 250mg</td>
+<td class="px-6 py-4">
+<span class="text-sm font-bold">12,400</span>
+<span class="text-[10px] text-on-surface-variant ml-1">Units</span>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container text-xs px-2.5 py-1 rounded border border-outline-variant/10">B08-S04-P5</span>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">Oct 20, 2023 · 11:20</td>
+<td class="px-6 py-4">
+<span class="text-xs px-2 py-0.5 rounded bg-surface-container-highest text-on-surface">Dec 20, 2024</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-primary/10 rounded"><span class="material-symbols-outlined text-lg">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-surface-container-lowest border-t border-[#ffffff05] flex items-center justify-between text-xs text-on-surface-variant">
+<div>Showing 4 of 482 SKUs in Zone RN-04</div>
+<div class="flex gap-2">
+<button class="p-1 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-1 hover:bg-surface-container rounded transition-colors bg-primary/10 text-primary px-3">1</button>
+<button class="p-1 hover:bg-surface-container rounded transition-colors px-3">2</button>
+<button class="p-1 hover:bg-surface-container rounded transition-colors px-3">3</button>
+<button class="p-1 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Tooltip for Status -->
+<div class="fixed bottom-6 right-6 bg-surface-container-highest/80 backdrop-blur-xl border border-primary/20 p-4 rounded-xl shadow-2xl flex items-center gap-4 z-50">
+<div class="flex items-center gap-2">
+<span class="flex h-3 w-3 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<span class="text-xs font-bold uppercase tracking-wider text-on-surface">Zone Monitoring Live</span>
+</div>
+<div class="h-6 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">ac_unit</span>
+<span class="text-xs text-on-surface-variant">-18.4°C</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">humidity_low</span>
+<span class="text-xs text-on-surface-variant">42%</span>
+</div>
+</div>
+</body></html>
