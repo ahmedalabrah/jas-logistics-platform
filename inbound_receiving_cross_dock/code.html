@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Sovereign WMS - Inbound Receiving (Cross-dock)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#d0bcff",
+                    "primary-container": "#4b1fa3",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "error": "#ffb4ab",
+                    "inverse-primary": "#6a45c3",
+                    "inverse-on-surface": "#302f3b",
+                    "on-primary-fixed": "#22005c",
+                    "on-background": "#e3e0f1",
+                    "tertiary": "#ffb68e",
+                    "on-surface": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-low": "#1b1a26",
+                    "on-secondary-fixed": "#201340",
+                    "secondary-container": "#4f4171",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary": "#532200",
+                    "on-secondary": "#352856",
+                    "surface-container-highest": "#343440",
+                    "on-primary-container": "#b79cff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-container-high": "#292935",
+                    "on-surface-variant": "#cbc3d5",
+                    "outline-variant": "#494453",
+                    "on-secondary-container": "#c0b0e7",
+                    "surface-variant": "#343440",
+                    "on-error": "#690005",
+                    "surface-dim": "#12121d",
+                    "background": "#12121d",
+                    "tertiary-container": "#6c2e00",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#331200",
+                    "error-container": "#93000a",
+                    "surface": "#12121d",
+                    "primary-fixed": "#e9ddff",
+                    "inverse-surface": "#e3e0f1",
+                    "secondary-fixed": "#e9ddff",
+                    "surface-bright": "#383845",
+                    "outline": "#948e9e",
+                    "on-primary": "#3b0092",
+                    "surface-container": "#1f1e2a",
+                    "primary": "#d0bcff",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "secondary": "#cfbef6",
+                    "on-tertiary-container": "#f09661",
+                    "on-primary-fixed-variant": "#5228aa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Poppins"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #12121d; color: #e3e0f1; font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .glass-panel { backdrop-filter: blur(12px); background: rgba(31, 30, 42, 0.6); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="antialiased overflow-hidden">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#12121D] border-r border-white/5 flex flex-col py-6 gap-2 font-['Plus_Jakarta_Sans'] text-sm font-medium">
+<div class="px-6 mb-8">
+<div class="text-sky-500 font-black tracking-widest uppercase text-xs mb-1">WMS Terminal</div>
+<div class="text-white font-bold text-lg">JAS Logistics</div>
+<div class="text-slate-500 text-[10px]">Riyadh Hub North</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<!-- Dashboard -->
+<a class="group flex items-center px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 group-hover:translate-x-1 transition-transform" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Inbound FA -->
+<a class="group flex items-center px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 group-hover:translate-x-1 transition-transform" data-icon="pending_actions">pending_actions</span>
+<span>Inbound FA</span>
+</a>
+<!-- Spot Arrival -->
+<a class="group flex items-center px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 group-hover:translate-x-1 transition-transform" data-icon="local_shipping">local_shipping</span>
+<span>Spot Arrival</span>
+</a>
+<!-- Cross-dock (Active) -->
+<a class="group flex items-center px-3 py-2 bg-sky-500/10 text-sky-400 border-r-4 border-sky-500 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span>Cross-dock</span>
+</a>
+<!-- GRN Manager -->
+<a class="group flex items-center px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 group-hover:translate-x-1 transition-transform" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span>GRN Manager</span>
+</a>
+<!-- Reporting -->
+<a class="group flex items-center px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 group-hover:translate-x-1 transition-transform" data-icon="analytics">analytics</span>
+<span>Reporting</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-1">
+<button class="w-full py-2.5 bg-sky-500 text-on-primary font-bold rounded-lg mb-4 hover:bg-sky-400 transition-colors shadow-lg shadow-sky-500/20 active:scale-95 duration-150">
+                New Receiving
+            </button>
+<a class="group flex items-center px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+<a class="group flex items-center px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pl-64 min-h-screen">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="fixed top-0 left-64 right-0 z-30 bg-[#0F0F1A]/80 backdrop-blur-xl h-16 flex justify-between items-center px-8 shadow-2xl shadow-black/20 bg-gradient-to-b from-white/5 to-transparent">
+<div class="flex items-center gap-8">
+<h1 class="text-xl font-bold tracking-tight text-white font-headline">JAS Sovereign WMS</h1>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 hover:text-slate-200 transition-colors py-1" href="#">Arrivals</a>
+<a class="text-sky-400 border-b-2 border-sky-400 pb-1 py-1" href="#">Operations</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors py-1" href="#">Reviews</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 text-sm" data-icon="search">search</span>
+<input class="bg-surface-container-highest/50 border-none rounded-full pl-10 pr-4 py-1.5 text-xs text-white focus:ring-1 focus:ring-sky-500 w-64 transition-all" placeholder="Search shipments..." type="text"/>
+</div>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all" title="Notifications">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-white/10 ml-2">
+<img alt="Supervisor Profile" class="w-full h-full object-cover" data-alt="Professional logistics supervisor in a clean corporate attire with a focused expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwL5n52qsIJ_icv82KuryBavvKwwh7EAH8p9-JwwGb3K77eF79LzFVnCSKrrtxGybVNg_Ifv4euiX1R_g3pSsWMUsnlCXsm8pAV81Fwi50rqc9wq47fpfHoUHFZIuAIR7-hDLDzyBNf6RYqvDOFMt2JxsZ_SIv94Z1KAgHNu_NI3LAGOkGxQ6JsrvHjFvnDB2VUAwJ904KxTztAUGHSk1b85xlicPcxCyr0tOukKTS-nNob43F8iU-hjBRY9xV8iZjoUpt-SNhrw"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="pt-24 px-8 pb-12">
+<!-- Page Header with Flow Indicator -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<div class="flex items-center gap-2 text-sky-500 font-mono text-xs mb-2 tracking-widest uppercase">
+<span class="w-2 h-2 bg-sky-500 rounded-full animate-pulse"></span>
+                        Live Operations / Cross-docking
+                    </div>
+<h2 class="text-3xl font-bold font-headline text-on-surface">Inbound Receiving</h2>
+<p class="text-on-surface-variant text-sm mt-1">Route: <span class="font-mono bg-surface-container-high px-2 py-0.5 rounded">/wms/inbound/crossdock</span></p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-low p-3 rounded-xl border border-white/5 flex items-center gap-4">
+<div class="text-right">
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Avg. Turnaround</div>
+<div class="text-xl font-bold font-mono text-sky-400">01:14:22</div>
+</div>
+<div class="h-10 w-10 rounded-full border-2 border-sky-500/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-sky-500 text-xl" data-icon="timer">timer</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-xl border border-white/5 flex items-center gap-4">
+<div class="text-right">
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter">SLA Compliance</div>
+<div class="text-xl font-bold font-mono text-emerald-400">98.4%</div>
+</div>
+<div class="h-10 w-10 rounded-full border-2 border-emerald-500/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-500 text-xl" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Operational Bento Grid -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Active Receiving Queue -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="bg-surface-container rounded-2xl overflow-hidden shadow-xl border border-white/5">
+<div class="px-6 py-4 border-b border-white/5 flex justify-between items-center bg-white/5">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sky-500" data-icon="move_to_inbox">move_to_inbox</span>
+                                Active Cross-Dock Queue
+                            </h3>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs bg-surface-container-highest text-white rounded hover:bg-sky-500/20 transition-all">Filter</button>
+<button class="px-3 py-1 text-xs bg-surface-container-highest text-white rounded hover:bg-sky-500/20 transition-all">Export</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="text-[10px] text-on-surface-variant uppercase tracking-widest bg-surface-container-low/50">
+<tr>
+<th class="px-6 py-3 font-medium">Manifest ID</th>
+<th class="px-6 py-3 font-medium">Carrier</th>
+<th class="px-6 py-3 font-medium">Items</th>
+<th class="px-6 py-3 font-medium">Status</th>
+<th class="px-6 py-3 font-medium">Turnaround</th>
+<th class="px-6 py-3 font-medium">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 text-sm font-body">
+<!-- Row 1: RECEIVE STATE -->
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="font-mono font-bold text-sky-400">JAS-XD-99281</div>
+<div class="text-[10px] text-on-surface-variant">Arrival: 14:20 PM</div>
+</td>
+<td class="px-6 py-4">
+<div class="font-semibold text-white">DHL Global</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter font-mono">Truck #KA-021-91</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-white">42 Skids</div>
+<div class="text-[10px] text-on-surface-variant">Medical Equipment</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 text-[10px] font-bold uppercase tracking-wider border border-sky-500/20">
+                                                Receiving
+                                            </span>
+</td>
+<td class="px-6 py-4 font-mono text-xs">
+                                            00:12:45
+                                        </td>
+<td class="px-6 py-4">
+<button class="text-sky-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: QC STATE -->
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="font-mono font-bold text-sky-400">JAS-XD-99279</div>
+<div class="text-[10px] text-on-surface-variant">Arrival: 13:55 PM</div>
+</td>
+<td class="px-6 py-4">
+<div class="font-semibold text-white">Aramex Logistics</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter font-mono">Truck #SR-912-XX</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-white">18 Units</div>
+<div class="text-[10px] text-on-surface-variant">Electronics (High Value)</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 text-[10px] font-bold uppercase tracking-wider border border-amber-500/20">
+                                                QC Check
+                                            </span>
+</td>
+<td class="px-6 py-4 font-mono text-xs">
+                                            00:48:12
+                                        </td>
+<td class="px-6 py-4">
+<button class="text-sky-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="edit_square">edit_square</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: DISPATCH STATE -->
+<tr class="hover:bg-white/5 transition-colors bg-sky-500/5">
+<td class="px-6 py-4">
+<div class="font-mono font-bold text-sky-400">JAS-XD-99275</div>
+<div class="text-[10px] text-on-surface-variant">Arrival: 13:10 PM</div>
+</td>
+<td class="px-6 py-4">
+<div class="font-semibold text-white">Zajil Express</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter font-mono">Truck #DXB-552-YY</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-white">112 Parcels</div>
+<div class="text-[10px] text-on-surface-variant">Fashion Retail</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/20">
+                                                Ready Dispatch
+                                            </span>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-emerald-400">
+                                            01:22:04
+                                        </td>
+<td class="px-6 py-4">
+<button class="bg-emerald-500 hover:bg-emerald-400 text-white px-3 py-1 rounded text-xs font-bold transition-all shadow-lg shadow-emerald-500/20">
+                                                Release
+                                            </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Flow Visualization -->
+<div class="grid grid-cols-3 gap-6">
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="forklift">forklift</span>
+</div>
+<div class="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-500 mb-2">Stage 01</div>
+<h4 class="text-lg font-bold text-white mb-4">Receive</h4>
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Inbound Docks</span>
+<span class="font-mono text-white">A1-A8</span>
+</div>
+<div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+<div class="bg-sky-500 h-full w-[65%]"></div>
+</div>
+<div class="text-[10px] text-on-surface-variant italic">8 Trucks currently docking</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="fact_check">fact_check</span>
+</div>
+<div class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-500 mb-2">Stage 02</div>
+<h4 class="text-lg font-bold text-white mb-4">QC Check</h4>
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Inspection Stations</span>
+<span class="font-mono text-white">Active (12)</span>
+</div>
+<div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+<div class="bg-amber-500 h-full w-[40%]"></div>
+</div>
+<div class="text-[10px] text-on-surface-variant italic">Avg. 15 mins per manifest</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-500 mb-2">Stage 03</div>
+<h4 class="text-lg font-bold text-white mb-4">Dispatch</h4>
+<div class="space-y-3">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Outbound Docks</span>
+<span class="font-mono text-white">B1-B12</span>
+</div>
+<div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full w-[88%]"></div>
+</div>
+<div class="text-[10px] text-on-surface-variant italic">Direct load throughput: High</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Secondary Data -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Scanner / Entry Panel -->
+<div class="bg-surface-container p-6 rounded-2xl border-t-4 border-sky-500 shadow-xl">
+<h3 class="font-bold mb-4 text-white uppercase text-xs tracking-widest">Entry Registration</h3>
+<div class="space-y-4">
+<div class="space-y-1">
+<label class="text-[10px] text-on-surface-variant uppercase font-bold">Scan Manifest QR / Barcode</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-none rounded-lg p-3 text-sm focus:ring-2 focus:ring-sky-500 text-white font-mono" placeholder="Enter manifest ID..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-sky-500" data-icon="barcode_scanner">barcode_scanner</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-[10px] text-on-surface-variant uppercase font-bold">Dock Door</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg p-3 text-sm focus:ring-2 focus:ring-sky-500 text-white appearance-none">
+<option>A-04</option>
+<option>A-05</option>
+<option>A-06</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] text-on-surface-variant uppercase font-bold">Priority</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg p-3 text-sm focus:ring-2 focus:ring-sky-500 text-white appearance-none">
+<option>Standard</option>
+<option class="text-rose-400">Flash (SLA)</option>
+</select>
+</div>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-sky-600 to-sky-400 text-white font-black rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-sky-500/20">
+                                INITIALIZE RECEIVING
+                            </button>
+</div>
+</div>
+<!-- Performance Visual -->
+<div class="bg-surface-container-high p-6 rounded-2xl border border-white/5">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-white text-xs uppercase tracking-widest">SLA Performance (24h)</h3>
+<span class="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded">Optimal</span>
+</div>
+<div class="flex items-center justify-center py-4">
+<div class="relative h-40 w-40">
+<!-- Circular Progress Placeholder -->
+<svg class="h-full w-full" viewbox="0 0 36 36">
+<path class="text-white/5" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="100, 100" stroke-width="3"></path>
+<path class="text-sky-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="88, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-black text-white font-mono">88%</span>
+<span class="text-[8px] text-on-surface-variant uppercase">Under 2hr</span>
+</div>
+</div>
+</div>
+<div class="mt-4 space-y-2">
+<div class="flex justify-between text-[10px]">
+<span class="text-on-surface-variant">On-time ( &lt; 2h )</span>
+<span class="text-white">142 Shipments</span>
+</div>
+<div class="flex justify-between text-[10px]">
+<span class="text-on-surface-variant">Warning ( 2-3h )</span>
+<span class="text-amber-400">14 Shipments</span>
+</div>
+<div class="flex justify-between text-[10px]">
+<span class="text-on-surface-variant">Breach ( &gt; 3h )</span>
+<span class="text-rose-400">3 Shipments</span>
+</div>
+</div>
+</div>
+<!-- Hub Activity Log -->
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5">
+<h3 class="font-bold text-white text-xs uppercase tracking-widest mb-4">Event Log</h3>
+<div class="space-y-4 max-h-[300px] overflow-y-auto no-scrollbar pr-2">
+<div class="flex gap-4 items-start">
+<div class="bg-emerald-500/20 p-1.5 rounded">
+<span class="material-symbols-outlined text-emerald-400 text-sm" data-icon="done_all">done_all</span>
+</div>
+<div>
+<div class="text-xs font-bold text-white">JAS-XD-99271 Released</div>
+<div class="text-[10px] text-on-surface-variant">Outbound Dock B-02 • 14:35</div>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="bg-sky-500/20 p-1.5 rounded">
+<span class="material-symbols-outlined text-sky-400 text-sm" data-icon="login">login</span>
+</div>
+<div>
+<div class="text-xs font-bold text-white">Truck KA-021-91 Docked</div>
+<div class="text-[10px] text-on-surface-variant">Inbound Dock A-08 • 14:20</div>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="bg-amber-500/20 p-1.5 rounded">
+<span class="material-symbols-outlined text-amber-400 text-sm" data-icon="report">report</span>
+</div>
+<div>
+<div class="text-xs font-bold text-white">QC Exception Flagged</div>
+<div class="text-[10px] text-on-surface-variant">JAS-XD-99268 • Damaged Pkg • 14:12</div>
+</div>
+</div>
+<div class="flex gap-4 items-start opacity-50">
+<div class="bg-white/10 p-1.5 rounded">
+<span class="material-symbols-outlined text-white text-sm" data-icon="history">history</span>
+</div>
+<div>
+<div class="text-xs font-bold text-white">Supervisor Handover</div>
+<div class="text-[10px] text-on-surface-variant">Shift Alpha -&gt; Beta • 14:00</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Quick Actions (Conditional Shell Component) -->
+<div class="fixed bottom-8 right-8 flex flex-col gap-3">
+<button class="bg-surface-container-high hover:bg-sky-500 text-white h-12 w-12 rounded-full flex items-center justify-center shadow-2xl transition-all group">
+<span class="material-symbols-outlined group-hover:scale-110" data-icon="print">print</span>
+</button>
+<button class="bg-sky-500 hover:bg-sky-400 text-white h-14 w-14 rounded-full flex items-center justify-center shadow-2xl shadow-sky-500/40 transition-all active:scale-95">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</div>
+</main>
+<!-- Background Texture for Velvet Feel -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[-1]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuq3xLcAasvVUNTHjcPtRUjss4IlvHtVJWaUYmiBeq-r9mmQPljjwsLW-xcofA4y4l0RwtwO8JQjVckBJ4e4DC78KbEPbiuHSBszH52wFFCMC1cXzpg5h7XxJB-Bs3j_wfugXdiS5AIxm7DVb4pvQjrBmUUSpL0XSwHRx7zEvqTe1nbsput3ITjNn0HMrn2x_WaVqEgsmSEIMxcSIXpnYTwyZQdH9w7rAk7p71fHwMK0DP0tqL-3bWH6-poAudZYYbA6wnjUx0MQ');"></div>
+</body></html>

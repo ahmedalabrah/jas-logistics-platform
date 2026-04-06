@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#6a45c3",
+                        "on-secondary": "#352856",
+                        "on-tertiary": "#532200",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-background": "#e3e0f1",
+                        "outline-variant": "#494453",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-fixed": "#201340",
+                        "on-primary-container": "#b79cff",
+                        "surface-container": "#1f1e2a",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "tertiary": "#ffb68e",
+                        "error-container": "#93000a",
+                        "primary": "#d0bcff",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "surface-tint": "#d0bcff",
+                        "surface-container-lowest": "#0d0d18",
+                        "primary-container": "#4b1fa3",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "inverse-surface": "#e3e0f1",
+                        "on-error": "#690005",
+                        "on-surface": "#e3e0f1",
+                        "error": "#ffb4ab",
+                        "on-primary": "#3b0092",
+                        "surface-dim": "#12121d",
+                        "surface-container-high": "#292935",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-container": "#c0b0e7",
+                        "background": "#12121d",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "surface-variant": "#343440",
+                        "secondary": "#cfbef6",
+                        "on-surface-variant": "#cbc3d5",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-fixed": "#e9ddff",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-on-surface": "#302f3b",
+                        "tertiary-container": "#6c2e00",
+                        "secondary-container": "#4f4171",
+                        "surface": "#12121d",
+                        "surface-container-highest": "#343440",
+                        "surface-bright": "#383845",
+                        "outline": "#948e9e",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-tertiary-fixed": "#331200"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "arabic": ["IBM Plex Arabic"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-arabic { font-family: 'IBM Plex Arabic', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+<div class="flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">JAS FreMS</span>
+<div class="hidden md:flex gap-6 items-center font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+<a class="text-gray-400 hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">Clearance</a>
+<a class="text-white border-b-2 border-[#C43585] pb-1" href="#">Optimization</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-3 mr-4">
+<span class="material-symbols-outlined text-gray-400 cursor-pointer hover:bg-white/5 p-2 rounded-full transition-all">notifications</span>
+<span class="material-symbols-outlined text-gray-400 cursor-pointer hover:bg-white/5 p-2 rounded-full transition-all">settings</span>
+</div>
+<button class="bg-primary-container text-primary px-4 py-2 rounded-lg font-medium text-sm hover:brightness-110 transition-all">Create Shipment</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional portrait of a logistics manager in a dark environment with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ9FvHIJY5RQHN1CNSXEHC63MfM0xQIRF1EzBgUjRj_cg7JiMJXcDOwIea_GTLNOHPW7k2fbLNNIuTSgaf0nCXf5niMPEtSiI8NxeYwOE4Vor-4A3katuPpdRYcRwoQLL3M1Tg24CVHyUceg29jGkTte6Thatot9ayTHOyUvZNu0v166EXNB77ENfohb6k2zb4ZV7KiW7FgtDYdWT6AarHbfbuBl4LfcdLmgUSb1NmfCVF7uU5V-6LOTU_M7RrWTmrbBEVQdo1Ug"/>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-b from-[#C43585]/10 to-transparent h-[1px]"></div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-[#12121d]/90 backdrop-blur-lg border-r border-white/5 flex flex-col py-6 gap-2">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-gray-500 font-headline">Terminal Intel</p>
+<p class="text-[9px] text-emerald-500/80 uppercase tracking-tight">AI Engine Active</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-gray-500 flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest hover:bg-[#C43585]/10 hover:text-[#C43585] transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">gavel</span> Customs
+            </a>
+<a class="bg-gradient-to-r from-[#C43585]/20 to-transparent border-l-4 border-[#C43585] text-white flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span> HS Classification
+            </a>
+<a class="text-gray-500 flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest hover:bg-[#C43585]/10 hover:text-[#C43585] transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">alt_route</span> Route Planner
+            </a>
+<a class="text-gray-500 flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest hover:bg-[#C43585]/10 hover:text-[#C43585] transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">description</span> Documents
+            </a>
+<a class="text-gray-500 flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest hover:bg-[#C43585]/10 hover:text-[#C43585] transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span> AI Assistant
+            </a>
+<a class="text-gray-500 flex items-center gap-3 px-6 py-3 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest hover:bg-[#C43585]/10 hover:text-[#C43585] transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">history</span> Audit Log
+            </a>
+</nav>
+<div class="mt-auto px-6 space-y-4">
+<button class="w-full py-3 bg-[#C43585] text-white text-[10px] font-bold uppercase tracking-widest rounded transition-all hover:brightness-110 active:scale-95">
+                Optimize Flow
+            </button>
+<div class="pt-4 border-t border-white/5 space-y-1">
+<a class="text-gray-500 flex items-center gap-3 py-2 text-[10px] uppercase tracking-widest hover:text-white" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span> Help Center
+                </a>
+<a class="text-gray-500 flex items-center gap-3 py-2 text-[10px] uppercase tracking-widest hover:text-white" href="#">
+<span class="material-symbols-outlined text-[18px]">logout</span> Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+<!-- Page Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div class="space-y-1">
+<div class="flex items-center gap-3 mb-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary-container/30 text-primary uppercase tracking-widest border border-primary/20">Tool FRE-11</span>
+<span class="text-on-surface-variant/60 text-xs font-medium">/frems/tools/hs-classifier</span>
+</div>
+<h1 class="text-4xl font-extrabold font-headline tracking-tight text-on-surface">
+                    AI HS Code Classifier
+                </h1>
+<h2 class="text-xl font-arabic text-on-surface-variant/80 tracking-wide">
+                    مصنف رموز النظام المنسق بالذكاء الاصطناعي
+                </h2>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-high/40 p-4 rounded-xl backdrop-blur-md border border-white/5">
+<div class="flex flex-col items-end">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant">Model Engine</span>
+<span class="text-sm font-medium text-on-surface">Claude 3.5 &amp; ZATCA 2022</span>
+</div>
+<div class="h-8 w-[1px] bg-white/10"></div>
+<span class="material-symbols-outlined text-primary scale-110" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+<!-- INPUT PANEL -->
+<section class="bg-surface-container-low rounded-xl p-8 border border-white/5 flex flex-col gap-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">inventory_2</span> Product Description
+                        </label>
+<span class="text-[10px] text-on-surface-variant/40">English or Arabic Supported</span>
+</div>
+<textarea class="w-full h-48 bg-surface-container-lowest rounded-lg border-none focus:ring-1 focus:ring-primary/50 text-on-surface placeholder:text-on-surface-variant/30 p-4 text-sm font-body leading-relaxed resize-none transition-all" placeholder="e.g. High-performance portable workstation with 16-inch Retina display, 32GB RAM, used for engineering and architectural visualization..."></textarea>
+</div>
+<div class="space-y-4">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">public</span> Country of Origin
+                    </label>
+<div class="relative group">
+<select class="w-full bg-surface-container-lowest rounded-lg border-none focus:ring-1 focus:ring-primary/50 text-on-surface appearance-none px-4 py-3 text-sm font-body cursor-pointer">
+<option>Select Country</option>
+<option>China (CN)</option>
+<option>United States (US)</option>
+<option>Germany (DE)</option>
+<option>United Arab Emirates (AE)</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-3 text-on-surface-variant pointer-events-none group-hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+<button class="w-full py-4 mt-2 bg-gradient-to-r from-primary-container to-[#6a45c3] text-white rounded-lg font-bold font-headline flex items-center justify-center gap-3 hover:brightness-110 active:scale-[0.99] transition-all shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+                    Classify with AI →
+                </button>
+<div class="flex items-center gap-3 text-xs text-on-surface-variant/60 italic animate-pulse">
+<span class="material-symbols-outlined text-sm">stream</span>
+                    Analyzing product description...
+                </div>
+</section>
+<!-- RESULT PANEL -->
+<div class="space-y-6">
+<!-- Primary Result Card -->
+<section class="bg-surface-container-high rounded-xl p-8 border border-primary/20 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[80px]">fact_check</span>
+</div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-[0.2em] font-bold text-primary">Primary Classification</p>
+<h3 class="text-5xl font-black font-headline tracking-tighter text-white">8471.30.00</h3>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-xs font-bold text-emerald-400">84% Confidence</span>
+<div class="w-24 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 rounded-full" style="width: 84%"></div>
+</div>
+</div>
+<p class="text-[10px] text-on-surface-variant">ZATCA Verified Node</p>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<p class="text-sm text-on-surface leading-relaxed font-medium">
+                                Portable automatic data processing machines, weighing not more than 10 kg, consisting of at least a central processing unit, a keyboard and a display.
+                            </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-container-lowest border border-white/5 rounded text-[10px] text-on-surface-variant uppercase tracking-wider">HS 2022</span>
+<span class="px-2 py-1 bg-surface-container-lowest border border-white/5 rounded text-[10px] text-on-surface-variant uppercase tracking-wider">Section XVI</span>
+<span class="px-2 py-1 bg-surface-container-lowest border border-white/5 rounded text-[10px] text-on-surface-variant uppercase tracking-wider">Chapter 84</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 p-4 bg-surface-container-lowest rounded-lg border border-white/5">
+<div class="space-y-1">
+<p class="text-[9px] uppercase tracking-widest text-on-surface-variant">Duty Rate</p>
+<p class="text-lg font-bold text-white">5%</p>
+</div>
+<div class="space-y-1">
+<p class="text-[9px] uppercase tracking-widest text-on-surface-variant">VAT</p>
+<p class="text-lg font-bold text-white">15%</p>
+</div>
+<div class="space-y-1">
+<p class="text-[9px] uppercase tracking-widest text-on-surface-variant">Total Tax</p>
+<p class="text-lg font-bold text-primary">20%</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Alternative Options -->
+<div class="space-y-4">
+<p class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Alternative Match Suggestions</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/5 hover:border-primary/20 transition-colors cursor-pointer group">
+<div class="flex justify-between items-center mb-2">
+<span class="text-lg font-bold text-white group-hover:text-primary transition-colors">8471.41.00</span>
+<span class="text-[10px] text-on-surface-variant">12% match</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-tight">Other data processing machines, comprising in the same housing at least a CPU.</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/5 hover:border-primary/20 transition-colors cursor-pointer group">
+<div class="flex justify-between items-center mb-2">
+<span class="text-lg font-bold text-white group-hover:text-primary transition-colors">8471.49.00</span>
+<span class="text-[10px] text-on-surface-variant">4% match</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-tight">Other digital processing units presented in the form of systems.</p>
+</div>
+</div>
+</div>
+<!-- Compliance Flags -->
+<div class="bg-error-container/10 border border-error/20 p-4 rounded-xl flex gap-4 items-start">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div class="space-y-1">
+<p class="text-xs font-bold text-on-error-container">Regulatory Requirement Detected</p>
+<p class="text-[11px] text-on-surface-variant">This HS code requires a **SASO Certificate of Conformity** for customs clearance in Saudi Arabia. Please ensure SABER registration is active.</p>
+</div>
+</div>
+<button class="w-full py-4 bg-white text-background rounded-lg font-bold font-headline flex items-center justify-center gap-3 hover:bg-on-surface transition-all active:scale-[0.99] shadow-xl">
+                    Apply to Shipment →
+                </button>
+</div>
+</div>
+<!-- Background Aesthetic Elements -->
+<div class="fixed bottom-0 right-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full -z-10"></div>
+<div class="fixed top-1/2 left-0 w-72 h-72 bg-[#C43585]/5 blur-[100px] rounded-full -z-10"></div>
+</main>
+</body></html>

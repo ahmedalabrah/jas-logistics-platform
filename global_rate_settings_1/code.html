@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global Rate Settings | JAS Revenue Engine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#22005c",
+                    "secondary": "#cfbef6",
+                    "primary-container": "#4b1fa3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#c0b0e7",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary": "#3b0092",
+                    "surface-variant": "#343440",
+                    "surface-container-high": "#292935",
+                    "tertiary-container": "#6c2e00",
+                    "outline": "#948e9e",
+                    "on-secondary": "#352856",
+                    "on-tertiary": "#532200",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#1b1a26",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary-fixed": "#331200",
+                    "tertiary": "#ffb68e",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "inverse-surface": "#e3e0f1",
+                    "inverse-primary": "#6a45c3",
+                    "outline-variant": "#494453",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "inverse-on-surface": "#302f3b",
+                    "error-container": "#93000a",
+                    "surface-tint": "#d0bcff",
+                    "secondary-fixed": "#e9ddff",
+                    "background": "#12121d",
+                    "on-primary-container": "#b79cff",
+                    "surface-bright": "#383845",
+                    "surface-container": "#1f1e2a",
+                    "surface": "#12121d",
+                    "on-error": "#690005",
+                    "primary-fixed": "#e9ddff",
+                    "on-background": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "secondary-container": "#4f4171",
+                    "primary": "#d0bcff",
+                    "surface-container-highest": "#343440",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-surface": "#e3e0f1",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-tertiary-container": "#f09661",
+                    "on-secondary-fixed": "#201340",
+                    "surface-dim": "#12121d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            background: rgba(18, 18, 29, 0.7);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #d0bcff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(208, 188, 255, 0.5);
+        }
+        input::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #d0bcff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(208, 188, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl border-b border-white/5 flex justify-between items-center px-8 py-3 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] bg-clip-text text-transparent font-headline tracking-tight">JAS Revenue Engine</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1 font-headline text-sm tracking-tight" href="#">Global Rates</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline text-sm tracking-tight" href="#">Overrides</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline text-sm tracking-tight" href="#">Tier Rules</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-headline text-sm tracking-tight" href="#">Simulator</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 mr-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<button class="px-5 py-2 bg-primary-container text-on-primary-container rounded-lg font-semibold text-sm hover:scale-105 active:scale-95 duration-200 transition-all">
+                Approve Changes
+            </button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="Finance Director Profile" class="w-full h-full object-cover" data-alt="Portrait of a senior finance executive in a dark office, professional and authoritative lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5V9P2GDn8lP2DtCd6jmvml5rPNyYqqR7JX3Ezj-Uz3b15MziP5-VHzsZ5mJT6MExM4YoYiha_h4rnoJZ2PH13AFklfA8Sm02Ai6_sEzS-j42kom-P86atr-uTaOt96IaTJBjyduAFG614gxZDrV2n7He-pdJJ5AvrcFkG-7HKLEOI0mKqQelfhUAZSAQDkHVHyvkYlXu4Y1pzLWuD-Lyr-Kj0zmIxlYufl-2kBue64o4rHbnyu_D0tzHjWgZmn3X48Cg62rhqlQ"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#12121d] flex flex-col pt-20 pb-6 z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-[#4b1fa3]/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#d0bcff]">finance</span>
+</div>
+<div>
+<p class="font-black text-[#d0bcff] font-headline text-sm">Finance Ops</p>
+<p class="text-slate-500 text-xs font-label">Enterprise Tier</p>
+</div>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 bg-[#4b1fa3]/20 text-[#d0bcff] rounded-r-full border-l-4 border-[#d0bcff] py-3 px-6 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label text-sm">Rate Engines</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="rule">rule</span>
+<span class="font-label text-sm">Override Log</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+<span class="font-label text-sm">Workflow</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label text-sm">Simulator</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-label text-sm">Audit Trail</span>
+</a>
+</div>
+<div class="px-6 mb-6">
+<button class="w-full py-2 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed rounded-lg text-xs font-bold uppercase tracking-wider">
+                New Rate Rule
+            </button>
+</div>
+<div class="pt-6 border-t border-white/5">
+<a class="flex items-center gap-3 text-slate-500 py-3 px-6 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label text-sm">Support</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 py-3 px-6 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label text-sm">Documentation</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pl-64 pt-16 min-h-screen">
+<!-- Warning Banner -->
+<div class="w-full bg-error-container/20 border-y border-error/20 px-8 py-4 flex items-center gap-4 text-error">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+<p class="text-sm font-semibold tracking-wide">Changes here affect ALL active clients and partners. You must run the Impact Simulator (Step 5) before any change can be approved.</p>
+</div>
+<div class="p-8 max-w-7xl mx-auto">
+<header class="mb-10">
+<h1 class="text-4xl font-headline font-extrabold text-on-background tracking-tighter mb-2">Global Rate Settings</h1>
+<p class="text-on-surface-variant text-lg">Centralized revenue control for JAS Logistics Command.</p>
+</header>
+<!-- Revenue Stream Cards Bento-style Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-32">
+<!-- 1. FLEET INCOME -->
+<section class="bg-surface-container-low rounded-xl p-6 border border-white/5 group hover:border-primary/20 transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/20 p-2 rounded-lg">local_shipping</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-wider">FLEET INCOME</h3>
+</div>
+<span class="px-3 py-1 bg-tertiary-container/30 text-tertiary rounded-full text-[10px] font-bold tracking-widest">+SAR 42,000/month est.</span>
+</div>
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<label class="text-on-surface-variant text-xs font-label">Current Base Rate (per trip)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold">SAR</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3 pl-14 pr-4 text-primary font-headline text-2xl font-bold focus:ring-2 focus:ring-primary/40 transition-all" type="number" value="850"/>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-lg">
+<span class="text-sm font-medium">Cascade to all Sub-tiers?</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- 2. FREIGHT MARGIN -->
+<section class="bg-surface-container-low rounded-xl p-6 border border-white/5 hover:border-primary/20 transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/20 p-2 rounded-lg">trending_up</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-wider">FREIGHT MARGIN</h3>
+</div>
+<span class="px-3 py-1 bg-tertiary-container/30 text-tertiary rounded-full text-[10px] font-bold tracking-widest">+SAR 84,000/month est.</span>
+</div>
+<div class="space-y-8">
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant text-xs uppercase font-bold tracking-tighter">Current: 22%</span>
+<span class="text-primary font-headline text-4xl font-black">22<span class="text-lg">%</span></span>
+</div>
+<div class="relative pt-1">
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer" max="40" min="5" type="range" value="22"/>
+<div class="flex justify-between text-[10px] text-slate-500 mt-2 font-bold uppercase">
+<span>5% MIN</span>
+<span>40% MAX</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. STORAGE REVENUE -->
+<section class="bg-surface-container-low rounded-xl p-6 border border-white/5 lg:col-span-2">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/20 p-2 rounded-lg">warehouse</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-wider">STORAGE REVENUE</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-4 bg-surface-container rounded-lg space-y-2">
+<label class="text-[10px] font-bold text-slate-500 uppercase">Base (sqm/day)</label>
+<div class="flex items-baseline gap-1">
+<span class="text-xs text-primary font-bold">SAR</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-3xl font-black text-on-background w-full" type="text" value="4.50"/>
+</div>
+</div>
+<div class="p-4 bg-surface-container rounded-lg space-y-2 border-l-4 border-primary/40">
+<label class="text-[10px] font-bold text-slate-500 uppercase">Cold Chain Premium</label>
+<div class="flex items-baseline gap-1">
+<span class="text-xs text-primary font-bold">+SAR</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-3xl font-black text-on-background w-full" type="text" value="2.00"/>
+</div>
+</div>
+<div class="p-4 bg-surface-container rounded-lg space-y-2 border-l-4 border-error/40">
+<label class="text-[10px] font-bold text-slate-500 uppercase">Hazmat Premium</label>
+<div class="flex items-baseline gap-1">
+<span class="text-xs text-error font-bold">+SAR</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-3xl font-black text-on-background w-full" type="text" value="3.50"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. INSURANCE COMMISSION & 5. CUSTOMS -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:col-span-2">
+<!-- Card 4 -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-white/5">
+<h3 class="font-headline font-bold text-sm uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">security</span> INSURANCE COMMISSION
+                        </h3>
+<div class="flex items-center gap-6">
+<span class="text-4xl font-black text-primary">10%</span>
+<input class="flex-1 h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer" type="range"/>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-white/5">
+<h3 class="font-headline font-bold text-sm uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">assignment_turned_in</span> CUSTOMS BROKERAGE FEE
+                        </h3>
+<div class="flex items-center bg-surface-container-highest rounded-lg px-4 py-2">
+<span class="text-sm font-bold text-primary mr-2">SAR</span>
+<input class="bg-transparent border-none focus:ring-0 text-2xl font-black w-full" type="number" value="1100"/>
+</div>
+</div>
+</div>
+<!-- 6. SUB-CARRIER SPREAD -->
+<section class="bg-surface-container-low rounded-xl p-6 border border-white/5">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/20 p-2 rounded-lg">swap_horiz</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-wider">SUB-CARRIER SPREAD</h3>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-5 px-6 text-on-background font-headline text-3xl font-black focus:ring-2 focus:ring-primary/40 transition-all" type="number" value="220"/>
+<span class="absolute right-6 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold">SAR FIXED MARGIN</span>
+</div>
+</section>
+<!-- 7. FRANCHISE FEES -->
+<section class="bg-surface-container-low rounded-xl p-6 border border-white/5">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/20 p-2 rounded-lg">business_center</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-wider">FRANCHISE FEES</h3>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-[10px] text-slate-500 font-bold uppercase">Setup Fee</label>
+<div class="bg-surface-container p-3 rounded-lg flex items-baseline">
+<span class="text-xs text-primary font-bold mr-1">SAR</span>
+<span class="text-xl font-bold">85k</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] text-slate-500 font-bold uppercase">Royalty %</label>
+<div class="bg-surface-container p-3 rounded-lg">
+<span class="text-xl font-bold text-primary">8%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. VALUE-ADDED SERVICES -->
+<section class="bg-surface-container-low rounded-xl p-6 border border-white/5 lg:col-span-2 overflow-hidden relative">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/20 p-2 rounded-lg">extension</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-wider">VALUE-ADDED SERVICES</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full">
+<thead>
+<tr class="text-left border-b border-white/5">
+<th class="pb-3 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Service Type</th>
+<th class="pb-3 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Pricing Model</th>
+<th class="pb-3 text-[10px] font-bold text-slate-500 uppercase tracking-widest text-right">Standard Rate (SAR)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="group hover:bg-white/[0.02]">
+<td class="py-4 font-semibold text-sm">Packaging &amp; Palletizing</td>
+<td class="py-4 text-xs text-slate-400">Flat rate per unit</td>
+<td class="py-4 text-right">
+<input class="bg-surface-container-highest border-none rounded text-right py-1 px-2 text-primary font-bold w-20 focus:ring-1 focus:ring-primary" type="number" value="45"/>
+</td>
+</tr>
+<tr class="group hover:bg-white/[0.02]">
+<td class="py-4 font-semibold text-sm">Express Documentation</td>
+<td class="py-4 text-xs text-slate-400">Standard surcharge</td>
+<td class="py-4 text-right">
+<input class="bg-surface-container-highest border-none rounded text-right py-1 px-2 text-primary font-bold w-20 focus:ring-1 focus:ring-primary" type="number" value="120"/>
+</td>
+</tr>
+<tr class="group hover:bg-white/[0.02]">
+<td class="py-4 font-semibold text-sm">Reverse Logistics Handling</td>
+<td class="py-4 text-xs text-slate-400">Percentage of freight</td>
+<td class="py-4 text-right">
+<input class="bg-surface-container-highest border-none rounded text-right py-1 px-2 text-primary font-bold w-20 focus:ring-1 focus:ring-primary" type="number" value="15"/>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Action Bar -->
+<div class="fixed bottom-0 left-64 right-0 p-6 glass-panel border-t border-white/5 z-50">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary animate-pulse">sync</span>
+<span class="text-xs font-medium text-slate-400">Draft unsaved. Last change 2m ago.</span>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-3 text-on-surface font-bold text-sm hover:bg-surface-container-highest transition-colors rounded-lg border border-outline/20">
+                    Save as Draft
+                </button>
+<button class="px-8 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-black text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(208,188,255,0.3)] hover:scale-105 active:scale-95 duration-200 transition-all rounded-lg">
+                    Submit for Approval
+                </button>
+</div>
+</div>
+</div>
+</body></html>

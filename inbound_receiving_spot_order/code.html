@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Sovereign WMS - Spot Arrival</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#d0bcff",
+                        "primary-container": "#4b1fa3",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#6a45c3",
+                        "inverse-on-surface": "#302f3b",
+                        "on-primary-fixed": "#22005c",
+                        "on-background": "#e3e0f1",
+                        "tertiary": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-fixed": "#201340",
+                        "secondary-container": "#4f4171",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-tertiary": "#532200",
+                        "on-secondary": "#352856",
+                        "surface-container-highest": "#343440",
+                        "on-primary-container": "#b79cff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "on-surface-variant": "#cbc3d5",
+                        "outline-variant": "#494453",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-variant": "#343440",
+                        "on-error": "#690005",
+                        "surface-dim": "#12121d",
+                        "background": "#12121d",
+                        "tertiary-container": "#6c2e00",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#331200",
+                        "error-container": "#93000a",
+                        "surface": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "inverse-surface": "#e3e0f1",
+                        "secondary-fixed": "#e9ddff",
+                        "surface-bright": "#383845",
+                        "outline": "#948e9e",
+                        "on-primary": "#3b0092",
+                        "surface-container": "#1f1e2a",
+                        "primary": "#d0bcff",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "secondary": "#cfbef6",
+                        "on-tertiary-container": "#f09661",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "spot-cyan": "#0EA5E9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Poppins"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.7);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20 flex justify-between items-center px-8 h-16 w-full font-['Plus_Jakarta_Sans'] antialiased">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-white">JAS Sovereign WMS</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Arrivals</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Operations</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Reviews</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-400 hover:text-slate-200 cursor-pointer p-2 rounded-full transition-all duration-300 hover:bg-white/5">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-spot-cyan rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-slate-400 hover:text-slate-200 cursor-pointer p-2 rounded-full transition-all duration-300 hover:bg-white/5">settings</span>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-white/10 ml-2">
+<img class="w-full h-full object-cover" data-alt="professional male supervisor portrait with confident expression, logistics warehouse lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD0McYUBmsLXOwThGFrc2QLBMi31IHfif-7iVsV5HyqOUTwnwPE52tR5zXqmFFbWxXUggtN5NGghBHdVc7AAFSyo-kmE0kIpZkCISGrQRH56YCJlhw1VNDKGIJiT5Z4Xx6XfbCkDWoBYrtIdXVOCph35yB2tOx0A2gk-hlvQLRfQwjAyFjE2sjbOaho39D-aDKRxoFP_ZqqDIO9Ee-jfm1A1oTQvHlJafQQw1RXt2ssI1fpp-DV9FlSYnY-zwhJbk3oaDLHZQpZw"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#12121D] border-r border-white/5 flex flex-col py-6 gap-2 pt-20">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded bg-spot-cyan flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div>
+<h2 class="text-sky-500 font-black tracking-widest text-xs uppercase">WMS Terminal</h2>
+<p class="text-slate-500 text-[10px] uppercase font-bold">Riyadh Hub North</p>
+</div>
+</div>
+<button class="w-full mt-4 bg-spot-cyan/10 hover:bg-spot-cyan/20 text-spot-cyan py-2 rounded font-bold text-xs transition-all flex items-center justify-center gap-2 border border-spot-cyan/20">
+<span class="material-symbols-outlined text-sm">add</span> New Receiving
+            </button>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2.5 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl">pending_actions</span>
+<span class="font-medium text-sm">Inbound FA</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 bg-sky-500/10 text-sky-400 border-r-4 border-sky-500 font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span>Spot Arrival</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl">inventory_2</span>
+<span class="font-medium text-sm">Cross-dock</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl">assignment_turned_in</span>
+<span class="font-medium text-sm">GRN Manager</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl">analytics</span>
+<span class="font-medium text-sm">Reporting</span>
+</a>
+</nav>
+<div class="px-4 pt-6 mt-auto border-t border-white/5 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">help_outline</span>
+<span class="font-medium text-sm">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span class="font-medium text-sm">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 pt-20 p-8 min-h-screen">
+<!-- Alert Banner -->
+<div class="mb-8 flex items-center gap-3 bg-spot-cyan/10 border-l-4 border-spot-cyan p-4 rounded-r-lg">
+<span class="text-xl">⚡</span>
+<p class="text-spot-cyan font-semibold text-sm">Spot arrivals require manual dock assignment. Please prioritize unassigned vehicles.</p>
+</div>
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="font-headline text-3xl text-white tracking-tight">Inbound Receiving</h1>
+<p class="text-on-surface-variant font-body mt-1">Unscheduled Spot Order Management — Hub Alpha</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-low px-4 py-2 rounded-lg border border-white/5">
+<span class="block text-[10px] uppercase font-bold text-slate-500">Live Traffic</span>
+<span class="text-xl font-headline text-spot-cyan">14 Unassigned</span>
+</div>
+<div class="bg-surface-container-low px-4 py-2 rounded-lg border border-white/5">
+<span class="block text-[10px] uppercase font-bold text-slate-500">Avg Processing</span>
+<span class="text-xl font-headline text-on-surface">42m</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Arrivals Queue (Main Section) -->
+<div class="col-span-12 lg:col-span-8">
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-xl">
+<div class="p-6 border-b border-white/5 flex items-center justify-between bg-surface-container-high/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-spot-cyan">queue</span>
+<h3 class="font-headline text-lg">Unassigned Arrivals Queue</h3>
+</div>
+<div class="flex gap-2">
+<button class="bg-white/5 hover:bg-white/10 p-2 rounded transition-all">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+<button class="bg-white/5 hover:bg-white/10 p-2 rounded transition-all">
+<span class="material-symbols-outlined text-sm">refresh</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead>
+<tr class="text-slate-500 border-b border-white/5 bg-surface-container-low/30 uppercase text-[10px] font-bold tracking-wider">
+<th class="px-6 py-4">Reference</th>
+<th class="px-6 py-4">Carrier &amp; Vehicle</th>
+<th class="px-6 py-4">Lanes / Type</th>
+<th class="px-6 py-4">Dock Assignment</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<span class="font-mono text-spot-cyan font-medium">SPOT-99281</span>
+<span class="block text-[10px] text-slate-500">ARRIVED 12:40</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">local_shipping</span>
+</div>
+<div>
+<span class="font-semibold block">DHL Express</span>
+<span class="text-[10px] font-mono text-slate-400 uppercase">KSA-8821-X</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-tertiary-container/30 text-on-tertiary-container rounded text-[10px] font-bold uppercase">Multi-Pallet</span>
+<span class="block text-[10px] text-slate-500 mt-1">Electronics / High Value</span>
+</td>
+<td class="px-6 py-4">
+<select class="bg-surface-container-highest border-none text-xs rounded-lg focus:ring-1 focus:ring-spot-cyan w-full">
+<option>Select Dock...</option>
+<option>Dock A-01 (Idle)</option>
+<option>Dock A-02 (Idle)</option>
+<option>Dock B-04 (15m wait)</option>
+</select>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="bg-spot-cyan text-white text-xs px-3 py-1.5 rounded-lg font-bold hover:shadow-[0_0_15px_rgba(14,165,233,0.3)] transition-all">Assign</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<span class="font-mono text-spot-cyan font-medium">SPOT-99295</span>
+<span class="block text-[10px] text-slate-500">ARRIVED 13:05</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">local_shipping</span>
+</div>
+<div>
+<span class="font-semibold block">Aramex Logistics</span>
+<span class="text-[10px] font-mono text-slate-400 uppercase">UAE-1192-A</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-surface-container-highest text-slate-300 rounded text-[10px] font-bold uppercase">Small Parcel</span>
+<span class="block text-[10px] text-slate-500 mt-1">General Merchandise</span>
+</td>
+<td class="px-6 py-4">
+<select class="bg-surface-container-highest border-none text-xs rounded-lg focus:ring-1 focus:ring-spot-cyan w-full">
+<option>Select Dock...</option>
+<option>Dock A-01 (Idle)</option>
+<option>Dock C-02 (Idle)</option>
+</select>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="bg-spot-cyan text-white text-xs px-3 py-1.5 rounded-lg font-bold hover:shadow-[0_0_15px_rgba(14,165,233,0.3)] transition-all">Assign</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<span class="font-mono text-spot-cyan font-medium">SPOT-99301</span>
+<span class="block text-[10px] text-slate-500">ARRIVED 13:12</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">local_shipping</span>
+</div>
+<div>
+<span class="font-semibold block">FedEx Middle East</span>
+<span class="text-[10px] font-mono text-slate-400 uppercase">KSA-0012-Q</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-error-container/30 text-on-error-container rounded text-[10px] font-bold uppercase">Hazardous</span>
+<span class="block text-[10px] text-slate-500 mt-1">Flammable Liquids</span>
+</td>
+<td class="px-6 py-4">
+<select class="bg-surface-container-highest border-none text-xs rounded-lg focus:ring-1 focus:ring-spot-cyan w-full border border-error/50">
+<option>HAZMAT DOCK ONLY</option>
+<option>Haz-01 (Ready)</option>
+</select>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="bg-spot-cyan text-white text-xs px-3 py-1.5 rounded-lg font-bold hover:shadow-[0_0_15px_rgba(14,165,233,0.3)] transition-all">Assign</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Side Panels -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Dock Status Panel -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-xl border border-white/5">
+<div class="p-6 border-b border-white/5 flex items-center gap-3 bg-surface-container-high/50">
+<span class="material-symbols-outlined text-spot-cyan">door_open</span>
+<h3 class="font-headline text-lg">Dock Availability</h3>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-center bg-surface-container-low p-3 rounded border border-green-500/20">
+<div>
+<span class="font-mono text-xs text-slate-500">SECTION A</span>
+<p class="font-bold text-on-surface">Dock A-01</p>
+</div>
+<span class="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] font-bold rounded">AVAILABLE</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low p-3 rounded border border-white/5">
+<div>
+<span class="font-mono text-xs text-slate-500">SECTION A</span>
+<p class="font-bold text-on-surface">Dock A-02</p>
+</div>
+<span class="px-2 py-1 bg-white/5 text-slate-400 text-[10px] font-bold rounded">OCCUPIED</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low p-3 rounded border border-amber-500/20">
+<div>
+<span class="font-mono text-xs text-slate-500">SECTION B</span>
+<p class="font-bold text-on-surface">Dock B-01</p>
+</div>
+<span class="px-2 py-1 bg-amber-500/10 text-amber-500 text-[10px] font-bold rounded">CLEANING</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low p-3 rounded border border-green-500/20">
+<div>
+<span class="font-mono text-xs text-slate-500">HAZMAT</span>
+<p class="font-bold text-on-surface">Dock Haz-01</p>
+</div>
+<span class="px-2 py-1 bg-green-500/10 text-green-500 text-[10px] font-bold rounded">AVAILABLE</span>
+</div>
+</div>
+</div>
+<!-- Spot Traffic Insights -->
+<div class="relative rounded-xl overflow-hidden shadow-xl aspect-video group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="interior of a modern logistics warehouse with high-tech automated equipment and blue lighting accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7ZqtG8DnPpoHtTR-fwGVTmNMKCC_ps5JRLjXTrtUDcchc88DZJ7KGCjpNikEipFQPWAeMbuxvPQzLJlXg39xWzUvAbKtmeIFWbLMWM3P1irzNmBWUGlYhWxJEpf4vkbGYRDygxdv5cCH5wHOFoMJCfM4MuP0W_RoenYq_fR8KRTBx3mdKSj6RaGARdRVO2qEFnDY-25ySsXUBpBjuEZUl911_TunRZunhJp1XE56ACiCZklVl6G8js3UO59TVdOZXdpj-gm635Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent p-6 flex flex-col justify-end">
+<span class="text-spot-cyan text-[10px] font-black tracking-widest uppercase">Analytics Hub</span>
+<h4 class="font-headline text-lg text-white">Zone Utilization</h4>
+<div class="w-full bg-white/10 h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-spot-cyan h-full w-3/4 rounded-full shadow-[0_0_10px_rgba(14,165,233,0.5)]"></div>
+</div>
+<p class="text-[10px] text-slate-400 mt-2">Current capacity usage: 76% (High Flow)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footprint / Active Receiving Status -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/5 flex items-center gap-4">
+<div class="bg-spot-cyan/10 p-3 rounded">
+<span class="material-symbols-outlined text-spot-cyan">inventory_2</span>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Unloaded Today</span>
+<p class="text-xl font-headline">1,204 SKUs</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/5 flex items-center gap-4">
+<div class="bg-primary/10 p-3 rounded">
+<span class="material-symbols-outlined text-primary">timer</span>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Turnaround Time</span>
+<p class="text-xl font-headline">38.4 min</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/5 flex items-center gap-4">
+<div class="bg-green-500/10 p-3 rounded">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">QC Pass Rate</span>
+<p class="text-xl font-headline">99.8%</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/5 flex items-center gap-4">
+<div class="bg-error/10 p-3 rounded">
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<div>
+<span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Discrepancies</span>
+<p class="text-xl font-headline">04 Open</p>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for New Emergency Spot -->
+<div class="fixed bottom-8 right-8 group">
+<button class="bg-spot-cyan text-white h-14 w-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add_box</span>
+</button>
+<span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-surface-container-highest text-white text-[10px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap uppercase tracking-widest shadow-xl">Manual Entry</span>
+</div>
+</body></html>

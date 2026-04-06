@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>International Compliance | FreMS Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0d18;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #343440;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #494453;
+        }
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#690005",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container": "#1f1e2a",
+                        "surface": "#12121d",
+                        "on-primary-container": "#b79cff",
+                        "surface-bright": "#383845",
+                        "surface-tint": "#d0bcff",
+                        "secondary-fixed": "#e9ddff",
+                        "background": "#12121d",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "inverse-on-surface": "#302f3b",
+                        "error-container": "#93000a",
+                        "surface-dim": "#12121d",
+                        "on-secondary-fixed": "#201340",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary-container": "#f09661",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "primary": "#d0bcff",
+                        "surface-container-highest": "#343440",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-surface": "#e3e0f1",
+                        "secondary-container": "#4f4171",
+                        "on-background": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "outline": "#948e9e",
+                        "on-secondary": "#352856",
+                        "tertiary-container": "#6c2e00",
+                        "surface-container-high": "#292935",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "primary-fixed-dim": "#d0bcff",
+                        "primary-container": "#4b1fa3",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-primary-fixed": "#22005c",
+                        "secondary": "#cfbef6",
+                        "inverse-surface": "#e3e0f1",
+                        "inverse-primary": "#6a45c3",
+                        "outline-variant": "#494453",
+                        "tertiary": "#ffb68e",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "surface-container-low": "#1b1a26",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-tertiary-fixed": "#331200",
+                        "on-tertiary": "#532200",
+                        "on-error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30 antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20 flex justify-between items-center h-16 px-6 font-['Plus_Jakarta_Sans'] antialiased">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-white">FreMS</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Dashboard</a>
+<a class="text-[#C43585] border-b-2 border-[#C43585] pb-1 text-sm" href="#">Compliance</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Shipments</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Reporting</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-white cursor-pointer transition-colors" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-[#C43585] rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-slate-400 hover:text-white cursor-pointer transition-colors" data-icon="settings">settings</span>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-white/10">
+<img alt="Operations Officer" data-alt="Close up portrait of a professional operations officer in a modern tech office environment, soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzYqTgHXUzvJ1mvexm1nSciPeamhtMXUh_qDAGK58heqv2B8AwT8eA5MGXEBgtydegJ31Vb7OJs6ZsS_QI5jRgzPOva541UuoEbFLvOeMiCuD92fXLuzNZvGmQPejSkZ-8Ga85ReEIBu-Xk-_jDyfCZMFfYedHfcsQXtjCz_A3t87c0kJ-jI9axpbxp5oy8x4eihktTV68HGVFla_kd6kZhKmLYG2fin9Kvr61h4qH-LJDDnuZV1USRdO8m4X96YPkZJicRrostg"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#0F0F1A]/95 backdrop-blur-lg border-r border-white/5 shadow-[4px_0_24px_rgba(0,0,0,0.5)] flex flex-col pt-20 pb-8 px-4 font-['Plus_Jakarta_Sans'] text-sm font-medium">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-[#C43585]/20 rounded-lg flex items-center justify-center border border-[#C43585]/30">
+<span class="material-symbols-outlined text-[#C43585]" data-icon="hub">hub</span>
+</div>
+<div>
+<div class="text-white font-black italic">FreMS Portal</div>
+<div class="text-slate-500 text-[10px] uppercase tracking-widest">Saudi Infrastructure</div>
+</div>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="text-slate-500 text-[10px] uppercase tracking-widest px-2 mb-2">Primary Operations</div>
+<div class="flex items-center gap-3 p-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer select-none transition-all duration-300 hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="conveyor_belt">conveyor_belt</span>
+<span>Operations</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-gradient-to-r from-[#C43585]/20 to-transparent text-[#C43585] border-l-4 border-[#C43585] rounded-r-lg cursor-pointer select-none transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="policy">policy</span>
+<span>Customs</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer select-none transition-all duration-300 hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span>AI Tools</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer select-none transition-all duration-300 hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Management</span>
+</div>
+</div>
+<button class="mt-4 mx-2 py-2.5 px-4 bg-[#C43585] hover:bg-[#A32D6E] text-white rounded-lg font-bold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg shadow-[#C43585]/20">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+            New Shipment
+        </button>
+<div class="mt-auto space-y-1 pt-4 border-t border-white/5">
+<div class="flex items-center gap-3 p-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer select-none transition-all">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Compliance</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer select-none transition-all">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-8 min-h-screen bg-surface">
+<!-- Header Section -->
+<header class="mb-10 flex justify-between items-end">
+<div>
+<h1 class="text-3xl font-headline font-extrabold text-white tracking-tight mb-2 uppercase">International Compliance</h1>
+<p class="text-on-surface-variant max-w-2xl">Real-time regulatory matrix and clearance frameworks for the GCC region and global trade lanes.</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-surface-container px-4 py-2 rounded-lg flex items-center gap-3 border border-white/5">
+<div class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)] animate-pulse"></div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Systems Nominal</span>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Country Matrix (Large Tabbed Section) -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-xl overflow-hidden shadow-xl">
+<div class="p-6 border-b border-white/5 bg-surface-container-high/50 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#C43585]" data-icon="travel_explore">travel_explore</span>
+<h2 class="font-headline font-bold text-white">Compliance Matrix</h2>
+</div>
+<div class="flex bg-surface-container-lowest p-1 rounded-lg">
+<button class="px-4 py-1.5 rounded text-xs font-bold bg-[#C43585] text-white transition-all">SA</button>
+<button class="px-4 py-1.5 rounded text-xs font-bold text-on-surface-variant hover:text-white transition-all">UAE</button>
+<button class="px-4 py-1.5 rounded text-xs font-bold text-on-surface-variant hover:text-white transition-all">KWT</button>
+<button class="px-4 py-1.5 rounded text-xs font-bold text-on-surface-variant hover:text-white transition-all">BAH</button>
+<button class="px-4 py-1.5 rounded text-xs font-bold text-on-surface-variant hover:text-white transition-all">OMN</button>
+<button class="px-4 py-1.5 rounded text-xs font-bold text-on-surface-variant hover:text-white transition-all">QAT</button>
+<button class="px-4 py-1.5 rounded text-xs font-bold text-on-surface-variant hover:text-white transition-all">EGY</button>
+</div>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Left Column: Certs & Goods -->
+<div class="space-y-6">
+<div>
+<h3 class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-3 flex items-center gap-2">
+<span class="w-1 h-3 bg-[#C43585]"></span> Required Certificates
+                                </h3>
+<ul class="space-y-2">
+<li class="p-3 bg-surface-container-lowest rounded-lg border border-white/5 flex justify-between items-center group hover:bg-[#C43585]/5 transition-colors">
+<span class="text-sm font-medium">SASO Certificate of Conformity</span>
+<span class="material-symbols-outlined text-xs text-on-surface-variant" data-icon="info">info</span>
+</li>
+<li class="p-3 bg-surface-container-lowest rounded-lg border border-white/5 flex justify-between items-center group hover:bg-[#C43585]/5 transition-colors">
+<span class="text-sm font-medium">SFDA Product Registration</span>
+<span class="material-symbols-outlined text-xs text-on-surface-variant" data-icon="info">info</span>
+</li>
+<li class="p-3 bg-surface-container-lowest rounded-lg border border-white/5 flex justify-between items-center group hover:bg-[#C43585]/5 transition-colors">
+<span class="text-sm font-medium">CITC Import License (Telecom)</span>
+<span class="material-symbols-outlined text-xs text-on-surface-variant" data-icon="info">info</span>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-3 flex items-center gap-2">
+<span class="w-1 h-3 bg-error"></span> Prohibited / Restricted
+                                </h3>
+<div class="bg-error-container/10 p-4 rounded-xl border border-error/20">
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-error-container/20 text-error text-[10px] font-bold rounded uppercase">Narcotics</span>
+<span class="px-2 py-1 bg-error-container/20 text-error text-[10px] font-bold rounded uppercase">Gambling Equipment</span>
+<span class="px-2 py-1 bg-error-container/20 text-error text-[10px] font-bold rounded uppercase">Radioactive Mat.</span>
+<span class="px-2 py-1 bg-error-container/20 text-error text-[10px] font-bold rounded uppercase">Counterfeit Currency</span>
+<span class="px-2 py-1 bg-error-container/20 text-error text-[10px] font-bold rounded uppercase">Cultural Artifacts</span>
+</div>
+<button class="mt-4 text-[10px] font-bold text-error uppercase underline decoration-error/30 underline-offset-4">View Full Restricted Registry</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Rates & Licensing -->
+<div class="space-y-6">
+<div>
+<h3 class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-3 flex items-center gap-2">
+<span class="w-1 h-3 bg-primary"></span> Standard Duty Rates
+                                </h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center p-2 border-b border-white/5">
+<span class="text-sm text-on-surface-variant">Industrial Machinery</span>
+<span class="text-sm font-bold text-white">5.0%</span>
+</div>
+<div class="flex justify-between items-center p-2 border-b border-white/5">
+<span class="text-sm text-on-surface-variant">Consumer Electronics</span>
+<span class="text-sm font-bold text-white">12.0%</span>
+</div>
+<div class="flex justify-between items-center p-2 border-b border-white/5">
+<span class="text-sm text-on-surface-variant">Pharmaceuticals</span>
+<span class="text-sm font-bold text-emerald-500">EXEMPT</span>
+</div>
+<div class="flex justify-between items-center p-2 border-b border-white/5">
+<span class="text-sm text-on-surface-variant">Food &amp; Beverages</span>
+<span class="text-sm font-bold text-white">15.0%</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl border border-white/10 relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-8xl" data-icon="contract">contract</span>
+</div>
+<h3 class="text-sm font-bold text-white mb-2">Import Licensing</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-4">A valid Commercial Registration (CR) with appropriate activity codes is required for all commercial imports into the Kingdom of Saudi Arabia.</p>
+<div class="flex items-center gap-2 text-[#C43585] text-xs font-bold cursor-pointer group/link">
+<span>Check CR Eligibility</span>
+<span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sanctions Screening (Compact Side Card) -->
+<section class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Screening Log Card -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden border border-white/5 shadow-xl">
+<div class="p-4 bg-emerald-500/10 border-b border-emerald-500/20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-500" data-icon="verified" data-style="fill">verified</span>
+<h2 class="text-xs font-bold text-emerald-500 uppercase tracking-widest">Sanctions Screening</h2>
+</div>
+<span class="text-[10px] font-bold text-emerald-500/70">LIVE MONITORING</span>
+</div>
+<div class="p-6 text-center">
+<div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-emerald-500/10 mb-4">
+<span class="material-symbols-outlined text-4xl text-emerald-500" data-icon="check_circle">check_circle</span>
+</div>
+<div class="text-2xl font-headline font-black text-white mb-1">0</div>
+<div class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Sanctions Matches Detected</div>
+<p class="text-[10px] text-slate-500 mt-4">Last 30 Days (8,492 shipments analyzed)</p>
+<div class="mt-6 pt-6 border-t border-white/5 space-y-2">
+<div class="flex justify-between text-[10px] text-slate-400">
+<span>OFAC SDNs List</span>
+<span class="text-emerald-500">CLEARED</span>
+</div>
+<div class="flex justify-between text-[10px] text-slate-400">
+<span>EU Financial Sanctions</span>
+<span class="text-emerald-500">CLEARED</span>
+</div>
+<div class="flex justify-between text-[10px] text-slate-400">
+<span>UN Security Council</span>
+<span class="text-emerald-500">CLEARED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SASO / SFDA Matrix Quick Panel -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-white/5">
+<h2 class="text-xs font-black text-white uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-[#C43585]" data-icon="assignment">assignment</span>
+                        SASO/SFDA Matrix
+                    </h2>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border-l-2 border-primary">
+<div class="text-[10px] font-bold text-primary-fixed uppercase leading-none">Medical Devices</div>
+<div class="ml-auto px-2 py-1 bg-primary/10 rounded text-[9px] font-bold text-primary">SFDA MDMA</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border-l-2 border-[#C43585]">
+<div class="text-[10px] font-bold text-on-surface-variant uppercase leading-none">Textiles</div>
+<div class="ml-auto px-2 py-1 bg-[#C43585]/10 rounded text-[9px] font-bold text-[#C43585]">SABER PCoC</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border-l-2 border-tertiary">
+<div class="text-[10px] font-bold text-on-surface-variant uppercase leading-none">Cosmetics</div>
+<div class="ml-auto px-2 py-1 bg-tertiary/10 rounded text-[9px] font-bold text-tertiary">SFDA eCosma</div>
+</div>
+</div>
+</div>
+</section>
+<!-- IATA DGR Panel (Wide Horizontal Card) -->
+<section class="col-span-12 bg-surface-container-lowest rounded-xl border border-white/10 overflow-hidden shadow-2xl relative">
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBjxzp-EvECB9LKE6cT9rqs82csTXsiv1Zw-6_9Uy3bRtoNcacOIe-rizk3l8Rrad_Sh8NPeNfNM4LcKD8ZijmR2bSMZNF2nlQtfu0LAEAnoumT6k8Jr9TlnBkVkGH98-2g8R4r2qAA25C_kWHROEr_SLyc4BZnudGytklGi2lQjO2I9MorWGaSjS4xEuXaxruFhSjvOAMGLp18i3BrTQ750rj35jRawwvPQLZGq90l-_t6ULRQbdgk2VbxAyc9ub2yW6VLj236-A');"></div>
+<div class="flex flex-col lg:flex-row">
+<!-- Left: Header Branding -->
+<div class="lg:w-1/4 p-8 bg-[#C43585]/5 border-r border-white/5">
+<div class="w-12 h-12 bg-[#C43585] rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="flight_takeoff">flight_takeoff</span>
+</div>
+<h2 class="text-xl font-headline font-black text-white uppercase leading-tight mb-2">IATA DGR<br/>REFERENCE</h2>
+<p class="text-xs text-on-surface-variant leading-relaxed">Dangerous Goods Regulations Class Codes and Quick Reference Framework.</p>
+<div class="mt-8">
+<div class="text-[10px] font-black text-on-surface-variant mb-2">LAST UPDATE</div>
+<div class="text-sm font-mono text-white">VER 65.0 (JAN 2024)</div>
+</div>
+</div>
+<!-- Right: Grid Content -->
+<div class="flex-1 p-8">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+<!-- Class 1 -->
+<div class="p-4 bg-surface-container-high rounded-lg border border-white/5 hover:border-[#C43585]/40 transition-colors">
+<div class="text-lg font-black text-white mb-1">C1</div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold mb-3">Explosives</div>
+<div class="flex items-center gap-1 text-[9px] text-error">
+<span class="material-symbols-outlined text-xs" data-icon="block">block</span>
+                                    PROHIBITED PASSENGER
+                                </div>
+</div>
+<!-- Class 2 -->
+<div class="p-4 bg-surface-container-high rounded-lg border border-white/5 hover:border-[#C43585]/40 transition-colors">
+<div class="text-lg font-black text-white mb-1">C2</div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold mb-3">Gases</div>
+<div class="flex items-center gap-1 text-[9px] text-tertiary">
+<span class="material-symbols-outlined text-xs" data-icon="warning">warning</span>
+                                    SPECIAL PACKAGING
+                                </div>
+</div>
+<!-- Class 3 -->
+<div class="p-4 bg-surface-container-high rounded-lg border border-white/5 hover:border-[#C43585]/40 transition-colors">
+<div class="text-lg font-black text-white mb-1">C3</div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold mb-3">Flammable Liq.</div>
+<div class="flex items-center gap-1 text-[9px] text-on-surface-variant">
+<span class="material-symbols-outlined text-xs" data-icon="inventory_2">inventory_2</span>
+                                    FLASH POINT REQ.
+                                </div>
+</div>
+<!-- Class 8 -->
+<div class="p-4 bg-surface-container-high rounded-lg border border-white/5 hover:border-[#C43585]/40 transition-colors">
+<div class="text-lg font-black text-white mb-1">C8</div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold mb-3">Corrosives</div>
+<div class="flex items-center gap-1 text-[9px] text-tertiary">
+<span class="material-symbols-outlined text-xs" data-icon="emergency">emergency</span>
+                                    SECURE CONTAINMENT
+                                </div>
+</div>
+<!-- Class 9 -->
+<div class="p-4 bg-surface-container-high rounded-lg border border-white/5 hover:border-[#C43585]/40 transition-colors">
+<div class="text-lg font-black text-white mb-1">C9</div>
+<div class="text-[10px] text-on-surface-variant uppercase font-bold mb-3">Miscellaneous</div>
+<div class="flex items-center gap-1 text-[9px] text-primary">
+<span class="material-symbols-outlined text-xs" data-icon="battery_charging_full">battery_charging_full</span>
+                                    LITHIUM BATTERIES
+                                </div>
+</div>
+</div>
+<div class="mt-8 flex flex-col md:flex-row items-center gap-8 bg-surface-container-high/50 p-4 rounded-xl border border-white/5">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="package_2">package_2</span>
+<div>
+<div class="text-[10px] font-black text-white uppercase">UN Specification Packaging</div>
+<div class="text-xs text-on-surface-variant">All dangerous goods must be in UN tested packaging compliant with PI 965-970.</div>
+</div>
+</div>
+<div class="h-10 w-[1px] bg-white/10 hidden md:block"></div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-error" data-icon="airplanemode_inactive">airplanemode_inactive</span>
+<div>
+<div class="text-[10px] font-black text-white uppercase">Airline Restrictions</div>
+<div class="text-xs text-on-surface-variant">SV (Saudia) imposes strict limits on radioactive materials and infectious substances.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- System Footer Info -->
+<footer class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 pb-12">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#C43585]"></span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Global Logistics Compliance Engine v4.2</span>
+</div>
+<div class="text-[10px] text-slate-500 font-medium">
+                © 2024 JAS LOGISTICS PLATFORM • Saudi Infrastructure Project
+            </div>
+</footer>
+</main>
+<!-- Contextual FAB (Hidden on Compliance Details usually, but kept for UX flow if needed) -->
+<!-- Suppressed per instructions for Details/Transactional screens, but let's assume this is a high-level portal dashboard -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-[#C43585] rounded-full shadow-2xl flex items-center justify-center text-white active:scale-95 transition-transform group z-50">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform duration-300" data-icon="search">search</span>
+<div class="absolute right-16 px-4 py-2 bg-surface-container-high rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl border border-white/10">
+            Global Search
+        </div>
+</button>
+</body></html>

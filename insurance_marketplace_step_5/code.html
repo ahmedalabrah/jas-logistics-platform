@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#201340",
+            "tertiary": "#ffb68e",
+            "primary-container": "#4b1fa3",
+            "on-primary": "#3b0092",
+            "on-error": "#690005",
+            "background": "#12121d",
+            "tertiary-fixed": "#ffdbc9",
+            "surface-container-low": "#1b1a26",
+            "surface-variant": "#343440",
+            "surface-container": "#1f1e2a",
+            "outline": "#948e9e",
+            "on-tertiary": "#532200",
+            "tertiary-fixed-dim": "#ffb68e",
+            "secondary-container": "#4f4171",
+            "surface-container-lowest": "#0d0d18",
+            "on-tertiary-container": "#f09661",
+            "on-secondary-container": "#c0b0e7",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#343440",
+            "outline-variant": "#494453",
+            "on-surface": "#e3e0f1",
+            "on-background": "#e3e0f1",
+            "surface-bright": "#383845",
+            "primary-fixed": "#e9ddff",
+            "secondary": "#cfbef6",
+            "inverse-on-surface": "#302f3b",
+            "on-secondary-fixed-variant": "#4c3f6e",
+            "tertiary-container": "#6c2e00",
+            "surface-tint": "#d0bcff",
+            "on-error-container": "#ffdad6",
+            "error-container": "#93000a",
+            "on-surface-variant": "#cbc3d5",
+            "on-primary-fixed": "#22005c",
+            "surface": "#12121d",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary": "#352856",
+            "primary": "#d0bcff",
+            "on-primary-container": "#b79cff",
+            "surface-dim": "#12121d",
+            "primary-fixed-dim": "#d0bcff",
+            "on-primary-fixed-variant": "#5228aa",
+            "surface-container-high": "#292935",
+            "inverse-primary": "#6a45c3",
+            "on-tertiary-fixed": "#331200",
+            "secondary-fixed-dim": "#cfbef6",
+            "on-tertiary-fixed-variant": "#743405",
+            "inverse-surface": "#e3e0f1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans", "Poppins"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+      background: rgba(31, 30, 42, 0.6);
+      backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#0F0F1A]/80 backdrop-blur-xl flex flex-col py-8 px-6 z-50 shadow-[24px_0_48px_rgba(0,0,0,0.4)] border-r border-white/5">
+<div class="mb-10">
+<h1 class="text-xl font-black tracking-tight text-[#d0bcff] font-headline">JAS Logistics</h1>
+<p class="text-xs text-on-surface-variant font-medium mt-1">Fleet Management</p>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 rounded-lg group cursor-pointer">
+<span class="material-symbols-outlined text-xl">local_shipping</span>
+<span class="text-sm">Vehicle Basics</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 rounded-lg group cursor-pointer">
+<span class="material-symbols-outlined text-xl">pin</span>
+<span class="text-sm">Plate &amp; Registration</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 rounded-lg group cursor-pointer">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+<span class="text-sm">TGA Compliance</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 rounded-lg group cursor-pointer">
+<span class="material-symbols-outlined text-xl">person_add</span>
+<span class="text-sm">Driver Assignment</span>
+</div>
+<!-- Active Step: Review (Insurance Marketplace Context) -->
+<div class="flex items-center gap-3 px-4 py-3 text-[#d0bcff] font-bold border-r-2 border-[#d0bcff] bg-[#d0bcff]/5 transition-all duration-300 rounded-l-lg cursor-pointer">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<span class="text-sm">Review</span>
+</div>
+</nav>
+<div class="mt-auto">
+<button class="w-full text-left px-4 py-3 text-slate-400 text-sm font-medium hover:text-error transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">cancel</span>
+        Cancel Onboarding
+      </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="flex justify-between items-center h-16 px-8 ml-64 bg-[#0F0F1A] sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<span class="text-lg font-bold text-white font-headline">Vehicle Onboarding Wizard</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-[10px] uppercase tracking-widest font-bold text-on-surface-variant border border-outline-variant/30">FMS-10</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined hover:text-white cursor-pointer transition-colors">language</span>
+<span class="material-symbols-outlined hover:text-white cursor-pointer transition-colors">notifications</span>
+<span class="material-symbols-outlined hover:text-white cursor-pointer transition-colors">help_outline</span>
+</div>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center border border-primary/20">
+<img alt="Manager profile" class="h-6 w-6 opacity-80" data-alt="professional portrait of a logistics fleet manager in a modern office environment with soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_AyZtWLgHm12Igg6JbEL2QXBe1966nqMHZdLOgsYrXWEFjdRW5_gUhJBrbV2nnWkbPBL2j_Wn_idlpxL0Z7W-7x5a4Ml-Ba1J7vwYDt0NZ3rt92S1X34Y2_wS58iznb1M5v3LwZlmH3voZ-JdgJJCjCTPhwtPEyaZiPXXMgpu8LwZ3d9ZJsEutx4QAAQZPuvE_jbGRf5oGPzEYzv788CwzADsUhJcOIibCGyMK2H7TgZlQ63Y5EoXqKmOMSg1tDXNzF4pIHXyPw"/>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 bg-[#1F1F2E] h-[1px] w-full"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-12 pb-32 min-h-screen">
+<div class="max-w-6xl mx-auto">
+<!-- Header Section -->
+<section class="mb-12">
+<div class="flex items-end justify-between">
+<div>
+<h2 class="text-3xl font-bold font-headline text-white mb-2 tracking-tight">Insurance Selection</h2>
+<p class="text-on-surface-variant max-w-2xl">Finalize your vehicle onboarding by selecting a premium insurance package from our certified partners or uploading existing coverage details.</p>
+</div>
+<div class="bg-surface-container-low px-4 py-2 rounded-lg border border-outline-variant/10 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-xs text-on-surface-variant leading-tight">
+               JAS Logistics may receive a small <br/> commission on marketplace purchases.
+             </p>
+</div>
+</div>
+</section>
+<!-- Toggle Layout: Market vs Manual -->
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- Sidebar Options -->
+<div class="space-y-4">
+<button class="w-full p-6 text-left rounded-xl border border-primary/40 bg-primary/5 shadow-[0_0_20px_rgba(208,188,255,0.1)] transition-all">
+<span class="material-symbols-outlined text-primary mb-2 block" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<h4 class="font-bold text-white">Insurance Marketplace</h4>
+<p class="text-xs text-on-surface-variant mt-1">Instant activation &amp; direct billing integration.</p>
+</button>
+<button class="w-full p-6 text-left rounded-xl border border-outline-variant/20 hover:border-outline-variant/40 hover:bg-surface-container-low transition-all group">
+<span class="material-symbols-outlined text-on-surface-variant mb-2 block group-hover:text-primary">upload_file</span>
+<h4 class="font-bold text-on-surface group-hover:text-white">Existing Policy</h4>
+<p class="text-xs text-on-surface-variant mt-1">Manually enter details for manual verification.</p>
+</button>
+</div>
+<!-- Provider Marketplace Grid -->
+<div class="lg:col-span-3 space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant">Available Providers (5)</h3>
+<div class="flex gap-2">
+<span class="text-xs text-on-surface-variant">Sort by:</span>
+<select class="bg-transparent text-xs font-bold text-primary focus:ring-0 border-none p-0 cursor-pointer">
+<option>Lowest Premium</option>
+<option>Highest Coverage</option>
+</select>
+</div>
+</div>
+<!-- Provider Card 1: Tawuniya -->
+<div class="glass-card p-1 rounded-2xl border border-white/5 hover:border-primary/30 transition-all duration-500 group">
+<div class="bg-surface-container/40 p-6 rounded-[14px] flex items-center justify-between gap-8">
+<div class="w-24 h-24 bg-white/5 rounded-xl flex items-center justify-center overflow-hidden border border-white/10 shrink-0">
+<img alt="Tawuniya Logo" class="w-16 grayscale group-hover:grayscale-0 transition-all" data-alt="clean professional logo of tawuniya insurance company with elegant typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIe3ACY_a1ZhUe58ieFg76ARW-_4GW-ENQSjC7R5pLN3d0fL4ICM3UADnainQfbC_JNF3JLdsQKjx5kVA2fyFCMw-WJwAVhSTDkqTgoHWaoSV1IhQs1Fc10Za5SGGCw9uhiZXPTnp87VCUVcPF3hBitHcfo4Lurq82W0-n_lc2nZ8pPuqmU1wO0erhDYTFgHIDFvGuVKhLfoqH8UKgpEiPlDE_t1WbQL2U5DA0Rs3Ek2Np-a5cf7nZrwqAaGUdnr-nOgct8G9s5Q"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="text-lg font-bold text-white">Tawuniya Comprehensive</h4>
+<span class="px-2 py-0.5 bg-tertiary-container/30 text-tertiary text-[10px] font-bold rounded-full uppercase">Most Popular</span>
+</div>
+<ul class="text-sm text-on-surface-variant flex flex-wrap gap-x-6 gap-y-1">
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> 24/7 Roadside Assist</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Zero Deductible</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> GCC Coverage</li>
+</ul>
+</div>
+<div class="text-right shrink-0">
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest mb-1">Annual Premium</p>
+<p class="text-2xl font-bold text-white mb-3">SAR 4,200 <span class="text-sm font-normal text-on-surface-variant">/yr</span></p>
+<button class="bg-primary text-on-primary-fixed px-6 py-2 rounded-lg text-sm font-bold hover:brightness-110 transition-all">Select Plan</button>
+</div>
+</div>
+</div>
+<!-- Provider Card 2: Walaa -->
+<div class="glass-card p-1 rounded-2xl border border-white/5 hover:border-primary/30 transition-all duration-500 group">
+<div class="bg-surface-container/40 p-6 rounded-[14px] flex items-center justify-between gap-8">
+<div class="w-24 h-24 bg-white/5 rounded-xl flex items-center justify-center overflow-hidden border border-white/10 shrink-0">
+<img alt="Walaa Logo" class="w-16 grayscale group-hover:grayscale-0 transition-all" data-alt="modern corporate logo for walaa insurance co featuring sharp clean lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOZ5BXQhTO1kJLP2ixr7bwEy7OjO3wkr2CzWSsxuYuS3jl7fsr_ZPUQmM3TyNcxH0q6Q_ffQurPtSW4Fm5Cfem8MtLLvvmaDrAi3BSoxHDlxtVwkuNA-DUESl2tuyNDd__YbDM4ebIvGCk-PvOR94LVCbNFjPDN6ThpDKWiR7qwdxO4UKWhmMLq65HFt5LPvanopzaBaziGmKf0kJgg3AgbV8vov47mxD8rZwMk24kvIyL51cDefDcKm1bDab2ZPkqf0532qCc6A"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="text-lg font-bold text-white">Walaa Fleet Shield</h4>
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-bold rounded-full uppercase">Best Value</span>
+</div>
+<ul class="text-sm text-on-surface-variant flex flex-wrap gap-x-6 gap-y-1">
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Natural Hazard Cover</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Agency Repair</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Glass Damage</li>
+</ul>
+</div>
+<div class="text-right shrink-0">
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest mb-1">Annual Premium</p>
+<p class="text-2xl font-bold text-white mb-3">SAR 3,850 <span class="text-sm font-normal text-on-surface-variant">/yr</span></p>
+<button class="bg-primary text-on-primary-fixed px-6 py-2 rounded-lg text-sm font-bold hover:brightness-110 transition-all">Select Plan</button>
+</div>
+</div>
+</div>
+<!-- Provider Card 3: Malath -->
+<div class="glass-card p-1 rounded-2xl border border-white/5 hover:border-primary/30 transition-all duration-500 group">
+<div class="bg-surface-container/40 p-6 rounded-[14px] flex items-center justify-between gap-8 opacity-80 hover:opacity-100">
+<div class="w-24 h-24 bg-white/5 rounded-xl flex items-center justify-center overflow-hidden border border-white/10 shrink-0">
+<img alt="Malath Logo" class="w-16 grayscale group-hover:grayscale-0 transition-all" data-alt="corporate branding logo for malath cooperative insurance company in Saudi Arabia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrwG9rXIa_KXZIgN514-rZWC9cBftfvXUyqPvvwUG3B6prX_XK4KJFPGG6CH17No-AQ8Ia0t7La94dQ4i-v26vyoX4PNUzqSD64U7aGjTqZG-q-V5CWhKKmKSn-1qLSg2Fdm1BE_cmdq5yQ0QfoB1XOv_tCc4OUPPbcMS_NMaSEhA1pJ16g_kQ2JRaGdHutx7a8UN5JOpZcp5agaog7bPSTbSAZICb_WCYJ3mUcPR9udV_YkZdZWTqAhvxxycyuhMhzUQZqtESPg"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="text-lg font-bold text-white">Malath Premium Care</h4>
+</div>
+<ul class="text-sm text-on-surface-variant flex flex-wrap gap-x-6 gap-y-1">
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Replacement Vehicle</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Personal Accident</li>
+</ul>
+</div>
+<div class="text-right shrink-0">
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest mb-1">Annual Premium</p>
+<p class="text-2xl font-bold text-white mb-3">SAR 4,900 <span class="text-sm font-normal text-on-surface-variant">/yr</span></p>
+<button class="bg-primary text-on-primary-fixed px-6 py-2 rounded-lg text-sm font-bold hover:brightness-110 transition-all">Select Plan</button>
+</div>
+</div>
+</div>
+<!-- Provider Card 4: Al Rajhi Takaful -->
+<div class="glass-card p-1 rounded-2xl border border-white/5 hover:border-primary/30 transition-all duration-500 group">
+<div class="bg-surface-container/40 p-6 rounded-[14px] flex items-center justify-between gap-8 opacity-80 hover:opacity-100">
+<div class="w-24 h-24 bg-white/5 rounded-xl flex items-center justify-center overflow-hidden border border-white/10 shrink-0">
+<img alt="Al Rajhi Takaful Logo" class="w-16 grayscale group-hover:grayscale-0 transition-all" data-alt="Islamic finance logo of Al Rajhi Takaful featuring traditional elements with a modern twist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo1fto1PQtYZTABmpfyBB4UiCfL_547jUL_zlcRLfJmUHbbSEqcsvOtfAYi7jxXoID4H8HpLKhweqiTHNOrWVmsffVIRnYUt_cxlwRmAWnzi3wu1CVAfNL3x_Zr-q5nSEH9Gfxg3551OhmHnP-fJ0C-cbu8knJbCbAisfI39oPeZoE1dN2pxNU0CprYnu6oEooUaqpOYUTcVFT8w1_pIseI8GYR-TVIaa1CBrZgRW8Q5pk5APsoGPdEED6uxAMesx-0cjdN5tC2w"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="text-lg font-bold text-white">Takaful Commercial Plus</h4>
+</div>
+<ul class="text-sm text-on-surface-variant flex flex-wrap gap-x-6 gap-y-1">
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Sharia Compliant</li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Cargo Protection</li>
+</ul>
+</div>
+<div class="text-right shrink-0">
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest mb-1">Annual Premium</p>
+<p class="text-2xl font-bold text-white mb-3">SAR 4,100 <span class="text-sm font-normal text-on-surface-variant">/yr</span></p>
+<button class="bg-primary text-on-primary-fixed px-6 py-2 rounded-lg text-sm font-bold hover:brightness-110 transition-all">Select Plan</button>
+</div>
+</div>
+</div>
+<!-- Provider Card 5: Arabian Shield -->
+<div class="glass-card p-1 rounded-2xl border border-white/5 hover:border-primary/30 transition-all duration-500 group">
+<div class="bg-surface-container/40 p-6 rounded-[14px] flex items-center justify-between gap-8 opacity-80 hover:opacity-100">
+<div class="w-24 h-24 bg-white/5 rounded-xl flex items-center justify-center overflow-hidden border border-white/10 shrink-0">
+<img alt="Arabian Shield Logo" class="w-16 grayscale group-hover:grayscale-0 transition-all" data-alt="blue and silver logo for Arabian Shield cooperative insurance company" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxaRSO17YSOn9LVC0wy8ZCi1uwUtXnTx4DPVQeBrty1Nlcdzt7YYTUG6Jp2CH9ZYRqg1SGjJyboSNFaqxXVKOfLw6SYs2pIasAtRA6F7bBMyBacYmCrUxIBd629DBQ2MWSdOPzw21p1kvqcPkiSgpjVC6nz38UOC9ljwpnK2LE-c1GWASDfFNBDnV6fuczYg6Hxv5rOD3J9VH_EMDR2dSECKThwSh_ueGoMt1fkITC-BF3Jok8oQfo5gnfQOcz8aNvw41VO9sqAw"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h4 class="text-lg font-bold text-white">Shield Elite Fleet</h4>
+</div>
+<ul class="text-sm text-on-surface-variant flex flex-wrap gap-x-6 gap-y-1">
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-xs">check_circle</span> Heavy Vehicle Support</li>
+</ul>
+</div>
+<div class="text-right shrink-0">
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest mb-1">Annual Premium</p>
+<p class="text-2xl font-bold text-white mb-3">SAR 5,300 <span class="text-sm font-normal text-on-surface-variant">/yr</span></p>
+<button class="bg-primary text-on-primary-fixed px-6 py-2 rounded-lg text-sm font-bold hover:brightness-110 transition-all">Select Plan</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-16rem)] h-20 bg-[#12121d]/90 backdrop-blur-md flex justify-between items-center px-12 z-40 border-t border-white/10 shadow-[0_-8px_24px_rgba(0,0,0,0.2)]">
+<div class="flex items-center gap-8">
+<button class="text-slate-300 border border-white/20 px-8 py-3 rounded text-sm font-bold uppercase tracking-wider Inter hover:brightness-110 transition-all">Back</button>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Step 5 of 6: Insurance Policy</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-300 border border-white/20 px-8 py-3 rounded text-sm font-bold uppercase tracking-wider Inter hover:brightness-110 transition-all">Save Draft</button>
+<!-- Next Step Button (Review) -->
+<button class="bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] text-white px-8 py-3 rounded text-sm font-bold uppercase tracking-wider Inter hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.4)] transition-all active:scale-95 duration-150">Next Step</button>
+</div>
+</footer>
+</body></html>

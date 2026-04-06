@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#6c2e00",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "on-tertiary": "#532200",
+                    "inverse-on-surface": "#302f3b",
+                    "on-secondary-container": "#c0b0e7",
+                    "secondary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#331200",
+                    "on-surface": "#e3e0f1",
+                    "on-error": "#690005",
+                    "inverse-primary": "#6a45c3",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e3e0f1",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container": "#1f1e2a",
+                    "on-primary-container": "#b79cff",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-bright": "#383845",
+                    "secondary": "#cfbef6",
+                    "primary": "#d0bcff",
+                    "surface-tint": "#d0bcff",
+                    "surface-container-high": "#292935",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-container-highest": "#343440",
+                    "on-secondary": "#352856",
+                    "surface": "#12121d",
+                    "primary-fixed": "#e9ddff",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-primary-fixed": "#22005c",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#ffdbc9",
+                    "primary-container": "#4b1fa3",
+                    "surface-variant": "#343440",
+                    "surface-container-low": "#1b1a26",
+                    "outline": "#948e9e",
+                    "on-tertiary-container": "#f09661",
+                    "on-secondary-fixed": "#201340",
+                    "on-primary": "#3b0092",
+                    "surface-dim": "#12121d",
+                    "secondary-container": "#4f4171",
+                    "outline-variant": "#494453",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "inverse-surface": "#e3e0f1",
+                    "background": "#12121d",
+                    "tertiary": "#ffb68e",
+                    "ai-indigo": "#6366F1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full z-40 flex flex-col bg-slate-950/80 backdrop-blur-xl h-screen w-64 border-r border-white/5 shadow-2xl shadow-black/50">
+<div class="p-6 flex flex-col gap-1">
+<h1 class="text-xl font-bold tracking-tight text-violet-400 font-headline">JAS Logistics</h1>
+<p class="text-xs text-slate-400 uppercase tracking-widest font-semibold">Fleet Operations</p>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 font-['Plus_Jakarta_Sans'] font-medium text-sm text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined">engineering</span>
+                Maintenance Control
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 font-['Plus_Jakarta_Sans'] font-medium text-sm text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined">assignment</span>
+                Work Orders
+            </a>
+<a class="flex items-center justify-between px-4 py-3 font-['Plus_Jakarta_Sans'] font-medium text-sm text-white bg-violet-600/20 border-r-2 border-violet-500 transition-all duration-300" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">local_gas_station</span>
+                Fuel Management
+</div>
+<span class="px-1.5 py-0.5 rounded-md bg-ai-indigo text-[10px] font-bold text-white shadow-sm shadow-ai-indigo/40 animate-pulse">AI ALERT</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 font-['Plus_Jakarta_Sans'] font-medium text-sm text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined">monetization_on</span>
+                Profitability
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 font-['Plus_Jakarta_Sans'] font-medium text-sm text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+                TCO Reports
+            </a>
+</nav>
+<div class="p-4 mt-auto space-y-4">
+<button class="w-full py-3 px-4 bg-primary text-on-primary rounded-lg font-bold text-sm scale-95 active:scale-90 transition-transform">
+                Schedule AI Audit
+            </button>
+<div class="pt-4 border-t border-white/5">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-400 hover:text-slate-200 transition-colors text-sm" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-400 hover:text-slate-200 transition-colors text-sm" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Support
+                </a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="sticky top-0 right-0 w-[calc(100%-16rem)] ml-64 z-30 px-8 flex justify-between items-center bg-slate-950/60 backdrop-blur-lg h-16 border-b border-white/5">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black text-white font-headline">Fleet Intelligence</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-400 font-semibold hover:text-white transition-colors text-sm" href="#">Dashboard</a>
+<a class="text-violet-400 border-b-2 border-violet-400 pb-2 font-semibold text-sm" href="#">Analytics</a>
+<a class="text-slate-400 font-semibold hover:text-white transition-colors text-sm" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="bg-surface-container-high border-none rounded-full pl-10 pr-4 py-1.5 text-sm w-64 focus:ring-1 focus:ring-primary transition-all" placeholder="Search logs..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined hover:text-white cursor-pointer transition-colors">notifications</span>
+<span class="material-symbols-outlined hover:text-white cursor-pointer transition-colors">history</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest border border-white/10">
+<img alt="User profile" data-alt="professional portrait of a middle-aged logistics executive in a clean minimalist studio setting with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK06AV5AK6vjXt_tXrCGY2v8MSgNySX6847zlZDYAp1LXmzYS5kU94g-aeYDD0vQsGO0hcemPIPlFzzGjI3NiTNYz2S0XY1GGCQjjHXGlCeB1qlcwaW1WKD9hp92nVeQnKQlM70Z75EV_YgKxBHjfOS5GONa3cMrg1QYxi2A70BCBzA_C3A4dNG5V9qSYQlHr4tabVdXZMEScCBwt4rcKHqMpX_jDoPgIC_HR1HFl6JEvbBh_IJT1fwZ9G6-c06W6zKt-XrBEYIw"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 p-8 min-h-screen">
+<div class="max-w-7xl mx-auto space-y-8">
+<!-- Page Header & Tabs -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface font-headline tracking-tight">Fuel Management</h2>
+<p class="text-on-surface-variant mt-1">Real-time monitoring and anomaly detection for regional distribution.</p>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container px-6 py-2.5 rounded-lg font-bold text-on-primary flex items-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add</span>
+                        Create Work Order
+                    </button>
+</div>
+<div class="flex gap-1 p-1 bg-surface-container-low w-fit rounded-xl border border-white/5">
+<button class="px-6 py-2 rounded-lg bg-surface-container-highest text-white font-semibold text-sm transition-all">Fuel Log</button>
+<button class="px-6 py-2 rounded-lg text-on-surface-variant hover:text-white font-semibold text-sm transition-all">Consumption Analytics</button>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- AI Insight Callout -->
+<div class="lg:col-span-3 bg-gradient-to-br from-ai-indigo/20 to-surface-container border border-ai-indigo/30 p-6 rounded-2xl flex items-start gap-5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[120px] text-ai-indigo">auto_awesome</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-ai-indigo/20 flex items-center justify-center text-ai-indigo shrink-0 shadow-inner">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="space-y-2 z-10">
+<div class="flex items-center gap-2">
+<h4 class="font-bold text-ai-indigo tracking-wide text-lg">AI Fleet Analysis: Optimization Opportunity</h4>
+<span class="px-2 py-0.5 rounded bg-ai-indigo text-[10px] text-white font-black uppercase">Active</span>
+</div>
+<p class="text-on-surface/90 max-w-3xl leading-relaxed">
+                            We've identified 4 vehicles with a 12% higher fuel consumption than regional averages. 
+                            <span class="font-bold text-ai-indigo">Possible cause:</span> Route inefficiencies in the Eastern Province. Re-routing could save up to <span class="bg-ai-indigo/20 px-1 rounded">SAR 14,200/month</span>.
+                        </p>
+</div>
+</div>
+<!-- JASLineChart Placeholder - Trend -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-2xl p-6 border border-white/5">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-bold text-xl font-headline">L/100km Trend</h3>
+<p class="text-sm text-on-surface-variant">Fleet-wide efficiency over last 30 days</p>
+</div>
+<div class="flex gap-2">
+<span class="flex items-center gap-1.5 text-xs font-semibold text-primary"><span class="w-2 h-2 rounded-full bg-primary"></span> Current</span>
+<span class="flex items-center gap-1.5 text-xs font-semibold text-on-surface-variant"><span class="w-2 h-2 rounded-full bg-on-surface-variant/40"></span> Target</span>
+</div>
+</div>
+<!-- Mock Chart Visualization -->
+<div class="h-64 flex items-end gap-3 px-2">
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[40%]" title="Day 1"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[45%]" title="Day 2"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[42%]" title="Day 3"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[60%]" title="Day 4"></div>
+<div class="flex-1 bg-primary/40 hover:bg-primary/60 transition-all rounded-t-lg h-[75%]" title="Day 5"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[55%]" title="Day 6"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[48%]" title="Day 7"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[50%]" title="Day 8"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[45%]" title="Day 9"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[40%]" title="Day 10"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[35%]" title="Day 11"></div>
+<div class="flex-1 bg-primary/40 hover:bg-primary/60 transition-all rounded-t-lg h-[82%]" title="Day 12"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[60%]" title="Day 13"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[58%]" title="Day 14"></div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-all rounded-t-lg h-[55%]" title="Day 15"></div>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant mt-4 px-1 font-bold">
+<span>OCT 01</span>
+<span>OCT 07</span>
+<span>OCT 14</span>
+<span>OCT 21</span>
+<span>OCT 30</span>
+</div>
+</div>
+<!-- Worst Performers Table -->
+<div class="bg-surface-container-low rounded-2xl p-6 border border-white/5 flex flex-col">
+<h3 class="font-bold text-xl font-headline mb-6">Worst Performers</h3>
+<div class="flex-1 space-y-4">
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-high/50 border border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-error-container/30 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">delivery_truck_speed</span>
+</div>
+<div>
+<p class="font-bold text-sm">TRK-4092</p>
+<p class="text-xs text-on-surface-variant">Ahmed Khalidi</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-error font-bold text-sm">38.4 L/100km</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">+18% above avg</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-high/50 border border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-error-container/30 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">delivery_truck_speed</span>
+</div>
+<div>
+<p class="font-bold text-sm">TRK-8821</p>
+<p class="text-xs text-on-surface-variant">Saeed Omar</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-error font-bold text-sm">34.1 L/100km</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">+12% above avg</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-high/50 border border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">delivery_truck_speed</span>
+</div>
+<div>
+<p class="font-bold text-sm">TRK-1102</p>
+<p class="text-xs text-on-surface-variant">Yousef Ali</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-error font-bold text-sm">33.8 L/100km</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">+9% above avg</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2.5 rounded-lg border border-white/10 text-on-surface-variant hover:bg-white/5 transition-all font-semibold text-sm">View Full Ranking</button>
+</div>
+<!-- Fuel Log Table -->
+<div class="lg:col-span-3 bg-surface-container rounded-2xl overflow-hidden border border-white/5">
+<div class="p-6 border-b border-white/5 flex items-center justify-between bg-surface-container-high/40">
+<h3 class="font-bold text-xl font-headline">Fuel Log</h3>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-surface-container-highest rounded-lg text-sm font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_alt</span> Filter
+                            </button>
+<button class="px-4 py-2 bg-surface-container-highest rounded-lg text-sm font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span> Export
+                            </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold bg-surface-container-high/20">
+<th class="px-6 py-4">Date</th>
+<th class="px-6 py-4">Vehicle</th>
+<th class="px-6 py-4">Driver</th>
+<th class="px-6 py-4">Station</th>
+<th class="px-6 py-4">Liters</th>
+<th class="px-6 py-4">SAR/L</th>
+<th class="px-6 py-4">Total SAR</th>
+<th class="px-6 py-4">Odometer</th>
+<th class="px-6 py-4">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Regular Row -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5 text-sm">24 Oct, 2023</td>
+<td class="px-6 py-5 font-bold text-primary">TRK-5520</td>
+<td class="px-6 py-5 text-sm">Mohammed S.</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Eni - Riyadh North</td>
+<td class="px-6 py-5 font-bold">75.00 L</td>
+<td class="px-6 py-5 text-sm">2.18</td>
+<td class="px-6 py-5 font-bold">163.50</td>
+<td class="px-6 py-5 text-sm tabular-nums">124,502 km</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-tight">Verified</span>
+</td>
+</tr>
+<!-- Fraud Alert Row (Indigo AI themed) -->
+<tr class="bg-ai-indigo/10 hover:bg-ai-indigo/20 transition-colors border-l-4 border-ai-indigo">
+<td class="px-6 py-5 text-sm">23 Oct, 2023</td>
+<td class="px-6 py-5 font-bold text-ai-indigo">TRK-4092</td>
+<td class="px-6 py-5 text-sm">Ahmed Khalidi</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Aldrees - Exit 10</td>
+<td class="px-6 py-5 font-bold text-ai-indigo">
+    120.00 L
+    <span class="block text-[10px] text-ai-indigo/80 font-medium">Excess Fill</span>
+</td>
+<td class="px-6 py-5 text-sm">2.18</td>
+<td class="px-6 py-5 font-bold text-ai-indigo">261.60</td>
+<td class="px-6 py-5 text-sm tabular-nums text-ai-indigo">89,211 km</td>
+<td class="px-6 py-5">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5">
+<span class="px-3 py-1 rounded-full bg-ai-indigo text-white text-[10px] font-black uppercase tracking-tight flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        AI FLAGGED
+                    </span>
+</div>
+<span class="text-[10px] text-ai-indigo font-bold leading-tight max-w-[140px]">Anomaly: 120L fill detected in 85L tank capacity.</span>
+</div>
+</td>
+</tr>
+<!-- Regular Row -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5 text-sm">23 Oct, 2023</td>
+<td class="px-6 py-5 font-bold text-primary">TRK-8821</td>
+<td class="px-6 py-5 text-sm">Saeed Omar</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Sahel - Dammam Hwy</td>
+<td class="px-6 py-5 font-bold">62.40 L</td>
+<td class="px-6 py-5 text-sm">2.18</td>
+<td class="px-6 py-5 font-bold">136.03</td>
+<td class="px-6 py-5 text-sm tabular-nums">412,098 km</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-tight">Verified</span>
+</td>
+</tr>
+<!-- Regular Row -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5 text-sm">22 Oct, 2023</td>
+<td class="px-6 py-5 font-bold text-primary">TRK-1102</td>
+<td class="px-6 py-5 text-sm">Yousef Ali</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Aramco - Jeddah Port</td>
+<td class="px-6 py-5 font-bold">81.10 L</td>
+<td class="px-6 py-5 text-sm">2.18</td>
+<td class="px-6 py-5 font-bold">176.80</td>
+<td class="px-6 py-5 text-sm tabular-nums">33,122 km</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-tight">Verified</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-white/5 bg-surface-container-high/20 flex items-center justify-between">
+<span class="text-xs text-on-surface-variant font-medium">Showing 1-10 of 2,492 entries</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-white/5 text-on-surface-variant transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-8 h-8 rounded bg-primary text-on-primary text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-white/5 text-on-surface-variant text-xs font-bold transition-colors">2</button>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-white/5 text-on-surface-variant text-xs font-bold transition-colors">3</button>
+<button class="w-8 h-8 rounded flex items-center justify-center hover:bg-white/5 text-on-surface-variant transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

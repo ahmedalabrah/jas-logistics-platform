@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WMS-08 — Inbound Receiving (FA Pre-scheduled)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#d0bcff",
+                    "primary-container": "#4b1fa3",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "error": "#ffb4ab",
+                    "inverse-primary": "#6a45c3",
+                    "inverse-on-surface": "#302f3b",
+                    "on-primary-fixed": "#22005c",
+                    "on-background": "#e3e0f1",
+                    "tertiary": "#ffb68e",
+                    "on-surface": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-low": "#1b1a26",
+                    "on-secondary-fixed": "#201340",
+                    "secondary-container": "#4f4171",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary": "#532200",
+                    "on-secondary": "#352856",
+                    "surface-container-highest": "#343440",
+                    "on-primary-container": "#b79cff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-container-high": "#292935",
+                    "on-surface-variant": "#cbc3d5",
+                    "outline-variant": "#494453",
+                    "on-secondary-container": "#c0b0e7",
+                    "surface-variant": "#343440",
+                    "on-error": "#690005",
+                    "surface-dim": "#12121d",
+                    "background": "#12121d",
+                    "tertiary-container": "#6c2e00",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#331200",
+                    "error-container": "#93000a",
+                    "surface": "#12121d",
+                    "primary-fixed": "#e9ddff",
+                    "inverse-surface": "#e3e0f1",
+                    "secondary-fixed": "#e9ddff",
+                    "surface-bright": "#383845",
+                    "outline": "#948e9e",
+                    "on-primary": "#3b0092",
+                    "surface-container": "#1f1e2a",
+                    "primary": "#d0bcff",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "secondary": "#cfbef6",
+                    "on-tertiary-container": "#f09661",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "cyan-accent": "#0EA5E9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Poppins", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"],
+                    "technical": ["JetBrains Mono", "monospace"],
+                    "plus": ["Plus Jakarta Sans", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(31, 30, 42, 0.6);
+        backdrop-filter: blur(12px);
+      }
+      .asymmetric-grid {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 1.5rem;
+      }
+      @media (max-width: 1024px) {
+        .asymmetric-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 antialiased overflow-x-hidden">
+<!-- SideNavBar Shell -->
+<nav class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#12121D] border-r border-white/5 flex flex-col py-6 gap-2 font-['Plus_Jakarta_Sans'] text-sm font-medium">
+<div class="px-6 mb-8">
+<h1 class="text-sky-500 font-black tracking-widest uppercase">WMS Terminal</h1>
+<p class="text-slate-500 text-[10px] uppercase tracking-tighter">Riyadh Hub North</p>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<a class="group flex items-center px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="group-hover:translate-x-1 transition-transform">Dashboard</span>
+</a>
+<a class="group flex items-center px-6 py-3 bg-sky-500/10 text-sky-400 border-r-4 border-sky-500 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]" data-icon="pending_actions">pending_actions</span>
+<span class="group-hover:translate-x-1 transition-transform">Inbound FA</span>
+</a>
+<a class="group flex items-center px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]" data-icon="local_shipping">local_shipping</span>
+<span class="group-hover:translate-x-1 transition-transform">Spot Arrival</span>
+</a>
+<a class="group flex items-center px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]" data-icon="inventory_2">inventory_2</span>
+<span class="group-hover:translate-x-1 transition-transform">Cross-dock</span>
+</a>
+<a class="group flex items-center px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="group-hover:translate-x-1 transition-transform">GRN Manager</span>
+</a>
+<a class="group flex items-center px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]" data-icon="analytics">analytics</span>
+<span class="group-hover:translate-x-1 transition-transform">Reporting</span>
+</a>
+</div>
+<div class="px-4 mb-4">
+<button class="w-full bg-primary-container text-primary-fixed font-bold py-2.5 rounded-lg active:scale-95 duration-150 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Receiving
+            </button>
+</div>
+<div class="mt-auto border-t border-white/5 pt-4">
+<a class="group flex items-center px-6 py-2 text-slate-500 hover:text-slate-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+<a class="group flex items-center px-6 py-2 text-slate-500 hover:text-slate-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen relative">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 left-64 right-0 z-50 h-16 bg-[#0F0F1A]/80 backdrop-blur-xl border-b border-white/5 flex justify-between items-center px-8 shadow-2xl shadow-black/20 font-['Plus_Jakarta_Sans']">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-white">JAS Sovereign WMS</span>
+<nav class="hidden md:flex gap-6 text-sm font-medium">
+<a class="text-sky-400 border-b-2 border-sky-400 pb-1" href="#">Arrivals</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Operations</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Reviews</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-sky-400 transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-sky-400 transition-colors" data-icon="settings">settings</span>
+</div>
+<div class="flex items-center gap-3 pl-4 border-l border-white/10">
+<div class="text-right">
+<p class="text-xs font-bold text-white leading-none">A. Al-Farsi</p>
+<p class="text-[10px] text-slate-500">Logistics Supervisor</p>
+</div>
+<img alt="Supervisor Profile" class="w-8 h-8 rounded-full border border-sky-500/50" data-alt="professional portrait of a middle-eastern man in business casual attire with a blurred warehouse office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlZFwb2Y_KJVFBkwmNnVbtAcWSwCoKHklFBwm4TttLjJkTcMA0mJfuA9c1DIMGRF-zaEJt6JcamY9L_OEuddWks4TlMr3z-YAC0np2xJ6UKE5fos9QJgFmIWfRy8H41okILhAj9R0fnf1ioTFps1IC_ND6mI9BmzzpoZnO0birqlW1BPoQgcWRURbiZ6cXv8Ux-GS3qz2aeJp6bYOHHN_gT_XMLFH87Vu59XWyo7wNOUd3oreK57ilOUyk4kxNR69zhEq8eQYqpg"/>
+</div>
+</div>
+</header>
+<!-- Page Body Content -->
+<div class="pt-24 px-8 pb-12">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex items-center gap-2 text-xs text-on-surface-variant mb-2">
+<span class="hover:text-primary cursor-pointer">Inbound</span>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-cyan-accent font-medium">FA Pre-scheduled</span>
+</nav>
+<h2 class="font-headline text-3xl font-bold tracking-tight">Expected Arrivals Today</h2>
+<p class="text-on-surface-variant text-sm mt-1">Monitoring 14 pre-scheduled arrivals for Riyadh Hub North.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high border border-outline-variant/30 px-4 py-2 flex items-center gap-2 text-sm font-medium hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+                        Filter View
+                    </button>
+<button class="bg-cyan-accent text-white font-bold px-4 py-2 flex items-center gap-2 text-sm hover:brightness-110 transition-all rounded-lg">
+<span class="material-symbols-outlined text-[18px]" data-icon="sync">sync</span>
+                        Refresh GPS Feed
+                    </button>
+</div>
+</div>
+<!-- Dashboard Stats Summary -->
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="glass-card p-5 border-l-4 border-cyan-accent">
+<p class="text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Total Expected</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-3xl font-headline font-bold">14</span>
+<span class="text-xs text-cyan-accent">Shipments</span>
+</div>
+</div>
+<div class="glass-card p-5 border-l-4 border-primary">
+<p class="text-xs text-on-surface-variant uppercase tracking-wider font-semibold">In Transit</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-3xl font-headline font-bold text-primary">09</span>
+<span class="text-xs text-on-surface-variant">Active GPS</span>
+</div>
+</div>
+<div class="glass-card p-5 border-l-4 border-tertiary">
+<p class="text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Allocated Docks</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-3xl font-headline font-bold text-tertiary">06</span>
+<span class="text-xs text-on-surface-variant">/ 12 Active</span>
+</div>
+</div>
+<div class="glass-card p-5 border-l-4 border-error">
+<p class="text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Delayed</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-3xl font-headline font-bold text-error">02</span>
+<span class="text-xs text-on-surface-variant">ETA Red</span>
+</div>
+</div>
+</div>
+<div class="asymmetric-grid">
+<!-- Main List Area -->
+<div class="flex flex-col gap-4">
+<!-- Shipment Card 1 -->
+<div class="surface-container rounded-xl overflow-hidden group transition-all duration-300 hover:ring-1 hover:ring-cyan-accent/50">
+<div class="flex items-center bg-surface-container-high/50 px-6 py-3 border-b border-white/5">
+<span class="font-technical text-cyan-accent font-medium text-sm tracking-widest uppercase">FRE-15-77291</span>
+<span class="mx-3 text-outline-variant">|</span>
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-widest">Pre-Scheduled Arrival</span>
+<div class="ml-auto flex gap-2">
+<span class="bg-cyan-accent/10 text-cyan-accent text-[10px] px-2 py-0.5 font-bold rounded-full border border-cyan-accent/20">PRIORITY</span>
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] px-2 py-0.5 font-bold rounded-full">FA AGREEMENT</span>
+</div>
+</div>
+<div class="p-6 grid grid-cols-12 gap-6 items-center">
+<div class="col-span-3">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Client</p>
+<p class="font-headline font-semibold text-lg">Almarai Logistics</p>
+<p class="text-xs text-on-surface-variant">Food &amp; Beverage (Cold Chain)</p>
+</div>
+<div class="col-span-2">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Cargo Details</p>
+<p class="text-sm font-medium">Palletized Dairy</p>
+<p class="font-technical text-xs text-on-surface-variant">24 PLT / 12,400 KG</p>
+</div>
+<div class="col-span-2">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">GPS ETA</p>
+<p class="text-sm font-bold text-cyan-accent">14:30 <span class="text-[10px] text-on-surface-variant font-normal">(In 45 min)</span></p>
+<p class="text-[10px] flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[10px]" data-icon="location_on">location_on</span> Riyadh Ring Rd.
+                                </p>
+</div>
+<div class="col-span-2">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Dock Assignment</p>
+<div class="flex items-center gap-2">
+<span class="bg-surface-container-lowest border border-outline-variant/30 text-white w-8 h-8 flex items-center justify-center font-technical rounded-lg">A4</span>
+<span class="text-xs font-medium text-on-surface-variant">Bay 12-A</span>
+</div>
+</div>
+<div class="col-span-3 text-right">
+<button class="bg-primary text-on-primary font-bold px-5 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(208,188,255,0.3)] transition-all flex items-center justify-center gap-2 ml-auto">
+                                    Receive Cargo
+                                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Shipment Card 2 -->
+<div class="surface-container rounded-xl overflow-hidden group transition-all duration-300 hover:ring-1 hover:ring-cyan-accent/50">
+<div class="flex items-center bg-surface-container-high/50 px-6 py-3 border-b border-white/5">
+<span class="font-technical text-cyan-accent font-medium text-sm tracking-widest uppercase">FRE-15-88120</span>
+<span class="mx-3 text-outline-variant">|</span>
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-widest">Standard Inbound</span>
+<div class="ml-auto flex gap-2">
+<span class="bg-error/10 text-error text-[10px] px-2 py-0.5 font-bold rounded-full border border-error/20">GPS DELAY</span>
+</div>
+</div>
+<div class="p-6 grid grid-cols-12 gap-6 items-center">
+<div class="col-span-3">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Client</p>
+<p class="font-headline font-semibold text-lg">Saudi Aramco Hub</p>
+<p class="text-xs text-on-surface-variant">Industrial Spares</p>
+</div>
+<div class="col-span-2">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Cargo Details</p>
+<p class="text-sm font-medium">Drill Heads</p>
+<p class="font-technical text-xs text-on-surface-variant">08 CRATE / 4,200 KG</p>
+</div>
+<div class="col-span-2">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">GPS ETA</p>
+<p class="text-sm font-bold text-error">16:15 <span class="text-[10px] text-on-surface-variant font-normal">(+40 min)</span></p>
+<p class="text-[10px] flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[10px]" data-icon="traffic">traffic</span> Traffic - Exit 10
+                                </p>
+</div>
+<div class="col-span-2">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Dock Assignment</p>
+<div class="flex items-center gap-2">
+<span class="bg-surface-container-lowest border border-outline-variant/30 text-white w-8 h-8 flex items-center justify-center font-technical rounded-lg">C2</span>
+<span class="text-xs font-medium text-on-surface-variant">Unassigned</span>
+</div>
+</div>
+<div class="col-span-3 text-right">
+<button class="bg-primary/20 text-primary border border-primary/30 font-bold px-5 py-3 rounded-lg hover:bg-primary/30 transition-all flex items-center justify-center gap-2 ml-auto">
+                                    Receive Cargo
+                                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Shipment Card 3 -->
+<div class="surface-container rounded-xl overflow-hidden group transition-all duration-300 hover:ring-1 hover:ring-cyan-accent/50">
+<div class="flex items-center bg-surface-container-high/50 px-6 py-3 border-b border-white/5">
+<span class="font-technical text-cyan-accent font-medium text-sm tracking-widest uppercase">FRE-15-99201</span>
+<span class="mx-3 text-outline-variant">|</span>
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-widest">Partial Arrival Expected</span>
+</div>
+<div class="p-6 grid grid-cols-12 gap-6 items-center">
+<div class="col-span-3">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Client</p>
+<p class="font-headline font-semibold text-lg">Jarir Bookstore</p>
+<p class="text-xs text-on-surface-variant">Consumer Electronics</p>
+</div>
+<div class="col-span-2">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Cargo Details</p>
+<p class="text-sm font-medium">Mixed LTL</p>
+<p class="font-technical text-xs text-on-surface-variant">112 CART / 800 KG</p>
+</div>
+<div class="col-span-2">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">GPS ETA</p>
+<p class="text-sm font-bold text-tertiary">ARRIIVD <span class="text-[10px] text-on-surface-variant font-normal">(At Gate)</span></p>
+<p class="text-[10px] flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[10px]" data-icon="check_circle">check_circle</span> Gate 4 Clear
+                                </p>
+</div>
+<div class="col-span-2">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Dock Assignment</p>
+<div class="flex items-center gap-2">
+<span class="bg-surface-container-lowest border border-outline-variant/30 text-white w-8 h-8 flex items-center justify-center font-technical rounded-lg">B1</span>
+<span class="text-xs font-medium text-on-surface-variant">Sorting Hub</span>
+</div>
+</div>
+<div class="col-span-3 text-right">
+<button class="bg-primary text-on-primary font-bold px-5 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(208,188,255,0.3)] transition-all flex items-center justify-center gap-2 ml-auto">
+                                    Receive Cargo
+                                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Panel / Sidebar Map -->
+<div class="flex flex-col gap-6">
+<div class="surface-container rounded-xl p-4 overflow-hidden">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-sm font-bold uppercase tracking-tight text-white">Live Logistics Feed</h3>
+<span class="material-symbols-outlined text-[16px] text-cyan-accent" data-icon="map">map</span>
+</div>
+<div class="h-64 bg-surface-container-highest rounded-lg relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" data-alt="high contrast dark mode map of Riyadh showing logistics routes and glowing vehicle pips with subtle tech overlay" data-location="Riyadh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC33xEn5M0w55dpMufo5-TZkbRFwrjIXCOK_7myXSrWSXWGLaIACHHIYZRAmuqmn6Ff8avxki66UCGvqjOMog0h4NdZY04DBgXamSIPmc_uiC-SjGer57lOwdtLNX6kwPvNmwz9igWj98ghawJr5-BGyhwhYjGWdns37FmMgc5eZxqLdfSRXuAF99swFrQIm_DpNJBznX_zr4z9X4CHg76iGb2h_gltDiRgMab_MIc_PUgr3DgTl5rw5TWyhlvY5L9KeWQqgZmirQ"/>
+<!-- Overlay GPS Pins -->
+<div class="absolute top-1/4 left-1/3 w-3 h-3 bg-cyan-accent rounded-full border-2 border-white shadow-[0_0_10px_#0EA5E9] animate-pulse"></div>
+<div class="absolute bottom-1/2 right-1/4 w-3 h-3 bg-primary rounded-full border-2 border-white shadow-[0_0_10px_#d0bcff]"></div>
+<div class="absolute bottom-4 right-1/2 w-4 h-4 bg-tertiary rounded-full border-2 border-white flex items-center justify-center text-[8px] font-bold text-black">A4</div>
+</div>
+<div class="mt-4 space-y-3">
+<div class="flex justify-between items-center text-xs">
+<span class="text-on-surface-variant">Active Drivers</span>
+<span class="text-white font-medium">24 On-road</span>
+</div>
+<div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+<div class="bg-cyan-accent h-full w-[65%]"></div>
+</div>
+</div>
+</div>
+<div class="surface-container rounded-xl p-5">
+<h3 class="text-sm font-bold uppercase tracking-tight text-white mb-4">Quick GRN Actions</h3>
+<div class="flex flex-col gap-2">
+<button class="w-full text-left p-3 rounded-lg bg-surface-container-low border border-outline-variant/10 hover:border-cyan-accent/40 transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cyan-accent" data-icon="barcode_scanner">barcode_scanner</span>
+<div>
+<p class="text-xs font-bold text-white uppercase tracking-tighter">Instant Gate Check-in</p>
+<p class="text-[10px] text-on-surface-variant">Manual driver verification</p>
+</div>
+</div>
+</button>
+<button class="w-full text-left p-3 rounded-lg bg-surface-container-low border border-outline-variant/10 hover:border-cyan-accent/40 transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="assignment_late">assignment_late</span>
+<div>
+<p class="text-xs font-bold text-white uppercase tracking-tighter">Flag Discrepancy</p>
+<p class="text-[10px] text-on-surface-variant">Report missing paperwork</p>
+</div>
+</div>
+</button>
+<button class="w-full text-left p-3 rounded-lg bg-surface-container-low border border-outline-variant/10 hover:border-cyan-accent/40 transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="dock">dock</span>
+<div>
+<p class="text-xs font-bold text-white uppercase tracking-tighter">Reassign Docks</p>
+<p class="text-[10px] text-on-surface-variant">Traffic management override</p>
+</div>
+</div>
+</button>
+</div>
+</div>
+<div class="mt-auto glass-card p-6 border-l-4 border-cyan-accent overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="text-sm font-bold text-white">Hub Efficiency</h4>
+<p class="text-[10px] text-on-surface-variant mt-1">Average unloading time: 42min</p>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-2xl font-headline font-bold text-cyan-accent">+12%</span>
+<span class="text-[10px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded">↑ Goal</span>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl text-white/5" data-icon="query_stats">query_stats</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Quick Search (High Density) -->
+<div class="fixed bottom-8 right-8 z-50 flex items-center gap-4">
+<div class="bg-surface-container-high/90 backdrop-blur-md border border-white/10 rounded-full pl-6 pr-2 py-2 flex items-center shadow-2xl">
+<span class="material-symbols-outlined text-on-surface-variant mr-3 text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64 placeholder:text-on-surface-variant/50" placeholder="Search FRE Ref, Driver, or Client..." type="text"/>
+<div class="bg-surface-container-highest px-2 py-1 rounded text-[10px] text-on-surface-variant font-technical mr-4">CMD+K</div>
+</div>
+<button class="w-12 h-12 bg-cyan-accent rounded-full shadow-lg shadow-cyan-accent/20 flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+</div>
+</body></html>

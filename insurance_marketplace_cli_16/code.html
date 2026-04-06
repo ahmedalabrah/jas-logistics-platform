@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Insurance &amp; Claims | JAS Sovereign</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#948e9e",
+                        "on-secondary": "#352856",
+                        "tertiary-container": "#6c2e00",
+                        "surface-container-high": "#292935",
+                        "surface-variant": "#343440",
+                        "on-primary": "#3b0092",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-secondary-container": "#c0b0e7",
+                        "primary-container": "#4b1fa3",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "error": "#ffb4ab",
+                        "secondary": "#cfbef6",
+                        "on-primary-fixed": "#22005c",
+                        "outline-variant": "#494453",
+                        "inverse-surface": "#e3e0f1",
+                        "inverse-primary": "#6a45c3",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "tertiary": "#ffb68e",
+                        "surface-container-low": "#1b1a26",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-tertiary-fixed": "#331200",
+                        "on-tertiary": "#532200",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#e9ddff",
+                        "on-error": "#690005",
+                        "surface-container": "#1f1e2a",
+                        "surface": "#12121d",
+                        "surface-bright": "#383845",
+                        "on-primary-container": "#b79cff",
+                        "secondary-fixed": "#e9ddff",
+                        "background": "#12121d",
+                        "surface-tint": "#d0bcff",
+                        "inverse-on-surface": "#302f3b",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "surface-dim": "#12121d",
+                        "on-secondary-fixed": "#201340",
+                        "on-tertiary-container": "#f09661",
+                        "tertiary-fixed": "#ffdbc9",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "surface-container-highest": "#343440",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-surface": "#e3e0f1",
+                        "primary": "#d0bcff",
+                        "secondary-container": "#4f4171",
+                        "surface-container-lowest": "#0d0d18",
+                        "on-background": "#e3e0f1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.6);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<!-- Top Navigation Shell -->
+<header class="bg-[#0F0F1A]/80 backdrop-blur-md text-[#d0bcff] font-['Plus_Jakarta_Sans'] antialiased docked full-width top-0 z-50 bg-[#12121d] shadow-xl flex justify-between items-center h-16 px-6 w-full sticky">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold tracking-tighter text-white">JAS Sovereign</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 hover:bg-[#4B1FA3]/10 hover:text-white transition-colors text-sm font-medium" href="#">Supply Chain</a>
+<a class="text-[#d0bcff] font-semibold text-sm font-medium" href="#">Finance</a>
+<a class="text-slate-400 hover:bg-[#4B1FA3]/10 hover:text-white transition-colors text-sm font-medium" href="#">Operations</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 text-on-surface-variant" placeholder="Search policies..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-slate-400 hover:text-white cursor-pointer transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-white cursor-pointer transition-colors" data-icon="settings">settings</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Client Executive Profile" data-alt="Professional portrait of a Middle Eastern executive in a dark suit with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpnH3I55kw2NV1XZwVsEeSPmPIrY1IG-rkziveFSWWDNTSlEFdWtCyNA9ESK65sHFuYkTZY9RLYVsldQSG6NMpsavx_lIAskGsmCRs4W2vPjthy9dC94GqrsjxCSlL8JsaoFejVvvS567gqiX-xdny3IAcBqKwNCjbdmDgcHuHfaqISRxGWl6xiwCI4DNwmb8Vl5ExyJ-RJcMaighCmGzgGaWkCe9CzEQPaA3YPzThkgfgUVEFMNJclJOVwTdBBM5NLI46lot30Q"/>
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- Side Navigation Shell -->
+<aside class="bg-[#12121d] font-['Plus_Jakarta_Sans'] text-sm font-medium docked left-0 h-[calc(100vh-4rem)] w-64 bg-gradient-to-r from-[#12121d] to-[#0F0F1A] shadow-[4px_0_24px_rgba(0,0,0,0.5)] flex flex-col py-6 sticky top-16 hidden md:flex">
+<div class="px-6 mb-8">
+<h2 class="text-white font-black text-lg tracking-tight">Global Logistics</h2>
+<p class="text-slate-500 text-xs">Enterprise Portal</p>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+                    Supply Chain
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="conveyor_belt">conveyor_belt</span>
+                    Operations
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 bg-[#4B1FA3]/20 text-[#d0bcff] border-r-2 border-[#d0bcff] transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+                    Finance
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                    Documents
+                </a>
+</nav>
+<div class="px-3 mt-auto space-y-4">
+<button class="w-full py-2.5 bg-primary-container text-on-primary-container rounded-lg font-bold flex items-center justify-center gap-2 hover:brightness-110 transition-all scale-95 active:scale-100">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    New Dispatch
+                </button>
+<div class="pt-4 border-t border-outline-variant/20">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                        Support
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                        Sign Out
+                    </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-8 overflow-y-auto">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-10">
+<div>
+<nav class="flex items-center gap-2 text-xs text-on-surface-variant mb-2 font-label">
+<span>Finance</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary">Insurance &amp; Claims</span>
+</nav>
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface">Insurance &amp; Claims</h1>
+<p class="text-on-surface-variant mt-2 max-w-xl">Manage your global cargo protection, active risk coverage, and historical claim registries from a centralized dashboard.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2.5 rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container-high transition-colors font-label font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Export Report
+                    </button>
+<button class="px-6 py-2.5 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-label font-bold flex items-center gap-2 shadow-[0_0_20px_rgba(208,188,255,0.2)]">
+                        Get New Quote <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid - Active Policies -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-1 h-8 bg-primary rounded-full"></div>
+<h2 class="text-xl font-headline font-bold">Active Policies</h2>
+</div>
+<span class="text-on-surface-variant text-sm font-label">3 Active Subscriptions</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Policy Card 1 -->
+<div class="surface-container-low p-6 rounded-xl border-l-4 border-primary relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Policy ID: JAS-INS-9921</p>
+<h3 class="text-xl font-bold">Comprehensive Cargo</h3>
+</div>
+<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-1 rounded font-bold uppercase">Priority</span>
+</div>
+<div class="space-y-4 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-primary">account_balance</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">Insurer</p>
+<p class="text-sm font-semibold">Tawuniya Insurance Co.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-xs text-on-surface-variant">Cargo Limit</p>
+<p class="text-sm font-bold text-on-surface">$2,500,000</p>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">Monthly Premium</p>
+<p class="text-sm font-bold text-primary">$4,250</p>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-xs text-on-surface-variant">Expires: 12 Dec 2024</span>
+<button class="text-primary text-xs font-bold hover:underline">View Policy</button>
+</div>
+</div>
+</div>
+<!-- Policy Card 2 -->
+<div class="surface-container-low p-6 rounded-xl border-l-4 border-on-secondary-container relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Policy ID: JAS-INS-4482</p>
+<h3 class="text-xl font-bold">Transit &amp; Logistics</h3>
+</div>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-1 rounded font-bold uppercase">Active</span>
+</div>
+<div class="space-y-4 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-primary">account_balance</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">Insurer</p>
+<p class="text-sm font-semibold">Al Rajhi Takaful</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-xs text-on-surface-variant">Cargo Limit</p>
+<p class="text-sm font-bold text-on-surface">$850,000</p>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">Monthly Premium</p>
+<p class="text-sm font-bold text-primary">$1,800</p>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-xs text-on-surface-variant">Expires: 30 Jan 2025</span>
+<button class="text-primary text-xs font-bold hover:underline">View Policy</button>
+</div>
+</div>
+</div>
+<!-- Policy Card 3 -->
+<div class="surface-container-low p-6 rounded-xl border-l-4 border-outline-variant relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">warehouse</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Policy ID: JAS-INS-1109</p>
+<h3 class="text-xl font-bold">Storage Liability</h3>
+</div>
+<span class="bg-surface-variant text-on-surface-variant text-[10px] px-2 py-1 rounded font-bold uppercase">Standard</span>
+</div>
+<div class="space-y-4 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-primary">account_balance</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">Insurer</p>
+<p class="text-sm font-semibold">AXA Cooperative</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-xs text-on-surface-variant">Cargo Limit</p>
+<p class="text-sm font-bold text-on-surface">$5,000,000</p>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant">Monthly Premium</p>
+<p class="text-sm font-bold text-primary">$6,100</p>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-xs text-on-surface-variant">Expires: 15 Mar 2025</span>
+<button class="text-primary text-xs font-bold hover:underline">View Policy</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Claims Registry Section -->
+<section class="mb-8">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-1 h-8 bg-tertiary rounded-full"></div>
+<h2 class="text-xl font-headline font-bold">Claims Registry</h2>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-lg bg-surface-container-high text-xs font-bold text-on-surface hover:brightness-110 transition-all flex items-center gap-2">
+                            File a Claim <span class="material-symbols-outlined text-sm">add_circle</span>
+</button>
+</div>
+</div>
+<!-- Claims Data Table -->
+<div class="surface-container rounded-xl overflow-hidden shadow-2xl border border-outline-variant/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50 text-on-surface-variant text-[11px] uppercase tracking-wider font-bold">
+<th class="px-6 py-4">Claim ID</th>
+<th class="px-6 py-4">Shipment Reference</th>
+<th class="px-6 py-4">Claim Type</th>
+<th class="px-6 py-4">Date Filed</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Payout Amount</th>
+<th class="px-6 py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<span class="text-sm font-semibold text-primary">CLM-8872-SA</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">JAS-7721-RX</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-error">water_damage</span>
+<span class="text-sm">Cargo Damage</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Oct 14, 2023</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Approved
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right font-bold text-on-surface">$12,400.00</td>
+<td class="px-6 py-5 text-right">
+<button class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<span class="text-sm font-semibold text-primary">CLM-1102-DX</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">JAS-9901-LQ</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-tertiary">inventory_2</span>
+<span class="text-sm">Total Loss</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Oct 28, 2023</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary/10 text-tertiary text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Pending Review
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right font-bold text-on-surface">$45,000.00</td>
+<td class="px-6 py-5 text-right">
+<button class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<span class="text-sm font-semibold text-primary">CLM-4531-KZ</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">JAS-2234-ML</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-outline">schedule</span>
+<span class="text-sm">Logistics Delay</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Nov 02, 2023</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error/10 text-error text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Rejected
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right font-bold text-on-surface-variant">—</td>
+<td class="px-6 py-5 text-right">
+<button class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<span class="text-sm font-semibold text-primary">CLM-9221-SA</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface">JAS-8812-PP</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-error">water_damage</span>
+<span class="text-sm">Partial Damage</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Nov 15, 2023</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Processing
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right font-bold text-on-surface">$2,850.00</td>
+<td class="px-6 py-5 text-right">
+<button class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination/Status Footer -->
+<div class="mt-4 flex justify-between items-center px-2">
+<p class="text-xs text-on-surface-variant">Showing <span class="text-on-surface">4</span> of <span class="text-on-surface">24</span> claims</p>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-high text-on-surface-variant hover:bg-primary/20 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-bold text-xs">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-high text-on-surface-variant hover:bg-primary/20 hover:text-primary transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-high text-on-surface-variant hover:bg-primary/20 hover:text-primary transition-colors">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-high text-on-surface-variant hover:bg-primary/20 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Floating Action Button (Mobile Context) -->
+<button class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center z-50 transition-transform active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

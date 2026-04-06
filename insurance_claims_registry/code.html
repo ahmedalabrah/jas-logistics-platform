@@ -1,0 +1,400 @@
+<html class="dark"><head>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#1f1e2a",
+            "primary-container": "#4b1fa3",
+            "on-surface-variant": "#cbc3d5",
+            "tertiary-container": "#6c2e00",
+            "error": "#ffb4ab",
+            "primary-fixed": "#e9ddff",
+            "surface-container-highest": "#343440",
+            "primary": "#d0bcff",
+            "secondary-fixed-dim": "#cfbef6",
+            "surface-tint": "#d0bcff",
+            "on-tertiary-fixed": "#331200",
+            "surface-container-low": "#1b1a26",
+            "on-secondary-fixed-variant": "#4c3f6e",
+            "primary-fixed-dim": "#d0bcff",
+            "surface-container-high": "#292935",
+            "on-background": "#e3e0f1",
+            "inverse-surface": "#e3e0f1",
+            "on-secondary": "#352856",
+            "on-primary-fixed-variant": "#5228aa",
+            "on-error": "#690005",
+            "outline-variant": "#494453",
+            "secondary-container": "#4f4171",
+            "on-primary-fixed": "#22005c",
+            "inverse-primary": "#6a45c3",
+            "secondary": "#cfbef6",
+            "outline": "#948e9e",
+            "on-tertiary-container": "#f09661",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed": "#ffdbc9",
+            "on-secondary-fixed": "#201340",
+            "error-container": "#93000a",
+            "tertiary-fixed-dim": "#ffb68e",
+            "on-surface": "#e3e0f1",
+            "surface-bright": "#383845",
+            "secondary-fixed": "#e9ddff",
+            "on-tertiary": "#532200",
+            "surface-dim": "#12121d",
+            "on-primary": "#3b0092",
+            "surface-variant": "#343440",
+            "tertiary": "#ffb68e",
+            "surface-container-lowest": "#0d0d18",
+            "surface": "#12121d",
+            "on-secondary-container": "#c0b0e7",
+            "on-tertiary-fixed-variant": "#743405",
+            "inverse-on-surface": "#302f3b",
+            "on-primary-container": "#b79cff",
+            "background": "#12121d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #C43585;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-[#C43585]/30">
+<!-- Side Navigation Bar -->
+<aside class="flex flex-col h-full py-6 px-4 z-50 h-screen w-64 fixed left-0 top-0 border-r border-white/5 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[20px_0_40px_rgba(0,0,0,0.3)]">
+<div class="mb-10 px-2 flex items-center gap-3">
+<div class="w-10 h-10 bg-[#C43585] flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(196,53,133,0.4)]">
+<span class="material-symbols-outlined text-white" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-[#C43585]">JAS FreMS</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold">Velvet Intelligence</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Tracking</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="sync_alt">sync_alt</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Status Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Rates</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Analytics</span>
+</a>
+<!-- Active Link: Claims -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white bg-gradient-to-r from-[#C43585]/20 to-transparent border-r-2 border-[#C43585] shadow-[0_0_15px_rgba(196,53,133,0.3)]" href="#">
+<span class="material-symbols-outlined text-[#C43585]" data-icon="gavel">gavel</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Claims</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-white/5">
+<button class="w-full bg-[#C43585] text-white py-3 rounded-lg font-bold text-xs uppercase tracking-widest shadow-[0_4px_20px_rgba(196,53,133,0.4)] scale-98 active:scale-95 transition-transform mb-6">
+        Create Shipment
+      </button>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300 hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Help Center</span>
+</a>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-[#0F0F1A]/60 backdrop-blur-lg flex items-center justify-between px-8 border-b border-white/5">
+<div class="flex items-center gap-8">
+<span class="text-xs font-semibold uppercase tracking-widest text-[#C43585]">Freight Management System</span>
+<nav class="flex items-center gap-6">
+<a class="font-['Plus_Jakarta_Sans'] text-xs font-semibold uppercase tracking-widest text-slate-300 hover:text-[#C43585] transition-all" href="#">Global Map</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs font-semibold uppercase tracking-widest text-slate-300 hover:text-[#C43585] transition-all" href="#">Shipments</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs font-semibold uppercase tracking-widest text-slate-300 hover:text-[#C43585] transition-all" href="#">Financials</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-[#C43585] transition-all" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-[#C43585] rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-[#C43585] transition-all" data-icon="apps">apps</span>
+<div class="h-8 w-[1px] bg-white/10 mx-2"></div>
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-white/20 object-cover" data-alt="professional male corporate executive in a dark suit with soft office lighting backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2YmyjK4msj95ImJWTL4wQE-oMli4K_xWX3U3wx-ejK91qC4kFLdZ-y9VlwdVuzcx4ajoNaoNvqslLDZPNwBGxMAgXgZz1rlp9FkKaxE0IXC8DEmIiBvteDr1hEnf6jZnQmMIB1_TSCqF485v_qTp3OMMBWJtXJBuaWlEm-9Dqt38EbGaP3qT9doT7jRJUdWxAcn66DcliCfaRIILGQfo6F-US37y1eMNM6SNGFf1jkYmE_NenFHHbUOZXeCSFhe_4a8Xc2rJgFg"/>
+<div class="hidden xl:block">
+<p class="text-[10px] font-bold text-white leading-none">James Sterling</p>
+<p class="text-[8px] text-slate-500 uppercase tracking-tighter">Global Director</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-20 p-8 min-h-screen bg-surface">
+<div class="flex items-end justify-between mb-8">
+<div>
+<div class="flex items-center gap-2 text-[#C43585] mb-1">
+<span class="material-symbols-outlined text-sm" data-icon="gavel">gavel</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Claims Registry</span>
+</div>
+<h2 class="text-3xl font-headline font-extrabold text-white tracking-tight">Insurance Claims</h2>
+</div>
+<button class="px-6 py-2.5 bg-[#C43585] text-white rounded-lg flex items-center gap-2 font-bold text-sm shadow-[0_8px_20px_rgba(196,53,133,0.3)] hover:translate-y-[-1px] active:translate-y-[1px] transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+        New Claim
+      </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Claims Table Section (Left Side) -->
+<div class="col-span-12 xl:col-span-8 bg-surface-container-low rounded-xl overflow-hidden shadow-2xl">
+<div class="p-6 border-b border-white/5 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-highest px-3 py-1.5 rounded flex items-center gap-2 border border-white/5 focus-within:ring-1 focus-within:ring-[#C43585]/30">
+<span class="material-symbols-outlined text-slate-500 text-lg" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs text-on-surface w-48 placeholder:text-slate-600" placeholder="Search Claim ID..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 bg-surface-container-high rounded text-[10px] font-bold text-slate-400 hover:text-[#C43585] transition-colors border border-white/5">Type: All</button>
+<button class="px-3 py-1.5 bg-surface-container-high rounded text-[10px] font-bold text-slate-400 hover:text-[#C43585] transition-colors border border-white/5">Status: Pending</button>
+</div>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Displaying 24 results</span>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/30">
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Claim ID</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Shipment</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Cargo Value</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Type</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Status</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-right">Claim Amount</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-[#C43585]/5 transition-colors cursor-pointer group">
+<td class="px-6 py-4">
+<span class="text-xs font-bold text-white">CLM-88902-DX</span>
+<p class="text-[10px] text-slate-500 mt-1">Filed 12 Oct 2023</p>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium text-on-surface-variant">FRT-0092-JAS</span>
+<p class="text-[10px] text-slate-500">Riyadh → Jeddah</p>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-bold text-white">$142,500.00</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="text-xs text-on-surface-variant">Damage</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#C43585]/10 text-[#C43585] border border-[#C43585]/20">Pending Review</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="text-xs font-extrabold text-white">$12,400.00</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-[#C43585]/10 border-l-4 border-l-[#C43585] transition-colors cursor-pointer">
+<td class="px-6 py-4">
+<span class="text-xs font-bold text-white">CLM-88901-DX</span>
+<p class="text-[10px] text-slate-500 mt-1">Filed 10 Oct 2023</p>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium text-on-surface-variant">FRT-0088-JAS</span>
+<p class="text-[10px] text-slate-500">Dubai → Dammam</p>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-bold text-white">$89,000.00</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-xs text-on-surface-variant">Loss</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-500/10 text-green-400 border border-green-500/20">Approved</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="text-xs font-extrabold text-white">$89,000.00</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-[#C43585]/5 transition-colors cursor-pointer group">
+<td class="px-6 py-4">
+<span class="text-xs font-bold text-white">CLM-88899-DX</span>
+<p class="text-[10px] text-slate-500 mt-1">Filed 08 Oct 2023</p>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium text-on-surface-variant">FRT-1102-JAS</span>
+<p class="text-[10px] text-slate-500">Shanghai → Riyadh</p>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-bold text-white">$210,000.00</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+<span class="text-xs text-on-surface-variant">Delay</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-error-container/30 text-error border border-error/20">Rejected</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="text-xs font-extrabold text-white">$4,500.00</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-[#C43585]/5 transition-colors cursor-pointer group">
+<td class="px-6 py-4">
+<span class="text-xs font-bold text-white">CLM-88894-DX</span>
+<p class="text-[10px] text-slate-500 mt-1">Filed 05 Oct 2023</p>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium text-on-surface-variant">FRT-0982-JAS</span>
+<p class="text-[10px] text-slate-500">London → Riyadh</p>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-bold text-white">$45,200.00</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="text-xs text-on-surface-variant">Damage</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#C43585]/10 text-[#C43585] border border-[#C43585]/20">Pending Review</span>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="text-xs font-extrabold text-white">$8,150.00</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Claim Detail Panel (Right Side) -->
+<div class="col-span-12 xl:col-span-4 flex flex-col gap-6">
+<!-- Main Detail Card -->
+<div class="bg-surface-container rounded-xl overflow-hidden border border-white/5 shadow-2xl relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#C43585] to-transparent"></div>
+<div class="p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-white tracking-tight">Claim Detail</h3>
+<span class="text-[10px] font-extrabold text-[#C43585] bg-[#C43585]/10 px-2 py-1 rounded">CLM-88901-DX</span>
+</div>
+<!-- Photos Gallery -->
+<div class="mb-8">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-3">Evidence Photos (4)</label>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative group cursor-zoom-in">
+<img class="rounded-lg h-24 w-full object-cover border border-white/10 group-hover:opacity-75 transition-opacity" data-alt="close-up of a damaged industrial shipping container with dented metal siding in a brightly lit freight yard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD51QEFIQtTM8TeN4FEoqC6GpBpiM3p62uAE-_lJQchgIM8OS2Fqs72ymjUdgeehCKzXNovI9wPneUpQescvCsIa8bQ3jCaHqYa3grO-OdUVKK9uZSvLNiPK3dzQhOJzivJ7ZZVUUUYA25bBqOqnA4n1V32bRQ-y6E6c5Zbn_nby5Oex9JwAQbexRIi3Bz6RcVpzNJMnIDS5YWVK30-czwvx7OjlVYxVafk8ptLWQLntUVIeh6uglJjE8VG_auOnD-EhdYoB3Jeng"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white" data-icon="visibility">visibility</span>
+</div>
+</div>
+<div class="relative group cursor-zoom-in">
+<img class="rounded-lg h-24 w-full object-cover border border-white/10 group-hover:opacity-75 transition-opacity" data-alt="interior of a cargo ship holding area with cardboard boxes stacked and scattered across the floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9QUubZR1uWxnykmqG6--rATDO_63q7ic9uObwlucHBISeHSHTjJ5bo13mIUmQ53Q_73ATgkIhmcYfYsH0Rg87WtE3nX3iu9fY9lY4KpbUvWKSrVU7PeKqU6ENKSkyOJxWL20ExB0o4bMDaMiPPyfl0lzwRIHufzHYTOx97RNjB_hqUZswtOU8U7EAmL8wUjfJfOGo0K6RC7k37D7QW2ysBABHMZbzZqf5J7GV3uzpejU9w1wIGEHZSC-ONtaUYqF33n_p2ay2xw"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white" data-icon="visibility">visibility</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Damage Assessment -->
+<div class="space-y-6">
+<div>
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-2">Damage Assessment</label>
+<div class="bg-surface-container-low p-4 rounded-lg border border-white/5">
+<p class="text-sm text-on-surface-variant leading-relaxed">Structural failure reported on pallet #912-A. High-precision electronics (Sensor Array v4) compromised due to moisture ingress during transshipment at Port of Dubai. 14 units non-functional.</p>
+</div>
+</div>
+<div>
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-2">Adjuster Notes</label>
+<div class="bg-surface-container-low p-4 rounded-lg border border-white/5 italic">
+<p class="text-sm text-slate-400 leading-relaxed">"Verification of seal compromise confirmed. Logistics log indicates a 4-hour delay in temperate-controlled zone exit. Payout recommended at 95% of unit value plus shipping costs." — Sarah K., Lead Adjuster</p>
+</div>
+</div>
+<!-- Settlement -->
+<div class="pt-6 border-t border-white/5">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs text-slate-400">Settlement Amount</span>
+<span class="text-xl font-extrabold text-white">$89,000.00</span>
+</div>
+<div class="flex items-center justify-between mb-6">
+<span class="text-xs text-slate-400">Payout Date</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-green-400" data-icon="event_available">event_available</span>
+<span class="text-xs font-bold text-green-400">22 Oct 2023 (Scheduled)</span>
+</div>
+</div>
+<button class="w-full py-3 bg-white/5 border border-white/10 rounded-lg text-xs font-bold uppercase tracking-widest text-white hover:bg-white/10 transition-all active:scale-[0.98]">
+                  Export Settlement PDF
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Stats Bento Card -->
+<div class="bg-[#C43585] rounded-xl p-6 text-white shadow-xl shadow-[#C43585]/20 overflow-hidden relative">
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-9xl" data-icon="verified">verified</span>
+</div>
+<div class="relative z-10">
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-80 mb-1">Total Payouts (Q4)</p>
+<p class="text-3xl font-extrabold tracking-tight">$1,248,390.00</p>
+<div class="mt-4 flex items-center gap-2 text-[10px]">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+<span class="font-bold">12% decrease from Q3</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Hidden on detail-heavy screens per instruction, but shown as reference for Home) -->
+<!-- Note: FAB is suppressed here to prioritize the Data Canvas as per Shell Logic -->
+</body></html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Sovereign WMS - GRN Creation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#d0bcff",
+                    "primary-container": "#4b1fa3",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "error": "#ffb4ab",
+                    "inverse-primary": "#6a45c3",
+                    "inverse-on-surface": "#302f3b",
+                    "on-primary-fixed": "#22005c",
+                    "on-background": "#e3e0f1",
+                    "tertiary": "#ffb68e",
+                    "on-surface": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-low": "#1b1a26",
+                    "on-secondary-fixed": "#201340",
+                    "secondary-container": "#4f4171",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary": "#532200",
+                    "on-secondary": "#352856",
+                    "surface-container-highest": "#343440",
+                    "on-primary-container": "#b79cff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-container-high": "#292935",
+                    "on-surface-variant": "#cbc3d5",
+                    "outline-variant": "#494453",
+                    "on-secondary-container": "#c0b0e7",
+                    "surface-variant": "#343440",
+                    "on-error": "#690005",
+                    "surface-dim": "#12121d",
+                    "background": "#12121d",
+                    "tertiary-container": "#6c2e00",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#331200",
+                    "error-container": "#93000a",
+                    "surface": "#12121d",
+                    "primary-fixed": "#e9ddff",
+                    "inverse-surface": "#e3e0f1",
+                    "secondary-fixed": "#e9ddff",
+                    "surface-bright": "#383845",
+                    "outline": "#948e9e",
+                    "on-primary": "#3b0092",
+                    "surface-container": "#1f1e2a",
+                    "primary": "#d0bcff",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "secondary": "#cfbef6",
+                    "on-tertiary-container": "#f09661",
+                    "on-primary-fixed-variant": "#5228aa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.6);
+            backdrop-filter: blur(12px);
+        }
+        .cyan-accent { color: #0EA5E9; }
+        .bg-cyan-accent { background-color: #0EA5E9; }
+        .border-cyan-accent { border-color: #0EA5E9; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#12121D] border-r border-white/5 flex flex-col py-6 gap-2 font-['Plus_Jakarta_Sans'] text-sm font-medium">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-sky-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<h1 class="text-sky-500 font-black tracking-widest text-xs uppercase">WMS Terminal</h1>
+<p class="text-slate-500 text-[10px]">Riyadh Hub North</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span>Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]">pending_actions</span>
+<span>Inbound FA</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+<span>Spot Arrival</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+<span>Cross-dock</span>
+</div>
+<!-- Active State for GRN Manager -->
+<div class="flex items-center gap-3 px-3 py-2 bg-sky-500/10 text-sky-400 border-r-4 border-sky-500 rounded-sm cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+<span>GRN Manager</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span>Reporting</span>
+</div>
+</nav>
+<div class="px-6 py-4 space-y-4">
+<button class="w-full bg-sky-500 text-white py-2 px-4 rounded font-bold text-xs hover:bg-sky-400 transition-colors">
+                New Receiving
+            </button>
+</div>
+<div class="mt-auto px-3 space-y-1">
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+<span>Support</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-white/5 hover:text-slate-200 rounded-lg cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span>Sign Out</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-64 z-50 h-16 px-8 flex justify-between items-center bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20 border-b border-white/5">
+<div class="flex items-center gap-4">
+<span class="text-white font-bold tracking-tight text-lg">GRN-01 — GRN CREATION</span>
+<span class="text-slate-500 text-sm">/wms/grn/new/SHP-82910</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-sky-500 transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-sky-500 transition-colors">settings</span>
+</div>
+<div class="h-8 w-[1px] bg-white/10 mx-2"></div>
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="text-right">
+<p class="text-white text-xs font-bold leading-tight">S. Bin-Rashid</p>
+<p class="text-sky-500 text-[10px] uppercase font-semibold">Supervisor</p>
+</div>
+<img alt="Supervisor Profile" class="w-8 h-8 rounded-full border border-white/10" data-alt="professional headshot of a middle-eastern man in corporate attire with sharp focus and dark studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqyH7RJhFOUHlaMxDmzclrQzxOWcz-zBTKvdw-NB--DbwL3HNvmKyxSdYrZzW9ID85yUaYWdPv-qkec2eNjteWdDtoaiQSMnwvdGlkoArSmh4dY6_1dFULcvibwKTOB10f6DD_NU3Liz_8X5S0B50ezsEd5dtDXZ182gd4Qbxf8Pyjeo6ojTiSZxjxkTgSlXToY-K4M9HVYyGxKLr8sF-JxwtFDvaU_kuqDWgC0UIFUO3q9njaY2eRlODYJvGraZ72VTCgCO5bvw"/>
+</div>
+</div>
+</header>
+<div class="pt-24 pb-32 px-8">
+<!-- Header Grid: Auto-populated data -->
+<section class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
+<div class="bg-surface-container-low p-4 rounded-lg border-l-2 border-cyan-accent">
+<p class="text-xs text-on-surface-variant font-medium uppercase mb-1">GRN Number</p>
+<p class="text-lg font-headline font-bold text-white tracking-wide">GRN-2024-00421</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<p class="text-xs text-on-surface-variant font-medium uppercase mb-1">Date / Time</p>
+<p class="text-lg font-headline font-bold text-white tracking-wide">24 OCT 2023 | 14:30</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<p class="text-xs text-on-surface-variant font-medium uppercase mb-1">Warehouse / Dock</p>
+<p class="text-lg font-headline font-bold text-white tracking-wide">WH-NORTH / DOCK-08</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<p class="text-xs text-on-surface-variant font-medium uppercase mb-1">Shipment ID</p>
+<p class="text-lg font-headline font-bold text-white tracking-wide">SHP-82910</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<p class="text-xs text-on-surface-variant font-medium uppercase mb-1">JAS Receiver</p>
+<p class="text-lg font-headline font-bold text-white tracking-wide uppercase">Abdullah Al-Faisal</p>
+</div>
+</section>
+<!-- Main Work Area: Item Receipt Table -->
+<section class="bg-surface-container-lowest rounded-xl overflow-hidden border border-white/5">
+<div class="p-6 flex justify-between items-center border-b border-white/5">
+<h2 class="text-lg font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined cyan-accent">list_alt</span>
+                        ITEM RECEIPT MANIFEST
+                    </h2>
+<button class="flex items-center gap-2 bg-surface-container-high hover:bg-surface-bright text-white px-4 py-2 rounded-lg text-sm transition-all">
+<span class="material-symbols-outlined text-sm">qr_code_scanner</span>
+                        Batch Scan
+                    </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant text-[10px] uppercase tracking-widest font-bold">
+<th class="px-6 py-4">SKU / Description</th>
+<th class="px-6 py-4">Expected Qty</th>
+<th class="px-6 py-4">Received Qty</th>
+<th class="px-6 py-4">Condition</th>
+<th class="px-6 py-4">Notes / Damage</th>
+<th class="px-6 py-4 text-center">Scan</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Item 1: Good Condition -->
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4">
+<p class="text-white font-bold text-sm">ELC-TAB-X900</p>
+<p class="text-on-surface-variant text-xs">JAS Industrial Tablets - Pro Series</p>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container px-2 py-1 rounded text-sm font-mono">150 units</span>
+</td>
+<td class="px-6 py-4">
+<input class="w-24 bg-surface-container-high border-0 focus:ring-1 focus:ring-cyan-accent rounded text-sm text-center" type="number" value="150"/>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<label class="flex items-center gap-1 cursor-pointer group">
+<input checked="" class="hidden peer" name="cond1" type="radio"/>
+<div class="px-3 py-1 rounded-full text-[10px] font-bold border border-outline-variant peer-checked:bg-green-500/10 peer-checked:border-green-500/50 peer-checked:text-green-400">GOOD</div>
+</label>
+<label class="flex items-center gap-1 cursor-pointer group">
+<input class="hidden peer" name="cond1" type="radio"/>
+<div class="px-3 py-1 rounded-full text-[10px] font-bold border border-outline-variant peer-checked:bg-yellow-500/10 peer-checked:border-yellow-500/50 peer-checked:text-yellow-400">DAMAGED</div>
+</label>
+</div>
+</td>
+<td class="px-6 py-4">
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-cyan-accent text-sm py-1" placeholder="Add note..." type="text"/>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="p-2 text-on-surface-variant hover:text-cyan-accent">
+<span class="material-symbols-outlined">barcode_scanner</span>
+</button>
+</td>
+</tr>
+<!-- Item 2: Damaged Condition (Expanded) -->
+<tr class="bg-surface-container-low/30 border-l-2 border-yellow-500">
+<td class="px-6 py-4">
+<p class="text-white font-bold text-sm">MD-CP-1200</p>
+<p class="text-on-surface-variant text-xs">Precision Copper Components - Grade A</p>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container px-2 py-1 rounded text-sm font-mono">50 units</span>
+</td>
+<td class="px-6 py-4">
+<input class="w-24 bg-surface-container-high border-0 focus:ring-1 focus:ring-cyan-accent rounded text-sm text-center" type="number" value="42"/>
+</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<label class="flex items-center gap-1 cursor-pointer group">
+<input class="hidden peer" name="cond2" type="radio"/>
+<div class="px-3 py-1 rounded-full text-[10px] font-bold border border-outline-variant peer-checked:bg-green-500/10 peer-checked:border-green-500/50 peer-checked:text-green-400">GOOD</div>
+</label>
+<label class="flex items-center gap-1 cursor-pointer group">
+<input checked="" class="hidden peer" name="cond2" type="radio"/>
+<div class="px-3 py-1 rounded-full text-[10px] font-bold border border-yellow-500/50 bg-yellow-500/10 text-yellow-400">DAMAGED</div>
+</label>
+</div>
+</td>
+<td class="px-6 py-4" colspan="2">
+<div class="flex items-center gap-3 text-yellow-400 font-bold text-xs uppercase">
+<span class="material-symbols-outlined text-sm">warning</span>
+                                        Action Required: Log Damage Evidence
+                                    </div>
+</td>
+</tr>
+<!-- Damage Details Overlay Row (GRN-02 Context) -->
+<tr class="bg-surface-container-low/50">
+<td class="px-6 py-6" colspan="6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Viewfinder and Photo -->
+<div class="lg:col-span-4 relative">
+<div class="aspect-video bg-black rounded-lg overflow-hidden border-2 border-cyan-accent relative group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
+<div class="flex justify-between items-center">
+<span class="text-[10px] text-cyan-accent font-bold tracking-widest uppercase">Live Viewfinder</span>
+<span class="material-symbols-outlined text-white text-lg">videocam</span>
+</div>
+</div>
+<!-- Viewfinder Lines -->
+<div class="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-white/40"></div>
+<div class="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-white/40"></div>
+<div class="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-white/40"></div>
+<div class="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-white/40"></div>
+<!-- Image Placeholder for "Captured" -->
+<img alt="Damage Capture View" class="w-full h-full object-cover opacity-60" data-alt="industrial warehouse setting showing a damaged shipping carton with visible crushing at the corner under harsh fluorescent light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM7PBPIDjLu5YIscW-qBwtDYY7PF57F_KPqtU2WF9qAeRe7MseTcaXSYfP52wCTRDipKVVaF_VjOmjWCRng6GcjzZWmy_vdoxYtxLnilSqQAx2HdS4ov_MbWBNQiYYUPrDk0_iloYoH3R8td07BrxS0JLhKHGS8d0KSCJtcFQG6biMJv1VPnHhCr3ejZNg5d3_7d1wR5jROYnehVfP-cFIbdeA6bZN0-ZDW2m9uFTOPJpHkgWZG5jpNbYl-gmHCGD28mI3rmHwwQ"/>
+</div>
+<div class="mt-3 flex gap-2">
+<button class="flex-1 bg-white text-black text-xs font-bold py-2 rounded flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+                                                    CAPTURE DAMAGE
+                                                </button>
+<button class="px-4 bg-surface-container-high text-white rounded">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+</div>
+</div>
+<!-- AI Analysis & Metadata -->
+<div class="lg:col-span-8 flex flex-col gap-4">
+<div class="bg-cyan-accent/10 border border-cyan-accent/20 p-3 rounded-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-cyan-accent" style="font-variation-settings: 'FILL' 1;">network_intelligence</span>
+<div>
+<p class="text-xs text-cyan-accent font-bold uppercase tracking-tight">AI Analysis Result</p>
+<p class="text-sm text-white font-medium">AI detected: <span class="font-bold">Corner crush damage</span>, estimated severity: <span class="text-yellow-400">Moderate</span></p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] text-on-surface-variant font-bold uppercase mb-1">Damage Category</label>
+<select class="w-full bg-surface-container-high border-0 rounded text-sm focus:ring-1 focus:ring-cyan-accent">
+<option>Structural Compression</option>
+<option>Puncture Damage</option>
+<option>Moisture/Liquid Exposure</option>
+<option>Seal Tampering</option>
+</select>
+</div>
+<div>
+<label class="block text-[10px] text-on-surface-variant font-bold uppercase mb-1">Estimated Claim Value (SAR)</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-[10px] font-bold text-on-surface-variant">SAR</span>
+<input class="w-full bg-surface-container-high border-0 rounded text-sm pl-12 focus:ring-1 focus:ring-cyan-accent" placeholder="0.00" type="number"/>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-[10px] text-on-surface-variant font-bold uppercase mb-1">AI Recommendation</label>
+<p class="text-xs text-on-surface-variant italic">Recommend quarantine for internal QA inspection before stock placement.</p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Add Unmanifested Item Row -->
+<tr class="bg-surface-container-lowest">
+<td class="px-6 py-4" colspan="6">
+<button class="w-full py-4 border-2 border-dashed border-outline-variant rounded-lg flex items-center justify-center gap-2 text-on-surface-variant hover:text-cyan-accent hover:border-cyan-accent/50 hover:bg-cyan-accent/5 transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-bold uppercase tracking-wider text-xs">Add Unmanifested Item</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Sticky Footer Verification Bar -->
+<footer class="fixed bottom-0 right-0 left-64 bg-surface-container-high/90 backdrop-blur-xl border-t border-white/10 px-8 h-20 flex items-center justify-between z-40">
+<div class="flex items-center gap-12">
+<!-- Weight & Count Verification -->
+<div class="flex items-center gap-6">
+<div class="text-right">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Total Items</p>
+<p class="text-xl font-headline font-black text-white">192 / 200</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Measured Weight</p>
+<div class="flex items-center gap-2">
+<span class="text-xl font-headline font-black text-white">1,420.5</span>
+<span class="text-xs text-on-surface-variant font-bold">KG</span>
+</div>
+</div>
+</div>
+<!-- Seal Intact Toggle -->
+<div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-lg">
+<span class="text-xs font-bold text-white uppercase tracking-tight">Seal Intact</span>
+<button class="w-10 h-5 bg-cyan-accent rounded-full relative transition-colors">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</button>
+<span class="material-symbols-outlined text-green-400 text-lg">verified_user</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-3 border border-outline-variant text-white font-bold text-xs rounded uppercase tracking-widest hover:bg-white/5">
+                    Save Draft
+                </button>
+<button class="px-8 py-3 bg-cyan-accent text-white font-bold text-xs rounded uppercase tracking-widest shadow-lg shadow-cyan-500/20 hover:brightness-110 active:scale-95 transition-all">
+                    Complete Receiving &amp; Sign
+                </button>
+</div>
+</footer>
+</main>
+<!-- Barcode Scanner Overlay (Absolute) - Floating UI Concept -->
+<div class="fixed top-24 right-12 w-80 glass-panel border border-white/10 rounded-2xl p-4 shadow-2xl z-50 pointer-events-none">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-cyan-accent text-sm">sensors</span>
+<span class="text-[10px] font-bold text-white uppercase tracking-widest">Active Scanner</span>
+</div>
+<div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+</div>
+<div class="aspect-square bg-black rounded-lg relative overflow-hidden border border-white/5">
+<img alt="Scanning Interface" class="w-full h-full object-cover opacity-40" data-alt="abstract close-up of a barcode being scanned with a red laser line indicator in a dark tech-focused environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGq-sqcuMRhdUDxy_oNbZ1bdCHAQGrnu6byDu5p5Oucz8PLTARxymKnXgXc5gXZX70lLKWcBZ9L34gAjDtyrvukF6XHh-lLdy8SWJ3irCFs9OjksKVtwXsaixv_CcbhAfwD1R2c6dmlkWKPvOW8DKuI4i6gxAEezcYaSlj2vzJUEN3CoIWQMPnHH3CmtT2z1a81MCnS95y7xUJC6hNcz1oO9O6QjmQSs67Jekq6_j8XJMdhE4dYhr4jcfFsvdQuE2_JmwgUilhag"/>
+<div class="absolute inset-x-4 top-1/2 -translate-y-1/2 h-0.5 bg-red-500 shadow-[0_0_15px_rgba(239,68,68,0.8)]"></div>
+</div>
+<div class="mt-3 text-center">
+<p class="text-[10px] text-on-surface-variant">Last Scanned: <span class="text-white font-mono">SN-99210-XC</span></p>
+</div>
+</div>
+</body></html>

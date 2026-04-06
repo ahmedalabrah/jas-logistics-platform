@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GRN-05 — GRN PDF | JAS Sovereign WMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@600;700&amp;family=IBM+Plex+Sans+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white !important; color: black !important; }
+            .document-canvas { 
+                box-shadow: none !important; 
+                margin: 0 !important; 
+                padding: 0 !important; 
+                width: 100% !important;
+                background: white !important;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#d0bcff",
+                        "primary-container": "#4b1fa3",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#6a45c3",
+                        "inverse-on-surface": "#302f3b",
+                        "on-primary-fixed": "#22005c",
+                        "on-background": "#e3e0f1",
+                        "tertiary": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-fixed": "#201340",
+                        "secondary-container": "#4f4171",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-tertiary": "#532200",
+                        "on-secondary": "#352856",
+                        "surface-container-highest": "#343440",
+                        "on-primary-container": "#b79cff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "on-surface-variant": "#cbc3d5",
+                        "outline-variant": "#494453",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-variant": "#343440",
+                        "on-error": "#690005",
+                        "surface-dim": "#12121d",
+                        "background": "#12121d",
+                        "tertiary-container": "#6c2e00",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#331200",
+                        "error-container": "#93000a",
+                        "surface": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "inverse-surface": "#e3e0f1",
+                        "secondary-fixed": "#e9ddff",
+                        "surface-bright": "#383845",
+                        "outline": "#948e9e",
+                        "on-primary": "#3b0092",
+                        "surface-container": "#1f1e2a",
+                        "primary": "#d0bcff",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "secondary": "#cfbef6",
+                        "on-tertiary-container": "#f09661",
+                        "on-primary-fixed-variant": "#5228aa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans", "Poppins"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "arabic": ["IBM Plex Sans Arabic"]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20 flex justify-between items-center px-8 h-16 w-full font-['Plus_Jakarta_Sans'] antialiased no-print">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tight text-white">JAS Sovereign WMS</span>
+<div class="h-6 w-px bg-white/10 mx-2"></div>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Arrivals</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Operations</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Reviews</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 transition-all duration-300 active:scale-95 text-slate-400">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-white/5 transition-all duration-300 active:scale-95 text-slate-400">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-sky-500/30">
+<img alt="Supervisor Profile" class="w-full h-full object-cover" data-alt="professional male portrait in logistics supervisor uniform, clean studio lighting, high quality business headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCirBBr5XP8u1hlLONVmA2_dKYnumFolQrfabD4GEmU-01PCCroYNQvAwgPpRl5HWpYkjYVZ4tTxB3-PsdJBMYfLblAnzTDocLVe9Hwk7vCRASVqEQkU0H7R7Qn4VIGkfcdFHu9k46Ao6Ax93s0G9fjFcgaFfCXgNTtPkrCf8LCIArsBvVEBLZLf8wpHZAmG6qr1uB7XN1QjJGN8Tt6NSin5IoQPLH2diCkhrciwfKOMDYLchv8MxFopy1H4Bw3Syzo316ubhwGxA"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#12121D] border-r border-white/5 flex flex-col py-6 gap-2 font-['Plus_Jakarta_Sans'] text-sm font-medium no-print">
+<div class="px-6 mb-8 mt-16">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-sky-500 rounded flex items-center justify-center text-white font-black">J</div>
+<div>
+<div class="text-sky-500 font-black tracking-widest leading-none">WMS Terminal</div>
+<div class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Riyadh Hub North</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 rounded group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 rounded group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="pending_actions">pending_actions</span>
+<span>Inbound FA</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 rounded group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="local_shipping">local_shipping</span>
+<span>Spot Arrival</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 rounded group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="inventory_2">inventory_2</span>
+<span>Cross-dock</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-sky-500/10 text-sky-400 border-r-4 border-sky-500 transition-all duration-200 rounded group" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span>GRN Manager</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 rounded group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="analytics">analytics</span>
+<span>Reporting</span>
+</a>
+</nav>
+<div class="px-4 mt-auto pt-4 border-t border-white/5 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 pt-16 min-h-screen bg-surface">
+<!-- Toolbar (Non-Printable) -->
+<div class="no-print sticky top-16 z-30 bg-surface/80 backdrop-blur-md px-8 py-4 flex justify-between items-center border-b border-white/5">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors" onclick="history.back()">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+<span>Back to GRN Manager</span>
+</button>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-medium uppercase tracking-wider text-xs">Document View</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="share">share</span>
+<span>Share Link</span>
+</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+<span>Email to Client</span>
+</button>
+<button class="px-6 py-2 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-bold rounded-lg flex items-center gap-2 shadow-lg shadow-primary/10 hover:shadow-primary/20 active:scale-95 transition-all" onclick="window.print()">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+<span>Download PDF</span>
+</button>
+</div>
+</div>
+<!-- Document Canvas -->
+<div class="px-8 py-12 flex justify-center">
+<div class="document-canvas w-full max-w-[850px] bg-white text-slate-900 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.5)] p-12 min-h-[1100px] flex flex-col font-body">
+<!-- Header -->
+<div class="flex justify-between items-start mb-12">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 bg-[#0F0F1A] rounded flex items-center justify-center text-white font-black text-2xl">J</div>
+<div>
+<h1 class="text-2xl font-black tracking-tighter text-[#0F0F1A] leading-none uppercase">JAS Sovereign</h1>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-1">Logistics &amp; Warehousing Solutions</p>
+</div>
+</div>
+<div class="space-y-1">
+<h2 class="text-4xl font-headline font-extrabold text-slate-900">GOODS RECEIPT NOTE</h2>
+<p class="text-slate-500 font-medium">Receipt ID: <span class="text-slate-900">GRN-2024-8842-RUH</span></p>
+</div>
+</div>
+<div class="text-right flex flex-col items-end">
+<div class="w-32 h-32 bg-slate-100 p-2 rounded-lg mb-2">
+<img alt="GRN QR Code" class="w-full h-full" data-alt="A clean, professional QR code generated for document tracking, high contrast black on white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGdSSAS4K3s0thVGjN_9hV9n0Bi99G0POpVw3x0xURTrPeoV7PsLOyiWqTlJpTksZUWNqmu7w0yTNTUIEORPrM9aaKmy8tBNBTtzYD_oJ8-o9WCfWpWi1fgxQKFS41_qVasZXW_KkDmUxqE04TMXMk4R9Xt33CVFkFWQRV0VX5BwLN50tSiZlGVyJE5WpE9GdX-bacUryb9_cVC8Bqcf82h9OigUqdJU2E4i6ViGY0NBGmDTqp9z6rJ9qSNbHm0syFVjws6FCayw"/>
+</div>
+<div class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-emerald-100">
+                            Verified Receipt
+                        </div>
+</div>
+</div>
+<!-- Info Grid -->
+<div class="grid grid-cols-2 gap-12 mb-12 border-y border-slate-100 py-8">
+<div>
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Client Information</p>
+<h3 class="text-lg font-bold text-slate-900 mb-1">Global Tech Hub Co.</h3>
+<p class="text-sm text-slate-600 leading-relaxed">
+                            District 4, King Abdullah Road<br/>
+                            Riyadh, Saudi Arabia<br/>
+                            VAT: 310293847500003
+                        </p>
+</div>
+<div>
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Shipment Details</p>
+<table class="w-full text-sm">
+<tbody><tr class="border-b border-slate-50">
+<td class="py-2 text-slate-500">Ref Number:</td>
+<td class="py-2 text-right font-bold">PO-99283-A</td>
+</tr>
+<tr class="border-b border-slate-50">
+<td class="py-2 text-slate-500">Receipt Date:</td>
+<td class="py-2 text-right font-bold">24 Oct 2024</td>
+</tr>
+<tr class="border-b border-slate-50">
+<td class="py-2 text-slate-500">Arrival Time:</td>
+<td class="py-2 text-right font-bold">14:22 AST</td>
+</tr>
+<tr>
+<td class="py-2 text-slate-500">Carrier:</td>
+<td class="py-2 text-right font-bold">Aramex Logistics</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<!-- Items Table -->
+<div class="mb-12">
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-6">Inventory Audit Trail</p>
+<table class="w-full">
+<thead>
+<tr class="bg-slate-50 text-slate-500 text-[10px] font-black uppercase tracking-widest">
+<th class="text-left px-4 py-3 rounded-l">SKU / Description</th>
+<th class="text-center px-4 py-3">Expected</th>
+<th class="text-center px-4 py-3">Received</th>
+<th class="text-center px-4 py-3">Variance</th>
+<th class="text-right px-4 py-3 rounded-r">Condition</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="border-b border-slate-100">
+<td class="px-4 py-5">
+<div class="font-bold text-slate-900">APP-MAC-M3-14</div>
+<div class="text-xs text-slate-500">MacBook Pro 14" Space Gray, 16GB RAM</div>
+</td>
+<td class="px-4 py-5 text-center">40 Units</td>
+<td class="px-4 py-5 text-center font-bold">40 Units</td>
+<td class="px-4 py-5 text-center text-slate-400">—</td>
+<td class="px-4 py-5 text-right font-medium text-emerald-600">Factory Sealed</td>
+</tr>
+<tr class="border-b border-slate-100">
+<td class="px-4 py-5">
+<div class="font-bold text-slate-900">APP-IPH-15P-BLK</div>
+<div class="text-xs text-slate-500">iPhone 15 Pro, Black Titanium, 256GB</div>
+</td>
+<td class="px-4 py-5 text-center">120 Units</td>
+<td class="px-4 py-5 text-center font-bold text-red-600">118 Units</td>
+<td class="px-4 py-5 text-center text-red-600 font-bold">-2 Units</td>
+<td class="px-4 py-5 text-right font-medium text-amber-600">Damaged Case</td>
+</tr>
+<tr class="border-b border-slate-100">
+<td class="px-4 py-5">
+<div class="font-bold text-slate-900">ACC-USB-C-60W</div>
+<div class="text-xs text-slate-500">USB-C Charge Cable (2m)</div>
+</td>
+<td class="px-4 py-5 text-center">300 Units</td>
+<td class="px-4 py-5 text-center font-bold">300 Units</td>
+<td class="px-4 py-5 text-center text-slate-400">—</td>
+<td class="px-4 py-5 text-right font-medium text-emerald-600">Factory Sealed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Damage Records -->
+<div class="bg-slate-50 p-8 rounded-xl mb-12">
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-6">Discrepancy &amp; Damage Records</p>
+<div class="grid grid-cols-3 gap-6">
+<div class="col-span-1">
+<div class="aspect-square bg-slate-200 rounded-lg overflow-hidden border-2 border-white shadow-sm">
+<img alt="Damage Evidence" class="w-full h-full object-cover" data-alt="Close-up of a crushed cardboard box corner with fragile stickers, showing shipping damage on a concrete floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFvCyWSiotmmfG7yf9iCqRKgQIjgK7F21X5-tvcThQe0G-36cJoV0CCeTC7sIOFHOgjo9RZjIgPl_bN28KqlbJrBU0CzK4Ymvpu31HTWCyq8oTgd40B2jVq9hFgXJFgM4Ped1CCjItXX6H2w2-XwSLSXh68sgCR2o4OuZe2QUmJsVTJVxvV_OuPrYFijtIg4_StgwqRbo7kG3cm8erYeTX9S5DdxHpJAyjf0KNZzKsVYrchIvYn1qRbb4kuet8dL_6-1K0p8ce2Q"/>
+</div>
+<p class="text-[10px] text-slate-400 mt-2 text-center">Evidence Photo #001</p>
+</div>
+<div class="col-span-2 space-y-4">
+<div>
+<h4 class="text-sm font-bold text-slate-900">Record DMG-8842-01</h4>
+<p class="text-xs text-slate-600 leading-relaxed mt-1">Secondary outer carton for SKU: APP-IPH-15P-BLK shows impact compression on the bottom right corner. Internal retail boxes for 2 units found crushed. Seals broken during inspection.</p>
+</div>
+<div class="flex gap-8">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Claim Value</p>
+<p class="text-lg font-black text-slate-900">SAR 8,400.00</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Weight Variance</p>
+<p class="text-lg font-black text-red-600">-0.45 kg</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Signatures -->
+<div class="mt-auto pt-12 border-t-2 border-slate-900">
+<div class="grid grid-cols-3 gap-12">
+<div class="flex flex-col">
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-8">Authorized Supervisor</p>
+<div class="h-16 flex items-center justify-center border-b border-slate-300 italic font-serif text-2xl text-slate-400 select-none">
+                                Ahmed Al-Zahrani
+                            </div>
+<div class="mt-2">
+<p class="text-xs font-bold text-slate-900">Ahmed Al-Zahrani</p>
+<p class="text-[10px] text-slate-500 uppercase font-medium">Head of Operations</p>
+</div>
+</div>
+<div class="flex flex-col">
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-8">Client Acceptance</p>
+<div class="h-16 flex items-center justify-center border-b border-slate-300 text-xs text-slate-400 text-center uppercase tracking-widest px-4">
+                                Confirmed via OTP<br/>+966 •••• 1204
+                            </div>
+<div class="mt-2">
+<p class="text-xs font-bold text-slate-900">System Verified</p>
+<p class="text-[10px] text-slate-500 uppercase font-medium">Carrier Representative</p>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">ZATCA Stamp</p>
+<div class="w-24 h-24 border-2 border-slate-900 rounded-full flex flex-col items-center justify-center rotate-12 opacity-80">
+<div class="text-[10px] font-black uppercase text-slate-900 tracking-tighter">Approved</div>
+<div class="h-[1px] w-16 bg-slate-900 my-1"></div>
+<div class="font-arabic text-[12px] font-bold text-slate-900">هيئة الزكاة</div>
+<div class="text-[8px] font-bold text-slate-900">2024-10-24</div>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-between items-end border-t border-slate-100 pt-6">
+<p class="text-[8px] text-slate-400 max-w-sm leading-tight">
+                            This document is an electronically generated Goods Receipt Note. It serves as official evidence of receipt and condition of goods at the time of delivery. Any disputes must be filed within 24 hours of the timestamp listed above.
+                        </p>
+<div class="text-right">
+<p class="text-[10px] font-black text-slate-900">JAS Sovereign Logistics Platform</p>
+<p class="text-[8px] text-slate-400">Page 1 of 1 • Internal Audit Copy</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB Suppression: No FAB on Document/Detail screen -->
+</body></html>

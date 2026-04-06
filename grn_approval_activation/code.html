@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GRN-04 — GRN Approval &amp; Activation | JAS Sovereign WMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#d0bcff",
+            "primary-container": "#4b1fa3",
+            "tertiary-fixed-dim": "#ffb68e",
+            "error": "#ffb4ab",
+            "inverse-primary": "#6a45c3",
+            "inverse-on-surface": "#302f3b",
+            "on-primary-fixed": "#22005c",
+            "on-background": "#e3e0f1",
+            "tertiary": "#ffb68e",
+            "on-surface": "#e3e0f1",
+            "surface-container-lowest": "#0d0d18",
+            "surface-container-low": "#1b1a26",
+            "on-secondary-fixed": "#201340",
+            "secondary-container": "#4f4171",
+            "secondary-fixed-dim": "#cfbef6",
+            "tertiary-fixed": "#ffdbc9",
+            "on-tertiary-fixed-variant": "#743405",
+            "on-tertiary": "#532200",
+            "on-secondary": "#352856",
+            "surface-container-highest": "#343440",
+            "on-primary-container": "#b79cff",
+            "primary-fixed-dim": "#d0bcff",
+            "surface-container-high": "#292935",
+            "on-surface-variant": "#cbc3d5",
+            "outline-variant": "#494453",
+            "on-secondary-container": "#c0b0e7",
+            "surface-variant": "#343440",
+            "on-error": "#690005",
+            "surface-dim": "#12121d",
+            "background": "#12121d",
+            "tertiary-container": "#6c2e00",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-fixed": "#331200",
+            "error-container": "#93000a",
+            "surface": "#12121d",
+            "primary-fixed": "#e9ddff",
+            "inverse-surface": "#e3e0f1",
+            "secondary-fixed": "#e9ddff",
+            "surface-bright": "#383845",
+            "outline": "#948e9e",
+            "on-primary": "#3b0092",
+            "surface-container": "#1f1e2a",
+            "primary": "#d0bcff",
+            "on-secondary-fixed-variant": "#4c3f6e",
+            "secondary": "#cfbef6",
+            "on-tertiary-container": "#f09661",
+            "on-primary-fixed-variant": "#5228aa"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #343440;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body select-none">
+<!-- TopNavBar (Shared Component) -->
+<nav class="bg-[#0F0F1A]/80 backdrop-blur-xl fixed top-0 w-full z-50 shadow-2xl shadow-black/20 font-['Plus_Jakarta_Sans'] antialiased">
+<div class="flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-white">JAS Sovereign WMS</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 hover:text-slate-200 transition-colors text-sm" href="#">Arrivals</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors text-sm" href="#">Operations</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors text-sm" href="#">Reviews</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer p-2 hover:bg-white/5 transition-all duration-300 rounded-full">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-sky-500 rounded-full border border-[#0F0F1A]"></span>
+</div>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer p-2 hover:bg-white/5 transition-all duration-300 rounded-full">settings</span>
+<img alt="Supervisor Profile" class="w-8 h-8 rounded-full border border-white/10" data-alt="close-up portrait of a professional logistics supervisor in a dark uniform with a clean modern studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgJfMZES2mePjx0bytZmT8RaDnz7bwcAvZZ6orisk767z1rI4W9c7CWVzzhSWq-1XKF-80548pF-R2WW096-kD01fe3ksg0sflNxYHUvYdd82JLWDsPhJ5DsG9RgVVsEmmDGEk7xyyvMBf7Chy_qvNsXS2ut5fhYR3n36f0ygf_zfy4oownTwV-v5zb3pwAt7shn2rEyw3lyZ7F-iW-bJinJ6kpoG8gDisTgwW5w7VZ65hdw3llNfACaaapMRO2NGKbyL_gSB6Eg"/>
+</div>
+</div>
+<div class="h-[1px] w-full bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+</nav>
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#12121D] border-r border-white/5 flex flex-col py-6 gap-2">
+<div class="px-6 mb-8 mt-12">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-sky-500/10 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-sky-500" style="font-variation-settings: 'FILL' 1;">warehouse</span>
+</div>
+<div>
+<h2 class="text-sky-500 font-black tracking-widest text-xs uppercase">WMS Terminal</h2>
+<p class="text-slate-500 text-[10px] uppercase tracking-tighter">Riyadh Hub North</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 font-['Plus_Jakarta_Sans'] text-sm font-medium group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">dashboard</span>
+        Dashboard
+      </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 font-['Plus_Jakarta_Sans'] text-sm font-medium group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">pending_actions</span>
+        Inbound FA
+      </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 font-['Plus_Jakarta_Sans'] text-sm font-medium group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">local_shipping</span>
+        Spot Arrival
+      </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 font-['Plus_Jakarta_Sans'] text-sm font-medium group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">inventory_2</span>
+        Cross-dock
+      </a>
+<a class="flex items-center gap-3 px-6 py-3 bg-sky-500/10 text-sky-400 border-r-4 border-sky-500 font-['Plus_Jakarta_Sans'] text-sm font-medium group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">assignment_turned_in</span>
+        GRN Manager
+      </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 font-['Plus_Jakarta_Sans'] text-sm font-medium group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">analytics</span>
+        Reporting
+      </a>
+</nav>
+<div class="px-4 mb-4">
+<button class="w-full py-3 bg-primary-container text-primary-fixed rounded-lg font-bold text-xs flex items-center justify-center gap-2 hover:brightness-110 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+        New Receiving
+      </button>
+</div>
+<div class="mt-auto space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 font-['Plus_Jakarta_Sans'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+        Support
+      </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 font-['Plus_Jakarta_Sans'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">logout</span>
+        Sign Out
+      </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 pt-16 h-screen flex flex-col overflow-hidden">
+<!-- Page Header (Editorial Authority) -->
+<header class="px-10 py-6 bg-surface-dim/40 border-b border-outline-variant/10">
+<div class="flex justify-between items-end">
+<div>
+<nav class="flex items-center gap-2 text-[10px] text-on-surface-variant font-bold tracking-widest uppercase mb-1">
+<span class="hover:text-sky-500 cursor-pointer">WMS</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="hover:text-sky-500 cursor-pointer">GRN MANAGER</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-on-surface">GRN-2024-8842-AP</span>
+</nav>
+<h1 class="text-3xl font-black text-on-surface font-headline tracking-tight">Final GRN Approval &amp; Activation</h1>
+</div>
+<div class="flex items-center gap-4 pb-1">
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-on-surface-variant font-bold tracking-widest uppercase">Target Hub</span>
+<span class="text-sm font-semibold text-sky-400">Riyadh North — Zone 04</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-sky-500">location_on</span>
+</div>
+</div>
+</div>
+</header>
+<div class="flex-1 flex overflow-hidden">
+<!-- LEFT: GRN Summary (Scrollable) -->
+<section class="w-3/5 overflow-y-auto custom-scrollbar p-10 bg-surface-container-lowest">
+<div class="max-w-3xl space-y-10">
+<!-- Key Metrics Bento -->
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-sky-500/50">
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Total SKU Count</span>
+<div class="text-2xl font-black mt-1">124 <span class="text-xs font-normal text-on-surface-variant">items</span></div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-sky-500/50">
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Weight (Actual)</span>
+<div class="text-2xl font-black mt-1">4,280.5 <span class="text-xs font-normal text-on-surface-variant">KG</span></div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-sky-500/50">
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Volume</span>
+<div class="text-2xl font-black mt-1">18.4 <span class="text-xs font-normal text-on-surface-variant">CBM</span></div>
+</div>
+</div>
+<!-- Document Reference Details -->
+<div>
+<h3 class="text-sm font-bold text-on-surface uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sky-500 text-lg">description</span>
+              Documentation Verification
+            </h3>
+<div class="bg-surface-container rounded-xl overflow-hidden">
+<table class="w-full text-left text-sm">
+<thead class="bg-surface-container-high">
+<tr>
+<th class="px-6 py-3 font-semibold text-on-surface-variant">Document ID</th>
+<th class="px-6 py-3 font-semibold text-on-surface-variant">Entity</th>
+<th class="px-6 py-3 font-semibold text-on-surface-variant">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr>
+<td class="px-6 py-4 font-mono text-xs">BL-SA-2024010</td>
+<td class="px-6 py-4">Sovereign Logistics Intl.</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-tertiary-container/20 text-on-tertiary-container">Verified</span>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-mono text-xs">INV-992-KSA-9</td>
+<td class="px-6 py-4">Aramco Tech Div.</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-tertiary-container/20 text-on-tertiary-container">Verified</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Discrepancy Log (Visual Warning if Any) -->
+<div class="bg-error-container/5 border border-error/10 p-6 rounded-xl flex items-start gap-4">
+<span class="material-symbols-outlined text-error text-3xl">warning</span>
+<div>
+<h4 class="text-sm font-bold text-error uppercase tracking-widest">Discrepancy Check (Self-Correction)</h4>
+<p class="text-xs text-on-surface-variant mt-1">Case SKU-084 showed a delta of -0.2kg from Manifest. Manual override applied by Sup. Kareem J. No further blocking issues found.</p>
+</div>
+</div>
+<!-- Audit Trail List -->
+<div>
+<h3 class="text-sm font-bold text-on-surface uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sky-500 text-lg">history</span>
+              Pre-Approval Chain
+            </h3>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg border-l-2 border-primary">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-xs font-bold text-primary">SC</div>
+<div class="flex-1">
+<div class="text-xs font-bold">Scanning Completed</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Jan 24, 2024 — 14:22 AST</div>
+</div>
+<span class="material-symbols-outlined text-sky-500 text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg border-l-2 border-primary">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-xs font-bold text-primary">QC</div>
+<div class="flex-1">
+<div class="text-xs font-bold">Quality Control Cleared</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Jan 24, 2024 — 15:05 AST</div>
+</div>
+<span class="material-symbols-outlined text-sky-500 text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<div class="h-10"></div>
+</div>
+</section>
+<!-- RIGHT: Approval Panel -->
+<section class="w-2/5 p-10 bg-surface-dim border-l border-outline-variant/10 flex flex-col">
+<div class="flex-1 space-y-8">
+<!-- System Automation Trigger Preview -->
+<div>
+<h3 class="text-[10px] text-on-surface-variant font-bold uppercase tracking-[0.2em] mb-4">Post-Approval Triggers</h3>
+<div class="grid grid-cols-1 gap-2">
+<div class="group flex items-center justify-between p-3 bg-surface-container-high/40 rounded border border-outline-variant/5">
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-mono text-sky-500 bg-sky-500/10 px-1.5 py-0.5 rounded">WMS-13</span>
+<span class="text-xs font-medium">Real-time stock ledger update</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:rotate-12 transition-transform">bolt</span>
+</div>
+<div class="group flex items-center justify-between p-3 bg-surface-container-high/40 rounded border border-outline-variant/5">
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-mono text-sky-500 bg-sky-500/10 px-1.5 py-0.5 rounded">CLI-03</span>
+<span class="text-xs font-medium">Client inventory cloud refresh</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:rotate-12 transition-transform">bolt</span>
+</div>
+<div class="group flex items-center justify-between p-3 bg-surface-container-high/40 rounded border border-outline-variant/5">
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-mono text-sky-500 bg-sky-500/10 px-1.5 py-0.5 rounded">FIN-CLI-06</span>
+<span class="text-xs font-medium">Storage billing clock initiation</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:rotate-12 transition-transform">alarm</span>
+</div>
+<div class="group flex items-center justify-between p-3 bg-surface-container-high/40 rounded border border-outline-variant/5">
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-mono text-sky-500 bg-sky-500/10 px-1.5 py-0.5 rounded">GRN-05</span>
+<span class="text-xs font-medium">Digital PDF Certificate generation</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:rotate-12 transition-transform">picture_as_pdf</span>
+</div>
+</div>
+</div>
+<!-- E-Signature / OTP Area -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<h3 class="text-[10px] text-on-surface-variant font-bold uppercase tracking-[0.2em]">Authority Confirmation</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-[10px] font-bold uppercase rounded border border-outline text-on-surface-variant hover:bg-surface-bright transition-colors">Client E-Sign</button>
+<button class="px-3 py-1 text-[10px] font-bold uppercase rounded border border-sky-500/50 bg-sky-500/10 text-sky-400">Remote OTP</button>
+</div>
+</div>
+<div class="relative h-48 bg-surface-container-lowest border-2 border-dashed border-outline-variant/20 rounded-xl overflow-hidden group">
+<img alt="Signature Area" class="absolute inset-0 w-full h-full object-cover opacity-10" data-alt="close-up of a digital signature on a sleek glass tablet interface with blue glowing light lines and dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRlfE5nAKqF7cQsbMwC2k66QjV__BIFosdJViaOIxEu4GCKLWdhDTUu6hle-LB9n7EX5xDbWp9-ujlk7zx-2b_PG-sL4NXluU6iyLleePGvfnEz4p1XhcVYyO4bgR4G13z-nd0QahsVGtjWGqUJrlGRgHVd4ixp-imO6yVNMsuF6gxGT4IF2NH7EH1RpzLHt_evLWA4pMBglHB7LeAROavOe141ScL0IlZIyiVwmg8VD-4JZmlJ2drqRwYtc9oCy5F_sWjOHXndg"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant/30 mb-2">draw</span>
+<p class="text-xs text-on-surface-variant/50">Draw signature or wait for remote handshake</p>
+</div>
+<!-- Simulated signature line for visual impact -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-4/5 h-px bg-white/5"></div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-sky-500" style="font-variation-settings: 'FILL' 1;">security</span>
+<div class="text-[10px] text-on-surface-variant leading-tight">
+                Signing this confirms all stock has been physically verified against Sovereign Standards. 
+                <span class="text-sky-400 cursor-pointer underline">Terms of Liability</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="pt-8 border-t border-outline-variant/10">
+<div class="flex gap-4">
+<button class="flex-1 py-4 bg-surface-container-highest text-on-surface font-bold rounded-xl border border-outline-variant hover:bg-surface-bright transition-all active:scale-[0.98]">
+              Reject / Return
+            </button>
+<button class="flex-[2] py-4 bg-gradient-to-br from-sky-400 to-sky-600 text-on-primary-fixed font-black uppercase tracking-widest rounded-xl shadow-lg shadow-sky-500/20 hover:brightness-110 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+              Approve GRN
+              <span class="material-symbols-outlined" style="font-variation-settings: 'wght' 700;">check_circle</span>
+</button>
+</div>
+<p class="text-center text-[10px] text-on-surface-variant mt-4 font-medium italic opacity-60">System Version: WMS-Sovereign-4.2.1-RIY</p>
+</div>
+</section>
+</div>
+</main>
+<!-- Mobile Warning Suppression (Per Task: Portal Nav handling) -->
+<div class="md:hidden fixed inset-0 z-[100] bg-[#12121D] flex flex-col items-center justify-center p-8 text-center">
+<span class="material-symbols-outlined text-6xl text-sky-500 mb-4">desktop_access_disabled</span>
+<h3 class="text-xl font-bold mb-2">Terminal View Required</h3>
+<p class="text-sm text-on-surface-variant">GRN Activation requires a verified WMS terminal display. Please switch to a larger device to complete this transaction.</p>
+</div>
+</body></html>

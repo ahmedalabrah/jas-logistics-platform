@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GRN Supervisor Review | JAS Sovereign WMS</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#d0bcff",
+            "primary-container": "#4b1fa3",
+            "tertiary-fixed-dim": "#ffb68e",
+            "error": "#ffb4ab",
+            "inverse-primary": "#6a45c3",
+            "inverse-on-surface": "#302f3b",
+            "on-primary-fixed": "#22005c",
+            "on-background": "#e3e0f1",
+            "tertiary": "#ffb68e",
+            "on-surface": "#e3e0f1",
+            "surface-container-lowest": "#0d0d18",
+            "surface-container-low": "#1b1a26",
+            "on-secondary-fixed": "#201340",
+            "secondary-container": "#4f4171",
+            "secondary-fixed-dim": "#cfbef6",
+            "tertiary-fixed": "#ffdbc9",
+            "on-tertiary-fixed-variant": "#743405",
+            "on-tertiary": "#532200",
+            "on-secondary": "#352856",
+            "surface-container-highest": "#343440",
+            "on-primary-container": "#b79cff",
+            "primary-fixed-dim": "#d0bcff",
+            "surface-container-high": "#292935",
+            "on-surface-variant": "#cbc3d5",
+            "outline-variant": "#494453",
+            "on-secondary-container": "#c0b0e7",
+            "surface-variant": "#343440",
+            "on-error": "#690005",
+            "surface-dim": "#12121d",
+            "background": "#12121d",
+            "tertiary-container": "#6c2e00",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-fixed": "#331200",
+            "error-container": "#93000a",
+            "surface": "#12121d",
+            "primary-fixed": "#e9ddff",
+            "inverse-surface": "#e3e0f1",
+            "secondary-fixed": "#e9ddff",
+            "surface-bright": "#383845",
+            "outline": "#948e9e",
+            "on-primary": "#3b0092",
+            "surface-container": "#1f1e2a",
+            "primary": "#d0bcff",
+            "on-secondary-fixed-variant": "#4c3f6e",
+            "secondary": "#cfbef6",
+            "on-tertiary-container": "#f09661",
+            "on-primary-fixed-variant": "#5228aa",
+            "brand-cyan": "#0EA5E9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-effect {
+      backdrop-filter: blur(12px);
+      background-color: rgba(31, 30, 42, 0.7);
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-brand-cyan/30">
+<!-- SideNavBar Anchor -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#12121D] border-r border-white/5 flex flex-col py-6 gap-2 font-['Plus_Jakarta_Sans'] text-sm font-medium">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-brand-cyan/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-brand-cyan" style="font-variation-settings: 'FILL' 1;">warehouse</span>
+</div>
+<div>
+<h2 class="text-brand-cyan font-black tracking-widest text-sm">WMS Terminal</h2>
+<p class="text-[10px] text-slate-500 uppercase tracking-tighter">Riyadh Hub North</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="px-4 py-2 text-slate-600 text-[10px] font-bold uppercase tracking-widest">Main Menu</div>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">pending_actions</span>
+<span>Inbound FA</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">local_shipping</span>
+<span>Spot Arrival</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">inventory_2</span>
+<span>Cross-dock</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-brand-cyan/10 text-brand-cyan border-r-4 border-brand-cyan transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">assignment_turned_in</span>
+<span>GRN Manager</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">analytics</span>
+<span>Reporting</span>
+</a>
+</nav>
+<div class="mt-auto px-4 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Anchor -->
+<header class="fixed top-0 w-full z-30 bg-[#0F0F1A]/80 backdrop-blur-xl flex justify-between items-center px-8 h-16 shadow-2xl shadow-black/20 ml-64 w-[calc(100%-16rem)]">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tight text-white font-headline">JAS Sovereign WMS</span>
+<span class="w-[1px] h-6 bg-white/10 mx-2"></span>
+<div class="flex gap-6 text-sm">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Arrivals</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Operations</a>
+<a class="text-brand-cyan border-b-2 border-brand-cyan pb-1" href="#">Reviews</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full hover:bg-white/5 flex items-center justify-center transition-all duration-300">
+<span class="material-symbols-outlined text-slate-400">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full hover:bg-white/5 flex items-center justify-center transition-all duration-300">
+<span class="material-symbols-outlined text-slate-400">settings</span>
+</button>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-white/10">
+<img alt="Supervisor Profile" class="w-10 h-10 rounded-full object-cover border-2 border-brand-cyan/30" data-alt="professional male warehouse supervisor with short beard and confident expression in industrial office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoXvRbnoQvkzHNJXvxRCgjVTD9rFnRyGeVof-ZCkEXXNOTMHccfR3Bz-v2DVqWIhazIHkzGAl5CeX6erClowa4Lw29j4DvfxiUlkE7I6xTTa_hkQ_99qAidyt6DdOPlna554OGdNQMdpZ8ET9Cqw-7yjRg_qaK52DtgzQ4x1gnsSMWwrWmeWkbAP_SKNSWk9glLkc0SciHJyJid8PETjPHdbH9om_gqyWS2cshiexBCgFS9pwkZdbxJd45HJ5sZ8cozn4UQcR-Fg"/>
+<div>
+<p class="text-xs font-bold text-white leading-none">Marcus Vance</p>
+<p class="text-[10px] text-brand-cyan uppercase tracking-tighter mt-1 font-semibold">Senior Supervisor</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas Content -->
+<main class="ml-64 mt-16 p-8 min-h-screen bg-background">
+<!-- Breadcrumbs & Header -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<nav class="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">
+<a class="hover:text-brand-cyan transition-colors" href="#">GRN Manager</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-brand-cyan">Review GRN-7294-24</span>
+</nav>
+<h1 class="text-4xl font-headline font-extrabold text-white tracking-tight flex items-center gap-4">
+          GRN Supervisor Review
+          <span class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan text-xs rounded uppercase border border-brand-cyan/30 tracking-widest">Final Status: Pending Approval</span>
+</h1>
+</div>
+<div class="flex gap-4">
+<button class="px-6 h-12 flex items-center gap-2 border border-brand-cyan/50 text-brand-cyan font-bold text-sm rounded transition-all hover:bg-brand-cyan/10 active:scale-95">
+<span class="material-symbols-outlined text-sm">mail</span>
+          Request Client Acknowledgment
+        </button>
+<button class="px-8 h-12 bg-brand-cyan text-white font-bold text-sm rounded shadow-lg shadow-brand-cyan/20 transition-all hover:brightness-110 active:scale-95">
+          Approve on Behalf of Client
+        </button>
+</div>
+</div>
+<!-- Layout Grid: Asymmetric Document Review -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Left Column: Primary Document Data -->
+<div class="col-span-8 space-y-6">
+<!-- Summary Cards Bento -->
+<div class="grid grid-cols-3 gap-4">
+<div class="p-6 bg-surface-container rounded-xl border-l-4 border-brand-cyan">
+<p class="text-[10px] font-bold text-slate-500 uppercase mb-2">Total Expected</p>
+<div class="text-3xl font-headline font-extrabold text-white">4,250 <span class="text-xs font-normal text-slate-500">Units</span></div>
+</div>
+<div class="p-6 bg-surface-container rounded-xl border-l-4 border-emerald-500">
+<p class="text-[10px] font-bold text-slate-500 uppercase mb-2">Total Received</p>
+<div class="text-3xl font-headline font-extrabold text-white">4,242 <span class="text-xs font-normal text-slate-500">Units</span></div>
+</div>
+<div class="p-6 bg-surface-container rounded-xl border-l-4 border-error">
+<p class="text-[10px] font-bold text-slate-500 uppercase mb-2">Net Discrepancy</p>
+<div class="text-3xl font-headline font-extrabold text-error">-8 <span class="text-xs font-normal text-slate-500">Units</span></div>
+</div>
+</div>
+<!-- Discrepancy List Container -->
+<div class="bg-surface-container rounded-xl overflow-hidden">
+<div class="px-6 py-4 bg-white/5 border-b border-white/5 flex justify-between items-center">
+<h3 class="font-headline font-bold text-white uppercase text-xs tracking-widest">Item Discrepancy &amp; Damage Report</h3>
+<span class="text-[10px] font-bold text-slate-500">Showing 3 Items with Issues</span>
+</div>
+<div class="divide-y divide-white/5">
+<!-- Row 1 -->
+<div class="p-6 flex items-start gap-6 hover:bg-white/[0.02] transition-colors">
+<div class="w-16 h-16 rounded bg-surface-container-highest overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover opacity-80" data-alt="high quality industrial gadget in original box packaging" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu9B7sd3-Q7ctdkJthgKB0Ztx7Gwz4SQM4vcBPqQTdsRfI2DsYlJQbtdFqvQr8a6HFz63SMDm74d_0EqzYFdNWJpQ7aujWKuXTUMxmUM_7vJgHIFBcjmSrePBnLLn6GNc2l9Xms_kFV3ls-YKBFi7FTz-CFtUWEnpdLGu9GS1EwTnz-EaYQWm3V4GMRVp8MsI-9iEpkUrU2VjbKDi1lc8KfqPmulA0MRmzY9iAjflJYsTUV81QyrfY5HWTq4JTM6GncWf7vQghRw"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<h4 class="font-bold text-white">Lux-900 Solar Sensor</h4>
+<span class="px-2 py-0.5 bg-error/10 text-error text-[10px] font-bold rounded uppercase">Missing Units</span>
+</div>
+<p class="text-xs text-slate-500 mb-4">SKU: JAS-9823-SOL | Batch: B-2024-X</p>
+<div class="grid grid-cols-4 gap-4 text-[10px] font-bold uppercase text-slate-500">
+<div>Expected: <span class="text-white ml-1">1,200</span></div>
+<div>Received: <span class="text-white ml-1">1,194</span></div>
+<div class="text-error">Shortage: <span class="ml-1">-6</span></div>
+</div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="p-6 flex items-start gap-6 hover:bg-white/[0.02] transition-colors">
+<div class="w-16 h-16 rounded bg-surface-container-highest overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover opacity-80" data-alt="smart home controller device with sleek industrial design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZZB3KJTOe93xf-DeF0md0PmLizmQnwCn3SD4MfZ8HdGYY8AH3McH2UxnukmJcMNCxW7yLLzjth7SPHPlQimLuxKEWcQZau8QuwbLSzUxXZ77ZVHeJjkbREBBRAO_mQFivtnReXwmbN1XMXpjNEiu5C3qIK_K88dPy1KLdN9q11DgZl5g5ACgach6oepWQP8mHEFs7_fx26PDXsHUuRJ_SYGY50ojJ8v4iKQ_cWpKaaCU7c5DahUtgSjas1QxDr2TG5py0EOTFPQ"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<h4 class="font-bold text-white">Smart Hub Pro v2</h4>
+<span class="px-2 py-0.5 bg-amber-500/10 text-amber-500 text-[10px] font-bold rounded uppercase">Damaged Packaging</span>
+</div>
+<p class="text-xs text-slate-500 mb-4">SKU: JAS-1102-HUB | Batch: B-2024-X</p>
+<div class="grid grid-cols-4 gap-4 text-[10px] font-bold uppercase text-slate-500">
+<div>Expected: <span class="text-white ml-1">500</span></div>
+<div>Received: <span class="text-white ml-1">500</span></div>
+<div class="text-amber-500">Damaged: <span class="ml-1">2</span></div>
+</div>
+<!-- Damage Detail Mini-Grid -->
+<div class="mt-4 flex gap-2">
+<div class="w-16 h-16 rounded border border-white/10 overflow-hidden relative group cursor-zoom-in">
+<img class="w-full h-full object-cover" data-alt="close up of damaged cardboard shipping box with crushed corners" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmBHNUu_pMx0OraDW3DQuwZp8AF4djx3Eo_vfXMRsabz0J2DX_TEZmN864y5Wj90IcJByrERd77dfpZT9V6wyabUnjP8ka4IpSe-_sjWndoo4k6kBOOkkhFrdDuNEizyKQODr6ZcfLV3ZVbeIaQwEcLpy73VVa5zspr_orE5uwb8DehfCVS9rBHXYbhvq5n5b6ngxL7LU8vXmdIGQ-J84La_COy5CWR_7H2hjoWtna1JXwfOlIJs3vfdcTsuXsyyEuLbqLTOWiuw"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white text-sm">visibility</span>
+</div>
+</div>
+<div class="w-16 h-16 rounded border border-white/10 overflow-hidden relative group cursor-zoom-in">
+<img class="w-full h-full object-cover" data-alt="macro photo of a puncture mark in a large logistics carton" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACzAfgsABnfI-hCgF8CDFsJnfV4zU1Z82oe84v-rhgf1lMXwZc-X3TLSiRrbI6lzg5f9YmNufRnHN05BAJCbhndDphO3SwK0pWUqXO6yYtl_n6Ann75fJQqnRDz0lQODzY6znn2Z_HMvVowJKuG-WAymVSEcR0M5Z4P8EaxF5Pi7EdBzNdvHKo8GPgD6EvYohh_KwQispc4FzQtzbrdvgBIlZmOQLWM4PWnBkz871eb5Q4E_IJhQZnxwL6fvP6QTc4o7BdzhX9Yg"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white text-sm">visibility</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Full Item List Table (Condensed) -->
+<div class="bg-surface-container rounded-xl overflow-hidden">
+<div class="px-6 py-4 bg-white/5 border-b border-white/5">
+<h3 class="font-headline font-bold text-white uppercase text-xs tracking-widest">Complete GRN Manifest</h3>
+</div>
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+<th class="px-6 py-3">SKU / Item Description</th>
+<th class="px-6 py-3 text-right">Expected</th>
+<th class="px-6 py-3 text-right">Received</th>
+<th class="px-6 py-3 text-right">Variance</th>
+<th class="px-6 py-3 text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="text-sm text-slate-300 hover:bg-white/[0.02]">
+<td class="px-6 py-4">
+<div class="font-bold text-white">LUX-900</div>
+<div class="text-[10px] text-slate-500">Solar Sensor High-Capacity</div>
+</td>
+<td class="px-6 py-4 text-right font-mono">1,200</td>
+<td class="px-6 py-4 text-right font-mono">1,194</td>
+<td class="px-6 py-4 text-right font-mono text-error">-6</td>
+<td class="px-6 py-4 text-right">
+<span class="w-2 h-2 rounded-full bg-error inline-block shadow-[0_0_8px_rgba(255,180,171,0.5)]"></span>
+</td>
+</tr>
+<tr class="text-sm text-slate-300 hover:bg-white/[0.02]">
+<td class="px-6 py-4">
+<div class="font-bold text-white">HUB-PRO-V2</div>
+<div class="text-[10px] text-slate-500">Smart Hub Pro Gateway</div>
+</td>
+<td class="px-6 py-4 text-right font-mono">500</td>
+<td class="px-6 py-4 text-right font-mono">500</td>
+<td class="px-6 py-4 text-right font-mono text-slate-500">0</td>
+<td class="px-6 py-4 text-right">
+<span class="w-2 h-2 rounded-full bg-emerald-500 inline-block shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+</td>
+</tr>
+<tr class="text-sm text-slate-300 hover:bg-white/[0.02]">
+<td class="px-6 py-4">
+<div class="font-bold text-white">BATT-ION-X</div>
+<div class="text-[10px] text-slate-500">Lithium Ion Spare Cell</div>
+</td>
+<td class="px-6 py-4 text-right font-mono">2,500</td>
+<td class="px-6 py-4 text-right font-mono">2,498</td>
+<td class="px-6 py-4 text-right font-mono text-error">-2</td>
+<td class="px-6 py-4 text-right">
+<span class="w-2 h-2 rounded-full bg-error inline-block shadow-[0_0_8px_rgba(255,180,171,0.5)]"></span>
+</td>
+</tr>
+<tr class="text-sm text-slate-300 hover:bg-white/[0.02]">
+<td class="px-6 py-4">
+<div class="font-bold text-white">CABL-HD-3M</div>
+<div class="text-[10px] text-slate-500">Heavy Duty Interface Cable</div>
+</td>
+<td class="px-6 py-4 text-right font-mono">50</td>
+<td class="px-6 py-4 text-right font-mono">50</td>
+<td class="px-6 py-4 text-right font-mono text-slate-500">0</td>
+<td class="px-6 py-4 text-right">
+<span class="w-2 h-2 rounded-full bg-emerald-500 inline-block shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="p-4 bg-surface-container-low flex justify-center border-t border-white/5">
+<button class="text-[10px] font-bold text-brand-cyan uppercase tracking-widest hover:underline">View 12 More Items</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Contextual Intel & Notes -->
+<div class="col-span-4 space-y-6">
+<!-- Document Meta Panel -->
+<div class="bg-surface-container rounded-xl p-6">
+<h3 class="font-headline font-bold text-white uppercase text-xs tracking-widest mb-6 border-b border-white/5 pb-4">Inbound Logistics Context</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-500">Carrier</span>
+<span class="text-xs font-bold text-white">Global Trans Saudi</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-500">Vehicle ID</span>
+<span class="text-xs font-mono text-brand-cyan">LP-7724-RND</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-500">Unloading Dock</span>
+<span class="text-xs font-bold text-white">Bay 04 - North Gate</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-500">Receiving Staff</span>
+<span class="text-xs font-bold text-white">Ahmed Al-Farsi</span>
+</div>
+<div class="pt-4 mt-4 border-t border-white/5">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs text-slate-500">Arrival Date</span>
+<span class="text-xs font-bold text-white">Oct 24, 2024</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-500">Start / End Time</span>
+<span class="text-xs font-bold text-white">09:15 / 11:42</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Staff Notes Section -->
+<div class="bg-surface-container rounded-xl p-6 border border-brand-cyan/20">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-brand-cyan">sticky_note_2</span>
+<h3 class="font-headline font-bold text-white uppercase text-xs tracking-widest">Field Staff Notes</h3>
+</div>
+<div class="bg-surface-container-low rounded p-4 border-l-2 border-brand-cyan italic text-sm text-slate-300 mb-4">
+            "Container 4A was received with a broken security seal. Driver claims it was inspected at the border, but no documentation provided. Two Smart Hub boxes showed signs of water ingress near the seal breach. Recommend high-priority client alert."
+          </div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center text-[10px] text-white">AA</div>
+<span class="text-[10px] font-bold text-slate-500">Ahmed Al-Farsi</span>
+</div>
+<span class="text-[10px] text-slate-600">2 hours ago</span>
+</div>
+</div>
+<!-- Discrepancy Evidence Glass Card -->
+<div class="glass-effect rounded-xl p-6 border border-white/5">
+<h3 class="font-headline font-bold text-white uppercase text-xs tracking-widest mb-4">Damage Evidence Wall</h3>
+<div class="grid grid-cols-2 gap-2 mb-6">
+<img class="w-full aspect-square object-cover rounded hover:ring-2 hover:ring-brand-cyan transition-all cursor-pointer" data-alt="professional image of a cargo container door with a broken security metal seal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_QfDZ9QtHvrCceZShjfYFnL7_DoxrvrOM5GyXgYQjckjPZF7hCHXhYUObmBYIpCAkWd0-gBd29mE07VnII8CeiKATektKxiwDmmcoEzYwUtm7VXCNblI-_oLhF0vvlNfhshggJS-XyxNLt2N4_r7FFuOCpfq1CWsg7qQ7f8Y4rzKHgUDzxQ7IShtcnuvQr7dxHRjpeD7XfrnIPV6azC_kYO1QVUtYVLTZ8OvYPW39enETJqYnIXm4Z9ZaIzELHplp9g6mDVI-2w"/>
+<img class="w-full aspect-square object-cover rounded hover:ring-2 hover:ring-brand-cyan transition-all cursor-pointer" data-alt="close up of logistics paperwork with handwritten notes and official stamps" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJlxhsiL-Oq7UNBSVcnBrb5pH7F6fVL62Q2j7X7qTmdNkdA1VfNVGC87FaPj30_ag840BQIzYAQDGsyjSLtP3qrC-D_r6VWhCysKiZD_6xhe8c2kN50dPig702btmE-XdmBu-pnFf5jjVA8MmpUoKEqgWs2OgryqzKBIlX48c9nh4sDG5yHFAeADO4dr2T65u6xVZwbjDSxvYFo4fThLxu3chHegyzMqq1x05OXw_umKUogIJOzUBrE6hjMRA5prrbmN2hCSZ1GQ"/>
+<img class="w-full aspect-square object-cover rounded hover:ring-2 hover:ring-brand-cyan transition-all cursor-pointer opacity-50" data-alt="pallet of boxes wrapped in black plastic film in a dark warehouse" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALwKEjjPMhgsiHYcw9-RBFV7QVj5NaG-BM4S-mY6az80lb504tiLDY8pCqHXyRJcZwmJNGosg3CFZB1CPjFmn321hniFwVUDE0HAMJRsIt4BQ0uk-QdGJhlSUl-gpW7NzGkZIjyIA6vgTvbQLxNm_hohiLRSawpZUD-1JBsTzMv63MsRbw07t9GqSjnejlcwx4fG59kPEFB6uJ8Btae8yhbXGv2ZegbBXWk94rGiPMn6Urbs6rCRNkaQxpdlqNtRtsR-_bsPR9zw"/>
+<div class="w-full aspect-square rounded bg-white/5 border-2 border-dashed border-white/10 flex flex-col items-center justify-center text-slate-500 hover:text-brand-cyan hover:border-brand-cyan/50 cursor-pointer transition-colors">
+<span class="material-symbols-outlined">add_a_photo</span>
+<span class="text-[10px] mt-1 font-bold uppercase">Add Photo</span>
+</div>
+</div>
+<div class="space-y-4">
+<label class="block">
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-2">Supervisor Remarks</span>
+<textarea class="w-full bg-surface-container-highest border-0 rounded p-3 text-sm text-white focus:ring-1 focus:ring-brand-cyan/50 placeholder-slate-600" placeholder="Enter final review decision details..." rows="3"></textarea>
+</label>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation Placeholder -->
+<footer class="md:hidden fixed bottom-0 left-0 right-0 h-16 glass-effect border-t border-white/5 flex justify-around items-center z-50">
+<button class="flex flex-col items-center gap-1 text-brand-cyan">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+<span class="text-[9px] font-bold uppercase">GRN</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[9px] font-bold uppercase">Report</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-[9px] font-bold uppercase">Alerts</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[9px] font-bold uppercase">Account</span>
+</button>
+</footer>
+</body></html>
