@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Configuration | JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#12121d",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "surface-container-low": "#1b1a26",
+                    "on-secondary-container": "#c0b0e7",
+                    "surface-container-high": "#292935",
+                    "on-primary-fixed": "#22005c",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed": "#e9ddff",
+                    "on-error-container": "#ffdad6",
+                    "on-surface-variant": "#cbc3d5",
+                    "surface-variant": "#343440",
+                    "secondary": "#cfbef6",
+                    "secondary-container": "#4f4171",
+                    "tertiary-container": "#6c2e00",
+                    "inverse-on-surface": "#302f3b",
+                    "outline": "#948e9e",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-tertiary-fixed": "#331200",
+                    "surface": "#12121d",
+                    "surface-container-highest": "#343440",
+                    "surface-bright": "#383845",
+                    "on-tertiary": "#532200",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-background": "#e3e0f1",
+                    "inverse-primary": "#6a45c3",
+                    "on-secondary": "#352856",
+                    "on-tertiary-container": "#f09661",
+                    "on-secondary-fixed": "#201340",
+                    "on-primary-container": "#b79cff",
+                    "surface-container": "#1f1e2a",
+                    "outline-variant": "#494453",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "inverse-surface": "#e3e0f1",
+                    "primary": "#d0bcff",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "surface-tint": "#d0bcff",
+                    "surface-container-lowest": "#0d0d18",
+                    "primary-container": "#4b1fa3",
+                    "tertiary": "#ffb68e",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "on-primary": "#3b0092",
+                    "surface-dim": "#12121d",
+                    "on-surface": "#e3e0f1",
+                    "error": "#ffb4ab",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Inter', sans-serif; }
+      .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(31, 30, 42, 0.4);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex overflow-hidden">
+<!-- SideNavBar (from JSON) -->
+<aside class="h-screen w-72 border-r border-white/5 bg-[#12121d]/80 backdrop-blur-xl flex flex-col py-6 px-4 shadow-[24px_0_48px_rgba(0,0,0,0.4)] z-50">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-bold bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] bg-clip-text text-transparent">JAS Logistics</h1>
+<p class="font-['Plus_Jakarta_Sans'] font-medium text-xs tracking-tight text-white/40">Command &amp; Finance</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 transition-all duration-300 ease-in-out hover:backdrop-brightness-125 text-white/60 hover:text-white/90 hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Command Center</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 transition-all duration-300 ease-in-out hover:backdrop-brightness-125 text-white/60 hover:text-white/90 hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="package_2">package_2</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Order Management</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 transition-all duration-300 ease-in-out hover:backdrop-brightness-125 text-white/60 hover:text-white/90 hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">FA Management</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 transition-all duration-300 ease-in-out hover:backdrop-brightness-125 text-white/60 hover:text-white/90 hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Finance Hub</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 transition-all duration-300 ease-in-out hover:backdrop-brightness-125 text-white/60 hover:text-white/90 hover:bg-white/5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings_suggest">settings_suggest</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Revenue Settings</span>
+</a>
+<!-- Active Tab Mapping to Payment Ops -->
+<a class="flex items-center gap-3 px-3 py-2.5 transition-all duration-300 ease-in-out hover:backdrop-brightness-125 text-[#d0bcff] bg-[#d0bcff]/10 border-r-2 border-[#d0bcff] rounded-lg translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Payment Ops</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-white/5 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-white/60 hover:text-white/90" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help">help</span>
+<span class="font-['Plus_Jakarta_Sans'] text-xs">Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-white/60 hover:text-white/90" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-xs">Settings</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 h-screen overflow-y-auto relative flex flex-col">
+<!-- TopNavBar (from JSON) -->
+<header class="fixed top-0 right-0 w-[calc(100%-18rem)] h-16 bg-[#12121d]/60 backdrop-blur-lg flex justify-between items-center px-8 z-40">
+<div class="flex items-center gap-8">
+<span class="font-black text-[#d0bcff] font-headline text-lg tracking-widest uppercase">Command &amp; Finance Hub</span>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/40" data-icon="search">search</span>
+<input class="bg-surface-container-highest/50 border-none rounded-lg pl-10 pr-4 py-1.5 text-xs tracking-widest text-white focus:ring-1 focus:ring-[#d0bcff]/30 w-64 transition-all" placeholder="GLOBAL SEARCH..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-6">
+<a class="text-white/50 hover:text-white transition-colors duration-200 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest" href="#">Global View</a>
+<a class="text-white/50 hover:text-white transition-colors duration-200 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest" href="#">Analytics</a>
+<a class="text-white/50 hover:text-white transition-colors duration-200 font-['Plus_Jakarta_Sans'] text-xs uppercase tracking-widest" href="#">Reports</a>
+</nav>
+<div class="h-4 w-[1px] bg-white/10 mx-2"></div>
+<div class="flex gap-4 items-center">
+<button class="material-symbols-outlined text-white/60 hover:text-[#d0bcff] transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-white/60 hover:text-[#d0bcff] transition-colors" data-icon="history">history</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-[#d0bcff]/20">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="professional male avatar with minimalist geometric background and purple accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf31Jewaq48P1RfbqRI2Je7iL-3jFfK8OcSmoPjl7fIeL_aVZQeWKvVqmLt_PHSsunMfCK43VabAzLSLqQnE8VCDb__pVG0Cf0jX4lnhuo_mC0-pvZsnhi3_WYkqWxYzYQiwF2zoymnkpXx7UC8BqeJ76Mxt5QpywVvj59UlhQMFRWvSvlEg5DwfthXwADK8yHZCPt3LiJLHSf0MucO_GUpCotDXU4QqKXD80D905sjWREiloGbFhsTVSodDruoykwQAYaQL_nDw"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<section class="mt-16 p-8 space-y-8 max-w-[1600px]">
+<!-- Breadcrumbs & Header -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium uppercase tracking-widest">
+<span>Finance Hub</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary-fixed-dim">Payment Configuration</span>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-extrabold font-headline tracking-tight text-white mt-1">System Payment Architecture</h2>
+<p class="text-on-surface-variant max-w-2xl mt-2 text-sm leading-relaxed">Centralized management for financial gateway availability, surcharge logic, and regulatory wallet compliance.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-white font-semibold text-xs tracking-widest hover:bg-surface-bright transition-colors">
+                            EXPORT LOGS
+                        </button>
+<button class="px-6 py-2.5 rounded bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold text-xs tracking-widest shadow-[0_0_20px_rgba(208,188,255,0.2)] hover:shadow-[0_0_30px_rgba(208,188,255,0.4)] transition-all">
+                            SAVE GLOBAL CHANGES
+                        </button>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Method Availability Matrix (Main Table) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-xl p-6 border border-white/5 shadow-2xl">
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="rule">rule</span>
+<h3 class="font-headline font-bold text-lg">Method Availability Matrix</h3>
+</div>
+<div class="flex gap-2">
+<span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-highest text-[10px] text-on-surface-variant font-bold uppercase tracking-tighter">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Available
+                            </span>
+<span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-highest text-[10px] text-on-surface-variant font-bold uppercase tracking-tighter">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> With Approval
+                            </span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-separate border-spacing-y-2">
+<thead>
+<tr class="text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant/60">
+<th class="px-4 pb-4">Payment Method</th>
+<th class="px-4 pb-4">Bronze</th>
+<th class="px-4 pb-4">Silver</th>
+<th class="px-4 pb-4">Gold</th>
+<th class="px-4 pb-4">Enterprise</th>
+<th class="px-4 pb-4 text-right">Status</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="bg-surface-container/40 hover:bg-surface-container-high transition-colors group">
+<td class="px-4 py-4 rounded-l-lg border-l border-primary/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center">
+<img alt="Visa/Master" class="w-6 opacity-80" data-alt="visa and mastercard credit card logos side by side in minimalist white silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVGagO26D8NqNw2nBk3utTCo9iSqQpmA3BZGZRG3ZJr3jADAjCf5U6N83t7cuDhYmtJXgU9f24LnQhFqNqi1_qW7c3PIWXndYu8Rai-9i6VR0BIQXwPpyMRr367xuyV63hzkW07rOv6cOxkqq-RT76TscDB3CeUONUX2w4E3fKremjiofqLH7tgIefHlETsQoadDAtdYlJpE3lS2q6nYrYDzb8YQyfk4IvJjqehNqbOSPnldeLKIAvZ5BgNhEyP9HOAiq8_ncgug"/>
+</div>
+<span class="font-semibold text-on-surface">Card Payments</span>
+</div>
+</td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-emerald-500" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-emerald-500" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-emerald-500" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-emerald-500" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span></td>
+<td class="px-4 py-4 rounded-r-lg text-right">
+<span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">ACTIVE</span>
+</td>
+</tr>
+<tr class="bg-surface-container/40 hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 rounded-l-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<span class="font-semibold text-on-surface">Bank Transfer (SARIE)</span>
+</div>
+</td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-white/20" data-icon="block">block</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-amber-500" data-icon="lock_clock">lock_clock</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-emerald-500" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-emerald-500" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span></td>
+<td class="px-4 py-4 rounded-r-lg text-right">
+<span class="text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2 py-1 rounded">RESTRICTED</span>
+</td>
+</tr>
+<tr class="bg-surface-container/40 hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 rounded-l-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="wallet">wallet</span>
+</div>
+<span class="font-semibold text-on-surface">Digital Wallets (STCPay)</span>
+</div>
+</td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-white/20" data-icon="block">block</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-white/20" data-icon="block">block</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-amber-500" data-icon="lock_clock">lock_clock</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-emerald-500" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span></td>
+<td class="px-4 py-4 rounded-r-lg text-right">
+<span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">ACTIVE</span>
+</td>
+</tr>
+<tr class="bg-surface-container/40 hover:bg-surface-container-high transition-colors">
+<td class="px-4 py-4 rounded-l-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<span class="font-semibold text-on-surface">Cash on Delivery</span>
+</div>
+</td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-emerald-500" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-emerald-500" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-white/20" data-icon="block">block</span></td>
+<td class="px-4 py-4"><span class="material-symbols-outlined text-white/20" data-icon="block">block</span></td>
+<td class="px-4 py-4 rounded-r-lg text-right">
+<span class="text-[10px] font-bold text-on-surface-variant bg-white/5 px-2 py-1 rounded">RETAIL ONLY</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right Column: COD & Wallet -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<!-- COD Surcharge Settings -->
+<div class="bg-surface-container rounded-xl p-6 border border-white/5 shadow-xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-[#ffb68e]" data-icon="request_quote">request_quote</span>
+<h3 class="font-headline font-bold text-lg">COD Surcharge Logic</h3>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-white/5">
+<label class="text-[10px] font-black uppercase tracking-widest text-on-surface-variant block mb-2">Base COD Fee (SAR)</label>
+<div class="flex items-end gap-3">
+<input class="bg-transparent border-none p-0 text-3xl font-black text-white focus:ring-0 w-full" type="number" value="15.00"/>
+<span class="text-xs font-bold text-on-surface-variant mb-1">SAR / ORDER</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg border border-white/5 bg-surface-container-high/30">
+<div>
+<p class="text-xs font-bold text-on-surface uppercase">Apply VAT (15%)</p>
+<p class="text-[10px] text-on-surface-variant">Regulatory KSA VAT compliance</p>
+</div>
+<div class="w-10 h-5 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-0.5 top-0.5 w-4 h-4 bg-on-primary rounded-full"></div>
+</div>
+</div>
+<div class="p-3 bg-tertiary-container/20 rounded border border-tertiary/10">
+<p class="text-[10px] font-bold text-tertiary flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+                                    Estimated recovery: 12% increase on cash handling costs.
+                                </p>
+</div>
+</div>
+</div>
+<!-- SAMA Wallet Compliance -->
+<div class="bg-[#1b1a26] rounded-xl p-6 border border-primary/10 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" data-icon="account_balance">account_balance</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-[#d0bcff]" data-icon="account_balance">account_balance</span>
+<h3 class="font-headline font-bold text-lg text-[#d0bcff]">SAMA Regulatory</h3>
+</div>
+<p class="text-xs text-on-surface-variant mb-6 leading-relaxed">System enforced limits according to Saudi Central Bank (SAMA) e-wallet regulations.</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-2">
+<span>Single Wallet Limit</span>
+<span class="text-white">20,000 SAR</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full w-[70%]"></div>
+</div>
+</div>
+<a class="flex items-center justify-between text-xs font-bold text-primary hover:underline group" href="#">
+                                    VIEW SAMA GUIDELINES 2024
+                                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="north_east">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Integration Credentials Section -->
+<div class="col-span-12 bg-surface-container-low rounded-xl p-8 border border-white/5">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline font-bold text-xl mb-1">Gateway Integration Credentials</h3>
+<p class="text-xs text-on-surface-variant font-medium">Manage API keys and secrets for external financial providers. Keys are rotation-locked.</p>
+</div>
+<span class="px-4 py-1.5 rounded-full bg-error-container/20 text-error text-[10px] font-black uppercase tracking-widest border border-error/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="security">security</span> High Sensitivity Area
+                        </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Hyperpay Card -->
+<div class="bg-surface-container-highest/30 rounded-xl p-5 border border-white/5 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+<img alt="Hyperpay" class="w-8 opacity-70" data-alt="minimalist hyperpay logo in monochromatic purple silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0DwtxhLFDWGV1zrcSLfE9FaamU6CxrZVuqIvQ-gZXk97GqJlEbIGlV4GqmDD_-oHo9JhBvsApxW1g_bORe3zdSVPdNcJdjT12X5dOGerKS6rwh5LwjyyI9GGZx7rFIF9hZ72c1Icv1xJNf1VJZmvocD_8epPVzqSsU-Kts2d0cKV0XvYBNpxNbgpaA74gcwjMaJFWMHbfmbbrDH1mKbBf_mwNTzPeYwzgVPgveuWosQtBmvKOt8lwWOpQmjdYOp4fogPVY6_VaA"/>
+</div>
+<div>
+<h4 class="font-bold text-sm">HyperPay Gateway</h4>
+<p class="text-[10px] font-medium text-emerald-400">CONNECTION STABLE</p>
+</div>
+</div>
+<div class="space-y-3">
+<div>
+<label class="text-[9px] font-black text-on-surface-variant uppercase tracking-tighter block mb-1">Merchant ID</label>
+<div class="bg-black/20 p-2.5 rounded font-mono text-xs text-white/90 border border-white/5 flex justify-between items-center">
+<span>HP_92283_JAS_KSA</span>
+<span class="material-symbols-outlined text-xs cursor-pointer hover:text-primary transition-colors" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+<div>
+<label class="text-[9px] font-black text-on-surface-variant uppercase tracking-tighter block mb-1">Access Token</label>
+<div class="bg-black/20 p-2.5 rounded font-mono text-xs text-white/90 border border-white/5 flex justify-between items-center">
+<span>••••••••••••••••••••</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-xs cursor-pointer hover:text-primary transition-colors" data-icon="visibility">visibility</span>
+<span class="material-symbols-outlined text-xs cursor-pointer hover:text-error transition-colors" data-icon="refresh">refresh</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SADAD Card -->
+<div class="bg-surface-container-highest/30 rounded-xl p-5 border border-white/5 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+<img alt="SADAD" class="w-8 opacity-70" data-alt="minimalist SADAD payment system logo in monochromatic white silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASC2ax7wbzJaQ99Cjao-aiJsXqJBt10y1NgpvMbi8ViOPnZAhxcjYDB-yOklvyeeSu1KogMsHxkCa_4-3lb82EgXM8nzrKQOhGC8r_rSFDKdUXHCSUeO0a14GdyZjxVyr_3blOA_UeKU7Gm8C99WhS0XyG_TcdQm5tG_IuRSkd07cUcq45uf8hCRe2EqVe1wRdB3KrIbzVBJGRufF4e6cjuM2hMFdYR8qagWvDYqUDoz9YzKD54rpstCOyNEqxixWX2iQfTUHsnA"/>
+</div>
+<div>
+<h4 class="font-bold text-sm">SADAD Direct Pay</h4>
+<p class="text-[10px] font-medium text-emerald-400">CONNECTION STABLE</p>
+</div>
+</div>
+<div class="space-y-3">
+<div>
+<label class="text-[9px] font-black text-on-surface-variant uppercase tracking-tighter block mb-1">Biller ID</label>
+<div class="bg-black/20 p-2.5 rounded font-mono text-xs text-white/90 border border-white/5 flex justify-between items-center">
+<span>JAS_LGS_001_KSA</span>
+<span class="material-symbols-outlined text-xs cursor-pointer hover:text-primary transition-colors" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+<div>
+<label class="text-[9px] font-black text-on-surface-variant uppercase tracking-tighter block mb-1">Secret Key</label>
+<div class="bg-black/20 p-2.5 rounded font-mono text-xs text-white/90 border border-white/5 flex justify-between items-center">
+<span>••••••••••••••••••••</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-xs cursor-pointer hover:text-primary transition-colors" data-icon="visibility">visibility</span>
+<span class="material-symbols-outlined text-xs cursor-pointer hover:text-error transition-colors" data-icon="refresh">refresh</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SARIE Card -->
+<div class="bg-surface-container-highest/30 rounded-xl p-5 border border-white/5 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center">
+<img alt="SARIE" class="w-8 opacity-70" data-alt="minimalist SARIE instant payment logo in monochromatic white silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXoFZg7yw5Oi0yl2XgZIW31VsqdmxbzxYDsi1dB95Rv5y0mnovwsOj-DeO0HPZYWLCeflA-v4p6si0pl8SHpNo44-s_1v8l2jnPxF6qINsssaoJJuH0Xu1XfyJ25nrU4hUjiCVCQIdJlN0ZeGJ18O0efKr6S_MEMLukjA1ZiwKEocVCTMXr2TrRIMpJNvp1Z5Eht06ygnQSFcUYTZKTqfdwiKBup_nz1yOpbARpuwjW01lfWjggWobCacps24QLOiaNBpLBDzBDg"/>
+</div>
+<div>
+<h4 class="font-bold text-sm">SARIE Network</h4>
+<p class="text-[10px] font-medium text-amber-400">MAINTENANCE IN 2H</p>
+</div>
+</div>
+<div class="space-y-3">
+<div>
+<label class="text-[9px] font-black text-on-surface-variant uppercase tracking-tighter block mb-1">System IBAN</label>
+<div class="bg-black/20 p-2.5 rounded font-mono text-xs text-white/90 border border-white/5 flex justify-between items-center">
+<span>SA01 9000 0000 8822...</span>
+<span class="material-symbols-outlined text-xs cursor-pointer hover:text-primary transition-colors" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+<div>
+<label class="text-[9px] font-black text-on-surface-variant uppercase tracking-tighter block mb-1">Public Key (RSA)</label>
+<div class="bg-black/20 p-2.5 rounded font-mono text-xs text-white/90 border border-white/5 flex justify-between items-center">
+<span>••••••••••••••••••••</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-xs cursor-pointer hover:text-primary transition-colors" data-icon="visibility">visibility</span>
+<span class="material-symbols-outlined text-xs cursor-pointer hover:text-error transition-colors" data-icon="refresh">refresh</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Compliance Note -->
+<footer class="flex items-center justify-between pt-12 pb-8 opacity-40 border-t border-white/5">
+<div class="flex gap-6 items-center">
+<p class="text-[10px] font-bold uppercase tracking-widest">Compliance ID: FIN-JAS-14</p>
+<p class="text-[10px] font-bold uppercase tracking-widest">PCI-DSS 4.0 Standard</p>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-widest">© 2024 JAS Logistics Operations</p>
+</footer>
+</section>
+</main>
+</body></html>

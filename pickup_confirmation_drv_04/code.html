@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Arabic:wght@400;500;600;700&amp;family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#4c3f6e",
+              "surface-container-highest": "#343440",
+              "outline-variant": "#494453",
+              "on-primary-fixed-variant": "#5228aa",
+              "surface-container-lowest": "#0d0d18",
+              "on-tertiary-fixed": "#331200",
+              "tertiary": "#ffb68e",
+              "primary": "#d0bcff",
+              "on-tertiary-container": "#f09661",
+              "surface-container-high": "#292935",
+              "on-primary": "#3b0092",
+              "surface-container": "#1f1e2a",
+              "on-secondary": "#352856",
+              "on-tertiary": "#532200",
+              "tertiary-container": "#6c2e00",
+              "on-background": "#e3e0f1",
+              "secondary": "#cfbef6",
+              "primary-container": "#4b1fa3",
+              "primary-fixed-dim": "#d0bcff",
+              "secondary-fixed": "#e9ddff",
+              "tertiary-fixed": "#ffdbc9",
+              "inverse-on-surface": "#302f3b",
+              "error-container": "#93000a",
+              "on-primary-fixed": "#22005c",
+              "on-tertiary-fixed-variant": "#743405",
+              "on-secondary-fixed": "#201340",
+              "on-error": "#690005",
+              "surface-dim": "#12121d",
+              "surface-bright": "#383845",
+              "on-surface": "#e3e0f1",
+              "outline": "#948e9e",
+              "inverse-primary": "#6a45c3",
+              "surface-tint": "#d0bcff",
+              "on-secondary-container": "#c0b0e7",
+              "on-error-container": "#ffdad6",
+              "background": "#12121d",
+              "on-surface-variant": "#cbc3d5",
+              "tertiary-fixed-dim": "#ffb68e",
+              "surface-variant": "#343440",
+              "on-primary-container": "#b79cff",
+              "secondary-fixed-dim": "#cfbef6",
+              "primary-fixed": "#e9ddff",
+              "secondary-container": "#4f4171",
+              "error": "#ffb4ab",
+              "inverse-surface": "#e3e0f1",
+              "surface-container-low": "#1b1a26",
+              "surface": "#12121d",
+              "success-primary": "#22c55e",
+              "success-container": "#14532d"
+            },
+            borderRadius: {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem"
+            },
+            fontFamily: {
+              "headline": ["Tajawal", "Plus Jakarta Sans"],
+              "body": ["IBM Plex Arabic", "Inter"],
+              "label": ["IBM Plex Arabic", "Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'IBM Plex Arabic', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        h1, h2, h3 {
+            font-family: 'Tajawal', sans-serif;
+        }
+        .safe-area-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- Top App Bar (Shared Component Strategy) -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/40">
+<div class="flex flex-row-reverse justify-between items-center px-6 h-16 w-full">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-white/10">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="professional portrait of a middle-aged male driver in a logistics uniform with a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3KBsYuQVPyE8DbH-5deATslIi0YHnJndRJ2vycD8dLvW_a_j2V0R_d3Qdo22xsCw7ylRptdI30qrFZsoJ6XyBH5P_BAD9xt03lZy9d9A7Q9pZUPvrVOW4g8s0lT7hYeaYqU9_4eezPCTqIGnHpV9n1jixUftrqB8mziehtXrCexPGQND6UrYWWpd6ms0ElsuMfgTyw-aHLz6gAHawaKRrgrGb6yH8khbyd2BJWh925RryxaWMb2_iaTX9YpZIdX7OnNmBGh2NZg"/>
+</div>
+<h1 class="text-[#d0bcff] font-['Tajawal'] font-bold text-lg tracking-tight">تأكيد الاستلام</h1>
+<button class="text-[#d0bcff] active:scale-95 duration-150">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<div class="bg-[#1c1c2d] h-[1px] w-full absolute bottom-0"></div>
+</header>
+<main class="flex-1 pt-20 pb-32 px-4 space-y-6 overflow-y-auto">
+<!-- Shipper Card (Asymmetric Layout) -->
+<section class="relative overflow-hidden rounded-xl bg-surface-container shadow-lg">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/10 blur-3xl -mr-16 -mt-16"></div>
+<div class="p-5 flex justify-between items-start relative z-10">
+<div class="space-y-1 flex-1">
+<span class="text-xs font-bold text-primary tracking-widest uppercase opacity-70">بيانات الشاحن</span>
+<h2 class="text-xl font-bold text-on-surface">شركة الخريف للصناعة</h2>
+<p class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                        المنطقة الصناعية الثانية، طريق الخرج، الرياض
+                    </p>
+<div class="pt-3 flex gap-4">
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant uppercase">رقم الشحنة</span>
+<span class="font-mono text-sm text-secondary">#JAS-99821</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant uppercase">الوزن التقديري</span>
+<span class="text-sm text-secondary">450 كجم</span>
+</div>
+</div>
+</div>
+<button class="bg-success-primary text-white p-4 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.4)] active:scale-90 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">call</span>
+</button>
+</div>
+</section>
+<!-- Pickup Checklist -->
+<section class="space-y-4">
+<h3 class="text-sm font-bold text-on-surface-variant px-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">fact_check</span>
+                قائمة مراجعة الاستلام
+            </h3>
+<div class="space-y-3">
+<!-- Item 1 -->
+<label class="flex items-center p-4 rounded-xl bg-surface-container-low border border-white/5 hover:bg-surface-container transition-colors group cursor-pointer">
+<input class="w-6 h-6 rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary/50 focus:ring-offset-0" type="checkbox"/>
+<span class="mr-4 text-on-surface font-medium">تم عد القطع بالكامل</span>
+</label>
+<!-- Item 2 (Input field variant) -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-white/5 space-y-3">
+<div class="flex items-center">
+<input class="w-6 h-6 rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary/50 focus:ring-offset-0" type="checkbox"/>
+<span class="mr-4 text-on-surface font-medium">سلامة الختم (الرقم التسلسلي)</span>
+</div>
+<div class="mr-10">
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-2 px-3 text-sm text-on-surface placeholder:text-on-surface-variant/40 focus:ring-1 focus:ring-primary" placeholder="أدخل رقم الختم هنا..." type="text"/>
+</div>
+</div>
+<!-- Item 3 -->
+<label class="flex items-center p-4 rounded-xl bg-surface-container-low border border-white/5 hover:bg-surface-container transition-colors group cursor-pointer">
+<input class="w-6 h-6 rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary/50 focus:ring-offset-0" type="checkbox"/>
+<span class="mr-4 text-on-surface font-medium">البضاعة في حالة جيدة</span>
+</label>
+<!-- Item 4 -->
+<label class="flex items-center p-4 rounded-xl bg-surface-container-low border border-white/5 hover:bg-surface-container transition-colors group cursor-pointer">
+<input class="w-6 h-6 rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary/50 focus:ring-offset-0" type="checkbox"/>
+<span class="mr-4 text-on-surface font-medium">توقيع إيصال الاستلام</span>
+</label>
+</div>
+</section>
+<!-- Photo Capture Section -->
+<section class="space-y-4">
+<h3 class="text-sm font-bold text-on-surface-variant px-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">photo_camera</span>
+                توثيق الصور
+            </h3>
+<div class="grid grid-cols-3 gap-3">
+<button class="aspect-square rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">add_a_photo</span>
+<span class="text-[10px]">إضافة صورة</span>
+</button>
+<div class="relative aspect-square rounded-xl overflow-hidden group">
+<img alt="Cargo photo 1" class="w-full h-full object-cover" data-alt="industrial warehouse cargo boxes stacked on a wooden pallet ready for transport" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVdjSnVtjywba9sOv0Jq5MPcHDToCZ4O0a_8WLo3D4vB8UfXBuprkOpJpVqGmXFKArVxXmFHMu8KEod71AfPrw1j102FPtYUJ8eR9me8_mg-KV52AYcumvBtfEwGbwTNIgtCzZhsFpR5iRmCpP9fV--C7l5_8ncJHspXICgY8HjAg5Bf-rvUX83d9LmHSQCvkpFpR2QVuKcQTTrV2NjML1JULyio0yaafBw4llHNnf1vKcsGFdMJAiosBryfVQDwCl5QQvO_Xl1g"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">delete</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-xl overflow-hidden group">
+<img alt="Seal photo" class="w-full h-full object-cover" data-alt="close-up of a security seal on a heavy duty truck door latch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAosB5t-BVAbrqw5SyIhAuULB3z6tH1r1_2T08StXx-JALOPdWAY-t497vbjCRpJEseZvbAq_4qH0QD07DzexDQWedwRscaFjmTFkWssqEJVpWKfgTWirAJ1cbP3eSTu9Uq0NT9OEwpkrl2J_sRStHzHCFMeNdY-jdKENrQ1pRIa86XK2MfTs63Oo7kobtjFlx10NGW-pu2E_hXP-bv6xbvgcPiiscL7WbKiVPZ4gjZQ0PiuoFbS_VJ6Pzob_ZFlvwK702EikKSCQ"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">delete</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Actions & Navigation (Contextual Filtered) -->
+<div class="fixed bottom-0 w-full z-50">
+<!-- Floating Confirm Button -->
+<div class="px-4 pb-4">
+<button class="w-full bg-success-primary hover:bg-success-primary/90 text-white font-['Tajawal'] font-bold py-4 rounded-xl shadow-[0_10px_25px_rgba(34,197,94,0.3)] flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                تأكيد عملية الاستلام
+            </button>
+</div>
+<!-- Navigation Shell (Shared Component) -->
+<nav class="bg-[#0F0F1A]/90 backdrop-blur-2xl border-t border-white/10 h-20 pb-4 w-full px-2 flex flex-row-reverse justify-around items-center rounded-t-xl shadow-[0_-10px_20px_rgba(0,0,0,0.5)] safe-area-bottom">
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-[#d0bcff] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['IBM_Plex_Arabic'] text-[11px] font-medium">الرئيسية</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#d0bcff] bg-[#4B1FA3]/20 rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-['IBM_Plex_Arabic'] text-[11px] font-medium">الرحلات</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-[#d0bcff] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-['IBM_Plex_Arabic'] text-[11px] font-medium">التنبيهات</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-[#d0bcff] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['IBM_Plex_Arabic'] text-[11px] font-medium">الإعدادات</span>
+</a>
+</nav>
+</div>
+</body></html>

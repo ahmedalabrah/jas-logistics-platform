@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Revenue Engine — Override Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#22005c",
+                    "secondary": "#cfbef6",
+                    "primary-container": "#4b1fa3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#c0b0e7",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary": "#3b0092",
+                    "surface-variant": "#343440",
+                    "surface-container-high": "#292935",
+                    "tertiary-container": "#6c2e00",
+                    "outline": "#948e9e",
+                    "on-secondary": "#352856",
+                    "on-tertiary": "#532200",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#1b1a26",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary-fixed": "#331200",
+                    "tertiary": "#ffb68e",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "inverse-surface": "#e3e0f1",
+                    "inverse-primary": "#6a45c3",
+                    "outline-variant": "#494453",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "inverse-on-surface": "#302f3b",
+                    "error-container": "#93000a",
+                    "surface-tint": "#d0bcff",
+                    "secondary-fixed": "#e9ddff",
+                    "background": "#12121d",
+                    "on-primary-container": "#b79cff",
+                    "surface-bright": "#383845",
+                    "surface-container": "#1f1e2a",
+                    "surface": "#12121d",
+                    "on-error": "#690005",
+                    "primary-fixed": "#e9ddff",
+                    "on-background": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "secondary-container": "#4f4171",
+                    "primary": "#d0bcff",
+                    "surface-container-highest": "#343440",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-surface": "#e3e0f1",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-tertiary-container": "#f09661",
+                    "on-secondary-fixed": "#201340",
+                    "surface-dim": "#12121d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0d0d18; }
+        ::-webkit-scrollbar-thumb { background: #343440; border-radius: 10px; }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(31, 30, 42, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl border-b border-white/5 flex justify-between items-center px-8 py-3 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+<div class="flex items-center gap-12">
+<span class="text-xl font-bold bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] bg-clip-text text-transparent font-['Plus_Jakarta_Sans'] tracking-tight">JAS Revenue Engine</span>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Global Rates</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Overrides</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Tier Rules</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Simulator</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3 px-2">
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 rounded-full active:scale-95">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 rounded-full active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 rounded-full active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<button class="bg-primary-container text-on-primary-fixed-variant px-5 py-2 rounded-lg font-bold text-sm hover:brightness-110 active:scale-95 transition-all">
+                Approve Changes
+            </button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="Finance Director Profile" data-alt="professional portrait of a finance executive in a dark suit with soft studio lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTVTD0scpDdcljShUtAkqFDC7KjqNOo3dBEnBRvelz7pvjkwylqrszctZqMBHRl5OZ7IFU9zqXg839_ZzHhkEhU2EQXHMWut4IC7VTgxbboU9xKSr_YuW7Qf4xHyRozwAxTm9qU1SyTvV6luEK--vinAkvfHwyUU_-YZsd1qzQ6v-eMTY_TPz0-TGB_EJRXGU9cNyjXycFJJRODNWBq6jrBYhKXbAn_KwiDFhkiRQcD1GrIsT-_yhmI2gSmCbPs4bnGlhDtHzvcQ"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#12121d] flex flex-col pt-20 pb-6 z-40">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container/20 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="finance">finance</span>
+</div>
+<div>
+<p class="text-sm font-black text-[#d0bcff]">Finance Ops</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">Enterprise Tier</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-['Plus_Jakarta_Sans']">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm font-['Plus_Jakarta_Sans']">Rate Engines</span>
+</a>
+<a class="flex items-center gap-4 bg-[#4b1fa3]/20 text-[#d0bcff] rounded-r-full border-l-4 border-[#d0bcff] py-3 px-6 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="rule">rule</span>
+<span class="text-sm font-['Plus_Jakarta_Sans']">Override Log</span>
+</a>
+<a class="flex items-center gap-4 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+<span class="text-sm font-['Plus_Jakarta_Sans']">Workflow</span>
+</a>
+<a class="flex items-center gap-4 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-sm font-['Plus_Jakarta_Sans']">Simulator</span>
+</a>
+<a class="flex items-center gap-4 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="text-sm font-['Plus_Jakarta_Sans']">Audit Trail</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold py-2.5 rounded-lg text-sm shadow-lg shadow-primary/10 active:scale-95 transition-all mb-8">
+                New Rate Rule
+            </button>
+<div class="space-y-4 pt-6 border-t border-white/5">
+<a class="flex items-center gap-4 text-slate-500 text-sm hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                    Support
+                </a>
+<a class="flex items-center gap-4 text-slate-500 text-sm hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                    Documentation
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="pl-64 pt-16 min-h-screen">
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10">
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary-fixed-dim text-xs font-semibold tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm" data-icon="shield_lock">shield_lock</span>
+                        Financial Governance
+                    </div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface">Override Management</h1>
+<p class="text-on-surface-variant max-w-xl">Configure specific entity exceptions to global rate engines. High-priority overrides bypass standard tiered calculation logic.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container border border-white/5 px-4 py-2 rounded-lg flex items-center gap-3">
+<span class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">Active Overrides</span>
+<span class="text-2xl font-black text-primary">1,284</span>
+</div>
+<button class="group relative px-6 py-3 bg-white text-background rounded-lg font-bold text-sm overflow-hidden transition-all hover:pr-10">
+<span class="relative z-10 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+                            New Override
+                        </span>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</header>
+<!-- Filters & Quick Actions -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+<div class="col-span-1 md:col-span-2 relative group">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant group-focus-within:text-primary" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-3 pl-12 pr-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/50 placeholder:text-on-surface-variant/50 transition-all" placeholder="Search by Entity Name, Stream ID, or Reason..." type="text"/>
+</div>
+<div class="bg-surface-container-low rounded-xl px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-surface-container transition-colors">
+<span class="text-sm text-on-surface-variant">Entity Type</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="filter_list">filter_list</span>
+</div>
+<div class="bg-surface-container-low rounded-xl px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-surface-container transition-colors">
+<span class="text-sm text-on-surface-variant">Rate Stream</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="tune">tune</span>
+</div>
+</div>
+<!-- Overrides Table Container -->
+<section class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-2xl border border-white/5">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container text-[11px] uppercase tracking-widest text-on-surface-variant font-bold">
+<tr>
+<th class="px-6 py-4">Entity Name</th>
+<th class="px-6 py-4 text-center">Type</th>
+<th class="px-6 py-4">Rate Stream</th>
+<th class="px-6 py-4">Override Value</th>
+<th class="px-6 py-4">Reason</th>
+<th class="px-6 py-4">Expiry Date</th>
+<th class="px-6 py-4">Approved By</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center font-bold text-[10px] text-primary">AQ</div>
+<div>
+<div class="text-sm font-semibold text-on-surface">Al Qudra Logistics</div>
+<div class="text-[10px] text-on-surface-variant uppercase">ID: JAS-992-KSA</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2 py-1 rounded text-[10px] font-bold bg-secondary-container/30 text-secondary uppercase">Regional</span>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-medium text-on-surface">Cross-Border SAR</div>
+<div class="text-[10px] text-on-surface-variant italic">ID: XB_CORE_V2</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="text-sm font-black text-primary">-12.5%</span>
+<span class="material-symbols-outlined text-xs text-primary" data-icon="trending_down">trending_down</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-xs text-on-surface-variant truncate max-w-[150px]" title="Strategic multi-year volume commitment agreement">Volume Commitment</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-medium text-on-surface">Oct 24, 2025</div>
+<div class="text-[10px] text-error">342 days left</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full overflow-hidden">
+<img alt="Approver Avatar" data-alt="professional male headshot with modern glasses in soft light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjonTfO1tmwn9eUP2vD-2r5eQRWTPk5KQIbnDGAXgPBpTHHqk2enS2RFctsJ3tYxKlfAZEXBFHbTUyJetcNGWJ2viJKree7fRjFE_lz4sj4TfS2I8O76QVlpaGTkHz_MnlqQx8SbHFE0R4qwUODt-7-RljEBcHFo5hwCYxPElqrYqEfzcLCFsdNH5CAWgdB7iRNN2CNsrnvMSmxN01BEMwEArdrtsVJ8tjCYO277fT4IgoUiJTetKkRu33fttUB_wQhGreEOCDNw"/>
+</div>
+<span class="text-xs font-medium">H. Mansour</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-bright rounded transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-surface-bright rounded transition-colors text-error"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center font-bold text-[10px] text-primary">ST</div>
+<div>
+<div class="text-sm font-semibold text-on-surface">SwiftTrans Global</div>
+<div class="text-[10px] text-on-surface-variant uppercase">ID: JAS-441-UAE</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2 py-1 rounded text-[10px] font-bold bg-tertiary-container/30 text-tertiary uppercase">Strategic</span>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-medium text-on-surface">Last-Mile Fulfillment</div>
+<div class="text-[10px] text-on-surface-variant italic">ID: LM_PREM_04</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="text-sm font-black text-on-surface-variant">FLAT 45.00</span>
+<span class="material-symbols-outlined text-xs" data-icon="fixed_rate">rate_review</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-xs text-on-surface-variant truncate max-w-[150px]">Promo Launch Period</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-medium text-on-surface">Dec 12, 2024</div>
+<div class="text-[10px] text-error font-bold">Expires in 26 days</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full overflow-hidden">
+<img alt="Approver Avatar" data-alt="professional female profile photo with natural lighting and office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD3msLLQVrMVrWdMM5kNBDdc1m802uqNYA98ZjWdbILDGoK1U-LNzyjFeHkJht7IueYQyf0xmhvfILI6qWCO62nB_3Eqg3Ntp1bhP3_L_i999LOTpn6Gpoqei0sXEQcrdZjkDjaQea2PEwkaQHwSvzcmPdGPM7Y5ptGOEE5bEjxJKTJReK5067AcnNKBEZrk3aZp6RK6uo9cJsWkiTvHx4KJDhiojnrQ93ZHRrtKw4pApD-FfCc5PrGwUTdUUhMF3DbLrHFxW_vQ"/>
+</div>
+<span class="text-xs font-medium">S. Al-Zahrani</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-bright rounded transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-surface-bright rounded transition-colors text-error"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center font-bold text-[10px] text-primary">NK</div>
+<div>
+<div class="text-sm font-semibold text-on-surface">Najm Khaleej</div>
+<div class="text-[10px] text-on-surface-variant uppercase">ID: JAS-110-OMN</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2 py-1 rounded text-[10px] font-bold bg-secondary-container/30 text-secondary uppercase">Standard</span>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-medium text-on-surface">Sea Freight Bulk</div>
+<div class="text-[10px] text-on-surface-variant italic">ID: SEA_BLK_MAR</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="text-sm font-black text-on-surface">+5.0%</span>
+<span class="material-symbols-outlined text-xs text-error" data-icon="trending_up">trending_up</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-xs text-on-surface-variant truncate max-w-[150px]">Emergency Fuel Surcharge</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm font-medium text-on-surface">Jan 01, 2025</div>
+<div class="text-[10px] text-on-surface-variant">45 days left</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full overflow-hidden">
+<img alt="Approver Avatar" data-alt="clean professional male portrait with confident expression and soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH5UroQ0D0xrrGxKfP08aJYj7eiIlyVGtxbBw-z8iiTLcxQyDyrdSdKiV5t9ny6lV5m1B8y0fHKHLPXetw-IIWv2cwcQCvoitcGmheRSoDBFBcMSgzflaOtcSZN-ke3SxlVBdaq-bqmFKohuGAOvcpEXrHGNXUu-M3vGF4F7xaC_ovk0nUjyjuEOBpTWmx4UCBHCZbgJcE5svkr1XzdtWYLyIfhIP-awsmgL_oykL2kV4lNz6B2xE2QIOBCeaL8J6RgJWxnqqE6g"/>
+</div>
+<span class="text-xs font-medium">Auto-Sys</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-bright rounded transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-surface-bright rounded transition-colors text-error"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-surface-container-low flex items-center justify-between">
+<div class="text-xs text-on-surface-variant">Showing <span class="text-on-surface font-bold">1-15</span> of 1,284 entries</div>
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded bg-surface-container text-on-surface-variant disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-3 py-1 rounded bg-primary text-on-primary text-xs font-bold">1</button>
+<button class="px-3 py-1 rounded bg-surface-container text-on-surface text-xs font-bold hover:bg-surface-bright">2</button>
+<button class="px-3 py-1 rounded bg-surface-container text-on-surface text-xs font-bold hover:bg-surface-bright">3</button>
+<button class="p-1.5 rounded bg-surface-container text-on-surface-variant hover:bg-surface-bright">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Modal: New Override (Overlay State) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-background/80 backdrop-blur-sm">
+<div class="w-full max-w-2xl bg-surface-container-high rounded-2xl shadow-[0_24px_64px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden">
+<div class="px-8 py-6 border-b border-white/5 flex justify-between items-center">
+<div>
+<h2 class="text-xl font-extrabold text-on-surface">Create New Override</h2>
+<p class="text-xs text-on-surface-variant mt-1">Direct manual exception for rate engine calculations.</p>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="p-8 space-y-6">
+<!-- Step 1: Entity & Stream -->
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary">Entity Search</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-sm" data-icon="business">business</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg py-3 pl-10 text-sm focus:ring-1 focus:ring-primary" placeholder="Select Entity..." type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary">Rate Stream</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-sm" data-icon="account_tree">account_tree</span>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg py-3 pl-10 text-sm focus:ring-1 focus:ring-primary appearance-none">
+<option>XB_CORE_V2 (Cross Border)</option>
+<option>LM_PREM_04 (Last Mile)</option>
+<option>AIR_EXP_FAST (Air Freight)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Step 2: Value & Reason -->
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary">Override Value</label>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container-lowest border-none rounded-lg py-3 px-4 text-sm font-bold focus:ring-1 focus:ring-primary" placeholder="-10.0" type="text"/>
+<div class="bg-surface-container-lowest px-4 py-3 rounded-lg text-sm text-on-surface-variant font-bold">%</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary">Expiry Date</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-sm" data-icon="calendar_today">calendar_today</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg py-3 pl-10 text-sm focus:ring-1 focus:ring-primary" type="date"/>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary">Reason for Exception</label>
+<textarea class="w-full bg-surface-container-lowest border-none rounded-lg p-4 text-sm focus:ring-1 focus:ring-primary" placeholder="Explain why this override is necessary (e.g., Q4 Strategic Partnership, Competitor Matching)..." rows="3"></textarea>
+</div>
+<!-- Warnings -->
+<div class="bg-primary/5 rounded-xl p-4 flex gap-4 border border-primary/10">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">Overrides take precedence over all standard rate tiers. This change will be logged in the Audit Trail and requires final approval from the Finance Director.</p>
+</div>
+</div>
+<div class="px-8 py-6 bg-surface-container border-t border-white/5 flex justify-end gap-4">
+<button class="px-6 py-2.5 rounded-lg text-sm font-bold text-on-surface-variant hover:bg-white/5 transition-colors">Discard</button>
+<button class="px-8 py-2.5 rounded-lg text-sm font-bold bg-primary text-on-primary shadow-lg shadow-primary/20 active:scale-95 transition-all">Submit for Approval</button>
+</div>
+</div>
+</div>
+</body></html>

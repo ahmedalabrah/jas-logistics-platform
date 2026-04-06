@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Confirmation | JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#e9ddff",
+                    "on-primary-fixed": "#22005c",
+                    "on-primary-container": "#b79cff",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "secondary-fixed": "#e9ddff",
+                    "secondary": "#cfbef6",
+                    "tertiary": "#ffb68e",
+                    "surface-container-lowest": "#0d0d18",
+                    "primary": "#d0bcff",
+                    "error-container": "#93000a",
+                    "surface-dim": "#12121d",
+                    "primary-container": "#4b1fa3",
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-tertiary-fixed": "#331200",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "tertiary-container": "#6c2e00",
+                    "surface-variant": "#343440",
+                    "surface-container": "#1f1e2a",
+                    "surface": "#12121d",
+                    "surface-tint": "#d0bcff",
+                    "on-tertiary": "#532200",
+                    "on-surface-variant": "#cbc3d5",
+                    "on-background": "#e3e0f1",
+                    "background": "#12121d",
+                    "on-secondary": "#352856",
+                    "surface-bright": "#383845",
+                    "inverse-on-surface": "#302f3b",
+                    "on-error": "#690005",
+                    "on-tertiary-container": "#f09661",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-primary": "#3b0092",
+                    "on-surface": "#e3e0f1",
+                    "surface-container-low": "#1b1a26",
+                    "surface-container-highest": "#343440",
+                    "outline-variant": "#494453",
+                    "inverse-primary": "#6a45c3",
+                    "error": "#ffb4ab",
+                    "surface-container-high": "#292935",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "outline": "#948e9e",
+                    "on-secondary-container": "#c0b0e7",
+                    "inverse-surface": "#e3e0f1",
+                    "on-secondary-fixed": "#201340"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "arabic": ["IBM Plex Sans Arabic"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .success-glow {
+            box-shadow: 0 0 40px -10px rgba(183, 156, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-16 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/50">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-white font-headline">JAS Logistics</span>
+<div class="hidden md:flex items-center gap-6 font-['Plus_Jakarta_Sans'] text-sm tracking-tight">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Shipments</a>
+<a class="text-violet-400 border-b-2 border-violet-500 pb-1" href="#">Payments</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 rounded-lg active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 rounded-lg active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden border border-white/10">
+<img alt="User profile" data-alt="close-up portrait of a professional logistics manager in a modern office setting with soft ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmikW_ai4gK_1SORa5IWChYtU4SzrXOSmaQ26x7N-0s3KV5T0uzGPdkwzjNDnHYHBDUYUnieyGVcYEvejvpIMX_C5N7Tdvry4IdcQlVs-7SRn1WNp7E1q1MjS_AXKECBwVxvjXxGVJWJ4DWYUT_cyuS8cK2qDc1sln2OZq7K8ZfqEp-MFuC5TZpD6j7AzI-i2XD7rUf7NzpD0TGdUNF1AG6jGFh6Poeax0LmIQ3akR-06fPfv6GbLRxEYJKslWN3slMcui3C4i3A"/>
+</div>
+</div>
+<div class="bg-gradient-to-r from-transparent via-violet-500/10 to-transparent h-[1px] w-full absolute bottom-0"></div>
+</nav>
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-screen w-64 left-0 top-0 fixed bg-[#12121d]/90 backdrop-blur-lg shadow-[4px_0_24px_rgba(0,0,0,0.5)] z-40 py-6 font-['Plus_Jakarta_Sans'] font-medium">
+<div class="px-6 mb-8 mt-12">
+<h2 class="text-lg font-black text-white">Financial Portal</h2>
+<p class="text-xs text-slate-500">Logistics Intelligence</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-violet-500/5 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-violet-600/10 text-violet-400 border-r-4 border-violet-500 hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Transactions</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-violet-500/5 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<span>Payment Methods</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-violet-500/5 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>Invoices</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-violet-500/5 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">settings_suggest</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-6 py-4 border-t border-white/5 flex flex-col gap-2">
+<a class="flex items-center gap-3 text-sm text-slate-500 hover:text-slate-300" href="#">
+<span class="material-symbols-outlined text-sm">headset_mic</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 text-sm text-slate-500 hover:text-slate-300" href="#">
+<span class="material-symbols-outlined text-sm">language</span>
+<span>Language</span>
+</a>
+</div>
+<div class="bg-white/5 w-[1px] h-full absolute right-0"></div>
+</aside>
+<!-- Main Content -->
+<main class="lg:pl-64 pt-16 min-h-screen bg-surface">
+<div class="max-w-5xl mx-auto px-8 py-12 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)]">
+<!-- Success Animation Container (Simulated Confetti Backdrop) -->
+<div class="relative w-full max-w-2xl bg-surface-container-low rounded-xl p-8 md:p-12 text-center border border-white/5 overflow-hidden success-glow">
+<!-- Confetti Elements (Static for design) -->
+<div class="absolute top-10 left-10 w-2 h-2 bg-primary rounded-full opacity-40"></div>
+<div class="absolute top-20 right-20 w-3 h-3 bg-tertiary rotate-45 opacity-40"></div>
+<div class="absolute bottom-10 left-1/4 w-2 h-2 bg-secondary opacity-40"></div>
+<div class="absolute top-1/2 right-10 w-2 h-2 bg-primary opacity-40"></div>
+<!-- Success Icon -->
+<div class="mb-8 relative inline-block">
+<div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-150"></div>
+<div class="relative w-24 h-24 bg-gradient-to-tr from-primary-container to-primary flex items-center justify-center rounded-full shadow-lg">
+<span class="material-symbols-outlined text-5xl text-on-primary-fixed" style="font-variation-settings: 'wght' 700;">check_circle</span>
+</div>
+</div>
+<!-- Titles -->
+<div class="mb-6">
+<h1 class="text-3xl font-headline font-bold text-white mb-2">Payment Successful</h1>
+<h2 class="text-2xl font-arabic font-bold text-primary">تم الدفع بنجاح</h2>
+</div>
+<!-- Amount Display -->
+<div class="mb-10 py-6 bg-surface-container rounded-lg border border-white/5">
+<p class="text-sm font-medium text-on-surface-variant uppercase tracking-widest mb-1">Total Paid</p>
+<div class="text-4xl md:text-5xl font-headline font-extrabold text-[#b7ffb7]">
+                        SAR 148,867.00
+                    </div>
+</div>
+<!-- Details Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-left">
+<div class="p-4 bg-surface-container-lowest rounded-lg flex flex-col gap-1 border border-white/5">
+<span class="text-xs text-on-surface-variant uppercase font-semibold">Invoice Number</span>
+<span class="text-white font-medium">INV-2026-04-0841</span>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-lg flex flex-col gap-1 border border-white/5">
+<span class="text-xs text-on-surface-variant uppercase font-semibold">Payment Method</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">account_balance_wallet</span>
+<span class="text-white font-medium">JAS Wallet</span>
+</div>
+</div>
+</div>
+<!-- Receipt Actions -->
+<div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-10">
+<div class="flex flex-col items-center gap-3 p-4 bg-white/5 rounded-xl border border-dashed border-outline-variant w-full md:w-auto">
+<div class="w-24 h-24 bg-white p-2 rounded-lg">
+<img alt="ZATCA QR Code" class="w-full h-full grayscale brightness-0" data-alt="A clean, high-contrast QR code generated for digital invoices, centered on a white minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGl7_OWuhwdm_Kl50lrKLxrqeOeZnCRlPgQJiO3WH1x1yUY20Jx41aj3OL3LFl8DU_QpO3okeJZfekvI3a1G9pEXc3Rn46mUfbUWtU12RCEjavrjjwbuXQFDxdBxugHbTlNjfL4ytXW8Ppd3szstoc1RmisrChmT5A1VLkhV9B00PN93VkkQrhBDCukSYlS9JHTCjyan_8JNf_O2DvI6wepylFXpKIxp7FeuygRmxgvoXBPumUp0Od4EwTVCNImF5b9Sp0NsXeOg"/>
+</div>
+<button class="flex items-center gap-2 text-primary font-medium hover:underline">
+<span class="material-symbols-outlined text-lg">description</span>
+                            Download ZATCA Receipt
+                        </button>
+</div>
+<button class="flex items-center gap-3 px-6 py-4 bg-surface-container-highest rounded-lg text-on-surface hover:bg-surface-bright transition-colors w-full md:w-auto justify-center">
+<span class="material-symbols-outlined">mail</span>
+                        Email Receipt
+                    </button>
+</div>
+<!-- Navigation -->
+<div class="pt-8 border-t border-white/5">
+<button class="group flex items-center justify-center gap-3 w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-bold rounded-lg hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+                        Back to Invoices
+                    </button>
+</div>
+</div>
+<!-- Additional Contextual Info (Editorial Style) -->
+<div class="mt-12 text-center text-on-surface-variant max-w-lg">
+<p class="text-sm leading-relaxed">
+                    Transaction processed via JAS Financial Infrastructure. Your shipment schedule has been automatically updated to reflect the cleared payment status.
+                </p>
+<div class="mt-4 flex justify-center gap-6 grayscale opacity-50">
+<img alt="Visa Logo" class="h-6" data-alt="minimalist visa credit card logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkqIKTVFLnk8LszS-EPdghCBEGu-fpNmoJPPuB0G7kmbQT87_sKx2Nbsf6VFS-Sfaz2IDs7nPusO0zc2xkM4G5ghPu5X2Wpqc7XfH4WQrc4Mhne4owa_7b-Efa5CYSifo7iLV6uscMKWcjyZJ2b1mT8J0VyD82rTdkJw6Py3btwMYg4Vl3HkqFG9iX6F3lAW8_k_NEjvv6Snj1HkGUE6gaT8jEQumnyft3t1uCZ6EijL-wK-9ZU-JqNSzeYCjFCADKQ2FTdvEKug"/>
+<img alt="Mastercard Logo" class="h-6" data-alt="mastercard brand identity circles logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0O1J4_jHOkJicAo_FAyPcbbTydT7VHK_eDOvNTxp38JK8WJ9wwERARgPVHbI1H3NcBdFrBC4yIZYVuC_kXrYeOfuwbBjXOI-hr2ZkktrjoMQhG6V8RdwwMwf1Jnssp77RdFdPwSmEPCWMlxvB567v0qUGf0SCSMUn1_s5LbZ8johnTppdWGfVSrZ_M5drnNXDOSRUWp9Glb_p1qT3nkwex47oqwXHS5BpoUX5MqFLQM2y7TcQHPEz6BJFUnuZkEfSE2KP86sOZw"/>
+<img alt="Mada Logo" class="h-6" data-alt="Saudi mada payment network logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXdLJpXQ-BX0erzSdoLlELTF8cAQSlYpBzG41eOaRcAfHafWI5J4vQx8KjDadynNmDA4cz79tCJahTjq7NRMH342RyNQGgQrbIW9DSvX07UrlOl-2RwqV-VNr9dUF6bZ-I5pI1dW_-Tt0S7fR-fxdmxH3MhvSPF1CFq-GBAZ-_lIdnvxAe6PimpfTY7I2J6sPILqhHbYfEfsqXs3GdmnFwm7YquvL-WJHpSC8NV8KN-pDu7jMUCDq_WLzEzfk5IH0MQuzZQUN6Ug"/>
+</div>
+</div>
+</div>
+</main>
+</body></html>

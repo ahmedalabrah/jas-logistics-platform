@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Payment Selector</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#e9ddff",
+                        "on-primary-fixed": "#22005c",
+                        "on-primary-container": "#b79cff",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "secondary-fixed": "#e9ddff",
+                        "secondary": "#cfbef6",
+                        "tertiary": "#ffb68e",
+                        "surface-container-lowest": "#0d0d18",
+                        "primary": "#d0bcff",
+                        "error-container": "#93000a",
+                        "surface-dim": "#12121d",
+                        "primary-container": "#4b1fa3",
+                        "secondary-container": "#4f4171",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary-fixed": "#331200",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "tertiary-container": "#6c2e00",
+                        "surface-variant": "#343440",
+                        "surface-container": "#1f1e2a",
+                        "surface": "#12121d",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary": "#532200",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-background": "#e3e0f1",
+                        "background": "#12121d",
+                        "on-secondary": "#352856",
+                        "surface-bright": "#383845",
+                        "inverse-on-surface": "#302f3b",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#f09661",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "on-primary": "#3b0092",
+                        "on-surface": "#e3e0f1",
+                        "surface-container-low": "#1b1a26",
+                        "surface-container-highest": "#343440",
+                        "outline-variant": "#494453",
+                        "inverse-primary": "#6a45c3",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#292935",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "outline": "#948e9e",
+                        "on-secondary-container": "#c0b0e7",
+                        "inverse-surface": "#e3e0f1",
+                        "on-secondary-fixed": "#201340"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "poppins": ["Poppins"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.7);
+            backdrop-filter: blur(16px);
+        }
+        .shimmer-gradient {
+            background: linear-gradient(90deg, transparent, rgba(208, 188, 255, 0.1), transparent);
+            background-size: 200% 100%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white antialiased">
+<!-- Transactional Screen: Navigation Shell Suppressed as per "Destination Rule" -->
+<main class="min-h-screen flex flex-col items-center justify-center p-6 md:p-12 relative overflow-hidden">
+<!-- Abstract Background Decoration -->
+<div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-10"></div>
+<div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-primary-container/20 rounded-full blur-[150px] -z-10"></div>
+<div class="w-full max-w-4xl mx-auto space-y-8">
+<!-- Header Section: Editorial Authority -->
+<header class="space-y-4 text-center md:text-left">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="space-y-1">
+<p class="text-primary-fixed-dim font-headline font-bold tracking-widest text-xs uppercase">PAYMENT SETTLEMENT</p>
+<h2 class="text-on-surface-variant font-headline font-semibold text-lg">Invoice: INV-2026-04-0841</h2>
+</div>
+<div class="flex flex-col md:items-end">
+<span class="text-primary font-poppins text-4xl md:text-6xl tracking-tighter leading-none">SAR 148,867.00</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-3 text-on-surface-variant font-medium">
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-sm">Due Apr 15, 2026</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="text-sm">Al-Noor Pharmaceuticals</span>
+<span class="ml-auto text-xs opacity-50 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="lock">lock</span>
+                        SECURE TRANSACTION
+                    </span>
+</div>
+</header>
+<!-- Payment Methods Grid: Bento Style -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- 1. JAS Wallet (Selected) -->
+<button class="relative group text-left p-6 rounded-xl border-2 border-primary bg-primary-container/10 transition-all duration-300 ring-4 ring-primary/5">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary/20 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div class="flex items-center gap-2 bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Active
+                        </div>
+</div>
+<h3 class="text-xl font-headline font-bold text-white">JAS Wallet</h3>
+<p class="text-on-surface-variant text-sm mt-1">Instant settlement via internal ledger</p>
+<div class="mt-6 flex items-baseline gap-2">
+<span class="text-xs text-on-surface-variant">Balance:</span>
+<span class="text-lg font-bold text-primary-fixed">SAR 240,000</span>
+</div>
+<div class="absolute top-4 right-4 text-primary">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</button>
+<!-- 2. Card -->
+<button class="relative group text-left p-6 rounded-xl border border-outline-variant/30 bg-surface-container-low hover:bg-surface-container-high transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-surface-container-highest p-2 rounded-lg text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+</div>
+<div class="flex gap-2 opacity-60">
+<img alt="mada" class="h-4" data-alt="saudi mada payment network logo minimalist icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuhac2GBUmgpNvS-QL6TuDyS-IfjVWFGEJIT0NuvgQiYh42PW86RY-sjDyo0cCRI7lpBju7hdCVd_LXwTupKXuRgN7q9sAwxQksaOJjDTVtGJ6-fL_fr8DdaN2zlwlBn8G6yLma2K46t4MjZ7OYfV9vybk1o-8mg6pVRePr0tLvlO78KSIYWMWQFeVoauzvy3nxj3jfExXwymuPO4dfmyDj-hhaMH0yF4cKQNH_IF9ZIIQpQw7jvQYULqTdzvLAfEO0iq9hTgCaQ"/>
+<img alt="visa" class="h-4" data-alt="visa credit card provider logo minimalist monochrome white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0Z9yqu-fnCLOQlIYA4WrDnyTn-hLf8EdIJN-Di8zzMEzCjyJh-LHVcKD-UULnCfLMvIEiJ2a8-XO5CGmRCdsnPWvIbiJsUU044g7Y-SU92XKUz3RiqJwwWjljrUb2vtJ9jJjNly_WZV4fBOBS0nMxf5Jctptit2-FGoiEpwsyHzo2ukshjSFrqI3WECMXVi4Jy7ggzPuLSM3x2nz_3bauwFRRrxl1GQFNVC_O3lKKHBKzLXlWPtCBfqNQso4zCPz8_khq0kVpCw"/>
+<img alt="mastercard" class="h-4" data-alt="mastercard payment network logo minimalist white circles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKnG2H0XtMyD1sr2zAOvfoQ4TNQ2jHQki6SgCw2PyKourEYapzEaE4PbCNLuQSt1zl_IoD5rpDDSW_ENn0pb90tY7bkuCfUedp95IpSGfqKLatUOY2-1r1e36DBls750HJ-H3c2y02DYZnOnXG7u0NHA9_GR3yNVXi0REsBHMkS6VWeh2lycikivchNCbZ6vkNrTv9R7vgl7Wf9b9rSId8kDypx2U0oxfHcxftGYqpFM6qOWS5Ff8J6MRzHNpuaqDQbMJnDpxyeg"/>
+</div>
+</div>
+<h3 class="text-xl font-headline font-bold text-white">Card</h3>
+<p class="text-on-surface-variant text-sm mt-1">Mada, Visa, or Mastercard</p>
+<div class="mt-6">
+<span class="text-xs text-on-surface-variant font-medium group-hover:text-primary transition-colors">ADD NEW CARD +</span>
+</div>
+</button>
+<!-- 3. SADAD -->
+<button class="relative group text-left p-6 rounded-xl border border-outline-variant/30 bg-surface-container-low hover:bg-surface-container-high transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-surface-container-highest p-2 rounded-lg text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<span class="bg-tertiary-container/30 text-on-tertiary-container px-2 py-0.5 rounded text-[10px] font-bold">SADAD ID</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-white">SADAD</h3>
+<p class="text-on-surface-variant text-sm mt-1">Government &amp; Bill payment system</p>
+<div class="mt-4 flex items-start gap-2 bg-error-container/20 p-2 rounded border border-error-container/30">
+<span class="material-symbols-outlined text-error text-sm" data-icon="warning">warning</span>
+<p class="text-[10px] text-error font-medium leading-tight uppercase">Order held until confirmation</p>
+</div>
+</button>
+<!-- 4. Bank Transfer -->
+<button class="relative group text-left p-6 rounded-xl border border-outline-variant/30 bg-surface-container-low hover:bg-surface-container-high transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-surface-container-highest p-2 rounded-lg text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+</div>
+<h3 class="text-xl font-headline font-bold text-white">Bank Transfer</h3>
+<p class="text-on-surface-variant text-sm mt-1">Direct wire to JAS Enterprise AC</p>
+<div class="mt-6 flex items-center gap-2">
+<span class="text-[10px] bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded font-bold tracking-tighter">LARGE AMOUNTS ONLY</span>
+</div>
+</button>
+<!-- 5. COD (Conditional) -->
+<button class="relative group text-left p-6 rounded-xl border border-outline-variant/10 bg-surface-container-lowest opacity-50 cursor-not-allowed md:col-span-2">
+<div class="flex items-center gap-4">
+<div class="bg-surface-variant p-2 rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<h3 class="text-lg font-headline font-bold text-white">Cash on Delivery (COD)</h3>
+<p class="text-on-surface-variant text-xs">Unavailable for transactions above SAR 5,000</p>
+</div>
+<div class="ml-auto">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="lock_clock">lock_clock</span>
+</div>
+</div>
+</button>
+</div>
+<!-- Footer: Navigation & Actions -->
+<footer class="pt-8 mt-8 border-t border-outline-variant/10 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-white flex items-center gap-2 transition-colors group">
+<span class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1" data-icon="arrow_back">arrow_back</span>
+<span class="font-medium text-sm">Cancel Transaction</span>
+</button>
+<div class="w-px h-4 bg-outline-variant/30"></div>
+<button class="text-on-surface-variant hover:text-primary flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+<span class="font-medium text-sm">Payment Support</span>
+</button>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<!-- RTL Toggle Hint -->
+<button class="p-3 rounded-full hover:bg-surface-container-high text-on-surface-variant" title="Switch to Arabic">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<!-- Primary Action -->
+<button class="flex-1 md:flex-none px-12 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-bold rounded-lg hover:shadow-[0_0_30px_rgba(208,188,255,0.3)] active:scale-[0.98] transition-all flex items-center justify-center gap-3 group">
+<span>Continue to Confirmation</span>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+</div>
+<!-- Security Badge Glassmorphism -->
+<div class="mt-12 glass-panel border border-white/5 px-6 py-3 rounded-full flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="verified_user">verified_user</span>
+<span class="text-[10px] text-on-surface-variant font-bold tracking-widest uppercase">PCI-DSS Compliant</span>
+</div>
+<div class="w-1 h-1 bg-outline-variant rounded-full"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="security">security</span>
+<span class="text-[10px] text-on-surface-variant font-bold tracking-widest uppercase">256-bit AES Encryption</span>
+</div>
+</div>
+</main>
+<!-- Side Decoration (The Velvet Intelligence aesthetic) -->
+<div class="fixed top-0 right-0 h-full w-1 overflow-hidden pointer-events-none">
+<div class="h-full w-full bg-gradient-to-b from-transparent via-primary/40 to-transparent"></div>
+</div>
+<div class="fixed top-0 left-0 h-full w-1 overflow-hidden pointer-events-none">
+<div class="h-full w-full bg-gradient-to-b from-transparent via-primary/40 to-transparent"></div>
+</div>
+</body></html>

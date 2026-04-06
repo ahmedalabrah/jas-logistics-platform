@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Operations Dashboard | JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0d0d18; }
+        ::-webkit-scrollbar-thumb { background: #343440; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #494453; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#1f1e2a",
+                        "primary": "#d0bcff",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "secondary": "#cfbef6",
+                        "on-tertiary-container": "#f09661",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "outline": "#948e9e",
+                        "on-primary": "#3b0092",
+                        "surface-bright": "#383845",
+                        "secondary-fixed": "#e9ddff",
+                        "surface": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "inverse-surface": "#e3e0f1",
+                        "tertiary-container": "#6c2e00",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#331200",
+                        "error-container": "#93000a",
+                        "surface-variant": "#343440",
+                        "on-error": "#690005",
+                        "surface-dim": "#12121d",
+                        "background": "#12121d",
+                        "on-surface-variant": "#cbc3d5",
+                        "outline-variant": "#494453",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-container-highest": "#343440",
+                        "on-primary-container": "#b79cff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-tertiary": "#532200",
+                        "on-secondary": "#352856",
+                        "secondary-container": "#4f4171",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "tertiary": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-fixed": "#201340",
+                        "on-primary-fixed": "#22005c",
+                        "on-background": "#e3e0f1",
+                        "primary-container": "#4b1fa3",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#6a45c3",
+                        "inverse-on-surface": "#302f3b",
+                        "surface-tint": "#d0bcff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-white/10 bg-[#12121d]/80 backdrop-blur-xl shadow-[4px_0_24px_rgba(0,0,0,0.5)] flex flex-col py-6 z-50">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#d0bcff] to-[#4b1fa3] flex items-center justify-center shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-on-primary">account_balance</span>
+</div>
+<div>
+<h1 class="text-xl font-bold bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] bg-clip-text text-transparent font-headline">JAS Logistics</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Enterprise Portal</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">dashboard</span>
+<span>Command Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">package_2</span>
+<span>Order Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">account_tree</span>
+<span>FA Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">account_balance_wallet</span>
+<span>Finance Hub</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">payments</span>
+<span>Revenue Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-[#4b1fa3]/20 to-transparent border-l-4 border-[#d0bcff] text-[#d0bcff] font-semibold font-['Plus_Jakarta_Sans'] text-sm tracking-tight scale-[0.99] active:scale-95 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span>Payment Ops</span>
+</a>
+</nav>
+<div class="px-3 pt-6 border-t border-white/5 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight group" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight group" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-[#0F0F1A]/90 backdrop-blur-md border-b border-white/5 flex items-center justify-between px-8 z-40">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<span class="text-lg font-black text-[#d0bcff] font-headline uppercase tracking-tighter">Command &amp; Finance</span>
+<span class="px-2 py-0.5 bg-surface-container text-[10px] font-bold text-primary border border-primary/20 rounded">FIN-JAS-13</span>
+</div>
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-500 text-sm">search</span>
+<input class="bg-surface-container-lowest border-none ring-1 ring-white/5 focus:ring-primary/40 rounded-full pl-9 pr-4 py-1.5 text-xs w-64 transition-all" placeholder="Search transactions, invoices..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1 font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">Analytics</a>
+<a class="text-slate-400 hover:text-slate-200 font-['Plus_Jakarta_Sans'] text-sm tracking-wide transition-colors" href="#">Reports</a>
+</div>
+<div class="flex items-center gap-3 border-l border-white/10 pl-6">
+<button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">apps</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/30 ml-2">
+<img alt="Executive User Profile" class="w-full h-full object-cover" data-alt="professional executive headshot in high-end office environment with soft bokeh background and warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnAlbzMkmUdV8Y-4WQJPyoJl0I4OxPmSawK7fAZXMoamAEu666YbPlpoa5ek4FQtEjyhOiQPGQNU2tLRsZp_v0KGvqdlrBEiEfWfPpJ2J1E042LyY82zSMyyYa_iL4azPmo5H_V3KX0Ou_MhZaVEDIdfs6ZdEgQ_Edp9HM1bT9PRDrlIvtNIe9OwXAkIrK6A3iIwxQ6jhxEqApZ2j_jLJ3nny-z8-XDpJGMZhUF1Yh6WL1vedX8ZAu0dU1FPZYSEXEgsK9_CFWSg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 mt-16 p-8 min-h-screen">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-3xl font-bold font-headline text-on-surface tracking-tight">Payment Operations</h2>
+<p class="text-on-surface-variant text-sm mt-1">Real-time gateway monitoring and financial reconciliation</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface px-4 py-2 rounded-lg text-sm font-semibold transition-all border border-white/5 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">download</span>
+                    Export Ledger
+                </button>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/10 flex items-center gap-2 active:scale-95">
+<span class="material-symbols-outlined text-lg">sync</span>
+                    Manual Reconcile
+                </button>
+</div>
+</div>
+<!-- KPI Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<span class="text-[10px] font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full">+12.4%</span>
+</div>
+<div class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider mb-1">Payments Today</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline">1,284</span>
+<span class="text-on-surface-variant text-sm mono">SAR 412,900</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary">account_balance</span>
+</div>
+<span class="material-symbols-outlined text-slate-500 text-sm">info</span>
+</div>
+<div class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider mb-1">Method Split</div>
+<div class="flex flex-wrap gap-x-3 gap-y-1">
+<div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="text-xs">Mada 64%</span></div>
+<div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span class="text-xs">Visa 22%</span></div>
+<div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span class="text-xs">SADAD 9%</span></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary/10 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">pending_actions</span>
+</div>
+<span class="text-[10px] font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded-full">Requires matching</span>
+</div>
+<div class="text-on-surface-variant text-xs font-semibold uppercase tracking-wider mb-1">Pending SADAD</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline">42</span>
+<span class="text-on-surface-variant text-xs">Awaiting Reference</span>
+</div>
+</div>
+<div class="bg-error-container/20 p-5 rounded-xl border border-error/20 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-error/5 blur-3xl rounded-full"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="p-2 bg-error/20 rounded-lg">
+<span class="material-symbols-outlined text-error">report</span>
+</div>
+<span class="text-[10px] font-bold text-on-error-container bg-error-container px-2 py-0.5 rounded-full">Critical Rate</span>
+</div>
+<div class="text-on-error-container text-xs font-semibold uppercase tracking-wider mb-1 relative z-10">Failed Payments</div>
+<div class="flex items-baseline gap-2 relative z-10">
+<span class="text-2xl font-bold font-headline text-error">12</span>
+<span class="text-error/80 text-sm mono">0.93% Fail rate</span>
+</div>
+</div>
+</div>
+<!-- Charts & Reconciliation -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<!-- Payment Method Split (Donut representation) -->
+<div class="bg-surface-container p-6 rounded-xl border border-white/5">
+<h3 class="text-sm font-bold font-headline mb-6 flex items-center justify-between">
+                    Payment Method Split
+                    <span class="material-symbols-outlined text-slate-500 cursor-pointer">more_horiz</span>
+</h3>
+<div class="flex items-center justify-center py-4 relative">
+<!-- SVG Donut Chart Mockup -->
+<svg class="w-40 h-40 transform -rotate-90">
+<circle class="text-surface-container-highest" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="158" stroke-width="12"></circle>
+<circle class="text-secondary" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="360" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-xs text-on-surface-variant">Total</span>
+<span class="text-lg font-bold">1,284</span>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-2 gap-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-xs text-on-surface-variant">Mada (821)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-xs text-on-surface-variant">Visa (282)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-xs text-on-surface-variant">SADAD (115)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-xs text-on-surface-variant">Apple Pay (66)</span>
+</div>
+</div>
+</div>
+<!-- COD Reconciliation -->
+<div class="lg:col-span-2 bg-surface-container p-6 rounded-xl border border-white/5 relative overflow-hidden">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="text-sm font-bold font-headline mb-1">COD Reconciliation</h3>
+<p class="text-xs text-on-surface-variant">Comparison of cash collected vs expected logistics revenue</p>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-error font-bold mb-1 uppercase tracking-tighter flex items-center gap-1 justify-end">
+<span class="material-symbols-outlined text-sm">warning</span>
+                            Variance of SAR 3,320 detected
+                        </div>
+<div class="text-[10px] text-on-surface-variant">8 courier returns pending audit</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8 relative z-10">
+<div>
+<div class="text-xs text-slate-500 mb-2">Collected by Drivers (Today)</div>
+<div class="text-3xl font-bold font-headline mb-4">SAR 82,440</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[92%]" style="box-shadow: 0 0 12px rgba(208, 188, 255, 0.3);"></div>
+</div>
+</div>
+<div>
+<div class="text-xs text-slate-500 mb-2">Expected Settlement</div>
+<div class="text-3xl font-bold font-headline mb-4">SAR 85,760</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-white/10 w-full"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 bg-surface-container-low rounded-lg border border-white/5 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+</div>
+<div>
+<div class="text-xs font-bold">Courier Settlement Efficiency</div>
+<div class="text-[10px] text-on-surface-variant">Historical average: 99.1%</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-lg font-bold text-error">96.2%</div>
+<div class="text-[10px] text-error/60 font-medium">Below Target</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Data Tables -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+<!-- Failed Payments Log -->
+<div class="bg-surface p-1 rounded-2xl">
+<div class="px-5 py-4 flex justify-between items-center">
+<h3 class="text-base font-bold font-headline">Failed Payments Log</h3>
+<button class="text-xs text-primary hover:underline font-bold">View History</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-separate border-spacing-y-2 px-5">
+<thead class="text-on-surface-variant text-[11px] font-bold uppercase tracking-widest">
+<tr>
+<th class="pb-2 pl-4">Transaction ID</th>
+<th class="pb-2">Customer</th>
+<th class="pb-2">Reason</th>
+<th class="pb-2">Amount</th>
+<th class="pb-2 pr-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="text-xs">
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-4 pl-4 rounded-l-xl mono text-primary">#TXN-984210</td>
+<td class="py-4">Ahmed Al-Sudairi</td>
+<td class="py-4">
+<span class="text-error bg-error/10 px-2 py-0.5 rounded">Insufficient Funds</span>
+</td>
+<td class="py-4 font-bold mono">SAR 1,240</td>
+<td class="py-4 pr-4 rounded-r-xl text-right">
+<div class="flex justify-end gap-2">
+<button class="w-8 h-8 rounded-lg bg-surface-bright flex items-center justify-center hover:text-primary"><span class="material-symbols-outlined text-sm">refresh</span></button>
+<button class="w-8 h-8 rounded-lg bg-surface-bright flex items-center justify-center hover:text-error"><span class="material-symbols-outlined text-sm">flag</span></button>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-4 pl-4 rounded-l-xl mono text-primary">#TXN-984211</td>
+<td class="py-4">Sara Hassan</td>
+<td class="py-4">
+<span class="text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">3D Secure Timeout</span>
+</td>
+<td class="py-4 font-bold mono">SAR 450</td>
+<td class="py-4 pr-4 rounded-r-xl text-right">
+<div class="flex justify-end gap-2">
+<button class="w-8 h-8 rounded-lg bg-surface-bright flex items-center justify-center hover:text-primary"><span class="material-symbols-outlined text-sm">refresh</span></button>
+<button class="w-8 h-8 rounded-lg bg-surface-bright flex items-center justify-center hover:text-error"><span class="material-symbols-outlined text-sm">flag</span></button>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-4 pl-4 rounded-l-xl mono text-primary">#TXN-984215</td>
+<td class="py-4">Express Logistics Inc.</td>
+<td class="py-4">
+<span class="text-slate-400 bg-white/5 px-2 py-0.5 rounded">Gateway Unreachable</span>
+</td>
+<td class="py-4 font-bold mono">SAR 12,800</td>
+<td class="py-4 pr-4 rounded-r-xl text-right">
+<div class="flex justify-end gap-2">
+<button class="w-8 h-8 rounded-lg bg-surface-bright flex items-center justify-center hover:text-primary"><span class="material-symbols-outlined text-sm">refresh</span></button>
+<button class="w-8 h-8 rounded-lg bg-surface-bright flex items-center justify-center hover:text-error"><span class="material-symbols-outlined text-sm">flag</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Pending SADAD Matches -->
+<div class="bg-surface p-1 rounded-2xl">
+<div class="px-5 py-4 flex justify-between items-center">
+<h3 class="text-base font-bold font-headline">Pending SADAD Matches</h3>
+<div class="flex gap-2">
+<span class="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded font-bold">Auto-matching Active</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-separate border-spacing-y-2 px-5">
+<thead class="text-on-surface-variant text-[11px] font-bold uppercase tracking-widest">
+<tr>
+<th class="pb-2 pl-4">Client</th>
+<th class="pb-2">Invoice #</th>
+<th class="pb-2">Amount</th>
+<th class="pb-2">Age</th>
+<th class="pb-2 pr-4">SARIE Status</th>
+</tr>
+</thead>
+<tbody class="text-xs">
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-4 pl-4 rounded-l-xl font-medium">Najd Trading Co.</td>
+<td class="py-4 mono text-secondary">#INV-22904</td>
+<td class="py-4 font-bold mono">SAR 24,000</td>
+<td class="py-4"><span class="flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-emerald-400"></span>4h</span></td>
+<td class="py-4 pr-4 rounded-r-xl">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-[10px] text-primary">Searching...</span>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-4 pl-4 rounded-l-xl font-medium">Khalid Al-Amri</td>
+<td class="py-4 mono text-secondary">#INV-22910</td>
+<td class="py-4 font-bold mono">SAR 3,100</td>
+<td class="py-4"><span class="flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-amber-400"></span>22h</span></td>
+<td class="py-4 pr-4 rounded-r-xl">
+<button class="text-[10px] font-bold bg-error-container text-on-error-container px-2 py-1 rounded-md hover:brightness-110">Manual Action Required</button>
+</td>
+</tr>
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors group">
+<td class="py-4 pl-4 rounded-l-xl font-medium">Riyadh Distribution</td>
+<td class="py-4 mono text-secondary">#INV-22885</td>
+<td class="py-4 font-bold mono">SAR 8,940</td>
+<td class="py-4"><span class="flex items-center gap-1"><span class="w-1 h-1 rounded-full bg-emerald-400"></span>1h</span></td>
+<td class="py-4 pr-4 rounded-r-xl">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-[10px] text-primary">Searching...</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Floating Action Button (FAB) Suppression check: Should render only on primary dashboard. We render it here as it's the "Command Center" of payments. -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 group">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform">add</span>
+</button>
+</main>
+</body></html>

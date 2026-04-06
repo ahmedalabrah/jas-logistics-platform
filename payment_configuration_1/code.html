@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Configuration | JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.8);
+            backdrop-filter: blur(16px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#1f1e2a",
+                      "primary": "#d0bcff",
+                      "on-secondary-fixed-variant": "#4c3f6e",
+                      "secondary": "#cfbef6",
+                      "on-tertiary-container": "#f09661",
+                      "on-primary-fixed-variant": "#5228aa",
+                      "outline": "#948e9e",
+                      "on-primary": "#3b0092",
+                      "surface-bright": "#383845",
+                      "secondary-fixed": "#e9ddff",
+                      "surface": "#12121d",
+                      "primary-fixed": "#e9ddff",
+                      "inverse-surface": "#e3e0f1",
+                      "tertiary-container": "#6c2e00",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#331200",
+                      "error-container": "#93000a",
+                      "surface-variant": "#343440",
+                      "on-error": "#690005",
+                      "surface-dim": "#12121d",
+                      "background": "#12121d",
+                      "on-surface-variant": "#cbc3d5",
+                      "outline-variant": "#494453",
+                      "on-secondary-container": "#c0b0e7",
+                      "surface-container-highest": "#343440",
+                      "on-primary-container": "#b79cff",
+                      "primary-fixed-dim": "#d0bcff",
+                      "surface-container-high": "#292935",
+                      "tertiary-fixed": "#ffdbc9",
+                      "on-tertiary-fixed-variant": "#743405",
+                      "on-tertiary": "#532200",
+                      "on-secondary": "#352856",
+                      "secondary-container": "#4f4171",
+                      "secondary-fixed-dim": "#cfbef6",
+                      "tertiary": "#ffb68e",
+                      "on-surface": "#e3e0f1",
+                      "surface-container-lowest": "#0d0d18",
+                      "surface-container-low": "#1b1a26",
+                      "on-secondary-fixed": "#201340",
+                      "on-primary-fixed": "#22005c",
+                      "on-background": "#e3e0f1",
+                      "primary-container": "#4b1fa3",
+                      "tertiary-fixed-dim": "#ffb68e",
+                      "error": "#ffb4ab",
+                      "inverse-primary": "#6a45c3",
+                      "inverse-on-surface": "#302f3b",
+                      "surface-tint": "#d0bcff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              }
+            },
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30">
+<!-- Sidebar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-white/10 bg-[#12121d]/80 backdrop-blur-xl flex flex-col py-6 z-50 shadow-[4px_0_24px_rgba(0,0,0,0.5)]">
+<div class="px-6 mb-10">
+<div class="text-xl font-bold bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] bg-clip-text text-transparent tracking-tighter">
+                JAS Logistics
+            </div>
+<div class="text-[10px] text-slate-500 font-bold tracking-widest uppercase mt-1">Enterprise Portal</div>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Command Center</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-lg">package_2</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Order Management</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-lg">account_tree</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">FA Management</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-lg">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Finance Hub</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-gradient-to-r from-[#4b1fa3]/20 to-transparent border-l-4 border-[#d0bcff] text-[#d0bcff] font-semibold transition-all duration-300 rounded-r-lg group" href="#">
+<span class="material-symbols-outlined text-lg">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Revenue Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Payment Ops</span>
+</a>
+</nav>
+<div class="px-3 mt-auto space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Top Navigation -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-[#0F0F1A]/90 backdrop-blur-md flex items-center justify-between px-8 z-40 border-b border-white/5">
+<div class="flex items-center gap-8">
+<div class="text-lg font-black text-[#d0bcff] tracking-tight">Command &amp; Finance</div>
+<div class="flex items-center gap-6">
+<a class="text-slate-400 hover:text-white transition-colors font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">Analytics</a>
+<a class="text-slate-400 hover:text-white transition-colors font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-colors">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full border-2 border-[#0F0F1A]"></span>
+</div>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-colors">apps</span>
+<div class="w-8 h-8 rounded-full border-2 border-primary/20 overflow-hidden ml-2">
+<img alt="Executive Profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a high-ranking male corporate executive in a dark suit with soft professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8owuXGc8Mr-tNTkxTatl40TahfICNNx4awqNMppxScS-hVpsck76P3la8wslBNmPL39irlqbk8vBWjclMAGdoWtk-8l4JedF7LeZF6ZaVHrABovVMx8B86WZp4kC24d3VpjMkNs0KdxgeiJ43qMbfrov36qegcpLyGup19_XRgfZrXXWVWUdQ9VNt1TPq-poJW2Aj51Qct6FwCwYOT-0iAYXHL79lhxCrdJrreVP-C5GlqMz_3BDqt3YXB2rV0c0PisIAW53Z8w"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-8 min-h-screen">
+<div class="max-w-7xl mx-auto space-y-8">
+<!-- Page Header -->
+<div class="flex justify-between items-end">
+<div>
+<div class="text-primary font-mono text-xs tracking-[0.2em] mb-1">FIN-JAS-14</div>
+<h1 class="text-3xl font-extrabold text-on-surface tracking-tight">Payment Configuration</h1>
+<p class="text-on-surface-variant text-sm mt-1">Manage global payment availability, regulatory limits, and gateway integrations.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-5 py-2 text-sm font-semibold border border-outline-variant hover:bg-surface-container-high transition-colors rounded-lg">Discard Changes</button>
+<button class="px-5 py-2 text-sm font-bold bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] text-on-primary rounded-lg shadow-[0_4px_16px_rgba(75,31,163,0.3)] hover:scale-[1.02] active:scale-95 transition-all">Publish Configuration</button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Method Availability Matrix -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-2xl p-6 border border-white/5 shadow-xl">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-lg font-bold flex items-center gap-2 tracking-tight">
+<span class="material-symbols-outlined text-primary">rule</span>
+                            Method Availability Matrix
+                        </h2>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container text-xs rounded-full border border-outline-variant/30 text-on-surface-variant">Global Market</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-separate border-spacing-y-2">
+<thead>
+<tr class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">
+<th class="pb-4 pl-4">Payment Method</th>
+<th class="pb-4 text-center">Bronze</th>
+<th class="pb-4 text-center">Silver</th>
+<th class="pb-4 text-center">Gold</th>
+<th class="pb-4 text-center">Enterprise</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="group">
+<td class="py-4 pl-4 bg-surface-container rounded-l-xl flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">wallet</span>
+</div>
+<span class="font-medium">JAS Wallet</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+<td class="py-4 bg-surface-container text-center rounded-r-xl">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+</tr>
+<tr class="group">
+<td class="py-4 pl-4 bg-surface-container rounded-l-xl flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-sm">credit_card</span>
+</div>
+<span class="font-medium">Hyperpay Card</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-slate-500/50">cancel</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+<td class="py-4 bg-surface-container text-center rounded-r-xl">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+</tr>
+<tr class="group">
+<td class="py-4 pl-4 bg-surface-container rounded-l-xl flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-sm">account_balance</span>
+</div>
+<span class="font-medium">SADAD</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-slate-500/50">lock</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-slate-500/50">lock</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+<td class="py-4 bg-surface-container text-center rounded-r-xl">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+</tr>
+<tr class="group">
+<td class="py-4 pl-4 bg-surface-container rounded-l-xl flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">trending_flat</span>
+</div>
+<span class="font-medium">Bank Transfer (SARIE)</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-slate-500/50">cancel</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-slate-500/50">cancel</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-slate-500/50">lock</span>
+</td>
+<td class="py-4 bg-surface-container text-center rounded-r-xl">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+</tr>
+<tr class="group">
+<td class="py-4 pl-4 bg-surface-container rounded-l-xl flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-error-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-error text-sm">local_shipping</span>
+</div>
+<span class="font-medium">COD</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</td>
+<td class="py-4 bg-surface-container text-center">
+<span class="material-symbols-outlined text-slate-500/50">cancel</span>
+</td>
+<td class="py-4 bg-surface-container text-center rounded-r-xl">
+<span class="material-symbols-outlined text-slate-500/50">cancel</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Settings Panel -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- COD Settings -->
+<div class="bg-surface-container-low rounded-2xl p-6 border border-white/5 shadow-lg">
+<h2 class="text-lg font-bold flex items-center gap-2 mb-6 tracking-tight">
+<span class="material-symbols-outlined text-tertiary">monetization_on</span>
+                            Operational Settings
+                        </h2>
+<div class="space-y-5">
+<div>
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-widest mb-2">COD Surcharge</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm font-medium">SAR</span>
+<input class="w-full bg-surface-container border-none rounded-xl pl-14 pr-4 py-3 focus:ring-1 focus:ring-primary text-on-surface font-semibold" type="text" value="25.00"/>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-2 italic">Applied per order for Bronze and Silver tiers.</p>
+</div>
+</div>
+</div>
+<!-- Regulatory Compliance -->
+<div class="bg-surface-container-low rounded-2xl p-6 border border-white/5 shadow-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+<h2 class="text-lg font-bold flex items-center gap-2 mb-4 tracking-tight">
+<span class="material-symbols-outlined text-primary">gavel</span>
+                            SAMA Compliance
+                        </h2>
+<div class="p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<div class="text-[10px] font-bold text-primary uppercase tracking-[0.15em] mb-1">Regulatory Limit</div>
+<div class="text-2xl font-black text-on-surface tracking-tight">SAR 500,000</div>
+<div class="h-1 w-full bg-surface-variant mt-3 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4"></div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="text-xs text-on-surface-variant">Wallet Max Balance</span>
+<a class="text-xs font-bold text-primary flex items-center gap-1 hover:underline" href="#">
+                                    Request Increase
+                                    <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Integration Credentials -->
+<div class="col-span-12 bg-surface-container-low rounded-2xl p-6 border border-white/5 shadow-xl">
+<h2 class="text-lg font-bold flex items-center gap-2 mb-8 tracking-tight">
+<span class="material-symbols-outlined text-secondary">terminal</span>
+                        Integration Credentials
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Hyperpay -->
+<div class="relative p-6 rounded-2xl bg-surface-container border border-outline-variant/10 group hover:border-primary/30 transition-colors">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Hyperpay Gateway</span>
+<span class="px-2 py-0.5 bg-green-500/10 text-green-500 text-[10px] font-bold rounded">LIVE</span>
+</div>
+<div class="mb-6">
+<div class="text-xs text-on-surface-variant mb-1">Merchant ID</div>
+<div class="text-sm font-mono font-medium text-on-surface">JAS-PROD-****</div>
+</div>
+<button class="w-full py-2.5 bg-surface-container-high hover:bg-surface-bright text-xs font-bold rounded-lg flex items-center justify-center gap-2 border border-outline-variant/20 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">key</span>
+                                Rotate Key
+                            </button>
+</div>
+<!-- SADAD -->
+<div class="relative p-6 rounded-2xl bg-surface-container border border-outline-variant/10 group">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">SADAD Company ID</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">info</span>
+</div>
+<div class="mb-6">
+<div class="text-xs text-on-surface-variant mb-1">Corporate ID</div>
+<div class="text-sm font-mono font-medium text-on-surface">60012345</div>
+</div>
+<div class="w-full py-2.5 bg-surface-container-low text-on-surface-variant text-[10px] font-bold uppercase tracking-widest flex items-center justify-center rounded-lg border border-transparent">
+                                Read-only Access
+                            </div>
+</div>
+<!-- SARIE -->
+<div class="relative p-6 rounded-2xl bg-surface-container border border-outline-variant/10 group">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">SARIE SWIFT BIC</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">account_balance</span>
+</div>
+<div class="mb-6">
+<div class="text-xs text-on-surface-variant mb-1">Bank Identifier Code</div>
+<div class="text-sm font-mono font-medium text-on-surface">RJHISARI</div>
+</div>
+<div class="w-full py-2.5 bg-surface-container-low text-on-surface-variant text-[10px] font-bold uppercase tracking-widest flex items-center justify-center rounded-lg border border-transparent">
+                                Read-only Access
+                            </div>
+</div>
+</div>
+</div>
+<!-- Footer Summary Card -->
+<div class="col-span-12 h-24 rounded-2xl overflow-hidden relative group cursor-pointer">
+<img alt="Tech Infrastructure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="High-tech glowing motherboard with neon purple and blue circuitry lines, symbolizing digital financial infrastructure and security" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIV40QPXPdAaca6vxpbhqg94eSqCwXxMzDDPCS7kmzeXktnX9qtes_3OXGO4_tNaW_3cLbkSLPsjFjgnDFwGM_1o_wZd1-AGL6GeGaz-LcL3CGvPnIEidumlgX0lEpCWVH5L6NZ8HgVW-HWdW7Q3A_BINvq9dwVCqpFl1AbG297E1bsxXtROimNMorqVAUaSA4hq2P2mwDIXVUYLyp-BVnDKuE4A_jmAZo3xpYLPP00pQlt1w1XuXsU37ZGHdbRc1LEbwVeOTkog"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/80 to-transparent flex items-center px-10">
+<div>
+<h3 class="text-lg font-bold text-on-surface tracking-tight">Security Audit Log</h3>
+<p class="text-sm text-on-surface-variant">Last credential rotation was performed by user <span class="text-primary font-semibold">ahmed.jas</span> on 12/05/2023</p>
+</div>
+<div class="ml-auto">
+<button class="px-6 py-2.5 bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all rounded-full text-xs font-bold text-white border border-white/20">View Full Logs</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
