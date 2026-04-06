@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics - Trip Brief</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Tajawal:wght@400;500;700;900&amp;family=JetBrains+Mono:wght@400;500&amp;family=IBM+Plex+Arabic:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "surface-bright": "#383845",
+              "inverse-on-surface": "#302f3b",
+              "on-error": "#690005",
+              "on-tertiary-container": "#f09661",
+              "secondary-fixed-dim": "#cfbef6",
+              "on-primary": "#3b0092",
+              "surface-tint": "#d0bcff",
+              "on-tertiary": "#532200",
+              "on-surface-variant": "#cbc3d5",
+              "on-background": "#e3e0f1",
+              "background": "#12121d",
+              "on-secondary": "#352856",
+              "on-primary-fixed-variant": "#5228aa",
+              "outline": "#948e9e",
+              "on-secondary-container": "#c0b0e7",
+              "inverse-surface": "#e3e0f1",
+              "on-secondary-fixed": "#201340",
+              "on-surface": "#e3e0f1",
+              "surface-container-low": "#1b1a26",
+              "surface-container-highest": "#343440",
+              "outline-variant": "#494453",
+              "inverse-primary": "#6a45c3",
+              "error": "#ffb4ab",
+              "surface-container-high": "#292935",
+              "primary-fixed-dim": "#d0bcff",
+              "surface-container-lowest": "#0d0d18",
+              "primary": "#d0bcff",
+              "error-container": "#93000a",
+              "surface-dim": "#12121d",
+              "primary-container": "#4b1fa3",
+              "secondary-container": "#4f4171",
+              "on-tertiary-fixed-variant": "#743405",
+              "on-error-container": "#ffdad6",
+              "primary-fixed": "#e9ddff",
+              "on-primary-fixed": "#22005c",
+              "on-primary-container": "#b79cff",
+              "tertiary-fixed-dim": "#ffb68e",
+              "secondary-fixed": "#e9ddff",
+              "secondary": "#cfbef6",
+              "tertiary": "#ffb68e",
+              "surface": "#12121d",
+              "tertiary-fixed": "#ffdbc9",
+              "on-tertiary-fixed": "#331200",
+              "on-secondary-fixed-variant": "#4c3f6e",
+              "tertiary-container": "#6c2e00",
+              "surface-variant": "#343440",
+              "surface-container": "#1f1e2a"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem"
+            },
+            "fontFamily": {
+              "headline": ["Plus Jakarta Sans", "Tajawal"],
+              "body": ["Inter", "Tajawal"],
+              "label": ["Inter", "Tajawal"],
+              "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>body {
+    font-family: "Tajawal", sans-serif;
+    background-color: #12121d;
+    color: #e3e0f1;
+    -webkit-tap-highlight-color: transparent
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.glass-card {
+    background: rgba(31, 30, 42, 0.6);
+    backdrop-filter: blur(12px)
+    }
+.tga-card-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDFDZjdwf0W4vh5yNnZPuOyMR4UJ_-wdFAgLfyjZ2KXyDsDnKfB0LRBGZBWO9IqWHKxdrNimPwTeaLmYE2jksfBtuPZM6C_r6w0HHG0IB1d9yjNgeNGkZJRHBSdneoWfKyWNeCudNW15CTVPDvkY1VLl5umVUnRLPE3tyOZxMU58iL7gqB0QZG0yQoBBhAdnf1cJCmUZ0XlBWflKPP2BGzoFTkrfkmDPgrbtFTih2AwxVBlyuoTrxz6KLgN8P26m6kfKcOgXrQRTw);
+    mix-blend-mode: overlay;
+    opacity: 0.2
+    }
+.no-scrollbar::-webkit-scrollbar {
+    display: none
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl flex flex-row-reverse justify-between items-center px-6 py-4 w-full bg-gradient-to-b from-[#12121d] to-transparent">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-[#22C55E]/30 overflow-hidden">
+<img alt="Driver profile" class="w-full h-full object-cover" data-alt="Professional headshot of a Middle Eastern male truck driver in a logistics uniform with a confident friendly smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuWVgZBYqtiLLNp7iQT7t5t-ufw-hM32IcCSy-xT6H5A2x7hrV4iq38xQb08U7BkkpxUUUBgd-EsE9nW7LE3AwCFOO-LDi0-yP-N7pNl87xD3YZVsVQnogDlWGCjYXa0MNaGFuObe9uwyurSdiADzCnyxbI0Xm7EXb9gODarXXQWPb2X3pzlC827nNVBNgxL64OTSvD_74wljfutQR1y0QdxnLvQiiRk_Lo769sXgP_ySEb7tNi1hZ7tMxxM-vO874901QupsBYA"/>
+</div>
+<div class="text-right">
+<h1 class="font-['Plus_Jakarta_Sans','IBM_Plex_Arabic'] text-lg font-bold text-white">محمد العتيبي</h1>
+</div>
+</div>
+<button class="active:scale-95 transition-transform text-[#22C55E] hover:bg-white/5 p-2 rounded-xl">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="flex-1 pt-24 pb-32 px-4 space-y-6 overflow-y-auto no-scrollbar max-w-md mx-auto w-full">
+<!-- SECTION 1: TRIP INFO CARD -->
+<section class="surface-container rounded-xl p-4 space-y-4 border border-white/5 shadow-xl">
+<div class="flex justify-between items-center">
+<span class="font-mono text-[10px] text-on-surface-variant/70 tracking-tight">JAS-TRIP-2026-4821</span>
+<span class="bg-[#22C55E]/10 text-[#22C55E] px-2 py-0.5 rounded-full text-[10px] font-bold">نشط</span>
+</div>
+<div class="space-y-1">
+<p class="text-on-surface-variant text-xs">العميل</p>
+<h2 class="text-white font-bold text-lg">شركة النور للأدوية</h2>
+</div>
+<!-- Route Visualization -->
+<div class="flex items-center justify-between py-2">
+<div class="text-center">
+<p class="text-white font-bold">الرياض</p>
+<p class="text-[10px] text-on-surface-variant">التحميل</p>
+</div>
+<div class="flex-1 px-4 flex items-center gap-2">
+<div class="h-[2px] flex-1 bg-gradient-to-l from-[#22C55E] to-transparent"></div>
+<span class="material-symbols-outlined text-[#22C55E]" data-icon="local_shipping">local_shipping</span>
+<div class="h-[2px] flex-1 bg-gradient-to-r from-[#22C55E] to-transparent"></div>
+</div>
+<div class="text-center">
+<p class="text-white font-bold">جدة</p>
+<p class="text-[10px] text-on-surface-variant">التفريغ</p>
+</div>
+</div>
+<!-- Stop Details -->
+<div class="space-y-4 border-t border-white/5 pt-4">
+<div class="flex gap-3">
+<div class="flex flex-col items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-[#22C55E]"></div>
+<div class="w-0.5 h-full bg-white/10"></div>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-bold text-white">المستودع المركزي - السلي</p>
+<p class="text-[11px] text-on-surface-variant">أحمد منصور · 050XXXXX12</p>
+</div>
+<button class="bg-[#22C55E] text-[#12121d] px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+                                اتصال
+                            </button>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full border border-white/30"></div>
+</div>
+<div class="flex-1 space-y-1">
+<p class="text-xs font-bold text-white">مستشفى الملك فهد - حي الرويس</p>
+<p class="text-[11px] text-on-surface-variant">قسم الاستلام · م. فهد</p>
+</div>
+</div>
+</div>
+<!-- Cargo Chips -->
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="bg-surface-container-highest px-3 py-1.5 rounded-lg text-[11px] text-on-surface flex items-center gap-1.5 border border-white/5">
+<span class="material-symbols-outlined text-sm text-[#22C55E]" data-icon="inventory_2">inventory_2</span>
+                    بضائع عامة
+                </span>
+<span class="bg-surface-container-highest px-3 py-1.5 rounded-lg text-[11px] text-on-surface flex items-center gap-1.5 border border-white/5">
+<span class="material-symbols-outlined text-sm text-[#22C55E]" data-icon="weight">weight</span>
+                    8.5 طن
+                </span>
+<span class="bg-surface-container-highest px-3 py-1.5 rounded-lg text-[11px] text-on-surface flex items-center gap-1.5 border border-white/5">
+<span class="material-symbols-outlined text-sm text-[#22C55E]" data-icon="package_2">package_2</span>
+                    22 طرد
+                </span>
+</div>
+<!-- COD Alert -->
+<div class="bg-error-container/20 border border-error/20 p-3 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-error" data-icon="payments">payments</span>
+<div>
+<p class="text-error font-bold text-xs">مطلوب تحصيل نقدي: SAR 4,800</p>
+<p class="text-[10px] text-error/70">يجب استلام المبلغ نقداً أو عبر مدى عند التسليم</p>
+</div>
+</div>
+</section>
+<!-- SECTION 2: TGA PERMISSION CARD -->
+<section class="flex flex-col items-center space-y-4">
+<h3 class="w-full text-right text-sm font-bold text-on-surface-variant px-2">إذن النقل الرقمي (TGA)</h3>
+<div class="relative w-[340px] h-[210px] rounded-2xl overflow-hidden shadow-2xl transition-transform hover:scale-[1.02]">
+<!-- Gradient Background -->
+<div class="absolute inset-0 bg-gradient-to-br from-[#1A5276] via-[#145d65] to-[#0E6955]"></div>
+<!-- Texture Layer -->
+<div class="absolute inset-0 tga-card-texture"></div>
+<!-- Content Container -->
+<div class="relative h-full p-4 flex flex-col justify-between text-white">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center p-1">
+<img alt="TGA Logo" class="w-full object-contain" data-alt="Official logo of the Transport General Authority of Saudi Arabia, minimalist green and gold emblem on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzSefzZqqtlzCrls6mvBLtNCPIARs5vSBuEhKZm5ETdVNhVL-d7L6KKNnOxcDReqErB2jmZaO9xsaIO0WOeq7gEJghH9yfHaA4jAGXMcwke6zjQ_2pSTJgTmRNXjqAwALCXMfvagKJKeaDyj2XLDy98dUmdVfII292tlijsIXWMk2hMatozXnha4WH7CDW-jMIEUBr7IDGX9T_SjRhS4ZYvKc0xBfccRPFMnoL_E-mNSyXXogtoHy-KtfyWGm8lj9ZE_g69kOyfQ"/>
+</div>
+<span class="font-black text-[11px]">هيئة النقل العامة</span>
+</div>
+<div class="text-left">
+<p class="text-[9px] opacity-70 uppercase tracking-widest">Kingdom of Saudi Arabia</p>
+</div>
+</div>
+<div class="text-center">
+<h4 class="font-black text-lg tracking-wide">بطاقة إذن الشحنة</h4>
+</div>
+<div class="h-px bg-[#22C55E]/40 w-full"></div>
+<div class="grid grid-cols-2 gap-y-2 text-[10px]">
+<div>
+<p class="opacity-60">رقم الإذن:</p>
+<p class="font-mono text-[#22C55E]">JAS-TGA-2026-40291</p>
+</div>
+<div>
+<p class="opacity-60">المركبة:</p>
+<p class="font-bold">أ ب ج 1234</p>
+</div>
+<div>
+<p class="opacity-60">السائق:</p>
+<p class="font-bold">خالد الراشدي</p>
+</div>
+<div>
+<p class="opacity-60">المسار:</p>
+<p class="font-bold">الرياض ← جدة</p>
+</div>
+</div>
+<div class="absolute right-4 bottom-12 w-16 h-16 bg-white p-1 rounded-lg">
+<img alt="QR Code" class="w-full h-full" data-alt="Standard square QR code printed on a white background, sharp black and white contrast for digital scanning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPAFT5Zpapgeb6c2SHqQxogwMs3CPGAjeYX4-D-2rObPEYhL5H3D9KA50n88btSl_7E6xRhRi3Zv5n3iSwp-HxPSrgbRG_3C3bGQ7rzbt86_ncncgd7mftn8v7c5Fsp0i_GiEdgjRdA1XVG29_NYjYbAzxwdWl0n-IRlZD5lU638UQTkVj1enCnEa4sQ1jYvAww_8UHegS_CKIJIxlnH4ZCorEL36Xay5lLAJGic_rU0_ZyTJ28IPdIOQPeRUBmmoca4Zoc5Pjpw"/>
+</div>
+<div class="absolute bottom-0 left-0 right-0 bg-[#22C55E] py-1 px-4 flex justify-between items-center">
+<span class="text-[9px] font-bold">⬇️ محفوظة بدون إنترنت · Saved Offline</span>
+<span class="text-[8px] opacity-80 italic">JAS LOGISTICS v2.4</span>
+</div>
+</div>
+</div>
+<p class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="qr_code_scanner">qr_code_scanner</span>
+                امسح عند نقاط التفتيش الأمنية
+            </p>
+</section>
+<!-- SECTION 3: ACTIONS -->
+<section class="space-y-3 pt-4">
+<button class="w-full h-14 bg-[#22C55E] text-[#12121d] rounded-xl font-bold text-base flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-lg shadow-[#22C55E]/20">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+                بدء الرحلة / Start Trip
+            </button>
+<button class="w-full h-12 border border-white/10 text-white/80 rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span>
+                عرض الوثائق / View Documents
+            </button>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-2xl border-t border-white/5 bg-[#12121d]/90 backdrop-blur-lg shadow-[0_-4px_24px_rgba(0,0,0,0.4)] flex flex-row-reverse justify-around items-center w-full px-2 pb-6 pt-2">
+<a class="flex flex-col items-center justify-center text-white/40 px-3 py-2 hover:text-white/90 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Plus_Jakarta_Sans','IBM_Plex_Arabic'] text-[10px] font-medium">الرئيسية</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#22C55E] bg-[#22C55E]/10 rounded-xl px-3 py-2 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-['Plus_Jakarta_Sans','IBM_Plex_Arabic'] text-[10px] font-medium">رحلتي</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 px-3 py-2 hover:text-white/90 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-['Plus_Jakarta_Sans','IBM_Plex_Arabic'] text-[10px] font-medium">المستندات</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 px-3 py-2 hover:text-white/90 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Plus_Jakarta_Sans','IBM_Plex_Arabic'] text-[10px] font-medium">أرباحي</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 px-3 py-2 hover:text-white/90 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Plus_Jakarta_Sans','IBM_Plex_Arabic'] text-[10px] font-medium">حسابي</span>
+</a>
+</nav>
+</body></html>
