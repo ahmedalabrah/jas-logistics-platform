@@ -1,0 +1,130 @@
+# JAS Logistics Platform — Next.js 14 Project Scaffold PRD
+
+## 1. Project Overview
+A highly scalable, multi-portal enterprise LogTech SaaS platform built with Next.js 14 App Router, designed to handle 219+ screens across 7 distinct portals.
+
+## 2. Tech Stack
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript (Strict Mode)
+- **Styling:** Tailwind CSS v3 + shadcn/ui (Customized)
+- **State Management:** Zustand
+- **Data Fetching:** TanStack Query v5
+- **Forms:** React Hook Form + Zod
+- **Icons:** Lucide React + Custom JAS Set
+- **Charts/Maps:** Recharts + Leaflet
+- **Tables:** TanStack Table v8
+- **Animations:** Framer Motion
+
+## 3. Tailwind Configuration (tailwind.config.ts)
+Extending the theme with JAS design tokens:
+```typescript
+{
+  theme: {
+    extend: {
+      colors: {
+        background: {
+          base: '#0F0F1A',
+          surface: {
+            1: '#13131F',
+            2: '#18182A',
+            3: '#1E1E35',
+            4: '#242442',
+          }
+        },
+        brand: {
+          purple: { 900: '#2D0F7A', 700: '#4B1FA3', 500: '#7C5DDB', 300: '#A78BFA' },
+          indigo: '#2C2F8F',
+          red: '#E53935',
+        },
+        portal: {
+          fms: '#4B1FA3',
+          wms: '#2C2F8F',
+          frems: '#7C1A5E',
+          scp: '#1A5276',
+          client: '#0E6955',
+          driver: '#1A3A1A',
+          command: '#8B4513',
+          finance: '#6D1F8A',
+          tga: '#1B4D8E',
+          payment: '#4C1D95',
+        },
+        semantic: {
+          success: '#22C55E',
+          warning: '#F59E0B',
+          error: '#EF4444',
+          info: '#3B82F6',
+        }
+      },
+      fontFamily: {
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+        arabic: ['IBM Plex Arabic', 'Tajawal', 'sans-serif'],
+      }
+    }
+  }
+}
+```
+
+## 4. Directory Structure
+```text
+/src
+  /app
+    /[locale]              ← i18n routing (ar/en)
+      /(portals)
+        /fms               ← Fleet Management System
+        /wms               ← Warehouse Management
+        /frems             ← Freight Management
+        /scp               ← Sub-Carrier Portal
+        /client            ← Client Portal
+        /driver            ← Driver App (mobile)
+        /command           ← Command + Finance Hub
+      /(auth)
+        /login
+        /select-portal
+  /components
+    /ui                    ← Base UI components (shadcn extended)
+    /shared                ← Cross-portal shared components
+    /fms                   ← FMS-specific components
+    /wms                   ← WMS-specific components
+    /frems                 ← FreMS-specific components
+    /scp                   ← Sub-carrier specific
+    /client                ← Client portal specific
+    /driver                ← Driver app specific
+    /command               ← Command hub specific
+    /payment               ← Payment system components
+    /tga                   ← TGA compliance components
+  /hooks                   ← Custom hooks
+  /lib
+    /api                   ← API client + endpoints
+    /validations           ← Zod schemas
+    /utils                 ← Utility functions
+    /constants             ← App constants (portal IDs, route names)
+  /store                   ← Zustand stores
+  /types                   ← TypeScript type definitions
+  /styles
+    /globals.css           ← Global styles + JAS tokens as CSS vars
+```
+
+## 5. Core Layout Component (PortalLayout.tsx)
+The `PortalLayout` handles the dynamic styling based on the active portal.
+```typescript
+interface PortalLayoutProps {
+  portalId: 'fms' | 'wms' | 'frems' | 'scp' | 'client' | 'driver' | 'command';
+  children: React.ReactNode;
+  sidebarItems: SidebarItem[];
+  topbarConfig: TopbarConfig;
+}
+
+// Applies portal accent color via dynamic class mapping:
+const accentColor = `bg-portal-${portalId}`;
+```
+
+## 6. Global CSS & I18n
+- **globals.css:** Implements custom scrollbars, focus rings, and direction-aware utilities.
+- **RTL Support:** Uses `dir="rtl"` on the html tag with logical properties in Tailwind (e.g., `ms-4` instead of `ml-4`).
+
+## 7. Setup Instructions
+1. `npm install`
+2. `cp .env.example .env.local`
+3. `npm run dev`

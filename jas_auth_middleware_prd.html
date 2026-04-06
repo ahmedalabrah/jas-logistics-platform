@@ -1,0 +1,52 @@
+# JAS Logistics — Authentication & Middleware PRD
+
+## 1. Authentication Flow
+The JAS Platform uses a centralized authentication system that bridges multiple enterprise portals.
+
+### Login Stage (/login)
+- **Authentication:** Standard email/mobile + password credential set.
+- **Verification:** MFA (SMS/Email) integration for TGA compliance in FMS/SCP portals.
+- **ZATCA/TGA Compliance:** All login events are audited with device fingerprinting.
+
+### Authorization & Routing (/select-portal)
+- **Role-Based Access Control (RBAC):** Users are presented only with portals they have active permissions for.
+- **Auto-Redirect:** If a user only has access to one portal (e.g., a Driver or a Warehouse Operator), they bypass the selector and land directly on their dashboard.
+- **Super Admin:** Access to all 7 portals for system-wide configuration.
+
+## 2. Technical Implementation
+
+### Middleware (middleware.ts)
+```typescript
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
+
+export function middleware(request: NextRequest) {
+  const token = request.cookies.get('jas_session')
+  const selectedPortal = request.cookies.get('active_portal')
+
+  // 1. Unauthenticated redirect
+  if (!token && !request.nextUrl.pathname.startsWith('/login')) {
+    return NextResponse.redirect(new URL('/login', request.url))
+  }
+
+  // 2. Portal selection guard
+  if (token && !selectedPortal && !request.nextUrl.pathname.startsWith('/select-portal')) {
+    return NextResponse.redirect(new URL('/select-portal', request.url))
+  }
+
+  // 3. Role-based guards (simplified)
+  if (selectedPortal === 'finance' && !userRoles.includes('FINANCE_ACCESS')) {
+     return NextResponse.redirect(new URL('/unauthorized', request.url))
+  }
+
+  return NextResponse.next()
+}
+```
+
+### Session Management
+- **Security:** Tokens are stored in `httpOnly` cookies to prevent XSS.
+- **TTL:** Sessions expire after 8 hours of inactivity.
+- **Sync:** `BroadcastChannel` API used to sync logout across all open browser tabs.
+
+### Auth Hook (useAuth.ts)
+A custom Zustand-powered hook to manage global authentication state and portal permissions across the Next.js app.

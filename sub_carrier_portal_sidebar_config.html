@@ -1,0 +1,29 @@
+const scpSidebarItems = [
+  { group: 'Overview', items: [{ id: 'dashboard', label: 'SC Dashboard', icon: '📊', href: '/scp' }] },
+  { group: 'Trip Operations', items: [
+    { id: 'inbox', label: 'Trip Inbox', icon: '📥', href: '/scp/trips/inbox', badge: { count: 5, color: 'blue' } },
+    { id: 'active', label: 'Active Trips', icon: '🚛', href: '/scp/trips/active' },
+    { id: 'history', label: 'Trip History', icon: '📚', href: '/scp/trips/history' },
+  ]},
+  { group: 'TGA Compliance', items: [
+    { id: 'compliance', label: 'TGA Compliance Center', icon: '🏛️', href: '/scp/compliance', badge: { count: 1, color: 'red' } },
+  ]},
+  { group: 'My Fleet', items: [
+    { id: 'fl-dashboard', label: 'Fleet Dashboard', icon: '📊', href: '/scp/fleet' },
+    { id: 'fl-vehicles', label: 'My Vehicles', icon: '🚗', href: '/scp/fleet/vehicles' },
+    { id: 'fl-drivers', label: 'My Drivers', icon: '👤', href: '/scp/fleet/drivers' },
+    { id: 'fl-tga', label: 'Fleet TGA', icon: '📋', href: '/scp/fleet/compliance' },
+    { id: 'fl-maintenance', label: 'Maintenance', icon: '🔧', href: '/scp/fleet/maintenance' },
+    { id: 'fl-fuel', label: 'Fuel & Costs', icon: '⛽', href: '/scp/fleet/fuel' },
+    { id: 'fl-analytics', label: 'Cost Analytics', icon: '💰', href: '/scp/fleet/analytics' },
+  ]},
+  { group: 'Earnings', items: [
+    { id: 'earnings', label: 'Earnings & Payouts', icon: '💸', href: '/scp/earnings' },
+    { id: 'wallet', label: 'JAS Wallet', icon: '👛', href: '/scp/wallet' },
+    { id: 'coaching', label: 'AI Coaching Report', icon: '📈', href: '/scp/coaching' },
+  ]},
+  { group: 'Account', items: [
+    { id: 'contract', label: 'My Contract', icon: '📜', href: '/scp/contract' },
+    { id: 'settings', label: 'Settings', icon: '⚙️', href: '/scp/settings' },
+  ]},
+]

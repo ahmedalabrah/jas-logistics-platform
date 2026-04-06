@@ -1,0 +1,61 @@
+const commandSidebarItems = [
+  {
+    group: 'Command Center',
+    items: [
+      { id: 'master-dashboard', label: 'Command Center', icon: 'dashboard', href: '/command', badge: { count: 3, color: 'red' } },
+      { id: 'alerts', label: 'Alert Center', icon: 'notifications', href: '/command/alerts' },
+      { id: 'ai-intel', label: 'AI Intelligence', icon: 'psychology', href: '/command/ai' },
+    ]
+  },
+  {
+    group: 'Order Management',
+    items: [
+      { id: 'order-inbox', label: 'Order Inbox', icon: 'inbox', href: '/command/orders', badge: { count: 12, color: 'blue' } },
+      { id: 'review-assign', label: 'Review & Assign', icon: 'assignment', href: '/command/orders/assign' },
+      { id: 'spot-quoting', label: 'Spot Quoting', icon: 'request_quote', href: '/command/orders/quoting' },
+      { id: 'sla-monitor', label: 'SLA Monitor', icon: 'timer', href: '/command/orders/sla' },
+      { id: 'archive', label: 'Order Archive', icon: 'archive', href: '/command/orders/archive' },
+    ]
+  },
+  {
+    group: 'FA Management',
+    items: [
+      { id: 'fa-inbox', label: 'FA Inbox', icon: 'contract', href: '/command/fa', badge: { count: 2, color: 'amber' } },
+      { id: 'fa-review', label: 'FA Review', icon: 'rate_review', href: '/command/fa/review' },
+      { id: 'negotiation', label: 'Negotiation Threads', icon: 'forum', href: '/command/fa/negotiate' },
+      { id: 'signing', label: 'Digital Signing', icon: 'draw', href: '/command/fa/sign' },
+    ]
+  },
+  {
+    group: 'Finance Hub',
+    items: [
+      { id: 'fin-dashboard', label: 'Finance Dashboard', icon: 'payments', href: '/command/finance' },
+      { id: 'ar', label: 'Accounts Receivable', icon: 'account_balance_wallet', href: '/command/finance/receivables' },
+      { id: 'ap', label: 'Accounts Payable', icon: 'receipt_long', href: '/command/finance/payables' },
+      { id: 'entities', label: 'Billing Entities', icon: 'domain', href: '/command/finance/billing-entities' },
+      { id: 'zatca', label: 'ZATCA Compliance', icon: 'verified_user', href: '/command/finance/zatca' },
+      { id: 'rev-rec', label: 'Revenue Recognition', icon: 'analytics', href: '/command/finance/revenue' },
+    ]
+  },
+  {
+    group: 'Revenue Settings (Restricted)',
+    items: [
+      { id: 'global-rates', label: 'Global Rates', icon: 'settings_suggest', href: '/command/finance/rates' },
+      { id: 'overrides', label: 'Override Mgmt', icon: 'rule', href: '/command/finance/rates/overrides' },
+      { id: 'tier-rules', label: 'Tier Rules', icon: 'auto_awesome', href: '/command/finance/rates/tiers' },
+      { id: 'approvals', label: 'Rate Approvals', icon: 'how_to_reg', href: '/command/finance/rates/approvals', badge: { count: 1, color: 'red' } },
+      { id: 'simulator', label: 'Impact Simulator', icon: 'model_training', href: '/command/finance/rates/simulate' },
+      { id: 'history', label: 'Version History', icon: 'history', href: '/command/finance/rates/history' },
+    ]
+  },
+  {
+    group: 'Payment Ops',
+    items: [
+      { id: 'pay-ops', label: 'Payment Ops Dashboard', icon: 'monitoring', href: '/command/finance/payment-ops' },
+      { id: 'pay-config', label: 'Payment Config', icon: 'settings_input_component', href: '/command/finance/payment-config' },
+      { id: 'wallet-admin', label: 'Wallet Admin', icon: 'account_balance', href: '/command/finance/wallets' },
+      { id: 'recon', label: 'Bank Reconciliation', icon: 'sync_alt', href: '/command/finance/reconciliation' },
+      { id: 'payouts', label: 'Batch Payouts', icon: 'account_tree', href: '/command/finance/payouts' },
+    ]
+  },
+]

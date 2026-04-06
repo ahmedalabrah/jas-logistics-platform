@@ -1,0 +1,76 @@
+const fmsSidebarItems: SidebarSection[] = [
+  {
+    label: 'Operations',
+    items: [
+      { id: 'dashboard', label: 'Fleet Dashboard', icon: '📊', href: '/fms', badge: { count: 3, color: 'red' } },
+      { id: 'map', label: 'Live Fleet Map', icon: '🗺️', href: '/fms/map' },
+      { id: 'dispatch-queue', label: 'Dispatch Queue', icon: '📋', href: '/fms/dispatch', badge: { count: 17, color: 'warning' } },
+      { id: 'assign', label: 'Dispatch Assignment', icon: '🚦', href: '/fms/dispatch/assign' },
+      { id: 'trip-detail', label: 'Trip Detail', icon: '🛣️', href: '/fms/trips' },
+      { id: 'history', label: 'Trip History', icon: '📚', href: '/fms/trips/history' },
+    ]
+  },
+  {
+    label: 'Fleet & People',
+    items: [
+      { id: 'vehicles', label: 'Vehicles', icon: '🚗', href: '/fms/vehicles', children: [
+        { label: 'Vehicle List', href: '/fms/vehicles' },
+        { label: 'Vehicle Profile', href: '/fms/vehicles/:id' },
+        { label: 'Onboard New Vehicle', href: '/fms/vehicles/onboard' },
+      ]},
+      { id: 'drivers', label: 'Drivers', icon: '👤', href: '/fms/drivers' },
+      { id: 'subcarriers', label: 'Sub-Carriers', icon: '🚚', href: '/fms/subcarriers', children: [
+        { label: 'SC Directory', href: '/fms/subcarriers' },
+        { label: 'SC Contracts', href: '/fms/subcarriers/contracts' },
+      ]},
+    ]
+  },
+  {
+    label: 'TGA Compliance',
+    badge: { label: 'TGA', color: 'tga' },
+    items: [
+      { id: 'compliance', label: 'SA + TGA Compliance Center', icon: '🏛️', href: '/fms/compliance', badge: { count: 2, color: 'red' } },
+      { id: 'op-cards', label: 'Op. Card Management', icon: '📋', href: '/fms/compliance/op-cards' },
+      { id: 'permits', label: 'Permission Card Ops', icon: '🎫', href: '/fms/compliance/permits' },
+      { id: 'iot', label: 'IoT / Wasl Setup', icon: '📡', href: '/fms/iot' },
+      { id: 'insurance', label: 'Insurance Marketplace', icon: '🔐', href: '/fms/insurance' },
+    ]
+  },
+  {
+    label: 'Maintenance & Cost',
+    items: [
+      { id: 'maintenance', label: 'Maintenance', icon: '🔧', href: '/fms/maintenance', children: [
+        { label: 'Control Center', href: '/fms/maintenance' },
+        { label: 'Work Orders', href: '/fms/maintenance/work-orders' },
+        { label: 'Service History', href: '/fms/maintenance/history' },
+      ]},
+      { id: 'fuel', label: 'Fuel & Expenses', icon: '⛽', href: '/fms/fuel' },
+      { id: 'parts', label: 'Parts & Suppliers', icon: '⚙️', href: '/fms/parts' },
+      { id: 'costs', label: 'Cost Analytics', icon: '💰', href: '/fms/costs', children: [
+        { label: 'Fleet P&L Dashboard', href: '/fms/costs' },
+        { label: 'Vehicle TCO', href: '/fms/costs/tco' },
+      ]},
+    ]
+  },
+  {
+    label: 'Network (JAS-Only)',
+    items: [
+      { id: 'network', label: 'Network Fleet + TGA View', icon: '🌐', href: '/fms/network' },
+      { id: 'benchmarking', label: 'Benchmarking', icon: '📊', href: '/fms/network/benchmarking' },
+    ]
+  },
+  {
+    label: 'Payment & Finance',
+    items: [
+      { id: 'cod-ops', label: 'COD Operations Center', icon: '💵', href: '/fms/cod', badge: { label: 'PAY', color: 'payment' } },
+    ]
+  },
+  {
+    label: 'Account',
+    items: [
+      { id: 'notifications', label: 'Notifications', icon: '🔔', href: '/fms/notifications' },
+      { id: 'users', label: 'User Management', icon: '👥', href: '/fms/users' },
+      { id: 'settings', label: 'Settings', icon: '⚙️', href: '/fms/settings' },
+    ]
+  },
+]

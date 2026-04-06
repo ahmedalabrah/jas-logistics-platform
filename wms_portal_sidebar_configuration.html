@@ -1,0 +1,58 @@
+const wmsSidebarItems: SidebarSection[] = [
+  {
+    label: 'Operations',
+    items: [
+      { id: 'dashboard', label: 'Warehouse Dashboard', icon: '📊', href: '/wms' },
+      { id: 'inbound', label: 'Inbound Requests', icon: '📦', href: '/wms/inbound' },
+      { id: 'outbound', label: 'Outbound Orders', icon: '🚚', href: '/wms/outbound' },
+      { id: 'tasks', label: 'Picking & Packing', icon: '📋', href: '/wms/tasks' },
+    ]
+  },
+  {
+    label: 'Storage Plans',
+    items: [
+      { id: 'model-a', label: 'Model A Plans', icon: '🏢', href: '/wms/storage-plans/model-a' },
+      { id: 'model-b', label: 'Model B Franchise', icon: '🤝', href: '/wms/storage-plans/model-b' },
+      { id: 'billing', label: 'Storage Billing', icon: '💰', href: '/wms/billing' },
+    ]
+  },
+  {
+    label: 'Inventory',
+    items: [
+      { id: 'stock', label: 'Stock Overview', icon: '📦', href: '/wms/inventory' },
+      { id: 'zones', label: 'Zone Configuration', icon: '🗺️', href: '/wms/zones' },
+      { id: 'audit', label: 'Inventory Audit', icon: '🔍', href: '/wms/audit' },
+      { id: 'expiry', label: 'Expiry Control', icon: '⌛', href: '/wms/expiry' },
+    ]
+  },
+  {
+    label: 'GRN & Receiving',
+    items: [
+      { id: 'grn-list', label: 'GRN Management', icon: '📑', href: '/wms/grn' },
+      { id: 'unloading', label: 'Unloading Log', icon: '📥', href: '/wms/unloading' },
+    ]
+  },
+  {
+    label: 'Staff & Safety',
+    items: [
+      { id: 'operators', label: 'Staff Management', icon: '👥', href: '/wms/staff' },
+      { id: 'utilization', label: 'Staff Utilization', icon: '⏱️', href: '/wms/staff/utilization' },
+      { id: 'safety', label: 'Safety Compliance', icon: '🦺', href: '/wms/safety' },
+    ]
+  },
+  {
+    label: 'Analytics',
+    items: [
+      { id: 'capacity', label: 'Capacity Trends', icon: '📉', href: '/wms/analytics/capacity' },
+      { id: 'performance', label: 'SLA Performance', icon: '📈', href: '/wms/analytics/sla' },
+      { id: 'revenue', label: 'Revenue Analytics', icon: '💰', href: '/wms/analytics/revenue' },
+    ]
+  },
+  {
+    label: 'Settings',
+    items: [
+      { id: 'config', label: 'WMS Configuration', icon: '⚙️', href: '/wms/settings' },
+      { id: 'integrations', label: 'Portal Integrations', icon: '🔌', href: '/wms/settings/integrations' },
+    ]
+  },
+]

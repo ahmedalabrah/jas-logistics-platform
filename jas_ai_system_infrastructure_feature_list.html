@@ -1,0 +1,50 @@
+# JAS AI System Documentation
+
+## AI Zustand Store (`aiStore.ts`)
+The `AIStore` manages the state of all 34 AI features across the platform.
+
+### Feature IDs:
+- `dispatch-ranking`: Smart Dispatch Ranking (FMS)
+- `predictive-maintenance`: Predictive Maintenance (FMS)
+- `gate-resolution`: Gate Fail Auto-Resolution (FMS)
+- `route-opt`: Dynamic Route Optimization (FMS)
+- `cold-chain-anomaly`: Cold Chain Anomaly Detection (FMS)
+- `fuel-fraud`: Fuel Fraud Detection (FMS)
+- `sc-coaching`: SC Performance Coaching (SCP)
+- `vehicle-retirement`: Vehicle Retirement Analysis (FMS)
+- `grn-damage`: GRN Damage Computer Vision (WMS)
+- `storage-allocation`: Smart Storage Allocation (WMS)
+- `volume-forecast`: Inbound Volume Forecasting (WMS)
+- `task-queue`: Intelligent Task Queue (WMS)
+- `expiry-risk`: Expiry Risk Intelligence (WMS)
+- `hs-classifier`: HS Code AI Classification (FreMS)
+- `customs-channel`: Customs Channel Prediction (FreMS)
+- `rate-advisor`: Freight Rate Timing Advisor (FreMS)
+- `doc-autofill`: Document Auto-fill (FreMS)
+- `route-optimizer`: Multimodal Route Optimizer (FreMS)
+- `supply-chain-assistant`: Supply Chain Assistant (Client)
+- `fa-planning`: FA Planning Assistant (Client)
+- `spend-optimizer`: Spend Optimizer (Client)
+- `reorder-intelligence`: Inventory Reorder Intelligence (Client)
+- `dispute-letter`: Invoice Dispute Intelligence (Client)
+- `sc-maintenance`: SC Predictive Maintenance (SCP)
+- `sc-earnings`: SC Earnings Opportunity (SCP)
+- `invoice-anomaly`: Invoice Anomaly Detection (Finance)
+- `revenue-leak`: Revenue Leak Detection (Finance)
+- `revenue-forecast`: Revenue Forecasting (Finance)
+- `rate-optimizer`: Rate Optimization Intelligence (Finance)
+- `network-capacity`: Network Capacity Intelligence (Command)
+- `alert-triage`: Intelligent Alert Triage (Command)
+- `churn-prediction`: Churn Prediction (Command)
+- `growth-intelligence`: Growth Intelligence (Command)
+- `sc-coaching-arabic`: SC Performance Coaching - Arabic (SCP)
+
+### Performance & Strategy
+- **Loading:** Lazy-loaded via React.lazy and Suspense.
+- **Caching:** Stale-while-revalidate (SWR) pattern with varying TTLs (5m to 4h).
+- **Prioritization:** Dispatch > Compliance > Finance > Coaching.
+- **Error Handling:** Non-blocking indigo error components with retry logic.
+
+## Presentation Tooling
+- **Topbar Indicator:** Real-time AI health status (Online/Degraded/Offline).
+- **Demo Mode:** `?demo=ai` parameter to pre-populate all insights for presentations.
