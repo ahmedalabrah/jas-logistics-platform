@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-panel {
+      backdrop-filter: blur(12px);
+      background: rgba(31, 30, 42, 0.8);
+    }
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.5rem;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#cfbef6",
+            "surface-container": "#1f1e2a",
+            "primary-container": "#4b1fa3",
+            "error-container": "#93000a",
+            "tertiary-container": "#6c2e00",
+            "on-primary": "#3b0092",
+            "outline-variant": "#494453",
+            "on-secondary": "#352856",
+            "primary-fixed-dim": "#d0bcff",
+            "on-tertiary": "#532200",
+            "on-primary-fixed": "#22005c",
+            "inverse-on-surface": "#302f3b",
+            "outline": "#948e9e",
+            "on-tertiary-container": "#f09661",
+            "on-primary-fixed-variant": "#5228aa",
+            "primary": "#d0bcff",
+            "on-secondary-fixed": "#201340",
+            "surface-variant": "#343440",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#743405",
+            "on-surface": "#e3e0f1",
+            "primary-fixed": "#e9ddff",
+            "secondary-container": "#4f4171",
+            "surface-tint": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "secondary": "#cfbef6",
+            "on-background": "#e3e0f1",
+            "inverse-primary": "#6a45c3",
+            "surface-container-lowest": "#0d0d18",
+            "error": "#ffb4ab",
+            "surface-bright": "#383845",
+            "background": "#12121d",
+            "surface-dim": "#12121d",
+            "tertiary-fixed-dim": "#ffb68e",
+            "surface": "#12121d",
+            "tertiary-fixed": "#ffdbc9",
+            "on-primary-container": "#b79cff",
+            "tertiary": "#ffb68e",
+            "surface-container-low": "#1b1a26",
+            "surface-container-high": "#292935",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#e3e0f1",
+            "on-surface-variant": "#cbc3d5",
+            "on-secondary-fixed-variant": "#4c3f6e",
+            "on-secondary-container": "#c0b0e7",
+            "surface-container-highest": "#343440",
+            "on-tertiary-fixed": "#331200"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Poppins"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-white/10 bg-slate-950/80 backdrop-blur-xl flex flex-col py-6 z-50">
+<div class="px-6 mb-8">
+<h1 class="text-2xl font-bold tracking-tight text-[#d0bcff] font-headline">JAS WMS</h1>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Riyadh Central Hub</p>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center px-3 py-2 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 group rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center px-3 py-2 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 group rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="conveyor_belt">conveyor_belt</span>
+<span class="text-sm font-medium">Pick &amp; Pack</span>
+</a>
+<a class="flex items-center px-3 py-2 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 group rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dock">dock</span>
+<span class="text-sm font-medium">Dock Management</span>
+</a>
+<a class="flex items-center px-3 py-2 text-[#d0bcff] bg-white/10 font-semibold border-r-2 border-[#d0bcff] transition-all duration-300 group rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="analytics">analytics</span>
+<span class="text-sm">Analytics</span>
+</a>
+<a class="flex items-center px-3 py-2 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 group rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-3 py-4 border-t border-white/5">
+<button class="w-full bg-primary-container text-on-primary-container py-2.5 rounded-lg flex items-center justify-center gap-2 mb-4 hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+<span class="text-sm font-semibold">Add Movement</span>
+</button>
+<div class="space-y-1">
+<a class="flex items-center px-3 py-2 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="help">help</span>
+<span class="text-sm">Support</span>
+</a>
+<a class="flex items-center px-3 py-2 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="logout">logout</span>
+<span class="text-sm">Sign Out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-[#0F0F1A]/90 backdrop-blur-lg z-40 flex justify-between items-center px-8 border-b border-white/5">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-white uppercase tracking-wider font-headline">Analytics Dashboard</span>
+<div class="flex gap-6">
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1 text-sm font-medium" href="#">Live Floor</a>
+<a class="text-slate-400 hover:text-white transition-colors duration-200 text-sm font-medium" href="#">Yard View</a>
+<a class="text-slate-400 hover:text-white transition-colors duration-200 text-sm font-medium" href="#">Alerts</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+</div>
+<div class="h-8 w-px bg-white/10 mx-2"></div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-1.5 border border-outline/20 text-on-surface-variant hover:bg-white/5 transition-colors rounded-lg text-sm font-medium">Data Export</button>
+<button class="px-4 py-1.5 bg-primary text-on-primary font-bold rounded-lg text-sm hover:brightness-110 active:scale-95 transition-all">New Shipment</button>
+<img alt="Manager Avatar" class="h-8 w-8 rounded-full border border-primary/20 object-cover" data-alt="Portrait of a professional warehouse manager in his 40s wearing a high-vis vest in a modern logistics environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiUk2aUAF5tHCs86_iu4IsZAL_HsHZr5nN_BMvJrZHJs3ZtHd6O7AzogWZeBma1HCjhyiZS3s2wVCwEY1geSFvKkUnoVHOpEyHLQICjQQgpbtixu-tSvn13XUfmxBQsj9pfIAN6iUeiaOM4xtkBEwlq6BalW-Pght2_HzPEA9qsexXb2IoNK2iwj0zsWtaYw__wMGGJVSypcYjGlv9DnWTVx6XqH8UkKh-AuTC6GTVtnrDWz_kHjyt3O3BZaUeFPxBIU7ge2TUpw"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 mt-16 p-8 min-h-screen">
+<!-- Section Title -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="text-4xl font-extrabold text-white font-headline tracking-tight">Warehouse Intelligence</h2>
+<p class="text-on-surface-variant mt-2 text-lg">Real-time performance metrics for Riyadh Central Hub.</p>
+</div>
+<div class="flex gap-2">
+<span class="inline-flex items-center px-3 py-1 bg-tertiary-container/30 text-on-tertiary-container rounded-full text-xs font-bold border border-tertiary-container/50">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="fiber_manual_record" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span>
+          LIVE SYSTEM
+        </span>
+</div>
+</div>
+<!-- Top KPIs -->
+<section class="grid grid-cols-5 gap-6 mb-8">
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary transition-all hover:bg-surface-container shadow-lg shadow-black/20">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Avg GRN time</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-3xl font-bold text-white font-headline">14.2</h3>
+<span class="text-xs font-medium text-emerald-400">min</span>
+</div>
+<p class="text-[10px] text-emerald-400 mt-2 flex items-center">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="trending_down">trending_down</span>
+          8% from last week
+        </p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-secondary transition-all hover:bg-surface-container shadow-lg shadow-black/20">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Pick accuracy %</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-3xl font-bold text-white font-headline">99.94</h3>
+<span class="text-xs font-medium text-secondary">%</span>
+</div>
+<p class="text-[10px] text-secondary mt-2 flex items-center">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          Within target range
+        </p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-tertiary transition-all hover:bg-surface-container shadow-lg shadow-black/20">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">On-time dispatch</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-3xl font-bold text-white font-headline">96.8</h3>
+<span class="text-xs font-medium text-tertiary">%</span>
+</div>
+<p class="text-[10px] text-error mt-2 flex items-center">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="priority_high">priority_high</span>
+          -2.4% vs target
+        </p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary-container transition-all hover:bg-surface-container shadow-lg shadow-black/20">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Revenue/sqm</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-3xl font-bold text-white font-headline">4,280</h3>
+<span class="text-xs font-medium text-on-surface-variant">SAR</span>
+</div>
+<p class="text-[10px] text-emerald-400 mt-2 flex items-center">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="trending_up">trending_up</span>
+          +15% year-to-date
+        </p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-outline transition-all hover:bg-surface-container shadow-lg shadow-black/20">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Staff productivity</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-3xl font-bold text-white font-headline">84.2</h3>
+<span class="text-xs font-medium text-on-surface-variant">units/hr</span>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-2 flex items-center">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="sync">sync</span>
+          Stable performance
+        </p>
+</div>
+</section>
+<!-- Chart Grid -->
+<div class="bento-grid">
+<!-- 1. Capacity Utilization Trend (Area Chart) -->
+<div class="col-span-8 bg-surface-container-low rounded-xl p-8 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-12">
+<div>
+<h4 class="text-xl font-bold text-white font-headline">Capacity Utilization Trend</h4>
+<p class="text-sm text-on-surface-variant">Warehouse space optimization over last 90 days</p>
+</div>
+<div class="flex bg-surface-container-lowest p-1 rounded-lg">
+<button class="px-3 py-1 text-xs font-bold bg-primary-container text-primary rounded shadow-sm">90D</button>
+<button class="px-3 py-1 text-xs font-bold text-on-surface-variant hover:text-white transition-colors">30D</button>
+<button class="px-3 py-1 text-xs font-bold text-on-surface-variant hover:text-white transition-colors">7D</button>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-2 relative">
+<!-- Area Chart Fake Visualizer -->
+<div class="absolute inset-0 flex items-end">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 800 200">
+<defs>
+<lineargradient id="areaGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#d0bcff" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#d0bcff" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,180 Q100,140 200,160 T400,120 T600,80 T800,100 L800,200 L0,200 Z" fill="url(#areaGradient)"></path>
+<path d="M0,180 Q100,140 200,160 T400,120 T600,80 T800,100" fill="none" stroke="#d0bcff" stroke-width="3"></path>
+<circle cx="200" cy="160" fill="#d0bcff" r="4"></circle>
+<circle cx="400" cy="120" fill="#d0bcff" r="4"></circle>
+<circle cx="600" cy="80" fill="#d0bcff" r="4"></circle>
+</svg>
+</div>
+<div class="w-full absolute bottom-0 flex justify-between text-[10px] text-on-surface-variant font-medium px-2">
+<span>MAY</span><span>JUN</span><span>JUL</span><span>AUG</span>
+</div>
+</div>
+</div>
+<!-- 3. Revenue by Client (Donut Chart) -->
+<div class="col-span-4 bg-surface-container-low rounded-xl p-8 flex flex-col items-center">
+<div class="w-full mb-8">
+<h4 class="text-xl font-bold text-white font-headline">Revenue by Client</h4>
+<p class="text-sm text-on-surface-variant">Top revenue contributors</p>
+</div>
+<div class="relative w-48 h-48 mb-8 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="16"></circle>
+<circle class="text-primary" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502" stroke-dashoffset="150" stroke-width="16"></circle>
+<circle class="text-secondary" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502" stroke-dashoffset="400" stroke-width="16"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-black text-white">4.2M</span>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">SAR TOTAL</span>
+</div>
+</div>
+<div class="w-full space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-sm text-white font-medium">Aramco Logistics</span>
+</div>
+<span class="text-sm text-on-surface-variant">42%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="text-sm text-white font-medium">SABIC Global</span>
+</div>
+<span class="text-sm text-on-surface-variant">28%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-surface-container-highest"></div>
+<span class="text-sm text-white font-medium">Other Clients</span>
+</div>
+<span class="text-sm text-on-surface-variant">30%</span>
+</div>
+</div>
+</div>
+<!-- 2. GRN Volume by Day (Bar Chart) -->
+<div class="col-span-6 bg-surface-container-low rounded-xl p-8">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h4 class="text-xl font-bold text-white font-headline">GRN Volume by Day</h4>
+<p class="text-sm text-on-surface-variant">Incoming pallet count last 7 days</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="h-64 flex items-end justify-between px-2">
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-10 bg-primary/20 rounded-t h-24 hover:bg-primary transition-all group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-[10px] font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">240 Units</div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">MON</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-10 bg-primary/40 rounded-t h-40 hover:bg-primary transition-all group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-[10px] font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">380 Units</div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">TUE</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-10 bg-primary/30 rounded-t h-32 hover:bg-primary transition-all group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-[10px] font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">310 Units</div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">WED</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-10 bg-primary rounded-t h-56 hover:bg-primary transition-all group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-[10px] font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">520 Units</div>
+</div>
+<span class="text-[10px] text-white font-bold">THU</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-10 bg-primary/50 rounded-t h-48 hover:bg-primary transition-all group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-[10px] font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">460 Units</div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">FRI</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-10 bg-primary/10 rounded-t h-12 hover:bg-primary transition-all group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-[10px] font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">120 Units</div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">SAT</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-10 bg-primary/10 rounded-t h-10 hover:bg-primary transition-all group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-[10px] font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">90 Units</div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">SUN</span>
+</div>
+</div>
+</div>
+<!-- 4. Pick/Pack Heatmap -->
+<div class="col-span-6 bg-surface-container-low rounded-xl p-8">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="text-xl font-bold text-white font-headline">Task Completion Rate</h4>
+<p class="text-sm text-on-surface-variant">Efficiency by hour (Pick/Pack heatmap)</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-sm bg-primary/10"></div>
+<span class="text-[10px] text-on-surface-variant font-bold">LOW</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-sm bg-primary"></div>
+<span class="text-[10px] text-on-surface-variant font-bold">PEAK</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-1.5">
+<!-- Hourly rows (Simulation of heatmap grid) -->
+<!-- Row 1 -->
+<div class="aspect-square rounded-sm bg-primary/20"></div>
+<div class="aspect-square rounded-sm bg-primary/30"></div>
+<div class="aspect-square rounded-sm bg-primary/40"></div>
+<div class="aspect-square rounded-sm bg-primary/60"></div>
+<div class="aspect-square rounded-sm bg-primary"></div>
+<div class="aspect-square rounded-sm bg-primary/90"></div>
+<div class="aspect-square rounded-sm bg-primary/80"></div>
+<div class="aspect-square rounded-sm bg-primary/70"></div>
+<div class="aspect-square rounded-sm bg-primary/50"></div>
+<div class="aspect-square rounded-sm bg-primary/30"></div>
+<div class="aspect-square rounded-sm bg-primary/20"></div>
+<div class="aspect-square rounded-sm bg-primary/10"></div>
+<!-- Row 2 -->
+<div class="aspect-square rounded-sm bg-primary/10"></div>
+<div class="aspect-square rounded-sm bg-primary/20"></div>
+<div class="aspect-square rounded-sm bg-primary/30"></div>
+<div class="aspect-square rounded-sm bg-primary/50"></div>
+<div class="aspect-square rounded-sm bg-primary/80"></div>
+<div class="aspect-square rounded-sm bg-primary"></div>
+<div class="aspect-square rounded-sm bg-primary"></div>
+<div class="aspect-square rounded-sm bg-primary/80"></div>
+<div class="aspect-square rounded-sm bg-primary/60"></div>
+<div class="aspect-square rounded-sm bg-primary/40"></div>
+<div class="aspect-square rounded-sm bg-primary/20"></div>
+<div class="aspect-square rounded-sm bg-primary/10"></div>
+<!-- Row 3 -->
+<div class="aspect-square rounded-sm bg-primary/5"></div>
+<div class="aspect-square rounded-sm bg-primary/10"></div>
+<div class="aspect-square rounded-sm bg-primary/20"></div>
+<div class="aspect-square rounded-sm bg-primary/40"></div>
+<div class="aspect-square rounded-sm bg-primary/70"></div>
+<div class="aspect-square rounded-sm bg-primary/90"></div>
+<div class="aspect-square rounded-sm bg-primary/80"></div>
+<div class="aspect-square rounded-sm bg-primary/60"></div>
+<div class="aspect-square rounded-sm bg-primary/40"></div>
+<div class="aspect-square rounded-sm bg-primary/20"></div>
+<div class="aspect-square rounded-sm bg-primary/10"></div>
+<div class="aspect-square rounded-sm bg-primary/5"></div>
+<!-- Row 4 -->
+<div class="aspect-square rounded-sm bg-primary/10"></div>
+<div class="aspect-square rounded-sm bg-primary/20"></div>
+<div class="aspect-square rounded-sm bg-primary/30"></div>
+<div class="aspect-square rounded-sm bg-primary/40"></div>
+<div class="aspect-square rounded-sm bg-primary/60"></div>
+<div class="aspect-square rounded-sm bg-primary/80"></div>
+<div class="aspect-square rounded-sm bg-primary/70"></div>
+<div class="aspect-square rounded-sm bg-primary/50"></div>
+<div class="aspect-square rounded-sm bg-primary/30"></div>
+<div class="aspect-square rounded-sm bg-primary/20"></div>
+<div class="aspect-square rounded-sm bg-primary/10"></div>
+<div class="aspect-square rounded-sm bg-primary/5"></div>
+</div>
+<div class="flex justify-between mt-6 text-[10px] text-on-surface-variant font-bold uppercase tracking-wider">
+<span>08:00</span>
+<span>12:00</span>
+<span>16:00</span>
+<span>20:00</span>
+</div>
+</div>
+</div>
+<!-- Recent Intelligence Feed -->
+<section class="mt-8 bg-surface-container-low rounded-xl overflow-hidden shadow-2xl border border-white/5">
+<div class="px-8 py-6 border-b border-white/5 flex justify-between items-center">
+<h4 class="text-xl font-bold text-white font-headline">Operational Anomalies</h4>
+<button class="text-primary text-xs font-bold hover:underline">VIEW ALL ALERTS</button>
+</div>
+<div class="divide-y divide-white/5">
+<div class="px-8 py-4 flex items-center gap-6 hover:bg-white/5 transition-colors cursor-pointer">
+<div class="h-10 w-10 rounded-lg bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold text-white">Bottleneck detected in Zone C</h5>
+<p class="text-xs text-on-surface-variant">Congestion in packing aisle 4 is affecting GRN time for Client: SABIC.</p>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">4 mins ago</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="px-8 py-4 flex items-center gap-6 hover:bg-white/5 transition-colors cursor-pointer">
+<div class="h-10 w-10 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold text-white">High efficiency spike - Shift B</h5>
+<p class="text-xs text-on-surface-variant">Current staff productivity is 18% above monthly baseline.</p>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">22 mins ago</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Global Glass Overlay for Tooltips (Hidden) -->
+<div class="hidden fixed pointer-events-none bg-surface-container-highest border border-outline/20 p-2 rounded shadow-2xl z-[100] text-xs font-bold text-white" id="tooltip"></div>
+</body></html>

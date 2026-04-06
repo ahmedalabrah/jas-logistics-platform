@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vehicle Onboarding Wizard - JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Sans+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-secondary-fixed": "#201340",
+                "tertiary": "#ffb68e",
+                "primary-container": "#4b1fa3",
+                "on-primary": "#3b0092",
+                "on-error": "#690005",
+                "background": "#12121d",
+                "tertiary-fixed": "#ffdbc9",
+                "surface-container-low": "#1b1a26",
+                "surface-variant": "#343440",
+                "surface-container": "#1f1e2a",
+                "outline": "#948e9e",
+                "on-tertiary": "#532200",
+                "tertiary-fixed-dim": "#ffb68e",
+                "secondary-container": "#4f4171",
+                "surface-container-lowest": "#0d0d18",
+                "on-tertiary-container": "#f09661",
+                "on-secondary-container": "#c0b0e7",
+                "error": "#ffb4ab",
+                "surface-container-highest": "#343440",
+                "outline-variant": "#494453",
+                "on-surface": "#e3e0f1",
+                "on-background": "#e3e0f1",
+                "surface-bright": "#383845",
+                "primary-fixed": "#e9ddff",
+                "secondary": "#cfbef6",
+                "inverse-on-surface": "#302f3b",
+                "on-secondary-fixed-variant": "#4c3f6e",
+                "tertiary-container": "#6c2e00",
+                "surface-tint": "#d0bcff",
+                "on-error-container": "#ffdad6",
+                "error-container": "#93000a",
+                "on-surface-variant": "#cbc3d5",
+                "on-primary-fixed": "#22005c",
+                "surface": "#12121d",
+                "secondary-fixed": "#e9ddff",
+                "on-secondary": "#352856",
+                "primary": "#d0bcff",
+                "on-primary-container": "#b79cff",
+                "surface-dim": "#12121d",
+                "primary-fixed-dim": "#d0bcff",
+                "on-primary-fixed-variant": "#5228aa",
+                "surface-container-high": "#292935",
+                "inverse-primary": "#6a45c3",
+                "on-tertiary-fixed": "#331200",
+                "secondary-fixed-dim": "#cfbef6",
+                "on-tertiary-fixed-variant": "#743405",
+                "inverse-surface": "#e3e0f1"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Plus Jakarta Sans", "sans-serif"],
+                "body": ["Inter", "sans-serif"],
+                "label": ["Inter", "sans-serif"],
+                "arabic": ["IBM Plex Sans Arabic", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #12121d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #343440;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#0F0F1A]/80 backdrop-blur-xl flex flex-col py-8 px-6 z-50 shadow-[24px_0_48px_rgba(0,0,0,0.4)] bg-gradient-to-r from-transparent to-[#1F1F2E]/30">
+<div class="mb-10">
+<h1 class="text-xl font-black tracking-tight text-[#d0bcff] font-headline">JAS Logistics</h1>
+<p class="text-xs text-on-surface-variant font-medium tracking-wide opacity-70">Fleet Management</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active Tab: Vehicle Basics -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#d0bcff] font-bold border-r-2 border-[#d0bcff] bg-[#d0bcff]/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="text-sm">Vehicle Basics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="pin">pin</span>
+<span class="text-sm">Plate &amp; Registration</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="text-sm">TGA Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span class="text-sm">Driver Assignment</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="text-sm">Review</span>
+</a>
+</nav>
+<div class="mt-auto pt-6">
+<button class="w-full flex items-center justify-center gap-2 py-3 text-sm font-semibold text-error hover:bg-error/10 transition-all rounded-lg">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+                Cancel Onboarding
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="flex justify-between items-center h-16 px-8 ml-64 bg-[#0F0F1A] sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-bold text-white font-headline">Vehicle Onboarding Wizard</h2>
+<span class="px-2 py-0.5 bg-surface-container text-primary-fixed-dim text-[10px] font-bold tracking-widest rounded-sm border border-outline-variant/30 uppercase">FMS-07</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors" data-icon="language">language</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors" data-icon="help_outline">help_outline</span>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="Manager profile" class="w-full h-full object-cover" data-alt="Professional headshot of a middle-aged logistics manager in a dark navy suit against a soft blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8w1ccFRII3i1TJmkBPPjFwMsDbln2F0INJdn3qg8gpKCDe6kJtPhfL-ByBAJkVUdCMQkpfayBLXW_ql4rELN063DuctDw0eLLSOcPn9OHC3XUOLNgZW8nt8Zfwk3lLH8NPIBznDjvEt4dQvzWMVlFnlwsfwas1igXjrhdXiqlH_XmL3Iae_ij69JfFp2BBU7zPydP1kdkUuxjHRLeSCWJNzlaNVJimKJKYrCdwv9enN9QIWprSVQP7MenzZRqe8adlDE3ssDwmQ"/>
+</div>
+</div>
+<div class="bg-[#1F1F2E] h-[1px] w-full absolute bottom-0 left-0"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-12 mb-20">
+<div class="max-w-5xl mx-auto">
+<!-- Header Section -->
+<div class="mb-12">
+<span class="text-primary-fixed-dim font-bold tracking-widest text-xs uppercase mb-2 block">Step 1 of 5</span>
+<h3 class="text-4xl font-bold font-headline text-white mb-4">Vehicle Information</h3>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed">Establish the baseline identity for this asset within the fleet database. Ensure the VIN and Plate details precisely match the government registration documents.</p>
+</div>
+<!-- Form Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Left Column -->
+<div class="space-y-8">
+<!-- License Plate Arabic UI -->
+<div class="space-y-3">
+<label class="block text-xs font-bold text-on-surface-variant tracking-wider uppercase">License Plate Number</label>
+<div class="flex items-center bg-surface-container-highest rounded-lg p-1 border-b-2 border-primary overflow-hidden">
+<div class="flex-1 px-4 py-3 flex flex-col items-center">
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">English</span>
+<input class="bg-transparent border-none focus:ring-0 text-white font-bold w-full text-center placeholder:text-surface-variant" placeholder="1234 ABC" type="text"/>
+</div>
+<div class="w-[1px] h-10 bg-outline-variant/30"></div>
+<div class="flex-1 px-4 py-3 flex flex-col items-center font-arabic" dir="rtl">
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">عربي</span>
+<input class="bg-transparent border-none focus:ring-0 text-white font-bold w-full text-center placeholder:text-surface-variant" placeholder="١٢٣٤ أ ب ج" type="text"/>
+</div>
+</div>
+</div>
+<!-- Type & Make/Model -->
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-3">
+<label class="block text-xs font-bold text-on-surface-variant tracking-wider uppercase">Vehicle Type</label>
+<select class="w-full bg-surface-container-highest border-none border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-white rounded-lg px-4 py-3 appearance-none">
+<option>Heavy Duty Truck</option>
+<option>Light Delivery Van</option>
+<option>Refrigerated Trailer</option>
+<option>Container Carrier</option>
+</select>
+</div>
+<div class="space-y-3">
+<label class="block text-xs font-bold text-on-surface-variant tracking-wider uppercase">Vehicle Year</label>
+<input class="w-full bg-surface-container-highest border-none border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-white rounded-lg px-4 py-3" max="2026" min="1990" type="number" value="2024"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-3">
+<label class="block text-xs font-bold text-on-surface-variant tracking-wider uppercase">Manufacturer (Make)</label>
+<input class="w-full bg-surface-container-highest border-none border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-white rounded-lg px-4 py-3" placeholder="e.g. Mercedes-Benz" type="text"/>
+</div>
+<div class="space-y-3">
+<label class="block text-xs font-bold text-on-surface-variant tracking-wider uppercase">Model</label>
+<input class="w-full bg-surface-container-highest border-none border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-white rounded-lg px-4 py-3" placeholder="e.g. Actros" type="text"/>
+</div>
+</div>
+<!-- VIN Section -->
+<div class="space-y-3">
+<label class="block text-xs font-bold text-on-surface-variant tracking-wider uppercase">Vehicle Identification Number (VIN)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-white rounded-lg px-4 py-3 font-mono tracking-widest" placeholder="17-Digit Alphanumeric Code" type="text"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary-fixed-dim" data-icon="barcode_scanner">barcode_scanner</span>
+</div>
+</div>
+</div>
+<!-- Right Column -->
+<div class="space-y-8">
+<!-- Photo Upload -->
+<div class="space-y-3">
+<label class="block text-xs font-bold text-on-surface-variant tracking-wider uppercase">Vehicle Photography</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center bg-surface-container-lowest hover:bg-surface-container-low transition-colors group cursor-pointer h-48 relative overflow-hidden">
+<img alt="Large white transport truck" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" data-alt="Modern white heavy-duty logistics truck parked in a clean minimalist industrial lot under bright cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsFhCYRznFxl1MrooZAr7NUPxc1BAvuxSxSPHGswrN6ELAGFSlRFuAWBLOgt_Z_kltcM-EXVwg0oqjpE1XHcUv8Xkn2EvomM0R-vfVUC7KAGtQ8shAEjMHLnao4-d1l8pqCjlEIQpwkfDLXZz7QnsyEmycl3gb1OjSKVHBda-Qb4PPlKAs-J1VccGcvUpXnPORJy09L3cDOugP4eZwYOYk4VBh-1JU9f1d1JVlpeOHBBrpzA8sB7WSXQzHAvBQzxZyUMMsHGw_Dg"/>
+<span class="material-symbols-outlined text-4xl text-primary mb-2 group-hover:scale-110 transition-transform" data-icon="cloud_upload">cloud_upload</span>
+<p class="text-sm font-semibold text-on-surface">Drag &amp; Drop Vehicle Image</p>
+<p class="text-xs text-on-surface-variant mt-1">High-res JPEG or PNG (Max 10MB)</p>
+</div>
+</div>
+<!-- GVW Slider -->
+<div class="space-y-5">
+<div class="flex justify-between">
+<label class="text-xs font-bold text-on-surface-variant tracking-wider uppercase">Gross Vehicle Weight (GVW)</label>
+<span class="text-primary font-bold">18,500 KG</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-full appearance-none accent-primary cursor-pointer" max="44000" min="3500" step="500" type="range"/>
+<div class="flex justify-between text-[10px] text-on-surface-variant font-medium">
+<span>3.5t</span>
+<span>15t</span>
+<span>25t</span>
+<span>35t</span>
+<span>44t</span>
+</div>
+</div>
+<!-- Special Capabilities -->
+<div class="space-y-3">
+<label class="block text-xs font-bold text-on-surface-variant tracking-wider uppercase">Special Capabilities</label>
+<div class="flex flex-wrap gap-2">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary-container text-on-primary-container rounded-full text-xs font-bold border border-primary/30">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">ac_unit</span>
+                                Cold Chain
+                            </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-highest text-on-surface-variant hover:text-white rounded-full text-xs font-bold border border-outline-variant/30 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span>
+                                Hazmat
+                            </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-highest text-on-surface-variant hover:text-white rounded-full text-xs font-bold border border-outline-variant/30 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="security">security</span>
+                                Armored
+                            </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-highest text-on-surface-variant hover:text-white rounded-full text-xs font-bold border border-outline-variant/30 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="speed">speed</span>
+                                Express
+                            </button>
+</div>
+</div>
+<!-- Color Picker -->
+<div class="space-y-3">
+<label class="block text-xs font-bold text-on-surface-variant tracking-wider uppercase">Primary Fleet Color</label>
+<div class="flex gap-4 items-center">
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full bg-white border-2 border-primary ring-2 ring-background"></button>
+<button class="w-8 h-8 rounded-full bg-slate-900 border border-outline-variant"></button>
+<button class="w-8 h-8 rounded-full bg-red-600 border border-outline-variant"></button>
+<button class="w-8 h-8 rounded-full bg-blue-700 border border-outline-variant"></button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<button class="text-xs font-bold text-primary flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm" data-icon="palette">palette</span>
+                                Custom HEX
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Action Bar -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-16rem)] h-20 bg-[#12121d]/90 backdrop-blur-md flex justify-between items-center px-12 z-40 border-t border-white/10 shadow-[0_-8px_24px_rgba(0,0,0,0.2)]">
+<div>
+<button class="text-slate-300 border border-white/20 px-8 py-3 rounded text-sm font-bold uppercase tracking-wider Inter hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.4)] transition-all active:scale-95 duration-150">
+                Back
+            </button>
+</div>
+<div class="flex gap-4">
+<button class="text-slate-300 border border-white/20 px-8 py-3 rounded text-sm font-bold uppercase tracking-wider Inter hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.4)] transition-all active:scale-95 duration-150">
+                Save Draft
+            </button>
+<button class="bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] text-white px-8 py-3 rounded text-sm font-bold uppercase tracking-wider Inter hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.4)] transition-all active:scale-95 duration-150">
+                Next Step
+            </button>
+</div>
+</footer>
+</body></html>

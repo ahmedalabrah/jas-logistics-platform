@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FMS-31 — VEHICLE TCO REPORT | JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "tertiary-container": "#6c2e00",
+                  "tertiary-fixed-dim": "#ffb68e",
+                  "on-tertiary": "#532200",
+                  "inverse-on-surface": "#302f3b",
+                  "on-secondary-container": "#c0b0e7",
+                  "secondary-fixed": "#e9ddff",
+                  "on-tertiary-fixed": "#331200",
+                  "on-surface": "#e3e0f1",
+                  "on-error": "#690005",
+                  "inverse-primary": "#6a45c3",
+                  "on-error-container": "#ffdad6",
+                  "on-background": "#e3e0f1",
+                  "on-primary-fixed-variant": "#5228aa",
+                  "surface-container-lowest": "#0d0d18",
+                  "surface-container": "#1f1e2a",
+                  "on-primary-container": "#b79cff",
+                  "on-tertiary-fixed-variant": "#743405",
+                  "surface-bright": "#383845",
+                  "secondary": "#cfbef6",
+                  "primary": "#d0bcff",
+                  "surface-tint": "#d0bcff",
+                  "surface-container-high": "#292935",
+                  "secondary-fixed-dim": "#cfbef6",
+                  "error-container": "#93000a",
+                  "primary-fixed-dim": "#d0bcff",
+                  "surface-container-highest": "#343440",
+                  "on-secondary": "#352856",
+                  "surface": "#12121d",
+                  "primary-fixed": "#e9ddff",
+                  "on-surface-variant": "#cbc3d5",
+                  "on-primary-fixed": "#22005c",
+                  "error": "#ffb4ab",
+                  "tertiary-fixed": "#ffdbc9",
+                  "primary-container": "#4b1fa3",
+                  "surface-variant": "#343440",
+                  "surface-container-low": "#1b1a26",
+                  "outline": "#948e9e",
+                  "on-tertiary-container": "#f09661",
+                  "on-secondary-fixed": "#201340",
+                  "on-primary": "#3b0092",
+                  "surface-dim": "#12121d",
+                  "secondary-container": "#4f4171",
+                  "outline-variant": "#494453",
+                  "on-secondary-fixed-variant": "#4c3f6e",
+                  "inverse-surface": "#e3e0f1",
+                  "background": "#12121d",
+                  "tertiary": "#ffb68e",
+                  "ai-indigo": "#6366F1"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "fontFamily": {
+                  "headline": ["Plus Jakarta Sans"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-sidebar { background: rgba(15, 15, 26, 0.8); backdrop-filter: blur(20px); }
+    .glass-topbar { background: rgba(15, 15, 26, 0.6); backdrop-filter: blur(12px); }
+    .gradient-primary { background: linear-gradient(135deg, #d0bcff 0%, #4b1fa3 100%); }
+    .gradient-ai { background: linear-gradient(135deg, #6366F1 0%, #312E81 100%); }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .ai-glow { box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 flex flex-col bg-slate-950/80 backdrop-blur-xl border-r border-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm shadow-2xl shadow-black/50">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded gradient-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-base">local_shipping</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-violet-400">JAS Logistics</h1>
+<p class="text-[10px] text-slate-400 uppercase tracking-widest">Fleet Operations</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1 overflow-y-auto no-scrollbar">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-white/5 transition-all duration-300 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span>Maintenance Control</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-white/5 transition-all duration-300 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>Work Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-white/5 transition-all duration-300 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">local_gas_station</span>
+<span>Fuel Management</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-white/5 transition-all duration-300 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">monetization_on</span>
+<span>Profitability</span>
+</a>
+<!-- Active State Logic: Mapping to TCO Reports -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded transition-all duration-300 text-white bg-violet-600/20 border-r-2 border-violet-500 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span>TCO Reports</span>
+</a>
+</nav>
+<div class="p-4 border-t border-white/5">
+<button class="w-full py-3 mb-4 rounded-lg gradient-primary text-on-primary font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+        Schedule AI Audit
+      </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="sticky top-0 right-0 w-[calc(100%-16rem)] ml-64 z-30 px-8 h-16 flex justify-between items-center bg-slate-950/60 backdrop-blur-lg border-b border-white/5">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black text-white font-['Plus_Jakarta_Sans']">Fleet Intelligence</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-400 hover:text-white transition-colors font-semibold text-sm" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-white transition-colors font-semibold text-sm" href="#">Analytics</a>
+<a class="text-violet-400 border-b-2 border-violet-400 pb-2 font-semibold text-sm" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-white">notifications</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-white">history</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/10">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Professional headshot of a Middle Eastern logistics manager in a modern office setting, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy7FKX5q07KQgc8bmTEDuOdoNvF-ebje4bIB-w4zLA6Wy08BlO6vAnAhCPdrAdjpdXpvdixAGx2osJDov1PNF0HO7mI_ZzKWhX9p582q3OX-pudteMAXS9htcFEN0Jz0-MY-rIxucRR5gu4TO0zsh2OY_YvnKMWTg6cwI6dbqd-OX8AewmP_OE8kAh6po17WvdiN_8AjQ3PZxzuQ4aaVcwcusThn5Jf0skK6uDlRq9Yq98qkcDPtxZ_q1H58pNWDVC15WFgBSC4A"/>
+</div>
+</div>
+<button class="bg-primary px-4 py-2 rounded text-on-primary text-sm font-bold hover:brightness-110 transition-all">
+        Create Work Order
+      </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-8 min-h-screen">
+<!-- Header Section: TCO Profile -->
+<section class="mb-8">
+<div class="flex justify-between items-end mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold tracking-wider">ASSET: JAS-041</span>
+<span class="text-on-surface-variant text-sm">• Heavy Haulage / Mercedes-Benz Actros</span>
+</div>
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface font-headline">Vehicle TCO Lifecycle Analysis</h2>
+</div>
+<div class="flex gap-2">
+<button class="bg-surface-container-high hover:bg-surface-bright px-4 py-2 rounded flex items-center gap-2 text-sm font-medium transition-colors border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary-fixed-dim">download</span> Export PDF
+            </button>
+<button class="bg-error-container/20 hover:bg-error-container/40 text-error px-4 py-2 rounded flex items-center gap-2 text-sm font-bold transition-all border border-error/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">flag</span> Flag for Retirement Review
+            </button>
+</div>
+</div>
+<!-- AI Retirement Analysis Highlight Card -->
+<div class="mb-8 bg-ai-indigo/5 border border-ai-indigo/20 rounded-2xl p-6 flex items-start gap-6 ai-glow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 gradient-ai opacity-5 blur-3xl -mr-16 -mt-16"></div>
+<div class="w-12 h-12 rounded-xl gradient-ai flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="text-lg font-bold text-ai-indigo">AI Retirement Analysis: JAS-028</h3>
+<span class="bg-ai-indigo text-white text-[10px] font-black px-2 py-0.5 rounded tracking-tighter uppercase">High Priority Recommendation</span>
+</div>
+<p class="text-sm text-on-surface-variant max-w-2xl leading-relaxed">
+        Autonomous fleet audit predicts JAS-028 (Peer Asset) has reached its peak efficiency threshold. Replacing this asset now vs. maintaining it for another 18 months will yield a significant operational ROI.
+      </p>
+<div class="mt-4 flex flex-wrap gap-8">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant tracking-widest">Total Lifecycle Cost</span>
+<span class="text-xl font-black text-on-surface">SAR 1.2M</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant tracking-widest">ROI Breakeven</span>
+<span class="text-xl font-black text-ai-indigo">18 Months</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant tracking-widest">Risk Factor</span>
+<span class="text-xl font-black text-tertiary">Medium-Low</span>
+</div>
+</div>
+</div>
+<div class="shrink-0 flex flex-col gap-2">
+<button class="bg-ai-indigo hover:bg-ai-indigo/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-ai-indigo/20 flex items-center gap-2">
+        Review JAS-028 TCO <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="text-[11px] text-on-surface-variant hover:text-ai-indigo font-semibold text-center transition-colors">Dismiss Suggestion</button>
+</div>
+</div>
+<!-- Quick Stats Bento -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5">
+<p class="text-on-surface-variant text-xs mb-1 uppercase tracking-wider font-semibold">Purchase Date</p>
+<p class="text-2xl font-bold">Oct 12, 2021</p>
+<div class="mt-3 flex items-center gap-1 text-on-surface-variant text-[10px]">
+<span class="material-symbols-outlined text-[12px]">calendar_today</span> 2.4 Years in Fleet
+          </div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5">
+<p class="text-on-surface-variant text-xs mb-1 uppercase tracking-wider font-semibold">Acquisition Cost</p>
+<p class="text-2xl font-bold">SAR 482,000</p>
+<div class="mt-3 flex items-center gap-1 text-on-tertiary-container text-[10px]">
+<span class="material-symbols-outlined text-[12px]">payments</span> Finance: 4.2% APR
+          </div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5">
+<p class="text-on-surface-variant text-xs mb-1 uppercase tracking-wider font-semibold">Current Mileage</p>
+<p class="text-2xl font-bold">248,102 KM</p>
+<div class="mt-3 flex items-center gap-1 text-tertiary text-[10px]">
+<span class="material-symbols-outlined text-[12px]">trending_up</span> Above Avg (+12%)
+          </div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5">
+<p class="text-on-surface-variant text-xs mb-1 uppercase tracking-wider font-semibold">Residual Value (Est)</p>
+<p class="text-2xl font-bold">SAR 215,500</p>
+<div class="mt-3 flex items-center gap-1 text-primary text-[10px]">
+<span class="material-symbols-outlined text-[12px]">assessment</span> 44.7% Retention
+          </div>
+</div>
+</div>
+</section>
+<!-- Main Data View -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Chart Area (2/3) -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-2xl overflow-hidden border border-white/5 flex flex-col">
+<div class="p-6 border-b border-white/5 flex justify-between items-center bg-surface-container-low">
+<div>
+<h3 class="text-lg font-bold">Cumulative Cost vs Revenue</h3>
+<p class="text-sm text-on-surface-variant">Monthly TCO aggregation including operational overhead</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-xs text-on-surface-variant">Revenue</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="text-xs text-on-surface-variant">Fixed Costs</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<span class="text-xs text-on-surface-variant">Variable Costs</span>
+</div>
+</div>
+</div>
+<div class="flex-1 p-8 min-h-[400px] relative">
+<!-- Mock Chart Visualization using Tonal Gradients -->
+<div class="absolute inset-x-8 bottom-16 top-16 flex items-end justify-between gap-1">
+<!-- Stacked Bars for each month (Represented by simplified divs) -->
+<div class="w-full h-full flex items-end gap-1">
+<div class="flex-1 flex flex-col justify-end gap-0.5">
+<div class="w-full bg-tertiary/60 rounded-t-sm h-12"></div>
+<div class="w-full bg-secondary/40 h-8"></div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-0.5">
+<div class="w-full bg-tertiary/60 rounded-t-sm h-16"></div>
+<div class="w-full bg-secondary/40 h-8"></div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-0.5">
+<div class="w-full bg-tertiary/60 rounded-t-sm h-14"></div>
+<div class="w-full bg-secondary/40 h-10"></div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-0.5">
+<div class="w-full bg-tertiary/60 rounded-t-sm h-20"></div>
+<div class="w-full bg-secondary/40 h-12"></div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-0.5">
+<div class="w-full bg-tertiary/60 rounded-t-sm h-18"></div>
+<div class="w-full bg-secondary/40 h-12"></div>
+</div>
+<!-- Break even point indicator -->
+<div class="flex-1 flex flex-col justify-end gap-0.5 relative">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 flex flex-col items-center">
+<span class="bg-primary text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full mb-1">BREAK-EVEN</span>
+<div class="w-px h-12 bg-primary/40 dashed"></div>
+</div>
+<div class="w-full bg-tertiary/60 rounded-t-sm h-24"></div>
+<div class="w-full bg-secondary/40 h-14"></div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-0.5">
+<div class="w-full bg-tertiary/60 rounded-t-sm h-28"></div>
+<div class="w-full bg-secondary/40 h-16"></div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-0.5">
+<div class="w-full bg-tertiary/60 rounded-t-sm h-32"></div>
+<div class="w-full bg-secondary/40 h-16"></div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-0.5">
+<div class="w-full bg-tertiary/60 rounded-t-sm h-36"></div>
+<div class="w-full bg-secondary/40 h-20"></div>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-0.5">
+<div class="w-full bg-tertiary/80 rounded-t-sm h-40"></div>
+<div class="w-full bg-secondary/50 h-24"></div>
+</div>
+</div>
+<!-- Revenue Line overlay -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M 0,90 Q 25,85 50,50 T 100,10" fill="none" stroke="#d0bcff" stroke-width="2"></path>
+<circle cx="50" cy="50" fill="#d0bcff" r="3"></circle>
+</svg>
+</div>
+<!-- Y-Axis Labels -->
+<div class="absolute left-0 inset-y-16 flex flex-col justify-between text-[10px] text-on-surface-variant/40 pr-2">
+<span>600k</span>
+<span>400k</span>
+<span>200k</span>
+<span>0</span>
+</div>
+</div>
+<div class="px-8 py-4 bg-surface-container flex justify-between">
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Q1 2023</span>
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Q2 2023</span>
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Q3 2023</span>
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Q4 2023</span>
+</div>
+</div>
+<!-- Replacement Analysis Card (1/3) -->
+<div class="lg:col-span-1 space-y-6">
+<div class="bg-surface-container-high p-8 rounded-3xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl">balance</span>
+</div>
+<h3 class="text-xl font-bold mb-1">Replacement Analysis</h3>
+<p class="text-sm text-on-surface-variant mb-8">Financial viability projection over next 24 months</p>
+<div class="space-y-6">
+<!-- Scenario A: Keep -->
+<div class="p-4 rounded-xl bg-surface-container-low border-l-4 border-error/50">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold uppercase text-error/80">Option A: Retain Asset</span>
+<span class="text-xs font-medium text-on-surface-variant">24m Forecast</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-on-surface">SAR 1.2M</span>
+<span class="text-xs text-on-surface-variant">Est. Spend</span>
+</div>
+<p class="text-[11px] mt-2 text-on-surface-variant">Maintenance costs increasing by 14% MoM due to high mileage fatigue.</p>
+</div>
+<!-- Scenario B: Replace -->
+<div class="p-4 rounded-xl bg-primary/10 border-l-4 border-primary/50">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold uppercase text-primary">Option B: Replace Now</span>
+<span class="text-xs font-medium text-on-surface-variant">24m Forecast</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-on-surface">SAR 980K</span>
+<span class="text-xs text-on-surface-variant">Est. Spend</span>
+</div>
+<p class="text-[11px] mt-2 text-on-surface-variant">Savings from fuel efficiency and warranty coverage outweigh lease payments.</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/5">
+<div class="flex justify-between items-center mb-4">
+<span class="text-on-surface-variant font-medium">Potential Savings</span>
+<span class="text-xl font-black text-primary">SAR 220,000</span>
+</div>
+<button class="w-full py-4 rounded-xl gradient-primary text-on-primary font-extrabold shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                INITIATE REPLACEMENT
+            </button>
+</div>
+</div>
+<!-- Secondary Insights -->
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5">
+<h4 class="font-bold text-sm mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-lg">insights</span> Efficiency Breakdown
+            </h4>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Fuel Economy</span>
+<span class="text-on-surface font-bold">2.8 KM/L</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-error w-[40%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Uptime Percentage</span>
+<span class="text-on-surface font-bold">94.2%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-primary w-[94%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Repair Frequency</span>
+<span class="text-on-surface font-bold">High (3.1/mo)</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-tertiary w-[75%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footnotes & Detailed Cost Categories -->
+<section class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="bg-surface-container/50 p-4 rounded-lg flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">local_gas_station</span>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Fuel Total</p>
+<p class="text-lg font-bold">SAR 182k</p>
+</div>
+</div>
+<div class="bg-surface-container/50 p-4 rounded-lg flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">build</span>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Maintenance</p>
+<p class="text-lg font-bold">SAR 64k</p>
+</div>
+</div>
+<div class="bg-surface-container/50 p-4 rounded-lg flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">settings_input_component</span>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Parts/Tires</p>
+<p class="text-lg font-bold">SAR 28k</p>
+</div>
+</div>
+<div class="bg-surface-container/50 p-4 rounded-lg flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-on-surface-variant/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">receipt_long</span>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Fees/Ins</p>
+<p class="text-lg font-bold">SAR 12k</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Bottom NavBar (Hidden on Desktop) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-slate-950/90 backdrop-blur-xl border-t border-white/5 flex items-center justify-around px-2 z-50">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span class="text-[10px]">Fleet</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">local_gas_station</span>
+<span class="text-[10px]">Fuel</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-violet-400 bg-violet-600/10 px-4 py-1 rounded-full" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="text-[10px]">TCO</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-[10px]">Alerts</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px]">Profile</span>
+</a>
+</nav>
+</body></html>
