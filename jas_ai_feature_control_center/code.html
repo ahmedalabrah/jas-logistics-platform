@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SENTINEL PROTOCOL | AI Feature Control Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#0b1326",
+                        "inverse-primary": "#494bd6",
+                        "background": "#0b1326",
+                        "on-background": "#dae2fd",
+                        "secondary": "#b9c8de",
+                        "on-secondary-container": "#a7b6cc",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#131b2e",
+                        "outline": "#908fa0",
+                        "on-surface-variant": "#c7c4d7",
+                        "tertiary-container": "#d97721",
+                        "surface-variant": "#2d3449",
+                        "on-secondary-fixed": "#0d1c2d",
+                        "on-tertiary-container": "#452000",
+                        "surface": "#0b1326",
+                        "secondary-container": "#39485a",
+                        "surface-container": "#171f33",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-tertiary": "#4f2500",
+                        "inverse-on-surface": "#283044",
+                        "on-primary-fixed": "#07006c",
+                        "surface-container-highest": "#2d3449",
+                        "on-secondary": "#233143",
+                        "inverse-surface": "#dae2fd",
+                        "surface-container-lowest": "#060e20",
+                        "on-secondary-fixed-variant": "#39485a",
+                        "outline-variant": "#464554",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "surface-container-high": "#222a3d",
+                        "primary": "#c0c1ff",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "tertiary": "#ffb783",
+                        "primary-fixed": "#e1e0ff",
+                        "on-tertiary-fixed": "#301400",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "secondary-fixed": "#d4e4fa",
+                        "error-container": "#93000a",
+                        "on-primary": "#1000a9",
+                        "surface-tint": "#c0c1ff",
+                        "on-error": "#690005",
+                        "on-surface": "#dae2fd",
+                        "on-primary-container": "#0d0096",
+                        "secondary-fixed-dim": "#b9c8de",
+                        "surface-bright": "#31394d",
+                        "primary-container": "#8083ff",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-label { font-family: 'Space Grotesk', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0b1326; }
+        ::-webkit-scrollbar-thumb { background: #464554; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background overflow-hidden">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 z-50 w-full h-16 px-6 flex justify-between items-center bg-[#0b1326] border-b border-[#464554]/15 shadow-[0_4px_20px_rgba(6,14,32,0.5)]">
+<div class="flex items-center gap-4">
+<span class="text-lg font-bold tracking-tighter text-[#dae2fd] uppercase font-headline">SENTINEL PROTOCOL</span>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
+<span class="font-mono text-[10px] tracking-widest text-emerald-500 uppercase">AI_STATUS: NOMINAL</span>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-[#dae2fd]/60 font-mono text-xs uppercase tracking-widest hover:text-[#6366F1] transition-colors duration-200" href="#">Models</a>
+<a class="text-[#dae2fd]/60 font-mono text-xs uppercase tracking-widest hover:text-[#6366F1] transition-colors duration-200" href="#">Deployments</a>
+<a class="text-[#c0c1ff] border-b-2 border-[#6366F1] pb-2 font-mono text-xs uppercase tracking-widest" href="#">Security</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#dae2fd]/60 cursor-pointer hover:text-primary">sensors</span>
+<span class="material-symbols-outlined text-[#dae2fd]/60 cursor-pointer hover:text-primary">notifications</span>
+<span class="material-symbols-outlined text-[#dae2fd]/60 cursor-pointer hover:text-primary">account_circle</span>
+</div>
+</header>
+<!-- UI ALERT BANNER -->
+<div class="fixed top-16 left-0 w-full z-40 bg-tertiary-container/10 border-b border-tertiary-container/30 px-6 py-1.5 flex justify-center items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm">warning</span>
+<span class="font-mono text-[10px] uppercase tracking-[0.2em] text-tertiary font-bold">AI Demo Mode Active — Configuration Changes are Ephemeral</span>
+</div>
+<div class="flex h-screen pt-[88px]">
+<!-- Side Navigation Anchor -->
+<aside class="w-64 h-full bg-gradient-to-r from-[#131b2e] to-[#0b1326] shadow-[10px_0_30px_rgba(0,0,0,0.3)] flex flex-col py-8 z-30 shrink-0">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<img class="w-10 h-10 rounded-full border border-primary/20 object-cover" data-alt="high contrast portrait of a futuristic cybernetic operator with neon highlights on skin and sleek tech headwear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDofKwbUyv8Q-VwmMopCgAsh5SLPdEXL8lfCFcKXB5FVw2zx6a-DAqwJ8Z1o0B_-FUbQGdqomEkO5bfW_0HaL3ZqGQN0erpmolL3u6rjs7ETYWs25H378dC3jvbkifAdcGMWcC2XN6OWtckQz-doFUwP0Bq7-pVLZYLeTaO3KbaZ6_FsGOB6twxgpCVYkxcB-FTt6GaKDzB39hV9etTKC1oeHDrc9NjnvhZArDEX_8DgczHwJNYk0pw-enec5IRaoIFn23DC0yhKQ"/>
+<div class="flex flex-col">
+<span class="text-[#c0c1ff] font-bold font-mono text-[10px]">OPERATOR_01</span>
+<span class="text-[8px] font-mono text-primary uppercase tracking-tighter">SOVEREIGN STATUS: ACTIVE</span>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="flex items-center gap-3 text-[#dae2fd]/40 py-3 px-6 hover:bg-[#171f33] hover:text-[#dae2fd] transition-all duration-150 cursor-pointer group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">space_dashboard</span>
+<span class="font-mono text-xs uppercase tracking-widest">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 bg-[#222a3d] text-[#c0c1ff] border-r-4 border-[#6366F1] py-3 px-6 cursor-pointer">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-mono text-xs uppercase tracking-widest">Intelligence</span>
+</div>
+<div class="flex items-center gap-3 text-[#dae2fd]/40 py-3 px-6 hover:bg-[#171f33] hover:text-[#dae2fd] transition-all duration-150 cursor-pointer group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">database</span>
+<span class="font-mono text-xs uppercase tracking-widest">Registry</span>
+</div>
+<div class="flex items-center gap-3 text-[#dae2fd]/40 py-3 px-6 hover:bg-[#171f33] hover:text-[#dae2fd] transition-all duration-150 cursor-pointer group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">lan</span>
+<span class="font-mono text-xs uppercase tracking-widest">Nodes</span>
+</div>
+<div class="flex items-center gap-3 text-[#dae2fd]/40 py-3 px-6 hover:bg-[#171f33] hover:text-[#dae2fd] transition-all duration-150 cursor-pointer group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">monitoring</span>
+<span class="font-mono text-xs uppercase tracking-widest">Observability</span>
+</div>
+<div class="flex items-center gap-3 text-[#dae2fd]/40 py-3 px-6 hover:bg-[#171f33] hover:text-[#dae2fd] transition-all duration-150 cursor-pointer group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">policy</span>
+<span class="font-mono text-xs uppercase tracking-widest">Policies</span>
+</div>
+</nav>
+<div class="px-4 mt-auto space-y-4">
+<button class="w-full bg-[#6366F1] text-on-primary py-3 rounded text-[10px] font-mono uppercase tracking-[0.2em] font-bold shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:opacity-90 active:scale-95 transition-all">
+                    UPGRADE PROTOCOL
+                </button>
+<div class="pt-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-3 text-[#dae2fd]/40 py-2 px-2 hover:text-[#dae2fd] cursor-pointer">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span class="font-mono text-[10px] uppercase">Settings</span>
+</div>
+<div class="flex items-center gap-3 text-[#dae2fd]/40 py-2 px-2 hover:text-[#dae2fd] cursor-pointer">
+<span class="material-symbols-outlined text-sm">menu_book</span>
+<span class="font-mono text-[10px] uppercase">Documentation</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-surface-dim p-8 relative">
+<div class="max-w-5xl mx-auto">
+<!-- Section Header -->
+<header class="flex justify-between items-end mb-12 border-b border-outline-variant/10 pb-6">
+<div>
+<h1 class="text-3xl font-bold font-headline tracking-tight flex items-center gap-3">
+<span class="text-2xl">🤖</span> AI Features
+                        </h1>
+<p class="text-on-surface-variant font-body mt-2">Manage autonomous protocol behaviors across the Sentinel ecosystem.</p>
+</div>
+<div class="flex items-center gap-6 bg-surface-container-high p-4 rounded-xl border border-outline-variant/15">
+<div class="text-right">
+<p class="font-mono text-[10px] uppercase text-primary tracking-widest font-bold">Master Protocol Toggle</p>
+<p class="text-[9px] text-on-surface-variant font-mono">34/34 FEATURES ACTIVE</p>
+</div>
+<button class="w-12 h-6 bg-primary-container rounded-full relative flex items-center px-1 shadow-[0_0_10px_rgba(128,131,255,0.4)]">
+<div class="w-4 h-4 bg-primary rounded-full shadow-lg ml-auto"></div>
+</button>
+</div>
+</header>
+<!-- Feature Grid / Scrollable List -->
+<div class="space-y-12">
+<!-- Category: Fleet (FMS) -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<h2 class="font-mono text-xs uppercase tracking-[0.3em] text-on-surface-variant bg-surface-container-high px-3 py-1 rounded">Fleet (FMS)</h2>
+<div class="flex-1 h-[1px] bg-gradient-to-r from-outline-variant/30 to-transparent"></div>
+</div>
+<div class="space-y-2">
+<!-- Feature Row -->
+<div class="flex items-center justify-between p-4 bg-surface-container hover:bg-surface-container-high transition-colors group rounded-lg border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4 w-1/3">
+<div class="p-2 bg-primary/10 rounded">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold font-headline text-on-surface">Smart Dispatch Ranking</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1">AI-driven optimization for cargo priority and route efficiency.</p>
+</div>
+</div>
+<div class="w-1/4">
+<span class="font-mono text-[10px] text-primary/70 uppercase">Last result: 2 minutes ago</span>
+</div>
+<div class="flex items-center gap-8">
+<button class="font-mono text-[10px] uppercase text-outline hover:text-on-surface transition-colors px-3 py-1 border border-outline/20 rounded hover:bg-outline/5">Clear Cache</button>
+<button class="w-10 h-5 bg-primary-container rounded-full relative flex items-center px-0.5">
+<div class="w-4 h-4 bg-primary rounded-full ml-auto"></div>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container hover:bg-surface-container-high transition-colors group rounded-lg border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4 w-1/3">
+<div class="p-2 bg-primary/10 rounded">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold font-headline text-on-surface">Predictive Maintenance</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1">Forecasting vehicle failures before structural integrity is compromised.</p>
+</div>
+</div>
+<div class="w-1/4">
+<span class="font-mono text-[10px] text-primary/70 uppercase">Last result: 14 seconds ago</span>
+</div>
+<div class="flex items-center gap-8">
+<button class="font-mono text-[10px] uppercase text-outline hover:text-on-surface transition-colors px-3 py-1 border border-outline/20 rounded hover:bg-outline/5">Clear Cache</button>
+<button class="w-10 h-5 bg-primary-container rounded-full relative flex items-center px-0.5">
+<div class="w-4 h-4 bg-primary rounded-full ml-auto"></div>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container hover:bg-surface-container-high transition-colors group rounded-lg border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4 w-1/3">
+<div class="p-2 bg-primary/10 rounded">
+<span class="material-symbols-outlined text-primary">route</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold font-headline text-on-surface">Dynamic Route Relinking</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1">Real-time adjustments based on atmospheric and traffic anomalies.</p>
+</div>
+</div>
+<div class="w-1/4">
+<span class="font-mono text-[10px] text-error/70 uppercase">System Error: Check Logs</span>
+</div>
+<div class="flex items-center gap-8">
+<button class="font-mono text-[10px] uppercase text-outline hover:text-on-surface transition-colors px-3 py-1 border border-outline/20 rounded hover:bg-outline/5">Clear Cache</button>
+<button class="w-10 h-5 bg-surface-container-highest rounded-full relative flex items-center px-0.5">
+<div class="w-4 h-4 bg-outline rounded-full"></div>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Category: Warehouse (WMS) -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<h2 class="font-mono text-xs uppercase tracking-[0.3em] text-on-surface-variant bg-surface-container-high px-3 py-1 rounded">Warehouse (WMS)</h2>
+<div class="flex-1 h-[1px] bg-gradient-to-r from-outline-variant/30 to-transparent"></div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-4 bg-surface-container hover:bg-surface-container-high transition-colors group rounded-lg border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4 w-1/3">
+<div class="p-2 bg-[#6366F1]/10 rounded">
+<span class="material-symbols-outlined text-[#6366F1]">inventory_2</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold font-headline text-on-surface">Slotting Optimizer</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1">Vortex-based shelf allocation for maximum picking speed.</p>
+</div>
+</div>
+<div class="w-1/4">
+<span class="font-mono text-[10px] text-primary/70 uppercase">Last result: 1 hour ago</span>
+</div>
+<div class="flex items-center gap-8">
+<button class="font-mono text-[10px] uppercase text-outline hover:text-on-surface transition-colors px-3 py-1 border border-outline/20 rounded hover:bg-outline/5">Clear Cache</button>
+<button class="w-10 h-5 bg-primary-container rounded-full relative flex items-center px-0.5">
+<div class="w-4 h-4 bg-primary rounded-full ml-auto"></div>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container hover:bg-surface-container-high transition-colors group rounded-lg border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4 w-1/3">
+<div class="p-2 bg-[#6366F1]/10 rounded">
+<span class="material-symbols-outlined text-[#6366F1]">precision_manufacturing</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold font-headline text-on-surface">Cobot Swarm Coordination</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1">Mesh-network control for floor-level robotics units.</p>
+</div>
+</div>
+<div class="w-1/4">
+<span class="font-mono text-[10px] text-primary/70 uppercase">Last result: 5 minutes ago</span>
+</div>
+<div class="flex items-center gap-8">
+<button class="font-mono text-[10px] uppercase text-outline hover:text-on-surface transition-colors px-3 py-1 border border-outline/20 rounded hover:bg-outline/5">Clear Cache</button>
+<button class="w-10 h-5 bg-primary-container rounded-full relative flex items-center px-0.5">
+<div class="w-4 h-4 bg-primary rounded-full ml-auto"></div>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Category: Freight (FreMS) -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<h2 class="font-mono text-xs uppercase tracking-[0.3em] text-on-surface-variant bg-surface-container-high px-3 py-1 rounded">Freight (FreMS)</h2>
+<div class="flex-1 h-[1px] bg-gradient-to-r from-outline-variant/30 to-transparent"></div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-4 bg-surface-container hover:bg-surface-container-high transition-colors group rounded-lg border border-transparent hover:border-outline-variant/20">
+<div class="flex items-center gap-4 w-1/3">
+<div class="p-2 bg-[#6366F1]/10 rounded">
+<span class="material-symbols-outlined text-[#6366F1]">currency_exchange</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold font-headline text-on-surface">Auto-Bidding Engine</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1">Game-theory based procurement for lane-specific spot rates.</p>
+</div>
+</div>
+<div class="w-1/4">
+<span class="font-mono text-[10px] text-primary/70 uppercase">Last result: Now</span>
+</div>
+<div class="flex items-center gap-8">
+<button class="font-mono text-[10px] uppercase text-outline hover:text-on-surface transition-colors px-3 py-1 border border-outline/20 rounded hover:bg-outline/5">Clear Cache</button>
+<button class="w-10 h-5 bg-primary-container rounded-full relative flex items-center px-0.5">
+<div class="w-4 h-4 bg-primary rounded-full ml-auto"></div>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- System Health Visualizer (Asymmetric Element) -->
+<div class="grid grid-cols-3 gap-6 pt-12 border-t border-outline-variant/10">
+<div class="col-span-2 bg-surface-container p-6 rounded-2xl border border-outline-variant/10 relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-mono text-xs uppercase tracking-widest text-primary mb-4">Real-time Inference Load</h3>
+<div class="h-32 w-full flex items-end gap-1">
+<div class="flex-1 bg-primary/20 h-[30%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/30 h-[45%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/40 h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/20 h-[25%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/50 h-[80%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/40 h-[65%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/30 h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/60 h-[90%] rounded-t-sm shadow-[0_0_15px_rgba(192,193,255,0.4)]"></div>
+<div class="flex-1 bg-primary/20 h-[20%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/30 h-[45%] rounded-t-sm"></div>
+</div>
+<div class="mt-4 flex justify-between font-mono text-[8px] text-on-surface-variant tracking-widest uppercase">
+<span>T-Minus 60s</span>
+<span>Current: 894 Tokens/sec</span>
+<span>T-Minus 0s</span>
+</div>
+</div>
+<!-- Background glow -->
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 blur-[80px] rounded-full"></div>
+</div>
+<div class="bg-gradient-to-br from-surface-container to-surface-container-high p-6 rounded-2xl border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<h3 class="font-mono text-xs uppercase tracking-widest text-on-surface mb-1">Status Report</h3>
+<p class="text-[10px] text-on-surface-variant font-body">All neural clusters synchronized across global nodes.</p>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-[10px] font-mono text-on-surface-variant">NODE_ALPHA</span>
+<span class="text-[10px] font-mono text-emerald-500">100%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="w-full h-full bg-emerald-500"></div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<span class="text-[10px] font-mono text-on-surface-variant">NODE_OMEGA</span>
+<span class="text-[10px] font-mono text-primary">98.2%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="w-[98%] h-full bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Action Suppressed per protocol for details-focused screens -->
+</body></html>

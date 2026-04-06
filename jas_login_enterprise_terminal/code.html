@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | JAS Logistics Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .font-plus-jakarta-sans { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-ibm-plex-arabic { font-family: 'IBM Plex Sans Arabic', sans-serif; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#343440",
+                        "tertiary-container": "#6c2e00",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-on-surface": "#302f3b",
+                        "on-secondary-fixed": "#201340",
+                        "inverse-surface": "#e3e0f1",
+                        "on-background": "#e3e0f1",
+                        "on-tertiary": "#532200",
+                        "surface": "#12121d",
+                        "primary-fixed-dim": "#d0bcff",
+                        "secondary-container": "#4f4171",
+                        "primary-fixed": "#e9ddff",
+                        "tertiary": "#ffb68e",
+                        "outline-variant": "#494453",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#1f1e2a",
+                        "on-primary-fixed": "#22005c",
+                        "surface-container-high": "#292935",
+                        "on-error": "#690005",
+                        "surface-variant": "#343440",
+                        "surface-container-lowest": "#0d0d18",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-tint": "#d0bcff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "on-surface-variant": "#cbc3d5",
+                        "error-container": "#93000a",
+                        "surface-dim": "#12121d",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-container": "#f09661",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "primary-container": "#4b1fa3",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e3e0f1",
+                        "surface-bright": "#383845",
+                        "tertiary-fixed": "#ffdbc9",
+                        "surface-container-low": "#1b1a26",
+                        "secondary": "#cfbef6",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "on-tertiary-fixed": "#331200",
+                        "primary": "#d0bcff",
+                        "background": "#12121d",
+                        "on-primary": "#3b0092",
+                        "inverse-primary": "#6a45c3",
+                        "outline": "#948e9e",
+                        "on-primary-container": "#b79cff",
+                        "on-secondary": "#352856"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-hidden">
+<div class="flex min-h-screen">
+<!-- Left Section (60%) -->
+<div class="w-full md:w-[60%] bg-[#0F0F1A] flex flex-col p-8 md:p-12 lg:p-16 relative">
+<!-- Branding Header -->
+<div class="flex items-center gap-4 mb-16">
+<div class="relative flex items-center justify-center w-12 h-12">
+<div class="absolute inset-0 bg-primary/20 blur-xl rounded-full"></div>
+<span class="material-symbols-outlined text-4xl text-primary z-10" data-icon="hub">hub</span>
+<div class="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-tr from-primary to-primary-container rounded-full blur-[2px] opacity-70"></div>
+</div>
+<div class="flex flex-col">
+<h1 class="font-headline font-bold text-2xl tracking-tight text-white leading-tight">JAS Logistics Platform</h1>
+<span class="font-ibm-plex-arabic text-on-surface-variant text-sm tracking-wide">منصة جاس اللوجستية</span>
+</div>
+</div>
+<!-- Login Form Container -->
+<div class="flex-1 flex items-center justify-center max-w-md mx-auto w-full">
+<div class="w-full bg-surface-container-low p-10 rounded-xl shadow-2xl ring-1 ring-white/5 backdrop-blur-sm">
+<div class="mb-8">
+<h2 class="text-2xl font-headline font-semibold text-white mb-2">Welcome Back</h2>
+<p class="text-on-surface-variant text-sm">Access your enterprise logistics terminal.</p>
+</div>
+<form class="space-y-6">
+<!-- Identity Input -->
+<div class="space-y-2">
+<label class="block text-xs font-medium uppercase tracking-widest text-on-surface-variant" for="identifier">Email / Mobile</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl" data-icon="alternate_email">alternate_email</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-4 pl-12 pr-4 text-white placeholder:text-outline focus:ring-2 focus:ring-primary-container transition-all" id="identifier" placeholder="name@company.com" type="text"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block text-xs font-medium uppercase tracking-widest text-on-surface-variant" for="password">Password</label>
+<a class="text-xs text-primary hover:text-primary-fixed transition-colors" href="#">Forgot password?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl" data-icon="lock">lock</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-4 pl-12 pr-12 text-white placeholder:text-outline focus:ring-2 focus:ring-primary-container transition-all" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-white transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Login Button -->
+<button class="w-full bg-gradient-to-r from-[#4B1FA3] to-[#2D0F7A] hover:from-[#5228aa] hover:to-[#3b0092] text-white font-headline font-bold py-4 rounded-lg shadow-[0_8px_20px_-4px_rgba(75,31,163,0.5)] transition-all active:scale-[0.98] mt-4" type="submit">
+                            Sign In to Dashboard
+                        </button>
+<div class="flex items-center gap-3 py-2">
+<div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+<span class="text-xs text-outline font-medium uppercase tracking-tighter">Authorized access only</span>
+<div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+</div>
+</form>
+</div>
+</div>
+<!-- Footer Meta -->
+<div class="mt-auto pt-12 flex flex-col md:flex-row items-center justify-between border-t border-white/5 gap-4">
+<div class="flex items-center gap-6 text-[10px] font-label font-medium uppercase tracking-widest text-on-surface-variant">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-sm" data-icon="verified_user">verified_user</span> Secure login</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-sm" data-icon="account_balance">account_balance</span> ZATCA compliant</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-sm" data-icon="description">description</span> TGA registered</span>
+</div>
+<div class="text-[10px] font-label text-outline uppercase tracking-widest">
+                    © 2024 JAS Logistics Platform
+                </div>
+</div>
+</div>
+<!-- Right Section (40%) -->
+<div class="hidden md:flex md:w-[40%] bg-gradient-to-br from-[#2D0F7A] to-[#4B1FA3] relative overflow-hidden flex-col items-center justify-center p-12">
+<!-- Decorative Elements -->
+<div class="absolute inset-0 opacity-20" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACcWu9BP6h9En5I1Wl4_0Al9AMhBlZqgo53GXEMbs8-ZaPzWk3iBcxMsEVRosY1bpHcscHG_6eS0dcmjeN9qdCYfLS9w8z6gaZEAYxzLLXvPvS14OZcq9gXSAGkbc7MYAAZb2bCHJCgZlJAAcTzQpTMwF7zYel_0If3akM7cvpk-L7yowWr5curvgaaafWBAezHTGDBvJdG7A7wTtaxSgJFSjDFE4gtrXbY8EDaUR0NsqO2nZpGkcWfkgf-lxlEmZeNFxMO4-PAg');"></div>
+<div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-primary/30 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-80 h-80 bg-[#12121d]/40 blur-[100px] rounded-full"></div>
+<!-- Floating Stats Cards -->
+<div class="relative w-full max-w-sm space-y-6">
+<!-- Card 1 -->
+<div class="bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl transform hover:-translate-y-1 transition-transform duration-500">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="view_quilt">view_quilt</span>
+</div>
+<div>
+<div class="text-3xl font-headline font-bold text-white leading-tight">219</div>
+<div class="text-xs text-primary-fixed font-medium uppercase tracking-widest">Operational Screens</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl ml-8 transform hover:-translate-y-1 transition-transform duration-500 delay-75">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="lan">lan</span>
+</div>
+<div>
+<div class="text-3xl font-headline font-bold text-white leading-tight">7</div>
+<div class="text-xs text-primary-fixed font-medium uppercase tracking-widest">Core Portals</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl -ml-4 transform hover:-translate-y-1 transition-transform duration-500 delay-150">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="monitoring">monitoring</span>
+</div>
+<div>
+<div class="text-3xl font-headline font-bold text-white leading-tight">99.9%</div>
+<div class="text-xs text-primary-fixed font-medium uppercase tracking-widest">Fleet Uptime</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Brand Messaging -->
+<div class="mt-20 text-center relative z-10">
+<h3 class="font-headline font-bold text-3xl text-white mb-4">Precision Intelligence</h3>
+<p class="text-primary-fixed/80 text-sm max-w-xs mx-auto leading-relaxed">
+                    Unifying the Saudi logistics ecosystem with enterprise-grade data orchestration and real-time visibility.
+                </p>
+</div>
+<!-- Abstract Visual -->
+<div class="absolute bottom-12 right-12 w-32 h-32 opacity-30">
+<img alt="Abstract network of light" class="w-full h-full object-cover rounded-full grayscale mix-blend-screen" data-alt="Abstract network of interconnected light beams and nodes representing digital infrastructure and logistics connectivity in a dark environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPn7tcWVUtIUcRMJX5ZBlF92NBsEO9q7vP3ueMsPOP_dS6eOJiWgMR_dbnyH6r2kQvetms3B6R-0e7v35MP9Fod3PjxDd0Yd6DryGk5_DnXQ_XVGARx-ivviCfaeaWN5ZfRldDdlYh8p5HCfO1zkb63es61whKk3Y342P5CfGaDrP7bArWNBwyHXzUDPct54b6zV14cP-HFhfY1ydWjOfH4kBj3rrQp1g3GPcMkVdlhVjaDGz9OyPFFL8sYRdEzJC4Ye_sNPWjNQ"/>
+</div>
+</div>
+</div>
+</body></html>

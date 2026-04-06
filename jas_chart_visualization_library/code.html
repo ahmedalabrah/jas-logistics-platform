@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Intelligence | Visualization Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-variant": "#343440",
+                        "tertiary-fixed": "#ffdbc9",
+                        "surface-container-low": "#1b1a26",
+                        "on-error": "#690005",
+                        "background": "#12121d",
+                        "tertiary": "#ffb68e",
+                        "primary-container": "#4b1fa3",
+                        "on-primary": "#3b0092",
+                        "on-secondary-fixed": "#201340",
+                        "surface-container-lowest": "#0d0d18",
+                        "on-tertiary-container": "#f09661",
+                        "secondary-container": "#4f4171",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-tertiary": "#532200",
+                        "surface-container": "#1f1e2a",
+                        "outline": "#948e9e",
+                        "tertiary-container": "#6c2e00",
+                        "surface-tint": "#d0bcff",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#302f3b",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "surface-bright": "#383845",
+                        "primary-fixed": "#e9ddff",
+                        "secondary": "#cfbef6",
+                        "surface-container-highest": "#343440",
+                        "outline-variant": "#494453",
+                        "on-surface": "#e3e0f1",
+                        "on-background": "#e3e0f1",
+                        "on-secondary-container": "#c0b0e7",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-surface": "#e3e0f1",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "surface-container-high": "#292935",
+                        "inverse-primary": "#6a45c3",
+                        "on-tertiary-fixed": "#331200",
+                        "surface-dim": "#12121d",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "primary": "#d0bcff",
+                        "on-primary-container": "#b79cff",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary": "#352856",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary-fixed": "#22005c",
+                        "surface": "#12121d",
+                        "error-container": "#93000a"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(19, 19, 31, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .chart-grid-line {
+            stroke: rgba(255, 255, 255, 0.05);
+            stroke-dasharray: 4 4;
+        }
+    </style>
+</head>
+<body class="bg-[#0F0F1A] text-on-surface font-body selection:bg-primary/30 min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-[#12121d]/80 backdrop-blur-xl flex justify-between items-center px-8 py-4 w-full sticky top-0 z-50 shadow-2xl shadow-black/50">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#d0bcff]">JAS Intelligence</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1 font-plus-jakarta text-sm tracking-tight transition-colors duration-300" href="#">Analytics</a>
+<a class="text-slate-400 font-medium hover:text-white font-plus-jakarta text-sm tracking-tight transition-colors duration-300" href="#">Shipments</a>
+<a class="text-slate-400 font-medium hover:text-white font-plus-jakarta text-sm tracking-tight transition-colors duration-300" href="#">Fleet</a>
+<a class="text-slate-400 font-medium hover:text-white font-plus-jakarta text-sm tracking-tight transition-colors duration-300" href="#">Inventory</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:text-white transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 text-slate-400 hover:text-white transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="professional male executive portrait with soft lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMseiGGGHneGTcN7GWMSwAvfTN4_k_RkHqMF10vKSoyRy80HTKU8xtpxke4bl4tSsSa-rmT5N4vh_i-Pd4dtSizLbyM7jFT72fqi6uHO68PC4JYX87t0PVInVbfXmMOQlg38ECHXHxrf046vrDvL5BOYNevPGmzwwHvemBEQtG1gYVI3P2s1cL4BL6rCiLB7i2aWidihzk8t9df78l4oOpCe6MBOb13bRqFIfU8_aMF8VteuxnoPdO9UVnvUTORyEHlX0V9-ZO_A"/>
+</div>
+</div>
+<div class="bg-gradient-to-r from-transparent via-[#4b1fa3]/20 to-transparent h-[1px] absolute bottom-0 w-full"></div>
+</nav>
+<!-- SideNavBar -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 pt-20 pb-8 z-40 bg-[#0F0F1A]/90 backdrop-blur-2xl h-screen w-72 left-0 top-0 border-r border-[#4b1fa3]/10 shadow-[4px_0_24px_rgba(0,0,0,0.5)]">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-sm" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+</div>
+<span class="text-lg font-black text-white">Global Command</span>
+</div>
+<p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-on-surface-variant/60">Velvet Intelligence v2.0</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#surface_container_high]/10 transition-all hover:translate-x-1 duration-200 font-plus-jakarta text-xs font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">dashboard</span> Executive View
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-[#4b1fa3]/30 to-transparent text-white border-l-4 border-[#d0bcff] font-plus-jakarta text-xs font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">analytics</span> Data Visualization
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#surface_container_high]/10 transition-all hover:translate-x-1 duration-200 font-plus-jakarta text-xs font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">location_on</span> Real-time Tracking
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#surface_container_high]/10 transition-all hover:translate-x-1 duration-200 font-plus-jakarta text-xs font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">payments</span> Cost Analysis
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#surface_container_high]/10 transition-all hover:translate-x-1 duration-200 font-plus-jakarta text-xs font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">alt_route</span> Route Optimization
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#surface_container_high]/10 transition-all hover:translate-x-1 duration-200 font-plus-jakarta text-xs font-semibold uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">eco</span> Environmental Impact
+            </a>
+</nav>
+<div class="px-6 pt-4 space-y-4">
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded text-[10px] font-bold uppercase tracking-widest hover:brightness-110 transition-all active:scale-95">
+                Export Report
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-4 py-2 text-slate-500 hover:text-slate-200 font-plus-jakarta text-[10px] font-semibold uppercase tracking-widest" href="#"><span class="material-symbols-outlined text-sm">help</span> Help Center</a>
+<a class="flex items-center gap-4 py-2 text-slate-500 hover:text-slate-200 font-plus-jakarta text-[10px] font-semibold uppercase tracking-widest" href="#"><span class="material-symbols-outlined text-sm">logout</span> Log Out</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-72 p-8">
+<!-- Portal Header -->
+<header class="flex justify-between items-end mb-12 border-b border-outline-variant/10 pb-6">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-primary-container/20 border border-primary/20 text-primary text-[10px] font-mono tracking-widest mb-3">
+                    SCREEN ID: JAS-VIS-01
+                </div>
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-white">Visual Intelligence Library</h1>
+<p class="text-on-surface-variant mt-2 text-lg">Sovereign Dark System Visualization Components</p>
+</div>
+<div class="flex gap-3">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-background bg-slate-800 flex items-center justify-center text-[10px] font-bold">JD</div>
+<div class="w-8 h-8 rounded-full border-2 border-background bg-slate-800 flex items-center justify-center text-[10px] font-bold">AS</div>
+<div class="w-8 h-8 rounded-full border-2 border-background bg-primary flex items-center justify-center text-[10px] font-bold text-on-primary">+3</div>
+</div>
+</div>
+</header>
+<!-- Library Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- 1. JASLineChart -->
+<section class="bg-[#13131F] rounded-xl p-6 border border-outline-variant/5 shadow-xl">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline font-bold text-white text-lg">JASLineChart</h3>
+<p class="text-xs text-on-surface-variant font-mono uppercase tracking-wider">Revenue Trendline</p>
+</div>
+<span class="material-symbols-outlined text-primary">monitoring</span>
+</div>
+<div class="h-64 relative flex items-end justify-between px-4">
+<!-- SVG Simulation of Line Chart -->
+<svg class="absolute inset-0 w-full h-full px-8 pb-8 pt-4 overflow-visible" viewbox="0 0 400 200">
+<defs>
+<lineargradient id="lineGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#7C5DDB" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#7C5DDB" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<line class="chart-grid-line" x1="0" x2="0" y1="0" y2="180"></line>
+<line class="chart-grid-line" x1="100" x2="100" y1="0" y2="180"></line>
+<line class="chart-grid-line" x1="200" x2="200" y1="0" y2="180"></line>
+<line class="chart-grid-line" x1="300" x2="300" y1="0" y2="180"></line>
+<line class="chart-grid-line" x1="400" x2="400" y1="0" y2="180"></line>
+<path d="M0,150 L80,120 L160,140 L240,60 L320,80 L400,30 L400,180 L0,180 Z" fill="url(#lineGrad)"></path>
+<path d="M0,150 L80,120 L160,140 L240,60 L320,80 L400,30" fill="none" stroke="#7C5DDB" stroke-width="2"></path>
+<circle cx="240" cy="60" fill="#7C5DDB" r="4" stroke="#13131F" stroke-width="2"></circle>
+</svg>
+<!-- Axis Labels -->
+<div class="absolute bottom-2 w-full flex justify-between px-8 text-[10px] font-mono text-slate-500">
+<span>JAN</span><span>MAR</span><span>MAY</span><span>JUL</span><span>SEP</span><span>NOV</span>
+</div>
+</div>
+</section>
+<!-- 2. JASBarChart -->
+<section class="bg-[#13131F] rounded-xl p-6 border border-outline-variant/5 shadow-xl">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline font-bold text-white text-lg">JASBarChart</h3>
+<p class="text-xs text-on-surface-variant font-mono uppercase tracking-wider">Regional Throughput</p>
+</div>
+<span class="material-symbols-outlined text-secondary">bar_chart</span>
+</div>
+<div class="h-64 flex items-end justify-between gap-4 px-2">
+<!-- Bar Groups -->
+<div class="flex-1 flex flex-col justify-end gap-1">
+<div class="flex items-end gap-1 h-full">
+<div class="w-full bg-[#7C5DDB] rounded-t-[6px] h-[60%]"></div>
+<div class="w-full bg-[#0EA5E9] rounded-t-[6px] h-[40%]"></div>
+</div>
+<span class="text-[9px] font-mono text-center text-slate-500 mt-2">DXB</span>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-1">
+<div class="flex items-end gap-1 h-full">
+<div class="w-full bg-[#7C5DDB] rounded-t-[6px] h-[85%]"></div>
+<div class="w-full bg-[#0EA5E9] rounded-t-[6px] h-[70%]"></div>
+</div>
+<span class="text-[9px] font-mono text-center text-slate-500 mt-2">RUH</span>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-1">
+<div class="flex items-end gap-1 h-full">
+<div class="w-full bg-[#7C5DDB] rounded-t-[6px] h-[45%]"></div>
+<div class="w-full bg-[#0EA5E9] rounded-t-[6px] h-[55%]"></div>
+</div>
+<span class="text-[9px] font-mono text-center text-slate-500 mt-2">JED</span>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-1">
+<div class="flex items-end gap-1 h-full">
+<div class="w-full bg-[#7C5DDB] rounded-t-[6px] h-[95%]"></div>
+<div class="w-full bg-[#0EA5E9] rounded-t-[6px] h-[80%]"></div>
+</div>
+<span class="text-[9px] font-mono text-center text-slate-500 mt-2">DMM</span>
+</div>
+<div class="flex-1 flex flex-col justify-end gap-1">
+<div class="flex items-end gap-1 h-full">
+<div class="w-full bg-[#7C5DDB] rounded-t-[6px] h-[30%]"></div>
+<div class="w-full bg-[#0EA5E9] rounded-t-[6px] h-[25%]"></div>
+</div>
+<span class="text-[9px] font-mono text-center text-slate-500 mt-2">KSA</span>
+</div>
+</div>
+</section>
+<!-- 3. JASDonutChart -->
+<section class="bg-[#13131F] rounded-xl p-6 border border-outline-variant/5 shadow-xl">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline font-bold text-white text-lg">JASDonutChart</h3>
+<p class="text-xs text-on-surface-variant font-mono uppercase tracking-wider">Compliance Status</p>
+</div>
+<span class="material-symbols-outlined text-tertiary">pie_chart</span>
+</div>
+<div class="flex items-center justify-center gap-12 py-4">
+<div class="relative w-48 h-48">
+<svg class="transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="40" stroke="rgba(255,255,255,0.05)" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="none" r="40" stroke="#22C55E" stroke-dasharray="251.2" stroke-dashoffset="25.1" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-2xl font-black text-white">98%</span>
+<span class="text-[8px] font-bold uppercase tracking-widest text-slate-500">Compliance</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#22C55E]"></div>
+<span class="text-[10px] font-bold uppercase text-slate-400">Verified</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#F59E0B]"></div>
+<span class="text-[10px] font-bold uppercase text-slate-400">Pending</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#EF4444]"></div>
+<span class="text-[10px] font-bold uppercase text-slate-400">Failed</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. JASAreaChart -->
+<section class="bg-[#13131F] rounded-xl p-6 border border-outline-variant/5 shadow-xl">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline font-bold text-white text-lg">JASAreaChart</h3>
+<p class="text-xs text-on-surface-variant font-mono uppercase tracking-wider">Fleet Utilization Trend</p>
+</div>
+<span class="material-symbols-outlined text-primary">area_chart</span>
+</div>
+<div class="h-64 relative">
+<svg class="w-full h-full px-4" viewbox="0 0 400 150">
+<defs>
+<lineargradient id="areaGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#7C5DDB" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#7C5DDB" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,150 C50,140 100,50 150,80 C200,110 250,20 300,50 C350,80 400,60 400,150 Z" fill="url(#areaGrad)"></path>
+<path d="M0,150 C50,140 100,50 150,80 C200,110 250,20 300,50 C350,80 400,60" fill="none" stroke="#7C5DDB" stroke-width="2.5"></path>
+</svg>
+<div class="mt-4 flex justify-between px-4 text-[9px] font-mono text-slate-500 border-t border-white/5 pt-2">
+<span>06:00</span><span>10:00</span><span>14:00</span><span>18:00</span><span>22:00</span><span>02:00</span>
+</div>
+</div>
+</section>
+<!-- 5. JASProgressRing -->
+<section class="bg-[#13131F] rounded-xl p-6 border border-outline-variant/5 shadow-xl">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline font-bold text-white text-lg">JASProgressRing</h3>
+<p class="text-xs text-on-surface-variant font-mono uppercase tracking-wider">Storage Capacity</p>
+</div>
+<span class="material-symbols-outlined text-[#F59E0B]">progress_activity</span>
+</div>
+<div class="flex items-center justify-around py-8">
+<div class="flex flex-col items-center gap-3">
+<div class="relative w-12 h-12">
+<svg class="w-full h-full -rotate-90">
+<circle cx="24" cy="24" fill="none" r="20" stroke="rgba(255,255,255,0.05)" stroke-width="4"></circle>
+<circle cx="24" cy="24" fill="none" r="20" stroke="#7C5DDB" stroke-dasharray="125.6" stroke-dashoffset="62.8" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+</div>
+<span class="text-[9px] font-mono text-slate-500">SM</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="relative w-20 h-20">
+<svg class="w-full h-full -rotate-90">
+<circle cx="40" cy="40" fill="none" r="34" stroke="rgba(255,255,255,0.05)" stroke-width="6"></circle>
+<circle cx="40" cy="40" fill="none" r="34" stroke="#0EA5E9" stroke-dasharray="213.5" stroke-dashoffset="53.3" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+</div>
+<span class="text-[9px] font-mono text-slate-500">MD</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="relative w-32 h-32">
+<svg class="w-full h-full -rotate-90">
+<circle cx="64" cy="64" fill="none" r="58" stroke="rgba(255,255,255,0.05)" stroke-width="8"></circle>
+<circle cx="64" cy="64" fill="none" r="58" stroke="#22C55E" stroke-dasharray="364.2" stroke-dashoffset="36.4" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-black text-white text-xl">90%</div>
+</div>
+<span class="text-[9px] font-mono text-slate-500">LG</span>
+</div>
+</div>
+</section>
+<!-- 6. JASSparkline -->
+<section class="bg-[#13131F] rounded-xl p-6 border border-outline-variant/5 shadow-xl">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline font-bold text-white text-lg">JASSparkline</h3>
+<p class="text-xs text-on-surface-variant font-mono uppercase tracking-wider">KPI Micro-trends</p>
+</div>
+<span class="material-symbols-outlined text-[#22C55E]">insights</span>
+</div>
+<div class="space-y-8">
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-lowest/50">
+<div>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Revenue Growth</p>
+<h4 class="text-xl font-black text-white">SAR 4.2M</h4>
+</div>
+<svg class="w-32 h-12" viewbox="0 0 100 30">
+<path d="M0,25 L10,20 L20,25 L30,10 L40,15 L50,5 L60,15 L70,8 L80,12 L90,2 L100,5" fill="none" stroke="#22C55E" stroke-width="2"></path>
+</svg>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-lowest/50">
+<div>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Fleet Growth</p>
+<h4 class="text-xl font-black text-white">+12.5%</h4>
+</div>
+<div class="flex items-end gap-1 h-10">
+<div class="w-2 bg-[#7C5DDB] h-[30%] opacity-40"></div>
+<div class="w-2 bg-[#7C5DDB] h-[50%] opacity-60"></div>
+<div class="w-2 bg-[#7C5DDB] h-[40%] opacity-50"></div>
+<div class="w-2 bg-[#7C5DDB] h-[70%] opacity-80"></div>
+<div class="w-2 bg-[#7C5DDB] h-[90%] opacity-100"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. JASHeatmapCalendar -->
+<section class="bg-[#13131F] rounded-xl p-6 border border-outline-variant/5 shadow-xl">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline font-bold text-white text-lg">JASHeatmapCalendar</h3>
+<p class="text-xs text-on-surface-variant font-mono uppercase tracking-wider">Shipment Volume Activity</p>
+</div>
+<span class="material-symbols-outlined text-[#0EA5E9]">calendar_view_month</span>
+</div>
+<div class="overflow-x-auto pb-2">
+<div class="flex flex-col gap-1 min-w-[500px]">
+<div class="flex gap-1">
+<!-- Simulating Heatmap Blocks -->
+<div class="flex flex-col gap-1">
+<div class="w-3 h-3 bg-white/5 rounded-sm"></div>
+<div class="w-3 h-3 bg-[#7C5DDB]/20 rounded-sm"></div>
+<div class="w-3 h-3 bg-[#7C5DDB]/40 rounded-sm"></div>
+<div class="w-3 h-3 bg-[#7C5DDB]/10 rounded-sm"></div>
+<div class="w-3 h-3 bg-white/5 rounded-sm"></div>
+<div class="w-3 h-3 bg-[#7C5DDB]/60 rounded-sm"></div>
+<div class="w-3 h-3 bg-[#7C5DDB]/20 rounded-sm"></div>
+</div>
+<!-- Repeat weeks simulation -->
+<div class="flex gap-1" id="heatmap-container">
+<!-- Replicated dynamically via HTML -->
+<script>
+                                    const container = document.currentScript.parentElement;
+                                    for(let i=0; i<30; i++) {
+                                        let week = document.createElement('div');
+                                        week.className = 'flex flex-col gap-1';
+                                        for(let j=0; j<7; j++) {
+                                            let day = document.createElement('div');
+                                            let opacities = ['bg-white/5', 'bg-[#7C5DDB]/10', 'bg-[#7C5DDB]/30', 'bg-[#7C5DDB]/60', 'bg-[#7C5DDB]/90'];
+                                            day.className = `w-3 h-3 rounded-sm ${opacities[Math.floor(Math.random() * opacities.length)]}`;
+                                            week.appendChild(day);
+                                        }
+                                        container.appendChild(week);
+                                    }
+                                </script>
+</div>
+</div>
+<div class="flex justify-between text-[8px] font-mono text-slate-600 mt-2">
+<span>JAN</span><span>FEB</span><span>MAR</span><span>APR</span><span>MAY</span><span>JUN</span><span>JUL</span><span>AUG</span><span>SEP</span><span>OCT</span><span>NOV</span><span>DEC</span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-[8px] text-slate-500 font-mono">
+<span>Less</span>
+<div class="w-3 h-3 bg-white/5 rounded-sm"></div>
+<div class="w-3 h-3 bg-[#7C5DDB]/30 rounded-sm"></div>
+<div class="w-3 h-3 bg-[#7C5DDB]/60 rounded-sm"></div>
+<div class="w-3 h-3 bg-[#7C5DDB]/90 rounded-sm"></div>
+<span>More</span>
+</div>
+</section>
+<!-- 8. JASGaugeChart -->
+<section class="bg-[#13131F] rounded-xl p-6 border border-outline-variant/5 shadow-xl">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline font-bold text-white text-lg">JASGaugeChart</h3>
+<p class="text-xs text-on-surface-variant font-mono uppercase tracking-wider">Warehouse Capacity</p>
+</div>
+<span class="material-symbols-outlined text-[#EF4444]">speed</span>
+</div>
+<div class="flex flex-col items-center justify-center py-4">
+<div class="relative w-64 h-32 overflow-hidden">
+<svg class="w-full" viewbox="0 0 100 50">
+<!-- Background zones -->
+<path d="M10,50 A40,40 0 0,1 36.6,15.3" fill="none" stroke="#22C55E" stroke-opacity="0.2" stroke-width="12"></path>
+<path d="M36.6,15.3 A40,40 0 0,1 63.3,15.3" fill="none" stroke="#F59E0B" stroke-opacity="0.2" stroke-width="12"></path>
+<path d="M63.3,15.3 A40,40 0 0,1 90,50" fill="none" stroke="#EF4444" stroke-opacity="0.2" stroke-width="12"></path>
+<!-- Foreground active -->
+<path d="M10,50 A40,40 0 0,1 78,25" fill="none" stroke="#EF4444" stroke-width="12"></path>
+<!-- Needle -->
+<line stroke="white" stroke-linecap="round" stroke-width="2" x1="50" x2="80" y1="50" y2="25"></line>
+<circle cx="50" cy="50" fill="white" r="4"></circle>
+</svg>
+<div class="absolute bottom-0 left-0 right-0 text-center">
+<span class="text-2xl font-black text-white">82%</span>
+<p class="text-[10px] font-bold text-[#EF4444] uppercase tracking-widest">Critical Load</p>
+</div>
+</div>
+<div class="w-full mt-8 flex justify-between px-10 text-[9px] font-mono text-slate-500">
+<span>0%</span>
+<span>50%</span>
+<span>100%</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Component Details Tooltip Simulation -->
+<div class="fixed bottom-8 right-8 z-[60]">
+<div class="bg-[#1E1E35] border border-outline-variant/20 rounded-xl p-4 shadow-2xl w-64 backdrop-blur-xl">
+<div class="flex items-center gap-3 mb-3 pb-3 border-b border-white/10">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface">Hover Inspector Active</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-mono">
+<span class="text-slate-500">Token</span>
+<span class="text-primary-fixed-dim">#7C5DDB</span>
+</div>
+<div class="flex justify-between text-[10px] font-mono">
+<span class="text-slate-500">Radius</span>
+<span class="text-white">8px (xl)</span>
+</div>
+<div class="flex justify-between text-[10px] font-mono">
+<span class="text-slate-500">Opacity</span>
+<span class="text-white">0.15 Gradient</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action for Theme Logic -->
+<div class="fixed bottom-10 right-80 hidden md:block">
+<button class="bg-surface-container-high hover:bg-surface-bright text-white p-4 rounded-full shadow-2xl transition-all active:scale-90 border border-white/5">
+<span class="material-symbols-outlined">settings_suggest</span>
+</button>
+</div>
+</body></html>

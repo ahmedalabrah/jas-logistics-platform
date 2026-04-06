@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Financial Intelligence | Component Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Noto+Sans+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#22005c",
+                        "on-tertiary": "#532200",
+                        "inverse-on-surface": "#302f3b",
+                        "tertiary-fixed": "#ffdbc9",
+                        "surface-container": "#1f1e2a",
+                        "surface-container-highest": "#343440",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "surface-container-lowest": "#0d0d18",
+                        "on-secondary": "#352856",
+                        "inverse-surface": "#e3e0f1",
+                        "outline-variant": "#494453",
+                        "tertiary": "#ffb68e",
+                        "primary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#331200",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "primary": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "surface-tint": "#d0bcff",
+                        "on-primary": "#3b0092",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "on-primary-container": "#b79cff",
+                        "on-surface": "#e3e0f1",
+                        "primary-container": "#4b1fa3",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#383845",
+                        "surface-dim": "#12121d",
+                        "on-background": "#e3e0f1",
+                        "background": "#12121d",
+                        "inverse-primary": "#6a45c3",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#c0b0e7",
+                        "secondary": "#cfbef6",
+                        "outline": "#948e9e",
+                        "surface-container-low": "#1b1a26",
+                        "on-surface-variant": "#cbc3d5",
+                        "tertiary-container": "#6c2e00",
+                        "on-secondary-fixed": "#201340",
+                        "surface-variant": "#343440",
+                        "surface": "#12121d",
+                        "secondary-container": "#4f4171",
+                        "on-tertiary-container": "#f09661"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"],
+                        "arabic": ["Noto Sans Arabic"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.6);
+            backdrop-filter: blur(12px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- Sidebar Navigation Shell -->
+<nav class="h-screen w-64 fixed left-0 border-r border-white/5 bg-[#0F0F1A] flex flex-col py-6 px-4 gap-8 z-50">
+<div class="flex flex-col items-start gap-1">
+<span class="text-lg font-black text-[#d0bcff] font-headline uppercase tracking-tighter">JAS Financial</span>
+<span class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold">Sovereign Tier</span>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined text-sm">account_balance</span>
+<span class="text-sm font-medium">Ledger</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined text-sm">qr_code_2</span>
+<span class="text-sm font-medium">Tax Portal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-[#d0bcff] bg-[#4B1FA3]/20 rounded-lg font-semibold transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span class="text-sm font-medium">Settlements</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+<span class="text-sm font-medium">Asset Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined text-sm">description</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<button class="bg-[#4B1FA3] text-[#d0bcff] py-2.5 px-4 rounded-lg text-xs font-bold uppercase tracking-widest hover:brightness-110 transition-all active:scale-95">
+                Generate ZATCA Report
+            </button>
+<div class="flex flex-col gap-2 border-t border-white/5 pt-4">
+<div class="flex items-center gap-3 px-4 py-1 text-slate-500 text-xs">
+<span class="material-symbols-outlined text-xs">help</span>
+<span>Support</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-1 text-slate-500 text-xs">
+<span class="material-symbols-outlined text-xs">logout</span>
+<span>Sign Out</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar Navigation Shell -->
+<header class="fixed top-0 right-0 left-64 z-40 bg-[#0F0F1A]/80 backdrop-blur-xl flex justify-between items-center px-8 h-16 border-b border-white/5">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-6">
+<a class="text-slate-400 hover:text-white transition-colors text-sm tracking-tight font-headline" href="#">Analytics</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm tracking-tight font-headline" href="#">Revenue</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1 text-sm tracking-tight font-headline" href="#">Invoices</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm tracking-tight font-headline" href="#">Compliance</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-white p-2 transition-all active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-slate-400 hover:text-white p-2 transition-all active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/10 ml-2">
+<img alt="Financial Officer Profile" class="w-full h-full object-cover" data-alt="portrait of a professional financial officer in a dark suit with soft office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSKYltSco6-Tr4-ACLEq4hNumWPN3GWXPco_jsapR56VaZaCFF0GZ_O_zJhy_iEFZLq12fm_qU_0sZSjuNi8E5ck8TtmH0nOQ4XMb4DSC5immpv5AxHktsZ7tan3EBoZ_A4t8SCVlBmqVXhBMZAfhqbl2AEpurDPy865a43gbfXHLJvSuTCLt42fzOoE6hVcCxGQ_KtGkpEHHqiFFAESgYwTRO3fUSBjTEy6eXopI9FKEUqwUrHAKfrJnGAKd-4EYosKfgazTDBQ"/>
+</div>
+</div>
+</header>
+<div class="pt-24 px-10 pb-16 space-y-12 max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col gap-2">
+<h1 class="text-4xl font-black font-headline tracking-tighter text-white uppercase">Financial Library</h1>
+<p class="text-on-surface-variant font-body">Global Component Registry for JAS Financial Operations</p>
+</div>
+<!-- Revenue Stream Bento Grid (RevenueStreamCard) -->
+<section class="space-y-6">
+<h2 class="text-xs font-bold tracking-[0.3em] uppercase text-primary/60">Revenue Performance Matrix</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stream Cards -->
+<div class="bg-surface-container p-6 rounded-xl border-l-4 border-[#d0bcff] hover:bg-surface-container-high transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">local_shipping</span>
+<span class="text-[10px] font-bold text-emerald-400">+12.4%</span>
+</div>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Freight</p>
+<h3 class="text-2xl font-black font-headline text-white">SAR 8,241,000</h3>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border-l-4 border-tertiary hover:bg-surface-container-high transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary group-hover:scale-110 transition-transform">warehouse</span>
+<span class="text-[10px] font-bold text-slate-500">Steady</span>
+</div>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Storage</p>
+<h3 class="text-2xl font-black font-headline text-white">SAR 4,112,500</h3>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border-l-4 border-secondary hover:bg-surface-container-high transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform">shield</span>
+<span class="text-[10px] font-bold text-emerald-400">+5.2%</span>
+</div>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Insurance</p>
+<h3 class="text-2xl font-black font-headline text-white">SAR 1,890,200</h3>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border-l-4 border-primary hover:bg-surface-container-high transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">groups</span>
+<span class="text-[10px] font-bold text-error">-2.1%</span>
+</div>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Franchise</p>
+<h3 class="text-2xl font-black font-headline text-white">SAR 9,450,000</h3>
+</div>
+<!-- Row 2 -->
+<div class="bg-surface-container p-6 rounded-xl border-l-4 border-on-secondary-container hover:bg-surface-container-high transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-on-secondary-container group-hover:scale-110 transition-transform">gavel</span>
+<span class="text-[10px] font-bold text-emerald-400">+22.8%</span>
+</div>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Customs</p>
+<h3 class="text-2xl font-black font-headline text-white">SAR 2,331,400</h3>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border-l-4 border-tertiary-fixed hover:bg-surface-container-high transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary-fixed group-hover:scale-110 transition-transform">lan</span>
+<span class="text-[10px] font-bold text-emerald-400">+8.4%</span>
+</div>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">SC Spread</p>
+<h3 class="text-2xl font-black font-headline text-white">SAR 5,667,000</h3>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border-l-4 border-on-primary-container hover:bg-surface-container-high transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-on-primary-container group-hover:scale-110 transition-transform">stars</span>
+<span class="text-[10px] font-bold text-emerald-400">+15.1%</span>
+</div>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">VAS</p>
+<h3 class="text-2xl font-black font-headline text-white">SAR 1,120,400</h3>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border-l-4 border-error hover:bg-surface-container-high transition-all group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-error group-hover:scale-110 transition-transform">minor_crash</span>
+<span class="text-[10px] font-bold text-emerald-400">+1.2%</span>
+</div>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Fleet</p>
+<h3 class="text-2xl font-black font-headline text-white">SAR 12,880,000</h3>
+</div>
+</div>
+</section>
+<!-- Invoice and Metrics Section -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-10">
+<!-- JASInvoiceViewer -->
+<div class="xl:col-span-8 bg-white text-slate-900 rounded-xl overflow-hidden shadow-2xl relative">
+<!-- Paid Banner Overlay -->
+<div class="absolute top-10 right-[-40px] rotate-45 bg-[#E8F5E9] text-[#2E7D32] px-20 py-1 font-black text-xs uppercase tracking-widest border border-[#2E7D32]/20">
+                        PAID / تم الدفع
+                    </div>
+<div class="p-12 space-y-10">
+<!-- Header -->
+<div class="flex justify-between items-start border-b pb-8">
+<div class="flex flex-col gap-1">
+<span class="text-2xl font-black text-[#0F0F1A] tracking-tighter uppercase">JAS LOGISTICS</span>
+<p class="text-[10px] text-slate-500 font-bold tracking-widest">KINGDOM OF SAUDI ARABIA</p>
+</div>
+<div class="text-right">
+<h1 class="text-2xl font-bold text-slate-800">TAX INVOICE</h1>
+<h2 class="text-xl font-arabic font-bold text-slate-800">فاتورة ضريبية</h2>
+</div>
+</div>
+<!-- Details Row -->
+<div class="grid grid-cols-2 gap-12 text-sm">
+<div class="space-y-4">
+<div class="flex flex-col">
+<span class="font-bold text-slate-900">BILL TO / فاتورة إلى:</span>
+<span class="text-slate-600">Saudi Aramco HQ</span>
+<span class="text-slate-600">Dhahran, Eastern Province, KSA</span>
+<span class="text-slate-600">VAT: 300123456700003</span>
+</div>
+</div>
+<div class="space-y-2 text-right">
+<div class="flex justify-between items-center">
+<span class="text-slate-500 font-medium">Invoice No:</span>
+<span class="font-mono font-bold">INV-2024-0891</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-slate-500 font-medium">Date / التاريخ:</span>
+<span>2024-10-24</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-slate-500 font-medium">Due Date / تاريخ الاستحقاق:</span>
+<span>2024-11-24</span>
+</div>
+</div>
+</div>
+<!-- Line Items Table -->
+<div class="w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-500 border-y">
+<th class="py-3 px-4">Description / الوصف</th>
+<th class="py-3 px-4">Category</th>
+<th class="py-3 px-4 text-right">Qty</th>
+<th class="py-3 px-4 text-right">Unit Price</th>
+<th class="py-3 px-4 text-right">Total (SAR)</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="border-b">
+<td class="py-4 px-4 font-medium text-slate-800">Ocean Freight - Jeddah to Rotterdam</td>
+<td class="py-4 px-4"><span class="bg-blue-50 text-blue-700 text-[10px] px-2 py-0.5 rounded font-bold uppercase">Freight</span></td>
+<td class="py-4 px-4 text-right">2</td>
+<td class="py-4 px-4 text-right">12,500.00</td>
+<td class="py-4 px-4 text-right font-mono">25,000.00</td>
+</tr>
+<tr class="border-b">
+<td class="py-4 px-4 font-medium text-slate-800">Cold Chain Storage (30 Days)</td>
+<td class="py-4 px-4"><span class="bg-amber-50 text-amber-700 text-[10px] px-2 py-0.5 rounded font-bold uppercase">Warehouse</span></td>
+<td class="py-4 px-4 text-right">1</td>
+<td class="py-4 px-4 text-right">4,200.00</td>
+<td class="py-4 px-4 text-right font-mono">4,200.00</td>
+</tr>
+<tr class="border-b">
+<td class="py-4 px-4 font-medium text-slate-800">Customs Clearance Fees</td>
+<td class="py-4 px-4"><span class="bg-purple-50 text-purple-700 text-[10px] px-2 py-0.5 rounded font-bold uppercase">Compliance</span></td>
+<td class="py-4 px-4 text-right">1</td>
+<td class="py-4 px-4 text-right">850.00</td>
+<td class="py-4 px-4 text-right font-mono">850.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Block -->
+<div class="flex justify-between items-end pt-4">
+<div class="w-32 h-32 bg-slate-100 flex items-center justify-center border rounded">
+<!-- Placeholder for ZATCA QR Code -->
+<img alt="ZATCA QR Code" class="w-full h-full p-2 grayscale opacity-80" data-alt="abstract black and white QR code graphic for digital verification" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYWO-e1n-IPnbDZa9pw9NsFA9ad6FKG2HQdzXUZgO4jqXRM31Iop3oXR6nJaGo5DXNj7cMO-4I0i89XbxFmnf4fzXk8UHedbDkzp8BdMFACSnEUbZxC3VxrtI2bYO5weLK8j_-3eowBEVZS0u5lhwSChiLYTHbAD5Htxz7lbOT8aiRGaWsieVryRxUWi0hlK88VlrUQ8C-FQGvYUAyiCid732sPlF4khq4t7fNz8Qv47C4Tr4nTG_GlgcRq5K67TrtVLgZJUfshg"/>
+</div>
+<div class="w-64 space-y-2">
+<div class="flex justify-between text-sm text-slate-500">
+<span>Subtotal (Excl. VAT)</span>
+<span class="font-mono text-slate-900">30,050.00</span>
+</div>
+<div class="flex justify-between text-sm text-slate-500">
+<span>VAT (15%)</span>
+<span class="font-mono text-slate-900">4,507.50</span>
+</div>
+<div class="flex justify-between text-lg font-black border-t-2 border-slate-900 pt-2 mt-2">
+<span class="text-[#0F0F1A]">TOTAL DUE</span>
+<span class="font-mono text-[#0F0F1A]">SAR 34,557.50</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Metrics & Controls Column -->
+<div class="xl:col-span-4 space-y-10">
+<!-- FinancialMetricRow -->
+<div class="bg-surface-container p-8 rounded-xl space-y-6">
+<h3 class="text-xs font-bold tracking-[0.2em] uppercase text-slate-500 border-b border-white/5 pb-4">Balance Summary</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center group">
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-white transition-colors">Gross Profit</span>
+<span class="font-mono text-emerald-400 font-bold text-lg">2,441,000.00</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-white transition-colors">Operational Exp.</span>
+<span class="font-mono text-error font-bold text-lg">(1,102,500.00)</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-white transition-colors">Tax Reserve</span>
+<span class="font-mono text-white font-bold text-lg">366,150.00</span>
+</div>
+<div class="flex justify-between items-center group border-t border-white/10 pt-4">
+<span class="text-sm font-bold text-primary">Net Liquid Assets</span>
+<span class="font-mono text-primary font-black text-xl">972,350.00</span>
+</div>
+</div>
+</div>
+<!-- PaymentStatusTimeline -->
+<div class="bg-surface-container p-8 rounded-xl space-y-8">
+<h3 class="text-xs font-bold tracking-[0.2em] uppercase text-slate-500">Settlement Lifecycle</h3>
+<div class="relative">
+<!-- Track -->
+<div class="absolute top-3 left-0 w-full h-[2px] bg-surface-container-highest"></div>
+<div class="relative flex justify-between">
+<div class="flex flex-col items-center gap-4">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[12px] text-on-primary font-bold">check</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-[10px] font-bold text-white uppercase tracking-tighter">Generated</span>
+<span class="text-[8px] text-slate-500">10:45 AM</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[12px] text-on-primary font-bold">check</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-[10px] font-bold text-white uppercase tracking-tighter">Initiated</span>
+<span class="text-[8px] text-slate-500">11:12 AM</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10 animate-pulse">
+<span class="material-symbols-outlined text-[12px] text-on-primary font-bold">hourglass_empty</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-[10px] font-bold text-primary uppercase tracking-tighter">Verified</span>
+<span class="text-[8px] text-primary/60">Processing</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center z-10 border border-white/10">
+</div>
+<div class="flex flex-col items-center">
+<span class="text-[10px] font-bold text-slate-600 uppercase tracking-tighter">Settled</span>
+<span class="text-[8px] text-slate-600">Pending</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SARCurrencyInput -->
+<div class="bg-surface-container p-8 rounded-xl space-y-6">
+<h3 class="text-xs font-bold tracking-[0.2em] uppercase text-slate-500">Transaction Entry</h3>
+<div class="space-y-4">
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-slate-500 uppercase">Input Amount (EN)</label>
+<div class="relative flex items-center">
+<div class="absolute left-0 h-full w-14 bg-surface-container-highest rounded-l-lg flex items-center justify-center border-r border-white/5">
+<span class="text-xs font-bold text-primary-fixed">SAR</span>
+</div>
+<input class="w-full bg-surface-container-low border-none rounded-lg py-3 pl-16 pr-4 focus:ring-1 focus:ring-primary text-white font-mono placeholder:text-slate-600" type="text" value="34,557.50"/>
+</div>
+</div>
+<div class="space-y-2 text-right">
+<label class="text-[10px] font-bold text-slate-500 uppercase">قيمة التحويل (AR)</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low border-none rounded-lg py-3 pr-16 pl-4 text-right focus:ring-1 focus:ring-primary text-white font-arabic placeholder:text-slate-600" type="text" value="٣٤,٥٥٧.٥٠"/>
+<div class="absolute right-0 h-full w-14 bg-surface-container-highest rounded-r-lg flex items-center justify-center border-l border-white/5">
+<span class="text-sm font-bold font-arabic text-primary-fixed">ريال</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-lg font-black uppercase tracking-widest text-xs hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_10px_20px_-10px_rgba(208,188,255,0.3)]">
+                                Authorize Disbursement
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Compliance Info -->
+<footer class="mt-20 border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-6">
+<img alt="Financial Compliance Badge" class="h-8 grayscale opacity-50" data-alt="abstract high-tech security shield logo for digital financial trust" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATvX6KgbKyxikfEXBWl_Ea0NMcydQZVJwsZhCJF_plt7blH34dCuOw5dZbSmfc3TOz5zwtHRVRxrIJVMluTPx-kb8jBlhDBucdkM6Ds5inEiTbp8VI3ydyc6kROydeMGIYM32e-hUEqDjGn2cDFc_gzn-lN62YGBrnufw5W9I1S2rkG2dyGSGk7y5buvMQaq341jF6K6sky6fGaterprk6kxowng0tmHm4Mg-xA65z41XKEkIs9C0XRieK9iUaiF2mCzYJuM_vYA"/>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-slate-500 uppercase">Financial Node Authority</span>
+<span class="text-[10px] text-slate-700">Riyadh Region - Cluster 04 - Instance #AF291</span>
+</div>
+</div>
+<div class="flex gap-8">
+<span class="text-[10px] font-medium text-slate-600 cursor-pointer hover:text-slate-400">Ledger Transparency</span>
+<span class="text-[10px] font-medium text-slate-600 cursor-pointer hover:text-slate-400">Audit Logs</span>
+<span class="text-[10px] font-medium text-slate-600 cursor-pointer hover:text-slate-400">ZATCA Sync Status</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Sovereign Cloud Secure</span>
+</div>
+</footer>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-surface-container-low border-t border-white/5 px-6 h-20 flex justify-between items-center z-50">
+<div class="flex flex-col items-center gap-1 text-[#d0bcff]">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-bold uppercase">Settled</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-bold uppercase">Tax</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="text-[10px] font-bold uppercase">Ledger</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">help</span>
+<span class="text-[10px] font-bold uppercase">Help</span>
+</div>
+</nav>
+</body></html>

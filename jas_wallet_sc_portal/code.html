@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Wallet | Sub-Carrier Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#12121d",
+                        "secondary-container": "#4f4171",
+                        "on-tertiary-container": "#f09661",
+                        "surface-variant": "#343440",
+                        "on-secondary-fixed": "#201340",
+                        "tertiary-container": "#6c2e00",
+                        "on-surface-variant": "#cbc3d5",
+                        "outline": "#948e9e",
+                        "surface-container-low": "#1b1a26",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#cfbef6",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-background": "#e3e0f1",
+                        "background": "#12121d",
+                        "inverse-primary": "#6a45c3",
+                        "surface-dim": "#12121d",
+                        "primary-container": "#4b1fa3",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#383845",
+                        "on-primary-container": "#b79cff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "on-surface": "#e3e0f1",
+                        "surface-tint": "#d0bcff",
+                        "on-primary": "#3b0092",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "primary": "#d0bcff",
+                        "tertiary": "#ffb68e",
+                        "primary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#331200",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "surface-container-high": "#292935",
+                        "outline-variant": "#494453",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "on-secondary": "#352856",
+                        "inverse-surface": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-container-highest": "#343440",
+                        "on-tertiary": "#532200",
+                        "inverse-on-surface": "#302f3b",
+                        "on-primary-fixed": "#22005c",
+                        "surface-container": "#1f1e2a",
+                        "tertiary-fixed": "#ffdbc9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(31, 30, 42, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20 bg-gradient-to-b from-[#12121d] to-transparent">
+<div class="flex justify-between items-center h-16 px-8 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-white uppercase font-headline">JAS Wallet</span>
+<div class="hidden md:flex items-center gap-6 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Movements</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Approvals</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 rounded-full active:scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-all duration-300 rounded-full active:scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-outline-variant/30" data-alt="Close-up portrait of a professional male fleet manager in a modern office environment with soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiSE4OixQ0m_x_wE8fORQvHzyaWjpnV-9NQQYKoJrde9Ec0aSV9wQDG29uvpWkFYTWtFtu1H8FvErTcCGuU8Y4kOrlRTUrbyA0Amfmqs_em3GVQIskUrQ8u-D8jzPmeBMNx0OMacGI1G9XvQT7AJGsqlj7-ch5OjOIWkUf1Dc1laJSLi72JCFUVPlz6n5JZ5tDRyLH1cnZiv-tLPbjnCTH_phvg4y1X6pGJcTiQi3PqyXMcnPWeH_2onZ5Ohd63VS9c6ieyH4sYA"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="h-screen w-72 fixed left-0 top-0 hidden lg:flex flex-col py-8 px-6 space-y-8 bg-[#12121d] border-r border-white/5 z-40 pt-24">
+<div class="flex items-center gap-3 px-2">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(139,92,246,0.2)]">
+<span class="material-symbols-outlined text-white" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div>
+<h3 class="text-lg font-black text-white font-headline leading-tight">Sovereign Portal</h3>
+<p class="text-xs text-slate-500 font-medium">Wallet Administration</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-white bg-[#4B1FA3]/30 rounded-lg shadow-[0_0_15px_rgba(139,92,246,0.2)] transition-all duration-200 ease-out font-['Plus_Jakarta_Sans'] font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#1c1c2d] transition-all duration-200 ease-out font-['Plus_Jakarta_Sans'] font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Transactions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#1c1c2d] transition-all duration-200 ease-out font-['Plus_Jakarta_Sans'] font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="corporate_fare">corporate_fare</span>
+<span>Entities</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#1c1c2d] transition-all duration-200 ease-out font-['Plus_Jakarta_Sans'] font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>KYB Status</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#1c1c2d] transition-all duration-200 ease-out font-['Plus_Jakarta_Sans'] font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span>Audit Logs</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-white/5 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#1c1c2d] transition-all duration-200 font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#1c1c2d] transition-all duration-200 font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:pl-72 pt-24 pb-12 px-6 md:px-10 max-w-[1600px] mx-auto min-h-screen">
+<!-- Hero Section: Wallet Card & Quick Actions -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-10">
+<!-- Available Balance Hero Card -->
+<div class="xl:col-span-2 relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-container via-[#3b1580] to-surface-container shadow-2xl p-8 flex flex-col justify-between min-h-[280px]">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full -ml-16 -mb-16 blur-2xl"></div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-4">
+<span class="text-on-primary-container/80 text-sm font-semibold tracking-widest uppercase">Available Balance</span>
+<span class="material-symbols-outlined text-on-primary-container/60" data-icon="toll">toll</span>
+</div>
+<h1 class="text-5xl font-extrabold tracking-tighter text-white font-headline">
+                        SAR 38,450.00
+                    </h1>
+<div class="mt-4 flex items-center gap-2 text-secondary-fixed text-sm font-medium">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Verified for immediate withdrawal
+                    </div>
+</div>
+<div class="relative z-10 flex flex-wrap items-center gap-4 mt-8">
+<button class="bg-white text-primary-container px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-on-primary-container transition-colors shadow-lg active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_balance">account_balance</span>
+                        Withdraw to IBAN
+                    </button>
+<button class="bg-white/10 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 border border-white/20 hover:bg-white/20 transition-all backdrop-blur-md active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="add_circle">add_circle</span>
+                        Add Funds
+                    </button>
+</div>
+</div>
+<!-- Pending Earnings Card -->
+<div class="rounded-xl bg-surface-container border border-outline-variant/10 p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-6">
+<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#ffb68e]"></div>
+<span class="text-on-surface-variant text-xs font-bold uppercase tracking-wider">Pending Earnings</span>
+</div>
+<div class="space-y-1">
+<p class="text-3xl font-bold text-on-surface">SAR 12,400</p>
+<p class="text-on-surface-variant text-sm font-medium">Earnings from 48 trips</p>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-outline-variant/10">
+<div class="flex items-center justify-between text-sm mb-4">
+<span class="text-on-surface-variant">Scheduled Release</span>
+<span class="text-tertiary font-bold">May 15, 2024</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[75%]" style="box-shadow: 0 0 10px rgba(255, 182, 142, 0.4);"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Insights Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/10">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Weekly Payouts</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold text-on-surface">SAR 8,920</span>
+<span class="text-emerald-400 text-xs font-bold">+12.5%</span>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/10">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">COD Collections</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold text-on-surface">SAR 4,110</span>
+<span class="text-on-surface-variant text-xs">Pending Audit</span>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/10">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Fleet Active</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold text-on-surface">14/15</span>
+<span class="text-primary text-xs font-bold">Vehicles</span>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/10">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">Efficiency</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold text-on-surface">98.2%</span>
+<span class="text-primary text-xs font-bold">On-Time</span>
+</div>
+</div>
+</div>
+<!-- Transaction History Table -->
+<div class="bg-surface-container rounded-xl border border-outline-variant/5 overflow-hidden">
+<div class="px-8 py-6 flex flex-wrap items-center justify-between gap-4 border-b border-outline-variant/10">
+<h3 class="text-lg font-bold text-on-surface font-headline">Recent Movements</h3>
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="search">search</span>
+<input class="bg-surface-container-highest border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/50 w-64 text-on-surface placeholder:text-on-surface-variant/50" placeholder="Search trips or ID..." type="text"/>
+</div>
+<button class="p-2 bg-surface-container-high rounded-lg text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-8 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Description</th>
+<th class="px-8 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Date</th>
+<th class="px-8 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Type</th>
+<th class="px-8 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Status</th>
+<th class="px-8 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-emerald-400/10 flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Bulk Trip Payout #JK8829</p>
+<p class="text-xs text-on-surface-variant">Batch ID: B-9921-X</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">May 12, 2024</td>
+<td class="px-8 py-5">
+<span class="text-xs font-bold px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant uppercase">Earning</span>
+</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="text-sm text-emerald-400">Completed</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right font-bold text-emerald-400">+ SAR 1,450.00</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-error-container/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">COD Deduction - Riyadh Hub</p>
+<p class="text-xs text-on-surface-variant">Reference: COD-91102</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">May 11, 2024</td>
+<td class="px-8 py-5">
+<span class="text-xs font-bold px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant uppercase">Adjustment</span>
+</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="text-sm text-emerald-400">Settled</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right font-bold text-error">- SAR 420.00</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Withdrawal to SAIB (IBAN ...4492)</p>
+<p class="text-xs text-on-surface-variant">TXN: JAS-WD-0012</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">May 10, 2024</td>
+<td class="px-8 py-5">
+<span class="text-xs font-bold px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant uppercase">Withdrawal</span>
+</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-sm text-primary">Processing</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right font-bold text-on-surface">- SAR 12,000.00</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-emerald-400/10 flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Incentive: Performance Tier A</p>
+<p class="text-xs text-on-surface-variant">Cycle: April 2024</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">May 08, 2024</td>
+<td class="px-8 py-5">
+<span class="text-xs font-bold px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant uppercase">Bonus</span>
+</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="text-sm text-emerald-400">Completed</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right font-bold text-emerald-400">+ SAR 2,500.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-8 py-6 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Showing 4 of 128 transactions</span>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-container-high rounded-lg text-sm font-bold text-on-surface hover:bg-surface-bright transition-colors">Previous</button>
+<button class="px-4 py-2 bg-surface-container-high rounded-lg text-sm font-bold text-on-surface hover:bg-surface-bright transition-colors">Next</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB for quick access -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center group active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="absolute right-full mr-4 bg-surface-container-highest text-white px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl border border-outline-variant/10">
+                New Withdrawal
+            </span>
+</button>
+</div>
+</body></html>

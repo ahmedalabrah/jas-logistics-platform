@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Compliance Terminal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-fixed": "#331200",
+                    "background": "#12121d",
+                    "on-surface-variant": "#cbc3d5",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-high": "#292935",
+                    "primary-container": "#4b1fa3",
+                    "outline": "#948e9e",
+                    "secondary": "#cfbef6",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-secondary-container": "#c0b0e7",
+                    "inverse-primary": "#6a45c3",
+                    "surface-container-low": "#1b1a26",
+                    "on-error-container": "#ffdad6",
+                    "on-error": "#690005",
+                    "on-secondary-fixed": "#201340",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "surface": "#12121d",
+                    "on-background": "#e3e0f1",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-dim": "#12121d",
+                    "on-tertiary-container": "#f09661",
+                    "surface-bright": "#383845",
+                    "tertiary": "#ffb68e",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "on-primary-container": "#b79cff",
+                    "tertiary-fixed": "#ffdbc9",
+                    "outline-variant": "#494453",
+                    "on-tertiary": "#532200",
+                    "inverse-on-surface": "#302f3b",
+                    "on-surface": "#e3e0f1",
+                    "on-primary": "#3b0092",
+                    "error-container": "#93000a",
+                    "on-secondary": "#352856",
+                    "on-primary-fixed": "#22005c",
+                    "error": "#ffb4ab",
+                    "inverse-surface": "#e3e0f1",
+                    "surface-variant": "#343440",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed": "#e9ddff",
+                    "tertiary-container": "#6c2e00",
+                    "surface-container-highest": "#343440",
+                    "surface-container": "#1f1e2a",
+                    "secondary-fixed-dim": "#cfbef6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Poppins"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0F0F1A; color: #e3e0f1; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .font-jetbrains { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel { backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .pulse-amber { animation: pulse-amber-shadow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse-amber-shadow { 0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); } 50% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); } }
+        .flash-red { animation: flash-red-bg 1s infinite; }
+        @keyframes flash-red-bg { 0%, 100% { background-color: rgba(147, 0, 10, 0.4); } 50% { background-color: rgba(147, 0, 10, 0.1); } }
+        .loading-spin { animation: spin 1s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 w-full bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-6">
+<div class="text-xl font-bold tracking-tighter text-white bg-clip-text text-transparent bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3]">
+                JAS Compliance Terminal
+            </div>
+<div class="h-8 w-[1px] bg-white/10 hidden md:block"></div>
+<div class="hidden md:flex gap-8 font-['Plus_Jakarta_Sans'] tracking-tight">
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Operations</a>
+<a class="text-[#94a3b8] hover:text-white transition-colors" href="#">Analytics</a>
+<a class="text-[#94a3b8] hover:text-white transition-colors" href="#">Regulatory Hub</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 transition-all duration-300 active:scale-95 text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-white/5 transition-all duration-300 active:scale-95 text-slate-400">
+<span class="material-symbols-outlined">translate</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-white/5">
+<div class="text-right">
+<div class="text-sm font-bold text-on-surface">SA-ADMIN-01</div>
+<div class="text-[10px] text-primary">Compliance Manager</div>
+</div>
+<img alt="Compliance Officer Avatar" class="w-10 h-10 rounded-full border border-primary/30" data-alt="professional portrait of a middle-aged compliance officer in a clean office setting, sharp focus, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJTu0NHrS9uD1xTr0j7qDJ8zcf6aeO1xKyxnc_3Od0A1VnnOnpzC1KFA0MFwHq7tbVuzCoe_wpCXQj1oWnnvFx9xmdP6VN0mBQr9n118NKVrfUQj9TfqQl0_goln2bckLXDrE_87Z2N8zuxnIRQ929U6YGgA459Wq8L8ZNvRxGOSckqMbiE5CZJztHonHVnklFJektPkrU6FGV7vtRYqQve3mRDnBe55q3YSov1SDocsgyiyx84MB3MCI-gZTZg5yKG4bcYgKdKQ"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-72 fixed left-0 top-0 z-40 bg-[#0F0F1A] backdrop-blur-2xl border-r border-white/5 hidden lg:flex flex-col py-8 pt-24">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-[#d0bcff] text-3xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<div class="font-black text-[#d0bcff] text-xl">TGA Terminal</div>
+</div>
+<div class="text-xs text-slate-500 font-medium">Riyadh Hub Alpha</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="group flex items-center px-6 py-3 text-slate-400 hover:bg-white/5 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Dashboard</span>
+</div>
+<div class="group flex items-center px-6 py-3 bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] cursor-pointer transition-all">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 1;">gate</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Gate Control</span>
+</div>
+<div class="group flex items-center px-6 py-3 text-slate-400 hover:bg-white/5 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined mr-3">hub</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Wasl Live</span>
+</div>
+<div class="group flex items-center px-6 py-3 text-slate-400 hover:bg-white/5 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined mr-3">verified_user</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Fleet Audit</span>
+</div>
+<div class="group flex items-center px-6 py-3 text-slate-400 hover:bg-white/5 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined mr-3">assignment</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Compliance Logs</span>
+</div>
+<div class="group flex items-center px-6 py-3 text-slate-400 hover:bg-white/5 cursor-pointer transition-all hover:translate-x-1">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Settings</span>
+</div>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full py-3 bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] rounded-lg text-on-primary font-bold text-sm shadow-lg shadow-primary/20 active:scale-95 transition-all">
+                Export Regulatory Report
+            </button>
+<div class="mt-6 flex flex-col gap-2">
+<div class="flex items-center text-slate-500 hover:text-white text-sm cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm mr-2">help</span> Support
+                </div>
+<div class="flex items-center text-slate-500 hover:text-white text-sm cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm mr-2">description</span> Documentation
+                </div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-72 pt-24 p-8 min-h-screen">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="text-4xl font-headline font-bold text-on-surface mb-2 tracking-tight">Compliance Component Library</h1>
+<p class="text-on-surface-variant max-w-2xl">Visual standards and state management for TGA-regulated logistics operations across the Kingdom of Saudi Arabia.</p>
+</header>
+<!-- Section 1: TGAOperationalCard -->
+<section class="mb-16">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-headline font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">badge</span>
+                    TGA Operational Cards (Fleet Status)
+                </h2>
+<span class="px-3 py-1 bg-surface-container-high rounded text-[10px] font-bold uppercase tracking-widest text-outline">Component: FMS-V2</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- VALID STATE -->
+<div class="surface-container rounded-xl overflow-hidden border border-emerald-500/20 shadow-xl relative group">
+<div class="h-1 bg-emerald-500 w-full"></div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-xs font-bold text-emerald-400 mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                    VALID / ساري
+                                </h3>
+<div class="font-headline text-lg font-bold">REFRIGERATED UNIT</div>
+</div>
+<img alt="TGA Logo" class="h-8 grayscale brightness-200 opacity-50" data-alt="official TGA transport general authority Saudi Arabia logo in white and green minimal style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP2_m3MOTrG-YKFG5SO8u9d8O7M4F8lwb5Wc6sW4UsZexP68pCH1geW1MkVT-OmLzkOnFUDyMc_64IJCHLTPWAnRMmxYdPUUy7H3lHFi5H5YsbRbGwC8PzItk2Iqu3OJnmEhjHBu5WQ0v-ISFPs1KViJ9oHKZXrv7rOCFYGDEOEyxm3U5iF7qr-cUjK-WrlGahn1quxD8pipgvsM3X4Gm1lct8OGKHewcNb9X60IGOSboh8A9IchBveyaWltl_RHOYUxfSAhtEnQ"/>
+</div>
+<div class="grid grid-cols-2 gap-y-4 mb-6">
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Plate / اللوحة</label>
+<span class="font-jetbrains text-on-surface">8842 JSA</span>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Type / النوع</label>
+<span class="font-jetbrains text-on-surface">Heavy Cargo</span>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Card No / رقم البطاقة</label>
+<span class="font-jetbrains text-on-surface">TGA-7719-001</span>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">GVW / الوزن</label>
+<span class="font-jetbrains text-on-surface">18,000 KG</span>
+</div>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Expiry Date / انتهاء</label>
+<span class="text-sm font-bold text-on-surface">2025-12-30</span>
+</div>
+<div class="flex items-center gap-2 bg-emerald-500/10 px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[10px] font-bold text-emerald-400 uppercase">Wasl Synced</span>
+</div>
+</div>
+</div>
+</div>
+<!-- EXPIRING STATE -->
+<div class="surface-container rounded-xl overflow-hidden border border-amber-500/30 shadow-xl relative pulse-amber">
+<div class="h-1 bg-amber-500 w-full"></div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-xs font-bold text-amber-500 mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">warning</span>
+                                    EXPIRING SOON / تنتهي قريباً
+                                </h3>
+<div class="font-headline text-lg font-bold">FLATBED TRAILER</div>
+</div>
+<span class="material-symbols-outlined text-amber-500">priority_high</span>
+</div>
+<div class="grid grid-cols-2 gap-y-4 mb-6">
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Plate / اللوحة</label>
+<span class="font-jetbrains text-on-surface">1122 LKR</span>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Type / النوع</label>
+<span class="font-jetbrains text-on-surface">Multi-axle</span>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Card No / رقم البطاقة</label>
+<span class="font-jetbrains text-on-surface">TGA-8822-441</span>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">GVW / الوزن</label>
+<span class="font-jetbrains text-on-surface">24,500 KG</span>
+</div>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Expiry Date / انتهاء</label>
+<span class="text-sm font-bold text-amber-500 underline decoration-amber-500/50 underline-offset-4">2024-05-20</span>
+</div>
+<div class="flex items-center gap-2 bg-amber-500/10 px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span class="text-[10px] font-bold text-amber-500 uppercase">Warning Issued</span>
+</div>
+</div>
+</div>
+</div>
+<!-- EXPIRED STATE -->
+<div class="surface-container rounded-xl overflow-hidden border border-red-500/40 shadow-xl relative flash-red">
+<div class="h-1 bg-red-600 w-full"></div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-xs font-bold text-red-500 mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">error</span>
+                                    EXPIRED / منتهية
+                                </h3>
+<div class="font-headline text-lg font-bold">DRY VAN 40FT</div>
+</div>
+<span class="material-symbols-outlined text-red-500 text-3xl">dangerous</span>
+</div>
+<div class="grid grid-cols-2 gap-y-4 mb-6 opacity-60">
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Plate / اللوحة</label>
+<span class="font-jetbrains text-on-surface">9900 RXT</span>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Type / النوع</label>
+<span class="font-jetbrains text-on-surface">Box Container</span>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Card No / رقم البطاقة</label>
+<span class="font-jetbrains text-on-surface">TGA-4455-221</span>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">GVW / الوزن</label>
+<span class="font-jetbrains text-on-surface">12,000 KG</span>
+</div>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<label class="text-[10px] uppercase text-outline block mb-1">Expiry Date / انتهاء</label>
+<span class="text-sm font-bold text-red-500">2024-01-15</span>
+</div>
+<div class="flex items-center gap-2 bg-red-500/20 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-[12px] text-red-500">block</span>
+<span class="text-[10px] font-bold text-red-500 uppercase">Grounded</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: TGAPermissionCard -->
+<section class="mb-16">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-headline font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">qr_code_2</span>
+                    Shipment Permission Cards (Bayan)
+                </h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Display Mode -->
+<div class="surface-container-low rounded-2xl p-8 glass-panel border-l-4 border-l-[#1B4D8E]">
+<div class="flex justify-between items-start mb-8">
+<div>
+<div class="text-[10px] font-black text-primary tracking-[0.2em] mb-2 uppercase">Official Permission</div>
+<h3 class="text-2xl font-headline font-bold text-white leading-tight">Inter-Region Movement<br/>إذن تنقل بين المناطق</h3>
+</div>
+<div class="bg-white p-2 rounded-lg">
+<img alt="QR Code" class="w-20 h-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB37YqPn5ttMRpGtRKXUibfBHuycgmZfOsl3DGYL3s2DNyp_8pOWRC4y7vP0EIIrWVls1EIb0kDM6inbFDzK-GZ97NE8ihKIecWu5o9iVVp5_NYQlh3jPRZ3MjBLO3Nmj3ImN03Spid0ywu_J6n_FCt5f3C9iSpU5V60IXKwAn-PJ0jqBCCNPhT9StGyUmTFwo8KWcGqskf62Z9d1KgKX4G5DzdOa2yeEzdrPgbEewxYSl7WGBUIVjSmHtJf7UzHOYGg5k9FJN-iw"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8 border-t border-white/5 pt-8 mb-8">
+<div>
+<label class="text-[10px] uppercase text-outline block mb-2">Origin / المصدر</label>
+<div class="text-sm font-bold text-white">Riyadh Terminal 4</div>
+<div class="text-[11px] text-on-surface-variant">محطة الرياض ٤</div>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-2">Destination / الوجهة</label>
+<div class="text-sm font-bold text-white">Dammam Port Central</div>
+<div class="text-[11px] text-on-surface-variant">ميناء الدمام المركزي</div>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-2">Carrier / الناقل</label>
+<div class="text-sm font-bold text-white">JAS Logistics Solutions</div>
+</div>
+<div>
+<label class="text-[10px] uppercase text-outline block mb-2">Permit ID / رقم التصريح</label>
+<div class="text-sm font-mono text-[#d0bcff]">TX-P-00992-KSA</div>
+</div>
+</div>
+<div class="bg-surface-container-high rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+</div>
+<div>
+<div class="text-xs font-bold text-on-surface">Vehicle Assigned</div>
+<div class="text-[10px] text-outline">G-2281 / Actros MP4</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-bold text-emerald-400">AUTHORIZED</div>
+<div class="text-[10px] text-outline">Digital Signature Verified</div>
+</div>
+</div>
+</div>
+<!-- Driver Mode -->
+<div class="bg-white rounded-2xl p-6 text-slate-900 shadow-2xl relative overflow-hidden flex flex-col items-center text-center">
+<div class="absolute top-4 right-4 flex gap-2">
+<span class="bg-slate-100 text-slate-500 text-[10px] font-bold px-2 py-1 rounded-full border border-slate-200">OFFLINE READY</span>
+</div>
+<div class="mb-4">
+<img alt="TGA Logo" class="h-6 grayscale opacity-80" data-alt="minimal transport authority logo for shipping permits" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuqlQ6eHvoXFgH8OEYduhzIDb1kX0lfkKPn85zgNULa7YwNe4avBjKWM2o59hKFF3urpi3tt6N4hagUckuy2ou7srv3j7jJWtDh_3Feu8JqRw0HjwsK8BVfdvfKTNreoIWgbFvTprtjtxcHT_DDe8tNoLByrim2e8s_WqBo7eXIzH0aHhuNV_BJ06GmdaQxsj9ro0W_kO-i8i50hNGw-QUzVjMTb5tAMLV-o8pegT6JQqswAmAGVV2YLryiGJf8ZU0aoSB3AVidQ"/>
+</div>
+<h3 class="text-2xl font-bold font-headline mb-1">تصريح نقل بضائع</h3>
+<p class="text-slate-500 text-xs mb-6 font-bold tracking-widest uppercase">Goods Transport Permit</p>
+<div class="bg-white p-3 border-2 border-slate-100 rounded-2xl mb-6 shadow-sm">
+<img alt="Driver QR" class="w-[120px] h-[120px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxjQ9vuApebQLliPtm8kea_erF5r29ftMZZg17qzDttHJOwA49sIvnKVFl6w21vxwaM_VHcfS_XxAaOUeN0iikoEQFr1J3fimZ80EMPpGcJnlXfb5LeLS7z0EXn42tzkLAJBluB_gikpZ0nlDkJfs369tq8v2_JZSf0BrF2dKRfbF4CS3CL_uRH2_5QgAQauJvLaU9SNxIdr8hDjpbBzwI6HoMkrq_vB87YDFWhPLberqUqGTsJE66MQM_0Ss6V_Jvaf4vuIOvLw"/>
+</div>
+<div class="w-full space-y-4 text-left">
+<div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[10px] text-slate-400 font-bold uppercase">Load Details</span>
+<span class="text-xs text-blue-600 font-bold">Bayan Active</span>
+</div>
+<div class="text-lg font-bold text-slate-800">حاوية مبردة - مواد غذائية</div>
+<div class="text-xs text-slate-500">Reefer Container - Foodstuff</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-1 bg-slate-50 p-4 rounded-xl border border-slate-100">
+<div class="text-[10px] text-slate-400 font-bold uppercase">Plate رقم اللوحة</div>
+<div class="text-xl font-jetbrains font-bold">١٤٢٢ أ ب ح</div>
+</div>
+<div class="flex-1 bg-slate-50 p-4 rounded-xl border border-slate-100">
+<div class="text-[10px] text-slate-400 font-bold uppercase">Weight الوزن</div>
+<div class="text-xl font-jetbrains font-bold text-red-600">22.4 t</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: TGAGateCheck -->
+<section class="mb-16">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-headline font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">sensors</span>
+                    Gate Compliance Dispatch (FMS-04)
+                </h2>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1 text-xs text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span> Loading
+                    </div>
+<div class="flex items-center gap-1 text-xs text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Cleared
+                    </div>
+</div>
+</div>
+<!-- 8-Gate Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+<!-- Gate 1: Cleared -->
+<div class="surface-container rounded-xl p-5 border border-emerald-500/20 flex flex-col items-center justify-center text-center">
+<div class="text-[10px] font-bold text-outline uppercase mb-2">Gate 01</div>
+<div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="text-xs font-bold text-on-surface">RFID Sync</div>
+</div>
+<!-- Gate 2: Cleared -->
+<div class="surface-container rounded-xl p-5 border border-emerald-500/20 flex flex-col items-center justify-center text-center">
+<div class="text-[10px] font-bold text-outline uppercase mb-2">Gate 02</div>
+<div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="text-xs font-bold text-on-surface">Weight Check</div>
+</div>
+<!-- Gate 3: Cleared -->
+<div class="surface-container rounded-xl p-5 border border-emerald-500/20 flex flex-col items-center justify-center text-center">
+<div class="text-[10px] font-bold text-outline uppercase mb-2">Gate 03</div>
+<div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="text-xs font-bold text-on-surface">Driver ID</div>
+</div>
+<!-- Gate 4: Cleared -->
+<div class="surface-container rounded-xl p-5 border border-emerald-500/20 flex flex-col items-center justify-center text-center">
+<div class="text-[10px] font-bold text-outline uppercase mb-2">Gate 04</div>
+<div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="text-xs font-bold text-on-surface">TGA Card Valid</div>
+</div>
+<!-- Gate 5: Cleared -->
+<div class="surface-container rounded-xl p-5 border border-emerald-500/20 flex flex-col items-center justify-center text-center">
+<div class="text-[10px] font-bold text-outline uppercase mb-2">Gate 05</div>
+<div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="text-xs font-bold text-on-surface">Manifest (Bayan)</div>
+</div>
+<!-- Gate 6: Cleared -->
+<div class="surface-container rounded-xl p-5 border border-emerald-500/20 flex flex-col items-center justify-center text-center">
+<div class="text-[10px] font-bold text-outline uppercase mb-2">Gate 06</div>
+<div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="text-xs font-bold text-on-surface">Customs Pre-Clear</div>
+</div>
+<!-- Gate 7: Cleared -->
+<div class="surface-container rounded-xl p-5 border border-emerald-500/20 flex flex-col items-center justify-center text-center">
+<div class="text-[10px] font-bold text-outline uppercase mb-2">Gate 07</div>
+<div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="text-xs font-bold text-on-surface">Load Secure</div>
+</div>
+<!-- Gate 8: Loading/Success States -->
+<div class="surface-container rounded-xl p-5 border border-amber-500/40 flex flex-col items-center justify-center text-center pulse-amber bg-amber-500/5 relative overflow-hidden">
+<div class="text-[10px] font-bold text-amber-500 uppercase mb-2">Gate 08</div>
+<div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 mb-2">
+<span class="material-symbols-outlined loading-spin">autorenew</span>
+</div>
+<div class="text-xs font-bold text-amber-500">Wasl Transmission...</div>
+</div>
+</div>
+<!-- Success Banner -->
+<div class="bg-gradient-to-r from-emerald-600 to-teal-700 p-4 rounded-xl shadow-lg flex items-center justify-between border border-emerald-400/30">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+</div>
+<div>
+<div class="text-white font-bold text-lg">Dispatch Sequence Complete</div>
+<div class="text-emerald-50/80 text-xs">All 8 gates cleared for Truck ID: JAS-8821. Terminal exit authorized.</div>
+</div>
+</div>
+<div class="px-4 py-2 bg-black/20 rounded-lg text-white font-mono text-sm border border-white/10">
+                    AUTH-CODE: 99x-A11
+                </div>
+</div>
+</section>
+<!-- Section 4: CheckpointScanLog -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-headline font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">database</span>
+                    Checkpoint Compliance Log
+                </h2>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-container-high rounded text-xs font-bold text-outline hover:text-white transition-colors">Today</button>
+<button class="px-4 py-2 bg-surface-container-high rounded text-xs font-bold text-outline hover:text-white transition-colors">Filters</button>
+</div>
+</div>
+<div class="surface-container-low rounded-2xl overflow-hidden glass-panel">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50 border-b border-white/5">
+<th class="px-6 py-4 text-[10px] font-bold text-outline uppercase tracking-widest">Timestamp</th>
+<th class="px-6 py-4 text-[10px] font-bold text-outline uppercase tracking-widest">Event / Checkpoint</th>
+<th class="px-6 py-4 text-[10px] font-bold text-outline uppercase tracking-widest">Location</th>
+<th class="px-6 py-4 text-[10px] font-bold text-outline uppercase tracking-widest text-right">Result</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 font-body">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="text-sm font-jetbrains text-on-surface">2024-05-14 14:22:10</div>
+<div class="text-[10px] text-outline">Scan ID: #SC-9921</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">departure_board</span>
+</div>
+<div>
+<div class="text-sm font-bold text-on-surface">Terminal Dispatch Scan</div>
+<div class="text-[10px] text-outline">Wasl FMS-04 Compliance</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-on-surface">RUH-ALPHA-GATE-08</div>
+<div class="text-[10px] text-outline">Riyadh Logistics Park</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold rounded-full border border-emerald-500/20">PASSED</span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="text-sm font-jetbrains text-on-surface">2024-05-14 14:15:33</div>
+<div class="text-[10px] text-outline">Scan ID: #SC-9919</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-[#1B4D8E]/20 flex items-center justify-center text-blue-400">
+<span class="material-symbols-outlined text-sm">weight</span>
+</div>
+<div>
+<div class="text-sm font-bold text-on-surface">Axle Load Verification</div>
+<div class="text-[10px] text-outline">TGA Weight Limit Compliance</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-on-surface">ZONE-C-WEIGHBRIDGE</div>
+<div class="text-[10px] text-outline">Central Hub</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold rounded-full border border-emerald-500/20">PASSED</span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="text-sm font-jetbrains text-on-surface">2024-05-14 14:05:12</div>
+<div class="text-[10px] text-outline">Scan ID: #SC-9912</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-amber-500/10 flex items-center justify-center text-amber-500">
+<span class="material-symbols-outlined text-sm">contactless</span>
+</div>
+<div>
+<div class="text-sm font-bold text-on-surface">Card Credential Check</div>
+<div class="text-[10px] text-outline">Driver &amp; Vehicle Auth</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-on-surface">ENTRY-KIOSK-02</div>
+<div class="text-[10px] text-outline">Main Gate North</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="px-3 py-1 bg-amber-500/10 text-amber-500 text-[10px] font-bold rounded-full border border-amber-500/20">FLAGGED</span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="text-sm font-jetbrains text-on-surface">2024-05-14 13:45:01</div>
+<div class="text-[10px] text-outline">Scan ID: #SC-9899</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-red-500/10 flex items-center justify-center text-red-500">
+<span class="material-symbols-outlined text-sm">lock_person</span>
+</div>
+<div>
+<div class="text-sm font-bold text-on-surface">Safety Seal Inspection</div>
+<div class="text-[10px] text-outline">Cargo Integrity Audit</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="text-sm text-on-surface">BAY-AREA-14</div>
+<div class="text-[10px] text-outline">Loading Zone B</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="px-3 py-1 bg-red-500/10 text-red-500 text-[10px] font-bold rounded-full border border-red-500/20">REJECTED</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="bg-surface-container-high/30 px-6 py-4 flex justify-between items-center">
+<div class="text-xs text-outline font-medium">Showing 4 of 1,284 scan events</div>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-high text-on-surface disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-bold text-xs">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-high text-on-surface text-xs">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Global Floating Action -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-14 h-14 rounded-full bg-gradient-to-tr from-[#d0bcff] to-[#4b1fa3] text-white shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+</body></html>

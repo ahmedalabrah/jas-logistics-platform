@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Organism Component Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#d0bcff",
+                      "surface-container-lowest": "#0d0d18",
+                      "on-secondary": "#352856",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed": "#201340",
+                      "secondary-fixed-dim": "#cfbef6",
+                      "on-tertiary-container": "#f09661",
+                      "on-secondary-container": "#c0b0e7",
+                      "surface-container-low": "#1b1a26",
+                      "on-primary-container": "#b79cff",
+                      "tertiary-container": "#6c2e00",
+                      "inverse-primary": "#6a45c3",
+                      "on-primary-fixed-variant": "#5228aa",
+                      "primary-container": "#4b1fa3",
+                      "secondary-container": "#4f4171",
+                      "primary-fixed-dim": "#d0bcff",
+                      "on-primary-fixed": "#22005c",
+                      "on-tertiary": "#532200",
+                      "surface-container": "#1f1e2a",
+                      "on-tertiary-fixed-variant": "#743405",
+                      "on-tertiary-fixed": "#331200",
+                      "on-background": "#e3e0f1",
+                      "on-error": "#690005",
+                      "error": "#ffb4ab",
+                      "tertiary-fixed-dim": "#ffb68e",
+                      "surface": "#12121d",
+                      "inverse-on-surface": "#302f3b",
+                      "surface-variant": "#343440",
+                      "primary-fixed": "#e9ddff",
+                      "on-secondary-fixed-variant": "#4c3f6e",
+                      "tertiary-fixed": "#ffdbc9",
+                      "outline-variant": "#494453",
+                      "inverse-surface": "#e3e0f1",
+                      "outline": "#948e9e",
+                      "on-surface": "#e3e0f1",
+                      "background": "#12121d",
+                      "surface-container-high": "#292935",
+                      "secondary-fixed": "#e9ddff",
+                      "on-surface-variant": "#cbc3d5",
+                      "surface-dim": "#12121d",
+                      "surface-container-highest": "#343440",
+                      "on-primary": "#3b0092",
+                      "primary": "#d0bcff",
+                      "secondary": "#cfbef6",
+                      "on-error-container": "#ffdad6",
+                      "surface-bright": "#383845",
+                      "tertiary": "#ffb68e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"],
+                      "mono": ["JetBrains Mono"]
+              }
+            },
+          }
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-glass {
+            background: rgba(31, 30, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+      </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-[100] bg-[#0F0F1A]/80 backdrop-blur-xl flex items-center justify-between px-8 py-3 w-full shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+<div class="flex items-center gap-12">
+<span class="text-xl font-bold tracking-tighter text-[#d0bcff]">JAS Logistics</span>
+<div class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans'] font-medium text-sm">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Operations</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Inventory</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-2" href="#">Analytics</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Network</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 bg-primary-container text-on-primary-container text-xs font-bold rounded hover:bg-primary transition-all active:scale-95">Quick Export</button>
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined p-2 hover:bg-white/5 rounded-full cursor-pointer transition-all">notifications</span>
+<span class="material-symbols-outlined p-2 hover:bg-white/5 rounded-full cursor-pointer transition-all">settings</span>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant/30" data-alt="close-up portrait of a professional male software engineer with soft studio lighting and dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJUz8kiaXWynKaPn5HKwLQ_MUp_LRRyed51hcZGUmn9UhGzLch_qhlG8zacxgSAn2Mhho_E4GGWmEBV_2N66I2Qy1fdbzszkddfI2gR0_15KXfnId3nDYxvyMHTA-61eKs8YkXcFvvLN7L7NgG9ONLAnFv22bza5qEC0i2Dc0GmmqVU2MItlJ5beQRv6fPk7NUhZKlWOjpoUaRuQB9k43Pymca_ptz-F4jnBE-O1L5p12qTQ5WxMyyvZG38ZuUxJao_RnHK2tiVg"/>
+</div>
+</div>
+<div class="bg-[#1c1c2b] h-[1px] w-full absolute bottom-0 left-0"></div>
+</nav>
+<div class="flex pt-16">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-white/5 bg-[#12121d] flex flex-col pt-20 pb-6 z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary scale-75" data-weight="fill" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<div>
+<p class="text-white text-sm font-black uppercase tracking-tight">Global Logistics</p>
+<p class="text-[10px] text-slate-500 font-mono font-semibold uppercase">Velvet Intelligence v2.1</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="px-4">
+<p class="px-4 text-[10px] font-bold text-slate-600 uppercase tracking-[0.2em] mb-4">Core Systems</p>
+<a class="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] transition-all group" href="#">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-xs uppercase tracking-widest">FMS Portal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">inventory_2</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-xs uppercase tracking-widest">WMS Portal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">package_2</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-xs uppercase tracking-widest">Shipments</span>
+</a>
+</div>
+</nav>
+<div class="mt-auto px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">contact_support</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-xs uppercase tracking-widest">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error/70 hover:text-error transition-all" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-xs uppercase tracking-widest">Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 p-8 min-h-screen relative overflow-x-hidden">
+<!-- Toast System (Organism 3) -->
+<div class="fixed top-20 right-8 z-[150] flex flex-col gap-3 w-80">
+<!-- Success Toast -->
+<div class="bg-surface-container-high border-l-4 border-primary p-4 rounded-xl shadow-2xl flex items-start gap-4 custom-glass">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Data Sync Successful</p>
+<p class="text-xs text-on-surface-variant leading-relaxed">Fleet telemetry has been updated with 99.8% accuracy.</p>
+</div>
+</div>
+<!-- Error Toast -->
+<div class="bg-surface-container-high border-l-4 border-error p-4 rounded-xl shadow-2xl flex items-start gap-4 custom-glass">
+<span class="material-symbols-outlined text-error">warning</span>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">System Breach Detected</p>
+<p class="text-xs text-on-surface-variant leading-relaxed">Unauthorized access attempt in Region NW-4. Lockdown protocol engaged for 3600 seconds.</p>
+</div>
+</div>
+<!-- Info Toast -->
+<div class="bg-surface-container-high border-l-4 border-secondary p-4 rounded-xl shadow-2xl flex items-start gap-4 custom-glass">
+<span class="material-symbols-outlined text-secondary">info</span>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Route Optimization</p>
+<p class="text-xs text-on-surface-variant leading-relaxed">New optimal routes available for 14 active shipments.</p>
+</div>
+</div>
+</div>
+<!-- Dashboard Title -->
+<header class="mb-12">
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface mb-2">JAS Organism Library</h1>
+<p class="text-on-surface-variant text-sm max-w-2xl font-body leading-relaxed">System architecture and complex behavioral organisms for the Saudi Arabian Logistics Infrastructure. Engineered for speed, intelligence, and visual prestige.</p>
+</header>
+<div class="grid grid-cols-12 gap-8">
+<!-- Modal Backdrop Demo (Organism 1) -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-xl p-8 relative overflow-hidden h-[500px] border border-outline-variant/10">
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-10 p-8">
+<div class="bg-surface-container-highest w-full max-w-md rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300 border border-outline-variant/30">
+<div class="p-6 border-b border-outline-variant/20">
+<h3 class="font-headline text-xl font-bold text-on-surface">Configure Operations Gateway</h3>
+<p class="text-xs text-on-surface-variant mt-1">Assign primary operators and security protocols for Riyadh Hub.</p>
+</div>
+<div class="p-6 space-y-4">
+<div class="space-y-1">
+<label class="text-[10px] uppercase tracking-widest font-bold text-primary-fixed-dim">Gateway ID</label>
+<input class="w-full bg-surface-container-low border-b-2 border-primary/40 focus:border-primary px-3 py-2 text-sm text-on-surface transition-all" type="text" value="RYD-HUB-004-ALPHA"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] uppercase tracking-widest font-bold text-primary-fixed-dim">Security Level</label>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary text-on-primary text-[10px] font-bold py-2 rounded">HIGH</button>
+<button class="flex-1 bg-surface-container-low text-on-surface-variant text-[10px] font-bold py-2 rounded">STANDARD</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high/50 p-4 flex justify-end gap-3">
+<button class="px-4 py-2 text-xs font-bold text-on-surface-variant hover:text-on-surface transition-all">Cancel</button>
+<button class="px-6 py-2 bg-primary-container text-on-primary-container text-xs font-bold rounded-lg shadow-lg hover:shadow-primary/20 transition-all">Save Changes</button>
+</div>
+</div>
+</div>
+<!-- Background placeholder for modal demo -->
+<div class="opacity-20 pointer-events-none">
+<div class="h-8 w-1/3 bg-slate-700 mb-4 rounded"></div>
+<div class="grid grid-cols-4 gap-4">
+<div class="h-20 bg-slate-800 rounded"></div>
+<div class="h-20 bg-slate-800 rounded"></div>
+<div class="h-20 bg-slate-800 rounded"></div>
+<div class="h-20 bg-slate-800 rounded"></div>
+</div>
+</div>
+</section>
+<!-- Status Timeline (Organism 6) -->
+<aside class="col-span-12 lg:col-span-4 bg-surface-container p-6 rounded-xl border border-outline-variant/10">
+<h3 class="font-headline font-bold text-on-surface mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">history</span>
+                        Shipment Journey
+                    </h3>
+<div class="space-y-8 relative">
+<!-- Line -->
+<div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-outline-variant/20"></div>
+<!-- Event 1 (Completed) -->
+<div class="relative flex gap-4">
+<div class="mt-1.5 w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10 shadow-[0_0_12px_rgba(208,188,255,0.4)]">
+<span class="material-symbols-outlined text-on-primary text-[14px] font-bold">check</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Order Manifest Locked</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">OCT 12, 09:14 AM • JEDDAH PORT</p>
+</div>
+</div>
+<!-- Event 2 (Current) -->
+<div class="relative flex gap-4">
+<div class="mt-1.5 w-6 h-6 rounded-full bg-surface flex items-center justify-center z-10 border-2 border-primary relative">
+<div class="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<div>
+<p class="text-xs font-bold text-primary">In-Transit: Customs Gate 4</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">EST. OCT 14, 02:00 PM • DHAHRAN</p>
+<div class="mt-2 p-3 bg-surface-container-high rounded-lg border border-primary/20">
+<p class="text-[10px] text-on-surface leading-tight">Carrier scanning vehicle biometrics and weight distribution sensors.</p>
+</div>
+</div>
+</div>
+<!-- Event 3 (Future) -->
+<div class="relative flex gap-4">
+<div class="mt-1.5 w-6 h-6 rounded-full bg-surface-container-highest border-2 border-outline-variant/30 flex items-center justify-center z-10">
+<div class="w-1.5 h-1.5 rounded-full bg-outline-variant/40"></div>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant/60">Final Destination: Riyadh Dry Port</p>
+<p class="text-[10px] text-on-surface-variant/40 uppercase tracking-tighter">PROJECTED OCT 16</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Multi-Step Wizard (Organism 4) -->
+<section class="col-span-12 bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface">Vehicle Onboarding</h3>
+<p class="text-xs text-on-surface-variant">Formalizing fleet addition to JAS Sovereign Network</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-white/5 rounded-full transition-all">
+<span class="material-symbols-outlined text-slate-400">close</span>
+</button>
+</div>
+</div>
+<div class="flex items-center w-full">
+<!-- Step 1: Completed -->
+<div class="flex items-center flex-1">
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary/20 border border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">Identify</span>
+</div>
+<div class="h-[2px] flex-1 bg-primary mx-4"></div>
+</div>
+<!-- Step 2: Current -->
+<div class="flex items-center flex-1">
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-[0_0_20px_rgba(208,188,255,0.3)]">
+<span class="text-sm font-black text-on-primary">02</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface uppercase tracking-widest">Compliance</span>
+</div>
+<div class="h-[2px] flex-1 bg-outline-variant/30 mx-4"></div>
+</div>
+<!-- Step 3: Upcoming -->
+<div class="flex items-center flex-1">
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface-variant">
+<span class="text-sm font-black">03</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Route Bind</span>
+</div>
+<div class="h-[2px] flex-1 bg-outline-variant/30 mx-4"></div>
+</div>
+<!-- Step 4: Upcoming -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface-variant">
+<span class="text-sm font-black">04</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Verify</span>
+</div>
+</div>
+</section>
+<!-- SA Compliance Gate Display (Organism 5) -->
+<section class="col-span-12 lg:col-span-9">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline font-bold text-xl text-on-surface">TGA Compliance Dashboard</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">4 Pass</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">1 Critical</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<!-- Gate 1: Pass -->
+<div class="bg-surface-container-low p-5 rounded-xl border border-primary/10 flex flex-col justify-between h-40">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Gate 01</span>
+<span class="material-symbols-outlined text-primary text-xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-xs font-bold mt-4">Merchant Registry</p>
+</div>
+<div class="flex items-center gap-2 text-[10px] text-primary bg-primary/5 p-2 rounded">
+<span class="material-symbols-outlined scale-75">security</span>
+                                ENCRYPTED • VALID
+                            </div>
+</div>
+<!-- Gate 2: TGA Op Card - Special Styling -->
+<div class="bg-gradient-to-br from-primary-container/40 to-surface-container-low p-5 rounded-xl border-2 border-primary/20 flex flex-col justify-between h-40 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">badge</span>
+</div>
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-primary-fixed-dim uppercase tracking-tighter">Gate 02 • PRIORITY</span>
+<span class="material-symbols-outlined text-primary text-xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<p class="text-xs font-bold mt-4 text-on-surface">TGA Operational Card</p>
+<p class="text-[10px] text-on-surface-variant">Premium Clearance V2</p>
+</div>
+<div class="flex items-center justify-between text-[10px] font-mono font-bold text-primary">
+<span>#TGA-44021</span>
+<span>PASS</span>
+</div>
+</div>
+<!-- Gate 3: Pending -->
+<div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant/10 flex flex-col justify-between h-40 opacity-70">
+<div>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Gate 03</span>
+<p class="text-xs font-bold mt-4">Insurance Liability</p>
+</div>
+<div class="flex items-center gap-2 text-[10px] text-secondary bg-secondary/5 p-2 rounded">
+<span class="material-symbols-outlined scale-75 animate-spin">refresh</span>
+                                SYNCING DATA...
+                            </div>
+</div>
+<!-- Gate 4: Fail with Resolution -->
+<div class="bg-surface-container-low p-5 rounded-xl border-2 border-error/30 flex flex-col justify-between h-40">
+<div>
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-error uppercase tracking-tighter">Gate 04</span>
+<span class="material-symbols-outlined text-error text-xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+<p class="text-xs font-bold mt-4">Weight Compliance</p>
+</div>
+<button class="w-full text-[10px] font-bold text-on-error-container bg-error-container py-2 rounded-lg hover:brightness-110 transition-all">RESOLVE CONFLICT</button>
+</div>
+<!-- Gates 5-7 (Minimal) -->
+<div class="bg-surface-container-low/50 border border-outline-variant/5 p-4 rounded-xl flex items-center justify-center">
+<span class="text-[10px] font-bold text-slate-600 uppercase">Gate 05 • Pass</span>
+</div>
+<div class="bg-surface-container-low/50 border border-outline-variant/5 p-4 rounded-xl flex items-center justify-center">
+<span class="text-[10px] font-bold text-slate-600 uppercase">Gate 06 • Pass</span>
+</div>
+<div class="bg-surface-container-low/50 border border-outline-variant/5 p-4 rounded-xl flex items-center justify-center">
+<span class="text-[10px] font-bold text-slate-600 uppercase">Gate 07 • Pass</span>
+</div>
+<!-- Gate 8: Permission Permit - Special Styling -->
+<div class="bg-[#2A203F] p-5 rounded-xl border border-[#4b1fa3] flex flex-col justify-between h-40">
+<div>
+<span class="text-[10px] font-bold text-[#d0bcff] uppercase tracking-widest">Gate 08</span>
+<p class="text-xs font-bold mt-4 text-[#e9ddff]">Border Cross Permit</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-1.5 flex-1 bg-[#12121d] rounded-full overflow-hidden">
+<div class="h-full bg-[#d0bcff] w-[100%] shadow-[0_0_8px_#d0bcff]"></div>
+</div>
+<span class="text-[10px] font-black text-[#d0bcff]">ACTIVE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Mode Selector (Organism 7) -->
+<section class="col-span-12 lg:col-span-3 space-y-4">
+<h3 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Assignment Mode</h3>
+<div class="group cursor-pointer bg-surface-container-low border-2 border-primary p-5 rounded-xl transition-all hover:bg-surface-container relative overflow-hidden">
+<div class="absolute right-[-10px] bottom-[-10px] text-primary/10 pointer-events-none">
+<span class="material-symbols-outlined text-6xl">handshake</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/20 rounded-lg">
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+<div class="w-4 h-4 rounded-full border-4 border-primary bg-primary"></div>
+</div>
+<p class="font-headline font-bold text-on-surface">Framework Agreement</p>
+<p class="text-[10px] text-on-surface-variant leading-relaxed mt-1">Contractual fixed pricing with priority dispatch protocols.</p>
+</div>
+<div class="group cursor-pointer bg-surface-container-low border border-outline-variant/10 p-5 rounded-xl transition-all hover:border-outline-variant hover:bg-surface-container relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined text-slate-400">bolt</span>
+</div>
+<div class="w-4 h-4 rounded-full border-2 border-outline-variant"></div>
+</div>
+<p class="font-headline font-bold text-on-surface-variant group-hover:text-on-surface">Spot Selection</p>
+<p class="text-[10px] text-on-surface-variant leading-relaxed mt-1">Real-time market bidding for immediate freight movement.</p>
+</div>
+</section>
+<!-- Browser Wrapper (Organism 8) -->
+<section class="col-span-12 bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+<h3 class="font-headline font-bold text-lg text-on-surface mb-6">Device Preview</h3>
+<div class="w-full max-w-4xl mx-auto rounded-xl border border-outline-variant/20 shadow-2xl overflow-hidden bg-surface-container-lowest">
+<!-- Browser Header -->
+<div class="bg-surface-container-high px-4 py-3 flex items-center gap-6 border-b border-outline-variant/10">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-error/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary/50"></div>
+</div>
+<div class="flex-1 bg-surface p-1 px-3 rounded-lg text-[10px] text-slate-500 flex items-center gap-2">
+<span class="material-symbols-outlined scale-50">lock</span>
+                                console.jas.sa/fms/overview
+                            </div>
+<div class="flex gap-3 text-slate-500">
+<span class="material-symbols-outlined scale-75">add</span>
+<span class="material-symbols-outlined scale-75">more_vert</span>
+</div>
+</div>
+<!-- Inner Content -->
+<div class="aspect-video bg-surface p-6 flex items-center justify-center">
+<div class="text-center space-y-4">
+<img class="w-48 h-48 rounded-full mx-auto opacity-20 filter grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer" data-alt="vibrant abstract gradient flowing from purple to orange with a smooth cinematic grain texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBThspft5oCN-883DVlKjhSAXtg4EMTFY7WwOSgocm3Q7LKJ_z7sCnU852HoJbpo9Ww4CZvugi5OyhTiM-4vBZNxhbi-coSsrRJYuh-5XH_JGU4jB9dQlik8NhTuZe14j8DhQOj4ocVXnhqBxvYDC-nOH9OryJ9_WozSQqkdrMm4Uj3sHqFPjnQzzWsJzwV2cj2qPJamS9Q2pv953M_Hap154o99G8Ccw0djtdaq2c4i5uqYOm6ANmrLW1i9FOxJgKHAtusSRkxJw"/>
+<div>
+<p class="font-headline font-black text-2xl tracking-tighter text-on-surface">VELVET OS</p>
+<p class="text-[10px] font-mono text-primary uppercase tracking-[0.3em]">Neural Interface Online</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Slide Drawer (Organism 2) -->
+<div class="fixed top-0 right-0 h-screen w-[400px] bg-surface-container-high shadow-[-20px_0_40px_rgba(0,0,0,0.5)] z-[200] border-l border-outline-variant/20 flex flex-col translate-x-0 transition-transform custom-glass">
+<div class="p-8 border-b border-outline-variant/10 flex items-center justify-between">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Filter Settings</h3>
+<p class="text-xs text-on-surface-variant">Refine logistics data stream</p>
+</div>
+<button class="p-2 hover:bg-white/5 rounded-full transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Drawer Content -->
+<div class="space-y-4">
+<label class="text-[10px] font-black text-primary-fixed-dim uppercase tracking-widest">Region Select</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-surface-container-low border border-primary p-3 rounded-xl text-xs font-bold text-primary">Riyadh (Central)</button>
+<button class="bg-surface-container-low border border-outline-variant/10 p-3 rounded-xl text-xs font-bold text-on-surface-variant hover:border-outline-variant">Jeddah (West)</button>
+<button class="bg-surface-container-low border border-outline-variant/10 p-3 rounded-xl text-xs font-bold text-on-surface-variant hover:border-outline-variant">Dammam (East)</button>
+<button class="bg-surface-container-low border border-outline-variant/10 p-3 rounded-xl text-xs font-bold text-on-surface-variant hover:border-outline-variant">Neom (North)</button>
+</div>
+</div>
+<div class="space-y-4">
+<label class="text-[10px] font-black text-primary-fixed-dim uppercase tracking-widest">Transport Mode</label>
+<div class="space-y-2">
+<label class="flex items-center gap-3 p-3 bg-surface-container-low rounded-xl border border-outline-variant/10 cursor-pointer hover:bg-surface-variant transition-all">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary bg-surface" type="checkbox"/>
+<span class="text-xs font-medium text-on-surface">Heavy Freight (60T+)</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-low rounded-xl border border-outline-variant/10 cursor-pointer hover:bg-surface-variant transition-all">
+<input class="rounded border-outline-variant text-primary focus:ring-primary bg-surface" type="checkbox"/>
+<span class="text-xs font-medium text-on-surface">Cold Chain Logistics</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-low rounded-xl border border-outline-variant/10 cursor-pointer hover:bg-surface-variant transition-all">
+<input class="rounded border-outline-variant text-primary focus:ring-primary bg-surface" type="checkbox"/>
+<span class="text-xs font-medium text-on-surface">Hazardous Materials</span>
+</label>
+</div>
+</div>
+<div class="space-y-4">
+<label class="text-[10px] font-black text-primary-fixed-dim uppercase tracking-widest">Efficiency Threshold</label>
+<input class="w-full h-1.5 bg-surface rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+<div class="flex justify-between text-[10px] font-mono text-on-surface-variant">
+<span>0%</span>
+<span class="text-primary font-bold">85% OPTIMAL</span>
+<span>100%</span>
+</div>
+</div>
+</div>
+<div class="p-8 bg-surface-container-highest/30 border-t border-outline-variant/10 grid grid-cols-2 gap-4">
+<button class="w-full py-3 text-xs font-bold text-on-surface-variant hover:text-on-surface transition-all border border-outline-variant/20 rounded-xl">RESET</button>
+<button class="w-full py-3 bg-primary text-on-primary text-xs font-black rounded-xl shadow-lg shadow-primary/20 hover:brightness-110 transition-all">APPLY FILTERS</button>
+</div>
+</div>
+<footer class="mt-20 py-8 border-t border-outline-variant/10 flex justify-between items-center opacity-50">
+<p class="text-[10px] font-bold uppercase tracking-widest">© 2024 JAS Logistics Infrastructure</p>
+<div class="flex gap-6 text-[10px] font-bold uppercase tracking-widest">
+<a class="hover:text-primary" href="#">System Health: 100%</a>
+<a class="hover:text-primary" href="#">Latency: 14ms</a>
+<a class="hover:text-primary" href="#">Node: Saudi-East-1</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

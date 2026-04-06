@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Molecule Component Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-primary-container": "#b79cff",
+                "tertiary": "#ffb68e",
+                "surface-container-low": "#1b1a26",
+                "surface-container-high": "#292935",
+                "on-error-container": "#ffdad6",
+                "inverse-surface": "#e3e0f1",
+                "on-surface-variant": "#cbc3d5",
+                "on-secondary-container": "#c0b0e7",
+                "on-secondary-fixed-variant": "#4c3f6e",
+                "surface-container-highest": "#343440",
+                "on-tertiary-fixed": "#331200",
+                "surface-tint": "#d0bcff",
+                "secondary-fixed": "#e9ddff",
+                "secondary": "#cfbef6",
+                "on-background": "#e3e0f1",
+                "surface-container-lowest": "#0d0d18",
+                "inverse-primary": "#6a45c3",
+                "error": "#ffb4ab",
+                "surface-bright": "#383845",
+                "background": "#12121d",
+                "tertiary-fixed-dim": "#ffb68e",
+                "surface-dim": "#12121d",
+                "tertiary-fixed": "#ffdbc9",
+                "surface": "#12121d",
+                "on-tertiary": "#532200",
+                "on-primary-fixed": "#22005c",
+                "outline": "#948e9e",
+                "on-tertiary-container": "#f09661",
+                "on-primary-fixed-variant": "#5228aa",
+                "inverse-on-surface": "#302f3b",
+                "primary": "#d0bcff",
+                "on-secondary-fixed": "#201340",
+                "surface-variant": "#343440",
+                "on-error": "#690005",
+                "on-tertiary-fixed-variant": "#743405",
+                "primary-fixed": "#e9ddff",
+                "on-surface": "#e3e0f1",
+                "secondary-container": "#4f4171",
+                "surface-container": "#1f1e2a",
+                "secondary-fixed-dim": "#cfbef6",
+                "tertiary-container": "#6c2e00",
+                "on-primary": "#3b0092",
+                "primary-container": "#4b1fa3",
+                "error-container": "#93000a",
+                "outline-variant": "#494453",
+                "primary-fixed-dim": "#d0bcff",
+                "on-secondary": "#352856"
+              },
+              borderRadius: {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+              },
+              fontFamily: {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Inter"],
+                "label": ["Inter"],
+                "mono": ["JetBrains Mono"]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .skeleton-shimmer {
+            background: linear-gradient(90deg, #1b1a26 25%, #292935 50%, #1b1a26 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            from { background-position: 200% 0; }
+            to { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] flex items-center justify-between px-8 py-3">
+<div class="flex items-center gap-8">
+<h1 class="text-xl font-bold tracking-tighter text-[#d0bcff] font-headline">JAS Logistics</h1>
+<nav class="hidden md:flex items-center gap-6 font-headline font-medium text-sm">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Operations</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Inventory</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Analytics</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Network</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg">notifications</span>
+<span class="material-symbols-outlined text-slate-400 text-lg">settings</span>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed px-4 py-1.5 rounded text-sm font-bold active:scale-95 transition-transform">Quick Export</button>
+</div>
+<div class="bg-[#1c1c2b] h-[1px] w-full absolute bottom-0 left-0"></div>
+</header>
+<!-- Side Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-white/5 bg-[#12121d] flex flex-col py-6 hidden md:flex">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">hub</span>
+</div>
+<div>
+<p class="text-lg font-black text-white leading-none">Global Logistics</p>
+<p class="font-headline font-semibold text-[10px] uppercase tracking-widest text-slate-500 mt-1">Velvet Intelligence v2.1</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<div class="cursor-pointer group flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff]">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-headline font-semibold text-xs uppercase tracking-widest">FMS Portal</span>
+</div>
+<div class="cursor-pointer group flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all duration-200">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-headline font-semibold text-xs uppercase tracking-widest">WMS Portal</span>
+</div>
+<div class="cursor-pointer group flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all duration-200">
+<span class="material-symbols-outlined">package_2</span>
+<span class="font-headline font-semibold text-xs uppercase tracking-widest">Shipments</span>
+</div>
+<div class="cursor-pointer group flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all duration-200">
+<span class="material-symbols-outlined">route</span>
+<span class="font-headline font-semibold text-xs uppercase tracking-widest">Route Optimizer</span>
+</div>
+</nav>
+<div class="px-4 pt-4 border-t border-white/5">
+<div class="cursor-pointer group flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-headline font-semibold text-xs uppercase tracking-widest">Log Out</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-20 pb-12 px-8">
+<!-- Portal Section Header -->
+<header class="mb-10 border-l-[3px] border-primary-container pl-6 py-2">
+<div class="flex items-center gap-3 mb-1">
+<span class="text-[10px] font-mono tracking-[0.2em] text-primary uppercase">System Framework</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-white font-mono text-[9px] rounded uppercase">FMS-12</span>
+</div>
+<h2 class="text-4xl font-extrabold font-headline tracking-tighter text-on-surface">JAS Molecule Component Library</h2>
+<p class="text-on-surface-variant text-sm mt-2 max-w-2xl">A curated assembly of high-fidelity, enterprise-grade React primitives designed for the Velvet Intelligence sovereign logistics ecosystem.</p>
+</header>
+<!-- KPI Grid -->
+<div class="mb-12">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-mono text-[8.5px] uppercase tracking-[2.5px] text-outline">01. Performance Metrics</span>
+<div class="flex-1 h-[1px] bg-outline-variant/30"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Standard KPI -->
+<div class="bg-surface-container-low rounded-xl p-4 shadow-sm border border-white/[0.03]">
+<p class="text-xs font-medium text-on-surface-variant mb-1">Active Shipments</p>
+<h3 class="text-3xl font-black font-headline tracking-tighter">1,248</h3>
+<p class="text-[10px] text-slate-500 mt-2">Real-time tracker enabled</p>
+</div>
+<!-- Trend KPI -->
+<div class="bg-surface-container-low rounded-xl p-4 shadow-sm border border-white/[0.03]">
+<div class="flex justify-between items-start">
+<p class="text-xs font-medium text-on-surface-variant mb-1">Weekly Yield</p>
+<span class="bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-1.5 py-0.5 rounded">+12.4%</span>
+</div>
+<h3 class="text-3xl font-black font-headline tracking-tighter">SAR 4.2M</h3>
+<p class="text-[10px] text-slate-500 mt-2">v. Previous Period</p>
+</div>
+<!-- Progress KPI -->
+<div class="bg-surface-container-low rounded-xl p-4 shadow-sm border border-white/[0.03]">
+<p class="text-xs font-medium text-on-surface-variant mb-1">Fleet Capacity</p>
+<h3 class="text-3xl font-black font-headline tracking-tighter">84%</h3>
+<div class="w-full bg-surface-container-highest h-1 mt-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[84%]"></div>
+</div>
+</div>
+<!-- Alert KPI -->
+<div class="bg-surface-container-low rounded-xl p-4 shadow-sm border border-error/20 ring-1 ring-error/30">
+<div class="flex justify-between items-start">
+<p class="text-xs font-medium text-error mb-1">Delayed Cargo</p>
+<span class="material-symbols-outlined text-error text-lg" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<h3 class="text-3xl font-black font-headline tracking-tighter text-error">42</h3>
+<p class="text-[10px] text-error/60 mt-2">Action required immediately</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+<!-- Screen Section Card with Glow -->
+<section class="relative bg-surface-container-low rounded-[16px] p-8 border border-white/[0.03] overflow-hidden">
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-primary-container/30 blur-[60px] rounded-full"></div>
+<div class="relative z-10">
+<h4 class="text-lg font-extrabold font-headline tracking-tight mb-1 text-white">Route Optimization Intelligence</h4>
+<p class="text-[11px] font-body text-on-surface-variant max-w-sm mb-6">Advanced heuristic modeling for cross-border logistics lanes in the GCC region.</p>
+<div class="space-y-4">
+<!-- Skeleton Loader Demo -->
+<div class="space-y-3">
+<div class="w-full h-8 bg-surface-container-highest/40 rounded skeleton-shimmer"></div>
+<div class="w-3/4 h-3 bg-surface-container-highest/40 rounded skeleton-shimmer"></div>
+<div class="grid grid-cols-3 gap-4">
+<div class="h-20 bg-surface-container-highest/40 rounded skeleton-shimmer"></div>
+<div class="h-20 bg-surface-container-highest/40 rounded skeleton-shimmer"></div>
+<div class="h-20 bg-surface-container-highest/40 rounded skeleton-shimmer"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Callout Blocks -->
+<section class="bg-surface-container-low rounded-[16px] p-8 border border-white/[0.03] flex flex-col gap-4">
+<div class="flex items-center gap-4 mb-2">
+<span class="font-mono text-[8.5px] uppercase tracking-[2.5px] text-outline">02. System Notifications</span>
+<div class="flex-1 h-[1px] bg-outline-variant/30"></div>
+</div>
+<div class="flex items-center gap-4 p-3 bg-indigo-500/5 rounded-lg border border-indigo-500/20">
+<span class="material-symbols-outlined text-indigo-400">info</span>
+<p class="text-xs text-indigo-100">System maintenance scheduled for Friday 02:00 UTC.</p>
+</div>
+<div class="flex items-center gap-4 p-3 bg-amber-500/5 rounded-lg border border-amber-500/20">
+<span class="material-symbols-outlined text-amber-400">warning</span>
+<p class="text-xs text-amber-100">License for Fleet A-42 expires in 14 days.</p>
+</div>
+<div class="flex items-center gap-4 p-3 bg-emerald-500/5 rounded-lg border border-emerald-500/20">
+<span class="material-symbols-outlined text-emerald-400">check_circle</span>
+<p class="text-xs text-emerald-100">Database reconciliation successful across 14 nodes.</p>
+</div>
+<div class="flex items-center gap-4 p-3 bg-error/5 rounded-lg border border-error/20">
+<span class="material-symbols-outlined text-error">error</span>
+<p class="text-xs text-error-container">Critical: API endpoint timeout on regional hub gateway.</p>
+</div>
+</section>
+</div>
+<!-- Data Table Section -->
+<section class="mb-12">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-mono text-[8.5px] uppercase tracking-[2.5px] text-outline">03. Manifest Data View</span>
+<div class="flex-1 h-[1px] bg-outline-variant/30"></div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-white/5 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-surface-container-high border-b border-white/5">
+<tr>
+<th class="p-4 w-12"><input class="rounded-sm bg-transparent border-outline text-primary focus:ring-0" type="checkbox"/></th>
+<th class="p-4 font-mono text-[8px] uppercase tracking-widest text-outline">Shipment ID</th>
+<th class="p-4 font-mono text-[8px] uppercase tracking-widest text-outline">Destination</th>
+<th class="p-4 font-mono text-[8px] uppercase tracking-widest text-outline">Status</th>
+<th class="p-4 font-mono text-[8px] uppercase tracking-widest text-outline text-right">Value (SAR)</th>
+<th class="p-4 font-mono text-[8px] uppercase tracking-widest text-outline text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="text-[11px] font-body text-on-surface-variant">
+<tr class="hover:bg-white/[0.02] transition-colors border-b border-white/[0.02]">
+<td class="p-4"><input class="rounded-sm bg-transparent border-outline/30 text-primary focus:ring-0" type="checkbox"/></td>
+<td class="p-4 font-medium text-on-surface">JAS-TX-9021</td>
+<td class="p-4">Riyadh Terminal 3</td>
+<td class="p-4">
+<span class="bg-tertiary-container/30 text-on-tertiary-container px-2 py-0.5 rounded-full text-[9px] font-bold">IN TRANSIT</span>
+</td>
+<td class="p-4 text-right font-mono">45,000.00</td>
+<td class="p-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors border-b border-white/[0.02]">
+<td class="p-4"><input class="rounded-sm bg-transparent border-outline/30 text-primary focus:ring-0" type="checkbox"/></td>
+<td class="p-4 font-medium text-on-surface">JAS-TX-9022</td>
+<td class="p-4">Jeddah Industrial</td>
+<td class="p-4">
+<span class="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full text-[9px] font-bold">DELIVERED</span>
+</td>
+<td class="p-4 text-right font-mono">128,400.00</td>
+<td class="p-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="p-4"><input class="rounded-sm bg-transparent border-outline/30 text-primary focus:ring-0" type="checkbox"/></td>
+<td class="p-4 font-medium text-on-surface">JAS-TX-9023</td>
+<td class="p-4">Dammam Port</td>
+<td class="p-4">
+<span class="bg-error-container/30 text-on-error-container px-2 py-0.5 rounded-full text-[9px] font-bold">DELAYED</span>
+</td>
+<td class="p-4 text-right font-mono">12,900.50</td>
+<td class="p-4 text-right">
+<button class="p-1 hover:bg-surface-container-high rounded transition-colors">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Empty State Component -->
+<section class="mt-16 py-20 bg-surface-container-low/30 rounded-3xl border border-dashed border-white/5 flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-slate-500">folder_open</span>
+</div>
+<h5 class="text-sm font-bold font-headline mb-2 text-white">No active custom reports found</h5>
+<p class="text-[11px] text-on-surface-variant max-w-xs mb-8">It looks like you haven't generated any operational reports for this cluster yet. Start by defining a new query.</p>
+<button class="bg-primary-container text-white px-6 py-2 rounded font-bold text-xs hover:bg-primary-container/80 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                Create New Report
+            </button>
+</section>
+</main>
+<!-- Visual Texture Element -->
+<div class="fixed bottom-0 right-0 p-8 pointer-events-none opacity-10">
+<span class="font-mono text-[120px] font-black tracking-tighter leading-none select-none">JAS</span>
+</div>
+</body></html>

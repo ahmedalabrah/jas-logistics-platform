@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#331200",
+                        "inverse-on-surface": "#302f3b",
+                        "surface-container-high": "#292935",
+                        "outline": "#948e9e",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-surface": "#e3e0f1",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary": "#532200",
+                        "on-tertiary-container": "#f09661",
+                        "tertiary-container": "#6c2e00",
+                        "secondary": "#cfbef6",
+                        "on-secondary": "#352856",
+                        "tertiary": "#ffb68e",
+                        "surface-container-highest": "#343440",
+                        "outline-variant": "#494453",
+                        "surface-variant": "#343440",
+                        "surface-tint": "#d0bcff",
+                        "surface-dim": "#12121d",
+                        "inverse-primary": "#6a45c3",
+                        "error": "#ffb4ab",
+                        "surface": "#12121d",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary": "#3b0092",
+                        "on-primary-container": "#b79cff",
+                        "primary-container": "#4b1fa3",
+                        "secondary-fixed": "#e9ddff",
+                        "secondary-container": "#4f4171",
+                        "on-secondary-fixed": "#201340",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-background text-on-background font-body overflow-hidden">
+<!-- TopNavBar Shared Component -->
+<header class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-indigo-500/10 flex justify-between items-center px-8 h-16">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold bg-gradient-to-r from-violet-400 to-indigo-300 bg-clip-text text-transparent font-headline">JAS Logistics</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Shipments</a>
+<a class="text-violet-400 font-semibold border-b-2 border-violet-400 pb-1 font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Fleet</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors font-['Plus_Jakarta_Sans'] tracking-tight" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">settings</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up professional portrait of a business logistics manager in a modern office environment, soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj125X2-SexdFF9blZbPSKDLXrbLjeO9G49gljZ2e1ZlfjT_m7b7WajIWHbVP4Qk9PoIS1KtW1Y-L6E6HPCQa3Rz5ntfk3phN-L04Qg5X58EYX7PI05U_dJTzeOzjxdvj3d2CpEGbVK0qHF3hkaOfE1k0fa7qJ-X-G2UIPLwyRrTp-Kous-mQ8MeVZtUQuIzjXAKHLqtBuy_CX-9ZgA7CP2-evbCG9df_4HCd4MZGB23AQyMLwLUn90mxxhu64jrNlTsR5NUpG7Q"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar Shared Component -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-slate-950/90 backdrop-blur-2xl shadow-[4px_0_24px_rgba(0,0,0,0.5)] flex flex-col pt-20 pb-6">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">hub</span>
+</div>
+<div>
+<h2 class="text-on-surface font-headline font-black tracking-tighter text-sm uppercase">Fleet Command</h2>
+<p class="text-on-surface-variant text-[10px]">Saudi North Sector</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-violet-600/20 to-transparent text-violet-300 border-l-4 border-violet-500 transition-all" href="#">
+<span class="material-symbols-outlined text-xl">map</span>
+<span class="text-sm font-medium">Live Map</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined text-xl">local_shipping</span>
+<span class="text-sm font-medium">Fleet Status</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined text-xl">hub</span>
+<span class="text-sm font-medium">Carrier Portal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+<span class="text-sm font-medium">Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined text-xl">sensors</span>
+<span class="text-sm font-medium">IoT Sensors</span>
+</a>
+</nav>
+<div class="px-4 mb-4">
+<button class="w-full py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold text-xs rounded-lg shadow-lg shadow-primary/20 hover:brightness-110 active:scale-95 transition-all uppercase tracking-wider">
+                Optimize Routes
+            </button>
+</div>
+<div class="px-4 pt-4 border-t border-white/5 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 text-sm" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 text-sm" href="#">
+<span class="material-symbols-outlined text-lg">history</span>
+<span>Logs</span>
+</a>
+</div>
+</aside>
+<!-- Main Map Canvas -->
+<main class="ml-64 pt-16 h-screen relative bg-surface-dim">
+<!-- CartoDB Dark Matter Simulated Background -->
+<div class="absolute inset-0 z-0 bg-[#0F0F1A]" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.02) 1px, transparent 0); background-size: 40px 40px;">
+<div class="absolute inset-0 opacity-40 mix-blend-overlay" data-location="Riyadh" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWz2idoV44-q0Dq8QZZzpPOJcgZhij55u26fYRkXiDBnypSrdLyDzJygPQPZruxRni1SDg3k6Q17XOzwHtsGQE45b5Gr5d93M0byJJPmn6w6g8i7bHApCvEm_7ZMOl-fpTWHlrOPtTJ5giqDKIN_AJpLSn8Vffwe4Kqnvl_rPjTJ1km5h3be1dENELla1qNppavLhBzTN7YjK5Zir0LdCr0MSoRPhY04N9To_MjcCcup-YwJf8HGizWdsEdo__thmtXEAC5W2OJw'); background-size: cover; filter: grayscale(1) contrast(1.2);"></div>
+<!-- Simulated Route Polylines -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-60">
+<!-- Riyadh to Dammam -->
+<path class="animate-[dash_20s_linear_infinite]" d="M 600,450 Q 750,420 900,400" fill="none" stroke="#7C5DDB" stroke-dasharray="8 4" stroke-width="2"></path>
+<!-- Riyadh to Jeddah -->
+<path d="M 600,450 Q 400,550 250,650" fill="none" stroke="#F59E0B" stroke-dasharray="8 4" stroke-width="2"></path>
+</svg>
+<style>
+                @keyframes dash { to { stroke-dashoffset: -100; } }
+                @keyframes pulse-ring { 0% { transform: scale(0.33); opacity: 0; } 50% { opacity: 0.5; } 100% { transform: scale(1); opacity: 0; } }
+            </style>
+</div>
+<!-- Floating UI Overlays -->
+<!-- Top Search and Filter Bar -->
+<div class="absolute top-6 left-6 right-6 z-10 flex gap-4">
+<div class="flex-1 max-w-xl relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container/60 backdrop-blur-xl border-0 ring-1 ring-white/10 rounded-xl pl-12 pr-4 py-3 text-sm focus:ring-primary/50 transition-all font-body text-on-surface placeholder:text-on-surface-variant" placeholder="Search plate, driver, or trip ID..." type="text"/>
+</div>
+<div class="flex bg-surface-container/60 backdrop-blur-xl p-1 rounded-xl ring-1 ring-white/10">
+<button class="px-4 py-2 text-xs font-semibold rounded-lg bg-primary/20 text-primary transition-all">All</button>
+<button class="px-4 py-2 text-xs font-semibold rounded-lg text-on-surface-variant hover:text-on-surface transition-all">JAS</button>
+<button class="px-4 py-2 text-xs font-semibold rounded-lg text-on-surface-variant hover:text-on-surface transition-all">SC Gold</button>
+<button class="px-4 py-2 text-xs font-semibold rounded-lg text-on-surface-variant hover:text-on-surface transition-all">Cold Chain</button>
+</div>
+<div class="flex bg-surface-container/60 backdrop-blur-xl p-1 rounded-xl ring-1 ring-white/10">
+<div class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-on-surface border-r border-white/5">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>1,204 Active</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-on-surface-variant border-r border-white/5">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span>42 Idle</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-error">
+<span class="material-symbols-outlined text-sm">warning</span>
+<span>8 Alerts</span>
+</div>
+</div>
+</div>
+<!-- Custom Map Markers (Simulated Positions) -->
+<!-- JAS Marker with Pulse -->
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-20">
+<div class="absolute inset-0 w-12 h-12 -translate-x-3 -translate-y-3 bg-primary/20 rounded-full animate-[pulse-ring_2s_cubic-bezier(0.455,0.03,0.515,0.955)_infinite]"></div>
+<div class="relative w-8 h-10 flex flex-col items-center">
+<svg fill="none" height="40" viewbox="0 0 32 40" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 0C7.16 0 0 7.16 0 16C0 28 16 40 16 40C16 40 32 28 32 16C32 7.16 24.84 0 16 0Z" fill="#7C5DDB"></path>
+<circle cx="16" cy="16" fill="white" fill-opacity="0.9" r="6"></circle>
+</svg>
+<!-- TGA Compliance Ring -->
+<div class="absolute -top-1 -left-1 -right-1 -bottom-1 border-2 border-emerald-500 rounded-full opacity-60"></div>
+</div>
+<!-- Popover (Active) -->
+<div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-72 bg-surface-container-high/95 backdrop-blur-2xl rounded-2xl ring-1 ring-white/10 shadow-2xl overflow-hidden pointer-events-none group-hover:pointer-events-auto opacity-0 group-hover:opacity-100 transition-all duration-300">
+<div class="p-4 border-b border-white/5 bg-surface-container-highest/50">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-sm font-bold font-headline text-on-surface">JAS-4892-TX</h3>
+<p class="text-[10px] text-on-surface-variant font-mono">VIN: 4J8SK9201LK02</p>
+</div>
+<span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 text-[10px] font-bold rounded-full border border-emerald-500/30">IN TRANSIT</span>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex border-b border-white/5 bg-surface-container-low">
+<button class="flex-1 py-2 text-[10px] font-bold text-primary border-b-2 border-primary">TRIP</button>
+<button class="flex-1 py-2 text-[10px] font-bold text-on-surface-variant">TGA</button>
+<button class="flex-1 py-2 text-[10px] font-bold text-on-surface-variant">IOT</button>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex items-center gap-3">
+<img alt="Driver" class="w-8 h-8 rounded-full border border-white/10" data-alt="professional portrait of a middle-eastern truck driver in a logistics uniform, warm evening light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWZ8333ogCXblNRu0xhqb528cgUM_P67Lu8p6pwAvHbeYjF3qjm2s5KV2DkgKSqCVFWlnruotv_7aCNb_GbXeeqJjgz6e4U4M-ajCb5Tfm_YD-D6A4S7luhCPWk901vh2DAGuhg0avVd-h9bV_1H7Y6xqxkkwrI1hKFf4TV3Dbb36B2-YgsrSlWwqsC-V1PXCFgYBYBNsnvozXrfQUCvcab4Q1ErK_T8_4UbpWVZDexk5MmtE0V5dEQvw6gs-H17nHcJtKf92LLQ"/>
+<div>
+<p class="text-[10px] text-on-surface-variant">Driver</p>
+<p class="text-xs font-semibold text-on-surface">Ahmed Al-Qahtani</p>
+</div>
+<div class="ml-auto text-right">
+<p class="text-[10px] text-on-surface-variant">ETA</p>
+<p class="text-xs font-semibold text-primary">14:20</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg space-y-2 border border-white/5">
+<div class="flex justify-between text-[10px] font-mono">
+<span class="text-on-surface-variant">TEMP</span>
+<span class="text-emerald-400">-18.4°C</span>
+</div>
+<div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full w-[85%]"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono">
+<span class="text-on-surface-variant">HUMIDITY</span>
+<span class="text-on-surface">42%</span>
+</div>
+</div>
+</div>
+<div class="px-4 py-3 bg-surface-container-highest/30 flex gap-2">
+<button class="flex-1 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-[10px] font-bold transition-all">TELEMETRY</button>
+<button class="flex-1 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-[10px] font-bold transition-all">DASHCAM</button>
+</div>
+</div>
+</div>
+<!-- SC Gold Marker -->
+<div class="absolute right-[30%] top-[40%] group cursor-pointer">
+<div class="relative w-6 h-8">
+<svg fill="none" height="32" viewbox="0 0 24 32" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 0C5.37 0 0 5.37 0 12C0 21 12 30 12 30C12 30 24 21 24 12C24 5.37 18.63 0 12 0Z" fill="#F59E0B"></path>
+<circle cx="12" cy="12" fill="white" fill-opacity="0.8" r="4"></circle>
+</svg>
+</div>
+</div>
+<!-- Hexagonal TGA Checkpoints -->
+<div class="absolute left-[42%] top-[55%] group">
+<div class="w-6 h-6 bg-surface-container-highest rotate-45 flex items-center justify-center ring-1 ring-primary/40 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[10px] -rotate-45 text-primary">verified_user</span>
+</div>
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-surface-container-high rounded text-[8px] font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">TGA CHKPNT-04</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute right-6 bottom-6 flex flex-col gap-2">
+<div class="flex flex-col bg-surface-container/60 backdrop-blur-xl rounded-xl ring-1 ring-white/10 overflow-hidden shadow-2xl">
+<button class="p-3 hover:bg-white/10 transition-all border-b border-white/5">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="p-3 hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<button class="p-3 bg-surface-container/60 backdrop-blur-xl rounded-xl ring-1 ring-white/10 hover:bg-white/10 transition-all shadow-2xl">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+<button class="p-3 bg-primary text-on-primary rounded-xl hover:brightness-110 transition-all shadow-2xl shadow-primary/20">
+<span class="material-symbols-outlined">layers</span>
+</button>
+</div>
+<!-- Bottom Legend -->
+<div class="absolute left-6 bottom-6 flex gap-6 bg-surface-container/60 backdrop-blur-xl px-6 py-3 rounded-2xl ring-1 ring-white/10">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-primary shadow-[0_0_8px_rgba(124,93,219,0.5)]"></span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">JAS Sovereign</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-[#F59E0B] shadow-[0_0_8px_rgba(245,158,11,0.5)]"></span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">SC Gold</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 border border-emerald-500 rounded-full"></div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">TGA Compliant</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">hexagon</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Scale Check</span>
+</div>
+</div>
+<!-- Detail Sidebar (Toggled) -->
+<div class="absolute right-0 top-0 h-full w-80 bg-surface-container-low/80 backdrop-blur-3xl border-l border-white/5 translate-x-full transition-transform duration-500 z-30">
+<!-- Sidebar Content -->
+</div>
+</main>
+<!-- Map Context Footer -->
+<footer class="fixed bottom-0 left-64 right-0 h-6 bg-surface-container-lowest flex items-center justify-between px-6 z-50 text-[10px] text-on-surface-variant/50 font-mono border-t border-white/5">
+<div class="flex gap-4">
+<span>COORD: 24.7136N, 46.6753E</span>
+<span>ZOOM: 7.42</span>
+<span>TILES: CartoDB Dark Matter</span>
+</div>
+<div>
+<span>SYSTEM STATUS: NORMAL</span>
+</div>
+</footer>
+</body></html>

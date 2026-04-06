@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS AI Feature Component Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#352856",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary": "#532200",
+                    "surface-container-high": "#292935",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-container-highest": "#343440",
+                    "on-primary-container": "#b79cff",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "secondary-container": "#4f4171",
+                    "on-primary-fixed": "#22005c",
+                    "on-background": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-low": "#1b1a26",
+                    "on-secondary-fixed": "#201340",
+                    "tertiary": "#ffb68e",
+                    "on-surface": "#e3e0f1",
+                    "surface-tint": "#d0bcff",
+                    "inverse-primary": "#6a45c3",
+                    "inverse-on-surface": "#302f3b",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "error": "#ffb4ab",
+                    "primary-container": "#4b1fa3",
+                    "on-primary": "#3b0092",
+                    "outline": "#948e9e",
+                    "on-tertiary-container": "#f09661",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "secondary": "#cfbef6",
+                    "surface-container": "#1f1e2a",
+                    "primary": "#d0bcff",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "secondary-fixed": "#e9ddff",
+                    "surface-bright": "#383845",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed": "#331200",
+                    "tertiary-container": "#6c2e00",
+                    "on-error-container": "#ffdad6",
+                    "surface": "#12121d",
+                    "primary-fixed": "#e9ddff",
+                    "inverse-surface": "#e3e0f1",
+                    "outline-variant": "#494453",
+                    "on-secondary-container": "#c0b0e7",
+                    "on-surface-variant": "#cbc3d5",
+                    "background": "#12121d",
+                    "surface-dim": "#12121d",
+                    "surface-variant": "#343440",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-glow {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+        }
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            background: rgba(15, 15, 26, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-indigo-500/30">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+<div class="flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-white bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400 font-headline">JAS Intelligence</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Fleet</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Shipments</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-tight text-indigo-400 border-b-2 border-indigo-500 pb-1" href="#">Analytics</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm tracking-tight text-slate-400 hover:text-white transition-colors" href="#">Dispatch</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:bg-white/5 p-2 rounded-full cursor-pointer transition-all" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-indigo-400 hover:bg-white/5 p-2 rounded-full cursor-pointer transition-all" data-icon="bolt">bolt</span>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-indigo-500/30">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a logistics manager in a dark suit with neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAtu6n9Fm2K59aegu4N9bwdWzpEe7KuesOh9acdo4E_TZ-N9v-tl5WMq6Sj4WZRBBFV5R912vBU00Zo7a_WGb9E-j5nCMSAWT0MWT3jog51-eIjfdzUUigJUHJzEy08xEiXA7glkITTFholWKjfxR7e-tom5OUNq4hJQ0Oiw4HVySNMWCF3PTBhTbqTqfZEnO1JP1O3foKpTbvbuDWY3fq_kn4OTKeFZnDW1xHmtZ8qOJZ3XingtWGRCu4ExIWmvWvRmyDE9bUvg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Side Navigation Anchor -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#0F0F1A] pt-20 border-r border-white/5 z-40 hidden md:flex flex-col py-6 gap-2">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 p-3 bg-indigo-500/5 rounded-xl border border-indigo-500/10">
+<div class="h-10 w-10 bg-indigo-500 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="psychology">psychology</span>
+</div>
+<div>
+<p class="text-white font-headline font-bold text-sm">Dispatcher Alpha</p>
+<p class="text-slate-500 text-xs">Active Session</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 px-3">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-indigo-500/5 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-200" data-icon="dashboard">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-indigo-500/10 text-indigo-400 border-r-4 border-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.2)] rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">AI Insights</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-indigo-500/5 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-200" data-icon="alt_route">alt_route</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Route Planner</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-indigo-500/5 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-200" data-icon="inventory_2">inventory_2</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm">Cargo Hub</span>
+</a>
+</div>
+<div class="mt-auto px-6">
+<button class="w-full py-3 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white rounded-xl font-headline font-bold text-sm shadow-[0_4px_20px_rgba(79,70,229,0.3)] hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                AI Assistant
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-24 pb-12 px-8 min-h-screen">
+<div class="max-w-6xl mx-auto space-y-8">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-12">
+<div>
+<h1 class="text-3xl font-headline font-extrabold tracking-tight text-white mb-2">AI Intelligence Hub</h1>
+<p class="text-on-surface-variant max-w-lg">Advanced logistics optimization powered by JAS Neural Engine. Predictive dispatching and carrier performance coaching.</p>
+</div>
+<div class="flex gap-3">
+<div class="flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full border border-outline-variant/20">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+</span>
+<span class="text-xs font-mono text-indigo-400">NEURAL_LINK: ACTIVE</span>
+</div>
+</div>
+</div>
+<!-- Top Grid: Recommendations & Insights -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- AIRecommendationPanel -->
+<div class="lg:col-span-2 relative overflow-hidden rounded-2xl bg-[#F59E0B]/5 border border-[#F59E0B]/20 p-6 flex flex-col justify-between">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-9xl text-[#F59E0B]" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="bg-[#F59E0B] text-[#331200] px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mb-2 inline-block">Best Match Recommendation</span>
+<h3 class="text-2xl font-headline font-bold text-[#F59E0B]">JAS-041 · Khalid Al-Rashidi</h3>
+<p class="text-on-surface-variant text-sm mt-1">Route: Riyadh Central → Dammam Port</p>
+</div>
+<div class="text-right">
+<div class="text-4xl font-headline font-black text-[#F59E0B]">96%</div>
+<div class="text-[10px] font-mono text-on-surface-variant uppercase">Confidence Score</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-[#F59E0B] text-lg" data-icon="check_circle">check_circle</span>
+<span>Zero fatigue alerts in last 48h</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-[#F59E0B] text-lg" data-icon="check_circle">check_circle</span>
+<span>Vehicle maintenance verified</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-[#F59E0B] text-lg" data-icon="check_circle">check_circle</span>
+<span>Previous route rating: 5.0</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-on-surface">
+<span class="material-symbols-outlined text-[#F59E0B] text-lg" data-icon="check_circle">check_circle</span>
+<span>Estimated ETA: 14:30 (On Time)</span>
+</div>
+</div>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="bg-[#F59E0B] hover:bg-[#D97706] text-[#331200] px-6 py-2.5 rounded-lg font-bold text-sm transition-all active:scale-95">Confirm Dispatch</button>
+<button class="bg-white/5 hover:bg-white/10 text-[#F59E0B] px-6 py-2.5 rounded-lg font-bold text-sm transition-all border border-[#F59E0B]/20">View Alternatives</button>
+</div>
+</div>
+<!-- AIInsightCard -->
+<div class="bg-indigo-500/5 border border-indigo-500/20 rounded-2xl p-6 flex flex-col justify-between ai-glow">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<div class="bg-indigo-500 text-white p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<span class="text-xs font-bold text-indigo-400 tracking-widest uppercase">AI Insight</span>
+</div>
+<span class="text-xs font-mono text-slate-500">REF-0922</span>
+</div>
+<div class="mt-6">
+<h4 class="text-lg font-headline font-bold text-white leading-tight">Cost Optimization: Cluster Routing</h4>
+<p class="text-sm text-on-surface-variant mt-2 leading-relaxed">By grouping 4 small-batch shipments in the Jeddah Northern Sector, you can reduce fuel overhead by <span class="text-indigo-400 font-bold">12.4%</span> today.</p>
+</div>
+<div class="mt-6 pt-6 border-t border-indigo-500/10">
+<button class="w-full py-3 bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-400 rounded-xl font-bold text-sm transition-all border border-indigo-500/20">Take Action</button>
+</div>
+</div>
+</div>
+<!-- Middle Section: Coaching Report (Arabic Context) -->
+<div class="grid grid-cols-1 gap-6">
+<div class="bg-surface-container rounded-3xl p-8 border border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+<div class="flex items-center gap-4">
+<div class="h-16 w-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-indigo-400" data-icon="assignment_ind">assignment_ind</span>
+</div>
+<div>
+<h2 class="text-2xl font-headline font-extrabold text-white">AICoachingReport: Sub-Carrier Performance</h2>
+<p class="text-on-surface-variant">Analytical review for Al-Sahara Logistics Ltd.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-highest px-4 py-2 rounded-xl">
+<span class="text-xs text-slate-400 font-medium">Report Period:</span>
+<span class="text-xs text-white font-bold">OCT 2023</span>
+</div>
+</div>
+<!-- Bento Grid for Report Sections -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4" dir="rtl">
+<!-- Strengths (Green) -->
+<div class="bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-5 space-y-4">
+<div class="flex items-center gap-3">
+<div class="bg-emerald-500/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-emerald-400" data-icon="trending_up">trending_up</span>
+</div>
+<h3 class="font-['IBM_Plex_Sans_Arabic'] font-bold text-emerald-400">نقاط القوة</h3>
+</div>
+<ul class="space-y-2 text-sm text-slate-300 font-['IBM_Plex_Sans_Arabic']">
+<li class="flex items-center gap-2"><span>•</span> الالتزام بمواعيد التسليم (98%)</li>
+<li class="flex items-center gap-2"><span>•</span> كفاءة استهلاك الوقود المتميزة</li>
+<li class="flex items-center gap-2"><span>•</span> تحديثات حالة الشحن الفورية</li>
+</ul>
+</div>
+<!-- Areas to Improve (Amber) -->
+<div class="bg-[#F59E0B]/5 border border-[#F59E0B]/20 rounded-2xl p-5 space-y-4">
+<div class="flex items-center gap-3">
+<div class="bg-[#F59E0B]/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-[#F59E0B]" data-icon="priority_high">priority_high</span>
+</div>
+<h3 class="font-['IBM_Plex_Sans_Arabic'] font-bold text-[#F59E0B]">مجالات التحسين</h3>
+</div>
+<ul class="space-y-2 text-sm text-slate-300 font-['IBM_Plex_Sans_Arabic']">
+<li class="flex items-center gap-2"><span>•</span> توثيق التصاريح الرقمية</li>
+<li class="flex items-center gap-2"><span>•</span> متوسط وقت التوقف في الموانئ</li>
+</ul>
+</div>
+<!-- Tier Impact (Purple) -->
+<div class="bg-purple-500/5 border border-purple-500/20 rounded-2xl p-5 space-y-4">
+<div class="flex items-center gap-3">
+<div class="bg-purple-500/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-purple-400" data-icon="military_tech">military_tech</span>
+</div>
+<h3 class="font-['IBM_Plex_Sans_Arabic'] font-bold text-purple-400">تأثير الفئة</h3>
+</div>
+<div class="space-y-1">
+<p class="text-2xl font-black text-white font-['IBM_Plex_Sans_Arabic']">الفئة الذهبية</p>
+<p class="text-xs text-purple-400 font-['IBM_Plex_Sans_Arabic']">في المسار للترقية إلى البلاتينية</p>
+</div>
+</div>
+<!-- Earning Opportunity (Indigo) -->
+<div class="bg-indigo-500/5 border border-indigo-500/20 rounded-2xl p-5 space-y-4">
+<div class="flex items-center gap-3">
+<div class="bg-indigo-500/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-indigo-400" data-icon="payments">payments</span>
+</div>
+<h3 class="font-['IBM_Plex_Sans_Arabic'] font-bold text-indigo-400">فرص الأرباح</h3>
+</div>
+<div class="space-y-1">
+<p class="text-2xl font-black text-white font-['IBM_Plex_Sans_Arabic']">SAR 12.5k</p>
+<p class="text-xs text-indigo-400 font-['IBM_Plex_Sans_Arabic']">أرباح إضافية متوقعة الشهر القادم</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Loading State Demo -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- AILoadingState -->
+<div class="bg-surface-container-low rounded-2xl p-12 flex flex-col items-center justify-center text-center border border-outline-variant/5">
+<div class="relative mb-6">
+<div class="h-20 w-20 rounded-full bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-indigo-400 animate-pulse" data-icon="psychology">psychology</span>
+</div>
+<div class="absolute -top-1 -right-1 flex gap-1">
+<span class="w-2 h-2 bg-indigo-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+<span class="w-2 h-2 bg-indigo-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+<span class="w-2 h-2 bg-indigo-400 rounded-full animate-bounce"></span>
+</div>
+</div>
+<h3 class="text-xl font-headline font-bold text-white mb-2">JAS AI is thinking...</h3>
+<p class="text-on-surface-variant text-sm max-w-xs">Synthesizing real-time traffic data, fuel prices, and driver availability for optimal routing.</p>
+</div>
+<!-- Empty state for balanced layout -->
+<div class="bg-surface-container-lowest rounded-2xl border border-dashed border-outline-variant/30 flex items-center justify-center p-12">
+<div class="text-center opacity-40">
+<span class="material-symbols-outlined text-5xl mb-4" data-icon="add_circle">add_circle</span>
+<p class="font-medium">Add New AI Feature Module</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- JASAIAssistant Widget -->
+<div class="fixed bottom-6 right-6 w-[380px] h-[520px] rounded-3xl overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.6)] border border-white/10 glass-panel flex flex-col z-[60]">
+<!-- Chat Header -->
+<div class="bg-gradient-to-r from-indigo-600 to-indigo-500 p-4 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm">
+<span class="material-symbols-outlined text-white" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<h4 class="text-white font-headline font-bold text-sm">JAS AI Assistant</h4>
+<p class="text-indigo-100 text-[10px] flex items-center gap-1">
+<span class="h-1.5 w-1.5 bg-emerald-400 rounded-full"></span>
+                        Always active
+                    </p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="text-white/70 hover:text-white"><span class="material-symbols-outlined text-xl" data-icon="minimize">minimize</span></button>
+<button class="text-white/70 hover:text-white"><span class="material-symbols-outlined text-xl" data-icon="close">close</span></button>
+</div>
+</div>
+<!-- Chat Content -->
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- AI Message -->
+<div class="flex gap-3">
+<div class="h-8 w-8 rounded-lg bg-indigo-500 flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-white" data-icon="psychology">psychology</span>
+</div>
+<div class="bg-indigo-500/10 border border-indigo-500/20 p-3 rounded-2xl rounded-tl-none max-w-[85%]">
+<p class="text-sm text-indigo-100 leading-relaxed font-body">Hello! I've analyzed your current fleet status. You have 3 shipments at risk of delay due to sandstorms in the north. Would you like me to reroute them?</p>
+<span class="text-[10px] text-indigo-400/60 mt-1 block">AI · Just now</span>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex justify-end gap-3">
+<div class="bg-primary-container p-3 rounded-2xl rounded-tr-none max-w-[85%]">
+<p class="text-sm text-white leading-relaxed font-body">Yes, please provide the most efficient alternate routes for the Riyadh-bound trucks.</p>
+<span class="text-[10px] text-indigo-300/60 mt-1 block text-right">You · 12:45 PM</span>
+</div>
+</div>
+<!-- AI Typing Message -->
+<div class="flex gap-3">
+<div class="h-8 w-8 rounded-lg bg-indigo-500 flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-white" data-icon="psychology">psychology</span>
+</div>
+<div class="bg-indigo-500/10 border border-indigo-500/20 p-3 rounded-2xl rounded-tl-none max-w-[85%]">
+<div class="flex gap-1.5 py-1">
+<span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+<span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+<span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Suggestions -->
+<div class="px-4 pb-2 flex gap-2 overflow-x-auto no-scrollbar">
+<button class="whitespace-nowrap px-3 py-1.5 bg-surface-container-high hover:bg-surface-bright text-indigo-400 rounded-full text-xs font-medium border border-indigo-500/20 transition-all">Show Route Map</button>
+<button class="whitespace-nowrap px-3 py-1.5 bg-surface-container-high hover:bg-surface-bright text-indigo-400 rounded-full text-xs font-medium border border-indigo-500/20 transition-all">Calculate Delay Cost</button>
+<button class="whitespace-nowrap px-3 py-1.5 bg-surface-container-high hover:bg-surface-bright text-indigo-400 rounded-full text-xs font-medium border border-indigo-500/20 transition-all">Contact Drivers</button>
+</div>
+<!-- Chat Input -->
+<div class="p-4 bg-surface-container-lowest border-t border-white/5">
+<div class="flex items-center gap-2 bg-surface-container p-1 rounded-2xl border border-white/5">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm text-white px-3" placeholder="Type a message..." type="text"/>
+<button class="h-10 w-10 bg-indigo-500 hover:bg-indigo-400 rounded-xl flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-white" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>
