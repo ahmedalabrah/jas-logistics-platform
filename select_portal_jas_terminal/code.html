@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400&amp;family=Poppins:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#343440",
+                        "tertiary-container": "#6c2e00",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-on-surface": "#302f3b",
+                        "on-secondary-fixed": "#201340",
+                        "inverse-surface": "#e3e0f1",
+                        "on-background": "#e3e0f1",
+                        "on-tertiary": "#532200",
+                        "surface": "#12121d",
+                        "primary-fixed-dim": "#d0bcff",
+                        "secondary-container": "#4f4171",
+                        "primary-fixed": "#e9ddff",
+                        "tertiary": "#ffb68e",
+                        "outline-variant": "#494453",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#1f1e2a",
+                        "on-primary-fixed": "#22005c",
+                        "surface-container-high": "#292935",
+                        "on-error": "#690005",
+                        "surface-variant": "#343440",
+                        "surface-container-lowest": "#0d0d18",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-tint": "#d0bcff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "on-surface-variant": "#cbc3d5",
+                        "error-container": "#93000a",
+                        "surface-dim": "#12121d",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-container": "#f09661",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "primary-container": "#4b1fa3",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e3e0f1",
+                        "surface-bright": "#383845",
+                        "tertiary-fixed": "#ffdbc9",
+                        "surface-container-low": "#1b1a26",
+                        "secondary": "#cfbef6",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "on-tertiary-fixed": "#331200",
+                        "primary": "#d0bcff",
+                        "background": "#12121d",
+                        "on-primary": "#3b0092",
+                        "inverse-primary": "#6a45c3",
+                        "outline": "#948e9e",
+                        "on-primary-container": "#b79cff",
+                        "on-secondary": "#352856"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "poppins": ["Poppins"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F0F1A;
+            color: #e3e0f1;
+        }
+        .portal-card {
+            width: 200px;
+            height: 160px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body antialiased min-h-screen flex flex-col items-center justify-center">
+<!-- Global Top Bar (Shared Component Anchor) -->
+<header class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl flex justify-between items-center px-8 py-4 w-full">
+<div class="text-2xl font-bold tracking-tight text-white font-headline">
+            JAS Logistics
+        </div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:text-white transition-colors cursor-pointer" data-icon="help">help</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-white transition-colors cursor-pointer" data-icon="language">language</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-white transition-colors cursor-pointer" data-icon="notifications">notifications</span>
+</div>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-white/10">
+<img class="h-full w-full object-cover" data-alt="Professional headshot of a logistics executive in a dark suit with a focused expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlfxqaJ0xtUtHgc23-OI3iXB06iSv-1R1uJ_w6L7B2M3zdAi4RlicbfKRm6NIXRxtEFOv7_EY6wEG7gWx04J5qzfoM32kMXnAimAewr_jL1A8PrwgDs1FSbfBzJCUwLG3nZ-IqL4YGV07XeZNPIv0r4hijWIYnXe2jsC5HQqlFe__pw_tspUaQJGFaC5otpHcbcSwhic9dOtdnSRsXLiBDxNZaK6kWQQ0KIZcgjqiKyfAISNvL63Bo7bRfgQfs5jzulmdYxPpYYA"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-6xl px-6 py-24 flex flex-col items-center">
+<!-- Title Section -->
+<div class="text-center mb-16">
+<h1 class="text-4xl md:text-5xl font-extrabold text-white font-headline tracking-tight mb-4">
+                Select Your Portal <span class="text-primary-fixed-dim">/</span> <span class="font-normal">اختر بوابتك</span>
+</h1>
+<p class="text-on-surface-variant max-w-md mx-auto text-sm uppercase tracking-[0.2em]">
+                Enterprise Access Terminal
+            </p>
+</div>
+<!-- Portal Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
+<!-- FMS (Fleet) -->
+<div class="portal-card bg-surface-container border-l-4 border-[#d0bcff] p-5 flex flex-col justify-between group hover:bg-surface-container-high hover:shadow-[0_0_30px_rgba(208,188,255,0.15)] transition-all duration-300 cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-3xl">🚛</span>
+<span class="font-mono text-[8px] text-on-surface-variant uppercase tracking-widest bg-white/5 px-2 py-0.5">Fleet_Core_v4</span>
+</div>
+<div>
+<h3 class="font-poppins font-[700] text-[14px] text-white leading-tight">FMS (Fleet)</h3>
+<div class="mt-2 inline-flex items-center px-2 py-1 bg-primary-container/30 rounded-sm">
+<span class="text-[9px] font-medium text-primary-fixed-dim uppercase tracking-wider">Fleet Manager</span>
+</div>
+</div>
+</div>
+<!-- WMS (Warehouse) -->
+<div class="portal-card bg-surface-container border-l-4 border-tertiary p-5 flex flex-col justify-between group hover:bg-surface-container-high hover:shadow-[0_0_30px_rgba(255,182,142,0.15)] transition-all duration-300 cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-3xl">📦</span>
+<span class="font-mono text-[8px] text-on-surface-variant uppercase tracking-widest bg-white/5 px-2 py-0.5">Inv_Sync_L2</span>
+</div>
+<div>
+<h3 class="font-poppins font-[700] text-[14px] text-white leading-tight">WMS (Warehouse)</h3>
+<div class="mt-2 inline-flex items-center px-2 py-1 bg-tertiary-container/30 rounded-sm">
+<span class="text-[9px] font-medium text-tertiary uppercase tracking-wider">Inventory Lead</span>
+</div>
+</div>
+</div>
+<!-- FreMS (Freight) -->
+<div class="portal-card bg-surface-container border-l-4 border-secondary p-5 flex flex-col justify-between group hover:bg-surface-container-high hover:shadow-[0_0_30px_rgba(207,190,246,0.15)] transition-all duration-300 cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-3xl">✈️</span>
+<span class="font-mono text-[8px] text-on-surface-variant uppercase tracking-widest bg-white/5 px-2 py-0.5">Global_Log_E</span>
+</div>
+<div>
+<h3 class="font-poppins font-[700] text-[14px] text-white leading-tight">FreMS (Freight)</h3>
+<div class="mt-2 inline-flex items-center px-2 py-1 bg-secondary-container/30 rounded-sm">
+<span class="text-[9px] font-medium text-secondary uppercase tracking-wider">Ops Director</span>
+</div>
+</div>
+</div>
+<!-- SCP (Sub-Carrier) -->
+<div class="portal-card bg-surface-container border-l-4 border-outline p-5 flex flex-col justify-between group hover:bg-surface-container-high hover:shadow-[0_0_30px_rgba(148,142,158,0.15)] transition-all duration-300 cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-3xl">🤝</span>
+<span class="font-mono text-[8px] text-on-surface-variant uppercase tracking-widest bg-white/5 px-2 py-0.5">Partner_API</span>
+</div>
+<div>
+<h3 class="font-poppins font-[700] text-[14px] text-white leading-tight">SCP (Sub-Carrier)</h3>
+<div class="mt-2 inline-flex items-center px-2 py-1 bg-surface-variant rounded-sm">
+<span class="text-[9px] font-medium text-on-surface-variant uppercase tracking-wider">Vendor Access</span>
+</div>
+</div>
+</div>
+<!-- Client Portal -->
+<div class="portal-card bg-surface-container border-l-4 border-primary p-5 flex flex-col justify-between group hover:bg-surface-container-high hover:shadow-[0_0_30px_rgba(208,188,255,0.15)] transition-all duration-300 cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-3xl">🏢</span>
+<span class="font-mono text-[8px] text-on-surface-variant uppercase tracking-widest bg-white/5 px-2 py-0.5">Client_UI_v2</span>
+</div>
+<div>
+<h3 class="font-poppins font-[700] text-[14px] text-white leading-tight">Client Portal</h3>
+<div class="mt-2 inline-flex items-center px-2 py-1 bg-primary-container/30 rounded-sm">
+<span class="text-[9px] font-medium text-primary uppercase tracking-wider">Company Admin</span>
+</div>
+</div>
+</div>
+<!-- Driver Portal -->
+<div class="portal-card bg-surface-container border-l-4 border-error p-5 flex flex-col justify-between group hover:bg-surface-container-high hover:shadow-[0_0_30px_rgba(255,180,171,0.15)] transition-all duration-300 cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-3xl">📱</span>
+<span class="font-mono text-[8px] text-on-surface-variant uppercase tracking-widest bg-white/5 px-2 py-0.5">Mob_App_V6</span>
+</div>
+<div>
+<h3 class="font-poppins font-[700] text-[14px] text-white leading-tight">Driver Portal</h3>
+<div class="mt-2 inline-flex items-center px-2 py-1 bg-error-container/30 rounded-sm">
+<span class="text-[9px] font-medium text-error uppercase tracking-wider">Registered Driver</span>
+</div>
+</div>
+</div>
+<!-- Command Center -->
+<div class="portal-card bg-surface-container border-l-4 border-[#ffb4ab] p-5 flex flex-col justify-between group hover:bg-surface-container-high hover:shadow-[0_0_30px_rgba(255,180,171,0.2)] transition-all duration-300 cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-3xl">📡</span>
+<span class="font-mono text-[8px] text-on-surface-variant uppercase tracking-widest bg-white/5 px-2 py-0.5">Control_Tower</span>
+</div>
+<div>
+<h3 class="font-poppins font-[700] text-[14px] text-white leading-tight">Command Center</h3>
+<div class="mt-2 inline-flex items-center px-2 py-1 bg-[#690005]/40 rounded-sm">
+<span class="text-[9px] font-medium text-[#ffdad6] uppercase tracking-wider">Super User</span>
+</div>
+</div>
+</div>
+<!-- Finance -->
+<div class="portal-card bg-surface-container border-l-4 border-tertiary-fixed-dim p-5 flex flex-col justify-between group hover:bg-surface-container-high hover:shadow-[0_0_30px_rgba(255,182,142,0.15)] transition-all duration-300 cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-3xl">💳</span>
+<span class="font-mono text-[8px] text-on-surface-variant uppercase tracking-widest bg-white/5 px-2 py-0.5">Fin_Sec_Core</span>
+</div>
+<div>
+<h3 class="font-poppins font-[700] text-[14px] text-white leading-tight">Finance Portal</h3>
+<div class="mt-2 inline-flex items-center px-2 py-1 bg-tertiary-container/30 rounded-sm">
+<span class="text-[9px] font-medium text-tertiary-fixed uppercase tracking-wider">Billing Officer</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Aesthetic Detail -->
+<div class="mt-24 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+</main>
+<!-- Footer (Shared Component Anchor) -->
+<footer class="w-full py-8 mt-auto border-t border-white/5 flex flex-col md:flex-row justify-between items-center px-12 max-w-full">
+<div class="font-headline font-plus-jakarta-sans text-xs uppercase tracking-widest text-slate-500 mb-4 md:mb-0">
+            © 2024 JAS Logistics Platform. All Rights Reserved.
+        </div>
+<div class="flex gap-8">
+<a class="font-headline text-xs uppercase tracking-widest text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Privacy Policy</a>
+<a class="font-headline text-xs uppercase tracking-widest text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Terms of Service</a>
+<a class="font-headline text-xs uppercase tracking-widest text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Compliance</a>
+<a class="font-headline text-xs uppercase tracking-widest text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Security</a>
+</div>
+</footer>
+<!-- Background Decorative Elements -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 blur-[120px] rounded-full"></div>
+</div>
+</body></html>

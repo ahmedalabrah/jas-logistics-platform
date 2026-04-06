@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OMC-08 — SLA MONITORING BOARD</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-primary-fixed": "#22005c",
+                  "secondary": "#cfbef6",
+                  "primary-container": "#4b1fa3",
+                  "on-primary-fixed-variant": "#5228aa",
+                  "error": "#ffb4ab",
+                  "on-secondary-container": "#c0b0e7",
+                  "primary-fixed-dim": "#d0bcff",
+                  "on-primary": "#3b0092",
+                  "surface-variant": "#343440",
+                  "surface-container-high": "#292935",
+                  "tertiary-container": "#6c2e00",
+                  "outline": "#948e9e",
+                  "on-secondary": "#352856",
+                  "on-tertiary": "#532200",
+                  "on-error-container": "#ffdad6",
+                  "surface-container-low": "#1b1a26",
+                  "on-tertiary-fixed-variant": "#743405",
+                  "on-tertiary-fixed": "#331200",
+                  "tertiary": "#ffb68e",
+                  "on-secondary-fixed-variant": "#4c3f6e",
+                  "inverse-surface": "#e3e0f1",
+                  "inverse-primary": "#6a45c3",
+                  "outline-variant": "#494453",
+                  "tertiary-fixed-dim": "#ffb68e",
+                  "inverse-on-surface": "#302f3b",
+                  "error-container": "#93000a",
+                  "surface-tint": "#d0bcff",
+                  "secondary-fixed": "#e9ddff",
+                  "background": "#12121d",
+                  "on-primary-container": "#b79cff",
+                  "surface-bright": "#383845",
+                  "surface-container": "#1f1e2a",
+                  "surface": "#12121d",
+                  "on-error": "#690005",
+                  "primary-fixed": "#e9ddff",
+                  "on-background": "#e3e0f1",
+                  "surface-container-lowest": "#0d0d18",
+                  "secondary-container": "#4f4171",
+                  "primary": "#d0bcff",
+                  "surface-container-highest": "#343440",
+                  "on-surface-variant": "#cbc3d5",
+                  "on-surface": "#e3e0f1",
+                  "secondary-fixed-dim": "#cfbef6",
+                  "tertiary-fixed": "#ffdbc9",
+                  "on-tertiary-container": "#f09661",
+                  "on-secondary-fixed": "#201340",
+                  "surface-dim": "#12121d",
+                  "amber-accent": "#D4691E"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "fontFamily": {
+                  "headline": ["Plus Jakarta Sans"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .amber-glow {
+      box-shadow: 0 0 15px -3px rgba(212, 105, 30, 0.4);
+    }
+    .red-pulse {
+      box-shadow: 0 0 0 0 rgba(147, 0, 10, 0.7);
+      animation: pulse-red 2s infinite;
+    }
+    @keyframes pulse-red {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(147, 0, 10, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(147, 0, 10, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(147, 0, 10, 0); }
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0d0d18; }
+    ::-webkit-scrollbar-thumb { background: #343440; border-radius: 10px; }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col border-r border-white/10 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[20px_0_40px_-15px_rgba(0,0,0,0.5)] z-50">
+<div class="p-6">
+<div class="text-[#D4691E] font-black tracking-tighter text-2xl mb-1">JAS Logistics</div>
+<div class="text-slate-400 text-xs font-headline font-medium tracking-tight uppercase opacity-60">Master Command</div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<div class="group flex items-center px-4 py-3 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 rounded cursor-pointer scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard_customize">dashboard_customize</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Command Center</span>
+</div>
+<div class="group flex items-center px-4 py-3 text-[#D4691E] bg-[#D4691E]/10 border-r-2 border-[#D4691E] scale-95 active:scale-90 transition-transform cursor-pointer">
+<span class="material-symbols-outlined mr-3" data-icon="notifications_active">notifications_active</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Alert Center</span>
+</div>
+<div class="group flex items-center px-4 py-3 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 rounded cursor-pointer scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined mr-3" data-icon="pending_actions">pending_actions</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Order Queue</span>
+</div>
+<div class="group flex items-center px-4 py-3 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 rounded cursor-pointer scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined mr-3" data-icon="request_quote">request_quote</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Spot Quoting</span>
+</div>
+<div class="group flex items-center px-4 py-3 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors duration-300 rounded cursor-pointer scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined mr-3" data-icon="history_edu">history_edu</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Agreements</span>
+</div>
+</nav>
+<div class="px-6 py-6 border-t border-white/5">
+<button class="w-full bg-[#D4691E] text-white py-3 rounded font-bold text-sm hover:opacity-90 transition-opacity">New Strategy</button>
+</div>
+<footer class="p-4 space-y-1">
+<div class="flex items-center px-4 py-2 text-slate-400 hover:text-slate-200 cursor-pointer">
+<span class="material-symbols-outlined mr-3 text-xs" data-icon="settings">settings</span>
+<span class="text-xs">Settings</span>
+</div>
+<div class="flex items-center px-4 py-2 text-slate-400 hover:text-slate-200 cursor-pointer">
+<span class="material-symbols-outlined mr-3 text-xs" data-icon="contact_support">contact_support</span>
+<span class="text-xs">Support</span>
+</div>
+</footer>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-[#0F0F1A]/60 backdrop-blur-lg flex items-center justify-between px-8 w-auto">
+<div class="flex items-center gap-8">
+<h1 class="text-[#D4691E] font-extrabold text-xl font-headline">Command Center</h1>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-400 hover:text-white font-bold text-sm tracking-wide" href="#">Global View</a>
+<a class="text-[#D4691E] border-b-2 border-[#D4691E] pb-1 font-bold text-sm tracking-wide" href="#">Metrics</a>
+<a class="text-slate-400 hover:text-white font-bold text-sm tracking-wide" href="#">Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-[#D4691E]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-[#D4691E]" data-icon="language">language</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-[#D4691E]" data-icon="settings_input_component">settings_input_component</span>
+</div>
+<div class="h-8 w-px bg-white/10 mx-2"></div>
+<div class="flex items-center gap-3">
+<button class="bg-primary-container text-primary px-4 py-1.5 rounded text-xs font-bold uppercase tracking-widest hover:bg-primary-container/80 transition-all">Execute Order</button>
+<img alt="Executive Admin" class="w-8 h-8 rounded-full border border-[#D4691E]/30" data-alt="professional portrait of a middle eastern executive in a modern tech office environment, high-end commercial photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx9c2S4_tFKLCp1fXasO3jVB6mg99P8N-sU-lcGXVM_W62UId44puM0WHYXfUMcdTcXBlBcE_LtljwOUcehOe7xnbbVZZ3eUSGlX0jNePGdvdspCdTBF7E0gCYdRhstC1AN8GRDxgjTk6JP4kZ3Zn1jKSuMR2-mvdHZmYS-zNEZGvlTxBvME7K9lVhR46A9nsNHbIFYgVLrusHeqt1anAPESiqPO37sFzqrSvvO1EhCX9a-KqfQO0JtUc8h818qkB5f7-5P9PXdA"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-16 min-h-screen bg-background">
+<div class="p-8">
+<!-- Dashboard Header -->
+<div class="flex justify-between items-end mb-10">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="px-2 py-1 bg-[#D4691E]/10 text-[#D4691E] text-[10px] font-bold tracking-[0.2em] rounded border border-[#D4691E]/20">LIVE MONITOR</span>
+<h2 class="text-3xl font-headline font-bold text-on-background tracking-tight">SLA Monitoring Board</h2>
+</div>
+<p class="text-on-surface-variant text-sm max-w-xl">Real-time intelligence feed for high-priority logistics chains across the NEOM corridor.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-low px-4 py-2 rounded-lg flex items-center gap-6">
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider mb-1">Healthy</div>
+<div class="text-xl font-bold text-green-400">124</div>
+</div>
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider mb-1">Amber</div>
+<div class="text-xl font-bold text-amber-accent">12</div>
+</div>
+<div class="text-center">
+<div class="text-[10px] text-on-surface-variant font-bold uppercase tracking-wider mb-1">Critical</div>
+<div class="text-xl font-bold text-error">03</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid for SLA Monitoring -->
+<div class="grid grid-cols-12 gap-6">
+<!-- CRITICAL ALERTS - RED PULSE -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-error" data-icon="priority_high">priority_high</span>
+<h3 class="text-xs font-bold uppercase tracking-[0.3em] text-on-surface-variant">Immediate Action</h3>
+</div>
+<!-- Order Card: Red/Critical -->
+<div class="bg-surface-container-high rounded-xl p-5 border border-error/30 red-pulse relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-error/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="flex justify-between items-start relative z-10">
+<div>
+<div class="text-error font-headline font-black text-xs tracking-widest mb-1">CRITICAL BREACH</div>
+<h4 class="text-lg font-bold text-on-surface">ORD-9921-X</h4>
+<div class="text-on-surface-variant text-xs mt-1">Medical Supplies — Riyadh Depot</div>
+</div>
+<div class="text-right">
+<div class="text-2xl font-black text-error font-headline tabular-nums">-00:12:44</div>
+<div class="text-[10px] text-error/60 font-bold uppercase tracking-tighter">SLA EXPIRED</div>
+</div>
+</div>
+<div class="mt-6 flex gap-2">
+<button class="flex-1 bg-error/20 hover:bg-error/30 text-error py-2 text-xs font-bold rounded transition-all">Escalate</button>
+<button class="flex-1 bg-surface-container-highest text-on-surface py-2 text-xs font-bold rounded">View Logs</button>
+</div>
+</div>
+<!-- Order Card: Red/Critical 2 -->
+<div class="bg-surface-container-high rounded-xl p-5 border border-error/30 relative overflow-hidden group">
+<div class="flex justify-between items-start relative z-10">
+<div>
+<div class="text-error font-headline font-black text-xs tracking-widest mb-1">RISK AT 98%</div>
+<h4 class="text-lg font-bold text-on-surface">ORD-4402-Q</h4>
+<div class="text-on-surface-variant text-xs mt-1">Tech Hardware — Jeddah Port</div>
+</div>
+<div class="text-right">
+<div class="text-2xl font-black text-error font-headline tabular-nums">00:02:18</div>
+<div class="text-[10px] text-error/60 font-bold uppercase tracking-tighter">REMAINING</div>
+</div>
+</div>
+<div class="mt-4 bg-white/5 h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full w-[98%]"></div>
+</div>
+</div>
+</div>
+<!-- WARNING ALERTS - AMBER GLOW -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-amber-accent" data-icon="warning">warning</span>
+<h3 class="text-xs font-bold uppercase tracking-[0.3em] text-on-surface-variant">At Risk Warning</h3>
+</div>
+<!-- Order Card: Amber -->
+<div class="bg-surface-container-high rounded-xl p-5 border border-amber-accent/30 amber-glow relative overflow-hidden group">
+<div class="flex justify-between items-start relative z-10">
+<div>
+<div class="text-amber-accent font-headline font-black text-xs tracking-widest mb-1">AMBER ALERT</div>
+<h4 class="text-lg font-bold text-on-surface">ORD-8832-M</h4>
+<div class="text-on-surface-variant text-xs mt-1">Energy Cells — Dhahran</div>
+</div>
+<div class="text-right">
+<div class="text-2xl font-black text-amber-accent font-headline tabular-nums">00:45:12</div>
+<div class="text-[10px] text-amber-accent/60 font-bold uppercase tracking-tighter">UNTIL BREACH</div>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex -space-x-2">
+<img alt="agent" class="w-6 h-6 rounded-full border border-background" data-alt="portrait icon of logistics agent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQGPssuFRKJkwm194k303I0FhbwlWm-0HnkEg5MeZEadmM7f2F8i3-CaT5xWOO_GTv2NqUB1IkI_5UUfSYmh_CKLrpMpyMnqxKgr_Prv9aHLaUpIJF-MQKTpRGoILJB4OE62cyGh6cS68GCiLdmk_cqBUJ6OQaVvPkdFsI37OgFrSA4qJDmyf3yg_CGu0joK1ybpXPHX45vCfGysz1jN6-QI_MATQ6y-xiq1mUxdtUhc28u_o7GIzp76MdgofcaJ1wIzwrSoztdg"/>
+<img alt="agent" class="w-6 h-6 rounded-full border border-background" data-alt="portrait icon of logistics agent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHHP7fF2oaXOCXcmW9VuZBSB57qY5rbyi_iFFyAOhVo-8354j3cipUTFGimB6rrQzVDu3TwxsdxpMMRRNGuJAlSkfhkYsroE6E76LQnZqm7X9MDGOfkf6fTG3X2dR5ZVSZo2Z-FC4NbR1uB_ofD5yt0Frj4p1nQrTuzPVp4mfo9ijImjVNfOEE1M39uwRLP4yV_7054wfncKZkQmjKaCKeRvYZk1SqPjOConUTjwUlFdrtyW7SmL0uQpB66IaCnzBc-nu-a1w5hQ"/>
+</div>
+<div class="text-[10px] text-on-surface-variant italic">2 Agents Assigned</div>
+</div>
+</div>
+<!-- Order Card: Amber 2 -->
+<div class="bg-surface-container-high rounded-xl p-5 border border-amber-accent/30 relative overflow-hidden group">
+<div class="flex justify-between items-start relative z-10">
+<div>
+<div class="text-amber-accent font-headline font-black text-xs tracking-widest mb-1">HOLD STATUS</div>
+<h4 class="text-lg font-bold text-on-surface">ORD-1193-L</h4>
+<div class="text-on-surface-variant text-xs mt-1">Chemicals — Yanbu Terminal</div>
+</div>
+<div class="text-right">
+<div class="text-2xl font-black text-amber-accent font-headline tabular-nums">01:12:00</div>
+<div class="text-[10px] text-amber-accent/60 font-bold uppercase tracking-tighter">TARGET WINDOW</div>
+</div>
+</div>
+</div>
+</div>
+<!-- HEALTHY FLOW - GREEN -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-green-400" data-icon="check_circle">check_circle</span>
+<h3 class="text-xs font-bold uppercase tracking-[0.3em] text-on-surface-variant">Optimal Performance</h3>
+</div>
+<!-- Order Card: Green -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-white/5 opacity-80 hover:opacity-100 transition-opacity cursor-pointer">
+<div class="flex justify-between items-start">
+<div>
+<div class="text-green-400 font-headline font-black text-xs tracking-widest mb-1">ON SCHEDULE</div>
+<h4 class="text-lg font-bold text-on-surface">ORD-0091-B</h4>
+<div class="text-on-surface-variant text-xs mt-1">Retail Batch — King Abdullah City</div>
+</div>
+<div class="text-right">
+<div class="text-2xl font-black text-green-400 font-headline tabular-nums">14:55:20</div>
+<div class="text-[10px] text-green-400/60 font-bold uppercase tracking-tighter">BUFFER TIME</div>
+</div>
+</div>
+</div>
+<!-- Order Card: Green 2 -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-white/5 opacity-80">
+<div class="flex justify-between items-start">
+<div>
+<div class="text-green-400 font-headline font-black text-xs tracking-widest mb-1">ON SCHEDULE</div>
+<h4 class="text-lg font-bold text-on-surface">ORD-5541-W</h4>
+<div class="text-on-surface-variant text-xs mt-1">Electronics — Riyadh Central</div>
+</div>
+<div class="text-right">
+<div class="text-2xl font-black text-green-400 font-headline tabular-nums">18:10:44</div>
+<div class="text-[10px] text-green-400/60 font-bold uppercase tracking-tighter">BUFFER TIME</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Detail Monitoring Table (The "Velvet" List) -->
+<div class="mt-12 bg-surface-container-low rounded-2xl overflow-hidden border border-white/5">
+<div class="p-6 flex justify-between items-center border-b border-white/5">
+<h3 class="font-headline font-bold text-lg">Active Flow Tracking</h3>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-white/5 rounded"><span class="material-symbols-outlined text-on-surface-variant" data-icon="filter_list">filter_list</span></button>
+<button class="p-2 hover:bg-white/5 rounded"><span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span></button>
+</div>
+</div>
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">
+<th class="px-8 py-4">Ref ID</th>
+<th class="px-8 py-4">Destination</th>
+<th class="px-8 py-4">Transit Status</th>
+<th class="px-8 py-4">Current Lead</th>
+<th class="px-8 py-4">SLA Clock</th>
+<th class="px-8 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="group hover:bg-white/5 transition-colors">
+<td class="px-8 py-5 text-sm font-bold text-on-surface">JAS-48902-TR</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">NEOM Construction Site A</td>
+<td class="px-8 py-5">
+<span class="flex items-center gap-2 text-amber-accent font-bold text-xs uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-accent animate-pulse"></span>
+                            Heavy Traffic Delay
+                        </span>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">S. Al-Farsi</td>
+<td class="px-8 py-5 font-headline font-bold text-amber-accent tabular-nums">00:19:44</td>
+<td class="px-8 py-5 text-right">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-white" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+<tr class="group hover:bg-white/5 transition-colors">
+<td class="px-8 py-5 text-sm font-bold text-on-surface">JAS-77102-SA</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">King Khalid International</td>
+<td class="px-8 py-5">
+<span class="flex items-center gap-2 text-green-400 font-bold text-xs uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                            In Air / Smooth
+                        </span>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">M. Jenkins</td>
+<td class="px-8 py-5 font-headline font-bold text-green-400 tabular-nums">08:21:09</td>
+<td class="px-8 py-5 text-right">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-white" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+<tr class="group bg-error/5 hover:bg-error/10 transition-colors">
+<td class="px-8 py-5 text-sm font-bold text-error">JAS-99001-CP</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Dammam Industrial Hub</td>
+<td class="px-8 py-5">
+<span class="flex items-center gap-2 text-error font-bold text-xs uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                            Customs Blockage
+                        </span>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">H. Al-Zahrani</td>
+<td class="px-8 py-5 font-headline font-bold text-error tabular-nums">-02:44:11</td>
+<td class="px-8 py-5 text-right">
+<span class="material-symbols-outlined text-error cursor-pointer hover:scale-110" data-icon="emergency_share">emergency_share</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+<!-- Background Textures -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-40">
+<div class="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[160px] translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#D4691E]/10 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2"></div>
+</div>
+</body></html>

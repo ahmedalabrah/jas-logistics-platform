@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error": "#690005",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container": "#1f1e2a",
+                        "surface": "#12121d",
+                        "on-primary-container": "#b79cff",
+                        "surface-bright": "#383845",
+                        "surface-tint": "#d0bcff",
+                        "secondary-fixed": "#e9ddff",
+                        "background": "#12121d",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "inverse-on-surface": "#302f3b",
+                        "error-container": "#93000a",
+                        "surface-dim": "#12121d",
+                        "on-secondary-fixed": "#201340",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary-container": "#f09661",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "primary": "#d0bcff",
+                        "surface-container-highest": "#343440",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-surface": "#e3e0f1",
+                        "secondary-container": "#4f4171",
+                        "on-background": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "outline": "#948e9e",
+                        "on-secondary": "#352856",
+                        "tertiary-container": "#6c2e00",
+                        "surface-container-high": "#292935",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "primary-fixed-dim": "#d0bcff",
+                        "primary-container": "#4b1fa3",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-primary-fixed": "#22005c",
+                        "secondary": "#cfbef6",
+                        "inverse-surface": "#e3e0f1",
+                        "inverse-primary": "#6a45c3",
+                        "outline-variant": "#494453",
+                        "tertiary": "#ffb68e",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "surface-container-low": "#1b1a26",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-tertiary-fixed": "#331200",
+                        "on-tertiary": "#532200",
+                        "on-error-container": "#ffdad6"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .mono-data {
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 antialiased">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20 font-['Plus_Jakarta_Sans'] antialiased">
+<div class="flex justify-between items-center h-16 px-6 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-white">FreMS</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Shipments</a>
+<a class="text-[#C43585] border-b-2 border-[#C43585] pb-1" href="#">Operations</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Network</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 transition-all text-on-surface-variant active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-white/5 transition-all text-on-surface-variant active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden border border-white/10">
+<img alt="Operations Officer Profile" class="w-full h-full object-cover" data-alt="Professional headshot of a logistics operations manager in a dark suit against a soft office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgDPpMIb-oGnINViqAbbvFi7_PmGKk1pVc-JqlI7vpAugrUXJCWEqmS7kpohdiUjhPf48sZp49Ge3NXGHaHxxKj0OpWDyApVcShCTZPORA4Lj58OPSa0o5zWLpMeyuLrqfj2aWRpqHbUPhsq950bNo7FT5ZwNZ6FDZatS4xxwKqGfK9G89BKY4BwQ8uE_cIeFj1myEn2bHqzBFVap9laDJk9jJeQWf4XPfi6q_MQUyyJZWeRrmWZ89b9NQ0OiLrRQUtsd_qp3U0w"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#0F0F1A]/95 backdrop-blur-lg border-r border-white/5 shadow-[4px_0_24px_rgba(0,0,0,0.5)] flex flex-col pt-20 pb-8 px-4 hidden md:flex">
+<div class="mb-8 px-2">
+<p class="text-white font-black italic text-lg">FreMS Portal</p>
+<p class="text-slate-500 text-xs">Saudi Infrastructure</p>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-[#C43585]/20 to-transparent text-[#C43585] border-l-4 border-[#C43585] cursor-pointer select-none">
+<span class="material-symbols-outlined" data-icon="conveyor_belt">conveyor_belt</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Operations</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-transform duration-300 hover:translate-x-1 cursor-pointer select-none">
+<span class="material-symbols-outlined" data-icon="policy">policy</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Customs</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-transform duration-300 hover:translate-x-1 cursor-pointer select-none">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">AI Tools</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/5 hover:text-slate-200 transition-transform duration-300 hover:translate-x-1 cursor-pointer select-none">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Management</span>
+</div>
+</div>
+<div class="pt-6 border-t border-white/5 space-y-1">
+<div class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-['Plus_Jakarta_Sans'] text-xs font-medium">Compliance</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-['Plus_Jakarta_Sans'] text-xs font-medium">Support</span>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="md:ml-64 pt-24 px-8 pb-12">
+<!-- Page Header -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl font-extrabold font-headline tracking-tight text-white mb-2">SLA &amp; Performance</h1>
+<p class="text-on-surface-variant max-w-2xl">Real-time monitoring of contractual transit obligations and automated penalty assessment for Saudi network logistics.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-surface-container-high text-on-surface font-semibold rounded-lg hover:bg-surface-bright transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                    Export Report
+                </button>
+<button class="px-6 py-2.5 bg-gradient-to-r from-[#C43585] to-[#8a245d] text-white font-semibold rounded-lg shadow-lg shadow-[#C43585]/20 active:scale-95 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    Configure SLA
+                </button>
+</div>
+</header>
+<!-- LIVE SLA BOARD: Bento Grid Section -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold font-headline flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+                    LIVE SLA BOARD
+                </h2>
+<div class="flex items-center gap-4 text-xs font-medium text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Safe</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-500"></span> At Risk</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-error"></span> Critical</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- 🟢 Safe Card -->
+<div class="glass-panel p-5 rounded-xl border border-white/5 transition-all hover:translate-y-[-4px]">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">Safe</span>
+<span class="material-symbols-outlined text-emerald-500/50" data-icon="check_circle">check_circle</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-1">JED → RUH</p>
+<h3 class="font-bold text-lg mb-4">JAS-77421-B</h3>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-[10px] uppercase text-on-surface-variant font-bold">Margin</p>
+<p class="mono-data text-emerald-400 text-lg">26h 40m</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/30" data-icon="local_shipping">local_shipping</span>
+</div>
+</div>
+<!-- 🟡 At Risk Card -->
+<div class="glass-panel p-5 rounded-xl border-l-4 border-amber-500 shadow-xl shadow-amber-500/5 transition-all hover:translate-y-[-4px]">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-500 text-[10px] font-bold uppercase tracking-wider">At Risk</span>
+<span class="mono-data text-amber-500 text-xs font-bold">Expires Today</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-1">DMM → RUH</p>
+<h3 class="font-bold text-lg mb-4">JAS-88129-C</h3>
+<div class="p-3 bg-amber-500/5 rounded-lg mb-4 border border-amber-500/10">
+<p class="text-[10px] uppercase text-amber-500/70 font-bold mb-1">Time Remaining</p>
+<p class="mono-data text-amber-500 text-2xl font-bold tracking-tight">07h 23m</p>
+</div>
+<button class="w-full py-2 bg-white/5 hover:bg-white/10 rounded-md text-xs font-bold transition-colors">Contact Dispatch</button>
+</div>
+<!-- 🔴 Breach Imminent Card -->
+<div class="glass-panel p-5 rounded-xl border-2 border-error/50 shadow-2xl shadow-error/10 relative overflow-hidden transition-all hover:translate-y-[-4px]">
+<div class="absolute top-0 right-0 p-2">
+<span class="material-symbols-outlined text-error animate-pulse" data-icon="priority_high" data-weight="fill" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2 py-0.5 rounded bg-error text-on-error text-[10px] font-bold uppercase tracking-wider">Critical</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-1">RUH → NEOM</p>
+<h3 class="font-bold text-lg mb-4">JAS-99201-A</h3>
+<div class="p-3 bg-error/10 rounded-lg mb-4 border border-error/20">
+<p class="text-[10px] uppercase text-error font-bold mb-1">Breach Countdown</p>
+<p class="mono-data text-error text-3xl font-bold tracking-tighter">01h 44m</p>
+</div>
+<button class="w-full py-2.5 bg-error text-on-error rounded-md text-xs font-bold hover:bg-error/90 transition-colors shadow-lg shadow-error/20">ESCALATE NOW</button>
+</div>
+<!-- 🚫 Breached Card -->
+<div class="glass-panel p-5 rounded-xl border border-error bg-error/5 shadow-2xl shadow-error/10 transition-all hover:translate-y-[-4px]">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 rounded bg-error text-on-error text-[10px] font-bold uppercase tracking-wider">Breached</span>
+<span class="px-2 py-0.5 rounded bg-white/10 text-white text-[9px] font-bold">ALERT SENT</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-1">MED → JED</p>
+<h3 class="font-bold text-lg mb-4">JAS-44120-X</h3>
+<div class="space-y-3">
+<div>
+<p class="text-[10px] uppercase text-error/70 font-bold">Time Overdue</p>
+<p class="mono-data text-error text-xl font-bold">02h 14m</p>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-white/5">
+<span class="text-[10px] text-on-surface-variant">Penalty Accrued:</span>
+<span class="mono-data text-error font-bold">1,250 SAR</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SLA Definitions & Breach Log -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<!-- SLA Definitions Table -->
+<div class="xl:col-span-1 glass-panel rounded-xl overflow-hidden border border-white/5">
+<div class="p-6 bg-surface-container-high/50 border-b border-white/5">
+<h3 class="font-bold font-headline">Contractual SLA Definitions</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="text-[10px] uppercase tracking-widest text-on-surface-variant bg-surface-container-low">
+<tr>
+<th class="px-6 py-3 font-bold">Route &amp; Mode</th>
+<th class="px-6 py-3 font-bold">Limit</th>
+<th class="px-6 py-3 font-bold">Penalty</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-semibold">RUH → JED</span>
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="truck">local_shipping</span> Road Express
+                                        </span>
+</div>
+</td>
+<td class="px-6 py-4 mono-data text-sm">24h</td>
+<td class="px-6 py-4">
+<span class="mono-data text-xs font-bold text-[#C43585]">1.5k SAR/d</span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-semibold">DMM → RUH</span>
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="train">train</span> Rail Freight
+                                        </span>
+</div>
+</td>
+<td class="px-6 py-4 mono-data text-sm">36h</td>
+<td class="px-6 py-4">
+<span class="mono-data text-xs font-bold text-[#C43585]">1.2k SAR/d</span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-semibold">SA → INTL</span>
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="flight">flight</span> Air Priority
+                                        </span></div></td>
+<td class="px-6 py-4 mono-data text-sm">12h</td>
+<td class="px-6 py-4">
+<span class="mono-data text-xs font-bold text-[#C43585]">5.0k SAR/d</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 text-center">
+<button class="text-xs font-bold text-[#C43585] hover:underline uppercase tracking-tight">View All 14 Definitions</button>
+</div>
+</div>
+<!-- Breach Log Table -->
+<div class="xl:col-span-2 glass-panel rounded-xl overflow-hidden border border-white/5">
+<div class="p-6 bg-surface-container-high/50 border-b border-white/5 flex justify-between items-center">
+<h3 class="font-bold font-headline">Performance Breach Log (History)</h3>
+<div class="flex gap-2">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-surface-container-lowest border-none text-xs rounded pl-9 pr-4 py-2 focus:ring-1 focus:ring-[#C43585] w-48" placeholder="Search Shipment ID..." type="text"/>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="text-[10px] uppercase tracking-widest text-on-surface-variant bg-surface-container-low">
+<tr>
+<th class="px-6 py-3 font-bold">Shipment</th>
+<th class="px-6 py-3 font-bold">Contractual</th>
+<th class="px-6 py-3 font-bold">Actual</th>
+<th class="px-6 py-3 font-bold">Delay</th>
+<th class="px-6 py-3 font-bold">Root Cause</th>
+<th class="px-6 py-3 font-bold">Penalty</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold mono-data">JAS-22901</span>
+<span class="text-[10px] text-on-surface-variant">14 Oct, 2023</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 mono-data text-sm">24h 00m</td>
+<td class="px-6 py-4 mono-data text-sm">31h 12m</td>
+<td class="px-6 py-4 text-error font-bold mono-data text-sm">+07h 12m</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant text-[10px] font-medium border border-white/5">Port Congestion</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col items-end">
+<span class="mono-data text-sm font-bold">450 SAR</span>
+<span class="text-[9px] text-emerald-500 uppercase font-bold">Applied</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold mono-data">JAS-11822</span>
+<span class="text-[10px] text-on-surface-variant">12 Oct, 2023</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 mono-data text-sm">12h 00m</td>
+<td class="px-6 py-4 mono-data text-sm">18h 45m</td>
+<td class="px-6 py-4 text-error font-bold mono-data text-sm">+06h 45m</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant text-[10px] font-medium border border-white/5">Vehicle Failure</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col items-end">
+<span class="mono-data text-sm font-bold">2,800 SAR</span>
+<span class="text-[9px] text-amber-500 uppercase font-bold">Pending</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold mono-data">JAS-55031</span>
+<span class="text-[10px] text-on-surface-variant">10 Oct, 2023</span>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 mono-data text-sm">36h 00m</td>
+<td class="px-6 py-4 mono-data text-sm">48h 00m</td>
+<td class="px-6 py-4 text-error font-bold mono-data text-sm">+12h 00m</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant text-[10px] font-medium border border-white/5">Route Blockage</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col items-end">
+<span class="mono-data text-sm font-bold">600 SAR</span>
+<span class="text-[9px] text-emerald-500 uppercase font-bold">Applied</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Stats Bar (Editorial Touch) -->
+<div class="fixed bottom-6 right-8 glass-panel px-6 py-4 rounded-2xl border border-[#C43585]/30 shadow-[0_8px_32px_rgba(196,53,133,0.2)] hidden lg:flex items-center gap-8">
+<div class="flex flex-col">
+<span class="text-[9px] uppercase tracking-widest text-on-surface-variant font-bold">SLA Health Score</span>
+<div class="flex items-end gap-2">
+<span class="text-2xl font-bold font-headline">94.2%</span>
+<span class="text-emerald-500 text-[10px] font-bold pb-1 flex items-center"><span class="material-symbols-outlined text-[10px]" data-icon="arrow_upward">arrow_upward</span> 1.2%</span>
+</div>
+</div>
+<div class="w-[1px] h-8 bg-white/10"></div>
+<div class="flex flex-col">
+<span class="text-[9px] uppercase tracking-widest text-on-surface-variant font-bold">Penalty Exposure</span>
+<span class="text-2xl font-bold font-headline text-error">4,650 <span class="text-sm font-medium">SAR</span></span>
+</div>
+<button class="ml-2 w-10 h-10 rounded-full bg-[#C43585] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+</button>
+</div>
+</body></html>

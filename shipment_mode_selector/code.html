@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e9ddff",
+                        "secondary-container": "#4f4171",
+                        "on-secondary-fixed": "#201340",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary": "#3b0092",
+                        "on-primary-container": "#b79cff",
+                        "primary-container": "#4b1fa3",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#f09661",
+                        "tertiary-container": "#6c2e00",
+                        "secondary": "#cfbef6",
+                        "on-secondary": "#352856",
+                        "tertiary": "#ffb68e",
+                        "surface-container-highest": "#343440",
+                        "outline-variant": "#494453",
+                        "on-tertiary-fixed": "#331200",
+                        "inverse-on-surface": "#302f3b",
+                        "surface-container-high": "#292935",
+                        "outline": "#948e9e",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-surface": "#e3e0f1",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary": "#532200",
+                        "error": "#ffb4ab",
+                        "surface": "#12121d",
+                        "surface-variant": "#343440",
+                        "surface-tint": "#d0bcff",
+                        "surface-dim": "#12121d",
+                        "inverse-primary": "#6a45c3",
+                        "portal-magenta": "#7C1A5E"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #12121d; color: #e3e0f1; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .glass-card { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .magenta-glow:hover { box-shadow: 0 0 40px -10px rgba(124, 26, 94, 0.4); }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- SideNavBar Shell -->
+<aside class="flex flex-col fixed left-0 top-0 h-full z-40 bg-[#0F0F1A] backdrop-blur-xl bg-opacity-80 h-screen w-64 border-r border-white/10 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight shadow-2xl shadow-[#000000]/50">
+<div class="p-8">
+<h1 class="text-2xl font-bold tracking-tighter bg-gradient-to-r from-[#d0bcff] to-[#4B1FA3] bg-clip-text text-transparent">FreMS</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 mt-1">Logistics Intelligence</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-[#d0bcff] bg-white/5 border-r-2 border-[#d0bcff] font-semibold transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Operations
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="contract">contract</span> Agreements
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span> Network
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span> Account
+            </a>
+</nav>
+<div class="px-4 pb-8 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span> Notifications
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span> Support
+            </a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="flex justify-between items-center w-full px-8 sticky top-0 z-50 h-16 bg-[#0F0F1A]/90 backdrop-blur-lg border-b border-white/5 font-['Plus_Jakarta_Sans'] text-sm font-semibold">
+<div class="flex items-center gap-8">
+<span class="font-black text-white tracking-widest uppercase">JAS Logistics FreMS</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-400 hover:text-[#d0bcff] transition-all" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-[#d0bcff] transition-all" href="#">Map</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-5" href="#">Shipments</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-500">
+<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
+</span>
+<input class="bg-surface-container-highest border-none rounded-lg pl-10 text-xs w-64 focus:ring-1 focus:ring-primary" placeholder="Search tracking ID..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center border border-white/10 ml-2 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional corporate male executive headshot in dark suit with neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuKwfr6xR660Il-LGM8gcOpJkrBLSMgCGKDtygZpwJCl5DUa6bNg-jto1HJiGZ1wPApVsJW9SxSt_ZsAAQOoD3c8KYlpCqUZiAYd881bR1e_WDVrINfUuoBlui6rNykcl_hpsH9pnnDu9bQsTYi4d_6pHnhuqve_J1etK-m80XHICOtAoCfdyE1CphgqgfJgcfH3aYGlAcj4a4B_AEWyeyrIoQGOTdYI3KXGa9KY3DMsJVbCCEtTJc-kRi9eSYLGg0_v4cH6dVGQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Area: FRE-03 NEW SHIPMENT MODE SELECTOR -->
+<section class="p-12 max-w-6xl mx-auto">
+<div class="mb-12">
+<nav class="flex items-center gap-2 text-on-surface-variant text-xs mb-4">
+<a class="hover:text-primary" href="#">Operations</a>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<a class="hover:text-primary" href="#">Shipments</a>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-medium">New Shipment</span>
+</nav>
+<h2 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface mb-2">Select Transport Mode</h2>
+<p class="text-on-surface-variant max-w-2xl">Determine the best routing for your cargo based on urgency, volume, and destination requirements across our global network.</p>
+</div>
+<!-- Mode Selector Stack -->
+<div class="space-y-6">
+<!-- Road Freight Card -->
+<div class="group relative overflow-hidden bg-surface-container-low rounded-xl border border-white/5 hover:border-portal-magenta/50 transition-all duration-500 magenta-glow">
+<div class="p-8 flex items-center justify-between gap-12 relative z-10">
+<div class="flex items-center gap-8 flex-1">
+<div class="w-20 h-20 rounded-full bg-portal-magenta/10 flex items-center justify-center text-portal-magenta group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-4xl" data-icon="local_shipping" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline font-bold text-white mb-2">Road Freight</h3>
+<p class="text-on-surface-variant text-sm max-w-md leading-relaxed">
+                                    Domestic + GCC. JAS fleet + sub-carriers. Full visibility for regional land transport.
+                                </p>
+<div class="flex gap-6 mt-4">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-slate-500">Avg. Transit</span>
+<span class="text-sm font-semibold text-white">24 - 72 Hours</span>
+</div>
+<div class="flex flex-col border-l border-white/10 pl-6">
+<span class="text-[10px] uppercase tracking-widest text-slate-500">Cost Range</span>
+<span class="text-sm font-semibold text-portal-magenta">$$ - Economy</span>
+</div>
+</div>
+</div>
+</div>
+<button class="flex items-center gap-3 px-8 py-4 bg-portal-magenta/10 text-portal-magenta border border-portal-magenta/20 rounded-lg hover:bg-portal-magenta hover:text-white transition-all font-bold group/btn">
+                            Select Road Freight
+                            <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-5 pointer-events-none">
+<img alt="Road Logistics" class="h-full w-full object-cover grayscale" data-alt="commercial fleet of trucks parked in a modern logistics hub at dawn with cinematic blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxMiRZWeHwGCPTEEltSUed2PBP2Dx1MqegyEz-GjbAu2FHU0oApIJIrN60bXDAv5slBgpDsHNpVSHyUVQoD3LIa7mSunx_uGW7q2cFL3mU9yQYQUAzl4aw6k6z36Avqqyuu9l0_zd3ZvP2-JGyAvEzQad-YoxzSqUCExXxMzMcq9gYPzU5Fiw5U43vuyVzIrZ378KNdUV9dFZ1MAJ6dvm8Ehj7wInM5P8u5Jte1cHB6L3OSxbERjTxdIjaRn8p2RAz4-msvWvRpw"/>
+</div>
+</div>
+<!-- Sea Freight Card -->
+<div class="group relative overflow-hidden bg-surface-container-low rounded-xl border border-white/5 hover:border-portal-magenta/50 transition-all duration-500 magenta-glow">
+<div class="p-8 flex items-center justify-between gap-12 relative z-10">
+<div class="flex items-center gap-8 flex-1">
+<div class="w-20 h-20 rounded-full bg-portal-magenta/10 flex items-center justify-center text-portal-magenta group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-4xl" data-icon="sailing" style="font-variation-settings: 'FILL' 1;">sailing</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline font-bold text-white mb-2">Sea Freight</h3>
+<p class="text-on-surface-variant text-sm max-w-md leading-relaxed">
+                                    International. FCL / LCL. Strategic access to Jeddah Islamic Port and King Abdul Aziz Port.
+                                </p>
+<div class="flex gap-6 mt-4">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-slate-500">Avg. Transit</span>
+<span class="text-sm font-semibold text-white">12 - 45 Days</span>
+</div>
+<div class="flex flex-col border-l border-white/10 pl-6">
+<span class="text-[10px] uppercase tracking-widest text-slate-500">Cost Range</span>
+<span class="text-sm font-semibold text-portal-magenta">$ - Value</span>
+</div>
+</div>
+</div>
+</div>
+<button class="flex items-center gap-3 px-8 py-4 bg-portal-magenta/10 text-portal-magenta border border-portal-magenta/20 rounded-lg hover:bg-portal-magenta hover:text-white transition-all font-bold group/btn">
+                            Select Sea Freight
+                            <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-5 pointer-events-none">
+<img alt="Sea Port" class="h-full w-full object-cover grayscale" data-alt="massive container ship at a modern industrial port terminal with high-contrast night lighting and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9YzUhrKzfryFzBXyXQCaUyxzAbC3Olp42j60Nj5LGUMCkioLrW8hq8IV6rYZmw5nhBwYQkp1Sw1DV0p3FlZT2H3Z-uEewB4_ekl1yEYikJZa2IXU7uuyzGG2I220eFCWUP-fioc_pHHXV0p0vGF0wHq0TmlK6nc46PojqOHSLTEmhLxhIxFKebbJMGEzpdvnUmFfI77KMveYrBVXqG_2elCjihloyjYZWpuLoJs2GivM3j9FU06we8V9--RmdpKUO8yz-aY9e_g"/>
+</div>
+</div>
+<!-- Air Freight Card -->
+<div class="group relative overflow-hidden bg-surface-container-low rounded-xl border border-white/5 hover:border-portal-magenta/50 transition-all duration-500 magenta-glow">
+<div class="p-8 flex items-center justify-between gap-12 relative z-10">
+<div class="flex items-center gap-8 flex-1">
+<div class="w-20 h-20 rounded-full bg-portal-magenta/10 flex items-center justify-center text-portal-magenta group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-4xl" data-icon="flight" style="font-variation-settings: 'FILL' 1;">flight</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline font-bold text-white mb-2">Air Freight</h3>
+<p class="text-on-surface-variant text-sm max-w-md leading-relaxed">
+                                    Urgent international. IATA certified. Premium partnerships with SAUDIA Cargo, Flynas, and DHL.
+                                </p>
+<div class="flex gap-6 mt-4">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-slate-500">Avg. Transit</span>
+<span class="text-sm font-semibold text-white">1 - 5 Days</span>
+</div>
+<div class="flex flex-col border-l border-white/10 pl-6">
+<span class="text-[10px] uppercase tracking-widest text-slate-500">Cost Range</span>
+<span class="text-sm font-semibold text-portal-magenta">$$$ - Priority</span>
+</div>
+</div>
+</div>
+</div>
+<button class="flex items-center gap-3 px-8 py-4 bg-portal-magenta/10 text-portal-magenta border border-portal-magenta/20 rounded-lg hover:bg-portal-magenta hover:text-white transition-all font-bold group/btn">
+                            Select Air Freight
+                            <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-5 pointer-events-none">
+<img alt="Air Cargo" class="h-full w-full object-cover grayscale" data-alt="cargo plane on tarmac at night being loaded with freight under bright industrial floodlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU8zgmqzmMxKU5B5azkCh1Z1SODHeM3A9CFDbf8T7HgeZBLrgeuQxDSLdi0ou0W-NamKgvwlt-w-wsOVAxERsoqDSdVW7IU0JIK89uXtIIw9sC-gINw5H39iJWjXu4uUH-3hFrM_hqBqhdwbMLBFJPcGIRabp2PDDfLGmfnmQiy5Was8PiqkHgJvgrsTVE3sLET5bKCVg7HUupa7bLytgK-AnsW59M2ZGHYN24DKIwlxnDjCHyRNsPzZ3IXpMSwADI14DxcrKS0w"/>
+</div>
+</div>
+</div>
+<!-- Footer Help Section -->
+<div class="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-white">Need a custom quote?</h4>
+<p class="text-xs text-on-surface-variant">Speak to a logistics specialist for specialized cargo requirements.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 rounded-lg text-xs font-semibold text-white border border-white/10 hover:bg-white/5 transition-all">Download Mode Guide</button>
+<button class="px-6 py-2 rounded-lg text-xs font-semibold text-portal-magenta bg-portal-magenta/10 hover:bg-portal-magenta/20 transition-all">Contact Account Manager</button>
+</div>
+</div>
+</section>
+</main>
+</body></html>

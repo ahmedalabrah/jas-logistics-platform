@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS FreMS — Shipment Detail JAS-FRE-2026-0841</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#1f1e2a",
+                        "primary-container": "#4b1fa3",
+                        "on-surface-variant": "#cbc3d5",
+                        "tertiary-container": "#6c2e00",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container-highest": "#343440",
+                        "primary": "#d0bcff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-fixed": "#331200",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "on-background": "#e3e0f1",
+                        "inverse-surface": "#e3e0f1",
+                        "on-secondary": "#352856",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error": "#690005",
+                        "outline-variant": "#494453",
+                        "secondary-container": "#4f4171",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-primary": "#6a45c3",
+                        "secondary": "#cfbef6",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-secondary-fixed": "#201340",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "surface-bright": "#383845",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary": "#532200",
+                        "surface-dim": "#12121d",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "tertiary": "#ffb68e",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface": "#12121d",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-on-surface": "#302f3b",
+                        "on-primary-container": "#b79cff",
+                        "background": "#12121d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .active-magenta-glow {
+            box-shadow: 0 0 15px rgba(196, 53, 133, 0.3);
+            border-right: 2px solid #C43585;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-white/5 bg-[#0F0F1A]/80 backdrop-blur-xl flex flex-col py-6 px-4 z-50 shadow-[20px_0_40px_rgba(0,0,0,0.3)]">
+<div class="mb-10 px-2 flex items-center gap-3">
+<div class="w-8 h-8 bg-gradient-to-tr from-[#C43585] to-[#4b1fa3] rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg" style="font-variation-settings: 'FILL' 1;">dataset</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-[#C43585]">JAS FreMS</h1>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest font-headline">Velvet Intelligence</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight group" href="#">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+<span>Tracking</span>
+</a>
+<!-- Active Tab: Shipments (Implicitly under Tracking/Status logic, but JSON says Tracking is label 1) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-white bg-gradient-to-r from-[#C43585]/20 to-transparent border-r-2 border-[#C43585] shadow-[0_0_15px_rgba(196,53,133,0.3)] font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">sync_alt</span>
+<span>Status Center</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+<span>Rates</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined text-[20px]">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+<span>Claims</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-300 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-white/5 space-y-4">
+<button class="w-full bg-[#C43585] hover:bg-[#a12b6d] text-white py-2.5 rounded-lg text-sm font-bold transition-all duration-200 active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+                Create Shipment
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white font-['Plus_Jakarta_Sans'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+<span>Help Center</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-[#0F0F1A]/60 backdrop-blur-lg flex items-center justify-between px-8 border-b border-white/5">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-xs font-semibold uppercase tracking-widest font-headline">
+<a class="text-slate-300 hover:text-[#C43585] transition-all" href="#">Global Map</a>
+<a class="text-[#C43585] border-b-2 border-[#C43585] pb-1" href="#">Shipments</a>
+<a class="text-slate-300 hover:text-[#C43585] transition-all" href="#">Financials</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-400 hover:text-[#C43585] transition-all">notifications</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-[#C43585] transition-all">apps</button>
+</div>
+<div class="h-8 w-[1px] bg-white/10"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-[11px] font-bold text-on-surface leading-none">A. Al-Farsi</p>
+<p class="text-[9px] text-slate-500 uppercase tracking-tighter">Operations Lead</p>
+</div>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-white/10 object-cover" data-alt="professional portrait of a middle-eastern male executive in a sharp suit with neutral background and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc9bi8cjajfCoh1osVl27QGVJgKtzNTZ5ZMDHpPGu_4Sth9nqWejpaBNNyt6-h7sk5VpiEXB5OZxCXmk3FG1r_X1k9KXTdmsAtxgerRZHF5O6tEbbvifOapuNdLSNpXfTJD2t-kCSx6YFLBscCCTRZbp0_246vZCpI9MewI7VmB3OlYPG_r5WE2HWVrnX_wt0ID7lEHXlUZP6cBq5XBTMLXUsD4Mo8NRNmVQ2OgpNvSY56JP9JfLJoQBHnzI-RNS6PJQseR7r5dA"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 mt-16 p-8 min-h-screen">
+<!-- Header Card -->
+<section class="mb-8 bg-surface-container-low p-6 rounded-xl border border-white/5 shadow-sm">
+<div class="flex flex-wrap items-start justify-between gap-6">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-[#C43585] px-2 py-0.5 bg-[#C43585]/10 rounded border border-[#C43585]/20">JAS-FRE-2026-0841</span>
+<h2 class="text-2xl font-headline font-extrabold tracking-tight">Shipment Details</h2>
+<span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-bold text-[11px] uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                            AT_CUSTOMS
+                        </span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-2">
+<div>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Client</p>
+<p class="text-sm font-bold">Al-Rashidi Group</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Mode</p>
+<p class="text-sm font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">directions_boat</span>
+                                Sea Freight
+                            </p>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Contract</p>
+<p class="text-sm font-bold">FA Agreement 2026</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">ETA</p>
+<p class="text-sm font-bold text-primary">12 days remaining</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 bg-surface-container-high/50 p-4 rounded-lg">
+<div class="text-center">
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">Origin</p>
+<p class="text-lg font-headline font-extrabold">JED</p>
+<p class="text-[10px] text-slate-400">Jeddah Islamic Port</p>
+</div>
+<div class="flex flex-col items-center px-4">
+<span class="material-symbols-outlined text-[#C43585] text-2xl">trending_flat</span>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">Destination</p>
+<p class="text-lg font-headline font-extrabold">RTM</p>
+<p class="text-[10px] text-slate-400">Port of Rotterdam</p>
+</div>
+</div>
+</div>
+<!-- Tab Layout -->
+<div class="mt-8 flex gap-8 border-b border-white/5">
+<button class="pb-3 text-sm font-bold text-[#C43585] border-b-2 border-[#C43585]">Overview</button>
+<button class="pb-3 text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors">Cargo</button>
+<button class="pb-3 text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors">Customs</button>
+<button class="pb-3 text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors">Documents</button>
+<button class="pb-3 text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors">Cost &amp; Billing</button>
+</div>
+</section>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Timeline -->
+<div class="col-span-12 lg:col-span-7 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6 border border-white/5">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-lg font-headline font-bold">Status Timeline</h3>
+<div class="flex items-center gap-2 text-[11px] font-bold bg-[#C43585]/10 text-[#C43585] px-3 py-1 rounded-full border border-[#C43585]/20">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                            TIMER: 3h 24m remaining in Customs
+                        </div>
+</div>
+<div class="relative space-y-0">
+<!-- Timeline Line -->
+<div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-outline-variant/30"></div>
+<!-- Events -->
+<div class="relative flex gap-6 pb-8">
+<div class="z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface-container-low">
+<span class="material-symbols-outlined text-[12px] text-on-primary" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Booked</p>
+<p class="text-xs text-slate-500">Jan 12, 2026 — 09:14 AM</p>
+</div>
+</div>
+<div class="relative flex gap-6 pb-8">
+<div class="z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface-container-low">
+<span class="material-symbols-outlined text-[12px] text-on-primary" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Provider Confirmed</p>
+<p class="text-xs text-slate-500">Jan 13, 2026 — 14:22 PM</p>
+</div>
+</div>
+<div class="relative flex gap-6 pb-8">
+<div class="z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface-container-low">
+<span class="material-symbols-outlined text-[12px] text-on-primary" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Picked Up</p>
+<p class="text-xs text-slate-500">Jan 15, 2026 — 08:00 AM</p>
+</div>
+</div>
+<div class="relative flex gap-6 pb-8">
+<div class="z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface-container-low">
+<span class="material-symbols-outlined text-[12px] text-on-primary" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Departed Origin</p>
+<p class="text-xs text-slate-500">Jan 16, 2026 — 22:45 PM</p>
+</div>
+</div>
+<!-- Current Status -->
+<div class="relative flex gap-6 pb-8">
+<div class="z-10 w-6 h-6 rounded-full bg-tertiary flex items-center justify-center border-4 border-surface-container-low shadow-[0_0_15px_rgba(255,182,142,0.4)]">
+<span class="material-symbols-outlined text-[12px] text-on-tertiary animate-pulse" style="font-variation-settings: 'FILL' 1;">hourglass_empty</span>
+</div>
+<div class="flex-1 p-4 rounded-lg bg-tertiary-container/10 border border-tertiary-container/20">
+<p class="text-sm font-extrabold text-tertiary">AT_CUSTOMS (Active)</p>
+<p class="text-xs text-slate-300 mt-1">Vessel berthed. Documentation review in progress at Port of Rotterdam.</p>
+<p class="text-[10px] text-tertiary uppercase tracking-widest mt-2 font-bold">Estimated release in 3 hours</p>
+</div>
+</div>
+<!-- Future States -->
+<div class="relative flex gap-6 pb-8 opacity-40">
+<div class="z-10 w-6 h-6 rounded-full bg-outline-variant flex items-center justify-center border-4 border-surface-container-low">
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Customs Cleared</p>
+<p class="text-xs text-slate-500">Estimated: Jan 28, 2026</p>
+</div>
+</div>
+<div class="relative flex gap-6 pb-8 opacity-40">
+<div class="z-10 w-6 h-6 rounded-full bg-outline-variant flex items-center justify-center border-4 border-surface-container-low">
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">In Transit</p>
+<p class="text-xs text-slate-500">Inland Logistics</p>
+</div>
+</div>
+<div class="relative flex gap-6 opacity-40">
+<div class="z-10 w-6 h-6 rounded-full bg-outline-variant flex items-center justify-center border-4 border-surface-container-low">
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-surface">Delivered</p>
+<p class="text-xs text-slate-500">Destination Hub</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Tracking & Extras -->
+<div class="col-span-12 lg:col-span-5 space-y-6">
+<!-- Live Tracking Map -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden border border-white/5 group">
+<div class="h-64 bg-slate-900 relative">
+<img alt="Maritime Map" class="w-full h-full object-cover opacity-40 grayscale contrast-125" data-alt="a professional dark mode tactical map showing oceanic trade routes with glowing cyan and magenta lines on a deep black background" data-location="Global Ocean" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw3pmUhWDrKzGuCMYOPID7KZMgHkloTziySfZrToP1_3YXTjYU2VUx-TBAgTPkMVFYqdFsNlYfrRUz1i6t3yMKwWe-j6oS7Cje-0xUI4T8tR9sGe1-Q9ic16wfnti71BIURGE7jCOO3DeNlPpZQGYaaRZYpjvo2z2j5B8akbs1QIr1K-7BCmhMQLMwDUFnqrC-jryDkNXQIjkfqcNaixbo1XLl4KajKsQr15tSBkhN4f4GBOvLIq7ymVx-w-Uufx-7PBtoSh7TfQ"/>
+<!-- Map Overlay Info -->
+<div class="absolute inset-0 p-4 pointer-events-none">
+<div class="bg-surface-container-highest/80 backdrop-blur px-3 py-1.5 rounded-lg border border-white/10 w-fit">
+<p class="text-[10px] font-bold text-primary uppercase tracking-widest">Maersk Rotterdam</p>
+<p class="text-xs text-white">Lat: 51.94 | Long: 4.12</p>
+</div>
+</div>
+<!-- Vessel Indicator -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="relative">
+<div class="absolute inset-0 bg-[#C43585] rounded-full animate-ping opacity-50"></div>
+<div class="relative w-4 h-4 bg-[#C43585] rounded-full border-2 border-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white">directions_boat</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div>
+<p class="text-xs font-bold">Vessel Tracking</p>
+<p class="text-[10px] text-slate-500">Last updated: 2 mins ago</p>
+</div>
+<button class="px-4 py-1.5 bg-surface-container-highest hover:bg-surface-bright rounded text-xs font-bold transition-all">Expand Map</button>
+</div>
+</div>
+<!-- Provider Card -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-white/5 flex items-center gap-4">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-2">
+<img alt="Maersk Logo" class="max-w-full grayscale brightness-0" data-alt="clean minimalist corporate logo of a global logistics shipping company with nautical star elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp9ajQv5FN_5Te4992ARsgk3-MVXkBKqtjn74V1rKTdLhODoaE8a9GVv51iexaK8H22tqqNZEgGlYHftOuAB_JIxYd5z5NqfOUMl_z2D2ek8vneARdA-j13pmH8skp0qqBHEAuOAynT3_Y_6p9Zm6WER0u8MCZmw5C5PkwdqS5Cd6fCmDz3qBKsW_AYT3Ypui6rFnLsUldJKTh8lHz74u2-pDbl_pwh6qO_Y1Q-7n1nAT7mk24hsHjcAWnHDOd9hKqKYKm3xj8Sg"/>
+</div>
+<div class="flex-1">
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Lead Carrier</p>
+<p class="text-sm font-bold">A.P. Moller - Maersk</p>
+<p class="text-[11px] text-slate-400">Service: ME1 Middle East Route</p>
+</div>
+<button class="material-symbols-outlined text-slate-400">arrow_forward_ios</button>
+</div>
+<!-- ETA Countdown -->
+<div class="bg-gradient-to-br from-[#C43585] to-[#4b1fa3] rounded-xl p-6 text-white shadow-xl relative overflow-hidden group">
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-all duration-700"></div>
+<p class="text-[10px] uppercase font-bold tracking-[0.2em] opacity-80 mb-2">Estimated Arrival</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-extrabold tracking-tighter">12</span>
+<span class="text-xl font-headline font-bold opacity-80">Days</span>
+<span class="text-3xl font-headline font-extrabold tracking-tighter ml-2">14</span>
+<span class="text-xl font-headline font-bold opacity-80">Hrs</span>
+</div>
+<div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
+<div class="text-[11px] flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-[14px]">event</span>
+                            Feb 08, 2026
+                        </div>
+<div class="text-[11px] flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-[14px]">anchor</span>
+                            Pier 7, RTM
+                        </div>
+</div>
+</div>
+<!-- Logistics Context / Permit -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-white/5">
+<div class="flex items-center justify-between mb-3">
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Compliance &amp; Permits</p>
+<span class="text-[10px] text-emerald-400 font-bold px-2 py-0.5 bg-emerald-500/10 rounded">VALID</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-2 bg-surface-container-highest/30 rounded border border-white/5">
+<span class="material-symbols-outlined text-primary">description</span>
+<div>
+<p class="text-xs font-bold">TGA Inland Transit Permit</p>
+<p class="text-[10px] text-slate-500">Ref: TGA-8841-KSA</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 bg-surface-container-highest/30 rounded border border-white/5">
+<span class="material-symbols-outlined text-primary">security</span>
+<div>
+<p class="text-xs font-bold">Customs Bond Certificate</p>
+<p class="text-[10px] text-slate-500">Exp: Dec 2026</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
