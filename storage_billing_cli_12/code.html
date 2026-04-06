@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Storage Billing Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#cbc3d5",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-high": "#292935",
+                    "primary-container": "#4b1fa3",
+                    "outline": "#948e9e",
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-fixed": "#331200",
+                    "background": "#12121d",
+                    "on-secondary-fixed": "#201340",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "secondary": "#cfbef6",
+                    "primary-fixed-dim": "#d0bcff",
+                    "on-secondary-container": "#c0b0e7",
+                    "inverse-primary": "#6a45c3",
+                    "surface-container-low": "#1b1a26",
+                    "on-error-container": "#ffdad6",
+                    "on-error": "#690005",
+                    "tertiary": "#ffb68e",
+                    "surface-tint": "#d0bcff",
+                    "primary": "#d0bcff",
+                    "on-primary-container": "#b79cff",
+                    "tertiary-fixed": "#ffdbc9",
+                    "outline-variant": "#494453",
+                    "on-tertiary": "#532200",
+                    "inverse-on-surface": "#302f3b",
+                    "on-surface": "#e3e0f1",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "surface": "#12121d",
+                    "on-background": "#e3e0f1",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-dim": "#12121d",
+                    "on-tertiary-container": "#f09661",
+                    "surface-bright": "#383845",
+                    "surface-variant": "#343440",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed": "#e9ddff",
+                    "tertiary-container": "#6c2e00",
+                    "surface-container-highest": "#343440",
+                    "surface-container": "#1f1e2a",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-primary": "#3b0092",
+                    "error-container": "#93000a",
+                    "on-secondary": "#352856",
+                    "on-primary-fixed": "#22005c",
+                    "error": "#ffb4ab",
+                    "inverse-surface": "#e3e0f1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(31, 30, 42, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#0F0F1A]/90 backdrop-blur-2xl flex flex-col py-8 space-y-2 z-50">
+<div class="px-6 mb-8">
+<span class="text-xl font-bold bg-gradient-to-r from-[#d0bcff] to-[#4B1FA3] bg-clip-text text-transparent">JAS Wallet</span>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Enterprise Logistics</p>
+</div>
+<nav class="flex-1">
+<div class="flex items-center gap-3 text-[#94a3b8] py-3 px-6 hover:bg-[#1e1b4b]/30 hover:translate-x-1 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Overview</span>
+</div>
+<div class="flex items-center gap-3 bg-[#4B1FA3]/20 text-[#d0bcff] rounded-r-full py-3 px-6 border-l-4 border-[#d0bcff]">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-medium">Payments</span>
+</div>
+<div class="flex items-center gap-3 text-[#94a3b8] py-3 px-6 hover:bg-[#1e1b4b]/30 hover:translate-x-1 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-medium">Accounts</span>
+</div>
+<div class="flex items-center gap-3 text-[#94a3b8] py-3 px-6 hover:bg-[#1e1b4b]/30 hover:translate-x-1 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-medium">Invoices</span>
+</div>
+<div class="flex items-center gap-3 text-[#94a3b8] py-3 px-6 hover:bg-[#1e1b4b]/30 hover:translate-x-1 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Settings</span>
+</div>
+</nav>
+<div class="px-6 pt-6 border-t border-outline-variant/10">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Add Funds
+            </button>
+</div>
+<div class="mt-auto px-2 space-y-1">
+<div class="flex items-center gap-3 text-[#94a3b8] py-3 px-4 hover:bg-[#1e1b4b]/30 rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-medium">Support</span>
+</div>
+<div class="flex items-center gap-3 text-error py-3 px-4 hover:bg-error-container/20 rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-medium">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-8 lg:p-12">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<nav class="flex items-center gap-2 text-on-surface-variant mb-4 text-sm">
+<span>Billing</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-medium">Storage Details</span>
+</nav>
+<h1 class="text-4xl font-bold font-headline tracking-tight text-on-surface">
+                    April 1 – April 5, 2026 · 5 days elapsed
+                </h1>
+<p class="text-on-surface-variant mt-2 max-w-2xl font-body">
+                    Real-time monitoring of daily storage utilization and financial accumulation across Saudi-based facilities.
+                </p>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2.5 rounded-lg border border-outline-variant/20 hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+<button class="px-5 py-2.5 bg-surface-container-high text-on-surface rounded-lg font-semibold hover:bg-surface-bright transition-all">
+                    Export CSV
+                </button>
+</div>
+</header>
+<!-- KPI Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<!-- Current Spend -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<p class="text-sm font-medium text-on-surface-variant uppercase tracking-wider mb-2">Total so far</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-black font-mono text-primary">SAR 25,400</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs font-medium text-on-surface-variant">
+<span class="text-tertiary">Real-time sync</span>
+<span>•</span>
+<span>Updated 2m ago</span>
+</div>
+</div>
+<!-- Projection -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden group border-b-2 border-primary-container">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" data-icon="trending_up">trending_up</span>
+</div>
+<p class="text-sm font-medium text-on-surface-variant uppercase tracking-wider mb-2">Projected month-end</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-black font-mono text-on-surface">SAR 152,400</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs font-medium text-on-surface-variant">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-xs" data-icon="info">info</span>
+                        Based on current occupancy
+                    </span>
+</div>
+</div>
+<!-- Average Daily -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" data-icon="show_chart">show_chart</span>
+</div>
+<p class="text-sm font-medium text-on-surface-variant uppercase tracking-wider mb-2">Avg. Daily Cost</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-black font-mono text-on-surface">SAR 5,080</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs font-medium text-on-surface-variant">
+<span class="text-on-surface-variant">Efficiency: 92%</span>
+</div>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="flex flex-col xl:flex-row gap-8">
+<!-- Daily Chart Section -->
+<div class="flex-1 bg-surface-container-low rounded-xl p-8">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-xl font-bold font-headline">Daily Cost Accumulation</h2>
+<div class="flex bg-surface-container-high rounded-lg p-1">
+<button class="px-3 py-1 text-xs font-bold rounded bg-primary-container text-primary">Bar</button>
+<button class="px-3 py-1 text-xs font-bold rounded text-on-surface-variant">Line</button>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-4 px-2">
+<!-- Day 1 -->
+<div class="flex-1 flex flex-col items-center gap-3 group cursor-pointer">
+<div class="w-full bg-primary/20 rounded-t-lg relative h-[20%] transition-all group-hover:bg-primary/40">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-[10px] font-mono opacity-0 group-hover:opacity-100 transition-opacity">5,000</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant font-mono">APR 01</span>
+</div>
+<!-- Day 2 -->
+<div class="flex-1 flex flex-col items-center gap-3 group cursor-pointer">
+<div class="w-full bg-primary/30 rounded-t-lg relative h-[40%] transition-all group-hover:bg-primary/50">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-[10px] font-mono opacity-0 group-hover:opacity-100 transition-opacity">10,080</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant font-mono">APR 02</span>
+</div>
+<!-- Day 3 -->
+<div class="flex-1 flex flex-col items-center gap-3 group cursor-pointer">
+<div class="w-full bg-primary/40 rounded-t-lg relative h-[60%] transition-all group-hover:bg-primary/60">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-[10px] font-mono opacity-0 group-hover:opacity-100 transition-opacity">15,120</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant font-mono">APR 03</span>
+</div>
+<!-- Day 4 -->
+<div class="flex-1 flex flex-col items-center gap-3 group cursor-pointer">
+<div class="w-full bg-primary/60 rounded-t-lg relative h-[80%] transition-all group-hover:bg-primary/80">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface-container-highest px-2 py-1 rounded text-[10px] font-mono opacity-0 group-hover:opacity-100 transition-opacity">20,240</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant font-mono">APR 04</span>
+</div>
+<!-- Day 5 (Current) -->
+<div class="flex-1 flex flex-col items-center gap-3 group cursor-pointer">
+<div class="w-full bg-gradient-to-t from-primary-container to-primary rounded-t-lg relative h-[100%] transition-all shadow-[0_0_20px_rgba(208,188,255,0.2)]">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-primary text-on-primary-fixed px-3 py-1 rounded-full text-xs font-bold font-mono">25,400</div>
+</div>
+<span class="text-[10px] font-bold text-primary font-mono">APR 05</span>
+</div>
+</div>
+<div class="mt-12 flex flex-wrap gap-8 justify-center">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-xs text-on-surface-variant">Daily Total (SAR)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary/20"></div>
+<span class="text-xs text-on-surface-variant">Previous Period Baseline</span>
+</div>
+</div>
+</div>
+<!-- Table Section -->
+<div class="w-full xl:w-[450px] space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6">
+<h2 class="text-lg font-bold font-headline mb-6">Zone Breakdown</h2>
+<div class="space-y-4">
+<!-- Zone B General -->
+<div class="group flex flex-col gap-3 p-4 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-on-surface">Zone B General</h3>
+<p class="text-xs text-on-surface-variant mt-1">High-volume ambient storage</p>
+</div>
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Standard</span>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider mb-1">Area</p>
+<p class="font-mono text-sm">840 sqm</p>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider mb-1">Rate / sqm</p>
+<p class="font-mono text-sm text-tertiary">SAR 4.50</p>
+</div>
+</div>
+<div class="pt-2 mt-2 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-xs font-medium text-on-surface-variant">Period Total</span>
+<span class="font-mono font-bold text-on-surface">SAR 18,900</span>
+</div>
+</div>
+<!-- Zone B Cold -->
+<div class="group flex flex-col gap-3 p-4 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all border-l-4 border-secondary">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-on-surface">Zone B Cold</h3>
+<p class="text-xs text-on-surface-variant mt-1">Temperature-controlled storage</p>
+</div>
+<span class="bg-secondary/10 text-secondary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Cold Chain</span>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider mb-1">Area</p>
+<p class="font-mono text-sm">200 sqm</p>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider mb-1">Rate / sqm</p>
+<p class="font-mono text-sm text-tertiary">SAR 6.50</p>
+</div>
+</div>
+<div class="pt-2 mt-2 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-xs font-medium text-on-surface-variant">Period Total</span>
+<span class="font-mono font-bold text-on-surface">SAR 6,500</span>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-surface-container-highest rounded-lg p-4 flex justify-between items-center">
+<span class="font-bold text-sm">Combined Period Total</span>
+<span class="text-xl font-black font-mono text-primary">SAR 25,400</span>
+</div>
+</div>
+<!-- Warehouse Activity Snapshot -->
+<div class="bg-surface-container-low rounded-xl p-6">
+<h2 class="text-sm font-bold font-headline uppercase tracking-widest text-on-surface-variant mb-6">Real-time Utilization</h2>
+<div class="relative w-full aspect-square bg-surface-container rounded-lg overflow-hidden flex items-center justify-center">
+<img alt="Logistics warehouse" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" data-alt="Modern logistics warehouse interior with high shelves and soft industrial blue lighting, aerial perspective" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMIfkadX0iLmxySIujkyJu3eHJrnTU0zXXT29iaAdf4pSuQjEAhAkl1UTXkuD6oqQXZblsSzLxQhFiGARfT8pqth438clUUv92U7YZpi62jpzuqqUUGv_1e8hV_0WYZX4J9MhOP-LicNIWdxuLGdmf4eO0Z819sB9yiXofXeW23KfOhEN8pvmIE0nyxVu-whZiYsj-OZ12xVmowAbMkrcFvFDR1rb8XWm0uhOG15NGPxTvdgjYcrvoI8-M4k1sE3P1u3NaRJdqFA"/>
+<div class="relative z-10 flex flex-col items-center text-center p-6">
+<div class="w-32 h-32 rounded-full border-4 border-primary/20 flex items-center justify-center relative">
+<div class="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-pulse"></div>
+<span class="text-3xl font-black font-mono text-primary">88%</span>
+</div>
+<p class="mt-4 font-bold text-on-surface">Current Capacity</p>
+<p class="text-xs text-on-surface-variant mt-1">1,040 sqm utilized of 1,200 sqm total</p>
+</div>
+</div>
+<button class="w-full mt-4 py-3 bg-surface-container-high rounded-lg text-xs font-bold hover:bg-surface-bright transition-all">
+                        View Detailed Occupancy Map
+                    </button>
+</div>
+</div>
+</div>
+<!-- Footer Note -->
+<footer class="mt-12 pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-xs text-on-surface-variant max-w-lg mx-auto">
+                Billing data is subject to JAS Logistics Service Level Agreement (SLA). All rates are inclusive of maintenance and facility management fees. For discrepancies, contact support at JAS-Logistics-FIN.
+            </p>
+<div class="mt-4 flex justify-center gap-6">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase tracking-widest">Client ID: JAS-ENT-9021</span>
+<span class="text-[10px] font-mono text-on-surface-variant uppercase tracking-widest">Report Ref: STORAGE-APR-26-005</span>
+</div>
+</footer>
+</main>
+<!-- Global Top Bar for Mobile/Tablet only visible on smaller screens -->
+<div class="fixed top-0 left-0 right-0 h-16 bg-[#0F0F1A]/80 backdrop-blur-xl md:hidden flex items-center justify-between px-4 z-[60]">
+<span class="text-lg font-black text-[#d0bcff] tracking-tight">JAS Wallet</span>
+<button class="material-symbols-outlined text-primary" data-icon="menu">menu</button>
+</div>
+</body></html>

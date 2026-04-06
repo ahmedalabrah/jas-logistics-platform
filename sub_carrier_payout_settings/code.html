@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Payout Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#22005c",
+                    "on-tertiary": "#532200",
+                    "inverse-on-surface": "#302f3b",
+                    "tertiary-fixed": "#ffdbc9",
+                    "surface-container": "#1f1e2a",
+                    "surface-container-highest": "#343440",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-secondary": "#352856",
+                    "inverse-surface": "#e3e0f1",
+                    "outline-variant": "#494453",
+                    "tertiary": "#ffb68e",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#331200",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "primary": "#d0bcff",
+                    "surface-container-high": "#292935",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-tint": "#d0bcff",
+                    "on-primary": "#3b0092",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-primary-container": "#b79cff",
+                    "on-surface": "#e3e0f1",
+                    "primary-container": "#4b1fa3",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#383845",
+                    "surface-dim": "#12121d",
+                    "on-background": "#e3e0f1",
+                    "background": "#12121d",
+                    "inverse-primary": "#6a45c3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#c0b0e7",
+                    "secondary": "#cfbef6",
+                    "outline": "#948e9e",
+                    "surface-container-low": "#1b1a26",
+                    "on-surface-variant": "#cbc3d5",
+                    "tertiary-container": "#6c2e00",
+                    "on-secondary-fixed": "#201340",
+                    "surface-variant": "#343440",
+                    "surface": "#12121d",
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-container": "#f09661"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(31, 30, 42, 0.6);
+        backdrop-filter: blur(12px);
+      }
+      body {
+        background-color: #0d0d18;
+        color: #e3e0f1;
+      }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#12121d]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] flex justify-between items-center w-full px-8 h-16">
+<div class="text-xl font-bold tracking-tighter text-[#d0bcff] font-headline">JAS Logistics</div>
+<div class="hidden md:flex items-center space-x-8 font-headline font-medium text-sm tracking-tight">
+<a class="text-white/60 hover:text-white/90 transition-colors" href="#">Payments</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-2 transition-all" href="#">Payouts</a>
+<a class="text-white/60 hover:text-white/90 transition-colors" href="#">Reconciliation</a>
+<a class="text-white/60 hover:text-white/90 transition-colors" href="#">Settings</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined">translate</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a middle-eastern logistics executive in dark corporate attire with soft office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQxXM0_UwqbOgCCzAn6qlDotyv6C7howztNE3tLaVFDXldnL5kl9EaFTnME5DHwEd1acPj8Caf7M5iHEWmmYLby2jTnmez7m1i6lmYw5qn0MTr_YT3DAXuKTrJlXHXAdkVIbkzsK0sxg2gIlU0jg_eM9HO2-orc7B0EtqDBT01T5CImaDXxvY7GsvfR-MUTB-Xpgi1rfp4ieHcvr4M7vD9x66Z4n497s83HMWpdywCgR9MLvuJRV9C7DVIjPILgBvszD1T-mvRjw"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 h-full w-64 z-40 bg-[#0F0F1A]/90 backdrop-blur-2xl flex flex-col py-20 px-4 space-y-2">
+<div class="px-4 mb-8">
+<h2 class="text-white/90 font-headline font-bold text-sm">Finance Portal</h2>
+<p class="text-white/40 text-xs">Precision Logistics</p>
+</div>
+<div class="space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-headline text-sm">Command Center</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-gradient-to-r from-[#4B1FA3]/30 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] font-semibold transition-all duration-300" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-headline text-sm">SADAD Ops</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-headline text-sm">Bank Transfers</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-headline text-sm">Carrier Payouts</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-headline text-sm">Batch Processing</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-headline text-sm">Audit Logs</span>
+</a>
+</div>
+<div class="mt-auto pt-8 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-headline text-sm">Support</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-headline text-sm">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 pt-24 px-10 pb-12">
+<!-- Header Section -->
+<header class="mb-10 flex justify-between items-end">
+<div>
+<nav class="flex items-center space-x-2 text-on-surface-variant text-xs mb-2">
+<span>Finance Portal</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary">Payout Settings</span>
+</nav>
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface">Payout Preferences</h1>
+<p class="text-on-surface-variant mt-2 max-w-xl">Configure how and when your logistics earnings are settled. Changes to payment cycles take effect from the next billing period.</p>
+</div>
+<button class="bg-gradient-to-r from-[#d4af37] to-[#f9e29b] text-[#331200] font-headline font-bold px-6 py-3 rounded-lg flex items-center space-x-2 shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all active:scale-95">
+<span class="material-symbols-outlined">bolt</span>
+<span>Request Off-Cycle Payout</span>
+</button>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Bank Account Card -->
+<div class="col-span-12 md:col-span-8 glass-card rounded-2xl p-8 border border-white/5">
+<div class="flex justify-between items-start mb-8">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">account_balance</span>
+</div>
+<div>
+<h3 class="text-lg font-headline font-bold text-on-surface">Receiving Bank Account</h3>
+<p class="text-on-surface-variant text-sm">Primary IBAN for automated settlements</p>
+</div>
+</div>
+<button class="text-primary font-headline font-semibold text-sm hover:underline">Change Account</button>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 border border-white/5 flex items-center justify-between">
+<div class="flex items-center space-x-6">
+<div class="text-3xl tracking-widest font-mono text-on-surface">
+                            SA62 <span class="opacity-20 text-xl">•••• •••• •••• •••• ••</span> 4821
+                        </div>
+<div class="px-3 py-1 rounded bg-tertiary-container/20 text-tertiary text-[10px] font-bold uppercase tracking-widest border border-tertiary/20">Verified</div>
+</div>
+<div class="text-right">
+<div class="text-xs text-on-surface-variant font-medium">Saudi National Bank (SNB)</div>
+<div class="text-[10px] text-on-surface-variant/60 uppercase">Riyadh, Corporate Branch</div>
+</div>
+</div>
+</div>
+<!-- JAS Wallet Toggle -->
+<div class="col-span-12 md:col-span-4 glass-card rounded-2xl p-8 border border-white/5 bg-gradient-to-br from-primary-container/20 to-transparent">
+<div class="flex items-center justify-between mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">account_balance_wallet</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-14 h-7 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<h3 class="text-lg font-headline font-bold text-on-surface">Hold in JAS Wallet</h3>
+<p class="text-on-surface-variant text-sm mt-2">Prevent automatic bank transfers and keep all earnings within your JAS sovereign account for internal logistics expenses.</p>
+</div>
+<!-- Payment Cycle & Threshold -->
+<div class="col-span-12 md:col-span-6 glass-card rounded-2xl p-8 border border-white/5">
+<h3 class="text-lg font-headline font-bold text-on-surface mb-6">Settlement Schedule</h3>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-headline font-bold text-on-surface-variant uppercase tracking-wider mb-3">Payment Cycle</label>
+<div class="grid grid-cols-3 gap-3">
+<button class="py-3 px-4 rounded-lg bg-surface-container-low border border-white/5 text-on-surface-variant text-sm hover:border-primary/50 transition-all">Weekly</button>
+<button class="py-3 px-4 rounded-lg bg-primary/10 border-2 border-primary text-primary text-sm font-bold transition-all">Bi-weekly</button>
+<button class="py-3 px-4 rounded-lg bg-surface-container-low border border-white/5 text-on-surface-variant text-sm hover:border-primary/50 transition-all">Monthly</button>
+</div>
+</div>
+<div class="pt-4 border-t border-white/5">
+<div class="flex justify-between items-center mb-3">
+<label class="text-xs font-headline font-bold text-on-surface-variant uppercase tracking-wider">Minimum Payout Threshold</label>
+<span class="text-primary font-bold">SAR 1,000</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="10000" min="500" step="500" type="range" value="1000"/>
+<p class="text-[10px] text-on-surface-variant/60 mt-4 italic">Funds will remain in pending status until this minimum threshold is achieved within the current cycle.</p>
+</div>
+</div>
+</div>
+<!-- Auto-Deductions Breakdown -->
+<div class="col-span-12 md:col-span-6 glass-card rounded-2xl p-8 border border-white/5">
+<h3 class="text-lg font-headline font-bold text-on-surface mb-6">Automated Deductions</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low border border-white/5">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-on-surface-variant">description</span>
+<div>
+<div class="text-sm font-medium text-on-surface">VAT Compliance</div>
+<div class="text-[10px] text-on-surface-variant uppercase">ZATCA Standard (15%)</div>
+</div>
+</div>
+<div class="text-error font-bold text-sm">Auto-Applied</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low border border-white/5">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-on-surface-variant">shield</span>
+<div>
+<div class="text-sm font-medium text-on-surface">Logistics Insurance Premium</div>
+<div class="text-[10px] text-on-surface-variant uppercase">Per shipment coverage</div>
+</div>
+</div>
+<div class="text-tertiary font-bold text-sm">SAR 1.50 / Trip</div>
+</div>
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low border border-white/5">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-on-surface-variant">terminal</span>
+<div>
+<div class="text-sm font-medium text-on-surface">Platform Service Fee</div>
+<div class="text-[10px] text-on-surface-variant uppercase">Infrastructure Maintenance</div>
+</div>
+</div>
+<div class="text-primary font-bold text-sm">2.5%</div>
+</div>
+</div>
+<div class="mt-6 flex items-start space-x-3 p-4 rounded-lg bg-surface-container-highest/30 border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">info</span>
+<p class="text-[11px] leading-relaxed text-on-surface-variant">All deductions are calculated in real-time and documented in your monthly reconciliation statement. Review the <a class="text-primary hover:underline" href="#">Fee Policy</a> for more details.</p>
+</div>
+</div>
+<!-- Activity Log (Compact) -->
+<div class="col-span-12 glass-card rounded-2xl border border-white/5 overflow-hidden">
+<div class="px-8 py-4 border-b border-white/5 flex justify-between items-center bg-white/5">
+<h3 class="font-headline font-bold text-sm uppercase tracking-widest text-on-surface-variant">Configuration History</h3>
+<button class="text-xs text-primary font-semibold">View Full Audit Log</button>
+</div>
+<div class="p-0">
+<table class="w-full text-left text-sm">
+<thead class="text-[10px] uppercase tracking-tighter text-on-surface-variant/60 bg-surface-container-low">
+<tr>
+<th class="px-8 py-3 font-semibold">Timestamp</th>
+<th class="px-8 py-3 font-semibold">Action</th>
+<th class="px-8 py-3 font-semibold">Changed By</th>
+<th class="px-8 py-3 font-semibold">IP Address</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-8 py-4 text-on-surface-variant">2023-11-24 14:22:10</td>
+<td class="px-8 py-4 font-medium text-on-surface">Threshold changed (SAR 500 → SAR 1000)</td>
+<td class="px-8 py-4">Faisal K. (Finance Lead)</td>
+<td class="px-8 py-4 font-mono text-xs opacity-40">192.168.1.104</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-8 py-4 text-on-surface-variant">2023-10-12 09:15:45</td>
+<td class="px-8 py-4 font-medium text-on-surface">IBAN verification completed</td>
+<td class="px-8 py-4">System (Automated)</td>
+<td class="px-8 py-4 font-mono text-xs opacity-40">::1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<footer class="mt-12 flex justify-end space-x-4">
+<button class="px-8 py-3 text-on-surface-variant font-headline font-bold hover:bg-white/5 rounded-lg transition-all">Discard Changes</button>
+<button class="px-10 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-headline font-bold rounded-lg shadow-[0_0_20px_rgba(208,188,255,0.3)] hover:shadow-[0_0_30px_rgba(208,188,255,0.5)] transition-all active:scale-95">Save Preferences</button>
+</footer>
+</main>
+<!-- Visual Texture Overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[100]" data-alt="subtle dark carbon fiber texture for high-end technical depth" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB_Z8eDfaBOPba0YwbF5D9ItokpDdmhbv1TdcOnQg0-4sUKhol2StGER45mp4B3uNjXmmqJ3wmr7fA0o6IgKIgdfAv7FADcEqRU7AShh07COpjMvGLrtadBqmrWvoKLwVvIA2L3JIfs3vIzRSSi7m-BErJmbZe118Twe1xosmA9JFzERKQDYtz3Hqo6xrVQCbdtZPTwbm6louAAA19TMBkYi1kOD6xiNQoHPHT_xdTKDsk51xtb1APCxWuSlDbj_EQMXp4JqTR-eA');"></div>
+</body></html>

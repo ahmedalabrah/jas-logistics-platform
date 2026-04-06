@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Invoice Detail INV-2026-041</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #12121d;
+        }
+        h1, h2, h3, .headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#cbc3d5",
+                      "surface-container-lowest": "#0d0d18",
+                      "surface-container-high": "#292935",
+                      "primary-container": "#4b1fa3",
+                      "outline": "#948e9e",
+                      "secondary-container": "#4f4171",
+                      "on-tertiary-fixed": "#331200",
+                      "background": "#12121d",
+                      "on-secondary-fixed": "#201340",
+                      "on-secondary-fixed-variant": "#4c3f6e",
+                      "secondary": "#cfbef6",
+                      "primary-fixed-dim": "#d0bcff",
+                      "on-secondary-container": "#c0b0e7",
+                      "inverse-primary": "#6a45c3",
+                      "surface-container-low": "#1b1a26",
+                      "on-error-container": "#ffdad6",
+                      "on-error": "#690005",
+                      "tertiary": "#ffb68e",
+                      "surface-tint": "#d0bcff",
+                      "primary": "#d0bcff",
+                      "on-primary-container": "#b79cff",
+                      "tertiary-fixed": "#ffdbc9",
+                      "outline-variant": "#494453",
+                      "on-tertiary": "#532200",
+                      "inverse-on-surface": "#302f3b",
+                      "on-surface": "#e3e0f1",
+                      "on-primary-fixed-variant": "#5228aa",
+                      "surface": "#12121d",
+                      "on-background": "#e3e0f1",
+                      "tertiary-fixed-dim": "#ffb68e",
+                      "on-tertiary-fixed-variant": "#743405",
+                      "surface-dim": "#12121d",
+                      "on-tertiary-container": "#f09661",
+                      "surface-bright": "#383845",
+                      "surface-variant": "#343440",
+                      "secondary-fixed": "#e9ddff",
+                      "primary-fixed": "#e9ddff",
+                      "tertiary-container": "#6c2e00",
+                      "surface-container-highest": "#343440",
+                      "surface-container": "#1f1e2a",
+                      "secondary-fixed-dim": "#cfbef6",
+                      "on-primary": "#3b0092",
+                      "error-container": "#93000a",
+                      "on-secondary": "#352856",
+                      "on-primary-fixed": "#22005c",
+                      "error": "#ffb4ab",
+                      "inverse-surface": "#e3e0f1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="text-on-surface selection:bg-primary-container/30">
+<!-- TopNavBar -->
+<header class="bg-[#0F0F1A]/80 backdrop-blur-xl sticky top-0 z-50">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#d0bcff] tracking-tight headline">JAS Logistics</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#94a3b8] hover:text-[#d0bcff] transition-colors text-sm" href="#">Dashboard</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1 font-bold text-sm" href="#">Shipments</a>
+<a class="text-[#94a3b8] hover:text-[#d0bcff] transition-colors text-sm" href="#">Wallet</a>
+<a class="text-[#94a3b8] hover:text-[#d0bcff] transition-colors text-sm" href="#">Profile</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="bg-surface-container-high border-none rounded-full pl-10 pr-4 py-2 text-sm w-64 focus:ring-1 focus:ring-primary" placeholder="Search shipments..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-[#1e1b4b]/50 p-2 rounded-lg transition-all">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-[#1e1b4b]/50 p-2 rounded-lg transition-all">settings</button>
+<img class="w-8 h-8 rounded-full border border-outline-variant" data-alt="professional corporate profile headshot of a logistics manager in a modern office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL3KtfNSQ7Um39sOowsiRmIIqoQOaCNHdPvARRxlDmWjKhTGi_yx9eqZxtgHXwuhhqJiA6s9K3zsUOOYgdepmEfHk6uiexRaeoKFNOtI-acmtci1c1QAYP3OrYX4IuHs1BxKp1xCTJRX5s1CNPuTXuPEyBRlkhnj5RVp2Xbj0xZM_Ysp2vftnDOC7SKLahWng9n51o2nDS0jVtfRUmuU7UnnA4gh-fzXxhXRPBKdXk6QJ0mS2l2cun_8pUdIf_DATLFiUhMYJaKw"/>
+</div>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-6 py-10">
+<!-- Breadcrumb & Back -->
+<div class="mb-8 flex items-center gap-2 text-on-surface-variant text-sm">
+<a class="hover:text-primary transition-colors" href="#">Billing</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Invoices</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-on-surface">INV-2026-041</span>
+</div>
+<!-- Overdue Banner -->
+<div class="mb-10 animate-pulse bg-error-container/20 border-l-4 border-error p-5 rounded-r-xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-error/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<div>
+<h3 class="text-error font-bold tracking-wide">OVERDUE</h3>
+<p class="text-on-error-container text-sm">This invoice is 12 days past its due date. Please settle payment to avoid service interruption.</p>
+</div>
+</div>
+<button class="bg-error text-on-error px-6 py-2 rounded-full font-bold text-sm hover:brightness-110 transition-all">
+                Pay Now
+            </button>
+</div>
+<!-- Main Invoice Shell -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-2xl shadow-black/40">
+<!-- Invoice Header Area -->
+<div class="p-10 border-b border-outline-variant/10 flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="space-y-6">
+<div class="space-y-1">
+<h1 class="text-4xl font-black text-primary tracking-tighter headline">TAX INVOICE</h1>
+<p class="text-on-surface-variant mono text-lg">#INV-2026-041</p>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div class="space-y-2">
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold">Issue Date</span>
+<p class="text-on-surface font-medium">October 14, 2026</p>
+</div>
+<div class="space-y-2">
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold">Due Date</span>
+<p class="text-error font-medium">October 28, 2026</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4">
+<div class="p-4 bg-white rounded-xl">
+<!-- Fatoora Placeholder QR -->
+<img class="w-28 h-28 mix-blend-multiply" data-alt="ZATCA compliant QR code for tax invoice validation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvgUnRT90XYEZIrmQqF0f-uUOH4QAce-RXX0F6ua-oBlz7EWB9O-G31EG-gl5bk8CcX0x0iiQk4Gne5UoBUDTgKf2NhRgKTzJIVV1960bYVIKeg7yZQq9mkMJLFY6nCzw6-koN5E7HBzt90pv_eYyAms-cQLQCypKZlQZJbgLPY3UzJ1mlZdC0S7khsMHFjU4m21UodMmhYkSy18TitliueHo7HseWruqyYuJGeir1g2PTh8eMyYyixkf9mrl4dfWvlqUL3jq2zw"/>
+</div>
+<p class="text-[10px] text-on-surface-variant mono uppercase text-right leading-relaxed">
+                        ZATCA Phase 2<br/>Fatoora Verified
+                    </p>
+</div>
+</div>
+<!-- Addresses Section -->
+<div class="grid md:grid-cols-2 gap-px bg-outline-variant/10">
+<!-- From -->
+<div class="bg-surface-container-low p-10 space-y-4">
+<h3 class="text-xs font-bold text-outline uppercase tracking-[0.2em]">From</h3>
+<div class="space-y-1">
+<p class="text-xl font-bold text-on-surface headline">JAS Logistics Co.</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            7721 King Fahd Rd, Al Olaya District<br/>
+                            Riyadh 12212, Saudi Arabia<br/>
+                            CR: 10104455XX<br/>
+                            VAT: 300055443300003
+                        </p>
+</div>
+</div>
+<!-- To -->
+<div class="bg-surface-container-low p-10 space-y-4">
+<h3 class="text-xs font-bold text-outline uppercase tracking-[0.2em]">Bill To</h3>
+<div class="space-y-1">
+<p class="text-xl font-bold text-on-surface headline">Global Trade Ventures Ltd.</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                            32 Industrial Zone, East Port<br/>
+                            Jeddah 21411, Saudi Arabia<br/>
+                            VAT: 310229988700003
+                        </p>
+</div>
+</div>
+</div>
+<!-- Line Items Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container/50">
+<th class="px-10 py-5 text-[10px] font-bold text-outline uppercase tracking-widest">Service &amp; Description</th>
+<th class="px-6 py-5 text-[10px] font-bold text-outline uppercase tracking-widest text-center">Ref</th>
+<th class="px-6 py-5 text-[10px] font-bold text-outline uppercase tracking-widest text-right">Qty</th>
+<th class="px-6 py-5 text-[10px] font-bold text-outline uppercase tracking-widest text-right">Rate</th>
+<th class="px-6 py-5 text-[10px] font-bold text-outline uppercase tracking-widest text-right">VAT (15%)</th>
+<th class="px-10 py-5 text-[10px] font-bold text-outline uppercase tracking-widest text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr>
+<td class="px-10 py-8">
+<p class="text-on-surface font-semibold headline">Sea Freight Forwarding</p>
+<p class="text-on-surface-variant text-sm">Full Container Load (40ft) - Shanghai to Jeddah Islamic Port</p>
+</td>
+<td class="px-6 py-8 text-center text-sm mono text-on-surface-variant">SHJ-9921</td>
+<td class="px-6 py-8 text-right text-on-surface mono">2.00</td>
+<td class="px-6 py-8 text-right text-on-surface mono">12,450.00</td>
+<td class="px-6 py-8 text-right text-on-surface-variant mono">3,735.00</td>
+<td class="px-10 py-8 text-right text-on-surface font-bold mono">24,900.00</td>
+</tr>
+<tr>
+<td class="px-10 py-8">
+<p class="text-on-surface font-semibold headline">Customs Clearance Services</p>
+<p class="text-on-surface-variant text-sm">Expedited processing &amp; documentation for industrial goods</p>
+</td>
+<td class="px-6 py-8 text-center text-sm mono text-on-surface-variant">CC-0042</td>
+<td class="px-6 py-8 text-right text-on-surface mono">1.00</td>
+<td class="px-6 py-8 text-right text-on-surface mono">1,850.00</td>
+<td class="px-6 py-8 text-right text-on-surface-variant mono">277.50</td>
+<td class="px-10 py-8 text-right text-on-surface font-bold mono">1,850.00</td>
+</tr>
+<tr>
+<td class="px-10 py-8">
+<p class="text-on-surface font-semibold headline">Last-Mile Distribution</p>
+<p class="text-on-surface-variant text-sm">Jeddah Port to North Industrial Hub (Heavy Cargo)</p>
+</td>
+<td class="px-6 py-8 text-center text-sm mono text-on-surface-variant">TRK-552</td>
+<td class="px-6 py-8 text-right text-on-surface mono">1.00</td>
+<td class="px-6 py-8 text-right text-on-surface mono">3,200.00</td>
+<td class="px-6 py-8 text-right text-on-surface-variant mono">480.00</td>
+<td class="px-10 py-8 text-right text-on-surface font-bold mono">3,200.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Summary Block -->
+<div class="flex flex-col md:flex-row justify-end p-10 bg-surface-container/30">
+<div class="w-full md:w-80 space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Subtotal</span>
+<span class="text-on-surface font-medium mono">29,950.00 SAR</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">VAT Total (15%)</span>
+<span class="text-on-surface font-medium mono">4,492.50 SAR</span>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="text-lg font-bold text-on-surface headline">Grand Total</span>
+<div class="text-right">
+<span class="block text-2xl font-black text-primary mono">34,442.50</span>
+<span class="text-[10px] text-outline font-bold uppercase tracking-widest">Saudi Riyals</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Actions for Desktop -->
+<div class="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-between glass-panel p-4 rounded-2xl border border-white/5 shadow-xl">
+<div class="flex items-center gap-6 px-4">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-outline font-bold">Payment Method</span>
+<span class="text-sm font-semibold text-on-surface">Corporate Bank Transfer</span>
+</div>
+<div class="h-8 w-px bg-outline-variant/20"></div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-outline font-bold">Reference</span>
+<span class="text-sm font-semibold text-on-surface mono">REF: JAS-2026-041</span>
+</div>
+</div>
+<div class="flex gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 border border-outline-variant/30 text-on-surface px-6 py-3 rounded-lg hover:bg-surface-container-high transition-all text-sm font-semibold">
+<span class="material-symbols-outlined text-sm">download</span>
+                    Download PDF
+                </button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 border border-error/30 text-error px-6 py-3 rounded-lg hover:bg-error/10 transition-all text-sm font-semibold">
+<span class="material-symbols-outlined text-sm">flag</span>
+                    Dispute
+                </button>
+<button class="flex-[2] sm:flex-none bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-3 rounded-lg hover:shadow-lg hover:shadow-primary/20 transition-all text-sm font-bold">
+                    Pay Now (34,442.50 SAR)
+                </button>
+</div>
+</div>
+<!-- Payment Timeline -->
+<div class="mt-16 space-y-8">
+<h2 class="text-xl font-bold headline">Invoice Lifecycle</h2>
+<div class="relative flex flex-col gap-10 before:absolute before:left-4 before:top-2 before:bottom-2 before:w-0.5 before:bg-outline-variant/20">
+<!-- Step 1 -->
+<div class="relative pl-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+<div class="absolute left-0 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center border-4 border-background z-10">
+<span class="material-symbols-outlined text-primary text-[16px]" data-weight="fill">check_circle</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Invoice Generated</p>
+<p class="text-sm text-on-surface-variant">Validated by ZATCA gateway and sent to client portal.</p>
+</div>
+<p class="text-xs text-outline mono">Oct 14, 2026 • 09:12 AM</p>
+</div>
+<!-- Step 2 -->
+<div class="relative pl-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+<div class="absolute left-0 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center border-4 border-background z-10">
+<span class="material-symbols-outlined text-primary text-[16px]" data-weight="fill">visibility</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Viewed by Client</p>
+<p class="text-sm text-on-surface-variant">Marked as read by Accounting Dept (Global Trade Ventures).</p>
+</div>
+<p class="text-xs text-outline mono">Oct 15, 2026 • 11:45 AM</p>
+</div>
+<!-- Step 3 -->
+<div class="relative pl-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+<div class="absolute left-0 w-8 h-8 rounded-full bg-error-container/30 flex items-center justify-center border-4 border-background z-10 ring-2 ring-error/50">
+<span class="material-symbols-outlined text-error text-[16px]">schedule</span>
+</div>
+<div>
+<p class="font-bold text-error">Overdue Reminder Sent</p>
+<p class="text-sm text-on-surface-variant">Automated system notification dispatched to primary contact.</p>
+</div>
+<p class="text-xs text-outline mono">Oct 29, 2026 • 08:00 AM</p>
+</div>
+<!-- Step 4 (Future) -->
+<div class="relative pl-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 opacity-50">
+<div class="absolute left-0 w-8 h-8 rounded-full bg-surface-container flex items-center justify-center border-4 border-background z-10">
+<span class="material-symbols-outlined text-outline text-[16px]">payments</span>
+</div>
+<div>
+<p class="font-bold text-on-surface-variant">Payment Processing</p>
+<p class="text-sm text-on-surface-variant">Awaiting clearance from corresponding bank.</p>
+</div>
+<p class="text-xs text-outline mono">Pending</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-[#12121d]/90 backdrop-blur-lg z-50 rounded-t-2xl shadow-up-lg shadow-black/40">
+<a class="flex flex-col items-center justify-center text-[#94a3b8] p-2 hover:bg-[#1e1b4b] transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#4B1FA3]/40 text-[#d0bcff] rounded-2xl p-2 scale-110" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-[10px] font-medium mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#94a3b8] p-2 hover:bg-[#1e1b4b] transition-colors" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-[10px] font-medium mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#94a3b8] p-2 hover:bg-[#1e1b4b] transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium mt-1">Profile</span>
+</a>
+</nav>
+<!-- Background Decoration -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary-container/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-[30%] h-[30%] bg-secondary-container/5 blur-[100px] rounded-full"></div>
+</div>
+</body></html>
