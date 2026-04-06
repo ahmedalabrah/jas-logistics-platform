@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "surface-container-highest": "#343440",
+                    "outline-variant": "#494453",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-tertiary-fixed": "#331200",
+                    "tertiary": "#ffb68e",
+                    "primary": "#d0bcff",
+                    "on-tertiary-container": "#f09661",
+                    "surface-container-high": "#292935",
+                    "on-primary": "#3b0092",
+                    "surface-container": "#1f1e2a",
+                    "on-secondary": "#352856",
+                    "on-tertiary": "#532200",
+                    "tertiary-container": "#6c2e00",
+                    "on-background": "#e3e0f1",
+                    "secondary": "#cfbef6",
+                    "primary-container": "#4b1fa3",
+                    "primary-fixed-dim": "#d0bcff",
+                    "secondary-fixed": "#e9ddff",
+                    "tertiary-fixed": "#ffdbc9",
+                    "inverse-on-surface": "#302f3b",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#22005c",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-secondary-fixed": "#201340",
+                    "on-error": "#690005",
+                    "surface-dim": "#12121d",
+                    "surface-bright": "#383845",
+                    "on-surface": "#e3e0f1",
+                    "outline": "#948e9e",
+                    "inverse-primary": "#6a45c3",
+                    "surface-tint": "#d0bcff",
+                    "on-secondary-container": "#c0b0e7",
+                    "on-error-container": "#ffdad6",
+                    "background": "#12121d",
+                    "on-surface-variant": "#cbc3d5",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "surface-variant": "#343440",
+                    "on-primary-container": "#b79cff",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "primary-fixed": "#e9ddff",
+                    "secondary-container": "#4f4171",
+                    "error": "#ffb4ab",
+                    "inverse-surface": "#e3e0f1",
+                    "surface-container-low": "#1b1a26",
+                    "surface": "#12121d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "arabic": ["IBM Plex Arabic"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', 'IBM Plex Arabic', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- TopAppBar Section -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/40">
+<div class="flex flex-row-reverse justify-between items-center px-6 h-16 w-full relative">
+<div class="flex items-center gap-3">
+<span class="font-['Plus_Jakarta_Sans'] font-extrabold tracking-tighter text-[#d0bcff]">JAS Logistics</span>
+<span class="material-symbols-outlined text-[#d0bcff]">menu</span>
+</div>
+<h1 class="font-arabic font-bold text-lg tracking-tight text-[#d0bcff]">إثبات التسليم</h1>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">person</span>
+</div>
+<div class="bg-[#1c1c2d] h-[1px] w-full absolute bottom-0 left-0"></div>
+</div>
+</nav>
+<main class="pt-20 px-4 max-w-lg mx-auto space-y-6">
+<!-- Confirmation Banner -->
+<div class="bg-[#4B1FA3]/20 border border-[#d0bcff]/20 rounded-xl p-4 flex items-center gap-3 shadow-lg shadow-black/20">
+<div class="bg-primary-container/40 p-2 rounded-full">
+<span class="material-symbols-outlined text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="font-arabic text-on-primary-container font-medium text-sm leading-relaxed">
+                تم تأكيد OTP بواسطة محمد الراشدي
+            </p>
+</div>
+<!-- Success Wallet State (Contextual) -->
+<div class="bg-surface-container-low rounded-xl p-4 flex justify-between items-center border-r-4 border-tertiary shadow-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<div class="font-arabic">
+<p class="text-xs text-on-surface-variant">تمت الإضافة للمحفظة</p>
+<p class="text-lg font-bold text-tertiary">350 SAR</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">trending_up</span>
+</div>
+<!-- Section: Visual Proof -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-arabic font-bold text-on-surface-variant text-sm">التوثيق البصري</h3>
+<span class="text-[10px] uppercase tracking-widest text-outline">Required</span>
+</div>
+<button class="w-full h-48 rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-lowest flex flex-col items-center justify-center gap-4 group hover:border-primary transition-all active:scale-[0.98]">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary-container/30 transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary">add_a_photo</span>
+</div>
+<span class="font-arabic font-semibold text-primary">Photograph delivered cargo</span>
+<span class="text-xs text-on-surface-variant font-arabic px-8 text-center opacity-70">الرجاء التقاط صورة واضحة للشحنة عند موقع العميل</span>
+</button>
+</section>
+<!-- Section: Signature -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-arabic font-bold text-on-surface-variant text-sm">توقيع المستلم</h3>
+<span class="material-symbols-outlined text-primary text-sm">draw</span>
+</div>
+<div class="bg-white rounded-xl shadow-inner relative overflow-hidden h-[120px] w-full" style="width: 340px; margin-inline: auto;">
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="font-arabic text-slate-300 text-lg font-medium opacity-60">Sign here</span>
+</div>
+<!-- Signature Canvas Simulation -->
+<canvas class="absolute inset-0 w-full h-full cursor-crosshair"></canvas>
+<div class="absolute bottom-2 left-2 flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-arabic text-xs text-on-surface-variant mr-1">تأكيد اسم المستلم</label>
+<div class="relative">
+<input class="w-full bg-surface-container-high border-none rounded-xl py-4 px-12 text-on-surface font-arabic focus:ring-2 focus:ring-primary/50 transition-all" placeholder="محمد الراشدي" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline text-xl">person_check</span>
+</div>
+</div>
+</section>
+<!-- Information Card -->
+<div class="bg-surface-container rounded-xl p-4 grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<p class="text-[10px] text-on-surface-variant font-arabic opacity-60">رقم الشحنة</p>
+<p class="font-mono text-sm text-primary font-bold">#JAS-88210-DXB</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] text-on-surface-variant font-arabic opacity-60">وقت الوصول</p>
+<p class="font-arabic text-sm text-on-surface">14:30 PM, اليوم</p>
+</div>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 w-full p-4 bg-[#0F0F1A]/90 backdrop-blur-2xl border-t border-white/10 z-50">
+<div class="max-w-lg mx-auto">
+<button class="w-full bg-[#10b981] hover:bg-[#059669] text-white font-arabic font-bold py-5 rounded-xl flex items-center justify-center gap-3 shadow-[0_8px_20px_rgba(16,185,129,0.3)] transition-all active:scale-[0.97]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<span>إكمال الرحلة</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar (Shared Component Template) -->
+<nav class="fixed bottom-0 w-full rounded-t-xl z-40 bg-[#0F0F1A]/90 backdrop-blur-2xl border-t border-white/10 shadow-[0_-10px_20px_rgba(0,0,0,0.5)] md:hidden pointer-events-none opacity-0">
+<!-- This is a placeholder for structural compliance based on JSON rules but hidden by default due to transactional focus -->
+<div class="flex flex-row-reverse justify-around items-center h-20 pb-4 w-full px-2 font-['IBM_Plex_Arabic'] text-[11px] font-medium">
+<div class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span>الرئيسية</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#d0bcff] bg-[#4B1FA3]/20 rounded-xl px-4 py-1">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span>الرحلات</span>
+</div>
+</div>
+</nav>
+</body></html>

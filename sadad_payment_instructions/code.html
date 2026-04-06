@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SADAD Payment | JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#22005c",
+                      "on-tertiary": "#532200",
+                      "inverse-on-surface": "#302f3b",
+                      "tertiary-fixed": "#ffdbc9",
+                      "surface-container": "#1f1e2a",
+                      "surface-container-highest": "#343440",
+                      "on-secondary-fixed-variant": "#4c3f6e",
+                      "surface-container-lowest": "#0d0d18",
+                      "on-secondary": "#352856",
+                      "inverse-surface": "#e3e0f1",
+                      "outline-variant": "#494453",
+                      "tertiary": "#ffb68e",
+                      "primary-fixed": "#e9ddff",
+                      "on-tertiary-fixed": "#331200",
+                      "tertiary-fixed-dim": "#ffb68e",
+                      "primary": "#d0bcff",
+                      "surface-container-high": "#292935",
+                      "on-tertiary-fixed-variant": "#743405",
+                      "surface-tint": "#d0bcff",
+                      "on-primary": "#3b0092",
+                      "on-error": "#690005",
+                      "error-container": "#93000a",
+                      "secondary-fixed": "#e9ddff",
+                      "primary-fixed-dim": "#d0bcff",
+                      "secondary-fixed-dim": "#cfbef6",
+                      "on-primary-container": "#b79cff",
+                      "on-surface": "#e3e0f1",
+                      "primary-container": "#4b1fa3",
+                      "error": "#ffb4ab",
+                      "surface-bright": "#383845",
+                      "surface-dim": "#12121d",
+                      "on-background": "#e3e0f1",
+                      "background": "#12121d",
+                      "inverse-primary": "#6a45c3",
+                      "on-primary-fixed-variant": "#5228aa",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-container": "#c0b0e7",
+                      "secondary": "#cfbef6",
+                      "outline": "#948e9e",
+                      "surface-container-low": "#1b1a26",
+                      "on-surface-variant": "#cbc3d5",
+                      "tertiary-container": "#6c2e00",
+                      "on-secondary-fixed": "#201340",
+                      "surface-variant": "#343440",
+                      "surface": "#12121d",
+                      "secondary-container": "#4f4171",
+                      "on-tertiary-container": "#f09661"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"],
+                      "arabic": ["IBM Plex Sans Arabic"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .sadad-accent {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF8A00 100%);
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(31, 30, 42, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#12121d]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] flex justify-between items-center px-8 h-16">
+<div class="text-xl font-bold tracking-tighter text-[#d0bcff] font-headline">JAS Logistics</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-white/60 hover:text-white/90 transition-colors font-headline font-medium text-sm tracking-tight" href="#">Payments</a>
+<a class="text-white/60 hover:text-white/90 transition-colors font-headline font-medium text-sm tracking-tight" href="#">Payouts</a>
+<a class="text-white/60 hover:text-white/90 transition-colors font-headline font-medium text-sm tracking-tight" href="#">Reconciliation</a>
+<a class="text-white/60 hover:text-white/90 transition-colors font-headline font-medium text-sm tracking-tight" href="#">Settings</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[#d0bcff]">notifications</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[#d0bcff]">translate</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[#d0bcff]">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-20 px-4 flex items-center justify-center relative overflow-hidden">
+<!-- Background decorative elements -->
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-tertiary/10 rounded-full blur-[120px]"></div>
+<div class="w-full max-w-4xl relative z-10">
+<!-- Central Transactional Card -->
+<div class="glass-panel border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+<div class="grid md:grid-cols-5 h-full">
+<!-- Left Column: Details & Instructions -->
+<div class="md:col-span-3 p-8 lg:p-10 border-r border-white/5">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-12 h-12 sadad-accent rounded-lg flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div>
+<h1 class="text-2xl font-bold font-headline tracking-tight text-on-surface">SADAD Payment</h1>
+<p class="text-on-surface-variant text-sm">Invoice #JAS-2023-9941</p>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Bilingual Header -->
+<div class="flex justify-between items-end border-b border-white/5 pb-4">
+<div>
+<h2 class="text-primary font-semibold text-lg">Payment Instructions</h2>
+<p class="text-on-surface-variant text-xs mt-1">Follow these steps in your banking portal</p>
+</div>
+<div class="text-right font-arabic">
+<h2 class="text-primary font-semibold text-lg">تعليمات السداد</h2>
+<p class="text-on-surface-variant text-[10px] mt-1">اتبع الخطوات التالية في تطبيقك البنكي</p>
+</div>
+</div>
+<!-- Steps -->
+<div class="space-y-4">
+<div class="flex gap-4 items-start group">
+<span class="flex-shrink-0 w-6 h-6 rounded-full bg-surface-container-highest text-primary flex items-center justify-center text-xs font-bold border border-primary/20">1</span>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-2">
+<p class="text-sm text-on-surface">Log in to your online banking app or ATM.</p>
+<p class="text-sm text-on-surface-variant font-arabic text-right">قم بتسجيل الدخول إلى تطبيق البنك الخاص بك.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start group">
+<span class="flex-shrink-0 w-6 h-6 rounded-full bg-surface-container-highest text-primary flex items-center justify-center text-xs font-bold border border-primary/20">2</span>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-2">
+<p class="text-sm text-on-surface">Select 'SADAD' and enter the Biller &amp; Reference.</p>
+<p class="text-sm text-on-surface-variant font-arabic text-right">اختر 'سداد' وأدخل رقم المفوتر والمرجع.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start group">
+<span class="flex-shrink-0 w-6 h-6 rounded-full bg-surface-container-highest text-primary flex items-center justify-center text-xs font-bold border border-primary/20">3</span>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-2">
+<p class="text-sm text-on-surface">Confirm payment of the exact amount shown.</p>
+<p class="text-sm text-on-surface-variant font-arabic text-right">أكد عملية الدفع بالمبلغ الموضح أدناه.</p>
+</div>
+</div>
+</div>
+<!-- Expiry Timer -->
+<div class="mt-10 bg-error-container/10 border border-error/20 rounded-lg p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error">timer</span>
+<span class="text-sm font-medium text-error">Bill expires in</span>
+</div>
+<span class="text-xl font-mono font-bold text-error tracking-wider">23:45:12</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Biller Information -->
+<div class="md:col-span-2 bg-surface-container-low p-8 lg:p-10 flex flex-col justify-between">
+<div>
+<div class="mb-8">
+<img alt="SADAD Logo" class="h-8 object-contain" data-alt="clean minimalist SADAD payment system logo with orange and white colors against a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmo_c3eeDAv7-QryGzBgUSpapEC7g1Cr5t9yGrnMygfzO7M-Cmry4rgHhWGZWcD8jgG98DGs0XNKpNmlnvPFN7NC2XUnEZE3T0K5K8Br783QS8Juxp4sJHrumMCHGfNZzeRQfB4L2gI3LK-0A7LF_zxQTnbHTcFaKifDLIfg0-Lar_E2jAuPAyZHWtz-d8s-OoZN9XNYLi-TugJ0b53tA9fsIPMtc7u8xzb6XoAF0V9QdER_eom40lZdrHtle8AAQ2nOMq3Evhig"/>
+</div>
+<div class="space-y-6">
+<div>
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1 block">SADAD Biller</label>
+<div class="text-lg font-headline font-bold text-on-surface">JAS Logistics Co.</div>
+</div>
+<div class="group">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1 block">Company ID</label>
+<div class="flex items-center justify-between bg-surface-container-highest/50 p-3 rounded-lg border border-white/5 group-hover:border-primary/30 transition-all">
+<span class="font-mono text-primary font-bold text-lg">60012345</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+</button>
+</div>
+</div>
+<div class="group">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1 block">Bill Number</label>
+<div class="flex items-center justify-between bg-surface-container-highest/50 p-3 rounded-lg border border-white/5 group-hover:border-primary/30 transition-all">
+<span class="font-mono text-primary font-bold text-lg tracking-tight">202309180041</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+</button>
+</div>
+</div>
+<div class="pt-4 border-t border-white/5">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1 block">Amount Due</label>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-extrabold text-on-surface">12,450.00</span>
+<span class="text-primary font-bold">SAR</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 space-y-3">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed py-4 rounded-lg font-headline font-bold text-sm tracking-tight shadow-[0_4px_16px_rgba(75,31,163,0.4)] active:scale-[0.98] transition-all">
+                                I've Completed the SADAD Payment
+                            </button>
+<button class="w-full py-3 text-on-surface-variant hover:text-on-surface text-xs font-medium transition-colors">
+                                Download Invoice PDF
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Support Info -->
+<div class="mt-8 flex flex-col md:flex-row justify-between items-center gap-4 px-4">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="text-xs">Secure Payment Gateway</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+<span class="text-xs">Support: +966 800 123 4567</span>
+</div>
+</div>
+<div class="flex gap-4">
+<img alt="Payment Methods" class="h-5 opacity-40 grayscale" data-alt="minimalist monochrome payment provider icons like visa and mada for a professional financial interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB3X5sVRqpyrBdlH_HaCS-J94UGxpdN2TaTjtyvjlCWW8P9Qr64joNShwJmOxJzkfmMsCfUex0A96aA15hzh8W-p3kBre1WjlAsFPE9_3OkReYUiSVm2wmihWAC4zSjCBxlvWsW8WxY0evREaZm2BuWWR8ZKu-XQbYUrH79eVkRIXvIynGuD2Evqtz7lExdQ-4MkVJngZ9WsMYhnXzX575RR8rW6VvGJQHRgY20k-a5oBC4RRshtV2kVa_hUXi4_GuXVKBaXP2WQ"/>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation Shell -->
+<div class="md:hidden fixed bottom-0 w-full bg-[#12121d] h-16 flex items-center justify-around z-50 shadow-[0_-8px_24px_rgba(0,0,0,0.5)]">
+<button class="flex flex-col items-center gap-1 text-[#d0bcff]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="text-[10px] font-medium">Pay</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-medium">Bills</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-medium">History</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</div>
+</body></html>

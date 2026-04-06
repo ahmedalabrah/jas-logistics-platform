@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sub-Carrier Cost Analytics (SCP-FL-09)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#343440",
+                        "on-secondary": "#352856",
+                        "surface": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary-fixed": "#22005c",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-dim": "#12121d",
+                        "secondary-container": "#4f4171",
+                        "outline-variant": "#494453",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "inverse-surface": "#e3e0f1",
+                        "background": "#12121d",
+                        "tertiary": "#ffb68e",
+                        "tertiary-fixed": "#ffdbc9",
+                        "primary-container": "#4b1fa3",
+                        "surface-variant": "#343440",
+                        "surface-container-low": "#1b1a26",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-fixed": "#201340",
+                        "on-primary": "#3b0092",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#331200",
+                        "tertiary-container": "#6c2e00",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-tertiary": "#532200",
+                        "inverse-on-surface": "#302f3b",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-container": "#1f1e2a",
+                        "on-primary-container": "#b79cff",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "surface-bright": "#383845",
+                        "secondary": "#cfbef6",
+                        "primary": "#d0bcff",
+                        "on-surface": "#e3e0f1",
+                        "on-error": "#690005",
+                        "inverse-primary": "#6a45c3",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e3e0f1",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "surface-container-lowest": "#0d0d18"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0d18;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #343440;
+            border-radius: 10px;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-[#0F0F1A]/95 backdrop-blur-2xl z-50 flex flex-col">
+<div class="p-8">
+<h1 class="text-lg font-black text-white font-headline tracking-tighter">Fleet Management</h1>
+<p class="text-xs text-slate-400 font-medium uppercase tracking-widest mt-1">Sub-Carrier Fleet</p>
+</div>
+<nav class="flex-1 overflow-y-auto px-4">
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="inbox">inbox</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Trip Inbox</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Active Trips</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Trip History</span>
+</div>
+<div class="bg-gradient-to-r from-[#2E86C1]/20 to-transparent text-[#2E86C1] border-l-4 border-[#2E86C1] flex items-center gap-3 px-6 py-3 my-1 cursor-pointer transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Cost Analytics</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Earnings &amp; Payouts</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">JAS Wallet</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">AI Coaching Report</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 my-1 text-slate-400 hover:text-slate-200 transition-all duration-200 cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Settings</span>
+</div>
+</nav>
+<div class="p-6 border-t border-white/5">
+<div class="flex items-center gap-3 px-6 py-3 text-slate-400 hover:text-white transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Log Out</span>
+</div>
+</div>
+<div class="bg-white/5 w-[1px] h-full right-0 absolute"></div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 min-h-screen relative">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 flex justify-between items-center w-full px-8 py-4 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-white font-headline">Sub-Carrier Portal</span>
+<div class="relative w-80">
+<input class="w-full bg-surface-container-highest border-none text-sm px-10 py-2 rounded-lg focus:ring-1 focus:ring-[#2E86C1] placeholder-slate-500" placeholder="Search analytics..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2 text-slate-500 text-sm" data-icon="search">search</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#2E86C1] border-b-2 border-[#2E86C1] pb-1 font-['Plus_Jakarta_Sans'] text-sm tracking-tight" href="#">Cost Analytics</a>
+<a class="text-slate-400 hover:text-white transition-colors font-['Plus_Jakarta_Sans'] text-sm tracking-tight" href="#">Earnings</a>
+<a class="text-slate-400 hover:text-white transition-colors font-['Plus_Jakarta_Sans'] text-sm tracking-tight" href="#">Support</a>
+</nav>
+<div class="h-6 w-[1px] bg-white/10 mx-2"></div>
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-white" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white" data-icon="settings">settings</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/10">
+<img alt="Sub-carrier user profile" data-alt="professional portrait of a middle-aged male logistics manager wearing a crisp white shirt against a neutral office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDRdDJ5rU_DFN7W_eTKOBvMxDim9L9figjsFZk68-nEuKDHaC7KpzLWkpvP3lVcFu-Uzn2v3PRjHziGemHjnA6i8KP_9otYD0I8R34nnJZLKy9bmdD7PeiHKjXpLYOWkDKGkLk-vEOLMMdhZYsPELJCrOygv8-2PAHpOhE-P5s3OxZmcq_QMC73B-iwILF02DNMzqtuO6CzfVnLi_ADMbD13blfPMTM2U0fe0a7VLyogl-yNaOTm4uZAomnYDY0W4M9EU5As0Qzg"/>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-b from-white/5 to-transparent h-[1px] w-full absolute bottom-0 left-0"></div>
+</header>
+<div class="p-8 max-w-7xl mx-auto space-y-8">
+<!-- Page Header / Hero -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-black font-headline tracking-tight text-white">Cost vs Earnings Analytics</h2>
+<p class="text-on-surface-variant mt-2 max-w-xl">Comprehensive visibility into fleet profitability. Monitor margin performance per asset and analyze yearly spend trends.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-surface-container-high text-on-surface text-sm font-semibold rounded-lg border border-white/5 hover:bg-surface-bright transition-all">
+                        Download Report
+                    </button>
+<button class="px-4 py-2 bg-gradient-to-r from-[#2E86C1] to-[#1F5F8B] text-white text-sm font-bold rounded-lg shadow-lg shadow-[#2E86C1]/20 active:scale-95 transition-all">
+                        Refresh Data
+                    </button>
+</div>
+</div>
+<!-- Dashboard Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="glass-panel p-6 rounded-xl space-y-4">
+<div class="flex justify-between items-start">
+<span class="p-2 bg-[#2E86C1]/10 rounded-lg text-[#2E86C1]">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</span>
+<span class="text-xs font-bold text-emerald-400">+12.5%</span>
+</div>
+<div>
+<p class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Total Earnings (MTD)</p>
+<h3 class="text-2xl font-bold text-white mt-1">SAR 142,500</h3>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl space-y-4">
+<div class="flex justify-between items-start">
+<span class="p-2 bg-tertiary-container/30 rounded-lg text-tertiary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</span>
+<span class="text-xs font-bold text-error">-2.1%</span>
+</div>
+<div>
+<p class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Total Costs (MTD)</p>
+<h3 class="text-2xl font-bold text-white mt-1">SAR 98,200</h3>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl space-y-4">
+<div class="flex justify-between items-start">
+<span class="p-2 bg-emerald-500/10 rounded-lg text-emerald-400">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</span>
+<span class="text-xs font-bold text-emerald-400">+4.2%</span>
+</div>
+<div>
+<p class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Net Profitability</p>
+<h3 class="text-2xl font-bold text-white mt-1">SAR 44,300</h3>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl space-y-4">
+<div class="flex justify-between items-start">
+<span class="p-2 bg-primary-container/20 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="local_gas_station">local_gas_station</span>
+</span>
+<span class="text-xs font-bold text-on-surface-variant">Avg.</span>
+</div>
+<div>
+<p class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Fuel Expense Ratio</p>
+<h3 class="text-2xl font-bold text-white mt-1">32.4%</h3>
+</div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- YoY Spend Comparison Chart -->
+<div class="lg:col-span-2 glass-panel p-6 rounded-xl">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="text-lg font-bold text-white">YoY Spend Comparison</h4>
+<p class="text-sm text-on-surface-variant">Monthly cost trajectory vs previous year</p>
+</div>
+<div class="flex items-center gap-4 text-xs font-bold">
+<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#2E86C1]"></span> 2024</div>
+<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-white/20"></span> 2023</div>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-2 px-2">
+<!-- Chart Bars Mockup -->
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-white/5 rounded-t-sm h-32 relative">
+<div class="absolute bottom-0 w-full bg-[#2E86C1] opacity-80 h-24 rounded-t-sm"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">JAN</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-white/5 rounded-t-sm h-36 relative">
+<div class="absolute bottom-0 w-full bg-[#2E86C1] opacity-80 h-32 rounded-t-sm"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">FEB</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-white/5 rounded-t-sm h-28 relative">
+<div class="absolute bottom-0 w-full bg-[#2E86C1] opacity-80 h-20 rounded-t-sm"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">MAR</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-white/5 rounded-t-sm h-40 relative">
+<div class="absolute bottom-0 w-full bg-[#2E86C1] opacity-80 h-38 rounded-t-sm"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">APR</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-white/5 rounded-t-sm h-48 relative">
+<div class="absolute bottom-0 w-full bg-[#2E86C1] opacity-80 h-44 rounded-t-sm"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">MAY</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-white/5 rounded-t-sm h-52 relative">
+<div class="absolute bottom-0 w-full bg-[#2E86C1] opacity-80 h-48 rounded-t-sm"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant font-bold">JUN</span>
+</div>
+</div>
+</div>
+<!-- Expense Breakdown -->
+<div class="glass-panel p-6 rounded-xl">
+<h4 class="text-lg font-bold text-white mb-6">Expense Breakdown</h4>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider">
+<span class="text-on-surface-variant">Fuel Costs</span>
+<span class="text-white">SAR 32.4k</span>
+</div>
+<div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+<div class="bg-[#2E86C1] h-full w-[45%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider">
+<span class="text-on-surface-variant">Maintenance</span>
+<span class="text-white">SAR 18.2k</span>
+</div>
+<div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[25%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider">
+<span class="text-on-surface-variant">Driver Salaries</span>
+<span class="text-white">SAR 42.0k</span>
+</div>
+<div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[55%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider">
+<span class="text-on-surface-variant">Tolls &amp; Other</span>
+<span class="text-white">SAR 5.6k</span>
+</div>
+<div class="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+<div class="bg-on-surface-variant h-full w-[15%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/5">
+<button class="w-full py-2 bg-surface-container-highest text-[#2E86C1] text-xs font-bold rounded hover:bg-surface-bright transition-all">VIEW COST RECONCILIATION</button>
+</div>
+</div>
+</div>
+<!-- FMS Cost Dashboard Component - Vehicle Profitability -->
+<div class="glass-panel rounded-xl overflow-hidden">
+<div class="px-8 py-6 border-b border-white/5 flex justify-between items-center bg-surface-container-low/50">
+<div>
+<h4 class="text-lg font-bold text-white">Vehicle Profitability Analysis</h4>
+<p class="text-sm text-on-surface-variant">Detailed earnings vs operating cost per asset</p>
+</div>
+<div class="flex gap-2">
+<select class="bg-surface-container-highest border-none text-xs font-bold rounded px-4 py-2 text-on-surface focus:ring-1 focus:ring-[#2E86C1]">
+<option>Last 30 Days</option>
+<option>Last 90 Days</option>
+<option>Year to Date</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/30 border-b border-white/5">
+<th class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Vehicle ID</th>
+<th class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Vehicle Type</th>
+<th class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Earnings</th>
+<th class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Operating Cost</th>
+<th class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Net Margin</th>
+<th class="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-right">Profitability</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- High Profit (Green) -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-white">VHL-00128</span>
+<span class="text-[10px] text-slate-500 font-medium">Mercedes Actros</span>
+</div>
+</td>
+<td class="px-8 py-4">
+<span class="text-xs text-on-surface font-medium px-2 py-1 bg-surface-container-highest rounded">Heavy Hauler</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-bold text-white">SAR 28,450</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-medium text-on-surface-variant">SAR 15,200</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-bold text-emerald-400">SAR 13,250</span>
+</td>
+<td class="px-8 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+<span class="text-xs font-bold text-emerald-400">46.5%</span>
+</div>
+</td>
+</tr>
+<!-- Average Profit (Amber) -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-white">VHL-00942</span>
+<span class="text-[10px] text-slate-500 font-medium">Volvo FH16</span>
+</div>
+</td>
+<td class="px-8 py-4">
+<span class="text-xs text-on-surface font-medium px-2 py-1 bg-surface-container-highest rounded">Long Haul</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-bold text-white">SAR 22,100</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-medium text-on-surface-variant">SAR 17,800</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-bold text-tertiary">SAR 4,300</span>
+</td>
+<td class="px-8 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_rgba(255,182,142,0.5)]"></span>
+<span class="text-xs font-bold text-tertiary">19.4%</span>
+</div>
+</td>
+</tr>
+<!-- Low/Loss (Red) -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-white">VHL-00561</span>
+<span class="text-[10px] text-slate-500 font-medium">Scania R450</span>
+</div>
+</td>
+<td class="px-8 py-4">
+<span class="text-xs text-on-surface font-medium px-2 py-1 bg-surface-container-highest rounded">Regional</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-bold text-white">SAR 12,300</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-medium text-on-surface-variant">SAR 13,900</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-bold text-error">SAR (1,600)</span>
+</td>
+<td class="px-8 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="w-2 h-2 rounded-full bg-error shadow-[0_0_8px_rgba(255,180,171,0.5)]"></span>
+<span class="text-xs font-bold text-error">-13.0%</span>
+</div>
+</td>
+</tr>
+<!-- High Profit (Green) -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-4">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-white">VHL-00334</span>
+<span class="text-[10px] text-slate-500 font-medium">Man TGX</span>
+</div>
+</td>
+<td class="px-8 py-4">
+<span class="text-xs text-on-surface font-medium px-2 py-1 bg-surface-container-highest rounded">Long Haul</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-bold text-white">SAR 31,200</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-medium text-on-surface-variant">SAR 19,400</span>
+</td>
+<td class="px-8 py-4">
+<span class="text-sm font-bold text-emerald-400">SAR 11,800</span>
+</td>
+<td class="px-8 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+<span class="text-xs font-bold text-emerald-400">37.8%</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-8 py-4 bg-surface-container-low border-t border-white/5 flex justify-between items-center">
+<span class="text-xs text-on-surface-variant">Showing 4 of 12 vehicles</span>
+<div class="flex gap-1">
+<button class="p-1 hover:bg-white/5 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-3 py-1 bg-primary-container/20 text-primary text-xs font-bold rounded">1</button>
+<button class="px-3 py-1 hover:bg-white/5 text-xs font-bold rounded text-on-surface-variant">2</button>
+<button class="px-3 py-1 hover:bg-white/5 text-xs font-bold rounded text-on-surface-variant">3</button>
+<button class="p-1 hover:bg-white/5 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Maintenance vs Revenue Insight Card -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glass-panel p-6 rounded-xl relative overflow-hidden group border-l-4 border-emerald-500">
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-emerald-400" data-icon="auto_awesome">auto_awesome</span>
+<h5 class="font-bold text-white">Efficiency Insight</h5>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Asset <strong class="text-white">VHL-00128</strong> is performing <strong class="text-emerald-400">22% above</strong> your fleet average. We recommend prioritizing this vehicle for high-priority long-haul Jas trips to maximize margin.
+                        </p>
+</div>
+<div class="absolute right-0 bottom-0 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-8xl" data-icon="monitoring">monitoring</span>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl relative overflow-hidden group border-l-4 border-error">
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<h5 class="font-bold text-white">Cost Alert</h5>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Asset <strong class="text-white">VHL-00561</strong> has exceeded its maintenance budget by <strong class="text-error">15%</strong> this month. High idling times and fuel inefficiency detected via JAS Telematics.
+                        </p>
+</div>
+<div class="absolute right-0 bottom-0 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-8xl" data-icon="build">build</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Suppression: Contextual Action Only -->
+<!-- Suppressed for Analytics View as per UX Goal of Focus -->
+</body></html>

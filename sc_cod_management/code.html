@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics - SC COD Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#22005c",
+                    "on-tertiary": "#532200",
+                    "inverse-on-surface": "#302f3b",
+                    "tertiary-fixed": "#ffdbc9",
+                    "surface-container": "#1f1e2a",
+                    "surface-container-highest": "#343440",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-secondary": "#352856",
+                    "inverse-surface": "#e3e0f1",
+                    "outline-variant": "#494453",
+                    "tertiary": "#ffb68e",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#331200",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "primary": "#d0bcff",
+                    "surface-container-high": "#292935",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-tint": "#d0bcff",
+                    "on-primary": "#3b0092",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-primary-container": "#b79cff",
+                    "on-surface": "#e3e0f1",
+                    "primary-container": "#4b1fa3",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#383845",
+                    "surface-dim": "#12121d",
+                    "on-background": "#e3e0f1",
+                    "background": "#12121d",
+                    "inverse-primary": "#6a45c3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#c0b0e7",
+                    "secondary": "#cfbef6",
+                    "outline": "#948e9e",
+                    "surface-container-low": "#1b1a26",
+                    "on-surface-variant": "#cbc3d5",
+                    "tertiary-container": "#6c2e00",
+                    "on-secondary-fixed": "#201340",
+                    "surface-variant": "#343440",
+                    "surface": "#12121d",
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-container": "#f09661"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center w-full px-8 h-16 bg-[#12121d]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+<div class="text-xl font-['Plus_Jakarta_Sans'] font-bold tracking-tighter text-[#d0bcff]">JAS Logistics</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-white/60 hover:text-white/90 transition-colors" href="#">Payments</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-white/60 hover:text-white/90 transition-colors" href="#">Payouts</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-[#d0bcff] border-b-2 border-[#d0bcff] pb-2 transition-all" href="#">Reconciliation</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-white/60 hover:text-white/90 transition-colors" href="#">Settings</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-white/60 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-white/60 hover:bg-white/5 rounded-lg transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined">translate</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-primary text-xs font-bold">
+                JF
+            </div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 h-full w-64 z-40 bg-[#0F0F1A]/90 backdrop-blur-2xl flex flex-col py-20 px-4 space-y-2">
+<div class="mb-8 px-4">
+<h2 class="text-[#d0bcff] font-headline font-bold text-lg">Finance Portal</h2>
+<p class="text-white/40 text-xs">Precision Logistics</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Command Center</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-gradient-to-r from-[#4B1FA3]/30 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] font-semibold transition-all duration-300" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">SADAD Ops</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Bank Transfers</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Carrier Payouts</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Batch Processing</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Audit Logs</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-white/5 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-2 text-white/40 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Support</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 text-white/40 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 pt-24 px-8 pb-12">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex items-center space-x-2 text-xs text-on-surface-variant mb-2">
+<span>SADAD Ops</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary">COD Tracking</span>
+</nav>
+<h1 class="text-3xl font-headline font-extrabold tracking-tight text-on-surface">COD Collections</h1>
+<p class="text-on-surface-variant mt-1">Real-time driver remittance and outstanding cash tracking.</p>
+</div>
+<div class="flex space-x-3">
+<button class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-surface-container-high border border-outline-variant/20 hover:bg-surface-bright transition-colors text-sm font-medium">
+<span class="material-symbols-outlined text-sm">download</span>
+<span>Export Report</span>
+</button>
+<button class="flex items-center space-x-2 px-6 py-2 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>New Batch</span>
+</button>
+</div>
+</header>
+<!-- Bento Grid Stats & Alerts -->
+<div class="grid grid-cols-12 gap-6 mb-8">
+<!-- Amber Card: Outstanding Remittance -->
+<div class="col-span-12 lg:col-span-5 bg-tertiary-container/20 border border-tertiary/20 rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-8xl text-tertiary">account_balance_wallet</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center space-x-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-tertiary text-xs font-bold tracking-widest uppercase">Action Required</span>
+</div>
+<h3 class="text-on-tertiary-container text-sm font-medium mb-1">Outstanding to Remit</h3>
+<div class="flex items-baseline space-x-2">
+<span class="text-4xl font-headline font-extrabold text-on-tertiary-container">SAR 12,400</span>
+<span class="text-on-tertiary-container/60 text-sm">Across 42 Drivers</span>
+</div>
+<div class="mt-6 flex space-x-4">
+<button class="px-4 py-2 bg-tertiary text-on-tertiary text-xs font-bold rounded hover:opacity-90 transition-opacity">Request Settlement</button>
+<button class="px-4 py-2 text-on-tertiary-container text-xs font-semibold hover:underline">View details</button>
+</div>
+</div>
+</div>
+<!-- Next Payout Preview -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container rounded-xl p-6 border border-white/5">
+<h3 class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-4">Next Payout Preview</h3>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-white/60">Base Payout</span>
+<span class="text-on-surface font-medium">SAR 45,200.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-white/60">COD Deduction</span>
+<span class="text-error font-medium">- SAR 12,400.00</span>
+</div>
+<div class="pt-3 border-t border-white/5 flex justify-between items-center">
+<span class="text-white font-semibold">Net Payout</span>
+<div class="text-right">
+<span class="text-xl font-headline font-extrabold text-primary">SAR 32,800.00</span>
+<p class="text-[10px] text-white/40">Est. Date: Oct 24, 2023</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Mini Pulse Card -->
+<div class="col-span-12 lg:col-span-3 bg-surface-container-low rounded-xl p-6 border border-white/5 flex flex-col justify-between">
+<div>
+<h3 class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-2">Collection Health</h3>
+<div class="flex items-center space-x-3">
+<span class="text-2xl font-bold text-on-surface">94.2%</span>
+<span class="text-xs text-on-tertiary-container bg-tertiary-container/30 px-2 py-0.5 rounded">+2.1%</span>
+</div>
+</div>
+<div class="h-12 flex items-end space-x-1">
+<div class="w-full bg-primary/20 h-4 rounded-t-sm"></div>
+<div class="w-full bg-primary/30 h-6 rounded-t-sm"></div>
+<div class="w-full bg-primary/40 h-8 rounded-t-sm"></div>
+<div class="w-full bg-primary/60 h-10 rounded-t-sm"></div>
+<div class="w-full bg-primary h-7 rounded-t-sm"></div>
+<div class="w-full bg-primary/80 h-12 rounded-t-sm"></div>
+<div class="w-full bg-primary h-9 rounded-t-sm"></div>
+</div>
+</div>
+</div>
+<!-- Filters & Table -->
+<div class="bg-surface-container rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+<!-- Table Controls -->
+<div class="p-6 border-b border-white/5 flex flex-wrap gap-4 items-center justify-between">
+<div class="flex items-center space-x-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="bg-surface-container-highest/50 border-none rounded-lg pl-10 pr-4 py-2 text-sm text-on-surface placeholder:text-on-surface-variant w-64 focus:ring-1 focus:ring-primary transition-all" placeholder="Search driver or order ID..." type="text"/>
+</div>
+<div class="flex bg-surface-container-highest/30 p-1 rounded-lg">
+<button class="px-3 py-1 text-xs font-bold bg-primary text-on-primary rounded-md shadow-sm">All</button>
+<button class="px-3 py-1 text-xs font-medium text-white/60 hover:text-white transition-colors">Pending</button>
+<button class="px-3 py-1 text-xs font-medium text-white/60 hover:text-white transition-colors">Remitted</button>
+</div>
+</div>
+<div class="flex items-center space-x-3">
+<span class="text-xs text-on-surface-variant">Filter by Date:</span>
+<button class="text-sm font-medium bg-surface-container-highest px-3 py-1.5 rounded-lg border border-outline-variant/20 flex items-center space-x-2">
+<span>Last 7 Days</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest border-b border-white/5">Driver</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest border-b border-white/5">Order</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest border-b border-white/5">Client</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest border-b border-white/5">Collection Date</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest border-b border-white/5">Amount</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest border-b border-white/5">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest border-b border-white/5 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Ahmed K." class="w-full h-full object-cover" data-alt="professional headshot of a middle eastern delivery professional wearing a clean uniform with neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Bh7QXF2gSZhBDnEaba_5vY_IilKZNUzTo6AybK652L5h-xk-UUvb2k8eYHxKFDoDF6MmYA0xNm7y1_VngUZMPn88YnIe20yFGGSa9Rh00mpKKuWWbeUlNMEa1OgE0TMMxoCT__1KPuxjASB0epsItvbMksipwYo0dTS_aZCFe1Si20id9TF-IcBLP29cSmoz9JFWj9IvVXT7nphuQFc-58Eyz1TFIXz0WIA9FIXX-mjn_Utb8AnH5OaGgRWqV0JwVdqDP6XukQ"/>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Ahmed Khalil</p>
+<p class="text-[10px] text-on-surface-variant">ID: #99212</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-mono font-medium text-primary">JAS-772819</span>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-on-surface">Noon Logistics</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-on-surface">Oct 21, 2023</p>
+<p class="text-[10px] text-on-surface-variant">14:42 PM</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-bold text-on-surface">SAR 1,250.00</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-tertiary-container/30 text-on-tertiary-container border border-tertiary/20">
+<span class="w-1 h-1 bg-tertiary rounded-full mr-1.5"></span>
+                                    Pending Remit
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Yassin B." class="w-full h-full object-cover" data-alt="close up profile photo of a logistics worker with a friendly smile wearing a navy company cap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlTfjTcvVJ2KfCqT_f77GiRe4mPr2KAXPgCWKNhjSgEYH10wIShnhMqUubiHW7zs_neGrZ-N-j2Sb_I2k_PM2M1kuKJwZ7NEoWn1xBe8amrBHyk4DRpAMveG0R7Io235rf2-siPSNV74LfJsnW0cizs_-Usgjoh9R2kUPYR2gyyyL8JRHcU4fP1XDZyvjfxNTHez4tbyAVT2anlp8QkSIg7u5-IlYLRQBAV2eQq2IE17RSzRv4_lavtq7xIiDBJL6rM9WwCDCEkg"/>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Yassin Bakr</p>
+<p class="text-[10px] text-on-surface-variant">ID: #99054</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-mono font-medium text-primary">JAS-881204</span>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-on-surface">Amazon SA</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-on-surface">Oct 21, 2023</p>
+<p class="text-[10px] text-on-surface-variant">09:15 AM</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-bold text-on-surface">SAR 4,200.00</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-tertiary-container/30 text-on-tertiary-container border border-tertiary/20">
+<span class="w-1 h-1 bg-tertiary rounded-full mr-1.5"></span>
+                                    Pending Remit
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 (Success) -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Omar F." class="w-full h-full object-cover" data-alt="professional male profile avatar for a digital system user icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIeuMkJbG0BUcJdTEOFkpmY-hFQhjvSIkFvDzC1YXzD7__ow5FEYdMyyeR8uESvxGnRMLY4o6fmNY8I5Q50eFTm3LB5bCzW8MmIwZX5B5wyo8lyUs_S5u5CipAswf0idKLjXBTNOHmp4GWZM4C6xaYFpgV3sZ883xfOFDZbLnU_fiQovkmwgoMswaCnIHCIXHNpW1vZCKt4Henpq5HCNB_hXsnVcRM0zT9gAIPdYrJbsdcudVgXBfcNg8t_lStcarf5qJJlM6Qag"/>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Omar Fares</p>
+<p class="text-[10px] text-on-surface-variant">ID: #99103</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-mono font-medium text-primary">JAS-119283</span>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-on-surface">Jarir Bookstore</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-on-surface">Oct 20, 2023</p>
+<p class="text-[10px] text-on-surface-variant">18:22 PM</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-bold text-on-surface">SAR 850.00</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-green-500/10 text-green-400 border border-green-500/20">
+<span class="w-1 h-1 bg-green-400 rounded-full mr-1.5"></span>
+                                    Remitted
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Sara L." class="w-full h-full object-cover" data-alt="smiling female professional in a modern office setting, neutral lighting, professional corporate look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRt9AUYn9SPi1_INETz4As8tztBHJoVtiV1xPXw-5wxCSk1gBIDWp9tEPcuw7vgrZhLq2GE0oYuD3GE89k3PlvXbR19ocXta_Yqwf9nN1_sbCfAjUKlhOn8SDJCCJ4XvAH_B4Ql8c-CFGwbKAR9UOxOyq22anOy0Yxy5x1W40vY0lwtsW3931f29q8sMfyWfMteM0P98uOEdrwiWGrZT9pFAzUDtGR5oSbtjSHaQ_r1YgVG_Pjr71-p7TjNpssZTLKPKwV3DNgXA"/>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Sara Latif</p>
+<p class="text-[10px] text-on-surface-variant">ID: #99441</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-mono font-medium text-primary">JAS-556122</span>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-on-surface">Zid Merchant</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm text-on-surface">Oct 20, 2023</p>
+<p class="text-[10px] text-on-surface-variant">11:05 AM</p>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-bold text-on-surface">SAR 2,100.00</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-tertiary-container/30 text-on-tertiary-container border border-tertiary/20">
+<span class="w-1 h-1 bg-tertiary rounded-full mr-1.5"></span>
+                                    Pending Remit
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-6 border-t border-white/5 flex items-center justify-between">
+<span class="text-xs text-on-surface-variant font-medium">Showing 1-10 of 42 collections</span>
+<div class="flex items-center space-x-1">
+<button class="p-2 text-white/40 hover:text-white transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-xs font-bold rounded-lg bg-primary text-on-primary">1</button>
+<button class="w-8 h-8 flex items-center justify-center text-xs font-medium rounded-lg text-white/60 hover:bg-white/5">2</button>
+<button class="w-8 h-8 flex items-center justify-center text-xs font-medium rounded-lg text-white/60 hover:bg-white/5">3</button>
+<span class="text-white/40 px-2">...</span>
+<button class="w-8 h-8 flex items-center justify-center text-xs font-medium rounded-lg text-white/60 hover:bg-white/5">5</button>
+<button class="p-2 text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-[#12121d]/90 backdrop-blur-xl border-t border-white/5 flex justify-around items-center h-16 px-4 z-50">
+<button class="flex flex-col items-center space-y-1 text-white/40">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-primary">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="text-[10px]">COD</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-white/40">
+<span class="material-symbols-outlined text-xl">local_shipping</span>
+<span class="text-[10px]">Carriers</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-white/40">
+<span class="material-symbols-outlined text-xl">account_circle</span>
+<span class="text-[10px]">Profile</span>
+</button>
+</div>
+</body></html>

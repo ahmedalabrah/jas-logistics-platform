@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Sub-Carrier Active Trip Board</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e3e0f1",
+                        "inverse-surface": "#e3e0f1",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-fixed": "#331200",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container-highest": "#343440",
+                        "primary": "#d0bcff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "tertiary-container": "#6c2e00",
+                        "error": "#ffb4ab",
+                        "primary-container": "#4b1fa3",
+                        "on-surface-variant": "#cbc3d5",
+                        "surface-container": "#1f1e2a",
+                        "on-primary-container": "#b79cff",
+                        "background": "#12121d",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface": "#12121d",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-on-surface": "#302f3b",
+                        "surface-dim": "#12121d",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "tertiary": "#ffb68e",
+                        "surface-bright": "#383845",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary": "#532200",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "secondary-container": "#4f4171",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-primary": "#6a45c3",
+                        "secondary": "#cfbef6",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-secondary-fixed": "#201340",
+                        "on-secondary": "#352856",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error": "#690005",
+                        "outline-variant": "#494453"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] bg-gradient-to-b from-[#12121d] to-transparent">
+<div class="flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#d0bcff] font-headline">JAS Logistics</span>
+<nav class="hidden md:flex items-center gap-6 font-headline tracking-tight text-sm">
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Trips</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Permits</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Verify</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Fleet</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container-high rounded-full px-4 py-1.5 gap-2 group border border-outline-variant/10">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 text-on-surface placeholder:text-on-surface-variant" placeholder="Search trips..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-white/5 transition-all duration-300 rounded-full active:scale-95">notifications</button>
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-white/5 transition-all duration-300 rounded-full active:scale-95">settings</button>
+<button class="ml-2 bg-primary-container text-on-primary-container px-5 py-2 rounded-xl text-sm font-bold active:scale-95 transition-transform">New Shipment</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Sidebar Shell (Hidden on Mobile) -->
+<aside class="hidden md:flex flex-col py-6 h-screen w-64 fixed left-0 top-0 z-40 bg-[#0F0F1A]/90 backdrop-blur-2xl border-r border-white/5 shadow-2xl">
+<div class="px-6 mb-10 pt-16">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div>
+<h2 class="text-[#d0bcff] font-black tracking-widest text-xs uppercase">JAS TGA Portal</h2>
+<p class="text-on-surface-variant text-[10px]">Velvet Intelligence</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] duration-200 ease-in-out font-label font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] duration-200 ease-in-out font-label font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-xl">verified_user</span> Active Permits
+            </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] duration-200 ease-in-out font-label font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-xl">door_front</span> Gate Verification
+            </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] duration-200 ease-in-out font-label font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-xl">local_shipping</span> Driver Dispatch
+            </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] duration-200 ease-in-out font-label font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-xl">hub</span> Carrier Hub
+            </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] duration-200 ease-in-out font-label font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-xl">analytics</span> Analytics
+            </a>
+</nav>
+<div class="px-4 mt-auto">
+<div class="bg-surface-container-low rounded-2xl p-4 border border-white/5">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[10px] uppercase tracking-wider text-on-surface-variant font-bold">System Status</span>
+<div class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
+</div>
+<p class="text-[11px] text-slate-400">All TGA gateways operational. Real-time sync active.</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/5">
+<a class="flex items-center gap-3 px-6 py-2 text-slate-500 hover:text-slate-300 text-sm" href="#"><span class="material-symbols-outlined text-lg">help</span> Support</a>
+<a class="flex items-center gap-3 px-6 py-2 text-slate-500 hover:text-slate-300 text-sm" href="#"><span class="material-symbols-outlined text-lg">history</span> Logs</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-24 pb-32 px-6 lg:px-12 min-h-screen">
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface mb-2">SCP-11 Sub-Carrier</h1>
+<p class="text-on-surface-variant font-medium">Active Trip Board &amp; Permit Intelligence</p>
+</div>
+<div class="flex gap-3">
+<div class="flex bg-surface-container-low p-1 rounded-xl border border-white/5">
+<button class="px-4 py-1.5 text-xs font-bold rounded-lg bg-surface-container-high text-on-surface">Grid View</button>
+<button class="px-4 py-1.5 text-xs font-bold rounded-lg text-on-surface-variant hover:text-on-surface">List View</button>
+</div>
+<button class="bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 border border-white/5">
+<span class="material-symbols-outlined text-lg">filter_list</span> Filter
+                </button>
+</div>
+</header>
+<!-- Bento Grid Board -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Trip Card 1: Success -->
+<div class="group relative bg-surface-container-low rounded-3xl p-6 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/5 overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-on-surface-variant/30 group-hover:text-primary/50 transition-colors">more_vert</span>
+</div>
+<div class="mb-6">
+<span class="bg-emerald-500/10 text-emerald-400 text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border border-emerald-500/20 mb-4 inline-block">Active Trip</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-1">Riyadh Terminal A</h3>
+<p class="text-on-surface-variant text-sm font-medium mb-4">Driver: Ahmed Al-Fahad • Volvo FH16</p>
+<div class="flex items-center gap-2 text-sm bg-surface-container-highest/50 p-3 rounded-2xl border border-white/5">
+<span class="material-symbols-outlined text-emerald-400 text-lg">verified</span>
+<span class="font-mono text-emerald-400 font-semibold tracking-tight">JAS-TGA-2026-841293 ✅</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-xs">
+<span class="text-on-surface-variant uppercase tracking-tighter font-bold">Progress</span>
+<span class="text-on-surface font-headline font-bold">65%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-emerald-500 w-[65%] rounded-full shadow-[0_0_10px_rgba(16,185,129,0.4)]"></div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-low" data-alt="portrait of a professional driver avatar with a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlJ4xm1Num75QVtfZlAI3CULv5tZIKSklRTzhd4OP8LTsCE_ZkNDTPDjI859jHWIg2-7PvQ_uZq_CZm-LGgLVDtx8IaPmUj-FME5tQ6nwatgkcAMIk0Uz0dem4zF5URg7A97LZkch5kzb5ggO8EqqmOdD5qP2CtSwwjZqF2ENGIPEt7cl0C9_FluupTfAv8beVwtMWmgAiqP3vMIqOp_wpvVP9duQpn12mADwZYorcCGtSCRO-aWUlyOJHDrfeHcLyIeWOsm-uSg"/>
+<div class="w-8 h-8 rounded-full border-2 border-surface-container-low bg-primary-container flex items-center justify-center text-[10px] font-bold">+2</div>
+</div>
+<span class="text-xs font-bold text-primary">View Details</span>
+</div>
+</div>
+</div>
+<!-- Trip Card 2: Pending/Generating -->
+<div class="group relative bg-surface-container-low rounded-3xl p-6 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/5 overflow-hidden">
+<div class="mb-6">
+<span class="bg-amber-500/10 text-amber-400 text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border border-amber-500/20 mb-4 inline-block">Awaiting TGA</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-1">Dammam Port Central</h3>
+<p class="text-on-surface-variant text-sm font-medium mb-4">Driver: Omar Bakri • Scania R500</p>
+<div class="flex items-center gap-2 text-sm bg-amber-500/5 p-3 rounded-2xl border border-amber-500/20">
+<span class="material-symbols-outlined text-amber-400 text-lg animate-pulse">hourglass_top</span>
+<span class="font-mono text-amber-400 font-semibold tracking-tight">⏳ Generating... (0:34)</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-xs">
+<span class="text-on-surface-variant uppercase tracking-tighter font-bold">Preparation</span>
+<span class="text-on-surface font-headline font-bold">12%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-amber-500 w-[12%] rounded-full shadow-[0_0_10px_rgba(245,158,11,0.4)]"></div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">schedule</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Est. Departure: 14:00</span>
+</div>
+<button class="text-xs font-bold text-on-surface-variant opacity-50 cursor-not-allowed">Pending</button>
+</div>
+</div>
+</div>
+<!-- Trip Card 3: Failed -->
+<div class="group relative bg-surface-container-low rounded-3xl p-6 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/5 overflow-hidden">
+<div class="mb-6">
+<span class="bg-error/10 text-error text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border border-error/20 mb-4 inline-block">Action Required</span>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-1">Jeddah South Hub</h3>
+<p class="text-on-surface-variant text-sm font-medium mb-4">Driver: Khalid Salem • Mercedes Actros</p>
+<div class="flex items-center justify-between gap-2 text-sm bg-error-container/20 p-3 rounded-2xl border border-error/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-lg">error</span>
+<span class="font-mono text-error font-semibold tracking-tight">❌ Permit failed</span>
+</div>
+<a class="text-error font-bold text-xs underline decoration-2 underline-offset-4 hover:text-white transition-colors" href="#">Retry</a>
+</div>
+</div>
+<div class="p-4 bg-surface-container-highest/30 rounded-2xl border border-white/5">
+<p class="text-xs text-on-surface-variant leading-relaxed">
+<strong class="text-error">Error Code: TGA-502.</strong> API connection timeout. Please verify carrier credentials and retry permit generation.
+                    </p>
+</div>
+<div class="flex justify-between items-center pt-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-sm">report</span>
+<span class="text-[10px] font-bold text-error uppercase">Gate Entry Denied</span>
+</div>
+<button class="bg-white/5 hover:bg-white/10 text-on-surface px-4 py-1.5 rounded-lg text-xs font-bold transition-colors">Incident Log</button>
+</div>
+</div>
+<!-- Stats Card (Bento Variety) -->
+<div class="lg:col-span-2 bg-gradient-to-br from-primary-container/30 to-surface-container-low rounded-3xl p-8 border border-primary/10 relative overflow-hidden">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-[100px]"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<p class="text-on-primary-container text-xs font-black uppercase tracking-[0.2em] mb-4">Monthly Throughput</p>
+<div class="flex items-baseline gap-2">
+<span class="text-5xl font-headline font-black text-on-surface tracking-tighter">1,284</span>
+<span class="text-emerald-400 font-bold text-sm">+14%</span>
+</div>
+<p class="text-on-surface-variant text-sm mt-2">Verified TGA Permits issued</p>
+</div>
+<div class="md:border-l border-white/10 md:pl-8">
+<p class="text-on-primary-container text-xs font-black uppercase tracking-[0.2em] mb-4">Avg. Issue Time</p>
+<div class="flex items-baseline gap-2">
+<span class="text-5xl font-headline font-black text-on-surface tracking-tighter">1.4</span>
+<span class="text-on-surface-variant font-bold text-sm">min</span>
+</div>
+<p class="text-on-surface-variant text-sm mt-2">Per trip generation speed</p>
+</div>
+<div class="md:border-l border-white/10 md:pl-8">
+<p class="text-on-primary-container text-xs font-black uppercase tracking-[0.2em] mb-4">Compliance Score</p>
+<div class="flex items-baseline gap-2">
+<span class="text-5xl font-headline font-black text-on-surface tracking-tighter">99.8</span>
+<span class="text-primary font-bold text-sm">%</span>
+</div>
+<p class="text-on-surface-variant text-sm mt-2">Zero regulatory overrides</p>
+</div>
+</div>
+</div>
+<!-- Map Placeholder Card (Bento Variety) -->
+<div class="bg-surface-container-high rounded-3xl overflow-hidden relative border border-white/5 min-h-[240px]">
+<div class="absolute inset-0 grayscale opacity-40 mix-blend-luminosity bg-cover bg-center" data-alt="a dark technical topographical map of a desert city infrastructure with highlighted transit routes and glowing logistics nodes" data-location="Riyadh" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAI6xyvvirfvZ6E5UOr8rXmyQTqN5f-cbFWaqCLDg-2NT1x5Ca66HIBr3zSJ6V4fqEGG5mbIlepBWxp4N_IRXXG-EgAOeGfpHdTCoCSQ1yeg-SfrFQgkl39euUwByGnVgG1wX2XAfjCQtdPFPoxuhg0ij_86d-1mQzgQ6f74bVkB9Zvqv9LsYnjxi9hdojKLwreNpgT2HRuUzVBuKPl1jXe5VhlWghGtImczVCs2bJL21rIHivdJE_OMK_P0F5bYg332P8sUblPAg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest via-transparent to-transparent"></div>
+<div class="relative p-6 h-full flex flex-col justify-between">
+<div class="flex justify-between">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/10">Real-time Radar</span>
+<div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">fullscreen</span>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-headline font-bold text-on-surface">Regional Traffic</h4>
+<p class="text-on-surface-variant text-xs">KSA Central Province</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-20 bg-[#12121d]/95 backdrop-blur-lg flex justify-around items-center px-6 pb-safe border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] z-50 rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-slate-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-headline text-[10px] uppercase font-bold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#4b1fa3] text-white rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-headline text-[10px] uppercase font-bold mt-1">My Permits</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500" href="#">
+<span class="material-symbols-outlined">cloud_off</span>
+<span class="font-headline text-[10px] uppercase font-bold mt-1">Offline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-headline text-[10px] uppercase font-bold mt-1">Profile</span>
+</a>
+</nav>
+<!-- Contextual FAB (Hidden on most screens, active for trips) -->
+<button class="fixed bottom-24 right-8 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-[0_8px_32px_rgba(75,31,163,0.4)] flex items-center justify-center transition-transform active:scale-95 z-40">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

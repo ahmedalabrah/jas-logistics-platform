@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding Complete | JAS Carrier Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e9ddff",
+                        "background": "#12121d",
+                        "surface-tint": "#d0bcff",
+                        "surface-bright": "#383845",
+                        "on-primary-container": "#b79cff",
+                        "inverse-on-surface": "#302f3b",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "primary-fixed": "#e9ddff",
+                        "on-error": "#690005",
+                        "surface-container": "#1f1e2a",
+                        "surface": "#12121d",
+                        "surface-container-highest": "#343440",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-surface": "#e3e0f1",
+                        "primary": "#d0bcff",
+                        "surface-container-lowest": "#0d0d18",
+                        "on-background": "#e3e0f1",
+                        "secondary-container": "#4f4171",
+                        "on-secondary-fixed": "#201340",
+                        "surface-dim": "#12121d",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "on-tertiary-container": "#f09661",
+                        "tertiary-fixed": "#ffdbc9",
+                        "primary-fixed-dim": "#d0bcff",
+                        "secondary": "#cfbef6",
+                        "on-primary-fixed": "#22005c",
+                        "on-secondary-container": "#c0b0e7",
+                        "primary-container": "#4b1fa3",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#6c2e00",
+                        "outline": "#948e9e",
+                        "on-secondary": "#352856",
+                        "surface-variant": "#343440",
+                        "on-primary": "#3b0092",
+                        "surface-container-high": "#292935",
+                        "surface-container-low": "#1b1a26",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-tertiary-fixed": "#331200",
+                        "on-tertiary": "#532200",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#494453",
+                        "inverse-surface": "#e3e0f1",
+                        "inverse-primary": "#6a45c3",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "tertiary": "#ffb68e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .confetti-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d0bcff' fill-opacity='0.1'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Crect x='50' y='20' width='4' height='4' transform='rotate(45 52 22)'/%3E%3Ccircle cx='80' cy='50' r='1.5'/%3E%3Crect x='20' y='70' width='3' height='3'/%3E%3Ccircle cx='60' cy='85' r='2'/%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Bar - Contextually Suppressed labels but keeping Brand Anchor for identity -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20">
+<div class="flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tighter text-white uppercase font-headline">JAS Carrier Portal</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="font-headline font-medium text-sm tracking-wide text-slate-400">Support</span>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">help</span>
+</div>
+</div>
+</div>
+</header>
+<main class="relative min-h-screen flex items-center justify-center overflow-hidden">
+<!-- Aesthetic Background Elements -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="absolute top-0 left-0 w-full h-full confetti-overlay"></div>
+</div>
+<!-- Success Content Canvas -->
+<div class="relative z-10 w-full max-w-2xl px-6 py-12 text-center">
+<!-- Icon/Badge Section -->
+<div class="mb-8 inline-flex items-center justify-center p-4 rounded-full bg-primary-container/20 ring-1 ring-primary/20">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<!-- Header -->
+<h1 class="font-headline font-extrabold text-4xl md:text-5xl tracking-tight mb-4 text-white">
+                Welcome to JAS Network, <span class="text-primary">Al-Fares Logistics</span>! 🎉
+            </h1>
+<p class="text-on-surface-variant text-lg mb-10 max-w-lg mx-auto">
+                Your partnership journey begins here. We've received your credentials and our team is finalizing your access.
+            </p>
+<!-- ID and Status Bento Card -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-white/5 shadow-2xl mb-10 backdrop-blur-md relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-[#e9ddff] text-[#201340] text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">
+                        Silver Tier Partner
+                    </span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-xs font-label uppercase tracking-widest text-slate-500">Partner Identification Code</span>
+<div class="font-mono text-3xl md:text-4xl text-white tracking-widest py-2 px-6 bg-surface-container-lowest rounded-lg border border-outline-variant/20">
+                        JAS-SC-2026-9921
+                    </div>
+</div>
+<div class="mt-8 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-center gap-6">
+<div class="flex items-center gap-3">
+<div class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</div>
+<span class="text-sm font-medium text-on-surface">Account Review in Progress</span>
+</div>
+<div class="hidden md:block w-px h-4 bg-white/10"></div>
+<div class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>Activation within 24 hours</span>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-headline font-bold rounded-lg shadow-[0_8px_32px_rgba(208,188,255,0.2)] hover:shadow-[0_8px_32px_rgba(208,188,255,0.4)] active:scale-95 transition-all flex items-center justify-center gap-2">
+                    Go to SC Dashboard
+                    <span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+<button class="w-full sm:w-auto px-8 py-4 bg-white/5 text-on-surface font-headline font-semibold rounded-lg border border-white/10 hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                    View Onboarding Specs
+                </button>
+</div>
+<div class="mt-12">
+<p class="text-xs text-slate-500 font-label tracking-wide uppercase">
+                    Need urgent activation? <a class="text-primary hover:underline underline-offset-4" href="#">Contact Relations Team</a>
+</p>
+</div>
+</div>
+<!-- Decorative Foreground Graphics -->
+<div class="absolute bottom-12 left-12 hidden lg:block opacity-20">
+<img class="h-32 w-auto grayscale contrast-125" data-alt="abstract 3D logistics icons floating in dark space with deep violet lighting and sleek technological aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOZrdnRMbv57ZWyczDoHkC9rCJC_2LrrevfrR8xurE64C9szo6Mz2C-DurVEG7PKprJ5rc8q1vN4nrR0IxV-BWHWyyoEF_llgLsxcybngWBe9EDHaiqyY2M16LzybvHF2qBWS9yyvr1YI1fZp6DZTyvS5tk73qwikJH4RYb7MpL3odlca2y2TD5um6_UrazKD_tm8S8uDH2inY55HiIQycTtuERuDukM45fvOacqsNYHjrUWDZB-EKdAegJhES7R9IKboV29xXAA"/>
+</div>
+<div class="absolute top-24 right-12 hidden lg:block opacity-20 rotate-12">
+<img class="h-40 w-auto grayscale contrast-125" data-alt="minimalist delivery truck top view schematic blueprint with glowing lines on a deep dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlgrA1tpMyo7aJ6rYFfRJluch7v2q9qWheRb08YKfV7YRNYtIRq8KrilEWPmrpszueyYFqg43ZLz5afcQO2mk8brZp2HCR5vzybpAHljgkBBwovzr6NPXJL6rJgeqsp_lHmqFhpWCenynAwg6PASOzdz8ZDTZLfi3qgdUpECFkCwxOlaiof2ywqilgabNHDE_lH8WaB8cuRH9e7bI0-2tBwRrwc13DJu9xLI8dMdWPvXZQI6mu0-z3Sc5RPxWZU4liTaXl4DaSlA"/>
+</div>
+</main>
+<!-- Footer - Shell Visibility Hierarchy applied -->
+<footer class="w-full py-8 border-t border-white/5 bg-[#0F0F1A]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-screen-2xl mx-auto gap-4">
+<div class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500">
+                © 2024 JAS Logistics Saudi Arabia. All Rights Reserved. TGA Licensed.
+            </div>
+<div class="flex gap-6">
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Terms of Service</a>
+<a class="font-['Plus_Jakarta_Sans'] text-xs text-slate-500 hover:text-[#d0bcff] transition-colors" href="#">Compliance Standards</a>
+</div>
+</div>
+</footer>
+</body></html>

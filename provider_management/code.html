@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #12121d;
+        }
+        h1, h2, h3, .headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e9ddff",
+                        "secondary-container": "#4f4171",
+                        "on-secondary-fixed": "#201340",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary": "#3b0092",
+                        "on-primary-container": "#b79cff",
+                        "primary-container": "#4b1fa3",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#f09661",
+                        "tertiary-container": "#6c2e00",
+                        "secondary": "#cfbef6",
+                        "on-secondary": "#352856",
+                        "tertiary": "#ffb68e",
+                        "surface-container-highest": "#343440",
+                        "outline-variant": "#494453",
+                        "on-tertiary-fixed": "#331200",
+                        "inverse-on-surface": "#302f3b",
+                        "surface-container-high": "#292935",
+                        "outline": "#948e9e",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-surface": "#e3e0f1",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary": "#532200",
+                        "error": "#ffb4ab",
+                        "surface": "#12121d",
+                        "surface-variant": "#343440",
+                        "surface-tint": "#d0bcff",
+                        "surface-dim": "#12121d",
+                        "inverse-primary": "#6a45c3",
+                        "brand-magenta": "#7C1A5E"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="text-on-surface">
+<!-- SideNavBar -->
+<aside class="flex flex-col fixed left-0 top-0 h-full z-40 bg-[#0F0F1A] backdrop-blur-xl bg-opacity-80 h-screen w-64 border-r border-white/10 shadow-2xl shadow-[#000000]/50">
+<div class="p-6">
+<span class="text-2xl font-bold tracking-tighter bg-gradient-to-r from-[#d0bcff] to-[#4B1FA3] bg-clip-text text-transparent">FreMS</span>
+<p class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight text-slate-400">Logistics Intelligence</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-white/10 duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-white/10 duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined">contract</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Agreements</span>
+</a>
+<div class="text-[#d0bcff] bg-white/5 border-r-2 border-[#d0bcff] font-semibold flex items-center gap-3 px-4 py-3 rounded-lg">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Network</span>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-white/10 duration-300 rounded-lg group" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Account</span>
+</a>
+</nav>
+<div class="p-4 border-t border-white/5 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-400 hover:text-white transition-colors hover:bg-white/10 duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Notifications</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-400 hover:text-white transition-colors hover:bg-white/10 duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-[calc(100%-16rem)] px-8 sticky top-0 z-50 ml-64 bg-[#0F0F1A]/90 backdrop-blur-lg h-16 border-b border-white/5">
+<div class="flex items-center gap-8">
+<span class="font-black text-white tracking-widest uppercase text-sm">JAS Logistics FreMS</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-400 hover:text-[#d0bcff] font-['Plus_Jakarta_Sans'] text-sm font-semibold transition-all" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-[#d0bcff] font-['Plus_Jakarta_Sans'] text-sm font-semibold transition-all" href="#">Map</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-5 font-['Plus_Jakarta_Sans'] text-sm font-semibold" href="#">Shipments</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="bg-surface-container border-none rounded-full py-1.5 pl-10 pr-4 text-sm focus:ring-1 focus:ring-[#d0bcff] w-64 text-on-surface" placeholder="Search providers..." type="text"/>
+</div>
+<button class="p-2 text-slate-400 hover:text-white transition-all"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 text-slate-400 hover:text-white transition-all"><span class="material-symbols-outlined">apps</span></button>
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-white/10" data-alt="Professional portrait of a male logistics manager with a confident smile in a corporate studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh3xjR59aLkDxVJnwJWi-kAXzbfHpyH3oQKjgYTVemEzTyjzQYwiB0zZci7tQJF5v7DC27CK9VmKX9GCijO3FdSNPADCOZLo3VLJKQIaEjsqY_7dzwq4jeIM3ct2nnCe07QvvyQAaRaEDJc2HCphd8luqGOfWH9TH03-_qvpamNwLUV8rrM3eQuHAKBhngMrr0Im8dv8AC70rMBJqlWs3vHzUgz3JKgHjOtYrrHP4Fopa63gDgPrFxHuPXYx0a6n7G7HCeI1KPJA"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 p-8 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-white mb-2">Provider Management</h1>
+<p class="text-on-surface-variant max-w-2xl">Streamline your global logistics network. Manage registered road carriers, sea lines, air cargo providers, and customs brokers through our velvet intelligence platform.</p>
+</div>
+<button class="bg-gradient-to-r from-brand-magenta to-primary-container text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 shadow-lg hover:shadow-brand-magenta/20 transition-all active:scale-95">
+<span class="material-symbols-outlined">add</span>
+<span>Add Provider</span>
+</button>
+</div>
+<!-- Dashboard Overview Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-brand-magenta">
+<div class="flex justify-between items-start mb-4">
+<span class="text-on-surface-variant font-medium text-xs uppercase tracking-wider">Total Partners</span>
+<span class="material-symbols-outlined text-brand-magenta">group</span>
+</div>
+<div class="text-3xl font-bold">1,248</div>
+<div class="text-xs text-emerald-400 mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+12% this quarter</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<span class="text-on-surface-variant font-medium text-xs uppercase tracking-wider">On-Time Performance</span>
+<span class="material-symbols-outlined text-primary">timer</span>
+</div>
+<div class="text-3xl font-bold">94.2%</div>
+<div class="text-xs text-slate-400 mt-2">Weighted network average</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<span class="text-on-surface-variant font-medium text-xs uppercase tracking-wider">Expiring Contracts</span>
+<span class="material-symbols-outlined text-tertiary">warning</span>
+</div>
+<div class="text-3xl font-bold text-tertiary">14</div>
+<div class="text-xs text-on-surface-variant mt-2">Renewal required in 30 days</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<span class="text-on-surface-variant font-medium text-xs uppercase tracking-wider">Network Coverage</span>
+<span class="material-symbols-outlined text-secondary">public</span>
+</div>
+<div class="text-3xl font-bold">84%</div>
+<div class="text-xs text-on-surface-variant mt-2">Active trade lane utilization</div>
+</div>
+</div>
+<!-- Tab Navigation -->
+<div class="mb-6 flex gap-8 border-b border-white/5 overflow-x-auto no-scrollbar">
+<button class="pb-4 text-brand-magenta border-b-2 border-brand-magenta font-bold whitespace-nowrap px-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span> Road Carriers
+                </button>
+<button class="pb-4 text-slate-400 hover:text-white transition-colors font-medium whitespace-nowrap px-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">directions_boat</span> Sea Lines
+                </button>
+<button class="pb-4 text-slate-400 hover:text-white transition-colors font-medium whitespace-nowrap px-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">flight_takeoff</span> Air Cargo
+                </button>
+<button class="pb-4 text-slate-400 hover:text-white transition-colors font-medium whitespace-nowrap px-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">assignment_turned_in</span> Customs Brokers
+                </button>
+</div>
+<!-- Filters & Search -->
+<div class="flex flex-col md:flex-row gap-4 mb-6">
+<div class="flex-1 relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400">search</span>
+<input class="w-full bg-surface-container border-none py-3 pl-12 pr-4 rounded-lg focus:ring-2 focus:ring-brand-magenta transition-all text-on-surface" placeholder="Search by provider name, hub, or service routes..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="bg-surface-container-high px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span>Performance</span>
+</button>
+<button class="bg-surface-container-high px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-sm">event</span>
+<span>Expiry Date</span>
+</button>
+<button class="bg-surface-container-high px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Provider Table -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-xl border border-white/5">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50 border-b border-white/5 text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+<th class="px-6 py-4">Provider</th>
+<th class="px-6 py-4">Performance</th>
+<th class="px-6 py-4">Avg Cost/kg</th>
+<th class="px-6 py-4">Rating</th>
+<th class="px-6 py-4">Last Used</th>
+<th class="px-6 py-4">Contract Expiry</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-brand-magenta/20 flex items-center justify-center text-brand-magenta font-bold">SF</div>
+<div>
+<div class="font-bold text-white">SwiftFlow Logistics</div>
+<div class="text-xs text-on-surface-variant">GCC Cross-border Trucking</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col gap-1">
+<span class="text-sm font-semibold text-emerald-400">98.4%</span>
+<div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="w-[98%] h-full bg-emerald-400"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-medium">$1.12</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface-variant">2 hours ago</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Active · Mar 2025</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-slate-400 hover:text-brand-magenta transition-colors"><span class="material-symbols-outlined">visibility</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-primary-container/20 flex items-center justify-center text-primary font-bold">NK</div>
+<div>
+<div class="font-bold text-white">Najdi Kool Transport</div>
+<div class="text-xs text-on-surface-variant">Cold Chain Specialty</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col gap-1">
+<span class="text-sm font-semibold text-emerald-400">92.1%</span>
+<div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="w-[92%] h-full bg-emerald-400"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-medium">$2.45</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0.5;">star_half</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface-variant">Oct 12, 2023</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase bg-tertiary-container/20 text-tertiary border border-tertiary/20">Warning · Nov 2023</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-slate-400 hover:text-brand-magenta transition-colors"><span class="material-symbols-outlined">visibility</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-secondary-container/20 flex items-center justify-center text-secondary font-bold">AL</div>
+<div>
+<div class="font-bold text-white">Al-Hasa Express</div>
+<div class="text-xs text-on-surface-variant">Last-mile Delivery</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col gap-1">
+<span class="text-sm font-semibold text-amber-400">84.5%</span>
+<div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="w-[84%] h-full bg-amber-400"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-medium">$0.85</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface-variant">Yesterday</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Active · Jan 2026</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-slate-400 hover:text-brand-magenta transition-colors"><span class="material-symbols-outlined">visibility</span></button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-error-container/20 flex items-center justify-center text-error font-bold">DT</div>
+<div>
+<div class="font-bold text-white">Desert Truckers</div>
+<div class="text-xs text-on-surface-variant">Heavy Haulage</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col gap-1">
+<span class="text-sm font-semibold text-error">62.0%</span>
+<div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="w-[62%] h-full bg-error"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-medium">$3.10</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-sm text-on-surface-variant">Jun 14, 2023</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase bg-error-container/20 text-error border border-error/20">Expired · Aug 2023</span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-slate-400 hover:text-brand-magenta transition-colors"><span class="material-symbols-outlined">visibility</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 border-t border-white/5 flex justify-between items-center text-xs text-on-surface-variant">
+<div>Showing 1-10 of 1,248 providers</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center hover:bg-surface-bright transition-all"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="w-8 h-8 rounded bg-brand-magenta flex items-center justify-center text-white">1</button>
+<button class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center hover:bg-surface-bright transition-all">2</button>
+<button class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center hover:bg-surface-bright transition-all">3</button>
+<button class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center hover:bg-surface-bright transition-all"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Panel: Provider Details (Overlay) -->
+<div class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm pointer-events-auto">
+<div class="absolute right-0 top-0 h-full w-[600px] bg-surface-container shadow-2xl border-l border-white/10 flex flex-col translate-x-0 transition-transform">
+<div class="p-6 border-b border-white/5 flex justify-between items-center bg-surface-container-high/30">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-brand-magenta flex items-center justify-center text-white text-xl font-bold">SF</div>
+<div>
+<h2 class="text-xl font-bold text-white">SwiftFlow Logistics</h2>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Certified Provider · ID #782910</span>
+</div>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full hover:bg-white/10 flex items-center justify-center transition-all"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-8 no-scrollbar">
+<!-- Status & KPI Summary -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-lg border border-white/5">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">On-Time Performance</span>
+<div class="text-2xl font-bold text-emerald-400 mt-1">98.4%</div>
+<p class="text-[10px] text-slate-500 mt-1">+2.4% from last year</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg border border-white/5">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">Volume Managed</span>
+<div class="text-2xl font-bold text-white mt-1">12,450 kg</div>
+<p class="text-[10px] text-slate-500 mt-1">Last 30 days</p>
+</div>
+</div>
+<!-- Service Routes -->
+<section>
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-bold text-sm tracking-widest uppercase">Service Routes</h3>
+<button class="text-brand-magenta text-xs font-bold hover:underline">Edit Routes</button>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-surface-container-highest/30 rounded-lg">
+<div class="flex items-center gap-4">
+<div class="text-center">
+<div class="text-xs font-bold text-white">RUH</div>
+<div class="text-[10px] text-on-surface-variant">Riyadh</div>
+</div>
+<span class="material-symbols-outlined text-slate-600">trending_flat</span>
+<div class="text-center">
+<div class="text-xs font-bold text-white">DXB</div>
+<div class="text-[10px] text-on-surface-variant">Dubai</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-bold">24h Express</div>
+<div class="text-[10px] text-emerald-400">Daily Service</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-highest/30 rounded-lg">
+<div class="flex items-center gap-4">
+<div class="text-center">
+<div class="text-xs font-bold text-white">JED</div>
+<div class="text-[10px] text-on-surface-variant">Jeddah</div>
+</div>
+<span class="material-symbols-outlined text-slate-600">trending_flat</span>
+<div class="text-center">
+<div class="text-xs font-bold text-white">DMM</div>
+<div class="text-[10px] text-on-surface-variant">Dammam</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-bold">Linehaul</div>
+<div class="text-[10px] text-secondary">Bi-weekly</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Rate Schedule -->
+<section>
+<h3 class="font-bold text-sm tracking-widest uppercase mb-4">Rate Schedule (USD)</h3>
+<div class="bg-surface-container-low rounded-lg overflow-hidden border border-white/5">
+<table class="w-full text-xs">
+<thead class="bg-white/5 text-on-surface-variant font-bold">
+<tr>
+<th class="px-4 py-2">Weight Slab</th>
+<th class="px-4 py-2">Express</th>
+<th class="px-4 py-2">Standard</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr>
+<td class="px-4 py-3">0 - 100 kg</td>
+<td class="px-4 py-3 text-white font-medium">$2.40/kg</td>
+<td class="px-4 py-3 text-white font-medium">$1.80/kg</td>
+</tr>
+<tr>
+<td class="px-4 py-3">101 - 500 kg</td>
+<td class="px-4 py-3 text-white font-medium">$1.90/kg</td>
+<td class="px-4 py-3 text-white font-medium">$1.40/kg</td>
+</tr>
+<tr>
+<td class="px-4 py-3">500+ kg</td>
+<td class="px-4 py-3 text-white font-medium">$1.50/kg</td>
+<td class="px-4 py-3 text-white font-medium">$1.12/kg</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Documents -->
+<section>
+<h3 class="font-bold text-sm tracking-widest uppercase mb-4">Contractual Documents</h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-all text-left group">
+<span class="material-symbols-outlined text-brand-magenta">picture_as_pdf</span>
+<div>
+<div class="text-xs font-bold text-white group-hover:text-brand-magenta transition-colors">MSA_2024.pdf</div>
+<div class="text-[10px] text-on-surface-variant">Signed Jan 12, 2024</div>
+</div>
+</button>
+<button class="flex items-center gap-3 p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-all text-left group">
+<span class="material-symbols-outlined text-brand-magenta">description</span>
+<div>
+<div class="text-xs font-bold text-white group-hover:text-brand-magenta transition-colors">Compliance_Check.doc</div>
+<div class="text-[10px] text-on-surface-variant">Validated Sep 2023</div>
+</div>
+</button>
+</div>
+</section>
+</div>
+<div class="p-6 border-t border-white/5 flex gap-3">
+<button class="flex-1 py-3 rounded-lg border border-brand-magenta text-brand-magenta font-bold hover:bg-brand-magenta/5 transition-all">Download Full Report</button>
+<button class="flex-1 py-3 rounded-lg bg-brand-magenta text-white font-bold hover:opacity-90 transition-all">Renew Contract</button>
+</div>
+</div>
+</div>
+<!-- Add Provider Floating Action Button (Alternative State for Form) -->
+<!-- (Suppressed on detail view as per mandate, but included here for logic completeness) -->
+<div class="fixed bottom-8 right-8 z-50">
+<div class="relative group">
+<button class="w-14 h-14 bg-brand-magenta text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">person_add</span>
+</button>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vehicle Onboarding Wizard - Review &amp; Activate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#201340",
+                        "tertiary": "#ffb68e",
+                        "primary-container": "#4b1fa3",
+                        "on-primary": "#3b0092",
+                        "on-error": "#690005",
+                        "background": "#12121d",
+                        "tertiary-fixed": "#ffdbc9",
+                        "surface-container-low": "#1b1a26",
+                        "surface-variant": "#343440",
+                        "surface-container": "#1f1e2a",
+                        "outline": "#948e9e",
+                        "on-tertiary": "#532200",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "secondary-container": "#4f4171",
+                        "surface-container-lowest": "#0d0d18",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-container": "#c0b0e7",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#343440",
+                        "outline-variant": "#494453",
+                        "on-surface": "#e3e0f1",
+                        "on-background": "#e3e0f1",
+                        "surface-bright": "#383845",
+                        "primary-fixed": "#e9ddff",
+                        "secondary": "#cfbef6",
+                        "inverse-on-surface": "#302f3b",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "tertiary-container": "#6c2e00",
+                        "surface-tint": "#d0bcff",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary-fixed": "#22005c",
+                        "surface": "#12121d",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary": "#352856",
+                        "primary": "#d0bcff",
+                        "on-primary-container": "#b79cff",
+                        "surface-dim": "#12121d",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "surface-container-high": "#292935",
+                        "inverse-primary": "#6a45c3",
+                        "on-tertiary-fixed": "#331200",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-surface": "#e3e0f1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.7);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[24px_0_48px_rgba(0,0,0,0.4)] flex flex-col py-8 px-6 z-50">
+<div class="mb-10">
+<h1 class="text-xl font-black tracking-tight text-[#d0bcff] font-headline">JAS Logistics</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mt-1">Fleet Management</p>
+</div>
+<nav class="flex-1 space-y-2">
+<div class="flex items-center gap-3 p-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 group cursor-pointer">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="local_shipping">local_shipping</span>
+<span class="text-sm">Vehicle Basics</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 group cursor-pointer">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="pin">pin</span>
+<span class="text-sm">Plate &amp; Registration</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 group cursor-pointer">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="verified_user">verified_user</span>
+<span class="text-sm">TGA Compliance</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg text-slate-400 font-medium hover:text-slate-200 hover:bg-[#d0bcff]/10 transition-all duration-300 group cursor-pointer">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="person_add">person_add</span>
+<span class="text-sm">Driver Assignment</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg text-[#d0bcff] font-bold border-r-2 border-[#d0bcff] bg-[#d0bcff]/5 transition-all duration-300 cursor-default">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="text-sm">Review</span>
+</div>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/20">
+<button class="w-full text-left p-3 text-sm text-error font-semibold hover:bg-error/5 rounded-lg transition-colors">
+                Cancel Onboarding
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="flex justify-between items-center h-16 px-8 ml-64 bg-[#0F0F1A] sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-bold text-white font-headline">Vehicle Onboarding Wizard</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-[10px] font-bold text-primary border border-primary/20 tracking-widest uppercase">FMS-11</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors" data-icon="language">language</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors" data-icon="help_outline">help_outline</span>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/30">
+<img alt="Manager profile" class="w-full h-full object-cover" data-alt="professional portrait of a fleet manager in a modern office setting with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaR54HcuZbBRNAeB4vgbsp_TnVcIlZSMfrElvcWaTS93-a9fCOlsCIksBuMgO6l6sO183K8EmE0W2WpuLZwPW7zpcjVfoSYaiaRy7tv4pEY1ClMzHex14DqYd2VSrYgLL2xd-_DSHdbFHN-S2G2-fpeXs9xjPFdP5Mxa1eII6VbJ5-Em5x-x4eZ9zzs0pJtTgpSC76B_HJ5tT6DDmuun71j2oY4AeCArZiGHhLncwR5VG0FDzmlgqXyjVGEuIQl_eVBWzwH1yUsA"/>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 bg-[#1F1F2E] h-[1px] w-full"></div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 p-12 pb-32">
+<div class="max-w-6xl mx-auto">
+<header class="mb-12">
+<h3 class="text-4xl font-bold font-headline mb-2 text-white">Review &amp; Activate</h3>
+<p class="text-on-surface-variant max-w-2xl">Final validation of the vehicle profile for JAS-7729-KSA. Ensure all telemetry and compliance data is accurate before fleet integration.</p>
+</header>
+<!-- Bento Grid Summary -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Vehicle Info Card -->
+<div class="col-span-8 bg-surface-container-low p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-16 -mt-16 transition-all group-hover:scale-150 duration-500"></div>
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] font-black uppercase tracking-widest text-primary mb-1 block">Step 01</span>
+<h4 class="text-xl font-bold text-white">Vehicle Identity</h4>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary/10 p-2 rounded-lg" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<div>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Make &amp; Model</p>
+<p class="text-on-surface font-semibold">Mercedes-Benz Actros 2024</p>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Chassis Number</p>
+<p class="text-on-surface font-semibold">WDB9634031L23XXXX</p>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter mb-1">Fuel Type</p>
+<p class="text-on-surface font-semibold">Diesel / Euro VI</p>
+</div>
+</div>
+</div>
+<!-- Compliance Status -->
+<div class="col-span-4 bg-surface-container-high p-8 rounded-xl border border-white/5">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-lg font-bold text-white">Compliance Docs</h4>
+<span class="bg-tertiary-container/30 text-tertiary px-2 py-1 rounded text-[10px] font-bold">4/4 VERIFIED</span>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-400 text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface-variant">Vehicle Registration (Istimara)</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-400 text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface-variant">Annual Inspection (MVPI)</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-400 text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface-variant">Environmental Permit</span>
+</li>
+</ul>
+</div>
+<!-- TGA Card -->
+<div class="col-span-4 glass-panel p-8 rounded-xl border border-primary/20 relative">
+<div class="absolute -top-3 -left-3 bg-primary text-on-primary-container px-3 py-1 rounded-full text-[10px] font-black uppercase shadow-lg shadow-primary/20">Active Authority</div>
+<div class="mb-4">
+<p class="text-xs text-on-surface-variant mb-1">TGA Transport Card</p>
+<p class="text-xl font-bold font-headline text-white">#992-811-002</p>
+</div>
+<div class="flex items-end justify-between mt-8">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Expiry Date</p>
+<p class="text-sm font-semibold text-tertiary">Oct 2026</p>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl opacity-40" data-icon="account_balance">account_balance</span>
+</div>
+</div>
+<!-- IoT Status -->
+<div class="col-span-4 bg-surface-container-low p-8 rounded-xl">
+<div class="flex items-center justify-between mb-6">
+<h4 class="text-lg font-bold text-white">IoT &amp; Telemetry</h4>
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-xs text-on-surface-variant">GPS Signal</span>
+<span class="text-xs font-bold text-green-400">EXCELLENT</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-xs text-on-surface-variant">CAN-Bus Link</span>
+<span class="text-xs font-bold text-green-400">CONNECTED</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-xs text-on-surface-variant">ELD Integration</span>
+<span class="text-xs font-bold text-green-400">ACTIVE</span>
+</div>
+</div>
+</div>
+<!-- Insurance Summary -->
+<div class="col-span-4 bg-surface-container-high p-8 rounded-xl border-l-4 border-primary">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="security">security</span>
+<span class="text-[10px] font-bold text-on-surface-variant">PREMIUM POLICY</span>
+</div>
+<h4 class="text-white font-bold mb-2">Tawuniya Comprehensive</h4>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">Coverage up to SAR 500,000 including cross-border transit insurance for GCC regions.</p>
+<div class="p-3 rounded bg-surface-container-lowest flex items-center justify-between">
+<span class="text-xs text-on-surface-variant">Policy Active</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<!-- Plate Preview -->
+<div class="col-span-12 bg-[#0d0d18] p-10 rounded-2xl flex items-center justify-center border border-white/5 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="bg-[#F2F2F2] px-10 py-6 rounded-md shadow-2xl flex flex-col items-center justify-center border-[3px] border-black/80 scale-110">
+<div class="flex gap-8 items-center border-b-[2px] border-black/80 pb-1 mb-1 w-full justify-between">
+<span class="text-3xl font-black text-black">٧ ٧ ٢ ٩</span>
+<span class="text-3xl font-black text-black">7 7 2 9</span>
+</div>
+<div class="flex gap-8 items-center w-full justify-between pt-1">
+<span class="text-3xl font-black text-black">أ ح ب</span>
+<span class="text-3xl font-black text-black">A H B</span>
+</div>
+<div class="absolute top-1/2 left-0 -translate-y-1/2 w-4 h-8 bg-blue-700/10 border-r border-black/20 flex flex-col items-center justify-center text-[6px] font-bold text-blue-900 uppercase tracking-tighter">
+<span>K</span><span>S</span><span>A</span>
+</div>
+</div>
+<p class="mt-8 text-xs font-bold text-on-surface-variant uppercase tracking-[0.4em]">Official Registered Plate</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-16rem)] h-24 bg-[#12121d]/90 backdrop-blur-md flex justify-between items-center px-12 border-t border-white/10 z-50">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<p class="text-sm font-bold uppercase tracking-wider Inter text-slate-300">System Ready for Activation</p>
+</div>
+<div class="flex gap-4">
+<button class="text-slate-300 border border-white/20 px-8 py-3 rounded text-sm font-bold uppercase tracking-wider Inter hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.2)] transition-all active:scale-95 duration-150">
+                Back
+            </button>
+<button class="text-slate-300 border border-white/20 px-8 py-3 rounded text-sm font-bold uppercase tracking-wider Inter hover:brightness-110 hover:shadow-[0_0_15px_rgba(208,188,255,0.2)] transition-all active:scale-95 duration-150">
+                Save Draft
+            </button>
+<button class="bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] text-white px-12 py-3 rounded text-sm font-bold uppercase tracking-wider Inter hover:brightness-110 hover:shadow-[0_0_25px_rgba(208,188,255,0.4)] transition-all active:scale-95 duration-150 flex items-center gap-2">
+                Activate Vehicle
+                <span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</button>
+</div>
+</footer>
+<!-- Confetti Success Indicator (Hidden by default, ready for JS logic) -->
+<div class="fixed inset-0 pointer-events-none z-[100] overflow-hidden opacity-0">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px]"></div>
+</div>
+</body></html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#22005c",
+                        "secondary": "#cfbef6",
+                        "primary-container": "#4b1fa3",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#c0b0e7",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "surface-container-high": "#292935",
+                        "tertiary-container": "#6c2e00",
+                        "outline": "#948e9e",
+                        "on-secondary": "#352856",
+                        "on-tertiary": "#532200",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1b1a26",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-tertiary-fixed": "#331200",
+                        "tertiary": "#ffb68e",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "inverse-surface": "#e3e0f1",
+                        "inverse-primary": "#6a45c3",
+                        "outline-variant": "#494453",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "inverse-on-surface": "#302f3b",
+                        "error-container": "#93000a",
+                        "surface-tint": "#d0bcff",
+                        "secondary-fixed": "#e9ddff",
+                        "background": "#12121d",
+                        "on-primary-container": "#b79cff",
+                        "surface-bright": "#383845",
+                        "surface-container": "#1f1e2a",
+                        "surface": "#12121d",
+                        "on-error": "#690005",
+                        "primary-fixed": "#e9ddff",
+                        "on-background": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "secondary-container": "#4f4171",
+                        "primary": "#d0bcff",
+                        "surface-container-highest": "#343440",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-surface": "#e3e0f1",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-fixed": "#201340",
+                        "surface-dim": "#12121d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] flex justify-between items-center px-8 py-3">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] bg-clip-text text-transparent font-headline tracking-tight">JAS Revenue Engine</span>
+<div class="hidden md:flex gap-6 font-headline text-sm tracking-tight">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Global Rates</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Overrides</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Tier Rules</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Simulator</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-400 hover:bg-white/5 p-2 rounded transition-all">history</button>
+<button class="material-symbols-outlined text-slate-400 hover:bg-white/5 p-2 rounded transition-all">notifications</button>
+<button class="material-symbols-outlined text-slate-400 hover:bg-white/5 p-2 rounded transition-all">settings</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Finance Director Professional Portrait in studio lighting with dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXp20c3529WufGcls8ktdZ2PPhp-Hw6BZ6Ue6WxpOuR84NSEYQSFRkMbG4S55D-XJlAO_FNw9MjA3AalyeY8CyJQjzpAaUslguRZbDteJpx7ZUdYQLVddxKynbrP2foxnqb0pdvwCJkY6-8x6IswC5M-9Oh4cZAnzmaeVo_lg3tGoVuf2yKVymCHWdhmnqFDfyH3I8HLA1GpKMdQn186r8a2mLvjRoIBDnzGupRIiwqV7btp1vwSx9pJaLGBna_BjaX-qVym8GCA"/>
+</div>
+<button class="bg-primary-container text-primary px-4 py-2 text-sm font-semibold rounded-lg hover:bg-primary hover:text-on-primary transition-all active:scale-95 duration-200">Approve Changes</button>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#12121d] flex flex-col h-full py-6 z-40">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div>
+<p class="font-black text-[#d0bcff] font-headline text-sm">Finance Ops</p>
+<p class="text-slate-500 text-[10px] uppercase tracking-widest">Enterprise Tier</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all font-headline text-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-4 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all font-headline text-sm" href="#">
+<span class="material-symbols-outlined">payments</span> Rate Engines
+            </a>
+<a class="flex items-center gap-4 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all font-headline text-sm" href="#">
+<span class="material-symbols-outlined">rule</span> Override Log
+            </a>
+<a class="flex items-center gap-4 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all font-headline text-sm" href="#">
+<span class="material-symbols-outlined">how_to_reg</span> Workflow
+            </a>
+<a class="flex items-center gap-4 text-slate-500 py-3 px-6 hover:translate-x-1 hover:bg-[#4b1fa3]/10 hover:text-[#d0bcff] transition-all font-headline text-sm" href="#">
+<span class="material-symbols-outlined">analytics</span> Simulator
+            </a>
+<a class="flex items-center gap-4 bg-[#4b1fa3]/20 text-[#d0bcff] rounded-r-full border-l-4 border-[#d0bcff] py-3 px-6 font-headline text-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">history_edu</span> Audit Trail
+            </a>
+</nav>
+<div class="px-6 mt-auto space-y-1 pt-6 border-t border-white/5">
+<button class="w-full bg-primary/10 text-primary py-3 rounded-lg font-bold text-xs mb-4 hover:bg-primary/20 transition-all">New Rate Rule</button>
+<a class="flex items-center gap-4 text-slate-500 py-2 hover:text-[#d0bcff] transition-all text-sm" href="#">
+<span class="material-symbols-outlined text-sm">help</span> Support
+            </a>
+<a class="flex items-center gap-4 text-slate-500 py-2 hover:text-[#d0bcff] transition-all text-sm" href="#">
+<span class="material-symbols-outlined text-sm">description</span> Documentation
+            </a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="pl-64 pt-16 min-h-screen">
+<div class="max-w-6xl mx-auto px-10 py-12">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<nav class="flex gap-2 text-xs text-slate-500 mb-2 uppercase tracking-widest font-semibold">
+<span>Governance</span>
+<span>/</span>
+<span class="text-primary">Rate Version History</span>
+</nav>
+<h1 class="text-4xl font-extrabold font-headline text-on-surface tracking-tight mb-2">Audit Trail</h1>
+<p class="text-on-surface-variant max-w-xl">Immutable ledger of all pricing engine modifications. Compliant with ZATCA electronic billing frameworks and global logistics audit standards.</p>
+</div>
+<button class="flex items-center gap-2 bg-surface-container-high border border-outline-variant/30 hover:border-primary/50 text-on-surface px-6 py-3 rounded-xl transition-all shadow-xl group">
+<span class="material-symbols-outlined group-hover:text-primary">picture_as_pdf</span>
+<span class="font-semibold text-sm">Export Audit Log PDF</span>
+</button>
+</header>
+<!-- Timeline View -->
+<div class="relative space-y-8">
+<!-- Vertical Timeline Line -->
+<div class="absolute left-[21px] top-4 bottom-4 w-px bg-gradient-to-b from-primary via-outline-variant/20 to-transparent"></div>
+<!-- Version Card 1 (Active/Latest) -->
+<section class="relative pl-12">
+<!-- Timeline Node -->
+<div class="absolute left-0 top-6 w-11 h-11 bg-primary-container border-4 border-background rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(75,31,163,0.4)] z-10">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="bg-surface-container-low border border-white/5 rounded-2xl p-8 hover:bg-surface-container transition-all shadow-2xl">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h3 class="text-2xl font-bold font-headline text-on-surface">v2.4.0</h3>
+<span class="bg-primary/20 text-primary-fixed-dim text-[10px] font-black uppercase px-2 py-0.5 rounded tracking-tighter">Current Production</span>
+</div>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">calendar_today</span> Oct 24, 2023 • 14:20 AST</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">person</span> Modified by Sarah Al-Saud</span>
+</div>
+</div>
+<div class="flex gap-3">
+<a class="text-primary hover:underline text-sm font-semibold flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">play_circle</span> Simulation Report
+                                </a>
+</div>
+</div>
+<!-- Data Bento -->
+<div class="grid grid-cols-3 gap-6 mb-8">
+<div class="bg-background/40 p-4 rounded-xl border border-outline-variant/10">
+<p class="text-[10px] uppercase text-outline font-bold tracking-widest mb-3">Streams Affected</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest px-3 py-1 rounded text-xs text-on-surface">Ocean Freight</span>
+<span class="bg-surface-container-highest px-3 py-1 rounded text-xs text-on-surface">Last Mile (KSA)</span>
+</div>
+</div>
+<div class="col-span-2 bg-background/40 p-4 rounded-xl border border-outline-variant/10">
+<p class="text-[10px] uppercase text-outline font-bold tracking-widest mb-3">Approval Chain</p>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary/20 flex items-center justify-center text-[10px] text-tertiary border border-tertiary/30">L1</div>
+<span class="text-xs text-on-surface">M. Ibrahim</span>
+</div>
+<span class="material-symbols-outlined text-slate-600 text-sm">arrow_forward</span>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center text-[10px] text-secondary border border-secondary/30">L2</div>
+<span class="text-xs text-on-surface">F. Hassan</span>
+</div>
+<span class="material-symbols-outlined text-slate-600 text-sm">arrow_forward</span>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-[10px] text-primary border border-primary/30">VP</div>
+<span class="text-xs text-on-surface-variant italic">System Auto-Bypass</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Accordion -->
+<details class="group">
+<summary class="flex items-center justify-between cursor-pointer list-none text-sm font-semibold text-primary/80 hover:text-primary transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                                    View Full Change Set
+                                </div>
+<span class="text-[10px] text-outline font-normal">8 attributes changed</span>
+</summary>
+<div class="mt-4 pt-4 border-t border-white/5 grid grid-cols-1 gap-2">
+<div class="flex justify-between items-center text-xs p-2 bg-surface-container-highest/30 rounded">
+<span class="text-on-surface-variant">Fuel Surcharge (Jeddah-Riyadh)</span>
+<div class="flex items-center gap-3">
+<span class="text-error line-through">4.2%</span>
+<span class="material-symbols-outlined text-[10px]">arrow_forward</span>
+<span class="text-primary font-bold">4.85%</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-xs p-2 bg-surface-container-highest/30 rounded">
+<span class="text-on-surface-variant">Base Handling Fee (Dammam)</span>
+<div class="flex items-center gap-3">
+<span class="text-error line-through">SAR 450</span>
+<span class="material-symbols-outlined text-[10px]">arrow_forward</span>
+<span class="text-primary font-bold">SAR 425</span>
+</div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<!-- Version Card 2 (Archived) -->
+<section class="relative pl-12">
+<div class="absolute left-0 top-6 w-11 h-11 bg-surface-container border-4 border-background rounded-full flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-outline-variant text-xl">history</span>
+</div>
+<div class="bg-surface-container-lowest border border-white/5 rounded-2xl p-8 opacity-70 hover:opacity-100 transition-all">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h3 class="text-2xl font-bold font-headline text-on-surface">v2.3.9</h3>
+<span class="bg-outline/10 text-outline text-[10px] font-black uppercase px-2 py-0.5 rounded tracking-tighter">Archived</span>
+</div>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">calendar_today</span> Oct 02, 2023 • 09:12 AST</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">person</span> Modified by David Miller</span>
+</div>
+</div>
+<div class="flex gap-3">
+<a class="text-outline hover:text-primary text-sm font-semibold flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">receipt_long</span> Compliance Log
+                                </a>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-6 mb-4">
+<div class="bg-background/20 p-4 rounded-xl">
+<p class="text-[10px] uppercase text-outline font-bold tracking-widest mb-3">Streams Affected</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest px-3 py-1 rounded text-xs text-on-surface">Air Freight</span>
+</div>
+</div>
+<div class="col-span-2 bg-background/20 p-4 rounded-xl">
+<p class="text-[10px] uppercase text-outline font-bold tracking-widest mb-3">Approval Chain</p>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-outline-variant/20 flex items-center justify-center text-[10px] text-outline border border-outline-variant/30">L1</div>
+<span class="text-xs text-on-surface">M. Ibrahim</span>
+</div>
+<span class="material-symbols-outlined text-slate-600 text-sm">arrow_forward</span>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-outline-variant/20 flex items-center justify-center text-[10px] text-outline border border-outline-variant/30">L2</div>
+<span class="text-xs text-on-surface">F. Hassan</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Version Card 3 (Archived) -->
+<section class="relative pl-12">
+<div class="absolute left-0 top-6 w-11 h-11 bg-surface-container border-4 border-background rounded-full flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-outline-variant text-xl">history</span>
+</div>
+<div class="bg-surface-container-lowest border border-white/5 rounded-2xl p-8 opacity-70 hover:opacity-100 transition-all">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold font-headline text-on-surface">v2.3.8</h3>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant mt-1">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">calendar_today</span> Sep 15, 2023</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">person</span> System Maintenance Update</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Empty space for scroll -->
+<div class="h-24"></div>
+</div>
+</main>
+<!-- Floating Stats for Data Context -->
+<div class="fixed bottom-8 right-8 flex flex-col gap-4">
+<div class="bg-surface-container-highest/40 backdrop-blur-md p-4 rounded-2xl border border-white/10 shadow-2xl">
+<p class="text-[10px] font-bold text-primary uppercase tracking-tighter mb-1">Audit Integrity</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-400 text-sm">verified</span>
+<span class="text-xs font-semibold">Hash Verified: SHA-256</span>
+</div>
+</div>
+</div>
+</body></html>
