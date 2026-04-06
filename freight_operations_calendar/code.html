@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=IBM+Plex+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #12121d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #343440;
+            border-radius: 10px;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#690005",
+                      "primary-fixed": "#e9ddff",
+                      "surface-container": "#1f1e2a",
+                      "surface": "#12121d",
+                      "on-primary-container": "#b79cff",
+                      "surface-bright": "#383845",
+                      "surface-tint": "#d0bcff",
+                      "secondary-fixed": "#e9ddff",
+                      "background": "#12121d",
+                      "tertiary-fixed-dim": "#ffb68e",
+                      "inverse-on-surface": "#302f3b",
+                      "error-container": "#93000a",
+                      "surface-dim": "#12121d",
+                      "on-secondary-fixed": "#201340",
+                      "tertiary-fixed": "#ffdbc9",
+                      "on-tertiary-container": "#f09661",
+                      "secondary-fixed-dim": "#cfbef6",
+                      "primary": "#d0bcff",
+                      "surface-container-highest": "#343440",
+                      "on-surface-variant": "#cbc3d5",
+                      "on-surface": "#e3e0f1",
+                      "secondary-container": "#4f4171",
+                      "on-background": "#e3e0f1",
+                      "surface-container-lowest": "#0d0d18",
+                      "outline": "#948e9e",
+                      "on-secondary": "#352856",
+                      "tertiary-container": "#6c2e00",
+                      "surface-container-high": "#292935",
+                      "on-primary": "#3b0092",
+                      "surface-variant": "#343440",
+                      "primary-fixed-dim": "#d0bcff",
+                      "primary-container": "#4b1fa3",
+                      "on-primary-fixed-variant": "#5228aa",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#c0b0e7",
+                      "on-primary-fixed": "#22005c",
+                      "secondary": "#cfbef6",
+                      "inverse-surface": "#e3e0f1",
+                      "inverse-primary": "#6a45c3",
+                      "outline-variant": "#494453",
+                      "tertiary": "#ffb68e",
+                      "on-secondary-fixed-variant": "#4c3f6e",
+                      "surface-container-low": "#1b1a26",
+                      "on-tertiary-fixed-variant": "#743405",
+                      "on-tertiary-fixed": "#331200",
+                      "on-tertiary": "#532200",
+                      "on-error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-2xl shadow-black/20 flex justify-between items-center h-16 px-6 font-['Plus_Jakarta_Sans'] antialiased">
+<div class="flex items-center gap-8">
+<div class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+<div class="w-8 h-8 bg-[#C43585] rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">grid_view</span>
+</div>
+<span>FreMS</span>
+</div>
+<div class="hidden md:flex items-center gap-6 text-sm">
+<a class="text-[#C43585] border-b-2 border-[#C43585] pb-1" href="#">Calendar</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Shipments</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Inventory</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-white/5 rounded-full px-4 py-1.5 flex items-center gap-2 border border-white/5">
+<span class="material-symbols-outlined text-sm text-slate-400">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder:text-slate-500" placeholder="Search operations..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/10 ml-2">
+<img alt="Operations Officer" data-alt="portrait of a professional operations officer in a clean minimalist environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB28IBOI-JbGYci8XkKLPiE4ooobkxKVXx6ung7RSpm8YteFYYRm73pCkk9T39ZvaNTB2zk6zm8gNvnGic5pM0jKcmSYdRXnml_w0vqlRLdsokG3_r6gQP8h0JYlu01f6RPsVZAnTPKOzyTyK8V0YY395rK7zqB5_8GMKhFfhy5upz3revRt57RbWzweD5BkgnFARBESjIL-3aJ1wg6zyJ5nL7kIUKR6xIWzu7BMwGiOktQ2sVtrvHeCpomAcURpJtnnn6tEBI7vw"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#0F0F1A]/95 backdrop-blur-lg border-r border-white/5 shadow-[4px_0_24px_rgba(0,0,0,0.5)] flex flex-col pt-20 pb-8 px-4 hidden lg:flex">
+<div class="mb-8 px-2">
+<h2 class="text-white font-black italic tracking-wider">FreMS Portal</h2>
+<p class="text-slate-500 text-[10px] uppercase tracking-widest font-bold">Saudi Infrastructure</p>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="group flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer select-none bg-gradient-to-r from-[#C43585]/20 to-transparent text-[#C43585] border-l-4 border-[#C43585] transition-transform duration-300">
+<span class="material-symbols-outlined">conveyor_belt</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Operations</span>
+</div>
+<div class="group flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer select-none text-slate-500 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1 transition-all duration-300">
+<span class="material-symbols-outlined">policy</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Customs</span>
+</div>
+<div class="group flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer select-none text-slate-500 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1 transition-all duration-300">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">AI Tools</span>
+</div>
+<div class="group flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer select-none text-slate-500 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1 transition-all duration-300">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Management</span>
+</div>
+</nav>
+<div class="mt-auto space-y-4">
+<button class="w-full bg-[#C43585] hover:bg-[#A32B6D] text-white py-3 rounded-xl font-bold text-sm shadow-lg shadow-[#C43585]/20 flex items-center justify-center gap-2 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Shipment
+            </button>
+<div class="pt-4 border-t border-white/5 space-y-1">
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-200 cursor-pointer text-xs">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+                    Compliance
+                </div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-slate-200 cursor-pointer text-xs">
+<span class="material-symbols-outlined text-sm">contact_support</span>
+                    Support
+                </div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:pl-64 pt-16 min-h-screen">
+<div class="p-8">
+<!-- Header & Controls -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+<div>
+<nav class="flex gap-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-2">
+<span>Portal</span>
+<span>/</span>
+<span class="text-[#C43585]">Freight Operations Calendar</span>
+</nav>
+<div class="flex items-baseline gap-4">
+<h1 class="text-4xl font-headline font-bold text-white tracking-tight">September <span class="text-[#C43585]">2024</span></h1>
+<span class="text-xl font-['IBM_Plex_Arabic'] text-slate-500 font-medium">سبتمبر ٢٠٢٤</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<!-- Toggle View -->
+<div class="bg-surface-container-high p-1 rounded-full flex border border-white/5">
+<button class="px-6 py-2 rounded-full text-xs font-bold bg-[#C43585] text-white shadow-sm">Month View</button>
+<button class="px-6 py-2 rounded-full text-xs font-bold text-slate-400 hover:text-slate-200">Week View</button>
+</div>
+<div class="h-8 w-[1px] bg-white/10 mx-2"></div>
+<div class="flex items-center gap-2">
+<button class="p-2 bg-surface-container hover:bg-surface-container-high rounded-lg border border-white/5 transition-colors">
+<span class="material-symbols-outlined text-slate-300">chevron_left</span>
+</button>
+<button class="p-2 bg-surface-container hover:bg-surface-container-high rounded-lg border border-white/5 transition-colors">
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</button>
+<button class="px-4 py-2 bg-surface-container hover:bg-surface-container-high text-xs font-bold rounded-lg border border-white/5 transition-colors text-slate-300">Today</button>
+</div>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-2 mb-8 items-center">
+<span class="text-xs font-bold text-slate-500 uppercase tracking-wider mr-2">Filter By:</span>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-highest text-xs font-medium border border-white/10 flex items-center gap-2 text-white">
+                    Client <span class="material-symbols-outlined text-xs">keyboard_arrow_down</span>
+</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-highest text-xs font-medium border border-white/10 flex items-center gap-2 text-white">
+                    Mode <span class="material-symbols-outlined text-xs">keyboard_arrow_down</span>
+</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-highest text-xs font-medium border border-white/10 flex items-center gap-2 text-white">
+                    Carrier <span class="material-symbols-outlined text-xs">keyboard_arrow_down</span>
+</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-highest text-xs font-medium border border-white/10 flex items-center gap-2 text-white">
+                    Status <span class="material-symbols-outlined text-xs">keyboard_arrow_down</span>
+</button>
+<div class="flex-1"></div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Pickups</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-amber-500"></div>
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Customs</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Delivery</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-rose-500"></div>
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Milestones</span>
+</div>
+</div>
+</div>
+<!-- Calendar Bento Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-4 gap-8">
+<!-- Grid Area -->
+<div class="xl:col-span-3">
+<div class="bg-surface-container-low rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+<!-- Days Header -->
+<div class="calendar-grid border-b border-white/5">
+<div class="py-4 text-center text-xs font-black text-slate-500 uppercase tracking-widest border-r border-white/5">Sun</div>
+<div class="py-4 text-center text-xs font-black text-slate-500 uppercase tracking-widest border-r border-white/5">Mon</div>
+<div class="py-4 text-center text-xs font-black text-slate-500 uppercase tracking-widest border-r border-white/5">Tue</div>
+<div class="py-4 text-center text-xs font-black text-slate-500 uppercase tracking-widest border-r border-white/5">Wed</div>
+<div class="py-4 text-center text-xs font-black text-slate-500 uppercase tracking-widest border-r border-white/5">Thu</div>
+<div class="py-4 text-center text-xs font-black text-slate-500 uppercase tracking-widest border-r border-white/5">Fri</div>
+<div class="py-4 text-center text-xs font-black text-slate-500 uppercase tracking-widest">Sat</div>
+</div>
+<!-- Calendar Rows -->
+<div class="calendar-grid auto-rows-[140px]">
+<!-- Row 1 (Partial) -->
+<div class="p-3 border-r border-b border-white/5 bg-surface-container-lowest/50 text-slate-700 font-bold">25</div>
+<div class="p-3 border-r border-b border-white/5 bg-surface-container-lowest/50 text-slate-700 font-bold">26</div>
+<div class="p-3 border-r border-b border-white/5 bg-surface-container-lowest/50 text-slate-700 font-bold">27</div>
+<div class="p-3 border-r border-b border-white/5 bg-surface-container-lowest/50 text-slate-700 font-bold">28</div>
+<div class="p-3 border-r border-b border-white/5 bg-surface-container-lowest/50 text-slate-700 font-bold">29</div>
+<div class="p-3 border-r border-b border-white/5 bg-surface-container-lowest/50 text-slate-700 font-bold">30</div>
+<div class="p-3 border-b border-white/5 text-slate-300 font-bold">1</div>
+<!-- Row 2 -->
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">2</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">3</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">
+<span>4</span>
+<div class="mt-2 space-y-1">
+<div class="px-2 py-1 bg-blue-500/10 border-l-2 border-blue-500 text-[9px] font-bold text-blue-400 rounded-sm cursor-pointer hover:bg-blue-500/20 truncate">PKUP-9830 | NEOM</div>
+<div class="px-2 py-1 bg-amber-500/10 border-l-2 border-amber-500 text-[9px] font-bold text-amber-400 rounded-sm cursor-pointer hover:bg-amber-500/20 truncate">CUSTOMS-DL | RUH</div>
+</div>
+</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold bg-[#C43585]/5">
+<span class="text-[#C43585]">5</span>
+<div class="mt-2 space-y-1">
+<div class="px-2 py-1 bg-emerald-500/10 border-l-2 border-emerald-500 text-[9px] font-bold text-emerald-400 rounded-sm cursor-pointer hover:bg-emerald-500/20 truncate">DELIV-229 | JED</div>
+</div>
+</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">6</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">7</div>
+<div class="p-3 border-b border-white/5 text-slate-300 font-bold">8</div>
+<!-- Row 3 -->
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">9</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">10</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">
+<span>11</span>
+<div class="mt-2 space-y-1">
+<div class="px-2 py-1 bg-rose-500/10 border-l-2 border-rose-500 text-[9px] font-bold text-rose-400 rounded-sm cursor-pointer hover:bg-rose-500/20 truncate">SLA BREACH | X-10</div>
+</div>
+</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">12</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">13</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">14</div>
+<div class="p-3 border-b border-white/5 text-slate-300 font-bold">15</div>
+<!-- Row 4 -->
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">16</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">
+<span>17</span>
+<div class="mt-2 space-y-1">
+<div class="px-2 py-1 bg-blue-500/10 border-l-2 border-blue-500 text-[9px] font-bold text-blue-400 rounded-sm cursor-pointer hover:bg-blue-500/20 truncate">PKUP-2201 | DMM</div>
+</div>
+</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">18</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">19</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">20</div>
+<div class="p-3 border-r border-b border-white/5 text-slate-300 font-bold">21</div>
+<div class="p-3 border-b border-white/5 text-slate-300 font-bold">22</div>
+</div>
+</div>
+</div>
+<!-- Side Panel (Drawer Look) -->
+<div class="xl:col-span-1">
+<div class="sticky top-24 bg-surface-container-high rounded-2xl border border-white/5 overflow-hidden shadow-2xl">
+<div class="p-6 border-b border-white/5 flex justify-between items-start">
+<div>
+<h3 class="text-lg font-headline font-bold text-white mb-1">Shipment Details</h3>
+<p class="text-xs text-slate-500 font-medium">Selected: September 4, 2024</p>
+</div>
+<button class="p-1.5 hover:bg-white/5 rounded-full text-slate-400">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="p-6 space-y-8">
+<!-- Primary Card -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2">
+<span class="px-2 py-0.5 bg-blue-500/20 text-blue-400 text-[9px] font-black rounded uppercase tracking-widest">Active</span>
+</div>
+<div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-2">Reference</div>
+<div class="text-xl font-bold text-white mb-4">PKUP-9830-RUH</div>
+<div class="flex items-center gap-4">
+<div class="flex-1">
+<div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1">Origin</div>
+<div class="text-sm font-bold text-slate-200">RUH, Saudi Arabia</div>
+</div>
+<div class="px-2">
+<span class="material-symbols-outlined text-[#C43585]">arrow_right_alt</span>
+</div>
+<div class="flex-1 text-right">
+<div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1">Destination</div>
+<div class="text-sm font-bold text-slate-200">DXB, UAE</div>
+</div>
+</div>
+</div>
+<!-- Details Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1">Client</div>
+<div class="text-sm font-medium text-slate-200">Aramco Tech</div>
+</div>
+<div>
+<div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1">Mode</div>
+<div class="text-sm font-medium text-slate-200 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-blue-400">flight</span> Air Freight
+                                    </div>
+</div>
+<div>
+<div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1">Carrier</div>
+<div class="text-sm font-medium text-slate-200">Saudia Cargo</div>
+</div>
+<div>
+<div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1">Weight</div>
+<div class="text-sm font-medium text-slate-200">2,450 KG</div>
+</div>
+</div>
+<!-- Timeline -->
+<div>
+<div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-4">Operations Timeline</div>
+<div class="space-y-4">
+<div class="flex gap-4 relative">
+<div class="w-[2px] bg-emerald-500/30 absolute left-[7px] top-4 bottom-[-16px]"></div>
+<div class="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center z-10 shrink-0 mt-1">
+<span class="material-symbols-outlined text-[10px] text-emerald-950 font-black">check</span>
+</div>
+<div>
+<div class="text-xs font-bold text-white">Booking Confirmed</div>
+<div class="text-[10px] text-slate-500">Aug 28, 09:12 AM</div>
+</div>
+</div>
+<div class="flex gap-4 relative">
+<div class="w-[2px] bg-slate-700 absolute left-[7px] top-4 bottom-[-16px]"></div>
+<div class="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center z-10 shrink-0 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></div>
+</div>
+<div>
+<div class="text-xs font-bold text-white">Pickup Scheduled</div>
+<div class="text-[10px] text-slate-500">Sep 04, 08:00 AM (Target)</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center z-10 shrink-0 mt-1"></div>
+<div>
+<div class="text-xs font-bold text-slate-500">Customs Clearance</div>
+<div class="text-[10px] text-slate-600">Pending arrival</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-4 flex gap-2">
+<button class="flex-1 py-2.5 rounded-lg bg-surface-container-highest border border-white/10 text-xs font-bold text-white hover:bg-white/5 transition-all">View Full Docs</button>
+<button class="flex-1 py-2.5 rounded-lg bg-[#C43585] text-xs font-bold text-white shadow-lg shadow-[#C43585]/10 hover:brightness-110 transition-all">Update Status</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for quick action (as specified in system shell visibility) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-tr from-[#C43585] to-[#E91E63] rounded-full shadow-2xl shadow-[#C43585]/40 text-white flex items-center justify-center z-50 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl" data-weight="fill">add</span>
+</button>
+</body></html>

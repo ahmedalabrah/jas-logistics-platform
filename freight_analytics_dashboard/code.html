@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Freight Analytics | JAS FreMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#1f1e2a",
+                        "primary-container": "#4b1fa3",
+                        "on-surface-variant": "#cbc3d5",
+                        "tertiary-container": "#6c2e00",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container-highest": "#343440",
+                        "primary": "#d0bcff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-fixed": "#331200",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "on-background": "#e3e0f1",
+                        "inverse-surface": "#e3e0f1",
+                        "on-secondary": "#352856",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error": "#690005",
+                        "outline-variant": "#494453",
+                        "secondary-container": "#4f4171",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-primary": "#6a45c3",
+                        "secondary": "#cfbef6",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-secondary-fixed": "#201340",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "surface-bright": "#383845",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary": "#532200",
+                        "surface-dim": "#12121d",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "tertiary": "#ffb68e",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface": "#12121d",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-on-surface": "#302f3b",
+                        "on-primary-container": "#b79cff",
+                        "background": "#12121d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-gradient-primary {
+            background: linear-gradient(180deg, #C43585 0%, rgba(196, 53, 133, 0) 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #C43585;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-white/5 bg-[#0F0F1A]/80 backdrop-blur-xl flex flex-col py-6 px-4 z-50 shadow-[20px_0_40px_rgba(0,0,0,0.3)]">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-bold tracking-tighter text-[#C43585]">JAS FreMS</h1>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest font-headline">Velvet Intelligence</p>
+</div>
+<nav class="flex-1 space-y-1 font-headline font-medium text-sm tracking-tight">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="location_on">location_on</span>
+                Tracking
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="sync_alt">sync_alt</span>
+                Status Center
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+                Rates
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-white bg-gradient-to-r from-[#C43585]/20 to-transparent border-r-2 border-[#C43585] shadow-[0_0_15px_rgba(196,53,133,0.3)]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="monitoring">monitoring</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="gavel">gavel</span>
+                Claims
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto space-y-4">
+<button class="w-full py-2.5 bg-[#C43585] text-white text-xs font-bold uppercase tracking-widest rounded shadow-[0_4px_15px_rgba(196,53,133,0.4)] active:scale-95 transition-transform">
+                Create Shipment
+            </button>
+<div class="pt-4 border-t border-white/5">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all font-headline text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+                    Help Center
+                </a>
+</div>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-[#0F0F1A]/60 backdrop-blur-lg flex items-center justify-between px-8 w-full border-b border-white/5">
+<div class="flex items-center gap-8">
+<span class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Freight Management System</span>
+<nav class="flex gap-6 font-headline text-[11px] font-bold uppercase tracking-widest">
+<a class="text-slate-300 hover:text-[#C43585] transition-all" href="#">Global Map</a>
+<a class="text-slate-300 hover:text-[#C43585] transition-all" href="#">Shipments</a>
+<a class="text-slate-300 hover:text-[#C43585] transition-all" href="#">Financials</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<input class="bg-surface-container-highest/30 border-none rounded-full px-4 py-1.5 text-xs w-48 focus:ring-1 focus:ring-[#C43585]/30 focus:w-64 transition-all outline-none" placeholder="Global search..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+</div>
+<div class="flex gap-4 border-x border-white/10 px-6">
+<button class="text-slate-300 hover:text-[#C43585] transition-all relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-1.5 h-1.5 bg-[#C43585] rounded-full"></span>
+</button>
+<button class="text-slate-300 hover:text-[#C43585] transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="apps">apps</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold text-white">Ahmed Al-Zahrani</p>
+<p class="text-[10px] text-slate-500">Logistics Director</p>
+</div>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-[#C43585]/30 object-cover" data-alt="Close-up portrait of a professional businessman with a modern urban background and professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC17tzaALjWerMEMZKhZRP0jEJVQ6Nnt9jcBokW0_oXgbl0LcgsGiCBzXv6reK2pnLgrtEry9oX2lWEkJN5y4LcYdQX6UESokOXZvsdA7mZ4GtwubSsiSjMxS9GLlBZBvJR2Ssy7EThhX_6mXN34_oDfR5XYD6MOkpC73KPvOn9QRMaFZrPzpWZJ_6pfhgLRt3Nj--f4nI30_3PKt6Se5AT3aPuJZPjGzJzXjCrZfOn0BlTYHuvtHhjNRgAn_v_VisVWJRsoGXFSQ"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+<!-- Header & Date Controls -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight text-white mb-1">Freight Analytics</h2>
+<p class="text-on-surface-variant text-sm tracking-wide">Comprehensive intelligence overview for Q3 Operations</p>
+</div>
+<div class="flex gap-2 p-1 bg-surface-container-low rounded-lg">
+<button class="px-4 py-1.5 text-[11px] font-bold uppercase rounded bg-surface-container-high text-white">MTD</button>
+<button class="px-4 py-1.5 text-[11px] font-bold uppercase rounded text-slate-500 hover:text-white transition-colors">Quarter</button>
+<button class="px-4 py-1.5 text-[11px] font-bold uppercase rounded text-slate-500 hover:text-white transition-colors">YTD</button>
+</div>
+</div>
+<!-- KPI Row -->
+<div class="grid grid-cols-5 gap-4 mb-8">
+<div class="bg-surface-container-low p-5 rounded-xl group hover:bg-surface-container-high transition-all duration-300">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">Revenue MTD</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-white">$4.2M</span>
+<span class="text-[10px] font-bold text-emerald-400">+12.4%</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-[#C43585] w-[75%] rounded-full shadow-[0_0_8px_rgba(196,53,133,0.5)]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl group hover:bg-surface-container-high transition-all duration-300">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">Shipments MTD</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-white">1,284</span>
+<span class="text-[10px] font-bold text-emerald-400">+3.1%</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-[#C43585] w-[62%] rounded-full shadow-[0_0_8px_rgba(196,53,133,0.5)]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl group hover:bg-surface-container-high transition-all duration-300">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">Avg Margin %</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-white">18.4%</span>
+<span class="text-[10px] font-bold text-rose-400">-0.8%</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-[#C43585] w-[88%] rounded-full shadow-[0_0_8px_rgba(196,53,133,0.5)]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl group hover:bg-surface-container-high transition-all duration-300">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">On-Time Delivery</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-white">96.2%</span>
+<span class="text-[10px] font-bold text-emerald-400">+2.1%</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-[#C43585] w-[96%] rounded-full shadow-[0_0_8px_rgba(196,53,133,0.5)]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl group hover:bg-surface-container-high transition-all duration-300">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">Clearance Avg</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-extrabold text-white">4.8 hrs</span>
+<span class="text-[10px] font-bold text-emerald-400">-14%</span>
+</div>
+<div class="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-[#C43585] w-[45%] rounded-full shadow-[0_0_8px_rgba(196,53,133,0.5)]"></div>
+</div>
+</div>
+</div>
+<!-- 2x2 Grid of Charts -->
+<div class="grid grid-cols-2 gap-6 mb-8">
+<!-- Revenue by Mode (Donut) -->
+<div class="bg-surface-container p-6 rounded-xl border border-white/5">
+<div class="flex justify-between items-start mb-8">
+<h3 class="text-sm font-bold uppercase tracking-wider text-white">Revenue by Mode</h3>
+<button class="text-slate-500 hover:text-white"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</div>
+<div class="flex items-center gap-12">
+<div class="relative w-48 h-48">
+<!-- Simulated Donut Chart -->
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="15.9" stroke="rgba(255,255,255,0.05)" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.9" stroke="#C43585" stroke-dasharray="45 100" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.9" stroke="#d0bcff" stroke-dasharray="25 100" stroke-dashoffset="-45" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.9" stroke="#4b1fa3" stroke-dasharray="20 100" stroke-dashoffset="-70" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.9" stroke="#ffb68e" stroke-dasharray="10 100" stroke-dashoffset="-90" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-extrabold text-white">$4.2M</span>
+<span class="text-[9px] text-slate-500 font-bold uppercase">Total</span>
+</div>
+</div>
+<div class="flex-1 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#C43585]"></div>
+<span class="text-xs text-slate-400">Sea Freight</span>
+</div>
+<span class="text-xs font-bold text-white">45%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#d0bcff]"></div>
+<span class="text-xs text-slate-400">Air Freight</span>
+</div>
+<span class="text-xs font-bold text-white">25%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#4b1fa3]"></div>
+<span class="text-xs text-slate-400">Road Transport</span>
+</div>
+<span class="text-xs font-bold text-white">20%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-[#ffb68e]"></div>
+<span class="text-xs text-slate-400">Rail / Multi</span>
+</div>
+<span class="text-xs font-bold text-white">10%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Monthly Shipment Volume (Stacked Bar) -->
+<div class="bg-surface-container p-6 rounded-xl border border-white/5">
+<div class="flex justify-between items-start mb-8">
+<h3 class="text-sm font-bold uppercase tracking-wider text-white">Shipment Volume Trend</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-1.5"><div class="w-1.5 h-1.5 rounded-full bg-[#C43585]"></div><span class="text-[9px] text-slate-500 uppercase font-bold">Import</span></div>
+<div class="flex items-center gap-1.5"><div class="w-1.5 h-1.5 rounded-full bg-[#4b1fa3]"></div><span class="text-[9px] text-slate-500 uppercase font-bold">Export</span></div>
+</div>
+</div>
+<div class="h-48 flex items-end justify-between gap-3 px-2">
+<!-- Bar 1 -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-t-sm overflow-hidden">
+<div class="h-16 bg-[#C43585]"></div>
+<div class="h-8 bg-[#4b1fa3]"></div>
+</div>
+<span class="text-[9px] font-bold text-slate-500 uppercase">Mar</span>
+</div>
+<!-- Bar 2 -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-t-sm overflow-hidden">
+<div class="h-20 bg-[#C43585]"></div>
+<div class="h-12 bg-[#4b1fa3]"></div>
+</div>
+<span class="text-[9px] font-bold text-slate-500 uppercase">Apr</span>
+</div>
+<!-- Bar 3 -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-t-sm overflow-hidden">
+<div class="h-14 bg-[#C43585]"></div>
+<div class="h-10 bg-[#4b1fa3]"></div>
+</div>
+<span class="text-[9px] font-bold text-slate-500 uppercase">May</span>
+</div>
+<!-- Bar 4 (Active) -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-t-sm overflow-hidden ring-1 ring-white/10">
+<div class="h-24 bg-[#C43585]"></div>
+<div class="h-16 bg-[#4b1fa3]"></div>
+</div>
+<span class="text-[9px] font-bold text-white uppercase">Jun</span>
+</div>
+<!-- Bar 5 -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-t-sm overflow-hidden">
+<div class="h-18 bg-[#C43585]"></div>
+<div class="h-9 bg-[#4b1fa3]"></div>
+</div>
+<span class="text-[9px] font-bold text-slate-500 uppercase">Jul</span>
+</div>
+<!-- Bar 6 -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex flex-col-reverse rounded-t-sm overflow-hidden">
+<div class="h-22 bg-[#C43585]"></div>
+<div class="h-14 bg-[#4b1fa3]"></div>
+</div>
+<span class="text-[9px] font-bold text-slate-500 uppercase">Aug</span>
+</div>
+</div>
+</div>
+<!-- Top 10 Routes (Horizontal Bar) -->
+<div class="bg-surface-container p-6 rounded-xl border border-white/5">
+<div class="flex justify-between items-start mb-6">
+<h3 class="text-sm font-bold uppercase tracking-wider text-white">Top Routes by Volume</h3>
+<span class="text-[10px] font-bold text-slate-500 px-2 py-0.5 border border-white/5 rounded uppercase">Teu Units</span>
+</div>
+<div class="space-y-4 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs">
+<span class="text-slate-300 font-medium">Shanghai → Jeddah</span>
+<span class="text-white font-bold">1,420</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#C43585] to-transparent w-[92%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs">
+<span class="text-slate-300 font-medium">Dubai → Riyadh</span>
+<span class="text-white font-bold">1,180</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#C43585] to-transparent w-[78%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs">
+<span class="text-slate-300 font-medium">Rotterdam → Dammam</span>
+<span class="text-white font-bold">940</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#C43585] to-transparent w-[65%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs">
+<span class="text-slate-300 font-medium">Singapore → Jeddah</span>
+<span class="text-white font-bold">810</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#C43585] to-transparent w-[58%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs">
+<span class="text-slate-300 font-medium">Hamburg → Riyadh</span>
+<span class="text-white font-bold">720</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#C43585] to-transparent w-[50%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Customs Clearance Distribution (Histogram) -->
+<div class="bg-surface-container p-6 rounded-xl border border-white/5">
+<div class="flex justify-between items-start mb-8">
+<h3 class="text-sm font-bold uppercase tracking-wider text-white">Clearance Distribution</h3>
+<div class="flex items-center gap-1.5">
+<span class="text-[10px] font-bold text-slate-500 uppercase">Avg:</span>
+<span class="text-[10px] font-bold text-[#C43585]">4.8H</span>
+</div>
+</div>
+<div class="h-48 flex items-end gap-1 px-2 relative">
+<!-- Y-Axis labels -->
+<div class="absolute -left-2 h-full flex flex-col justify-between text-[8px] text-slate-600 font-bold uppercase py-2">
+<span>High</span>
+<span>Med</span>
+<span>Low</span>
+</div>
+<!-- Histogram Bars -->
+<div class="flex-1 bg-[#C43585]/10 h-[20%] rounded-t-sm"></div>
+<div class="flex-1 bg-[#C43585]/20 h-[35%] rounded-t-sm"></div>
+<div class="flex-1 bg-[#C43585]/40 h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-[#C43585]/70 h-[85%] rounded-t-sm border-t-2 border-[#C43585]"></div>
+<div class="flex-1 bg-[#C43585]/90 h-[100%] rounded-t-sm border-t-2 border-[#C43585]"></div>
+<div class="flex-1 bg-[#C43585]/60 h-[70%] rounded-t-sm"></div>
+<div class="flex-1 bg-[#C43585]/40 h-[50%] rounded-t-sm"></div>
+<div class="flex-1 bg-[#C43585]/20 h-[30%] rounded-t-sm"></div>
+<div class="flex-1 bg-[#C43585]/10 h-[15%] rounded-t-sm"></div>
+<div class="flex-1 bg-[#C43585]/5 h-[5%] rounded-t-sm"></div>
+</div>
+<div class="mt-4 flex justify-between text-[9px] font-bold text-slate-500 uppercase tracking-widest">
+<span>&lt; 2 Hrs</span>
+<span>4 - 6 Hrs</span>
+<span>12+ Hrs</span>
+</div>
+</div>
+</div>
+<!-- AI Rate Timing Advisor Card -->
+<section class="bg-surface-container-high rounded-xl overflow-hidden border-l-4 border-[#C43585] shadow-2xl relative">
+<!-- Background Decoration -->
+<div class="absolute top-0 right-0 opacity-5 w-64 h-64 pointer-events-none -translate-y-12 translate-x-12">
+<span class="material-symbols-outlined text-[200px]" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="p-8 flex items-center gap-10 relative z-10">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C43585] to-[#4b1fa3] flex items-center justify-center shadow-[0_0_30px_rgba(196,53,133,0.3)]">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<span class="text-[10px] font-extrabold uppercase tracking-[0.2em] bg-[#C43585]/10 text-[#C43585] px-2 py-0.5 rounded">Velvet AI Insight</span>
+<span class="text-slate-500 text-xs font-medium">Predicted for Oct 2023</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-1">Rate Timing Optimization</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-2xl">
+                        Market intelligence suggests a <span class="text-[#C43585] font-bold">14% decrease</span> in APAC-KSA sea freight rates over the next 12 days. Our AI Advisor recommends delaying non-urgent bookings for Shanghai-Jeddah routes by <span class="text-white font-semibold">72 hours</span> to capture maximum margin delta.
+                    </p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-white/5 hover:bg-white/10 text-white text-[11px] font-bold uppercase tracking-widest rounded-lg transition-all">View Details</button>
+<button class="px-6 py-2.5 bg-[#C43585] hover:bg-[#a82d72] text-white text-[11px] font-bold uppercase tracking-widest rounded-lg transition-all shadow-lg">Lock Strategy</button>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB Suppression logic: No FAB on Analytics screen as per design guidelines -->
+</body></html>

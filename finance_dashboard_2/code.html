@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Command Hub | Finance Division</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #12121d;
+            color: #e3e0f1;
+        }
+        .font-headline { font-family: 'Poppins', sans-serif; }
+        .font-brand { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-data { font-family: 'JetBrains Mono', monospace; }
+        
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #12121d; }
+        ::-webkit-scrollbar-thumb { background: #343440; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4b1fa3; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#e3e0f1",
+                      "surface-container-highest": "#343440",
+                      "secondary": "#cfbef6",
+                      "on-secondary": "#352856",
+                      "outline-variant": "#494453",
+                      "tertiary": "#ffb68e",
+                      "primary-fixed": "#e9ddff",
+                      "on-surface-variant": "#cbc3d5",
+                      "on-primary": "#3b0092",
+                      "surface-container-high": "#292935",
+                      "surface-tint": "#d0bcff",
+                      "surface-container": "#1f1e2a",
+                      "inverse-on-surface": "#302f3b",
+                      "tertiary-fixed-dim": "#ffb68e",
+                      "on-primary-container": "#b79cff",
+                      "inverse-surface": "#e3e0f1",
+                      "surface-dim": "#12121d",
+                      "surface-container-low": "#1b1a26",
+                      "secondary-fixed-dim": "#cfbef6",
+                      "on-error-container": "#ffdad6",
+                      "error": "#ffb4ab",
+                      "background": "#12121d",
+                      "surface-container-lowest": "#0d0d18",
+                      "primary": "#d0bcff",
+                      "surface-bright": "#383845",
+                      "error-container": "#93000a",
+                      "surface": "#12121d",
+                      "on-error": "#690005",
+                      "on-secondary-fixed-variant": "#4c3f6e",
+                      "on-secondary-container": "#c0b0e7",
+                      "outline": "#948e9e",
+                      "primary-container": "#4b1fa3",
+                      "surface-variant": "#343440",
+                      "on-tertiary": "#532200",
+                      "tertiary-fixed": "#ffdbc9",
+                      "tertiary-container": "#6c2e00",
+                      "secondary-fixed": "#e9ddff",
+                      "primary-fixed-dim": "#d0bcff",
+                      "on-tertiary-container": "#f09661",
+                      "on-secondary-fixed": "#201340",
+                      "on-primary-fixed": "#22005c",
+                      "secondary-container": "#4f4171",
+                      "on-tertiary-fixed-variant": "#743405",
+                      "on-tertiary-fixed": "#331200",
+                      "on-primary-fixed-variant": "#5228aa",
+                      "on-surface": "#e3e0f1",
+                      "inverse-primary": "#6a45c3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-50 h-16 bg-slate-950/80 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-violet-900/10 flex items-center justify-between px-6">
+<div class="flex items-center gap-8">
+<h1 class="text-xl font-bold tracking-tight text-white font-headline">JAS Command Hub</h1>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 hover:text-white transition-colors text-sm font-brand" href="#">Global View</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm font-brand" href="#">Marketplace</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm font-brand" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-white/5 rounded-lg px-3 py-1.5 border border-white/10">
+<span class="material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm text-white w-48 font-label" placeholder="Search accounts..." type="text"/>
+</div>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all text-slate-400">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-violet-500/20 border border-violet-500/30 overflow-hidden">
+<img alt="User profile" class="h-full w-full object-cover" data-alt="professional male executive in a dark suit against a soft blurred office background looking confident" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYtxX39rZqGfD4l0To1gk0-PdqApxeMjYOkywse-8y11aBqowPJRUOfMHX3vO_X1ywkQGk6JNdAoj0FtXNjGp6w_zoD5dsUEK8G5AUp-LY8dWQtg4PSlZHRQf4s5FZIZIlWK0k67iEiv-jB3oDBjGy3oPDvP863jEhUWPH33LPFiLgmOw6pexhp_t8oezCIy-qX1QYUJMdQ0JFodJpvNiqvhvBo2pvTEQanolKwGmHOnqJXPSNJnv6yxHmkwOAQ0bhiaAUrUBatQ"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-slate-900/50 backdrop-blur-lg flex flex-col py-4 border-r border-white/5">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 bg-violet-600 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white">account_balance</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm text-white">Finance Division</p>
+<p class="text-xs text-slate-500 font-brand">JAS Logistics</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-6 py-3 transition-colors hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined text-violet-400">dashboard</span>
+<span class="text-sm font-brand">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-6 py-3 transition-colors hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined text-violet-400">payments</span>
+<span class="text-sm font-brand">Receivables</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-6 py-3 transition-colors hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined text-violet-400">account_balance_wallet</span>
+<span class="text-sm font-brand">Payables</span>
+</a>
+<a class="flex items-center gap-3 text-white bg-violet-600/20 border-r-4 border-violet-500 font-semibold px-6 py-3" href="#">
+<span class="material-symbols-outlined text-violet-400">domain</span>
+<span class="text-sm font-brand">Billing Entities</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-6 py-3 transition-colors hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined text-violet-400">verified_user</span>
+<span class="text-sm font-brand">ZATCA Compliance</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 hover:text-slate-100 px-6 py-3 transition-colors hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined text-violet-400">analytics</span>
+<span class="text-sm font-brand">Revenue Recognition</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full py-2.5 bg-violet-600 hover:bg-violet-500 text-white rounded-lg text-sm font-bold shadow-lg shadow-violet-900/40 transition-all">
+                Generate Report
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 text-slate-500 hover:text-white px-0 py-2 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">contact_support</span>
+<span class="text-xs font-brand">Support</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 hover:text-white px-0 py-2 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span class="text-xs font-brand">Log out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-8 min-h-screen">
+<!-- Dashboard Header -->
+<header class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-headline font-extrabold text-white tracking-tight">Finance Dashboard</h2>
+<p class="text-on-surface-variant font-label text-sm mt-1">Command center for JAS Global Financial Operations</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-surface-container-high rounded-lg px-4 py-2 flex items-center gap-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-sm">calendar_today</span>
+<span class="text-xs font-bold text-on-surface">APRIL 2024</span>
+</div>
+<div class="bg-surface-container-high rounded-lg px-4 py-2 flex items-center gap-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-sm">filter_list</span>
+<span class="text-xs font-bold text-on-surface">FILTERS</span>
+</div>
+</div>
+</header>
+<!-- Bento KPI Grid - Row 1 -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary shadow-sm">
+<p class="text-xs font-bold text-on-surface-variant mb-2">TOTAL REVENUE MTD</p>
+<p class="text-3xl font-headline font-bold text-white mb-1 font-data tracking-tight">SAR 8.4M</p>
+<div class="flex items-center gap-1 text-xs text-green-400">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+<span>12.4% vs last month</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-slate-500 shadow-sm">
+<p class="text-xs font-bold text-on-surface-variant mb-2">TOTAL COST MTD</p>
+<p class="text-3xl font-headline font-bold text-white mb-1 font-data tracking-tight">SAR 6.5M</p>
+<div class="flex items-center gap-1 text-xs text-red-400">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+<span>8.2% vs last month</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-violet-400 shadow-sm">
+<p class="text-xs font-bold text-on-surface-variant mb-2">GROSS PROFIT</p>
+<p class="text-3xl font-headline font-bold text-white mb-1 font-data tracking-tight">SAR 1.9M</p>
+<div class="flex items-center gap-1 text-xs text-green-400">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+<span>Above target</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary-container shadow-sm">
+<p class="text-xs font-bold text-on-surface-variant mb-2">GROSS MARGIN</p>
+<p class="text-3xl font-headline font-bold text-white mb-1 font-data tracking-tight">22.4%</p>
+<div class="flex items-center gap-1 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">sync_alt</span>
+<span>Stable</span>
+</div>
+</div>
+</div>
+<!-- Bento KPI Grid - Row 2 -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/30 p-2 rounded-lg">call_made</span>
+<span class="text-[10px] bg-red-500/10 text-red-400 px-2 py-0.5 rounded font-bold">HIGH ACTION</span>
+</div>
+<p class="text-xs font-medium text-on-surface-variant mb-1">AR Outstanding</p>
+<p class="text-2xl font-headline font-bold text-white font-data">SAR 3.2M</p>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/30 p-2 rounded-lg">call_received</span>
+</div>
+<p class="text-xs font-medium text-on-surface-variant mb-1">AP Payable</p>
+<p class="text-2xl font-headline font-bold text-white font-data">SAR 1.8M</p>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant/10 bg-gradient-to-br from-surface-container to-primary-container/5">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/30 p-2 rounded-lg">account_balance_wallet</span>
+</div>
+<p class="text-xs font-medium text-on-surface-variant mb-1">Cash in JAS Wallets</p>
+<p class="text-2xl font-headline font-bold text-white font-data">SAR 24.5M</p>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/30 p-2 rounded-lg">verified_user</span>
+</div>
+<p class="text-xs font-medium text-on-surface-variant mb-1">TGA Compliance Costs</p>
+<p class="text-2xl font-headline font-bold text-white font-data">SAR 42k</p>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8 mb-8">
+<!-- AI Anomaly Panel -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<div class="bg-surface-container-high rounded-2xl overflow-hidden border-l-4 border-violet-500 shadow-xl">
+<div class="p-6 bg-violet-600/10 border-b border-white/5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="text-2xl">🤖</span>
+<h3 class="font-headline font-bold text-sm tracking-wide text-white uppercase">Finance AI — Live Anomaly Detection</h3>
+</div>
+<div class="flex gap-1">
+<div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<!-- Anomaly 1 -->
+<div class="space-y-3">
+<div class="flex items-center gap-2 text-error font-bold text-[10px] tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm">warning</span>
+                                CRITICAL OVERCHARGE
+                            </div>
+<p class="text-sm leading-relaxed text-on-surface">
+                                Invoice anomaly: <span class="text-white font-semibold">Al-Noor Pharmaceuticals</span> April freight charges are <span class="text-red-400">SAR 68,400</span> vs usual SAR 51,000 (+34%). Review before sending.
+                            </p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-data text-on-surface-variant">INV-2026-0341</span>
+<button class="px-3 py-1.5 bg-violet-600/20 hover:bg-violet-600/40 text-violet-400 rounded border border-violet-500/30 text-[10px] font-bold transition-all uppercase">Review Invoice</button>
+</div>
+</div>
+<div class="h-px bg-white/5"></div>
+<!-- Anomaly 2 -->
+<div class="space-y-3">
+<div class="flex items-center gap-2 text-amber-400 font-bold text-[10px] tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm">leak_add</span>
+                                REVENUE LEAK DETECTED
+                            </div>
+<p class="text-sm leading-relaxed text-on-surface">
+<span class="text-white font-semibold">14 VAS tasks</span> completed in April without corresponding invoice lines. Estimated uncaptured revenue: <span class="text-green-400">SAR 8,400</span>.
+                            </p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-data text-on-surface-variant">VAS LOGS: 04/24</span>
+<button class="px-3 py-1.5 bg-green-600/20 hover:bg-green-600/40 text-green-400 rounded border border-green-500/30 text-[10px] font-bold transition-all uppercase">Auto-generate</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant/10">
+<h3 class="font-headline font-bold text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">pie_chart</span>
+                        REVENUE COMPOSITION
+                    </h3>
+<div class="relative flex justify-center mb-6">
+<!-- Simulated Donut Chart using SVG -->
+<svg class="w-48 h-48 transform -rotate-90">
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#292935" stroke-width="24"></circle>
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#d0bcff" stroke-dasharray="100 402" stroke-width="24"></circle>
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#4b1fa3" stroke-dasharray="80 422" stroke-dashoffset="-100" stroke-width="24"></circle>
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#cfbef6" stroke-dasharray="70 432" stroke-dashoffset="-180" stroke-width="24"></circle>
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#ffb68e" stroke-dasharray="60 442" stroke-dashoffset="-250" stroke-width="24"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-headline font-bold">SAR 8.4M</span>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Total</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-3 gap-x-4">
+<div class="flex items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-primary"></div>
+<span class="text-[10px] font-medium text-on-surface">Fleet Income</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-primary-container"></div>
+<span class="text-[10px] font-medium text-on-surface">Freight Margin</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-secondary"></div>
+<span class="text-[10px] font-medium text-on-surface">Storage</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-tertiary"></div>
+<span class="text-[10px] font-medium text-on-surface">Customs</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Data Visualizations -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-8">
+<!-- Cash Flow Forecast Line Chart -->
+<div class="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="font-headline font-bold text-lg text-white">Cash Flow Forecast</h3>
+<p class="text-on-surface-variant text-xs">Rolling 30-day receivables vs payables projection</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="h-0.5 w-4 bg-violet-400"></div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Receivables</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-0.5 w-4 bg-slate-600"></div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Payables</span>
+</div>
+</div>
+</div>
+<div class="h-64 w-full relative">
+<!-- Simulated Chart Grid -->
+<div class="absolute inset-0 flex flex-col justify-between">
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/10"></div>
+</div>
+<!-- Simulated Lines -->
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none">
+<path d="M0 160 Q 50 140, 100 150 T 200 120 T 300 140 T 400 90 T 500 110 T 600 70 T 700 80 T 800 50" fill="none" stroke="#A855F7" stroke-width="3"></path>
+<path d="M0 180 Q 50 170, 100 175 T 200 165 T 300 170 T 400 150 T 500 155 T 600 145 T 700 140 T 800 135" fill="none" stroke="#475569" stroke-dasharray="6,4" stroke-width="3"></path>
+</svg>
+<div class="absolute bottom-[-24px] w-full flex justify-between text-[9px] font-data text-on-surface-variant">
+<span>01 MAY</span>
+<span>08 MAY</span>
+<span>15 MAY</span>
+<span>22 MAY</span>
+<span>30 MAY</span>
+</div>
+</div>
+</div>
+<!-- AR Aging Bar Chart -->
+<div class="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/10">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="font-headline font-bold text-lg text-white">AR Aging Analysis</h3>
+<p class="text-on-surface-variant text-xs">Distribution of outstanding receivables by days</p>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-bold text-on-surface-variant block uppercase">Total AR</span>
+<span class="text-2xl font-headline font-bold text-white font-data">SAR 3.2M</span>
+</div>
+</div>
+<div class="flex items-end gap-6 h-48 w-full">
+<div class="flex-1 flex flex-col items-center gap-3 h-full">
+<div class="flex-1 w-full bg-primary/20 rounded-t relative group">
+<div class="absolute bottom-0 w-full bg-primary h-[85%] rounded-t hover:bg-primary-fixed transition-all cursor-pointer"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 hidden group-hover:block bg-surface-container-highest px-2 py-1 rounded text-[10px] whitespace-nowrap">SAR 1.4M</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant font-data">0-7D</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3 h-full">
+<div class="flex-1 w-full bg-primary/20 rounded-t relative group">
+<div class="absolute bottom-0 w-full bg-primary h-[45%] rounded-t hover:bg-primary-fixed transition-all cursor-pointer"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 hidden group-hover:block bg-surface-container-highest px-2 py-1 rounded text-[10px] whitespace-nowrap">SAR 820k</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant font-data">8-15D</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3 h-full">
+<div class="flex-1 w-full bg-primary/20 rounded-t relative group">
+<div class="absolute bottom-0 w-full bg-primary h-[25%] rounded-t hover:bg-primary-fixed transition-all cursor-pointer"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 hidden group-hover:block bg-surface-container-highest px-2 py-1 rounded text-[10px] whitespace-nowrap">SAR 410k</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant font-data">16-30D</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3 h-full">
+<div class="flex-1 w-full bg-primary/20 rounded-t relative group">
+<div class="absolute bottom-0 w-full bg-secondary h-[15%] rounded-t hover:bg-secondary-fixed transition-all cursor-pointer"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 hidden group-hover:block bg-surface-container-highest px-2 py-1 rounded text-[10px] whitespace-nowrap">SAR 340k</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant font-data">31-60D</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-3 h-full">
+<div class="flex-1 w-full bg-primary/20 rounded-t relative group">
+<div class="absolute bottom-0 w-full bg-error h-[10%] rounded-t hover:bg-error-container transition-all cursor-pointer"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 hidden group-hover:block bg-surface-container-highest px-2 py-1 rounded text-[10px] whitespace-nowrap">SAR 230k</div>
+</div>
+<span class="text-[10px] font-bold text-error font-data">60+ DAYS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Transactions Section -->
+<section class="mt-8">
+<h3 class="font-headline font-bold text-sm text-white mb-6 uppercase tracking-wider">High-Value Pending Transactions</h3>
+<div class="bg-surface-container rounded-2xl overflow-hidden border border-outline-variant/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high border-b border-white/5">
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase">Entity / Counterparty</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase">Invoice ID</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase">Amount (SAR)</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase">Status</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase">Due Date</th>
+<th class="px-6 py-4 text-right"></th>
+</tr>
+</thead>
+<tbody class="text-sm font-label">
+<tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-primary-container/20 flex items-center justify-center text-primary-fixed">A</div>
+<div>
+<p class="font-bold text-white">Aramco Distribution Hub</p>
+<p class="text-[10px] text-on-surface-variant">Logistics &amp; SC</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-data text-xs">INV-8821-41</td>
+<td class="px-6 py-4 font-bold font-data">142,500.00</td>
+<td class="px-6 py-4">
+<span class="bg-violet-500/10 text-violet-400 px-2 py-1 rounded text-[10px] font-bold border border-violet-500/20">PENDING APPROVAL</span>
+</td>
+<td class="px-6 py-4 text-xs">12 May 2024</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-tertiary-container/20 flex items-center justify-center text-tertiary">S</div>
+<div>
+<p class="font-bold text-white">SABIC Petrochemicals</p>
+<p class="text-[10px] text-on-surface-variant">Global Freight</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-data text-xs">INV-9104-12</td>
+<td class="px-6 py-4 font-bold font-data">284,000.00</td>
+<td class="px-6 py-4">
+<span class="bg-green-500/10 text-green-400 px-2 py-1 rounded text-[10px] font-bold border border-green-500/20">VERIFIED</span>
+</td>
+<td class="px-6 py-4 text-xs">08 May 2024</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-slate-700/20 flex items-center justify-center text-slate-400">N</div>
+<div>
+<p class="font-bold text-white">Neom Construction IV</p>
+<p class="text-[10px] text-on-surface-variant">Storage &amp; Handling</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-data text-xs">INV-7442-99</td>
+<td class="px-6 py-4 font-bold font-data">68,220.00</td>
+<td class="px-6 py-4">
+<span class="bg-red-500/10 text-red-400 px-2 py-1 rounded text-[10px] font-bold border border-red-500/20">OVERDUE</span>
+</td>
+<td class="px-6 py-4 text-xs">28 Apr 2024</td>
+<td class="px-6 py-4 text-right">
+<button class="text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="p-4 bg-surface-container-low/50 border-t border-white/5 text-center">
+<button class="text-[10px] font-bold text-primary hover:underline uppercase tracking-widest">View All Transactions</button>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB for quick actions -->
+<button class="fixed bottom-8 right-8 h-14 w-14 rounded-full bg-violet-600 text-white shadow-2xl shadow-violet-600/50 flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined">add</span>
+</button>
+</body></html>

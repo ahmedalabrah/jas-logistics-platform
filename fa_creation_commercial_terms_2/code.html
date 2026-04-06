@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Agreement Wizard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#cfbef6",
+                        "inverse-surface": "#e3e0f1",
+                        "primary": "#d0bcff",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "surface-tint": "#d0bcff",
+                        "surface-container-lowest": "#0d0d18",
+                        "primary-container": "#4b1fa3",
+                        "tertiary": "#ffb68e",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "on-primary": "#3b0092",
+                        "surface-dim": "#12121d",
+                        "on-surface": "#e3e0f1",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "on-tertiary": "#532200",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-background": "#e3e0f1",
+                        "inverse-primary": "#6a45c3",
+                        "on-secondary": "#352856",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-fixed": "#201340",
+                        "on-primary-container": "#b79cff",
+                        "surface-container": "#1f1e2a",
+                        "outline-variant": "#494453",
+                        "secondary-container": "#4f4171",
+                        "tertiary-container": "#6c2e00",
+                        "inverse-on-surface": "#302f3b",
+                        "outline": "#948e9e",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-tertiary-fixed": "#331200",
+                        "surface": "#12121d",
+                        "surface-container-highest": "#343440",
+                        "surface-bright": "#383845",
+                        "background": "#12121d",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-container-high": "#292935",
+                        "on-primary-fixed": "#22005c",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-fixed": "#e9ddff",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#cbc3d5",
+                        "surface-variant": "#343440",
+                        "secondary": "#cfbef6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Poppins"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0F0F1A;
+            color: #e3e0f1;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(31, 30, 42, 0.6);
+            backdrop-filter: blur(12px);
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        /* AI Panel Transitions */
+        #ai-panel {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #ai-panel.collapsed {
+            transform: translateX(calc(100% - 48px));
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 right-0 left-72 h-16 flex items-center justify-between px-8 z-50 bg-slate-950/40 backdrop-blur-md border-b border-white/5">
+<div class="flex items-center gap-8">
+<span class="font-['Plus_Jakarta_Sans'] text-sm tracking-wide font-black text-violet-500">Agreement Wizard</span>
+<div class="flex gap-6">
+<a class="text-slate-400 text-sm hover:text-violet-200 transition-opacity opacity-80 hover:opacity-100" href="#">Dashboard</a>
+<a class="text-white border-b-2 border-violet-500 pb-1 text-sm transition-opacity opacity-80 hover:opacity-100" href="#">Agreements</a>
+<a class="text-slate-400 text-sm hover:text-violet-200 transition-opacity opacity-80 hover:opacity-100" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-violet-400">notifications</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-violet-400">history</span>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container px-4 py-2 rounded-lg text-on-primary text-sm font-bold shadow-lg shadow-primary/10 hover:scale-[1.02] active:scale-95 transition-all">
+                Publish Agreement
+            </button>
+<img alt="Manager Avatar" class="w-8 h-8 rounded-full border border-white/10" data-alt="Close-up professional portrait of a business manager in a dark suit with soft studio lighting and a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOK7-g1RgegNjWJiMUqqasxVoFPiZ1DY4GSk4prPKhZP5_Ymt1tdawt6AMI349UV3x7qHNlS5lhtjxco-ReVo63ageIq9xeu7uRwsP7oe2DsWFploLJrvNAZVEu3GpwJ8X6gpw6t5ieUL5tUnwXsagBxeGNYvcZdG7GvI3EtqyQUdaL4HU2y5kz02H9FdqLEz_kkbasD4rzSLRxI_Y8d1pQLmogrUdYdHun6Za3C5tQDtiieU8LsPYNvOuIRosbgGBnJExJf-t8A"/>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-72 flex flex-col z-40 bg-slate-950/80 backdrop-blur-xl border-r border-white/5 shadow-2xl shadow-black/50 font-['Plus_Jakarta_Sans'] font-medium tracking-tight">
+<div class="p-8 pb-10">
+<h1 class="text-xl font-bold tracking-tighter text-white mb-1">JAS Logistics</h1>
+<p class="text-slate-500 text-xs uppercase tracking-widest font-bold">Agreement Wizard v2.4</p>
+</div>
+<nav class="flex-1 flex flex-col px-4 gap-2">
+<div class="text-violet-300 font-bold border-r-2 border-violet-500 bg-white/5 flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Commercial Terms</span>
+</div>
+<div class="text-slate-500 hover:text-slate-300 hover:bg-white/10 transition-all duration-300 flex items-center gap-4 px-4 py-3 rounded-lg scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span>Warehouse Mapping</span>
+</div>
+<div class="text-slate-500 hover:text-slate-300 hover:bg-white/10 transition-all duration-300 flex items-center gap-4 px-4 py-3 rounded-lg scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span>Zone Configuration</span>
+</div>
+<div class="text-slate-500 hover:text-slate-300 hover:bg-white/10 transition-all duration-300 flex items-center gap-4 px-4 py-3 rounded-lg scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Operational SOW</span>
+</div>
+<div class="text-slate-500 hover:text-slate-300 hover:bg-white/10 transition-all duration-300 flex items-center gap-4 px-4 py-3 rounded-lg scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="rate_review">rate_review</span>
+<span>Final Review</span>
+</div>
+</nav>
+<div class="p-4 mt-auto border-t border-white/5">
+<div class="text-slate-500 hover:text-slate-300 hover:bg-white/10 transition-all duration-300 flex items-center gap-4 px-4 py-3 rounded-lg text-sm mb-2">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</div>
+<div class="text-slate-500 hover:text-slate-300 hover:bg-white/10 transition-all duration-300 flex items-center gap-4 px-4 py-3 rounded-lg text-sm mb-4">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</div>
+<button class="w-full py-3 bg-white/5 hover:bg-white/10 text-white rounded-lg font-bold text-sm transition-all active:scale-95">
+                Save Draft
+            </button>
+</div>
+</aside>
+<!-- Collapsible AI Panel -->
+<div class="fixed right-0 top-16 h-[calc(100vh-4rem)] w-96 z-[60] glass-panel border-l border-white/10 shadow-2xl transition-all flex" id="ai-panel">
+<!-- Toggle Bar -->
+<button class="w-12 h-full flex flex-col items-center py-6 gap-8 bg-surface-container/40 border-r border-white/5 hover:bg-surface-container/60 transition-colors" onclick="document.getElementById('ai-panel').classList.toggle('collapsed')">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="[writing-mode:vertical-lr] rotate-180 text-[10px] uppercase font-black tracking-[0.2em] text-on-surface-variant whitespace-nowrap">FA Planning Assistant</span>
+</button>
+<!-- AI Content -->
+<div class="flex-1 flex flex-col p-6 overflow-hidden">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-2">
+<span class="text-lg">🤖</span>
+<h3 class="font-headline font-bold text-white tracking-tight">FA Assistant</h3>
+</div>
+<div class="flex gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[10px] font-bold text-emerald-400 uppercase">Live Analysis</span>
+</div>
+</div>
+<!-- Chat History -->
+<div class="flex-1 overflow-y-auto space-y-6 pr-2 mb-6">
+<!-- User Message -->
+<div class="flex flex-col items-end gap-2">
+<div class="bg-primary-container/30 border border-primary/20 p-4 rounded-2xl rounded-tr-none max-w-[90%]">
+<p class="text-sm text-on-primary-container leading-relaxed font-medium">What committed volume should I declare?</p>
+</div>
+</div>
+<!-- AI Message -->
+<div class="flex flex-col items-start gap-2">
+<div class="bg-surface-container-high border border-white/5 p-4 rounded-2xl rounded-tl-none max-w-[90%]">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-xs">auto_awesome</span>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">Recommendation</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Based on your historical performance (FY23-24), your average TEU throughput is <span class="text-white font-bold">12,400</span>.
+                        </p>
+<p class="text-sm text-on-surface-variant leading-relaxed mt-2">
+                            To unlock the <span class="text-emerald-400 font-bold">Tier 2 Regional Rebate</span>, I recommend declaring a commitment of <span class="text-white font-bold">10,000 TEU</span>. This provides a 20% safety margin while securing optimal rates.
+                        </p>
+<div class="mt-4 pt-3 border-t border-white/5">
+<div class="flex items-center gap-4">
+<div class="flex-1 h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-4/5"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">80% Confidence</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interaction Area -->
+<div class="mt-auto space-y-4">
+<div class="flex flex-wrap gap-2">
+<button class="text-[10px] font-bold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-all">Optimize Terms</button>
+<button class="text-[10px] font-bold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-all">Risk Assessment</button>
+<button class="text-[10px] font-bold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-on-surface-variant hover:bg-primary/10 hover:text-primary transition-all">Competitor Benchmarking</button>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-none focus:ring-1 focus:ring-primary/50 rounded-xl py-3 pl-4 pr-10 text-sm text-white placeholder:text-slate-600" placeholder="Ask follow-up..." type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary text-xl hover:scale-110 transition-transform">send</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Canvas -->
+<main class="ml-72 mr-12 mt-16 h-[calc(100vh-4rem)] overflow-y-auto bg-background p-8">
+<div class="max-w-5xl mx-auto">
+<!-- Header Section -->
+<header class="mb-10">
+<div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    Framework Agreement Setup
+                </div>
+<h2 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">FA-01: Commercial Terms</h2>
+<p class="text-on-surface-variant mt-2 text-lg">Define the core financial and temporal parameters for the regional logistics framework.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Primary Config -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Section: FA Period -->
+<section class="p-8 rounded-xl bg-surface-container-low border border-white/5">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<h3 class="text-lg font-headline font-semibold text-white">Agreement Period</h3>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<button class="group relative flex flex-col items-center justify-center py-6 px-4 bg-surface-container-highest rounded-lg border border-transparent hover:border-primary/50 transition-all">
+<span class="text-2xl font-bold text-white group-hover:text-primary transition-colors">12</span>
+<span class="text-[10px] uppercase tracking-wider text-on-surface-variant font-bold mt-1">Months</span>
+<div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary opacity-0 group-focus:opacity-100"></div>
+</button>
+<button class="group relative flex flex-col items-center justify-center py-6 px-4 bg-primary-container rounded-lg border border-primary transition-all">
+<span class="text-2xl font-bold text-white">24</span>
+<span class="text-[10px] uppercase tracking-wider text-primary-fixed font-bold mt-1">Months</span>
+<div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary"></div>
+</button>
+<button class="group relative flex flex-col items-center justify-center py-6 px-4 bg-surface-container-highest rounded-lg border border-transparent hover:border-primary/50 transition-all">
+<span class="text-2xl font-bold text-white group-hover:text-primary transition-colors">36</span>
+<span class="text-[10px] uppercase tracking-wider text-on-surface-variant font-bold mt-1">Months</span>
+</button>
+</div>
+</section>
+<!-- Section: Volume Commitments -->
+<section class="p-8 rounded-xl bg-surface-container-low border border-white/5">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h3 class="text-lg font-headline font-semibold text-white">Volume Commitments</h3>
+</div>
+<span class="text-xs text-on-surface-variant bg-white/5 px-2 py-1 rounded">Annual Projection</span>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">TEU Capacity Requirement</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/50 rounded-lg py-4 px-4 text-white text-lg font-mono" placeholder="0.00" type="number"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold text-sm">TEU / YR</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Pallet Positions (LTL)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/50 rounded-lg py-4 px-4 text-white text-lg font-mono" placeholder="0.00" type="number"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold text-sm">POS / MO</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Scope & Payments -->
+<div class="lg:col-span-5 space-y-8">
+<!-- Section: Service Scope -->
+<section class="p-8 rounded-xl bg-surface-container border border-white/5">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">category</span>
+<h3 class="text-lg font-headline font-semibold text-white">Service Scope</h3>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<label class="flex items-center gap-3 p-4 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors group">
+<input checked="" class="rounded w-5 h-5 text-primary-container focus:ring-offset-0 focus:ring-primary bg-surface-container-highest border-none" type="checkbox"/>
+<span class="text-on-surface font-medium group-hover:text-primary transition-colors">International Freight</span>
+<span class="material-symbols-outlined text-xs ml-auto text-on-surface-variant">info</span>
+</label>
+<label class="flex items-center gap-3 p-4 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors group">
+<input checked="" class="rounded w-5 h-5 text-primary-container focus:ring-offset-0 focus:ring-primary bg-surface-container-highest border-none" type="checkbox"/>
+<span class="text-on-surface font-medium group-hover:text-primary transition-colors">Warehouse Operations</span>
+</label>
+<label class="flex items-center gap-3 p-4 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors group">
+<input class="rounded w-5 h-5 text-primary-container focus:ring-offset-0 focus:ring-primary bg-surface-container-highest border-none" type="checkbox"/>
+<span class="text-on-surface font-medium group-hover:text-primary transition-colors">Customs Brokerage</span>
+</label>
+<label class="flex items-center gap-3 p-4 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors group">
+<input class="rounded w-5 h-5 text-primary-container focus:ring-offset-0 focus:ring-primary bg-surface-container-highest border-none" type="checkbox"/>
+<span class="text-on-surface font-medium group-hover:text-primary transition-colors">Last-Mile Distribution</span>
+</label>
+</div>
+</section>
+<!-- Section: Payment Terms -->
+<section class="p-8 rounded-xl bg-surface-container border border-white/5">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+<h3 class="text-lg font-headline font-semibold text-white">Payment Terms</h3>
+</div>
+<div class="space-y-3">
+<select class="w-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/50 rounded-lg py-4 px-4 text-white appearance-none cursor-pointer">
+<option value="net-30">NET-30 (Standard)</option>
+<option value="net-15">NET-15 (Fast-Track)</option>
+<option value="prepaid">Prepaid (Volume Discount)</option>
+<option value="net-60">NET-60 (Strategic)</option>
+</select>
+<div class="p-4 rounded-lg bg-primary-container/10 border border-primary/20">
+<p class="text-xs text-primary-fixed-dim leading-relaxed">
+                                    Selecting **NET-30** entitles the agreement to standard regional rebates. Accelerated payment terms may reduce per-TEU handling fees.
+                                </p>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Action Footer -->
+<footer class="mt-12 flex items-center justify-between pt-8 border-t border-white/5">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-white transition-colors font-bold text-sm">
+<span class="material-symbols-outlined text-sm">arrow_back_ios</span>
+                    Back to Selection
+                </button>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-lg border border-white/10 text-white font-bold text-sm hover:bg-white/5 transition-all">
+                        Validate Draft
+                    </button>
+<button class="px-10 py-3 rounded-lg bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-sm shadow-xl shadow-primary/20 hover:shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all">
+                        Save &amp; Continue
+                    </button>
+</div>
+</footer>
+</div>
+</main>
+<!-- Contextual Status Panel (Optional Bento Overlay) -->
+<div class="fixed right-20 bottom-8 w-64 glass-panel border border-white/10 rounded-2xl p-6 shadow-2xl z-50">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Wizard Progress</span>
+<span class="text-primary font-bold text-xs">20%</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden mb-4">
+<div class="h-full bg-primary w-1/5 rounded-full shadow-[0_0_8px_rgba(208,188,255,0.5)]"></div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-400 text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="text-xs font-bold text-white">Valid Entry</p>
+<p class="text-[10px] text-on-surface-variant">Ready to persist changes</p>
+</div>
+</div>
+</div>
+</body></html>

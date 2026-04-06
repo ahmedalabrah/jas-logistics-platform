@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Fleet Control - Compliance Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#948e9e",
+                    "on-primary": "#3b0092",
+                    "surface-container": "#1f1e2a",
+                    "primary": "#d0bcff",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "secondary": "#cfbef6",
+                    "on-tertiary-container": "#f09661",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "secondary-fixed": "#e9ddff",
+                    "surface-bright": "#383845",
+                    "tertiary-container": "#6c2e00",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#331200",
+                    "error-container": "#93000a",
+                    "surface": "#12121d",
+                    "primary-fixed": "#e9ddff",
+                    "inverse-surface": "#e3e0f1",
+                    "on-surface-variant": "#cbc3d5",
+                    "outline-variant": "#494453",
+                    "on-secondary-container": "#c0b0e7",
+                    "surface-variant": "#343440",
+                    "on-error": "#690005",
+                    "surface-dim": "#12121d",
+                    "background": "#12121d",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "on-tertiary": "#532200",
+                    "on-secondary": "#352856",
+                    "surface-container-highest": "#343440",
+                    "on-primary-container": "#b79cff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-container-high": "#292935",
+                    "secondary-container": "#4f4171",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-primary-fixed": "#22005c",
+                    "on-background": "#e3e0f1",
+                    "tertiary": "#ffb68e",
+                    "on-surface": "#e3e0f1",
+                    "surface-container-lowest": "#0d0d18",
+                    "surface-container-low": "#1b1a26",
+                    "on-secondary-fixed": "#201340",
+                    "surface-tint": "#d0bcff",
+                    "primary-container": "#4b1fa3",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "error": "#ffb4ab",
+                    "inverse-primary": "#6a45c3",
+                    "inverse-on-surface": "#302f3b",
+                    "tga-blue": "#1B4D8E"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<header class="bg-[#12121d] backdrop-blur-xl bg-opacity-80 font-['Plus_Jakarta_Sans'] tracking-tight top-0 z-50 fixed top-0 w-full border-b border-outline-variant/10">
+<div class="flex justify-between items-center w-full px-8 py-3">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#d0bcff]">JAS Fleet Control</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-400 font-medium hover:text-slate-200 transition-colors duration-300" href="#">Operations</a>
+<a class="text-slate-400 font-medium hover:text-slate-200 transition-colors duration-300" href="#">Analytics</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1 transition-colors duration-300" href="#">Compliance</a>
+<a class="text-slate-400 font-medium hover:text-slate-200 transition-colors duration-300" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-high px-3 py-1.5 rounded-full flex items-center gap-2 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder:text-on-surface-variant/50" placeholder="Search fleet..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-slate-400 hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-slate-400 hover:text-primary transition-colors">settings</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="User Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnmoRNqd36ig99mj0zZ1hIncfZB7U0Qj-HIVF1AzP_3X6Awx2UY1-k4OI3gGWvLGev98veC52fZiZ0V5fVk0RNvKyPCsrNyz9HvWLxJsPXAeNLNMI5NkmGwKP3DrAV5syMjLIa1dtZLQWyqaBZbeSYw9rPdTbSWNCGNjnPlJO1USpHlXLCzHxvUOT4eXt6jfCQs0SZDRAdo2kRS7EqNzzASBhJgmkH9pv3v7UryV98mnHvHyxzV-RKy2P_MRaP3Wy4PUtwopvDBw"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="bg-[#0F0F1A] backdrop-blur-2xl bg-opacity-90 font-['Plus_Jakarta_Sans'] text-sm font-semibold docked left-0 h-screen w-64 fixed left-0 top-0 flex flex-col h-full py-6 border-r border-[#ffffff]/5 z-40 hidden md:flex">
+<div class="px-6 mb-10 pt-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div>
+<h2 class="text-[#d0bcff] font-black tracking-tight">Fleet Intel</h2>
+<p class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest">Terminal Alpha</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Fleet Overview</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span>Vehicle Management</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 bg-gradient-to-r from-tga-blue/40 to-transparent text-white border-l-4 border-tga-blue transition-all duration-300 rounded-r-xl" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span>TGA Compliance</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">assignment_ind</span>
+<span>Operational Cards</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">route</span>
+<span>Trip Permits</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-1">
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">sensors</span>
+<span>System Status</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-64 pt-24 px-8 pb-12">
+<!-- Header & Action Row -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+<div>
+<h1 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface">Compliance Command Center</h1>
+<p class="text-on-surface-variant font-medium">Unified Saudi Arabia &amp; TGA Regulatory Oversight</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-surface-container-highest hover:bg-surface-bright text-on-surface px-5 py-2.5 rounded-lg font-semibold text-sm transition-all flex items-center gap-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-base">download</span>
+                Export Audit Report
+            </button>
+<button class="bg-gradient-to-r from-tga-blue to-[#245fac] text-white px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-tga-blue/20 flex items-center gap-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">sync</span>
+                Sync All Cards from Wasl
+            </button>
+</div>
+</div>
+<!-- Section A: Regulatory Dashboard Strip -->
+<section class="mb-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Wasl GPS Connection</span>
+<span class="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
+</div>
+<div class="text-2xl font-bold">Active</div>
+<div class="text-[10px] text-emerald-400 mt-1">98.4% uptime last 24h</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Absher Business</span>
+<span class="material-symbols-outlined text-primary text-sm">verified</span>
+</div>
+<div class="text-2xl font-bold">Synced</div>
+<div class="text-[10px] text-on-surface-variant/60 mt-1">Last check: 12m ago</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">GOSI Compliance</span>
+<span class="text-emerald-500 font-bold text-[10px]">CERTIFIED</span>
+</div>
+<div class="text-2xl font-bold">100%</div>
+<div class="text-[10px] text-on-surface-variant/60 mt-1">Expires in 184 days</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">MOL Portals</span>
+<span class="material-symbols-outlined text-secondary text-sm">hub</span>
+</div>
+<div class="text-2xl font-bold">Connected</div>
+<div class="text-[10px] text-on-surface-variant/60 mt-1">5 active integrations</div>
+</div>
+</div>
+<!-- Section B: TGA OPERATIONAL CARD MANAGEMENT (TGA Blue Branding) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-7 space-y-6">
+<div class="bg-tga-blue/5 border-l-4 border-tga-blue rounded-r-xl p-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-5">
+<span class="material-symbols-outlined text-9xl">badge</span>
+</div>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-tga-blue/20 rounded-lg">
+<span class="material-symbols-outlined text-tga-blue">verified_user</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-tga-blue">TGA Operational Cards</h2>
+<p class="text-[10px] text-on-surface-variant/60 font-bold uppercase tracking-widest">هيئة النقل العامة</p>
+</div>
+</div>
+</div>
+<!-- TGA Stats -->
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="bg-surface-container-high/40 p-4 rounded-xl">
+<div class="text-on-surface-variant text-[10px] font-bold uppercase tracking-tighter">Valid Cards</div>
+<div class="text-3xl font-black text-on-surface">142</div>
+<div class="w-full bg-outline-variant/20 h-1 mt-2 rounded-full">
+<div class="bg-emerald-500 w-[85%] h-full rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-high/40 p-4 rounded-xl">
+<div class="text-on-surface-variant text-[10px] font-bold uppercase tracking-tighter">Expiring Soon</div>
+<div class="text-3xl font-black text-amber-500">12</div>
+<div class="w-full bg-outline-variant/20 h-1 mt-2 rounded-full">
+<div class="bg-amber-500 w-[20%] h-full rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-high/40 p-4 rounded-xl">
+<div class="text-on-surface-variant text-[10px] font-bold uppercase tracking-tighter">Expired/Suspended</div>
+<div class="text-3xl font-black text-red-500">3</div>
+<div class="w-full bg-outline-variant/20 h-1 mt-2 rounded-full">
+<div class="bg-red-500 w-[5%] h-full rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- TGA Table -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden border border-tga-blue/10">
+<table class="w-full text-left text-xs">
+<thead>
+<tr class="bg-tga-blue/10">
+<th class="px-4 py-3 font-bold text-tga-blue">Card ID</th>
+<th class="px-4 py-3 font-bold text-tga-blue">Assigned Plate</th>
+<th class="px-4 py-3 font-bold text-tga-blue">Issue Date</th>
+<th class="px-4 py-3 font-bold text-tga-blue">Expiry Date</th>
+<th class="px-4 py-3 font-bold text-tga-blue">Status</th>
+</tr>
+</thead>
+<tbody>
+<!-- Iterating through tgaStore.opCards (Represented by placeholder data) -->
+<tr class="border-b border-outline-variant/5 bg-red-500/5">
+<td class="px-4 py-3 font-mono">OC-9921-X</td>
+<td class="px-4 py-3 font-bold">7712 BBA</td>
+<td class="px-4 py-3">2023-01-10</td>
+<td class="px-4 py-3 text-red-500 font-bold">2024-01-10</td>
+<td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-red-500 text-white font-bold text-[9px]">EXPIRED</span></td>
+</tr>
+<tr class="border-b border-outline-variant/5 bg-amber-500/5">
+<td class="px-4 py-3 font-mono">OC-4482-L</td>
+<td class="px-4 py-3 font-bold">4431 GGH</td>
+<td class="px-4 py-3">2023-05-15</td>
+<td class="px-4 py-3 text-amber-500 font-bold">2024-05-15</td>
+<td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-amber-500 text-black font-bold text-[9px]">AMBER (14d)</span></td>
+</tr>
+<tr class="border-b border-outline-variant/5">
+<td class="px-4 py-3 font-mono">OC-1120-M</td>
+<td class="px-4 py-3 font-bold">9002 LKL</td>
+<td class="px-4 py-3">2024-01-22</td>
+<td class="px-4 py-3 text-emerald-500 font-bold">2025-01-22</td>
+<td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-[9px]">GREEN (&gt;60d)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Renewal Calendar (Using tgaStore.getExpiringCards(30)) -->
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant/5">
+<h3 class="font-bold text-sm mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-tga-blue text-lg">calendar_month</span>
+                        Upcoming TGA Expiry Pipeline (30 Days)
+                    </h3>
+<div class="grid grid-cols-7 gap-2">
+<div class="h-16 bg-surface-container-low rounded-lg border border-outline-variant/10 flex flex-col items-center justify-center relative">
+<span class="text-[10px] text-on-surface-variant">May 10</span>
+<span class="text-xs font-bold">Mon</span>
+</div>
+<div class="h-16 bg-surface-container-low rounded-lg border border-outline-variant/10 flex flex-col items-center justify-center relative">
+<span class="text-[10px] text-on-surface-variant">May 11</span>
+<span class="text-xs font-bold">Tue</span>
+<div class="absolute bottom-1.5 flex gap-0.5">
+<div class="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+</div>
+</div>
+<div class="h-16 bg-surface-container-low rounded-lg border border-outline-variant/10 flex flex-col items-center justify-center relative">
+<span class="text-[10px] text-on-surface-variant">May 12</span>
+<span class="text-xs font-bold">Wed</span>
+</div>
+<div class="h-16 bg-surface-container-low rounded-lg border border-outline-variant/10 flex flex-col items-center justify-center relative">
+<span class="text-[10px] text-on-surface-variant">May 13</span>
+<span class="text-xs font-bold">Thu</span>
+<div class="absolute bottom-1.5 flex gap-0.5">
+<div class="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+</div>
+</div>
+<div class="h-16 bg-surface-container-high rounded-lg border border-tga-blue/40 flex flex-col items-center justify-center relative">
+<span class="text-[10px] text-tga-blue">May 14</span>
+<span class="text-xs font-bold text-tga-blue">Today</span>
+</div>
+<div class="h-16 bg-surface-container-low rounded-lg border border-outline-variant/10 flex flex-col items-center justify-center relative">
+<span class="text-[10px] text-on-surface-variant">May 15</span>
+<span class="text-xs font-bold">Sat</span>
+<div class="absolute bottom-1.5 flex gap-0.5">
+<div class="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+</div>
+</div>
+<div class="h-16 bg-surface-container-low rounded-lg border border-outline-variant/10 flex flex-col items-center justify-center relative">
+<span class="text-[10px] text-on-surface-variant">May 16</span>
+<span class="text-xs font-bold">Sun</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section C: PERMISSION CARD OPERATIONS -->
+<div class="lg:col-span-5 space-y-6">
+<div class="bg-tga-blue/5 border-l-4 border-[#245fac] rounded-r-xl p-6">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-tga-blue/20 rounded-lg">
+<span class="material-symbols-outlined text-tga-blue">route</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-tga-blue">Permission Permits</h2>
+<p class="text-[10px] text-on-surface-variant/60 font-bold uppercase tracking-widest">هيئة النقل العامة</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-tga-blue text-white text-[10px] font-black uppercase">Live Monitoring</span>
+</div>
+<!-- Live Permit Board -->
+<div class="space-y-4">
+<div class="bg-surface-container-high/60 p-4 rounded-xl border border-tga-blue/20 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<div>
+<div class="font-bold text-sm">Dangerous Goods Permit</div>
+<div class="text-[10px] text-on-surface-variant">Route: Riyadh - Dammam (Express)</div>
+</div>
+</div>
+<span class="font-mono text-xs text-tga-blue">#DGP-8832</span>
+</div>
+<!-- Request Queue -->
+<div class="bg-tga-blue/10 p-4 rounded-xl border border-tga-blue/30">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tga-blue text-sm animate-spin">sync</span>
+<span class="text-xs font-bold text-tga-blue uppercase">In Queue (2)</span>
+</div>
+<span class="text-[10px] text-tga-blue/60">Awaiting Wasl Approval</span>
+</div>
+<div class="space-y-2">
+<div class="bg-surface-container-low/50 p-2.5 rounded-lg flex justify-between items-center text-[10px]">
+<span class="font-bold">Overweight (OOG) - Port Sec</span>
+<span class="text-on-surface-variant/60 italic">Processing... 42s</span>
+</div>
+<div class="bg-surface-container-low/50 p-2.5 rounded-lg flex justify-between items-center text-[10px]">
+<span class="font-bold">Inter-City Border Access</span>
+<span class="text-on-surface-variant/60 italic">Processing... 12s</span>
+</div>
+</div>
+</div>
+<!-- Rejections -->
+<div class="mt-6">
+<h4 class="text-xs font-bold text-on-surface-variant mb-3 flex items-center gap-2 uppercase tracking-widest">
+<span class="material-symbols-outlined text-red-500 text-sm">error</span>
+                                Recent Rejections
+                            </h4>
+<div class="bg-surface-container-lowest rounded-lg border border-red-500/20 overflow-hidden">
+<div class="p-3 flex justify-between items-center border-b border-red-500/10 bg-red-500/5">
+<span class="font-bold text-[10px]">Special Cargo Approval</span>
+<span class="text-red-500 font-bold text-[10px]">FAILED: Data Mismatch</span>
+</div>
+<div class="p-3 flex justify-between items-center">
+<span class="font-bold text-[10px]">Night Entry (Jeddah Port)</span>
+<span class="text-red-500 font-bold text-[10px]">FAILED: Expired MVPI</span>
+</div>
+</div>
+</div>
+<!-- Violation Log -->
+<div class="mt-6 pt-6 border-t border-outline-variant/10">
+<h4 class="text-xs font-bold text-on-surface-variant mb-4 uppercase tracking-widest">Compliance Violation Log</h4>
+<div class="space-y-3">
+<div class="flex gap-3 items-start">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></div>
+<div>
+<div class="text-[11px] font-bold">Route Deviation (Permit #RT-22)</div>
+<div class="text-[10px] text-on-surface-variant">Vehicle 1128 ARD exited restricted corridor at 03:42 AM.</div>
+</div>
+</div>
+<div class="flex gap-3 items-start">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0"></div>
+<div>
+<div class="text-[11px] font-bold">Late Entry Warning</div>
+<div class="text-[10px] text-on-surface-variant">Vehicle 4410 JKA reached checkpoint 14m after window closed.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Simple Vehicle Table (Now part of regular monitoring) -->
+<div class="bg-surface-container rounded-xl overflow-hidden border border-outline-variant/5">
+<div class="p-4 bg-surface-container-high/50 flex justify-between items-center">
+<h3 class="font-bold text-sm">Critical Vehicle Status</h3>
+<button class="text-primary text-xs font-bold hover:underline">View All Vehicles</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm border-separate border-spacing-0">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-6 py-3 font-semibold text-on-surface-variant/80 border-b border-outline-variant/10">Plate ID</th>
+<th class="px-6 py-3 font-semibold text-on-surface-variant/80 border-b border-outline-variant/10">Vehicle Type</th>
+<th class="px-6 py-3 font-semibold text-on-surface-variant/80 border-b border-outline-variant/10">GPS Status</th>
+<th class="px-6 py-3 font-semibold text-on-surface-variant/80 border-b border-outline-variant/10">Istimara</th>
+<th class="px-6 py-3 font-semibold text-on-surface-variant/80 border-b border-outline-variant/10">MVPI</th>
+<th class="px-6 py-3 font-semibold text-on-surface-variant/80 border-b border-outline-variant/10">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<tr class="hover:bg-surface-bright/20 transition-colors">
+<td class="px-6 py-4 font-bold">1284 ARD</td>
+<td class="px-6 py-4 text-xs font-medium">Heavy Truck (Actros)</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-emerald-400 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Online
+                            </span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant font-mono">2025-08-12</td>
+<td class="px-6 py-4"><span class="text-red-500 font-bold text-xs">RED (Expired)</span></td>
+<td class="px-6 py-4">
+<button class="text-tga-blue font-bold hover:underline transition-colors">Manage</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright/20 transition-colors">
+<td class="px-6 py-4 font-bold">5592 JKA</td>
+<td class="px-6 py-4 text-xs font-medium">Flatbed Trailer</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-emerald-400 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Online
+                            </span>
+</td>
+<td class="px-6 py-4 font-mono text-amber-500 font-bold">2024-05-28</td>
+<td class="px-6 py-4"><span class="text-emerald-500 font-bold text-xs">GREEN (&gt;60d)</span></td>
+<td class="px-6 py-4">
+<button class="text-tga-blue font-bold hover:underline transition-colors">Manage</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Sticky Bottom Mobile Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container backdrop-blur-lg border-t border-outline-variant/10 px-6 py-3 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-tga-blue">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-[10px] font-bold">Compliance</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">local_shipping</span>
+<span class="text-[10px] font-bold">Fleet</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">account_circle</span>
+<span class="text-[10px] font-bold">Account</span>
+</button>
+</nav>
+</main>
+</body></html>

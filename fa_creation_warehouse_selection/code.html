@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Warehouse Mapping - JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#cfbef6",
+                      "inverse-surface": "#e3e0f1",
+                      "primary": "#d0bcff",
+                      "tertiary-fixed-dim": "#ffb68e",
+                      "surface-tint": "#d0bcff",
+                      "surface-container-lowest": "#0d0d18",
+                      "primary-container": "#4b1fa3",
+                      "tertiary": "#ffb68e",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#4c3f6e",
+                      "on-primary": "#3b0092",
+                      "surface-dim": "#12121d",
+                      "on-surface": "#e3e0f1",
+                      "error": "#ffb4ab",
+                      "on-error": "#690005",
+                      "on-tertiary": "#532200",
+                      "tertiary-fixed": "#ffdbc9",
+                      "on-background": "#e3e0f1",
+                      "inverse-primary": "#6a45c3",
+                      "on-secondary": "#352856",
+                      "on-tertiary-container": "#f09661",
+                      "on-secondary-fixed": "#201340",
+                      "on-primary-container": "#b79cff",
+                      "surface-container": "#1f1e2a",
+                      "outline-variant": "#494453",
+                      "secondary-container": "#4f4171",
+                      "tertiary-container": "#6c2e00",
+                      "inverse-on-surface": "#302f3b",
+                      "outline": "#948e9e",
+                      "on-tertiary-fixed-variant": "#743405",
+                      "primary-fixed-dim": "#d0bcff",
+                      "on-tertiary-fixed": "#331200",
+                      "surface": "#12121d",
+                      "surface-container-highest": "#343440",
+                      "surface-bright": "#383845",
+                      "background": "#12121d",
+                      "on-primary-fixed-variant": "#5228aa",
+                      "surface-container-low": "#1b1a26",
+                      "on-secondary-container": "#c0b0e7",
+                      "surface-container-high": "#292935",
+                      "on-primary-fixed": "#22005c",
+                      "secondary-fixed": "#e9ddff",
+                      "primary-fixed": "#e9ddff",
+                      "on-error-container": "#ffdad6",
+                      "on-surface-variant": "#cbc3d5",
+                      "surface-variant": "#343440",
+                      "secondary": "#cfbef6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #12121d; color: #e3e0f1; }
+        .glass-panel { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .map-container { background-image: radial-gradient(circle at 2px 2px, #343440 1px, transparent 0); background-size: 24px 24px; }
+        .glow-dot { box-shadow: 0 0 15px currentColor; }
+    </style>
+</head>
+<body class="overflow-hidden">
+<!-- SideNavBar (Predicted JSON Component) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 bg-slate-950/80 backdrop-blur-xl h-screen w-72 border-r border-white/5 shadow-2xl shadow-black/50 font-['Plus_Jakarta_Sans'] font-medium tracking-tight">
+<div class="p-8 pb-4">
+<h1 class="text-xl font-bold tracking-tighter text-white">JAS Logistics</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Agreement Wizard v2.4</p>
+</div>
+<nav class="flex-1 px-4 mt-8 space-y-2">
+<!-- Active State Navigation: Warehouse Mapping -->
+<div class="flex items-center gap-3 p-3 rounded-lg transition-all text-slate-500 hover:text-slate-300 hover:bg-white/10 group cursor-pointer">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm">Commercial Terms</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg transition-all text-violet-300 font-bold border-r-2 border-violet-500 bg-white/5 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="text-sm">Warehouse Mapping</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg transition-all text-slate-500 hover:text-slate-300 hover:bg-white/10 group cursor-pointer">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-sm">Zone Configuration</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg transition-all text-slate-500 hover:text-slate-300 hover:bg-white/10 group cursor-pointer">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-sm">Operational SOW</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg transition-all text-slate-500 hover:text-slate-300 hover:bg-white/10 group cursor-pointer">
+<span class="material-symbols-outlined" data-icon="rate_review">rate_review</span>
+<span class="text-sm">Final Review</span>
+</div>
+</nav>
+<div class="p-6 border-t border-white/5 space-y-4">
+<div class="space-y-2">
+<div class="flex items-center gap-3 text-slate-500 hover:text-slate-300 text-sm py-2 cursor-pointer transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</div>
+<div class="flex items-center gap-3 text-slate-500 hover:text-slate-300 text-sm py-2 cursor-pointer transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded-lg font-bold text-sm hover:scale-95 transition-transform">
+                Save Draft
+            </button>
+</div>
+</aside>
+<!-- TopNavBar (Predicted JSON Component) -->
+<header class="fixed top-0 right-0 left-72 flex items-center justify-between px-8 z-50 bg-slate-950/40 backdrop-blur-md w-full h-16 border-b border-white/5 font-['Plus_Jakarta_Sans'] text-sm tracking-wide">
+<div class="flex items-center gap-8">
+<span class="font-black text-violet-500 text-lg">Agreement Wizard</span>
+<nav class="flex gap-6">
+<a class="text-slate-400 hover:text-violet-200 transition-opacity" href="#">Dashboard</a>
+<a class="text-white border-b-2 border-violet-500 pb-1" href="#">Agreements</a>
+<a class="text-slate-400 hover:text-violet-200 transition-opacity" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-white" data-icon="history">history</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white" data-icon="notifications">notifications</span>
+</div>
+<button class="bg-primary-container text-white px-5 py-2 rounded font-semibold text-xs hover:opacity-80 transition-opacity">
+                Publish Agreement
+            </button>
+<div class="flex items-center gap-3 pl-4 border-l border-white/10">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-white/10 flex items-center justify-center overflow-hidden">
+<img alt="Manager Avatar" class="w-full h-full object-cover" data-alt="close up professional avatar of a manager with glasses and a friendly expression, minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0VNrfq-Vt0aUh16SCZVdrQ7Pnb1U31paUdcnvj-gdhgVjbCuGzWndDjC1bLnRsyATmw3uIKxgHqRPzqV2EkuzeKO_4T2mc0nlR1vFSQJV7gu1b6-TywUnL3MzKVvwYrW8gt_91X6XlyJa02QjxQOGS390N3oFelxVXq8RJ0i7P7ADVZq5D3M7lkmE0OSLxM4myAdsLoglEjecackG0-PRqm7loc6s5QtfNthAbDk9DfaMJdP9MYMh4uhFdiCwJ7BdI-KYWyGcSQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-72 mt-16 p-8 h-[calc(100vh-64px)] bg-background flex flex-col gap-6 overflow-hidden">
+<!-- Section Header -->
+<div class="flex flex-col gap-1">
+<h2 class="text-2xl font-bold font-headline text-on-surface">Warehouse Mapping</h2>
+<p class="text-on-surface-variant text-sm">Select the primary distribution hub for this logistics agreement within Saudi Arabia.</p>
+</div>
+<!-- Interactive Map Section -->
+<div class="flex-grow relative rounded-xl overflow-hidden bg-surface-container-low map-container border border-white/5 group">
+<!-- Simulated Dark Map Surface -->
+<div class="absolute inset-0 opacity-40">
+<img class="w-full h-full object-cover grayscale contrast-125" data-alt="abstract stylized topographical dark mode map of Saudi Arabia with glowing circuit lines and minimalist landforms" data-location="Saudi Arabia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCda0eUsGbs5fBkFBbAHLb6g8p9NyR0FCm-u81WAa6Gyvx7B3uj7zrE18si0bqqzWkny5hjr0qp6Tjl3A1ZlEu_6sQAD7nEjWyktTf3fwhrPDspmLWGcEkkMxF8DEH84OEUoVsLQVzdnzr-kbeq_qFjGHmiqHw8GpWbFg6H9auEUbSixntH74BR9jTDsVwAeojqR_dDFovsLkdRlFB3QHumknwrtEF90RqwC61B3gfICSUE9vhslup3NCs2IVonRltHMmtEbb2zJQ"/>
+</div>
+<!-- Map Markers -->
+<!-- Riyadh (Active) -->
+<div class="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer">
+<div class="relative">
+<div class="w-12 h-12 bg-primary/20 rounded-full animate-ping absolute -inset-0"></div>
+<div class="w-4 h-4 bg-primary rounded-full border-2 border-white glow-dot relative z-10"></div>
+<div class="absolute top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-surface-container-highest px-3 py-1 rounded-full text-[10px] font-bold border border-primary/50 shadow-lg">
+                        RIYADH HUB (SELECTED)
+                    </div>
+</div>
+</div>
+<!-- Jeddah -->
+<div class="absolute top-[58%] left-[25%] group cursor-pointer hover:scale-110 transition-transform">
+<div class="w-3 h-3 bg-on-surface-variant/50 rounded-full border border-white/30 relative z-10"></div>
+<div class="absolute top-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-on-surface-variant/80 text-[10px] font-medium">Jeddah West</div>
+</div>
+<!-- Dammam -->
+<div class="absolute top-[48%] left-[78%] group cursor-pointer hover:scale-110 transition-transform">
+<div class="w-3 h-3 bg-on-surface-variant/50 rounded-full border border-white/30 relative z-10"></div>
+<div class="absolute top-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-on-surface-variant/80 text-[10px] font-medium">Dammam East</div>
+</div>
+<!-- Map UI Overlays -->
+<div class="absolute bottom-6 right-6 flex flex-col gap-2">
+<button class="w-10 h-10 bg-surface-container-high rounded-lg flex items-center justify-center border border-white/5 hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+<button class="w-10 h-10 bg-surface-container-high rounded-lg flex items-center justify-center border border-white/5 hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+</div>
+</div>
+<!-- Detail Card: Riyadh Hub -->
+<div class="grid grid-cols-12 gap-6 items-end">
+<div class="col-span-8">
+<div class="bg-surface-container rounded-xl p-6 border border-white/5 shadow-xl glass-panel relative overflow-hidden">
+<!-- Subtle Glow Effect -->
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/5 blur-3xl rounded-full"></div>
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-primary-container/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="warehouse">warehouse</span>
+</div>
+<div>
+<h3 class="text-xl font-bold font-headline text-white">Riyadh Logistics Central (RLC-01)</h3>
+<div class="flex items-center gap-2 text-primary-fixed-dim text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span>
+                                        Exit 18, Sulay District, Riyadh
+                                    </div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-8 mt-2">
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Total Capacity</p>
+<p class="text-lg font-bold text-white">45,000 <span class="text-xs font-normal text-slate-500">m²</span></p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Current Availability</p>
+<div class="flex items-center gap-2">
+<p class="text-lg font-bold text-primary">12,400 <span class="text-xs font-normal text-primary/70">m²</span></p>
+<span class="px-2 py-0.5 rounded text-[9px] bg-primary/10 text-primary border border-primary/20">27% FREE</span>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Cold Storage</p>
+<p class="text-lg font-bold text-white">8,500 <span class="text-xs font-normal text-slate-500">m²</span></p>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-3">
+<div class="text-right">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Tier Class</p>
+<p class="text-white font-bold">Platinum / A+</p>
+</div>
+<div class="flex gap-1">
+<span class="w-8 h-1 bg-primary rounded-full"></span>
+<span class="w-8 h-1 bg-primary rounded-full"></span>
+<span class="w-8 h-1 bg-primary rounded-full"></span>
+<span class="w-8 h-1 bg-surface-container-highest rounded-full"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="col-span-4 flex flex-col gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/5 space-y-3">
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Estimated Daily Handling</span>
+<span class="text-white font-medium">4,500 units</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Connectivity Score</span>
+<span class="text-tertiary-fixed-dim font-medium">9.8/10</span>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold py-4 rounded-lg flex items-center justify-center gap-3 shadow-lg shadow-primary-container/20 hover:scale-[0.98] transition-transform">
+                    Select This Warehouse
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>

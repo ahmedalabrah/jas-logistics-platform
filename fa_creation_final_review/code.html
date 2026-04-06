@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Agreement Wizard - Final Review</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .document-canvas {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.02) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#cfbef6",
+                      "inverse-surface": "#e3e0f1",
+                      "primary": "#d0bcff",
+                      "tertiary-fixed-dim": "#ffb68e",
+                      "surface-tint": "#d0bcff",
+                      "surface-container-lowest": "#0d0d18",
+                      "primary-container": "#4b1fa3",
+                      "tertiary": "#ffb68e",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#4c3f6e",
+                      "on-primary": "#3b0092",
+                      "surface-dim": "#12121d",
+                      "on-surface": "#e3e0f1",
+                      "error": "#ffb4ab",
+                      "on-error": "#690005",
+                      "on-tertiary": "#532200",
+                      "tertiary-fixed": "#ffdbc9",
+                      "on-background": "#e3e0f1",
+                      "inverse-primary": "#6a45c3",
+                      "on-secondary": "#352856",
+                      "on-tertiary-container": "#f09661",
+                      "on-secondary-fixed": "#201340",
+                      "on-primary-container": "#b79cff",
+                      "surface-container": "#1f1e2a",
+                      "outline-variant": "#494453",
+                      "secondary-container": "#4f4171",
+                      "tertiary-container": "#6c2e00",
+                      "inverse-on-surface": "#302f3b",
+                      "outline": "#948e9e",
+                      "on-tertiary-fixed-variant": "#743405",
+                      "primary-fixed-dim": "#d0bcff",
+                      "on-tertiary-fixed": "#331200",
+                      "surface": "#12121d",
+                      "surface-container-highest": "#343440",
+                      "surface-bright": "#383845",
+                      "background": "#12121d",
+                      "on-primary-fixed-variant": "#5228aa",
+                      "surface-container-low": "#1b1a26",
+                      "on-secondary-container": "#c0b0e7",
+                      "surface-container-high": "#292935",
+                      "on-primary-fixed": "#22005c",
+                      "secondary-fixed": "#e9ddff",
+                      "primary-fixed": "#e9ddff",
+                      "on-error-container": "#ffdad6",
+                      "on-surface-variant": "#cbc3d5",
+                      "surface-variant": "#343440",
+                      "secondary": "#cfbef6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 h-screen w-72 border-r border-white/5 bg-slate-950/80 backdrop-blur-xl shadow-2xl shadow-black/50 font-['Plus_Jakarta_Sans'] font-medium tracking-tight">
+<div class="p-8">
+<h1 class="text-xl font-bold tracking-tighter text-white">JAS Logistics</h1>
+<p class="text-[10px] uppercase tracking-widest text-violet-400/60 mt-1">Agreement Wizard v2.4</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<div class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 transition-colors hover:bg-white/10 transition-all duration-300 rounded-lg group cursor-pointer">
+<span class="material-symbols-outlined text-xl">payments</span>
+<span class="text-sm">Commercial Terms</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 transition-colors hover:bg-white/10 transition-all duration-300 rounded-lg group cursor-pointer">
+<span class="material-symbols-outlined text-xl">hub</span>
+<span class="text-sm">Warehouse Mapping</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 transition-colors hover:bg-white/10 transition-all duration-300 rounded-lg group cursor-pointer">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+<span class="text-sm">Zone Configuration</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-300 transition-colors hover:bg-white/10 transition-all duration-300 rounded-lg group cursor-pointer">
+<span class="material-symbols-outlined text-xl">description</span>
+<span class="text-sm">Operational SOW</span>
+</div>
+<!-- Active Tab: Final Review -->
+<div class="flex items-center gap-3 px-4 py-3 text-violet-300 font-bold border-r-2 border-violet-500 bg-white/5 transition-all duration-300 rounded-l-lg scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">rate_review</span>
+<span class="text-sm">Final Review</span>
+</div>
+</nav>
+<div class="p-4 mt-auto border-t border-white/5">
+<button class="w-full py-3 bg-violet-600/20 text-violet-400 rounded-lg border border-violet-500/30 hover:bg-violet-600/30 transition-all mb-6 text-sm font-bold">
+                Save Draft
+            </button>
+<div class="space-y-1">
+<div class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 transition-all text-xs cursor-pointer">
+<span class="material-symbols-outlined text-lg">help</span>
+<span>Support</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 transition-all text-xs cursor-pointer">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span>Settings</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-72 flex items-center justify-between px-8 z-50 w-full h-16 border-b border-white/5 bg-slate-950/40 backdrop-blur-md font-['Plus_Jakarta_Sans'] text-sm tracking-wide">
+<div class="flex items-center gap-8">
+<span class="font-black text-violet-500 tracking-tighter">Agreement Wizard</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-400 hover:text-violet-200 transition-opacity opacity-80 hover:opacity-100" href="#">Dashboard</a>
+<a class="text-white border-b-2 border-violet-500 pb-1" href="#">Agreements</a>
+<a class="text-slate-400 hover:text-violet-200 transition-opacity opacity-80 hover:opacity-100" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-violet-400 transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-violet-400 transition-colors">history</span>
+</div>
+<div class="h-8 w-[1px] bg-white/10 mx-2"></div>
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="text-right">
+<p class="text-xs font-bold text-white leading-none">Sarah Al-Fassi</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-tighter">Agreement Manager</p>
+</div>
+<img alt="Manager Avatar" class="w-8 h-8 rounded-full border border-white/10" data-alt="professional portrait of a confident middle-aged executive woman with a warm smile in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNJswDU_XTTUx5yH7KU-8k-5b8eodo1pb1mIaeD5IMHNEehttt_Qd9mqoPmBcoemuNEHoL0RhCs0grW9lgeSyTeeeRz3fA9hQPsm5i2eUtM8k-Bze_xK2NrMJxTxoeEc53Bo8WM-tztqN1Sd1wSPD_7DiS4HDjOLK_krsS25RkfFn_z9XV-TXQySgckJi9ZQRyPsKWWSy1v7F324RHj3bNMazn9O13sXt7wt2D_TUgNMGqQoPHdOlbGi5VG5wKU7r7k0lgJFKJuA"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-72 pt-16 min-h-screen bg-surface-dim relative document-canvas">
+<div class="max-w-5xl mx-auto px-12 py-12">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-[10px] uppercase tracking-widest text-on-surface-variant mb-8">
+<span>Agreements</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span>Drafts</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary">FA-04: Review &amp; Submit</span>
+</nav>
+<!-- Document Preview Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_0_100px_rgba(0,0,0,0.8)] border border-white/5 overflow-hidden">
+<!-- Document Header -->
+<div class="p-12 border-b border-outline-variant/10 bg-gradient-to-b from-surface-bright/5 to-transparent">
+<div class="flex justify-between items-start mb-12">
+<div>
+<h2 class="text-3xl font-headline font-extrabold tracking-tighter text-white mb-2">Master Logistics Agreement</h2>
+<p class="text-on-surface-variant font-label text-sm">Agreement ID: <span class="text-primary font-mono">JAS-2024-KSA-0492</span></p>
+</div>
+<div class="text-right">
+<img alt="JAS Logo" class="h-10 w-auto brightness-0 invert opacity-90" data-alt="minimalist modern corporate logotype in white against a dark background for jas logistics company" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYSBr3gL5ROaapwzxCt5lgScHg9u1shMHnzcEja1c0vxDEnIFvngNweG_vsD-fiAL0aGi7haVkY7a-LXs1vu7GA_EAuW0XqJ1G1qRe4y4pIwC08eDH1qHJIsJpXKvtFWr-SFzGxvZj-4CsFN_EVumgM1YCooRK_lhDwocFDvUKBOkTgzD4YnQH2yeGAq_a1wnbf9lcjIxI4r7sfsnUX1moeE76lBwGZ13LOJ30vTOuZ7hobumJeLcK-ewmzFGYCCvTfxUNmft1FA"/>
+<p class="mt-4 text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold">Confidential Commercial Document</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-8 py-8 border-y border-outline-variant/10">
+<div>
+<p class="text-[10px] uppercase text-primary font-bold mb-2 tracking-widest">Effective Date</p>
+<p class="text-sm text-on-surface">March 15, 2024</p>
+</div>
+<div>
+<p class="text-[10px] uppercase text-primary font-bold mb-2 tracking-widest">Region Jurisdiction</p>
+<p class="text-sm text-on-surface">Kingdom of Saudi Arabia (NEOM/Riyadh)</p>
+</div>
+<div>
+<p class="text-[10px] uppercase text-primary font-bold mb-2 tracking-widest">Contract Duration</p>
+<p class="text-sm text-on-surface">36 Months + Auto-Renewal</p>
+</div>
+</div>
+</div>
+<!-- Document Content Sections -->
+<div class="p-12 space-y-16">
+<!-- Section 1: Terms -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<span class="w-8 h-[2px] bg-primary"></span>
+<h3 class="text-lg font-bold text-white font-headline">01. Commercial Terms &amp; Obligations</h3>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div class="space-y-4">
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                    The Carrier (JAS Logistics) agrees to maintain a 98.5% Service Level Agreement (SLA) on all Tier-1 routes within the Riyadh metropolitan area. All billing will be settled in SAR (Saudi Riyal) on a Net-45 basis from the date of invoice generation.
+                                </p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-white/5">
+<h4 class="text-[10px] uppercase font-bold text-on-surface mb-4">Key Clauses Preview</h4>
+<ul class="space-y-3 text-xs text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+<span>Fuel Surcharge: Indexed to monthly ARAMCO pricing.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-sm text-primary">check_circle</span>
+<span>Force Majeure: Including regional climate events.</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Section 2: Rate Card -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<span class="w-8 h-[2px] bg-primary"></span>
+<h3 class="text-lg font-bold text-white font-headline">02. Zone-Based Rate Architecture</h3>
+</div>
+<div class="overflow-hidden border border-outline-variant/10 rounded-lg">
+<table class="w-full text-left text-sm">
+<thead class="bg-surface-container-high text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">
+<tr>
+<th class="px-6 py-4">Zone ID</th>
+<th class="px-6 py-4">Origin Hub</th>
+<th class="px-6 py-4">Destination Cluster</th>
+<th class="px-6 py-4">Base Rate (SAR)</th>
+<th class="px-6 py-4">Lead Time</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10 text-on-surface">
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4 font-mono text-xs">KSA-W-01</td>
+<td class="px-6 py-4">Jeddah Port</td>
+<td class="px-6 py-4">Riyadh Central</td>
+<td class="px-6 py-4">4,250.00</td>
+<td class="px-6 py-4">24 Hours</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4 font-mono text-xs">KSA-N-04</td>
+<td class="px-6 py-4">Dammam Port</td>
+<td class="px-6 py-4">NEOM Industrial</td>
+<td class="px-6 py-4">8,900.00</td>
+<td class="px-6 py-4">72 Hours</td>
+</tr>
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-4 font-mono text-xs">KSA-S-09</td>
+<td class="px-6 py-4">Riyadh South</td>
+<td class="px-6 py-4">Abha Regional</td>
+<td class="px-6 py-4">5,100.00</td>
+<td class="px-6 py-4">48 Hours</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Section 3: Mapping Preview -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<span class="w-8 h-[2px] bg-primary"></span>
+<h3 class="text-lg font-bold text-white font-headline">03. Network Configuration</h3>
+</div>
+<div class="grid grid-cols-3 gap-6 h-64">
+<div class="col-span-2 rounded-xl overflow-hidden relative border border-white/10 grayscale opacity-80 group hover:opacity-100 transition-opacity">
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="abstract satellite night view of city lights and shipping lanes in saudi arabia with glowing interconnected nodes" data-location="Saudi Arabia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4PJ4vWJa7JpopbuM5Yhu2kgdGIJ4gfneDNPKHRPT5Z4A6fmo79GB1nXnG5cjAno_ZQ8h7gLXcBgf4885uGniZr6yAg6YYKsQ81KbMePE-nc1mpHThFS4B9SJlVvAgozQrsYWnU7S_ArkARVmiO6KGUnmZYZ2ug2RXrVURf-BaQKyQSY61gi_IpXQZNCkaPqwSipPLCqzAQum9D6KmndMjxike3YKR9RVV1HUMuvaWsSeJG1ESCbqMQLDIG2Q0uE-5F1PhaN-SNg"/>
+<div class="absolute bottom-4 left-6 z-20">
+<p class="text-[10px] font-bold text-primary uppercase">Zone Mapping Active</p>
+<p class="text-xs text-white">Interactive Network Layer: JAS Hub-01 to Hub-09</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container rounded-lg border border-white/5">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase mb-1">Total Warehouses</p>
+<p class="text-2xl font-headline font-bold text-white">12</p>
+</div>
+<div class="p-4 bg-surface-container rounded-lg border border-white/5">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase mb-1">Transit Zones</p>
+<p class="text-2xl font-headline font-bold text-white">34</p>
+</div>
+<div class="p-4 bg-surface-container rounded-lg border border-white/5">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase mb-1">Primary Routes</p>
+<p class="text-2xl font-headline font-bold text-white">118</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Signatures -->
+<section class="pt-8 border-t border-outline-variant/10">
+<div class="grid grid-cols-2 gap-24">
+<div class="space-y-6">
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">For: JAS Logistics</p>
+<div class="h-20 w-full border-b border-outline-variant flex items-end pb-2 italic text-slate-500 font-serif text-xl">
+                                    / Signed Digitally /
+                                </div>
+<div class="flex justify-between text-xs text-on-surface-variant">
+<span>Authorized Representative</span>
+<span>Date: --/--/----</span>
+</div>
+</div>
+<div class="space-y-6 opacity-40">
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">For: Client Party</p>
+<div class="h-20 w-full border-b border-outline-variant border-dashed flex items-center justify-center text-xs uppercase tracking-widest">
+                                    Pending Client Signature
+                                </div>
+<div class="flex justify-between text-xs text-on-surface-variant">
+<span>Authorized Representative</span>
+<span>Date: --/--/----</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Global Action Bar -->
+<div class="mt-12 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-white transition-colors text-sm font-bold">
+<span class="material-symbols-outlined">print</span>
+                        Print Copy
+                    </button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-white transition-colors text-sm font-bold">
+<span class="material-symbols-outlined">download</span>
+                        Download PDF
+                    </button>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-8 py-4 text-on-surface-variant hover:text-white transition-colors font-bold text-sm">
+                        Back to Edit
+                    </button>
+<button class="px-12 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-lg font-bold text-sm shadow-[0_0_30px_rgba(208,188,255,0.2)] hover:shadow-[0_0_40px_rgba(208,188,255,0.4)] transition-all scale-100 hover:scale-[1.02] active:scale-[0.98]">
+                        Submit FA for JAS Review
+                    </button>
+</div>
+</div>
+<p class="mt-8 text-center text-[10px] text-on-surface-variant uppercase tracking-widest opacity-50">
+                Finalizing this agreement will trigger internal approval workflows. Review all terms carefully.
+            </p>
+</div>
+<!-- Ambient Backdrop Gradients -->
+<div class="fixed top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[150px] -z-10 rounded-full"></div>
+<div class="fixed bottom-0 left-72 w-[400px] h-[400px] bg-violet-900/10 blur-[120px] -z-10 rounded-full"></div>
+</main>
+</body></html>

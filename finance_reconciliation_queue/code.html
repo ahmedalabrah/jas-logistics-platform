@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | Offline Payment Reconciliation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#22005c",
+                    "on-tertiary": "#532200",
+                    "inverse-on-surface": "#302f3b",
+                    "tertiary-fixed": "#ffdbc9",
+                    "surface-container": "#1f1e2a",
+                    "surface-container-highest": "#343440",
+                    "on-secondary-fixed-variant": "#4c3f6e",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-secondary": "#352856",
+                    "inverse-surface": "#e3e0f1",
+                    "outline-variant": "#494453",
+                    "tertiary": "#ffb68e",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#331200",
+                    "tertiary-fixed-dim": "#ffb68e",
+                    "primary": "#d0bcff",
+                    "surface-container-high": "#292935",
+                    "on-tertiary-fixed-variant": "#743405",
+                    "surface-tint": "#d0bcff",
+                    "on-primary": "#3b0092",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed-dim": "#d0bcff",
+                    "secondary-fixed-dim": "#cfbef6",
+                    "on-primary-container": "#b79cff",
+                    "on-surface": "#e3e0f1",
+                    "primary-container": "#4b1fa3",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#383845",
+                    "surface-dim": "#12121d",
+                    "on-background": "#e3e0f1",
+                    "background": "#12121d",
+                    "inverse-primary": "#6a45c3",
+                    "on-primary-fixed-variant": "#5228aa",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#c0b0e7",
+                    "secondary": "#cfbef6",
+                    "outline": "#948e9e",
+                    "surface-container-low": "#1b1a26",
+                    "on-surface-variant": "#cbc3d5",
+                    "tertiary-container": "#6c2e00",
+                    "on-secondary-fixed": "#201340",
+                    "surface-variant": "#343440",
+                    "surface": "#12121d",
+                    "secondary-container": "#4f4171",
+                    "on-tertiary-container": "#f09661"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#12121d]/80 backdrop-blur-xl border-b border-white/5 flex justify-between items-center px-8 h-16 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+<div class="text-xl font-bold tracking-tighter text-[#d0bcff] font-headline">JAS Logistics</div>
+<div class="hidden md:flex items-center space-x-8 font-headline font-medium text-sm tracking-tight">
+<a class="text-white/60 hover:text-white/90 transition-colors" href="#">Payments</a>
+<a class="text-white/60 hover:text-white/90 transition-colors" href="#">Payouts</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-2 transition-all" href="#">Reconciliation</a>
+<a class="text-white/60 hover:text-white/90 transition-colors" href="#">Settings</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-white/60 hover:bg-white/5 rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-white/60 hover:bg-white/5 rounded-lg transition-all active:scale-95">
+<span class="material-symbols-outlined">translate</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-[#d0bcff]/20">
+<img class="h-full w-full object-cover" data-alt="professional portrait of a finance executive in a sharp suit with a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX9kNHSp8zjpWqknoU8vDv7RY1r4FJUpvDx30Vcw4jn9yFaz_RmBryzpcS0bDYQH5LdCeCcinM_m8EcFQRCMqqVvhWNga8WxO7yi7l_QpR7zn1e8s8GBtrdpIFwtL43Y5DP--K7hPYd7zTmqbbt_S9HbcEsg13lDFF4PVzD7H6aKGwRvScFAbTG4AtnJ4sOOGhbr9Rw99MepxKo0RpUO48ULZPYwUjYR8XKFI-2hfVbe2swWRx_H27uiAKyMHmQwWStMs0_r3lSg"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 h-full w-64 z-40 bg-[#0F0F1A]/90 backdrop-blur-2xl flex flex-col py-20 px-4 space-y-2 hidden md:flex">
+<div class="mb-8 px-4">
+<p class="font-headline font-bold text-[#d0bcff] text-lg">Finance Portal</p>
+<p class="text-white/40 text-xs tracking-widest uppercase">Precision Logistics</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Command Center</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 bg-gradient-to-r from-[#4B1FA3]/30 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] font-semibold transition-all duration-300" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">SADAD Ops</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Bank Transfers</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Carrier Payouts</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Batch Processing</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Audit Logs</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 space-y-1">
+<button class="w-full bg-gradient-to-r from-[#d0bcff] to-[#4b1fa3] text-[#22005c] font-bold py-3 rounded-lg flex items-center justify-center space-x-2 mb-4 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+<span>New Batch</span>
+</button>
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Support</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-white/40 hover:bg-white/5 hover:text-white/80 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-20 px-8 pb-12 min-h-screen">
+<!-- SARIE AUTO-MATCH STATUS Banner -->
+<section class="mb-8">
+<div class="relative overflow-hidden rounded-xl bg-surface-container-high p-6 border border-primary/10 group">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">speed</span>
+</div>
+<div class="flex items-center justify-between relative z-10">
+<div class="flex items-center space-x-6">
+<div class="h-14 w-14 rounded-full bg-primary/20 flex items-center justify-center text-primary shadow-[0_0_20px_rgba(208,188,255,0.3)]">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<div>
+<h2 class="font-headline font-extrabold text-2xl tracking-tight text-white">SARIE AUTO-MATCH STATUS</h2>
+<p class="text-on-surface-variant font-label text-sm">Automated reconciliation engine currently operating at <span class="text-primary font-bold">94.2% accuracy</span></p>
+</div>
+</div>
+<div class="flex space-x-8 text-right">
+<div>
+<p class="text-xs text-white/40 uppercase tracking-widest mb-1">Processed Today</p>
+<p class="font-headline font-bold text-xl">1,429 Invoices</p>
+</div>
+<div class="h-10 w-[1px] bg-white/10 self-center"></div>
+<div>
+<p class="text-xs text-white/40 uppercase tracking-widest mb-1">Auto-Settled</p>
+<p class="font-headline font-bold text-xl text-primary">SAR 4.2M</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- MANUAL REVIEW QUEUE -->
+<section class="space-y-6">
+<div class="flex items-end justify-between">
+<div>
+<h1 class="font-headline font-extrabold text-3xl text-white mb-2">Manual Review Queue</h1>
+<p class="text-on-surface-variant max-w-xl">Action required for payments that could not be verified by the SARIE autonomous matching logic.</p>
+</div>
+<div class="flex space-x-3">
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-lg font-medium text-sm flex items-center space-x-2 border border-white/5 hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+<span>Filters</span>
+</button>
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-lg font-medium text-sm flex items-center space-x-2 border border-white/5 hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-lg">file_download</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex space-x-1 p-1 bg-surface-container-lowest rounded-xl w-fit border border-white/5">
+<button class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all bg-primary-container text-primary">
+                    Pending SADAD <span class="ml-2 px-2 py-0.5 rounded-full bg-primary/20 text-[10px]">24</span>
+</button>
+<button class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all text-white/40 hover:text-white/80 hover:bg-white/5">
+                    Pending Bank Transfer <span class="ml-2 px-2 py-0.5 rounded-full bg-white/10 text-[10px]">12</span>
+</button>
+<button class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all text-white/40 hover:text-white/80 hover:bg-white/5">
+                    Unmatched <span class="ml-2 px-2 py-0.5 rounded-full bg-white/10 text-[10px]">08</span>
+</button>
+</div>
+<!-- Bento Data Table Container -->
+<div class="bg-surface-container rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50 border-b border-white/5">
+<th class="px-6 py-4 font-headline font-semibold text-xs text-white/40 uppercase tracking-widest">Client Name</th>
+<th class="px-6 py-4 font-headline font-semibold text-xs text-white/40 uppercase tracking-widest">Invoice #</th>
+<th class="px-6 py-4 font-headline font-semibold text-xs text-white/40 uppercase tracking-widest">Expected Amount</th>
+<th class="px-6 py-4 font-headline font-semibold text-xs text-white/40 uppercase tracking-widest">Received Amount</th>
+<th class="px-6 py-4 font-headline font-semibold text-xs text-white/40 uppercase tracking-widest">Reference</th>
+<th class="px-6 py-4 font-headline font-semibold text-xs text-white/40 uppercase tracking-widest">Proof</th>
+<th class="px-6 py-4 font-headline font-semibold text-xs text-white/40 uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center space-x-3">
+<div class="h-8 w-8 rounded-lg bg-tertiary-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-lg">domain</span>
+</div>
+<div>
+<p class="font-semibold text-white">Al-Futtaim Logistics</p>
+<p class="text-xs text-white/40">Enterprise Tier</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 font-mono text-sm text-on-surface-variant">INV-2023-9021</td>
+<td class="px-6 py-5">
+<p class="text-sm font-semibold">SAR 42,500.00</p>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-bold text-primary">SAR 42,500.00</p>
+<p class="text-[10px] text-green-400/60 uppercase">Exact Match</p>
+</td>
+<td class="px-6 py-5 font-mono text-xs text-white/60">SAD-REF-882200</td>
+<td class="px-6 py-5">
+<button class="flex items-center space-x-2 text-primary hover:text-primary-fixed transition-colors text-sm">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>PDF</span>
+</button>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-end space-x-2">
+<button class="h-9 px-4 rounded-lg bg-primary/10 text-primary border border-primary/20 text-xs font-bold hover:bg-primary hover:text-on-primary transition-all active:scale-95">Match ✓</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-surface-container-highest text-white/60 hover:text-white transition-all"><span class="material-symbols-outlined text-lg">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center space-x-3">
+<div class="h-8 w-8 rounded-lg bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">apartment</span>
+</div>
+<div>
+<p class="font-semibold text-white">Red Sea Global</p>
+<p class="text-xs text-white/40">Strategic Partner</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 font-mono text-sm text-on-surface-variant">INV-2023-8845</td>
+<td class="px-6 py-5">
+<p class="text-sm font-semibold">SAR 112,000.00</p>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-bold text-tertiary">SAR 110,500.00</p>
+<p class="text-[10px] text-tertiary/60 uppercase">Partial (-1.3%)</p>
+</td>
+<td class="px-6 py-5 font-mono text-xs text-white/60">TXN-BA-900332</td>
+<td class="px-6 py-5">
+<button class="flex items-center space-x-2 text-primary hover:text-primary-fixed transition-colors text-sm">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>PNG</span>
+</button>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-end space-x-2">
+<button class="h-9 px-4 rounded-lg bg-tertiary-container/30 text-tertiary border border-tertiary/20 text-xs font-bold hover:bg-tertiary hover:text-on-tertiary transition-all active:scale-95">Partial Match</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-surface-container-highest text-white/60 hover:text-white transition-all"><span class="material-symbols-outlined text-lg">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center space-x-3">
+<div class="h-8 w-8 rounded-lg bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-lg">store</span>
+</div>
+<div>
+<p class="font-semibold text-white">Aramex Saudi</p>
+<p class="text-xs text-white/40">Wholesale Account</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 font-mono text-sm text-on-surface-variant">INV-2023-7720</td>
+<td class="px-6 py-5">
+<p class="text-sm font-semibold">SAR 8,900.00</p>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-bold text-error">SAR 0.00</p>
+<p class="text-[10px] text-error/60 uppercase">Missing Transfer</p>
+</td>
+<td class="px-6 py-5 font-mono text-xs text-white/60">---</td>
+<td class="px-6 py-5">
+<span class="text-white/20 text-xs italic">No Proof</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-end space-x-2">
+<button class="h-9 px-4 rounded-lg bg-error-container text-on-error-container border border-error/20 text-xs font-bold hover:bg-error hover:text-on-error transition-all active:scale-95">Reject ✗</button>
+<button class="h-9 w-9 flex items-center justify-center rounded-lg bg-surface-container-highest text-white/60 hover:text-white transition-all"><span class="material-symbols-outlined text-lg">more_vert</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Compact Pagination -->
+<div class="px-6 py-4 bg-surface-container-low border-t border-white/5 flex items-center justify-between">
+<p class="text-xs text-white/40">Showing <span class="text-on-surface">1-3</span> of 44 reconciliation items</p>
+<div class="flex space-x-2">
+<button class="p-2 rounded hover:bg-white/5 transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights Bento Section -->
+<section class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container rounded-2xl p-6 border border-white/5">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline font-bold text-white">Daily Liquidity Velocity</h3>
+<div class="flex items-center space-x-2 text-[10px] uppercase font-bold text-white/40">
+<span class="flex items-center space-x-1"><span class="h-2 w-2 rounded-full bg-primary"></span><span>SADAD</span></span>
+<span class="flex items-center space-x-1"><span class="h-2 w-2 rounded-full bg-tertiary"></span><span>Bank Transfer</span></span>
+</div>
+</div>
+<!-- Mock Chart Visualization -->
+<div class="h-48 flex items-end justify-between px-2 gap-4">
+<div class="flex-1 space-y-1">
+<div class="w-full bg-primary/20 rounded-t h-[30%]"></div>
+<div class="w-full bg-tertiary/20 rounded-b h-[20%]"></div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="w-full bg-primary/40 rounded-t h-[45%]"></div>
+<div class="w-full bg-tertiary/40 rounded-b h-[15%]"></div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="w-full bg-primary/60 rounded-t h-[60%]"></div>
+<div class="w-full bg-tertiary/60 rounded-b h-[25%]"></div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="w-full bg-primary rounded-t h-[80%] shadow-[0_0_15px_rgba(208,188,255,0.4)]"></div>
+<div class="w-full bg-tertiary rounded-b h-[35%]"></div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="w-full bg-primary/70 rounded-t h-[55%]"></div>
+<div class="w-full bg-tertiary/70 rounded-b h-[30%]"></div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="w-full bg-primary/50 rounded-t h-[40%]"></div>
+<div class="w-full bg-tertiary/50 rounded-b h-[20%]"></div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="w-full bg-primary/30 rounded-t h-[35%]"></div>
+<div class="w-full bg-tertiary/30 rounded-b h-[15%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-br from-primary-container/40 to-surface-container rounded-2xl p-6 border border-primary/10 flex flex-col justify-between">
+<div>
+<h3 class="font-headline font-bold text-white mb-1">Matching Efficiency</h3>
+<p class="text-on-surface-variant text-sm">Human intervention vs. AI matching</p>
+</div>
+<div class="py-8">
+<div class="relative h-3 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="absolute left-0 top-0 h-full w-[88%] bg-primary shadow-[0_0_10px_rgba(208,188,255,0.5)]"></div>
+</div>
+<div class="mt-4 flex justify-between">
+<div class="text-center">
+<p class="text-2xl font-black text-white">88%</p>
+<p class="text-[10px] uppercase text-white/40 tracking-widest font-bold">Auto</p>
+</div>
+<div class="text-center">
+<p class="text-2xl font-black text-tertiary">12%</p>
+<p class="text-[10px] uppercase text-white/40 tracking-widest font-bold">Manual</p>
+</div>
+</div>
+</div>
+<button class="w-full py-2 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold text-primary transition-all">Optimize Flow</button>
+</div>
+</section>
+</main>
+<!-- Floating Action Button - Contextual for "New Action" on Command Portal -->
+<button class="fixed bottom-8 right-8 h-14 w-14 rounded-full bg-primary text-on-primary-fixed flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all z-50 group md:hidden">
+<span class="material-symbols-outlined">add</span>
+</button>
+</body></html>

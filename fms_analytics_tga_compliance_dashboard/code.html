@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FMS-31 — TGA COMPLIANCE | JAS Logistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "tertiary-container": "#6c2e00",
+                  "tertiary-fixed-dim": "#ffb68e",
+                  "on-tertiary": "#532200",
+                  "inverse-on-surface": "#302f3b",
+                  "on-secondary-container": "#c0b0e7",
+                  "secondary-fixed": "#e9ddff",
+                  "on-tertiary-fixed": "#331200",
+                  "on-surface": "#e3e0f1",
+                  "on-error": "#690005",
+                  "inverse-primary": "#6a45c3",
+                  "on-error-container": "#ffdad6",
+                  "on-background": "#e3e0f1",
+                  "on-primary-fixed-variant": "#5228aa",
+                  "surface-container-lowest": "#0d0d18",
+                  "surface-container": "#1f1e2a",
+                  "on-primary-container": "#b79cff",
+                  "on-tertiary-fixed-variant": "#743405",
+                  "surface-bright": "#383845",
+                  "secondary": "#cfbef6",
+                  "primary": "#3B82F6", /* Switched to TGA Blue */
+                  "surface-tint": "#3B82F6",
+                  "surface-container-high": "#292935",
+                  "secondary-fixed-dim": "#cfbef6",
+                  "error-container": "#93000a",
+                  "primary-fixed-dim": "#3B82F6",
+                  "surface-container-highest": "#343440",
+                  "on-secondary": "#352856",
+                  "surface": "#12121d",
+                  "primary-fixed": "#dbeafe",
+                  "on-surface-variant": "#cbc3d5",
+                  "on-primary-fixed": "#001d3d",
+                  "error": "#ffb4ab",
+                  "tertiary-fixed": "#ffdbc9",
+                  "primary-container": "#1e3a8a",
+                  "surface-variant": "#343440",
+                  "surface-container-low": "#1b1a26",
+                  "outline": "#948e9e",
+                  "on-tertiary-container": "#f09661",
+                  "on-secondary-fixed": "#201340",
+                  "on-primary": "#ffffff",
+                  "surface-dim": "#12121d",
+                  "secondary-container": "#4f4171",
+                  "outline-variant": "#494453",
+                  "on-secondary-fixed-variant": "#4c3f6e",
+                  "inverse-surface": "#e3e0f1",
+                  "background": "#12121d",
+                  "tertiary": "#ffb68e"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "fontFamily": {
+                  "headline": ["Plus Jakarta Sans"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-sidebar { background: rgba(15, 15, 26, 0.8); backdrop-filter: blur(20px); }
+    .glass-topbar { background: rgba(15, 15, 26, 0.6); backdrop-filter: blur(12px); }
+    .gradient-primary { background: linear-gradient(135deg, #3B82F6 0%, #1e3a8a 100%); }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 flex flex-col bg-slate-950/80 backdrop-blur-xl border-r border-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm shadow-2xl shadow-black/50">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded gradient-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-base">local_shipping</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-blue-400">JAS Logistics</h1>
+<p class="text-[10px] text-slate-400 uppercase tracking-widest">Fleet Operations</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1 overflow-y-auto no-scrollbar">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-white/5 transition-all duration-300 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span>Maintenance Control</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-white/5 transition-all duration-300 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>Work Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-white/5 transition-all duration-300 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">local_gas_station</span>
+<span>Fuel Management</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-white/5 transition-all duration-300 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">monetization_on</span>
+<span>Profitability</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded transition-all duration-300 text-white bg-blue-600/20 border-r-2 border-blue-500 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span>TGA Compliance</span>
+</a>
+</nav>
+<div class="p-4 border-t border-white/5">
+<button class="w-full py-3 mb-4 rounded-lg gradient-primary text-on-primary font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+        Schedule AI Audit
+      </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="sticky top-0 right-0 w-[calc(100%-16rem)] ml-64 z-30 px-8 h-16 flex justify-between items-center bg-slate-950/60 backdrop-blur-lg border-b border-white/5">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black text-white font-['Plus_Jakarta_Sans']">Compliance Intelligence</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-400 hover:text-white transition-colors font-semibold text-sm" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-white transition-colors font-semibold text-sm" href="#">Fleet Analytics</a>
+<a class="text-blue-400 border-b-2 border-blue-400 pb-2 font-semibold text-sm" href="#">TGA Compliance</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-white">notifications</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-white">history</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/10">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy7FKX5q07KQgc8bmTEDuOdoNvF-ebje4bIB-w4zLA6Wy08BlO6vAnAhCPdrAdjpdXpvdixAGx2osJDov1PNF0HO7mI_ZzKWhX9p582q3OX-pudteMAXS9htcFEN0Jz0-MY-rIxucRR5gu4TO0zsh2OY_YvnKMWTg6cwI6dbqd-OX8AewmP_OE8kAh6po17WvdiN_8AjQ3PZxzuQ4aaVcwcusThn5Jf0skK6uDlRq9Yq98qkcDPtxZ_q1H58pNWDVC15WFgBSC4A"/>
+</div>
+</div>
+<button class="bg-primary px-4 py-2 rounded text-on-primary text-sm font-bold hover:brightness-110 transition-all">
+        New Permit Request
+      </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-8 min-h-screen">
+<!-- Header Section -->
+<section class="mb-8">
+<div class="flex justify-between items-end mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold tracking-wider">AUTHORITY: TGA SAUDI ARABIA</span>
+<span class="text-on-surface-variant text-sm">• Kingdom-wide Regulatory Monitoring</span>
+</div>
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface font-headline">TGA Compliance Dashboard</h2>
+</div>
+<div class="flex gap-2">
+<button class="bg-surface-container-high hover:bg-surface-bright px-4 py-2 rounded flex items-center gap-2 text-sm font-medium transition-colors border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary">download</span> Export Audit Report
+            </button>
+<button class="bg-surface-container-high hover:bg-surface-bright px-4 py-2 rounded flex items-center gap-2 text-sm font-medium transition-colors border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary">sync</span> Live TGA Sync
+            </button>
+</div>
+</div>
+<!-- TGA KPI Bento -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5 flex flex-col items-center justify-center text-center">
+<div class="relative w-20 h-20 mb-3 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-surface-container-highest" cx="40" cy="40" fill="transparent" r="34" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary" cx="40" cy="40 fill=" r="34" stroke="currentColor" stroke-dasharray="213.6" stroke-dashoffset="7.6" stroke-linecap="round" stroke-width="6" transparent"=""></circle>
+</svg>
+<span class="text-xl font-black">96.4%</span>
+</div>
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest font-bold">Fleet Compliance</p>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5">
+<p class="text-on-surface-variant text-xs mb-1 uppercase tracking-wider font-semibold">Valid Op. Cards</p>
+<div class="flex items-baseline gap-1">
+<p class="text-2xl font-bold">84</p>
+<p class="text-on-surface-variant text-sm">/ 87</p>
+</div>
+<div class="mt-3 flex items-center gap-1 text-primary text-[10px]">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> 3 Renewal Pending
+          </div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5">
+<p class="text-on-surface-variant text-xs mb-1 uppercase tracking-wider font-semibold">Monthly Permits</p>
+<p class="text-2xl font-bold">1,847</p>
+<div class="mt-3 flex items-center gap-1 text-primary text-[10px]">
+<span class="material-symbols-outlined text-[12px]">trending_up</span> +8.2% vs Last Month
+          </div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5">
+<p class="text-on-surface-variant text-xs mb-1 uppercase tracking-wider font-semibold">Avg Gen Time</p>
+<p class="text-2xl font-bold">28s</p>
+<div class="mt-3 flex items-center gap-1 text-primary text-[10px]">
+<span class="material-symbols-outlined text-[12px]">bolt</span> Automated API Processing
+          </div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-white/5">
+<p class="text-on-surface-variant text-xs mb-1 uppercase tracking-wider font-semibold">Checkpoint Pass</p>
+<p class="text-2xl font-bold">99.1%</p>
+<div class="mt-3 flex items-center gap-1 text-error text-[10px]">
+<span class="material-symbols-outlined text-[12px]">warning</span> 3 Violations QTD
+          </div>
+</div>
+</div>
+</section>
+<!-- Main Data View -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Trend and Heatmap -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Compliance Trend Line Chart -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden border border-white/5">
+<div class="p-6 border-b border-white/5 flex justify-between items-center">
+<div>
+<h3 class="text-lg font-bold">Compliance Score Trend</h3>
+<p class="text-sm text-on-surface-variant">12-month performance growth trajectory</p>
+</div>
+<div class="px-3 py-1 bg-primary/10 rounded-full text-primary text-xs font-bold">+0.3% Growth</div>
+</div>
+<div class="p-8 h-64 relative flex items-end">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 120 40">
+<path d="M0,38 L10,37 L20,37.5 L30,36 L40,35.5 L50,34 L60,33.5 L70,32 L80,31 L90,30 L100,29.5 L110,29 L120,28.5" fill="none" stroke="#3B82F6" stroke-width="2"></path>
+<path d="M0,38 L10,37 L20,37.5 L30,36 L40,35.5 L50,34 L60,33.5 L70,32 L80,31 L90,30 L100,29.5 L110,29 L120,28.5 V40 H0 Z" fill="url(#trend-gradient)" opacity="0.1"></path>
+<defs>
+<lineargradient id="trend-gradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#3B82F6"></stop>
+<stop offset="100%" stop-color="transparent"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="absolute inset-x-8 bottom-4 flex justify-between text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+</div>
+</div>
+</div>
+<!-- Op Card Expiry Heatmap -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden border border-white/5">
+<div class="p-6 border-b border-white/5 flex justify-between items-center">
+<h3 class="text-lg font-bold">Op. Card Expiry Timeline (Next 30 Days)</h3>
+<div class="flex gap-4 text-[10px] font-bold uppercase">
+<div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Stable</div>
+<div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-amber-500"></div> Warning</div>
+<div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-rose-500"></div> Critical</div>
+</div>
+</div>
+<div class="p-6 grid grid-cols-10 gap-2">
+<!-- Mock Heatmap Calendar Days -->
+<script>
+                const colors = ['bg-emerald-500/20', 'bg-emerald-500/20', 'bg-emerald-500/40', 'bg-emerald-500/20', 'bg-amber-500/60', 'bg-emerald-500/20', 'bg-emerald-500/20', 'bg-rose-500/80', 'bg-emerald-500/20', 'bg-emerald-500/20'];
+                for(let i=0; i<30; i++) {
+                  const colorClass = colors[i % colors.length];
+                  document.write(`<div class="aspect-square rounded ${colorClass} border border-white/5 flex items-center justify-center text-[10px] font-bold opacity-80 hover:opacity-100 transition-opacity cursor-default">${i+1}</div>`);
+                }
+              </script>
+</div>
+</div>
+</div>
+<!-- Right Column: Histograms and Analytics -->
+<div class="lg:col-span-1 space-y-6">
+<!-- Violation Donut -->
+<div class="bg-surface-container-high p-6 rounded-2xl border border-white/5">
+<h4 class="font-bold text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-rose-400 text-lg">report_problem</span> Violation Types (Q4)
+            </h4>
+<div class="flex items-center gap-6">
+<div class="relative w-32 h-32">
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<path class="text-amber-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="70, 100" stroke-width="3"></path>
+<path class="text-rose-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="30, 100" stroke-dashoffset="-70" stroke-width="3"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="text-xl font-black">3</span>
+<span class="text-[8px] text-on-surface-variant font-bold uppercase">Total</span>
+</div>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-center justify-between text-[10px]">
+<div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-amber-500"></div> Cargo Mismatch</div>
+<span class="font-bold">2</span>
+</div>
+<div class="flex items-center justify-between text-[10px]">
+<div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-rose-500"></div> Expired Card</div>
+<span class="font-bold">1</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Permit Gen Time Histogram -->
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5">
+<h4 class="font-bold text-sm mb-4">Permit Generation Time</h4>
+<div class="flex items-end gap-1 h-32">
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors h-[20%] rounded-t-sm relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[8px] opacity-0 group-hover:opacity-100 font-bold">12%</div>
+</div>
+<div class="flex-1 bg-primary/60 hover:bg-primary/80 transition-colors h-[80%] rounded-t-sm relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[8px] opacity-0 group-hover:opacity-100 font-bold">64%</div>
+</div>
+<div class="flex-1 bg-primary/40 hover:bg-primary/60 transition-colors h-[40%] rounded-t-sm relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[8px] opacity-0 group-hover:opacity-100 font-bold">20%</div>
+</div>
+<div class="flex-1 bg-primary/10 h-[4%] rounded-t-sm relative group">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[8px] opacity-0 group-hover:opacity-100 font-bold">4%</div>
+</div>
+</div>
+<div class="flex justify-between text-[8px] text-on-surface-variant font-bold mt-2 uppercase">
+<span>&lt;15s</span>
+<span>15-30s</span>
+<span>30-60s</span>
+<span>1m+</span>
+</div>
+</div>
+<!-- Scan Heatmap Overlay -->
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5 overflow-hidden relative group">
+<h4 class="font-bold text-sm mb-4">Checkpoint Scan Density</h4>
+<div class="h-40 bg-slate-900 rounded-lg relative overflow-hidden">
+<!-- Mock map grid -->
+<div class="absolute inset-0 grid grid-cols-8 grid-rows-4 opacity-20">
+<div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div>
+<div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div>
+<div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div><div class="border border-white/5"></div>
+</div>
+<!-- Heat spots -->
+<div class="absolute top-1/2 left-1/3 w-12 h-12 bg-primary/40 rounded-full blur-xl animate-pulse"></div>
+<div class="absolute top-1/4 right-1/4 w-8 h-8 bg-primary/30 rounded-full blur-lg"></div>
+<div class="absolute bottom-1/4 left-1/4 w-10 h-10 bg-primary/20 rounded-full blur-lg"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-[10px] font-bold text-white/40 uppercase tracking-widest pointer-events-none">Riyadh Hub North</span>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between">
+<span class="text-[10px] text-on-surface-variant font-bold">Top Location: King Fahd Rd.</span>
+<button class="text-primary text-[10px] font-bold hover:underline">View Map</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom NavBar (Hidden on Desktop) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-slate-950/90 backdrop-blur-xl border-t border-white/5 flex items-center justify-around px-2 z-50">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span class="text-[10px]">Fleet</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">local_gas_station</span>
+<span class="text-[10px]">Fuel</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-blue-400 bg-blue-600/10 px-4 py-1 rounded-full" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-[10px]">TGA</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-[10px]">Alerts</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px]">Profile</span>
+</a>
+</nav>
+</body></html>

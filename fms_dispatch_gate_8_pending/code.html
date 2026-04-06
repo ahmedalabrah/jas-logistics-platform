@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e3e0f1",
+                        "inverse-surface": "#e3e0f1",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-fixed": "#331200",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container-highest": "#343440",
+                        "primary": "#d0bcff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "tertiary-container": "#6c2e00",
+                        "error": "#ffb4ab",
+                        "primary-container": "#4b1fa3",
+                        "on-surface-variant": "#cbc3d5",
+                        "surface-container": "#1f1e2a",
+                        "on-primary-container": "#b79cff",
+                        "background": "#12121d",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface": "#12121d",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-on-surface": "#302f3b",
+                        "surface-dim": "#12121d",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "tertiary": "#ffb68e",
+                        "surface-bright": "#383845",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary": "#532200",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "secondary-container": "#4f4171",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-primary": "#6a45c3",
+                        "secondary": "#cfbef6",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-secondary-fixed": "#201340",
+                        "on-secondary": "#352856",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error": "#690005",
+                        "outline-variant": "#494453"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .loader-spin {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            background: rgba(31, 30, 42, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] flex justify-between items-center px-8 h-16 w-full font-['Plus_Jakarta_Sans'] tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#d0bcff]">JAS Logistics</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Trips</a>
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-1" href="#">Permits</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Verify</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors" href="#">Fleet</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-400 hover:bg-white/5 p-2 rounded-full transition-all">notifications</button>
+<button class="material-symbols-outlined text-slate-400 hover:bg-white/5 p-2 rounded-full transition-all">settings</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="User profile" data-alt="professional headshot of a logistics manager in a dark suit with a modern tech office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7pNG49G7WI97GAAFM36cjyqISc8yBgEvk8WA_RSAutO0wlMVx6o7vKp0OL0DNiM0MHmxTdeFpqnc3-2_URJ6MJdMFn6M8I22q7rCcenMbG-wH9SMi5FY2PE2wyG82LlLml_q-vScgk_pVphXjinnotMj2f-bRerFyiAyjexAyWRp-ASbCqNIBdtQty_tmpTGfU5GgIeJ7XtERHdyZ3QEnee0ZXSLyxFFK7vq0fWQb9iCe1OvLxU6toEdMSgCaGor-2h01e-_pVA"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-xl text-sm font-bold active:scale-95 transition-transform">New Shipment</button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#0F0F1A]/90 backdrop-blur-2xl border-r border-white/5 shadow-2xl flex flex-col py-6 hidden md:flex">
+<div class="px-6 mb-8 mt-16">
+<h2 class="text-[#d0bcff] font-black tracking-widest text-xs uppercase">JAS TGA Portal</h2>
+<p class="text-[10px] text-slate-500 font-headline uppercase tracking-widest">Velvet Intelligence</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#4b1fa3]/20 to-transparent text-[#d0bcff] border-l-4 border-[#d0bcff] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-medium text-sm">Active Permits</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="door_front">door_front</span>
+<span class="font-medium text-sm">Gate Verification</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-300 hover:bg-[#12121d] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-medium text-sm">Driver Dispatch</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<div class="p-4 rounded-2xl bg-surface-container-high border border-white/5">
+<p class="text-xs text-slate-400 mb-2">System Status</p>
+<div class="flex items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<span class="text-[10px] font-bold text-emerald-500">WASL API CONNECTED</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 py-2 text-slate-500 text-xs hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span> Support
+                </a>
+<a class="flex items-center gap-3 py-2 text-slate-500 text-xs hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span> Logs
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:pl-64 pt-20 pb-24 px-4 md:px-10 min-h-screen">
+<!-- Header Section -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">FMS-04 Dispatch</span>
+<span class="text-on-surface-variant text-sm">• Batch ID: #WASL-2024-9982</span>
+</div>
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-white">Dispatch Assignment</h1>
+<p class="text-on-surface-variant mt-2 max-w-xl">Coordinating real-time TGA permit acquisition for multi-gate asynchronous carrier dispatch flow.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-tighter">Queue Progress</p>
+<p class="text-2xl font-headline font-bold text-primary">87.5%</p>
+</div>
+<div class="w-32 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[87.5%]"></div>
+</div>
+</div>
+</div>
+<!-- Dispatch Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<!-- Gates 1-7 (Compact Success States) -->
+<div class="md:col-span-3 grid grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Gate 1 -->
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-emerald-500 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-black text-on-surface-variant tracking-widest uppercase">Gate 1</span>
+<span class="material-symbols-outlined text-emerald-500 text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-sm font-bold text-white mb-1">Carrier: DHL-019</p>
+<p class="text-[10px] text-emerald-500 font-bold">PERMIT ISSUED</p>
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-8xl" data-icon="local_shipping">local_shipping</span>
+</div>
+</div>
+<!-- Gate 2 -->
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-emerald-500 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-black text-on-surface-variant tracking-widest uppercase">Gate 2</span>
+<span class="material-symbols-outlined text-emerald-500 text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-sm font-bold text-white mb-1">Carrier: ARMX-44</p>
+<p class="text-[10px] text-emerald-500 font-bold">PERMIT ISSUED</p>
+</div>
+<!-- Gate 3 -->
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-emerald-500 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-black text-on-surface-variant tracking-widest uppercase">Gate 3</span>
+<span class="material-symbols-outlined text-emerald-500 text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-sm font-bold text-white mb-1">Carrier: JAS-LOG</p>
+<p class="text-[10px] text-emerald-500 font-bold">PERMIT ISSUED</p>
+</div>
+<!-- Gate 4 -->
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-emerald-500 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-black text-on-surface-variant tracking-widest uppercase">Gate 4</span>
+<span class="material-symbols-outlined text-emerald-500 text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-sm font-bold text-white mb-1">Carrier: NAQEL-9</p>
+<p class="text-[10px] text-emerald-500 font-bold">PERMIT ISSUED</p>
+</div>
+<!-- Gate 5 -->
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-emerald-500 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-black text-on-surface-variant tracking-widest uppercase">Gate 5</span>
+<span class="material-symbols-outlined text-emerald-500 text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-sm font-bold text-white mb-1">Carrier: ZAJIL-02</p>
+<p class="text-[10px] text-emerald-500 font-bold">PERMIT ISSUED</p>
+</div>
+<!-- Gate 6 -->
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-emerald-500 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-black text-on-surface-variant tracking-widest uppercase">Gate 6</span>
+<span class="material-symbols-outlined text-emerald-500 text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-sm font-bold text-white mb-1">Carrier: DHL-022</p>
+<p class="text-[10px] text-emerald-500 font-bold">PERMIT ISSUED</p>
+</div>
+<!-- Gate 7 -->
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-emerald-500 relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<span class="text-[10px] font-black text-on-surface-variant tracking-widest uppercase">Gate 7</span>
+<span class="material-symbols-outlined text-emerald-500 text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-sm font-bold text-white mb-1">Carrier: ARMX-45</p>
+<p class="text-[10px] text-emerald-500 font-bold">PERMIT ISSUED</p>
+</div>
+<!-- Empty Filler Slot -->
+<div class="bg-surface-container-lowest border border-dashed border-outline-variant/30 rounded-xl flex items-center justify-center">
+<span class="text-[10px] font-bold text-on-surface-variant">IDLE CAPACITY</span>
+</div>
+</div>
+<!-- Gate 8 ASYNC (The Highlighted Cell) -->
+<div class="md:col-span-1 bg-surface-container-high ring-2 ring-primary/40 rounded-2xl p-6 flex flex-col relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<span class="text-xs font-black text-primary tracking-widest uppercase">Gate 8</span>
+<div class="h-6 w-6 border-2 border-primary/20 border-t-primary rounded-full loader-spin"></div>
+</div>
+<div class="mb-auto">
+<h3 class="text-lg font-headline font-bold text-white mb-2">Requesting TGA permit from Wasl API...</h3>
+<div class="flex items-center gap-3 bg-primary-container/20 p-3 rounded-xl">
+<span class="material-symbols-outlined text-primary animate-pulse" data-icon="schedule">schedule</span>
+<div>
+<p class="text-xl font-headline font-bold text-white">0:23 <span class="text-xs font-normal text-on-surface-variant tracking-normal">elapsed</span></p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Awaiting Ack</p>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden mb-2">
+<div class="h-full bg-primary animate-[shimmer_2s_infinite] w-[40%]"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant italic">Connecting to secure TGA gateway...</p>
+</div>
+<!-- Subtle Brand Texture -->
+<div class="absolute -right-8 -bottom-8 opacity-10 rotate-12">
+<span class="material-symbols-outlined text-[140px]" data-icon="lan">lan</span>
+</div>
+</div>
+</div>
+<!-- Action Panel -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-surface-container-low p-8 rounded-3xl border border-white/5">
+<div class="md:col-span-8">
+<h4 class="text-lg font-headline font-bold text-white mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+                    Protocol Notice
+                </h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                    System is currently processing asynchronous permit requests. The TGA Wasl API typically requires a validation window of <span class="text-white font-bold">15-60 seconds</span> for security verification. Please maintain active session during this synchronization phase. 
+                </p>
+</div>
+<div class="md:col-span-4 flex flex-col gap-3">
+<div class="group relative">
+<!-- Tooltip -->
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-surface-container-highest text-white text-[10px] font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl">
+                        Waiting for TGA permit...
+                    </div>
+<!-- Disabled Button -->
+<button class="w-full bg-surface-container-high text-slate-500 cursor-not-allowed py-4 rounded-xl font-bold flex items-center justify-center gap-2 opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+                        Confirm &amp; Dispatch
+                    </button>
+</div>
+<button class="w-full text-primary hover:bg-primary/10 py-3 rounded-xl text-xs font-bold transition-all uppercase tracking-widest">
+                    Pause Dispatch Queue
+                </button>
+</div>
+</div>
+<!-- System Activity Log (Editorial Style) -->
+<div class="mt-12">
+<h5 class="text-[10px] font-black text-on-surface-variant tracking-[0.2em] uppercase mb-6">Live System Event Log</h5>
+<div class="space-y-4">
+<div class="flex items-center gap-6 group hover:bg-white/5 p-2 rounded-xl transition-all">
+<span class="text-xs font-mono text-slate-600">14:22:04</span>
+<span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+<span class="text-sm text-on-surface">Gate 7 Permit Verified by Wasl</span>
+<span class="ml-auto text-[10px] text-emerald-500 font-bold uppercase">Success</span>
+</div>
+<div class="flex items-center gap-6 group hover:bg-white/5 p-2 rounded-xl transition-all">
+<span class="text-xs font-mono text-slate-600">14:21:42</span>
+<span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-sm text-on-surface">Gate 8 Request Handshake Initiated</span>
+<span class="ml-auto text-[10px] text-primary font-bold uppercase">Processing</span>
+</div>
+<div class="flex items-center gap-6 group hover:bg-white/5 p-2 rounded-xl transition-all opacity-50">
+<span class="text-xs font-mono text-slate-600">14:20:15</span>
+<span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+<span class="text-sm text-on-surface">Gate 6 Permit Verified by Wasl</span>
+<span class="ml-auto text-[10px] text-emerald-500 font-bold uppercase">Success</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-20 bg-[#12121d]/95 backdrop-blur-lg border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] flex justify-around items-center px-6 pb-safe z-50 rounded-t-2xl">
+<div class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase font-bold mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#4b1fa3] text-white rounded-xl px-4 py-1">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase font-bold mt-1">My Permits</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined" data-icon="cloud_off">cloud_off</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase font-bold mt-1">Offline Mode</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] uppercase font-bold mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

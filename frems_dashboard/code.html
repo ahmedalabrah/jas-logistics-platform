@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics | FreMS Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e9ddff",
+                        "secondary-container": "#4f4171",
+                        "on-secondary-fixed": "#201340",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-surface-variant": "#cbc3d5",
+                        "on-primary": "#3b0092",
+                        "on-primary-container": "#b79cff",
+                        "primary-container": "#4b1fa3",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "background": "#12121d",
+                        "primary-fixed": "#e9ddff",
+                        "primary": "#d0bcff",
+                        "on-background": "#e3e0f1",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface-container": "#1f1e2a",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-low": "#1b1a26",
+                        "surface-bright": "#383845",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#f09661",
+                        "tertiary-container": "#6c2e00",
+                        "secondary": "#cfbef6",
+                        "on-secondary": "#352856",
+                        "tertiary": "#ffb68e",
+                        "surface-container-highest": "#343440",
+                        "outline-variant": "#494453",
+                        "on-tertiary-fixed": "#331200",
+                        "inverse-on-surface": "#302f3b",
+                        "surface-container-high": "#292935",
+                        "outline": "#948e9e",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-surface": "#e3e0f1",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary": "#532200",
+                        "error": "#ffb4ab",
+                        "surface": "#12121d",
+                        "surface-variant": "#343440",
+                        "surface-tint": "#d0bcff",
+                        "surface-dim": "#12121d",
+                        "inverse-primary": "#6a45c3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar Shell -->
+<aside class="flex flex-col fixed left-0 top-0 h-full z-40 bg-[#0F0F1A] backdrop-blur-xl bg-opacity-80 h-screen w-64 border-r border-white/10 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight shadow-2xl shadow-[#000000]/50">
+<div class="p-6">
+<h1 class="text-2xl font-bold tracking-tighter bg-gradient-to-r from-[#d0bcff] to-[#4B1FA3] bg-clip-text text-transparent">FreMS</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 mt-1">Logistics Intelligence</p>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center px-4 py-3 rounded-lg text-[#d0bcff] bg-white/5 border-r-2 border-[#d0bcff] font-semibold transition-all duration-300" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+                Operations
+            </a>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="contract">contract</span>
+                Agreements
+            </a>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="hub">hub</span>
+                Network
+            </a>
+<a class="flex items-center px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+                Account
+            </a>
+</nav>
+<div class="p-4 border-t border-white/5 space-y-1">
+<a class="flex items-center px-4 py-2 text-slate-400 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="notifications">notifications</span>
+                Notifications
+            </a>
+<a class="flex items-center px-4 py-2 text-slate-400 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="help_center">help_center</span>
+                Support
+            </a>
+<div class="mt-4 flex items-center px-4 py-3 bg-white/5 rounded-xl">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-[10px] font-bold">JD</div>
+<div class="ml-3 overflow-hidden">
+<p class="text-xs font-semibold truncate">JAS Logistics</p>
+<p class="text-[10px] text-slate-500 truncate">Premium Partner</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="flex justify-between items-center w-full px-8 sticky top-0 z-50 ml-64 bg-[#0F0F1A]/90 backdrop-blur-lg h-16 border-b border-white/5">
+<div class="flex items-center space-x-8">
+<span class="font-black text-white tracking-widest uppercase text-sm">JAS Logistics FreMS</span>
+<nav class="hidden md:flex items-center space-x-6 font-['Plus_Jakarta_Sans'] text-sm font-semibold">
+<a class="text-[#d0bcff] border-b-2 border-[#d0bcff] pb-5" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-[#d0bcff] transition-all" href="#">Map</a>
+<a class="text-slate-400 hover:text-[#d0bcff] transition-all" href="#">Shipments</a>
+</nav>
+</div>
+<div class="flex items-center space-x-6">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-500 text-sm" data-icon="search">search</span>
+<input class="bg-surface-container-highest border-none rounded-full pl-10 pr-4 py-1.5 text-xs w-64 focus:ring-1 focus:ring-primary transition-all" placeholder="Search Shipment Ref..." type="text"/>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-slate-400 hover:text-white"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="text-slate-400 hover:text-white"><span class="material-symbols-outlined" data-icon="apps">apps</span></button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="professional male executive portrait with corporate background and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChqckYJQGzxQZojruavmorTeyJTcZy645DmWqHeLEr312P-PSkICv8J0e6ou1NV9Bc64NtJLdsGojYsTg49T5vaN3_S79t1wJKe7ersbWu9CJBfBXR52j4wSF2MSAHXe-MX9X8wWE0GFnlYAyVjQD7OCr3GF6BfS_Ih86au2XQSbEemLLz5tey5NzuFcRFc8PCjNpr3knLgvwq8C7YBvOmJFWR5DjZW9qcJ0FAjRAn6WOb3PXsK4_vCvf01CB4yaElJLUNN0JWpw"/>
+</div>
+</div>
+</div>
+</header>
+<main class="ml-64 p-8 min-h-screen">
+<!-- KPI Strip -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-low p-4 rounded-xl border-l-4 border-primary">
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">Active Shipments</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold font-headline">1,284</h3>
+<span class="text-xs text-primary font-medium">+12%</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">In Transit</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold font-headline">842</h3>
+<div class="h-1.5 w-16 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%]"></div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">At Customs</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold font-headline">42</h3>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-0.5 rounded-full font-bold">12 PRIORITY</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">Delivered Week</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold font-headline">312</h3>
+<span class="material-symbols-outlined text-green-400" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">Revenue MTD (SAR)</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-xl font-bold font-headline truncate">4.2M</h3>
+<span class="text-[10px] text-on-surface-variant">Target 85%</span>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">Avg Transit Days</p>
+<div class="flex items-end justify-between mt-2">
+<h3 class="text-2xl font-bold font-headline">4.2</h3>
+<span class="text-xs text-error font-medium">+0.4d</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-6 mb-8">
+<!-- Main Map Section -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container rounded-2xl overflow-hidden relative border border-white/5">
+<div class="absolute top-4 left-4 z-10 flex space-x-2">
+<button class="bg-surface-bright/80 backdrop-blur-md text-xs px-3 py-1.5 rounded-full border border-white/10 flex items-center">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="local_shipping">local_shipping</span> Road
+                    </button>
+<button class="bg-surface-bright/80 backdrop-blur-md text-xs px-3 py-1.5 rounded-full border border-white/10 flex items-center">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="directions_boat">directions_boat</span> Sea
+                    </button>
+<button class="bg-surface-bright/80 backdrop-blur-md text-xs px-3 py-1.5 rounded-full border border-white/10 flex items-center">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="flight">flight</span> Air
+                    </button>
+</div>
+<div class="h-[400px] w-full bg-[#0a0a14] relative overflow-hidden">
+<!-- Placeholder for Map Visualization -->
+<img class="w-full h-full object-cover opacity-40 mix-blend-luminosity" data-alt="stylized dark theme world map with glowing light trails representing global shipping routes in neon purple and cyan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2Q3JClIMmPsFL8JfLIFZbKaWFRkXI-dOugWmZe0SSd-Rdd33RC0uWzXcuewd8r5d-yypwSS-IaT6KmXU7AQabpa3zcr2_5rKvtbCzsTk9Ie8FfU5qJohmM0uGbBHfsvDcuUxZAukjvHUIwZAtk_oD1vAsR-R8AQcsxLIF5yhvDSsG4XHj9-2J5KzHgZ-i4BPhMqzn5Z0BLHpTx8zcWmlT9TXcm36y6N7iqAC6SITKDsGVhGAFnbwXdrI3p6J4hJ1vS-5pkDTUFw"/>
+<!-- Shipment Pins & Routes (Decorative/Structural) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none">
+<!-- Air Route -->
+<path class="opacity-60" d="M 200,100 Q 400,50 600,150" fill="none" stroke="#d0bcff" stroke-dasharray="8,4" stroke-width="1.5"></path>
+<circle cx="200" cy="100" fill="#d0bcff" r="4"></circle>
+<circle cx="600" cy="150" fill="#d0bcff" r="4"></circle>
+<!-- Sea Route -->
+<path class="opacity-80" d="M 100,300 C 300,350 500,250 750,320" fill="none" stroke="#4b1fa3" stroke-width="2"></path>
+<!-- Truck Route (Dashed) -->
+<line stroke="#7C1A5E" stroke-dasharray="4,2" stroke-width="2" x1="300" x2="450" y1="200" y2="280"></line>
+</svg>
+<!-- Dynamic Icons -->
+<div class="absolute top-[80px] left-[390px] animate-pulse">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="flight">flight</span>
+</div>
+<div class="absolute top-[280px] left-[360px]">
+<span class="material-symbols-outlined text-[#7C1A5E] text-xl" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="absolute top-[310px] left-[520px]">
+<span class="material-symbols-outlined text-on-secondary-container text-xl" data-icon="directions_boat">directions_boat</span>
+</div>
+<div class="absolute bottom-4 right-4 bg-surface-container-highest/60 backdrop-blur-md p-3 rounded-lg border border-white/10">
+<p class="text-[10px] text-on-surface-variant mb-2 font-bold uppercase tracking-tighter">Network Legend</p>
+<div class="flex items-center space-x-4">
+<div class="flex items-center"><span class="w-2 h-2 rounded-full bg-primary mr-2"></span> <span class="text-[10px]">Active Path</span></div>
+<div class="flex items-center"><span class="w-2 h-2 rounded-full bg-error mr-2"></span> <span class="text-[10px]">Delayed</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Revenue Breakdown -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container rounded-2xl p-6 border border-white/5 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-headline font-bold text-sm">Mode Revenue Breakdown</h4>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="more_vert">more_vert</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center relative">
+<!-- Donut Chart Mockup -->
+<div class="w-48 h-48 rounded-full border-[12px] border-surface-container-highest flex items-center justify-center relative">
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle cx="96" cy="96" fill="none" r="84" stroke="#d0bcff" stroke-dasharray="527" stroke-dashoffset="150" stroke-width="12"></circle>
+<circle cx="96" cy="96" fill="none" r="84" stroke="#7C1A5E" stroke-dasharray="527" stroke-dashoffset="400" stroke-width="12"></circle>
+</svg>
+<div class="text-center">
+<p class="text-xs text-on-surface-variant">Total SAR</p>
+<p class="text-2xl font-black font-headline">4.2M</p>
+</div>
+</div>
+<div class="w-full mt-8 grid grid-cols-3 gap-2">
+<div class="text-center">
+<div class="flex items-center justify-center mb-1"><span class="w-2 h-2 rounded-full bg-primary mr-2"></span><span class="text-[10px] uppercase font-bold">Sea</span></div>
+<p class="text-sm font-bold">55%</p>
+</div>
+<div class="text-center">
+<div class="flex items-center justify-center mb-1"><span class="w-2 h-2 rounded-full bg-[#7C1A5E] mr-2"></span><span class="text-[10px] uppercase font-bold">Road</span></div>
+<p class="text-sm font-bold">30%</p>
+</div>
+<div class="text-center">
+<div class="flex items-center justify-center mb-1"><span class="w-2 h-2 rounded-full bg-surface-container-highest mr-2"></span><span class="text-[10px] uppercase font-bold">Air</span></div>
+<p class="text-sm font-bold">15%</p>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full py-2.5 rounded-lg border border-primary/20 text-primary text-xs font-bold hover:bg-primary/5 transition-all">
+                    DOWNLOAD REVENUE REPORT
+                </button>
+</div>
+</div>
+<!-- Shipments Table -->
+<div class="bg-surface-container rounded-2xl border border-white/5 overflow-hidden">
+<div class="p-6 border-b border-white/5 flex justify-between items-center">
+<h4 class="font-headline font-bold">Active Shipments</h4>
+<div class="flex items-center space-x-3">
+<button class="px-3 py-1.5 text-[10px] font-bold border border-white/10 rounded-md bg-surface-container-high">ALL MODES</button>
+<button class="px-3 py-1.5 text-[10px] font-bold text-on-surface-variant">FILTERS</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead class="bg-surface-container-low/50 text-on-surface-variant uppercase text-[10px] font-bold tracking-widest">
+<tr>
+<th class="px-6 py-4">Ref #</th>
+<th class="px-6 py-4">Mode</th>
+<th class="px-6 py-4">Origin → Dest</th>
+<th class="px-6 py-4">Client</th>
+<th class="px-6 py-4">Contract</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">ETA</th>
+<th class="px-6 py-4 text-center">Customs</th>
+<th class="px-6 py-4">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4 font-bold text-primary">JAS-77492-RY</td>
+<td class="px-6 py-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="directions_boat">directions_boat</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center space-x-2">
+<span class="font-medium">Shanghai</span>
+<span class="text-xs text-slate-600">→</span>
+<span class="font-medium text-on-surface">Jeddah Port</span>
+</div>
+</td>
+<td class="px-6 py-4 font-medium">NEOM Energy</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] border border-white/5 uppercase">Fixed Agreement</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400 mr-2"></span>
+<span class="text-xs">In Transit</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-semibold">Oct 24, 2023</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-slate-700" data-icon="verified">verified</span>
+</td>
+<td class="px-6 py-4">
+<button class="text-primary hover:underline text-xs font-bold uppercase tracking-tighter">View</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4 font-bold text-primary">JAS-88102-DXB</td>
+<td class="px-6 py-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="local_shipping">local_shipping</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center space-x-2">
+<span class="font-medium">Dubai</span>
+<span class="text-xs text-slate-600">→</span>
+<span class="font-medium text-on-surface">Riyadh Hub</span>
+</div>
+</td>
+<td class="px-6 py-4 font-medium">Red Sea Global</td>
+<td class="px-6 py-4">
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] border border-primary/20 uppercase font-bold">Spot</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-400 mr-2 animate-pulse"></span>
+<span class="text-xs">Clearing</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-semibold">Today</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-error" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</td>
+<td class="px-6 py-4">
+<button class="text-primary hover:underline text-xs font-bold uppercase tracking-tighter">View</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-4 font-bold text-primary">JAS-92331-FR</td>
+<td class="px-6 py-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="flight">flight</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center space-x-2">
+<span class="font-medium">Frankfurt</span>
+<span class="text-xs text-slate-600">→</span>
+<span class="font-medium text-on-surface">KKIA Riyadh</span>
+</div>
+</td>
+<td class="px-6 py-4 font-medium">Saudi Aramco</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] border border-white/5 uppercase">Fixed Agreement</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400 mr-2"></span>
+<span class="text-xs">Out for Delivery</span>
+</div>
+</td>
+<td class="px-6 py-4 text-xs font-semibold">Oct 21, 2023</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-green-400" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</td>
+<td class="px-6 py-4">
+<button class="text-primary hover:underline text-xs font-bold uppercase tracking-tighter">View</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-surface-container-low/30 border-t border-white/5 flex justify-between items-center">
+<span class="text-[10px] text-on-surface-variant font-medium">SHOWING 12 OF 842 SHIPMENTS</span>
+<div class="flex space-x-2">
+<button class="p-1 rounded hover:bg-white/5 transition-colors"><span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span></button>
+<button class="p-1 rounded hover:bg-white/5 transition-colors"><span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action for Quick Add -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-primary to-primary-container rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all group z-50">
+<span class="material-symbols-outlined text-on-primary text-3xl font-bold" data-icon="add">add</span>
+<span class="absolute right-full mr-4 bg-surface-container-high px-3 py-1.5 rounded-lg text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl">New Shipment</span>
+</button>
+</body></html>

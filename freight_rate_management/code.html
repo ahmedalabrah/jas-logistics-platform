@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#1f1e2a",
+                        "primary-container": "#4b1fa3",
+                        "on-surface-variant": "#cbc3d5",
+                        "tertiary-container": "#6c2e00",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container-highest": "#343440",
+                        "primary": "#d0bcff",
+                        "secondary-fixed-dim": "#cfbef6",
+                        "surface-tint": "#d0bcff",
+                        "on-tertiary-fixed": "#331200",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#292935",
+                        "on-background": "#e3e0f1",
+                        "inverse-surface": "#e3e0f1",
+                        "on-secondary": "#352856",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "on-error": "#690005",
+                        "outline-variant": "#494453",
+                        "secondary-container": "#4f4171",
+                        "on-primary-fixed": "#22005c",
+                        "inverse-primary": "#6a45c3",
+                        "secondary": "#cfbef6",
+                        "outline": "#948e9e",
+                        "on-tertiary-container": "#f09661",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-secondary-fixed": "#201340",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "on-surface": "#e3e0f1",
+                        "surface-bright": "#383845",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary": "#532200",
+                        "surface-dim": "#12121d",
+                        "on-primary": "#3b0092",
+                        "surface-variant": "#343440",
+                        "tertiary": "#ffb68e",
+                        "surface-container-lowest": "#0d0d18",
+                        "surface": "#12121d",
+                        "on-secondary-container": "#c0b0e7",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "inverse-on-surface": "#302f3b",
+                        "on-primary-container": "#b79cff",
+                        "background": "#12121d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #C43585;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-[#C43585]/30">
+<!-- SideNavBar -->
+<aside class="flex flex-col h-full py-6 px-4 z-50 h-screen w-64 fixed left-0 top-0 border-r border-white/5 bg-[#0F0F1A]/80 backdrop-blur-xl shadow-[20px_0_40px_rgba(0,0,0,0.3)]">
+<div class="mb-10 px-2 flex items-center gap-3">
+<div class="w-10 h-10 bg-[#C43585] rounded flex items-center justify-center shadow-[0_0_20px_rgba(196,53,133,0.4)]">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">package_2</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-[#C43585]">JAS FreMS</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Velvet Intelligence</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300 hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Tracking</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300 hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined text-[20px]">sync_alt</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Status Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-white bg-gradient-to-r from-[#C43585]/20 to-transparent border-r-2 border-[#C43585] shadow-[0_0_15px_rgba(196,53,133,0.3)]" href="#">
+<span class="material-symbols-outlined text-[20px] text-[#C43585]" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Rates</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300 hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined text-[20px]">monitoring</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300 hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Claims</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300 hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="mt-auto space-y-4">
+<button class="w-full py-3 px-4 bg-[#C43585] text-white rounded-lg font-bold text-sm shadow-[0_4px_15px_rgba(196,53,133,0.3)] active:scale-95 transition-transform">
+                Create Shipment
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors duration-300" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Help Center</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-[#0F0F1A]/60 backdrop-blur-lg flex items-center justify-between px-8 w-full border-b border-white/5">
+<div class="flex items-center gap-8">
+<h2 class="text-white font-headline text-xs font-semibold uppercase tracking-[0.2em]">Freight Management System</h2>
+<nav class="flex gap-6 items-center">
+<a class="text-slate-300 font-['Plus_Jakarta_Sans'] text-xs font-semibold uppercase tracking-widest hover:text-[#C43585] transition-all" href="#">Global Map</a>
+<a class="text-slate-300 font-['Plus_Jakarta_Sans'] text-xs font-semibold uppercase tracking-widest hover:text-[#C43585] transition-all" href="#">Shipments</a>
+<a class="text-[#C43585] border-b-2 border-[#C43585] pb-1 font-['Plus_Jakarta_Sans'] text-xs font-semibold uppercase tracking-widest" href="#">Financials</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute inset-y-0 left-3 flex items-center text-slate-500 group-focus-within:text-[#C43585]">
+<span class="material-symbols-outlined text-sm">search</span>
+</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-1.5 text-xs text-on-surface w-64 focus:ring-1 focus:ring-[#C43585]/30 transition-all" placeholder="Global search..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-slate-400">
+<button class="hover:text-[#C43585] transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="hover:text-[#C43585] transition-colors"><span class="material-symbols-outlined">apps</span></button>
+<div class="h-8 w-px bg-white/10 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden xl:block">
+<p class="text-[10px] font-bold text-white leading-none">James Sterling</p>
+<p class="text-[9px] text-[#C43585]">Logistics Director</p>
+</div>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-[#C43585]/30 object-cover" data-alt="professional portrait of a male executive in a dark navy suit with sharp features and thoughtful expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeVNNUDrtELf_kKnXajn_gf0JCrMDl-rXhfGr83nHix9iM8HQ8oFOx6VUDW9dq8hFsOy4RJDogw07tbpn0C9hUKq8YZx4tunLN_QUijn6oICTARvG3neWLsKcpPN_fs0omknWA1gKwRra-d6DFZiaUHIM8tjMSFtB6VpPydHjwvNrEEGowhxqEkycxYmdxugbxTLZGpa1f1LYc98H35LtuPQ1ctpJlAaSxvXhXey1kNlyBHTdmdDTVd36Xmes7-vtGZhi9q9e6vA"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+<!-- Header Section -->
+<section class="mb-10 flex justify-between items-end">
+<div>
+<nav class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
+<span>Financials</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-[#C43585]">Freight Rate Management</span>
+</nav>
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-white flex items-center gap-3">
+                    Freight Rates
+                    <span class="text-sm font-medium bg-[#C43585]/10 text-[#C43585] px-3 py-1 rounded-full border border-[#C43585]/20">Active Market</span>
+</h1>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-high text-on-surface border border-white/5 rounded-lg hover:bg-surface-bright transition-all text-sm font-semibold">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+                    Export CSV
+                </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-[#C43585] text-white rounded-lg shadow-[0_10px_20px_rgba(196,53,133,0.2)] hover:shadow-[0_15px_30px_rgba(196,53,133,0.3)] hover:-translate-y-0.5 transition-all text-sm font-bold">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    Add Rate
+                </button>
+</div>
+</section>
+<!-- Filters Bar: Tonal Depth Implementation -->
+<section class="bg-surface-container-low p-6 rounded-xl border border-white/5 shadow-xl mb-8">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+<div class="space-y-2">
+<label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest">Mode</label>
+<div class="relative">
+<select class="w-full bg-surface-container-highest border-none rounded-lg py-2.5 pl-3 pr-10 text-sm text-on-surface appearance-none focus:ring-1 focus:ring-[#C43585]/40 transition-all">
+<option>All Ocean &amp; Air</option>
+<option>Ocean FCL</option>
+<option>Ocean LCL</option>
+<option>Air Freight</option>
+<option>Road Freight</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 pointer-events-none text-slate-500">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest">Route Pair</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-2.5 pl-3 text-sm text-on-surface focus:ring-1 focus:ring-[#C43585]/40 transition-all" placeholder="Origin to Destination" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-slate-500 text-sm">swap_horiz</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest">Cargo Type</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg py-2.5 pl-3 text-sm text-on-surface focus:ring-1 focus:ring-[#C43585]/40 transition-all">
+<option>General Cargo</option>
+<option>Reefer</option>
+<option>Dangerous Goods</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest">Provider</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg py-2.5 pl-3 text-sm text-on-surface focus:ring-1 focus:ring-[#C43585]/40 transition-all">
+<option>All Carriers</option>
+<option>Maersk</option>
+<option>MSC</option>
+<option>CMA CGM</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest">Date Range</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-2.5 pl-3 text-sm text-on-surface focus:ring-1 focus:ring-[#C43585]/40 transition-all" type="text" value="Oct 2023 - Jan 2024"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-slate-500 text-sm">calendar_today</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Tabs Section -->
+<div class="flex items-center gap-8 mb-6 border-b border-white/5">
+<button class="pb-4 text-sm font-bold text-[#C43585] border-b-2 border-[#C43585] flex items-center gap-2">
+                Active Rates <span class="bg-[#C43585]/20 px-2 py-0.5 rounded text-[10px]">128</span>
+</button>
+<button class="pb-4 text-sm font-medium text-slate-500 hover:text-white transition-colors flex items-center gap-2">
+                Rate History <span class="bg-white/5 px-2 py-0.5 rounded text-[10px]">2,401</span>
+</button>
+<button class="pb-4 text-sm font-medium text-slate-500 hover:text-white transition-colors flex items-center gap-2">
+                Pending Approval <span class="bg-error/20 text-error px-2 py-0.5 rounded text-[10px]">3</span>
+</button>
+</div>
+<!-- Main Data Grid / Table -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white/[0.02] border-b border-white/5">
+<th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Route / Lanes</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Mode</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Provider</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest text-right">Base Rate</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest text-right">Fuel (BAF)</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest text-right">Total Cost</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Validity</th>
+<th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/[0.03]">
+<!-- Row 1 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="text-xs">
+<p class="font-bold text-white tracking-tight">Jeddah (SAJED)</p>
+<p class="text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">arrow_forward</span> Rotterdam (NLRTM)
+                                        </p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 text-[10px] font-bold text-sky-400 bg-sky-400/10 px-2.5 py-1 rounded-full uppercase tracking-tight">
+<span class="material-symbols-outlined text-xs">directions_boat</span> Ocean FCL
+                                </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-white flex items-center justify-center overflow-hidden">
+<img alt="Maersk Logo" class="w-4 h-4 object-contain" data-alt="minimalist commercial logistics company logo showing stylized geometric shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqcKNXSTbJCF2X6yYhLZbb2fNcDVKwSyrrX80GcdPmgClsdRmwIIsc3vFawzMTkKvBaF5aW-IPKlsPO-74OJuzuPbTUPFZhLvQ3wg9IaXZij748fxnFNsR6K5WzgCsSAccvOICHWQb9IhrvX-ydU-ZcDqxO4P9AMr8Y0kbqRoM_MJYVeITJCK5wNY1ptg_UVausbuQrwStXU55OdkgNYKDCPDF8vJsvVXhTQih0jsyYq6dKI03WZc74NiSR4tGjPA_thGnte_TYQ"/>
+</div>
+<span class="text-sm font-medium text-on-surface">Maersk Line</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right font-mono text-sm text-slate-300">$1,450.00</td>
+<td class="px-6 py-5 text-right font-mono text-sm text-slate-400">+$185.20</td>
+<td class="px-6 py-5 text-right">
+<p class="font-mono text-base font-bold text-[#C43585]">$1,635.20</p>
+<p class="text-[9px] text-slate-500 font-bold uppercase tracking-widest">per 40' HC</p>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs">
+<p class="text-white font-medium">Oct 12, 2023</p>
+<p class="text-slate-500">Jan 11, 2024</p>
+</div>
+</td>
+<td class="px-6 py-5 text-center">
+<button class="p-2 hover:bg-[#C43585]/10 hover:text-[#C43585] rounded transition-all text-slate-500">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="text-xs">
+<p class="font-bold text-white tracking-tight">Shanghai (CNSHA)</p>
+<p class="text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">arrow_forward</span> Dammam (SADMM)
+                                        </p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 text-[10px] font-bold text-purple-400 bg-purple-400/10 px-2.5 py-1 rounded-full uppercase tracking-tight">
+<span class="material-symbols-outlined text-xs">flight</span> Air Cargo
+                                </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-slate-800 flex items-center justify-center overflow-hidden">
+<span class="text-[10px] font-bold text-white">SA</span>
+</div>
+<span class="text-sm font-medium text-on-surface">Saudi Arabian Air</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right font-mono text-sm text-slate-300">$4.12</td>
+<td class="px-6 py-5 text-right font-mono text-sm text-slate-400">+$0.65</td>
+<td class="px-6 py-5 text-right">
+<p class="font-mono text-base font-bold text-[#C43585]">$4.77</p>
+<p class="text-[9px] text-slate-500 font-bold uppercase tracking-widest">per KG</p>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs">
+<p class="text-white font-medium">Nov 01, 2023</p>
+<p class="text-slate-500">Dec 31, 2023</p>
+</div>
+</td>
+<td class="px-6 py-5 text-center">
+<button class="p-2 hover:bg-[#C43585]/10 hover:text-[#C43585] rounded transition-all text-slate-500">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="text-xs">
+<p class="font-bold text-white tracking-tight">Dubai (DXB)</p>
+<p class="text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">arrow_forward</span> Riyadh (RUH)
+                                        </p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 text-[10px] font-bold text-orange-400 bg-orange-400/10 px-2.5 py-1 rounded-full uppercase tracking-tight">
+<span class="material-symbols-outlined text-xs">local_shipping</span> Road FTL
+                                </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-slate-700 flex items-center justify-center overflow-hidden">
+<span class="text-[10px] font-bold text-white">TR</span>
+</div>
+<span class="text-sm font-medium text-on-surface">TransGulf Logistics</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right font-mono text-sm text-slate-300">$850.00</td>
+<td class="px-6 py-5 text-right font-mono text-sm text-slate-400">+$120.00</td>
+<td class="px-6 py-5 text-right">
+<p class="font-mono text-base font-bold text-[#C43585]">$970.00</p>
+<p class="text-[9px] text-slate-500 font-bold uppercase tracking-widest">per TRUCK</p>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs">
+<p class="text-white font-medium">Dec 15, 2023</p>
+<p class="text-slate-500">Mar 14, 2024</p>
+</div>
+</td>
+<td class="px-6 py-5 text-center">
+<button class="p-2 hover:bg-[#C43585]/10 hover:text-[#C43585] rounded transition-all text-slate-500">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-white/[0.02] flex items-center justify-between">
+<span class="text-xs text-slate-500 font-medium">Showing 1-10 of 128 rates</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-white/10 text-slate-500 hover:text-white hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-[#C43585] text-white font-bold text-xs">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-white/10 text-slate-500 hover:text-white hover:bg-white/5 transition-all text-xs">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-white/10 text-slate-500 hover:text-white hover:bg-white/5 transition-all text-xs">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-white/10 text-slate-500 hover:text-white hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bento Style Insights / Secondary Section -->
+<section class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Rate Market Pulse -->
+<div class="lg:col-span-2 bg-surface-container rounded-2xl p-6 border border-white/5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-[#C43585]/10 blur-[100px] -mr-32 -mt-32"></div>
+<div class="flex justify-between items-center mb-8 relative z-10">
+<div>
+<h3 class="text-white font-headline font-bold text-lg">Market Trend Intelligence</h3>
+<p class="text-xs text-slate-500">Average TEU Rate Index (Global Routes)</p>
+</div>
+<div class="flex gap-2">
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-tighter">Live</span>
+</div>
+</div>
+<div class="h-48 flex items-end gap-1 relative z-10">
+<!-- Fake Chart Visualization -->
+<div class="flex-1 bg-[#C43585]/10 h-24 rounded-t hover:bg-[#C43585]/40 transition-all cursor-pointer"></div>
+<div class="flex-1 bg-[#C43585]/20 h-32 rounded-t hover:bg-[#C43585]/40 transition-all cursor-pointer"></div>
+<div class="flex-1 bg-[#C43585]/15 h-28 rounded-t hover:bg-[#C43585]/40 transition-all cursor-pointer"></div>
+<div class="flex-1 bg-[#C43585]/30 h-40 rounded-t hover:bg-[#C43585]/40 transition-all cursor-pointer"></div>
+<div class="flex-1 bg-[#C43585]/25 h-36 rounded-t hover:bg-[#C43585]/40 transition-all cursor-pointer"></div>
+<div class="flex-1 bg-[#C43585]/40 h-44 rounded-t hover:bg-[#C43585]/40 transition-all cursor-pointer border-t-2 border-[#C43585]"></div>
+<div class="flex-1 bg-[#C43585]/35 h-38 rounded-t hover:bg-[#C43585]/40 transition-all cursor-pointer"></div>
+</div>
+<div class="flex justify-between mt-4 text-[9px] font-bold uppercase tracking-widest text-slate-600">
+<span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span>
+</div>
+</div>
+<!-- Version Log / History Mini-card -->
+<div class="bg-surface-container rounded-2xl p-6 border border-white/5">
+<h3 class="text-white font-headline font-bold text-lg mb-6">Version Log</h3>
+<div class="space-y-6">
+<div class="relative pl-6 border-l border-[#C43585]/30">
+<div class="absolute -left-1 top-0 w-2 h-2 rounded-full bg-[#C43585] shadow-[0_0_10px_#C43585]"></div>
+<p class="text-[10px] font-bold text-[#C43585] uppercase tracking-widest mb-1">Today, 09:42 AM</p>
+<p class="text-xs text-white font-medium mb-1">Maersk FCL Rate Update</p>
+<p class="text-[11px] text-slate-500 italic">"Global BAF adjustment applied to Middle East lanes."</p>
+</div>
+<div class="relative pl-6 border-l border-white/10">
+<div class="absolute -left-1 top-0 w-2 h-2 rounded-full bg-slate-700"></div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Oct 28, 2023</p>
+<p class="text-xs text-white font-medium mb-1">Carrier Contract Renewed</p>
+<p class="text-[11px] text-slate-500">Saudi Arabian Air Cargo v2.4.1</p>
+</div>
+<div class="relative pl-6 border-l border-white/10">
+<div class="absolute -left-1 top-0 w-2 h-2 rounded-full bg-slate-700"></div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Oct 24, 2023</p>
+<p class="text-xs text-white font-medium mb-1">Seasonal Promo Rate</p>
+<p class="text-[11px] text-slate-500">JED to NLRTM Special - Expired</p>
+</div>
+</div>
+<button class="w-full mt-8 py-2 text-xs font-bold text-[#C43585] hover:underline flex items-center justify-center gap-2">
+                    View Full Audit Trail <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JAS Logistics - Zone Configuration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#cfbef6",
+                        "inverse-surface": "#e3e0f1",
+                        "primary": "#d0bcff",
+                        "tertiary-fixed-dim": "#ffb68e",
+                        "surface-tint": "#d0bcff",
+                        "surface-container-lowest": "#0d0d18",
+                        "primary-container": "#4b1fa3",
+                        "tertiary": "#ffb68e",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#4c3f6e",
+                        "on-primary": "#3b0092",
+                        "surface-dim": "#12121d",
+                        "on-surface": "#e3e0f1",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "on-tertiary": "#532200",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-background": "#e3e0f1",
+                        "inverse-primary": "#6a45c3",
+                        "on-secondary": "#352856",
+                        "on-tertiary-container": "#f09661",
+                        "on-secondary-fixed": "#201340",
+                        "on-primary-container": "#b79cff",
+                        "surface-container": "#1f1e2a",
+                        "outline-variant": "#494453",
+                        "secondary-container": "#4f4171",
+                        "tertiary-container": "#6c2e00",
+                        "inverse-on-surface": "#302f3b",
+                        "outline": "#948e9e",
+                        "on-tertiary-fixed-variant": "#743405",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-tertiary-fixed": "#331200",
+                        "surface": "#12121d",
+                        "surface-container-highest": "#343440",
+                        "surface-bright": "#383845",
+                        "background": "#12121d",
+                        "on-primary-fixed-variant": "#5228aa",
+                        "surface-container-low": "#1b1a26",
+                        "on-secondary-container": "#c0b0e7",
+                        "surface-container-high": "#292935",
+                        "on-primary-fixed": "#22005c",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-fixed": "#e9ddff",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#cbc3d5",
+                        "surface-variant": "#343440",
+                        "secondary": "#cfbef6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "poppins": ["Poppins"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .grid-cell {
+            aspect-ratio: 1/1;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .grid-cell:hover {
+            background-color: rgba(208, 188, 255, 0.15);
+            transform: scale(1.05);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar Shell -->
+<nav class="fixed left-0 top-0 h-full flex flex-col z-40 bg-slate-950/80 backdrop-blur-xl h-screen w-72 border-r border-white/5 shadow-2xl shadow-black/50 font-['Plus_Jakarta_Sans'] font-medium tracking-tight">
+<div class="p-8 flex flex-col gap-1">
+<h1 class="text-xl font-bold tracking-tighter text-white">JAS Logistics</h1>
+<p class="text-xs text-slate-500 uppercase tracking-widest">Agreement Wizard v2.4</p>
+</div>
+<div class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:text-slate-300 transition-colors hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Commercial Terms</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:text-slate-300 transition-colors hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span>Warehouse Mapping</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-violet-300 font-bold border-r-2 border-violet-500 bg-white/5 hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span>Zone Configuration</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:text-slate-300 transition-colors hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">description</span>
+<span>Operational SOW</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 hover:text-slate-300 transition-colors hover:bg-white/10 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">rate_review</span>
+<span>Final Review</span>
+</a>
+</div>
+<div class="p-6 mt-auto border-t border-white/5 space-y-4">
+<div class="space-y-1 px-2">
+<a class="flex items-center gap-3 text-sm text-slate-500 hover:text-slate-300 transition-all" href="#">
+<span class="material-symbols-outlined text-base">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 text-sm text-slate-500 hover:text-slate-300 transition-all" href="#">
+<span class="material-symbols-outlined text-base">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<button class="w-full py-3 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-lg transition-all scale-95 active:scale-90">
+                Save Draft
+            </button>
+</div>
+</nav>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-72 flex items-center justify-between px-8 z-50 bg-slate-950/40 backdrop-blur-md w-full h-16 border-b border-white/5 font-['Plus_Jakarta_Sans'] text-sm tracking-wide">
+<div class="flex items-center gap-8">
+<span class="font-black text-violet-500">Agreement Wizard</span>
+<nav class="flex gap-6">
+<a class="text-slate-400 hover:text-violet-200 transition-opacity opacity-80 hover:opacity-100" href="#">Dashboard</a>
+<a class="text-white border-b-2 border-violet-500 pb-1 opacity-80 hover:opacity-100" href="#">Agreements</a>
+<a class="text-slate-400 hover:text-violet-200 transition-opacity opacity-80 hover:opacity-100" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-violet-200">history</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-violet-200">notifications</span>
+</div>
+<div class="h-8 w-[1px] bg-white/10"></div>
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded font-bold hover:bg-primary/90 transition-all">
+                Publish Agreement
+            </button>
+<div class="flex items-center gap-3 pl-2">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-violet-500/30">
+<img class="w-full h-full object-cover" data-alt="professional male logistics manager portrait with corporate office blurred background and dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABvAkk9YzqpmPb8ttw3ybgp4EdYSAYZ59hOccjISrC3EyGV7o-_idRh--YVKtyrWvVqQ2G6NgcajwvTZD7YPuoz9WYHkCjU2CfTPqdtZy7OqRcKvTWaL8XuEfYal-4Pahp9V9g3Pt_g3OTZHfnXOSlFAuOj6dWvXH4AsSkhVVUVUnSufGzjqHFpzTazP1XXFfLwmo33en2s5gSq42_ZahHOY-mSm2CN9ljoCs_zg3xkN4GVZFZJ64wDYyZEjbbR0ca4UGjgBkwog"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-72 pt-24 px-12 pb-12 min-h-screen">
+<div class="max-w-7xl mx-auto space-y-10">
+<!-- Header Section -->
+<div class="flex justify-between items-end">
+<div class="space-y-2">
+<h2 class="font-poppins text-5xl tracking-tight text-white uppercase">Zone Design</h2>
+<p class="text-on-surface-variant font-medium">Define spatial allocation and compliance clusters for Site FA-02T</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-high px-6 py-4 rounded-xl border border-white/5 flex flex-col items-end">
+<span class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">Committed Area</span>
+<span class="text-3xl font-poppins text-primary">650 <span class="text-sm font-sans text-on-surface-variant">sqm</span></span>
+</div>
+<div class="bg-surface-container-high px-6 py-4 rounded-xl border border-white/5 flex flex-col items-end">
+<span class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">Utilization</span>
+<span class="text-3xl font-poppins text-tertiary">32.5%</span>
+</div>
+</div>
+</div>
+<!-- Bento Layout Container -->
+<div class="grid grid-cols-12 gap-8 items-start">
+<!-- Left Sidebar: Selectors -->
+<aside class="col-span-3 space-y-6">
+<div class="bg-surface-container-low p-6 rounded-2xl space-y-6">
+<h3 class="text-sm font-bold text-on-surface-variant tracking-wider uppercase">Zone Types</h3>
+<div class="space-y-3">
+<!-- Selector: General -->
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 group hover:bg-blue-500/20 transition-all text-left">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.5)]"></div>
+<span class="font-semibold text-blue-100">General</span>
+</div>
+<span class="text-xs font-mono text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">Select</span>
+</button>
+<!-- Selector: Cold Chain -->
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/20 group hover:bg-cyan-500/20 transition-all text-left">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)]"></div>
+<span class="font-semibold text-cyan-100">Cold Chain</span>
+</div>
+<span class="text-xs font-mono text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">Select</span>
+</button>
+<!-- Selector: Hazmat -->
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-orange-500/10 border border-orange-500/20 group hover:bg-orange-500/20 transition-all text-left">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-orange-400 shadow-[0_0_10px_rgba(251,146,60,0.5)]"></div>
+<span class="font-semibold text-orange-100">Hazmat</span>
+</div>
+<span class="text-xs font-mono text-orange-400 opacity-0 group-hover:opacity-100 transition-opacity">Select</span>
+</button>
+<!-- Selector: High-Value -->
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-violet-500/20 border border-violet-500/40 group hover:bg-violet-500/30 transition-all text-left ring-2 ring-violet-500/20">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.5)]"></div>
+<span class="font-semibold text-violet-100">High-Value</span>
+</div>
+<span class="text-xs font-mono text-violet-400">Active</span>
+</button>
+</div>
+</div>
+<!-- Statistics Card -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-white/5 space-y-4">
+<div class="flex items-center gap-2 text-violet-400">
+<span class="material-symbols-outlined text-lg">info</span>
+<span class="text-xs font-bold uppercase tracking-widest">Active Tool</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Currently painting <strong class="text-white">High-Value</strong> zones. Area constraint: 2000sqm total floor.
+                        </p>
+<div class="pt-2">
+<button class="w-full py-2 text-xs font-bold border border-outline/20 rounded hover:bg-surface-container-high transition-all">Clear All Sections</button>
+</div>
+</div>
+</aside>
+<!-- Interactive Grid Canvas -->
+<div class="col-span-9 bg-surface-container rounded-3xl p-1 shadow-2xl shadow-black/40">
+<div class="bg-surface-dim rounded-[1.25rem] p-10 overflow-hidden relative">
+<!-- Grid Controls Overlay -->
+<div class="absolute top-6 right-6 flex items-center gap-3 z-20">
+<button class="p-2 bg-surface-container-highest/80 backdrop-blur rounded-lg border border-white/10 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-on-surface">zoom_in</span>
+</button>
+<button class="p-2 bg-surface-container-highest/80 backdrop-blur rounded-lg border border-white/10 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-on-surface">zoom_out</span>
+</button>
+<div class="h-6 w-[1px] bg-white/10 mx-1"></div>
+<button class="p-2 bg-surface-container-highest/80 backdrop-blur rounded-lg border border-white/10 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-on-surface">layers</span>
+</button>
+</div>
+<!-- 20x20 Warehouse Grid -->
+<div class="grid grid-cols-20 gap-1 bg-surface-container-low/50 p-2 rounded-xl">
+<!-- Visual Loop for 400 cells (20x20) - Representative of UI -->
+<!-- Note: Using standard CSS grid-cols-20 which is not standard TW but defined in arbitrary or specific config, here we will use inline style for safety -->
+<div class="grid" style="grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 4px;">
+<!-- Row 1 - Cold Chain Zone -->
+<div class="grid-cell bg-cyan-400/60 rounded-sm"></div>
+<div class="grid-cell bg-cyan-400/60 rounded-sm"></div>
+<div class="grid-cell bg-cyan-400/60 rounded-sm"></div>
+<div class="grid-cell bg-cyan-400/60 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-blue-400/40 rounded-sm"></div>
+<div class="grid-cell bg-blue-400/40 rounded-sm"></div>
+<div class="grid-cell bg-blue-400/40 rounded-sm"></div>
+<div class="grid-cell bg-blue-400/40 rounded-sm"></div>
+<!-- Filler cells (representing the rest of row 1) -->
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<!-- Row 2-4 (High Value Area 'Painted') -->
+<!-- We repeat this pattern to fill space for visual balance -->
+<div class="grid-cell bg-cyan-400/60 rounded-sm"></div>
+<div class="grid-cell bg-cyan-400/60 rounded-sm"></div>
+<div class="grid-cell bg-cyan-400/60 rounded-sm"></div>
+<div class="grid-cell bg-cyan-400/60 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-blue-400/40 rounded-sm"></div>
+<div class="grid-cell bg-blue-400/40 rounded-sm"></div>
+<div class="grid-cell bg-blue-400/40 rounded-sm"></div>
+<div class="grid-cell bg-blue-400/40 rounded-sm"></div>
+<div class="grid-cell bg-violet-400/80 rounded-sm shadow-[0_0_8px_rgba(167,139,250,0.3)]"></div>
+<div class="grid-cell bg-violet-400/80 rounded-sm shadow-[0_0_8px_rgba(167,139,250,0.3)]"></div>
+<div class="grid-cell bg-violet-400/80 rounded-sm shadow-[0_0_8px_rgba(167,139,250,0.3)]"></div>
+<div class="grid-cell bg-violet-400/80 rounded-sm shadow-[0_0_8px_rgba(167,139,250,0.3)]"></div>
+<div class="grid-cell bg-violet-400/80 rounded-sm shadow-[0_0_8px_rgba(167,139,250,0.3)]"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<!-- Rows 5-20: Mocking bulk of the grid -->
+<!-- Just a few more rows for visual density without 400 divs -->
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-orange-400/60 rounded-sm"></div>
+<div class="grid-cell bg-orange-400/60 rounded-sm"></div>
+<div class="grid-cell bg-orange-400/60 rounded-sm"></div>
+<div class="grid-cell bg-orange-400/60 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<!-- Repeated Grid elements for 20x20 feel -->
+<div class="contents" style="display: contents;">
+<script>
+                                        // Self-invoking simulation of 400 grid cells for a high-end feel
+                                        // Since we can't use JS, we manually duplicate some blocks
+                                    </script>
+<!-- Row duplication for visual effect -->
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+<div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div><div class="grid-cell bg-surface-container-highest/20 rounded-sm"></div>
+</div>
+</div>
+</div>
+<!-- Legend Overlay -->
+<div class="absolute bottom-6 left-6 flex gap-6 px-4 py-2 bg-slate-900/60 backdrop-blur rounded-full border border-white/10">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-blue-400"></div>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Gen</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-cyan-400"></div>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Cold</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-orange-400"></div>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Haz</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-violet-400"></div>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">H-Val</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Detail Cards -->
+<section class="grid grid-cols-4 gap-8">
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5 space-y-4">
+<h4 class="text-xs font-bold text-violet-400 uppercase tracking-widest">Compliance Check</h4>
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium">Ventilation Sync</span>
+<span class="material-symbols-outlined text-green-400">check_circle</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-green-400 w-[85%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl border border-white/5 space-y-4">
+<h4 class="text-xs font-bold text-violet-400 uppercase tracking-widest">Security Protocol</h4>
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium">Access Matrix</span>
+<span class="material-symbols-outlined text-orange-400">pending</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-orange-400 w-[45%]"></div>
+</div>
+</div>
+<div class="col-span-2 bg-gradient-to-r from-violet-600/20 to-primary-container/20 p-6 rounded-2xl border border-violet-500/10 flex items-center justify-between">
+<div class="space-y-1">
+<h4 class="text-sm font-bold text-white">Optimize Floorplan</h4>
+<p class="text-xs text-on-surface-variant">Let Velvet AI suggest optimal routing based on your zone map.</p>
+</div>
+<button class="bg-white text-slate-950 px-6 py-2 rounded-lg font-bold text-sm hover:bg-violet-100 transition-all active:scale-95">
+                        Run Optimization
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Floating Action State (Suppressed as per rules for Details/Settings screens, but here it acts as the primary task confirm) -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="flex items-center gap-3 px-8 py-4 bg-primary text-on-primary rounded-full font-bold shadow-2xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 transition-all active:scale-90">
+<span>Confirm Zone Layout</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</body></html>
